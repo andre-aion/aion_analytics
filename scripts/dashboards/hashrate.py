@@ -5,27 +5,28 @@ from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d, \
     PanTool, SaveTool, ResetTool, DataRange1d, Plot, LinearAxis
 from bokeh.models.glyphs import Line
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
+import gc
 import pandas as pd
 
 from pdb import set_trace
 
 def hashrate_tab(df):
-
     def make_dataset(blockcount):
         input_df = calc_hashrate(df, blockcount)
-        src = ColumnDataSource(data=input_df)
+        src = ColumnDataSource(data=dict(x=input_df['block_number'].compute(),
+                                         y=input_df['hashrate'].compute()))
+        # clean up operations
+        del input_df
+        gc.collect()
         return src
 
 
     def make_plot(src):
-        xdr = DataRange1d()
-        ydr = DataRange1d()
-
         title='Hashrate with adjustable number of blocks for mean of blocktime'
         TOOLS=[PanTool(),SaveTool(),ResetTool()]
         p = figure(title=title, plot_width=1200, plot_height=500, tools=TOOLS)
 
-        p.line(x="block_number", y="hashrate", line_color="#f46d43", line_width=1,
+        p.line(x='x', y='y', line_color="#f46d43", line_width=1,
                line_alpha=0.6, source=src)
 
         p.xaxis.axis_label = 'blocknumber'
@@ -33,8 +34,8 @@ def hashrate_tab(df):
 
         # Hover tool with vline mode
         hover = HoverTool(tooltips=[
-            ('blocks', '@block_number'),
-            ('hashrate', '@hashrate')
+            ('blocks', '@x'),
+            ('hashrate', '@y')
         ], mode='vline')
 
         p.add_tools(hover)
