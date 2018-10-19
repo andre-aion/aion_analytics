@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e37c777-5f79-4b53-b24f-d13d04d36a0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/dashboards/hashrate1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/dashboards/hashrate.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/dashboards/hashrate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/utils/hashrate.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/hashrate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/dashboards/poolminer.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/dashboards/poolminer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,42 +63,42 @@
     <session id="333526518">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="3" />
-          <entry key="project.open.time.15" value="4" />
+          <entry key="project.open.time.15" value="5" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.27" value="2" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="18" />
-          <entry key="py" value="13015" />
+          <entry key="py" value="15653" />
           <entry key="txt" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="16" />
-          <entry key="Python" value="13033" />
+          <entry key="Python" value="15671" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="55" />
+          <entry key="py" value="59" />
           <entry key="sql" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="55" />
+          <entry key="Python" value="59" />
           <entry key="Scratch" value="2" />
         </counts>
       </usages-collector>
@@ -111,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+            <state relative-caret-position="126">
+              <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -120,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/dashboards/hashrate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="36" column="29" lean-forward="true" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+            <state relative-caret-position="358">
+              <caret line="48" column="38" selection-start-line="48" selection-end-line="49" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -132,14 +133,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/utils/hashrate.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scripts/dashboards/hashrate1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="54" selection-start-line="16" selection-start-column="54" selection-end-line="16" selection-end-column="54" />
+            <state relative-caret-position="306">
+              <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
               <folding>
-                <element signature="e#0#44#0" expanded="true" />
-                <marker date="1539955134856" expanded="true" signature="118:148" ph="..." />
+                <marker date="1539989982401" expanded="true" signature="671:676" ph="..." />
+                <marker date="1539989982401" expanded="true" signature="1117:1123" ph="..." />
+                <marker date="1539989982401" expanded="true" signature="1214:1246" ph="..." />
               </folding>
             </state>
           </provider>
@@ -172,10 +174,11 @@
         <option value="$PROJECT_DIR$/scripts/hashrate.py" />
         <option value="$PROJECT_DIR$/scripts/utils/utils.py" />
         <option value="$PROJECT_DIR$/scripts/utils/poolminer.py" />
-        <option value="$PROJECT_DIR$/scripts/dashboards/poolminer.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/scripts/utils/hashrate.py" />
+        <option value="$PROJECT_DIR$/scripts/dashboards/poolminer.py" />
         <option value="$PROJECT_DIR$/scripts/dashboards/hashrate.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/scripts/dashboards/hashrate1.py" />
       </list>
     </option>
   </component>
@@ -186,10 +189,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2910" />
-    <option name="y" value="6" />
-    <option name="width" value="908" />
-    <option name="height" value="1045" />
+    <option name="x" value="1028" />
+    <option name="y" value="81" />
+    <option name="width" value="869" />
+    <option name="height" value="795" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -277,6 +280,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="hashrate" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="aion_analytics" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts/dashboards" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scripts/dashboards/hashrate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.hashrate" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -301,9 +331,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2910" y="6" width="908" height="1045" extended-state="0" />
+    <frame x="1028" y="81" width="869" height="795" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4984985" visible="true" weight="0.2552204" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4984985" weight="0.26245442" />
       <window_info id="Favorites" order="1" sideWeight="0.5015015" side_tool="true" weight="0.17609392" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -317,8 +347,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26885247" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32809225" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.37293234" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.31512606" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -326,10 +356,10 @@
       <window_info anchor="right" id="SciView" order="4" weight="0.32982844" />
       <window_info anchor="right" id="R Graphics" order="5" />
       <window_info anchor="right" id="Database" order="6" sideWeight="0.4904271" weight="0.32872164" />
-      <window_info anchor="right" x="0" y="0" width="430" height="882" id="Documentation" order="7" sideWeight="0.5095729" side_tool="true" visible="true" weight="0.010440836" />
+      <window_info anchor="right" x="0" y="0" width="430" height="882" id="Documentation" order="7" sideWeight="0.5095729" side_tool="true" weight="0.009720535" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4984985" visible="true" weight="0.10902048" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4984985" visible="true" weight="0.26245442" />
       <window_info id="Favorites" order="1" sideWeight="0.5015015" side_tool="true" weight="0.17609392" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -343,16 +373,16 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.26594594" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32809225" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.37293234" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.31512606" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="R Packages" order="3" weight="0.32977587" />
       <window_info anchor="right" id="SciView" order="4" weight="0.32982844" />
       <window_info anchor="right" id="R Graphics" order="5" />
-      <window_info anchor="right" id="Database" order="6" sideWeight="0.49433428" weight="0.32977587" />
-      <window_info anchor="right" x="0" y="0" width="430" height="882" id="Documentation" order="7" sideWeight="0.5056657" side_tool="true" weight="0.32977587" />
+      <window_info anchor="right" id="Database" order="6" sideWeight="0.4904271" weight="0.32872164" />
+      <window_info anchor="right" x="0" y="0" width="430" height="882" id="Documentation" order="7" sideWeight="0.5095729" side_tool="true" visible="true" weight="0.009720535" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,6 +390,17 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scripts/dashboards/hashrate1.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/scripts/memory_usage.py" />
@@ -403,30 +444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/utils/poolminer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/dashboards/poolminer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="73" column="39" lean-forward="true" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/utils/hashrate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -438,12 +455,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/utils/poolminer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/dashboards/poolminer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="79" column="8" lean-forward="true" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/dashboards/hashrate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="36" column="29" lean-forward="true" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+        <state relative-caret-position="358">
+          <caret line="48" column="38" selection-start-line="48" selection-end-line="49" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/dashboards/hashrate1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="20" lean-forward="true" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding>
+            <marker date="1539989982401" expanded="true" signature="671:676" ph="..." />
+            <marker date="1539989982401" expanded="true" signature="1117:1123" ph="..." />
+            <marker date="1539989982401" expanded="true" signature="1214:1246" ph="..." />
           </folding>
         </state>
       </provider>

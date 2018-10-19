@@ -3,6 +3,8 @@ import  time
 from datetime import date as date
 import pandas as pd
 import numpy as np
+import holoviews as hv
+hv.extension('bokeh')
 
 from bokeh.plotting import figure, output_file, show
 from bokeh.models.widgets import DateRangeSlider, TextInput
@@ -66,7 +68,6 @@ def poolminer_tab(df):
         p = figure(y_range=y_range, plot_width=500, plot_height=2500, tools=TOOLS,
                    title="Blocks Mined by Address")
         p.hbar(y='addr', right='block_number', height=.25, left=0, source=src, fill_color="#b2de69")
-
 
         # Hover tool with vline mode
         hover = HoverTool(tooltips=[

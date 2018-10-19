@@ -7,6 +7,7 @@ from bokeh.models.glyphs import Line
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
 import gc
 import pandas as pd
+from holoviews.operation.datashader import datashade
 
 from pdb import set_trace
 

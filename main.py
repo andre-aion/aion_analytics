@@ -22,7 +22,7 @@ from scripts.utils.utils import convert_block_timestamp_from_string
 
 # GET THE DASHBOARDS
 from scripts.dashboards.poolminer import poolminer_tab
-from scripts.dashboards.hashrate import hashrate_tab
+from scripts.dashboards.hashrate1 import hashrate_tab
 
 # Read data into dataframes and then optimize the dataframe
 columns_required = ['miner_address','block_timestamp','block_number','difficulty','block_time']
@@ -36,7 +36,7 @@ def getBlockDetails():
     df_blockdetails = convert_block_timestamp_from_string(df_blockdetails, 'block_timestamp')
     """
     df_blockdetails = dd.read_parquet(join(dirname(__file__), 'data', 'block.parquet'),
-                                      engine='pyarrow',columns=columns_required)
+                                      engine='fastparquet',columns=columns_required)
     return df_blockdetails
 
 # -----------------  START DATALOAD THREADS  --------------------
