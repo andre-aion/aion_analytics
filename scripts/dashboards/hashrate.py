@@ -1,74 +1,58 @@
+import holoviews as hv, param, dask.dataframe as dd
+import panel as pp
+from holoviews.operation.datashader import rasterize, shade, datashade
+from bokeh.document import Document
+hv.extension('bokeh', logo=False)
 from scripts.utils.hashrate import calc_hashrate
-from bokeh.plotting import figure, output_file, show
-from bokeh.models.widgets import DateRangeSlider, TextInput, Slider
-from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d, \
-    PanTool, SaveTool, ResetTool, DataRange1d, Plot, LinearAxis
-from bokeh.models.glyphs import Line
+import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
+from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d
 import gc
-import pandas as pd
-from holoviews.operation.datashader import datashade
-
+from bokeh.io import curdoc
+from bokeh.models.widgets import DateRangeSlider, TextInput, Slider
+from holoviews import streams
+from holoviews.streams import Stream,RangeXY,RangeX,RangeY, Pipe
 from pdb import set_trace
 
 def hashrate_tab(df):
-    def make_dataset(blockcount):
-        input_df = calc_hashrate(df, blockcount)
-        src = ColumnDataSource(data=dict(x=input_df['block_number'].compute(),
-                                         y=input_df['hashrate'].compute()))
-        # clean up operations
+
+    def view(bcount):
+        input_df = calc_hashrate(df, bcount).compute()
+        opts = dict(sublabel_format="", yaxis='bare',
+                    xaxis='bare', aspect=1, axiswise=True)
+        curve = hv.Curve(input_df, kdims=['block_number'], vdims=['hashrate'])\
+            .options(width=1000,height=600)
         del input_df
         gc.collect()
-        return src
+        return curve
 
+    def update(attrname, old, new):
+        # notify the holoviews stream of the slider update
+        stream.event(bcount=new)
 
-    def make_plot(src):
-        title='Hashrate with adjustable number of blocks for mean of blocktime'
-        TOOLS=[PanTool(),SaveTool(),ResetTool()]
-        p = figure(title=title, plot_width=1200, plot_height=500, tools=TOOLS)
-
-        p.line(x='x', y='y', line_color="#f46d43", line_width=1,
-               line_alpha=0.6, source=src)
-
-        p.xaxis.axis_label = 'blocknumber'
-        p.yaxis.axis_label = 'hashrate(sols)'
-
-        # Hover tool with vline mode
-        hover = HoverTool(tooltips=[
-            ('blocks', '@x'),
-            ('hashrate', '@y')
-        ], mode='vline')
-
-        p.add_tools(hover)
-
-        return p
-
-    def update(attr, old, new):
-        blockcount = blockcount_slider.value
-        #update the source
-        src.data.update(make_dataset(blockcount).data)
-
-
+    # MANAGE STREAM
+    stream = streams.Stream.define('Blockcount', bcount=500)()
 
     # create a slider widget
     initial_blockcount = 500
-    blockcount_slider = Slider(start=100, end=15000, value=initial_blockcount, step=100)
+    blockcount_slider = Slider(start=100, end=10000, value=initial_blockcount, step=100, title='Blockcount')
 
-    # add callback
+    # create plot and render to bokeh
+    dmap = hv.DynamicMap(view, streams=[stream])
+    p = datashade(dmap).opts(plot=dict(height=500,width=800))
+
     blockcount_slider.on_change("value", update)
-
-    # make the plot
-    src = make_dataset(blockcount_slider.value)
-    p = make_plot(src)
+    renderer = hv.renderer('bokeh')
+    hvmap = renderer.get_plot(p)
 
     # put the controls in a single element
     controls = WidgetBox(blockcount_slider)
 
-
-    #create the dashboard
-    grid = gridplot([[controls, p],[None]])
+    # create the dashboard
+    grid = gridplot([[controls,hvmap.state], [None]])
 
     # Make a tab with the layout
     tab = Panel(child=grid, title='Hashrate')
 
     return tab
+
