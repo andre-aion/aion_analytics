@@ -133,7 +133,7 @@ class PythonCassandra:
                                             state_root, tx_trie_root, extra_data, 
                                             nonce, bloom, solution, difficulty, 
                                             total_difficulty, nrg_consumed, nrg_limit,
-                                            block_size, block_timestamp, num_transactions,
+                                            block_size, block_timestamp, block_month, num_transactions,
                                             block_time, nrg_reward, transaction_id, transaction_list) 
-                                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                             """)
