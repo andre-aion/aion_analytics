@@ -2,8 +2,10 @@ import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
 from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d
 import gc
+from bokeh.io import curdoc
 from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div
 from holoviews import streams
+from holoviews.streams import Stream,RangeXY,RangeX,RangeY, Pipe
 from pdb import set_trace
 import hvplot.dask
 import hvplot.pandas
@@ -13,10 +15,33 @@ from holoviews.operation.datashader import rasterize, shade, datashade
 from datetime import datetime
 import numpy as np
 import pandas as pd
+import pyviz_comms
+import dask as dd
+
+from dask.distributed import Client
+from dask import visualize, delayed
 
 import holoviews as hv
 hv.extension('bokeh',logo=False)
 
+'''
+def poolminer_tab(df):
+    print('IN POOLMINER')
+
+    # Make a tab with the layout
+    div = Div(text="""Your <a href="https://en.wikipedia.org/wiki/HTML">HTML</a>-supported text is initialized with the <b>text</b> argument.  The
+    remaining div arguments are <b>width</b> and <b>height</b>. For this example, those values
+    are <i>200</i> and <i>100</i> respectively.""",
+    width=200, height=100)
+
+    tab = Panel(child=div, title='Poolminer')
+    
+    
+    
+    
+    return tab
+
+'''
 def poolminer_tab(df):
 
     class poolminer():
@@ -111,6 +136,3 @@ def poolminer_tab(df):
     # Make a tab with the layout
     tab = Panel(child=grid, title='Poolminer')
     return tab
-
-
-

@@ -1,5 +1,4 @@
 import holoviews as hv, param, dask.dataframe as dd
-import panel as pp
 from holoviews.operation.datashader import rasterize, shade, datashade
 from bokeh.document import Document
 hv.extension('bokeh', logo=False)
