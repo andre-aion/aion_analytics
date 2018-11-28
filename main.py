@@ -4,6 +4,7 @@ from functools import partial
 from concurrent.futures import ThreadPoolExecutor
 import asyncio
 from dask import compute
+from tornado import gen
 
 import pandas as pd
 import dask.dataframe as dd
@@ -58,64 +59,91 @@ sqlContext = SQLContext(sparkContext)
 #doc = curdoc()
 executor = ThreadPoolExecutor(max_workers=20)
 
-kcp_connection = KafkaConnectPyspark()
-kcp_connection.set_ssc(ssc)
-executor.submit(kcp_connection.run())
+@gen.coroutine
+def block_update():
+    kcp_connection = KafkaConnectPyspark()
+    global kcp_connection
+    kcp_connection.set_ssc(ssc)
+    kcp_connection.run()
 
 
+executor.submit(block_update)
+
+
+@gen.coroutine
+@without_document_lock
 def aion_analytics(doc):
-
-    # SETUP BOKEH OBJECTS
-    pm = Panel(child=Div(), title='Poolminer')
-    tabs = Tabs(tabs=[pm])
-    # Put the tabs in the current document for display
-    doc.add_root(tabs)
-
     ###
     # Setup callbacks
     ###
-    def current_state_block_df(kcp_state):
-        return kcp_state.get_df()
+
+    def current_state_block_df():
+        return kcp_connection.get_df()
 
     def launch_poolminer_tab(block_df):
         print("LAUNCHED FROM MAIN:{}".format(block_df.head()))
-        return poolminer_tab(current_state_block_df(block_df))
+        yield poolminer_tab(current_state_block_df(block_df))
 
-    def no_blocks():
+    def launch_hashrate_tab(block_df):
+        print("LAUNCHED FROM MAIN:{}".format(block_df.head()))
+        yield poolminer_tab(current_state_block_df(block_df))
+
+
+    def no_data(title):
         # Make a tab with the layout
-        div = Div(text=""" THERE IS NO BLOCK DATA AT PRESENT """,
-        width=200, height=100)
+        text = """ THERE IS NO {} DATA AT PRESENT""".format(title)
+        div = Div(text=text,width=200, height=100)
 
-        pm = Panel(child=div, title='Poolminer')
+        pm = Panel(child=div, title=title)
         return pm
 
-    @coroutine
-    @without_document_lock
     def update_poolminer_tab():
-        kcp_stream = KafkaConnectPyspark()
         #  ----------------   TABS -----------------------------
         # Create
-        block_df = yield executor.submit(current_state_block_df, kcp_stream)
-        if not block_df:
-            pm = yield executor.submit(no_blocks)
+        block_df = current_state_block_df()
+        if len(block_df) <= 0:
+            return no_data('poolminer')
         else:
-            pm = yield executor.submit(launch_poolminer_tab, block_df)
-        doc.add_next_tick_callback(pm)
+            return launch_poolminer_tab(block_df)
+
+    def update_hashrate_tab():
+        #  ----------------   TABS -----------------------------
+        # Create
+        block_df = current_state_block_df()
+        if len(block_df) <= 0:
+            return no_data('hashrate')
+        else:
+            return launch_poolminer_tab(block_df)
+
+
+    # SETUP BOKEH OBJECTS
+    pm = update_poolminer_tab()
+    hr = update_hashrate_tab()
+
+    tabs = Tabs(tabs=[pm, hr])
+
+    doc.add_root(tabs)
+
     # -----------------  START DATALOAD THREADS  --------------------
-
-    pm.select_one(update_poolminer_tab)
-    doc.add_next_tick_callback(tabs)
-
+    #doc.add_next_tick_callback(block_update)
 
 
 # Setting num_procs here means we can't touch the IOLoop before now, we must
 # let Server handle that. If you need to explicitly handle IOLoops then you
 # will need to use the lower level BaseServer class.
-server = Server({'/': aion_analytics}, num_procs=2, port=0)
-server.start()
+@gen.coroutine
+@without_document_lock
+def launch_server():
+    #server = yield executor.submit(Server({'/': aion_analytics}, num_procs=3, port=0))
+    server = Server({'/': aion_analytics}, num_procs=1, port=0)
+    server.start()
+    server.io_loop.add_callback(server.show, "/")
+    server.io_loop.start()
+
 
 if __name__ == '__main__':
     print('Opening Bokeh application on http://localhost:5006/')
-
-    server.io_loop.add_callback(server.show, "/")
-    server.io_loop.start()
+    try:
+        launch_server()
+    except Exception as ex:
+        print("WEBSERVER MAIN EXCEPTION:{}".format(ex))

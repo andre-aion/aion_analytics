@@ -2,10 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e37c777-5f79-4b53-b24f-d13d04d36a0c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/.checkpoint-1543415406000.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/.checkpoint-1543415406500.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/.checkpoint-1543415407000.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/.checkpoint-1543415407500.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/.checkpoint-1543415408000.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/.checkpoint-1543415408500.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/.checkpoint-1543415409000.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/.checkpoint-1543415409500.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/checkpoint-1543415406000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/checkpoint-1543415406500" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/checkpoint-1543415407000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/checkpoint-1543415407500" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/checkpoint-1543415408000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/checkpoint-1543415408500" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/checkpoint-1543415409000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/sparkcheckpoint/checkpoint-1543415409500" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/streaming/kafka_sink_spark_source.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/streaming/kafka_sink_spark_source.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/streaming/streamingBlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/streaming/streamingBlock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/streaming/streamingDataframe.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/streaming/streamingDataframe.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,11 +72,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="108" selection-start-line="108" selection-end-line="108" />
+            <state relative-caret-position="526">
+              <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -73,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/dashboards/streaming/poolminer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
+            <state relative-caret-position="-428">
               <caret line="36" column="45" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="45" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
@@ -82,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/streaming/kafka_sink_spark_source.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="68" column="12" lean-forward="true" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+            <state relative-caret-position="-1922">
+              <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -169,15 +183,15 @@
         <option value="$PROJECT_DIR$/scripts/utils/myutils.py" />
         <option value="$PROJECT_DIR$/scripts/streaming/streamingBlock.py" />
         <option value="$PROJECT_DIR$/scripts/streaming/streamingDataframe.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/scripts/streaming/kafka_sink_spark_source.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1956" />
-    <option name="y" value="38" />
-    <option name="width" value="922" />
+    <option name="x" value="1939" />
+    <option name="y" value="18" />
+    <option name="width" value="1024" />
     <option name="height" value="1042" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -212,7 +226,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -320,12 +334,12 @@
       <workItem from="1542803953991" duration="6161000" />
       <workItem from="1542974242845" duration="83827000" />
       <workItem from="1543317660150" duration="14205000" />
-      <workItem from="1543333327716" duration="40623000" />
+      <workItem from="1543333327716" duration="58932000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144816000" />
+    <option name="totallyTimeSpent" value="163125000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -337,9 +351,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1956" y="38" width="922" height="1042" extended-state="0" />
+    <frame x="1939" y="18" width="1024" height="1042" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49720046" visible="true" weight="0.27251732" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49720046" visible="true" weight="0.25309917" />
       <window_info id="Favorites" order="1" sideWeight="0.5027996" side_tool="true" weight="0.19672132" />
       <window_info id="Structure" order="2" sideWeight="0.50155765" side_tool="true" weight="0.29994467" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="0" weight="0.33892968" />
@@ -360,7 +375,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="R Packages" order="3" weight="0.32977587" />
+      <window_info anchor="right" id="R Packages" order="3" weight="0.32954547" />
       <window_info anchor="right" id="SciView" order="4" weight="0.32982844" />
       <window_info anchor="right" id="R Graphics" order="5" />
       <window_info anchor="right" id="Database" order="6" sideWeight="0.8227027" weight="0.29615796" />
@@ -397,6 +412,13 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="    doc.add_next_tick_callback(block_update)&#10;" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/scripts/memory_usage.py" />
@@ -622,9 +644,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/streaming/kafka_sink_spark_source.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1922">
+          <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/dashboards/streaming/poolminer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
+        <state relative-caret-position="-428">
           <caret line="36" column="45" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="45" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
@@ -634,20 +666,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        <state relative-caret-position="526">
+          <caret line="118" column="25" lean-forward="true" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/streaming/kafka_sink_spark_source.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="68" column="12" lean-forward="true" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
