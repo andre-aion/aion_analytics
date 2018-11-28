@@ -8,7 +8,7 @@ class Block:
                "block_time", "nrg_reward", "transaction_id", "transaction_list"]
 
     def __init__(self):
-        self.df = StreamingDataframe('block', self.columns, 'block_number')
+        self.df = StreamingDataframe('block', self.columns, ['block_number'])
 
     def get_df(self):
         return self.df.get_df()

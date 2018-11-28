@@ -22,26 +22,27 @@ class StreamingDataframe:
         df_temp = from_pandas(df, npartitions=15,sort=True)
         # append to current array
         try:
-            self.df = self.df.append(df_temp,sort=True)
+            self.df = self.df.append(df_temp)
         except Exception as ex:
             print("DASK ARRAY CONCATENATION PROBLEM WITH {}: {}"
                   .format(self.table_name,ex))
-        self.deduplicate(self.dedup_columns)
+        self.deduplicate()
         del df
         del data
         gc.collect()
 
 
     # drop duplicates by values in columns
-    def deduplicate(self,column_list):
+    def deduplicate(self):
         try:
-            self.df(subset=column_list, keep='last', inplace=True)
-        except:
-            print("DEDUPLICATON EFROR WITH {}".format({self.table_name}))
+            self.df.drop_duplicates(subset=self.dedup_columns, keep='last', inplace=True)
+        except Exception as ex:
+            print("DEDUPLICATON ERROR WITH {} : {}".format(self.table_name, ex))
+
 
     # truncate data frame
     # position : top or bottom
-    def truncate_data(self,numrows, row_indices_list,column='block_timestamp'):
+    def truncate_data(self,numrows, row_indices_list, column='block_timestamp'):
         self.df.drop(row_indices_list, inplace=True)
 
     def get_df(self):

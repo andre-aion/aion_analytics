@@ -2,6 +2,7 @@ from os.path import dirname, join
 from multiprocessing.pool import ThreadPool
 from functools import partial
 from concurrent.futures import ThreadPoolExecutor
+import asyncio
 from dask import compute
 
 import pandas as pd
@@ -11,8 +12,9 @@ import dask.dataframe as dd
 
 # Bokeh basics
 from bokeh.io import curdoc
-from bokeh.models.widgets import Tabs
+from bokeh.models.widgets import Tabs, Div
 from bokeh.server.server import Server
+from bokeh.models import Panel
 
 
 from pdb import set_trace
@@ -54,32 +56,62 @@ ssc.checkpoint('data/sparkcheckpoint')
 sqlContext = SQLContext(sparkContext)
 
 #doc = curdoc()
-executor = ThreadPoolExecutor(max_workers=10)
+executor = ThreadPoolExecutor(max_workers=20)
 
-kcp = KafkaConnectPyspark()
-kcp.set_ssc(ssc)
-kcp.run()
+kcp_connection = KafkaConnectPyspark()
+kcp_connection.set_ssc(ssc)
+executor.submit(kcp_connection.run())
 
 
-def modify_doc(doc):
-    # -----------------  START DATALOAD THREADS  --------------------
+def aion_analytics(doc):
 
-    kcp1 = KafkaConnectPyspark()
-    #  ----------------   TABS -----------------------------
-    # Create
-    pm = poolminer_tab(kcp1.block_df)
-    # Put all the tabs into one application
+    # SETUP BOKEH OBJECTS
+    pm = Panel(child=Div(), title='Poolminer')
     tabs = Tabs(tabs=[pm])
-    #doc.add_next_tick_callback(tabs)
-
     # Put the tabs in the current document for display
     doc.add_root(tabs)
+
+    ###
+    # Setup callbacks
+    ###
+    def current_state_block_df(kcp_state):
+        return kcp_state.get_df()
+
+    def launch_poolminer_tab(block_df):
+        print("LAUNCHED FROM MAIN:{}".format(block_df.head()))
+        return poolminer_tab(current_state_block_df(block_df))
+
+    def no_blocks():
+        # Make a tab with the layout
+        div = Div(text=""" THERE IS NO BLOCK DATA AT PRESENT """,
+        width=200, height=100)
+
+        pm = Panel(child=div, title='Poolminer')
+        return pm
+
+    @coroutine
+    @without_document_lock
+    def update_poolminer_tab():
+        kcp_stream = KafkaConnectPyspark()
+        #  ----------------   TABS -----------------------------
+        # Create
+        block_df = yield executor.submit(current_state_block_df, kcp_stream)
+        if not block_df:
+            pm = yield executor.submit(no_blocks)
+        else:
+            pm = yield executor.submit(launch_poolminer_tab, block_df)
+        doc.add_next_tick_callback(pm)
+    # -----------------  START DATALOAD THREADS  --------------------
+
+    pm.select_one(update_poolminer_tab)
+    doc.add_next_tick_callback(tabs)
+
 
 
 # Setting num_procs here means we can't touch the IOLoop before now, we must
 # let Server handle that. If you need to explicitly handle IOLoops then you
 # will need to use the lower level BaseServer class.
-server = Server({'/': modify_doc}, num_procs=1, port=0)
+server = Server({'/': aion_analytics}, num_procs=2, port=0)
 server.start()
 
 if __name__ == '__main__':

@@ -54,10 +54,8 @@ class KafkaConnectPyspark:
         '''
 
     @classmethod
-    @coroutine
-    @without_document_lock
     def update_block_df(self, messages):
-        print(self.block.df.get_df().head())
+        #print(self.block.df.get_df().head())
         # convert to dataframe using stream
         #df = Block()
         #source = Stream()
@@ -84,7 +82,7 @@ class KafkaConnectPyspark:
 
     @classmethod
     def get_df(self):
-        return self.block_df
+        return self.block.get_df()
 
     @classmethod
     def get_queue(self):
@@ -95,15 +93,14 @@ class KafkaConnectPyspark:
         self.pc.insert_data_block([message])
 
     @classmethod
-    @coroutine
     def block_to_tuple(self, taken):
         messages = list()
         message1 = {}
         counter = 1
 
         for mess in taken:
-            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             block_month = myutils.get_month_from_timestamp(mess['block_timestamp'])
             message = (mess["block_number"], mess["block_hash"], mess["miner_address"],
                        mess["parent_hash"], mess["receipt_tx_root"],
@@ -113,8 +110,9 @@ class KafkaConnectPyspark:
                        mess["size"], mess["block_timestamp"], block_month, mess["num_transactions"],
                        mess["block_time"], mess["nrg_reward"], mess["transaction_id"], mess["transaction_list"])
             #print(message)
-            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            print('message counter in taken:{}'.format(counter))
+            #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
 
 
@@ -122,22 +120,23 @@ class KafkaConnectPyspark:
             # convert timestamp, add miner_addr
             for col in self.block.columns:
                 if col in mess:
-                    if col == 'block_timestamp':
-                        block_timestamp = datetime.datetime.fromtimestamp(mess['block_timestamp']) \
+                    if col == 'block_timestamp':  # get time columns
+                        block_timestamp = datetime.datetime.fromtimestamp(mess[col]) \
                             .strftime('%Y-%m-%d %H:%M:%S')
                         if col not in message1:
                             message1[col] = []
                         message1[col].append(block_timestamp)
 
-                        block_month = myutils.get_month_from_timestamp(mess['block_timestamp'])
+                        block_month = myutils.get_month_from_timestamp(mess[col])
                         if 'block_month' not in message1:
                             message1['block_month'] = []
                         message1['block_month'].append(block_month)
 
-                    elif col == 'miner_address':
+                    elif col == 'miner_address': # truncate miner address
                         if col not in message1:
                             message1[col] = []
                         message1[col].append(mess[col])
+
                         if 'miner_addr' not in message1:
                             message1['miner_addr'] = []
                         message1['miner_addr'].append(mess[col][0:10])
@@ -146,33 +145,33 @@ class KafkaConnectPyspark:
                             message1[col] = []
                         message1[col].append(mess[col])
 
-            # control message count
-            while counter < 501:
-                counter += 1
-            if counter >= 501:
-                counter = 1
+            # regulate # messages in one dict
+            if counter >= 26:
                 #  update streaming dataframe
                 self.update_block_df(message1)
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+                print('message counter:{}'.format(counter))
                 print(message1)
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+                counter = 1
                 message1 = {}
 
+            else:
+                counter += 1
+                #messages.append(message1)
+                #self.pc.update_cassandra(message)
 
-            #messages.append(message1)
-            #self.pc.update_cassandra(message)
+                del mess
+                gc.collect()
 
-            del mess
-            gc.collect()
-
+        self.update_block_df(message1) # get remainder messages in last block thats less than 501
         del messages
         del message1
 
 
     @classmethod
-    @coroutine
     def handle_rdds(self,rdd):
         if rdd.isEmpty():
             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
@@ -188,7 +187,6 @@ class KafkaConnectPyspark:
 
 
     @classmethod
-    @coroutine
     def run(self):
         topic='mainnetserver.aionv4.block'
         kafkaParams = {"metadata.broker.list": "localhost:9092",
