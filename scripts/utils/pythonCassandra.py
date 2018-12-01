@@ -39,7 +39,7 @@ class PythonCassandra:
     def getsession(self):
         return self.session
 
-    # How about Adding some log info to see what went wrong
+    # How about Adding some logs info to see what went wrong
     def setlogger(self):
         log = logging.getLogger()
         log.setLevel('INFO')
@@ -60,7 +60,7 @@ class PythonCassandra:
         if keyspace in [row[0] for row in rows]:
             keyspace_exists = True
         if keyspace_exists is False:
-            # self.log.info("dropping existing keyspace...")
+            # self.logs.info("dropping existing keyspace...")
             # self.session.execute("DROP KEYSPACE " + keyspace)
             self.log.info("creating keyspace...")
             self.session.execute("""

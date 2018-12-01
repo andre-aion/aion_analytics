@@ -1,15 +1,14 @@
 from os.path import dirname, join
-from multiprocessing.pool import ThreadPool
 from functools import partial
 from concurrent.futures import ThreadPoolExecutor
 import asyncio
 from dask import compute
 from tornado import gen
+from tornado.locks import Condition
+from bokeh.document import without_document_lock
 
 import pandas as pd
-import dask.dataframe as dd
-
-# os methods for manipulating paths
+import time
 
 # Bokeh basics
 from bokeh.io import curdoc
@@ -21,16 +20,13 @@ from bokeh.models import Panel
 from pdb import set_trace
 
 # IMPORT HELPERS
-# from scripts.sentiment import sentiment_dashboard
-from scripts.utils.hashrate import calc_hashrate
-from scripts.utils.myutils import convert_block_timestamp_from_string, setdatetimeindex
-from scripts.utils.pythonCassandra import PythonCassandra
-from scripts.streaming.streamingBlock import *
-from scripts.streaming.kafka_sink_spark_source import *
+import config
+from scripts.streaming.kafka_sink_spark_source import KafkaConnectPyspark
 
 # GET THE DASHBOARDS
 from scripts.dashboards.streaming.poolminer import poolminer_tab
-from scripts.dashboards.hashrate import hashrate_tab
+from scripts.dashboards.streaming.hashrate import hashrate_tab
+from scripts.utils.mylogger import mylogger
 
 from dask.distributed import Client
 from streamz import Stream
@@ -38,6 +34,10 @@ from streamz import Stream
 from pyspark.streaming import StreamingContext
 from pyspark.sql import SQLContext, SparkSession
 from pyspark.context import SparkConf,SparkContext
+
+from copy import copy
+
+condition = Condition()
 
 conf = SparkConf() \
     .set("spark.streaming.kafka.backpressure.initialRate", 500)\
@@ -58,75 +58,40 @@ sqlContext = SQLContext(sparkContext)
 
 #doc = curdoc()
 executor = ThreadPoolExecutor(max_workers=20)
+kcp_connection = KafkaConnectPyspark()
+logger = mylogger(__file__)
+
 
 @gen.coroutine
 def block_update():
-    kcp_connection = KafkaConnectPyspark()
     global kcp_connection
     kcp_connection.set_ssc(ssc)
     kcp_connection.run()
 
 
+# run block streamer
 executor.submit(block_update)
 
-
 @gen.coroutine
-@without_document_lock
 def aion_analytics(doc):
     ###
     # Setup callbacks
     ###
 
-    def current_state_block_df():
-        return kcp_connection.get_df()
-
-    def launch_poolminer_tab(block_df):
-        print("LAUNCHED FROM MAIN:{}".format(block_df.head()))
-        yield poolminer_tab(current_state_block_df(block_df))
-
-    def launch_hashrate_tab(block_df):
-        print("LAUNCHED FROM MAIN:{}".format(block_df.head()))
-        yield poolminer_tab(current_state_block_df(block_df))
-
-
-    def no_data(title):
-        # Make a tab with the layout
-        text = """ THERE IS NO {} DATA AT PRESENT""".format(title)
-        div = Div(text=text,width=200, height=100)
-
-        pm = Panel(child=div, title=title)
-        return pm
-
-    def update_poolminer_tab():
-        #  ----------------   TABS -----------------------------
-        # Create
-        block_df = current_state_block_df()
-        if len(block_df) <= 0:
-            return no_data('poolminer')
-        else:
-            return launch_poolminer_tab(block_df)
-
-    def update_hashrate_tab():
-        #  ----------------   TABS -----------------------------
-        # Create
-        block_df = current_state_block_df()
-        if len(block_df) <= 0:
-            return no_data('hashrate')
-        else:
-            return launch_poolminer_tab(block_df)
-
-
     # SETUP BOKEH OBJECTS
-    pm = update_poolminer_tab()
-    hr = update_hashrate_tab()
+    #pm = update_poolminer_tab()
+    #hr = update_hashrate_tab()
 
-    tabs = Tabs(tabs=[pm, hr])
+    try:
+        pm = poolminer_tab()
+        hr = hashrate_tab()
 
-    doc.add_root(tabs)
+        tabs = Tabs(tabs=[pm, hr])
 
-    # -----------------  START DATALOAD THREADS  --------------------
-    #doc.add_next_tick_callback(block_update)
+        doc.add_root(tabs)
 
+    except Exception:
+        logger.error("TABS:", exc_info=True)
 
 # Setting num_procs here means we can't touch the IOLoop before now, we must
 # let Server handle that. If you need to explicitly handle IOLoops then you
@@ -145,5 +110,5 @@ if __name__ == '__main__':
     print('Opening Bokeh application on http://localhost:5006/')
     try:
         launch_server()
-    except Exception as ex:
-        print("WEBSERVER MAIN EXCEPTION:{}".format(ex))
+    except Exception:
+        logger.error("WEBSERVER LAUNCH:", exc_info=True)

@@ -1,4 +1,8 @@
 from scripts.streaming.streamingDataframe import *
+from scripts.utils.mylogger import mylogger
+
+logger = mylogger(__file__)
+
 
 class Block:
     columns = ["block_number", "miner_address", "miner_addr",
@@ -11,7 +15,11 @@ class Block:
         self.df = StreamingDataframe('block', self.columns, ['block_number'])
 
     def get_df(self):
-        return self.df.get_df()
+        try:
+            return self.df.get_df()
+        except Exception:
+            logger.error('get block dataframe:',exc_info=True)
+        return
 
     def add_data(self, messages):
         self.df.add_data(messages)

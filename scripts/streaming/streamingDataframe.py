@@ -13,13 +13,13 @@ class StreamingDataframe:
         # initialize as pandas
         df = pd.DataFrame(columns=columns)
         # convert to dask
-        self.df = from_pandas(df, npartitions=15, name=table_name, sort=True)
+        self.df = from_pandas(df, npartitions=25, name=table_name, sort=True)
 
     # data: dict of lists from rdds
     def add_data(self, data, chunksize=500):
         # create temp dataframe from dict
         df = pd.DataFrame.from_dict(data)
-        df_temp = from_pandas(df, npartitions=15,sort=True)
+        df_temp = from_pandas(df, npartitions=25,sort=True)
         # append to current array
         try:
             self.df = self.df.append(df_temp)

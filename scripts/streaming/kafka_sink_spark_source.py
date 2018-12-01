@@ -4,12 +4,11 @@ module_path = os.path.abspath(os.getcwd() + '\\..')
 if module_path not in sys.path:
     sys.path.append(module_path)
 
-
 from scripts.utils.pythonCassandra import PythonCassandra
 from scripts.utils import myutils
-from scripts.streaming.streamingDataframe import *
 from scripts.streaming.streamingBlock import Block
 from tornado.gen import coroutine
+from tornado.locks import Condition, Semaphore
 from bokeh.document import without_document_lock
 from concurrent.futures import ThreadPoolExecutor
 
@@ -18,12 +17,21 @@ import datetime
 
 from pyspark.streaming import StreamingContext
 from pyspark.streaming.kafka import KafkaUtils
-from streamz import Stream
 from queue import Queue
 from dask.distributed import Client
+import gc
+from copy import copy
+import pandas as pd
+import dask as dd
+
+import config
+from scripts.utils.mylogger import mylogger
+logger = mylogger(__file__)
+
 
 executor = ThreadPoolExecutor(max_workers=10)
-
+condition = Condition()
+sem = Semaphore
 class KafkaConnectPyspark:
     block_columns = [
         "block_number", "miner_address", "miner_addr"
@@ -31,7 +39,6 @@ class KafkaConnectPyspark:
         "total_difficulty", "nrg_consumed", "nrg_limit",
         "size", "block_timestamp", 'block_month', "num_transactions",
         "block_time", "nrg_reward", "transaction_id", "transaction_list"]
-
     block = Block()
 
     def __init__(self):
@@ -44,9 +51,6 @@ class KafkaConnectPyspark:
         self.pc.createkeyspace('aionv4')
         '''
 
-
-
-        self.block_stream = Stream()
         '''
         self.client = Client('127.0.0.1:8786')
         self.input_queue = Queue()
@@ -57,18 +61,21 @@ class KafkaConnectPyspark:
     def update_block_df(self, messages):
         #print(self.block.df.get_df().head())
         # convert to dataframe using stream
-        #df = Block()
-        #source = Stream()
+
         #source = source.map(messages).map(df.add_data)
         #source.sink(self.block_df.add_data)
         try:
-            self.block.df.add_data(messages)
+            #self.block.add_data(messages)
+            #self.copy()
+            config.block.add_data(messages)
             print('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
             print('################################################################')
-            print('STREAMING DATAFRAME UPDATED: TAIL PRINTED BELOW')
-            print(self.block.df.get_df().tail())
-        except Exception as ex:
-            print("ERROR IN UPDATE BLOCK WITH MESSAGES:{}".format(ex))
+            #print('STREAMING DATAFRAME UPDATED: TAIL PRINTED BELOW')
+            #print(self.block.df.get_df().tail())
+            #print(config.block.get_df().tail())
+        except Exception:
+            logger.error("ERROR IN UPDATE BLOCK WITH MESSAGES:", exc_info=True)
+
 
     @classmethod
     def set_ssc(self, ssc):
@@ -95,7 +102,7 @@ class KafkaConnectPyspark:
     @classmethod
     def block_to_tuple(self, taken):
         messages = list()
-        message1 = {}
+        message_dask = {}
         counter = 1
 
         for mess in taken:
@@ -118,57 +125,68 @@ class KafkaConnectPyspark:
 
             # munge data
             # convert timestamp, add miner_addr
-            for col in self.block.columns:
-                if col in mess:
-                    if col == 'block_timestamp':  # get time columns
-                        block_timestamp = datetime.datetime.fromtimestamp(mess[col]) \
-                            .strftime('%Y-%m-%d %H:%M:%S')
-                        if col not in message1:
-                            message1[col] = []
-                        message1[col].append(block_timestamp)
+            @coroutine
+            def munge_data():
+                for col in config.block.columns:
+                    if col in mess:
+                        if col == 'block_timestamp':  # get time columns
+                            block_timestamp = datetime.datetime.fromtimestamp(mess[col]) \
+                                .strftime('%Y-%m-%d %H:%M:%S')
+                            if col not in message_dask:
+                                message_dask[col] = []
+                            message_dask[col].append(block_timestamp)
 
-                        block_month = myutils.get_month_from_timestamp(mess[col])
-                        if 'block_month' not in message1:
-                            message1['block_month'] = []
-                        message1['block_month'].append(block_month)
+                            block_month = myutils.get_month_from_timestamp(mess[col])
+                            if 'block_month' not in message_dask:
+                                message_dask['block_month'] = []
+                            message_dask['block_month'].append(block_month)
 
-                    elif col == 'miner_address': # truncate miner address
-                        if col not in message1:
-                            message1[col] = []
-                        message1[col].append(mess[col])
+                        elif col == 'miner_address': # truncate miner address
+                            if col not in message_dask:
+                                message_dask[col] = []
+                            message_dask[col].append(mess[col])
 
-                        if 'miner_addr' not in message1:
-                            message1['miner_addr'] = []
-                        message1['miner_addr'].append(mess[col][0:10])
-                    else:
-                        if col not in message1:
-                            message1[col] = []
-                        message1[col].append(mess[col])
+                            if 'miner_addr' not in message_dask:
+                                message_dask['miner_addr'] = []
+                            message_dask['miner_addr'].append(mess[col][0:10])
+
+                        # convert difficulty
+                        elif col == 'difficulty':
+                            if col not in message_dask:
+                                message_dask[col] = []
+                            message_dask[col].append(int(mess[col], base=16))
+
+                        else:
+                            if col not in message_dask:
+                                message_dask[col] = []
+                            message_dask[col].append(mess[col])
+
+            munge_data()
 
             # regulate # messages in one dict
             if counter >= 26:
                 #  update streaming dataframe
-                self.update_block_df(message1)
+                self.update_block_df(message_dask)
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print('message counter:{}'.format(counter))
-                print(message1)
+                #print(message_dask)
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 counter = 1
-                message1 = {}
+                message_dask = {}
 
             else:
                 counter += 1
-                #messages.append(message1)
+                #messages.append(message_dask)
                 #self.pc.update_cassandra(message)
 
                 del mess
                 gc.collect()
 
-        self.update_block_df(message1) # get remainder messages in last block thats less than 501
+        self.update_block_df(message_dask) # get remainder messages in last block thats less than 501
         del messages
-        del message1
+        del message_dask
 
 
     @classmethod
@@ -182,8 +200,16 @@ class KafkaConnectPyspark:
         try:
             taken = rdd.take(20000)
             self.block_to_tuple(taken)
-        except Exception as ex:
-            print('HANDLE RDDS:{}'.format(ex))
+        except Exception:
+            logger.error('HANDLE RDDS:{}',exc_info=True)
+
+    @classmethod
+    @coroutine
+    def copy(self):
+        logger.warning('about to copy')
+        config.block = copy(self.block)
+        condition.notify()
+        logger.warning('done copying')
 
 
     @classmethod

@@ -1,3 +1,5 @@
+import config
+
 import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
 from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d
@@ -15,7 +17,6 @@ from holoviews.operation.datashader import rasterize, shade, datashade
 from datetime import datetime
 import numpy as np
 import pandas as pd
-import pyviz_comms
 import dask as dd
 
 from dask.distributed import Client
@@ -24,8 +25,7 @@ from dask import visualize, delayed
 import holoviews as hv
 hv.extension('bokeh',logo=False)
 
-'''
-def poolminer_tab(df):
+def poolminer_tab():
     print('IN POOLMINER')
 
     # Make a tab with the layout
@@ -42,8 +42,8 @@ def poolminer_tab(df):
     return tab
 
 '''
-def poolminer_tab(df):
-
+def poolminer_tab():
+    df=config.block_df
     class poolminer():
         df1 = ''
         n = 20
@@ -136,3 +136,4 @@ def poolminer_tab(df):
     # Make a tab with the layout
     tab = Panel(child=grid, title='Poolminer')
     return tab
+'''
