@@ -1,6 +1,6 @@
 import config
 
-import datashader as ds
+#import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
 from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d
 import gc

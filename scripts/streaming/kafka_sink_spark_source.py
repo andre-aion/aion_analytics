@@ -34,23 +34,20 @@ condition = Condition()
 sem = Semaphore
 class KafkaConnectPyspark:
     block_columns = [
-        "block_number", "miner_address", "miner_addr"
+        "block_number", "miner_address",
         "nonce", "difficulty",
         "total_difficulty", "nrg_consumed", "nrg_limit",
-        "size", "block_timestamp", 'block_month', "num_transactions",
+        "size", "block_timestamp", "num_transactions",
         "block_time", "nrg_reward", "transaction_id", "transaction_list"]
     block = Block()
+    # cassandra setup
+    pc = PythonCassandra()
+    pc.setlogger()
+    pc.createsession()
+    pc.createkeyspace('aionv4')
+    pc.create_table_block()
 
     def __init__(self):
-
-        '''
-        # cassandra setup
-        self.pc = PythonCassandra()
-        self.pc.setlogger()
-        self.pc.createsession()
-        self.pc.createkeyspace('aionv4')
-        '''
-
         '''
         self.client = Client('127.0.0.1:8786')
         self.input_queue = Queue()
@@ -58,6 +55,7 @@ class KafkaConnectPyspark:
         '''
 
     @classmethod
+    @coroutine
     def update_block_df(self, messages):
         #print(self.block.df.get_df().head())
         # convert to dataframe using stream
@@ -96,12 +94,13 @@ class KafkaConnectPyspark:
         return self.remote_queue.get()
 
     @classmethod
-    def update_cassandra(self,message):
-        self.pc.insert_data_block([message])
+    @coroutine
+    def update_cassandra(self, messages):
+        self.pc.insert_data_block(messages)
 
     @classmethod
     def block_to_tuple(self, taken):
-        messages = list()
+        messages_cass = list()
         message_dask = {}
         counter = 1
 
@@ -109,15 +108,9 @@ class KafkaConnectPyspark:
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             block_month = myutils.get_month_from_timestamp(mess['block_timestamp'])
-            message = (mess["block_number"], mess["block_hash"], mess["miner_address"],
-                       mess["parent_hash"], mess["receipt_tx_root"],
-                       mess["state_root"], mess["tx_trie_root"], mess["extra_data"],
-                       mess["nonce"], mess["bloom"], mess["solution"], mess["difficulty"],
-                       mess["total_difficulty"], mess["nrg_consumed"], mess["nrg_limit"],
-                       mess["size"], mess["block_timestamp"], block_month, mess["num_transactions"],
-                       mess["block_time"], mess["nrg_reward"], mess["transaction_id"], mess["transaction_list"])
             #print(message)
             print('message counter in taken:{}'.format(counter))
+            config.max_block_loaded = mess["block_number"]
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
@@ -125,48 +118,65 @@ class KafkaConnectPyspark:
 
             # munge data
             # convert timestamp, add miner_addr
-            @coroutine
+            #@coroutine
             def munge_data():
+                message_temp = {}
                 for col in config.block.columns:
                     if col in mess:
                         if col == 'block_timestamp':  # get time columns
-                            block_timestamp = datetime.datetime.fromtimestamp(mess[col]) \
-                                .strftime('%Y-%m-%d %H:%M:%S')
+                            block_timestamp = datetime.datetime.fromtimestamp(mess[col])
                             if col not in message_dask:
                                 message_dask[col] = []
                             message_dask[col].append(block_timestamp)
-
+                            message_temp[col] = block_timestamp
                             block_month = myutils.get_month_from_timestamp(mess[col])
                             if 'block_month' not in message_dask:
                                 message_dask['block_month'] = []
                             message_dask['block_month'].append(block_month)
+                            message_temp['block_month'] = block_month
 
                         elif col == 'miner_address': # truncate miner address
                             if col not in message_dask:
                                 message_dask[col] = []
                             message_dask[col].append(mess[col])
+                            message_temp[col] = mess[col]
 
                             if 'miner_addr' not in message_dask:
                                 message_dask['miner_addr'] = []
                             message_dask['miner_addr'].append(mess[col][0:10])
-
+                            message_temp['miner_addr'] = mess[col][0:10]
+                            
                         # convert difficulty
                         elif col == 'difficulty':
                             if col not in message_dask:
                                 message_dask[col] = []
                             message_dask[col].append(int(mess[col], base=16))
-
+                            message_temp[col] = (int(mess[col], base=16))
                         else:
                             if col not in message_dask:
                                 message_dask[col] = []
                             message_dask[col].append(mess[col])
+                            message_temp[col] = mess[col]
 
-            munge_data()
+                message = (message_temp["block_number"], message_temp["miner_address"],
+                           message_temp["miner_addr"],message_temp["nonce"], message_temp["difficulty"],
+                           message_temp["total_difficulty"], message_temp["nrg_consumed"], message_temp["nrg_limit"],
+                           message_temp["size"], message_temp["block_timestamp"], message_temp["block_month"],
+                           message_temp["num_transactions"],
+                           message_temp["block_time"], message_temp["nrg_reward"], message_temp["transaction_id"],
+                           message_temp["transaction_list"])
+                return message
+                # insert to cassandra
+                # self.update_cassandra(message)
+            message_cass = munge_data()
+            messages_cass.append(message_cass)
 
             # regulate # messages in one dict
-            if counter >= 26:
+            if counter >= 10:
                 #  update streaming dataframe
                 self.update_block_df(message_dask)
+                self.update_cassandra(messages_cass)
+                messages_cass = list()
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print('message counter:{}'.format(counter))
@@ -175,17 +185,14 @@ class KafkaConnectPyspark:
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 counter = 1
                 message_dask = {}
-
             else:
                 counter += 1
-                #messages.append(message_dask)
-                #self.pc.update_cassandra(message)
-
                 del mess
                 gc.collect()
 
         self.update_block_df(message_dask) # get remainder messages in last block thats less than 501
-        del messages
+        self.update_cassandra(messages_cass)
+        del messages_cass
         del message_dask
 
 
@@ -202,14 +209,6 @@ class KafkaConnectPyspark:
             self.block_to_tuple(taken)
         except Exception:
             logger.error('HANDLE RDDS:{}',exc_info=True)
-
-    @classmethod
-    @coroutine
-    def copy(self):
-        logger.warning('about to copy')
-        config.block = copy(self.block)
-        condition.notify()
-        logger.warning('done copying')
 
 
     @classmethod

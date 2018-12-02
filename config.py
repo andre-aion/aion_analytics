@@ -10,21 +10,23 @@ from tornado.locks import Lock
 from copy import copy
 import gc
 
+
 block = Block()
+max_block_loaded = 0
 stream = Stream()
 
 # instantiate
 #sdf = DataFrame(example=block.get_df(), stream=stream)
 
+'''
 temp = {}
-temp['block_number'] = list(range(1,100000))
+temp['block_number'] = list(range(1,1000))
 temp['difficulty'] = [a*a for a in temp['block_number']]
 df_temp = pd.DataFrame.from_dict(temp)
 df_test = dd.dataframe.from_pandas(df_temp, npartitions=15)
+'''
 
-lock = Lock()
-
-def df(max_load_value=26):
+def df(max_load_value=75):
     df =block.get_df()
     while len(df) == 0 or len(df) <= max_load_value:
         df = block.get_df()

@@ -1,3 +1,4 @@
+from scripts.utils.mylogger import mylogger
 import argparse
 import logging
 import os
@@ -21,7 +22,7 @@ import pprint
 import gc
 from pdb import set_trace
 
-
+logger = mylogger(__file__)
 class PythonCassandra:
     def __init__(self):
         self.cluster = None
@@ -72,19 +73,18 @@ class PythonCassandra:
 
     def create_table_block(self):
         c_sql = """
-                CREATE TABLE IF NOT EXISTS block (block_number bigint, block_hash varchar,
-                                              miner_address varchar, parent_hash varchar, receipt_tx_root varchar,
-                                              state_root varchar, tx_trie_root varchar, extra_data varchar, 
-                                              nonce varchar, bloom varchar, solution varchar, difficulty varchar, 
+                CREATE TABLE IF NOT EXISTS block (block_number bigint,
+                                              miner_address varchar, miner_addr varchar,
+                                              nonce varchar, difficulty bigint, 
                                               total_difficulty varchar, nrg_consumed bigint, nrg_limit bigint,
-                                              block_size bigint, block_timestamp bigint, block_month tinyint, 
+                                              block_size bigint, block_timestamp timestamp, block_month tinyint, 
                                               num_transactions bigint, block_time bigint, nrg_reward varchar, 
                                               transaction_id bigint, transaction_list varchar,
-                                              PRIMARY KEY ((block_number), block_month));
+                                              PRIMARY KEY (block_number));
                  """
         self.session.execute(c_sql)
-        self.session.execute("CREATE INDEX IF NOT EXISTS block_block_timestamp_idx ON block (block_timestamp); """)
-        self.session.execute("CREATE INDEX IF NOT EXISTS block_block_hash_idx ON block (block_hash);")
+        self.session.execute("CREATE INDEX IF NOT EXISTS block_block_month_idx ON block (block_month);")
+        self.session.execute("CREATE INDEX IF NOT EXISTS block_block_timestamp ON block (block_timestamp);")
         self.session.execute("""
                         CREATE INDEX IF NOT EXISTS block_miner_address_idx ON block (miner_address);
                 """)
@@ -100,7 +100,7 @@ class PythonCassandra:
                                               transaction_hash varchar, block_hash varchar, block_number bigint,
                                               transaction_index bigint, from_addr varchar, to_addr varchar, 
                                               nrg_consumed bigint, nrg_price bigint, transaction_timestamp bigint,
-                                              block_timestamp bigint, tx_value varchar, transaction_log varchar,
+                                              block_timestamp timestamp, tx_value varchar, transaction_log varchar,
                                               tx_data varchar, nonce varchar, tx_error varchar, contract_addr varchar,
                                               PRIMARY KEY ((transaction_timestamp),block_number)
                                               );
@@ -139,14 +139,13 @@ class PythonCassandra:
     # message is a list
     def insert_data_block(self, messages):
         insert_sql = self.session.prepare("""
-                                            INSERT INTO block(block_number, block_hash, miner_address, 
-                                            parent_hash, receipt_tx_root,
-                                            state_root, tx_trie_root, extra_data, 
-                                            nonce, bloom, solution, difficulty, 
+                                            INSERT INTO block(block_number, miner_address, 
+                                            miner_addr, 
+                                            nonce, difficulty, 
                                             total_difficulty, nrg_consumed, nrg_limit,
                                             block_size, block_timestamp, block_month, num_transactions,
                                             block_time, nrg_reward, transaction_id, transaction_list) 
-                                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                             """)
 
         batch = BatchStatement()
@@ -165,11 +164,5 @@ class PythonCassandra:
             print('#########################################################################################')
             print('#########################################################################################')
 
-        except Exception as ex:
-            print('#########################################################################################')
-            print('#########################################################################################')
-            print('data not inserted into block')
-            print(ex)
-            print('#########################################################################################')
-            print('#########################################################################################')
-
+        except Exception:
+            logger.error('Insert error:', exc_info=True)

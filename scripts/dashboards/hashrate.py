@@ -1,8 +1,9 @@
+from scripts.utils.hashrate import calc_hashrate
+
 import holoviews as hv, param, dask.dataframe as dd
 from holoviews.operation.datashader import rasterize, shade, datashade
 from bokeh.document import Document
 hv.extension('bokeh', logo=False)
-from scripts.utils.hashrate import calc_hashrate
 import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
 from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d
