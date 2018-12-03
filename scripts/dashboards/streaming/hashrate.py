@@ -2,6 +2,7 @@ from scripts.utils.mylogger import mylogger
 from scripts.utils.hashrate import calc_hashrate, load_data
 import config
 from scripts.utils.pythonCassandra import PythonCassandra
+from scripts.utils.myutils import get_initial_blocks, tab_error_flag
 
 from tornado import gen
 from concurrent.futures import ThreadPoolExecutor
@@ -47,32 +48,8 @@ def hashrate_tab():
     pc.createsession()
     pc.createkeyspace('aionv4')
 
-    def get_initial_blocks():
-        # convert to datetime
-        mydate = ""
-        to_check = tuple(range(0,4000))
-        qry ="""SELECT block_number, difficulty, block_time FROM block WHERE
-            block_number in """+str(to_check)
-        df = pd.DataFrame(list(pc.session.execute(qry)))
-        df = dd.dataframe.from_pandas(df,npartitions=10)
-        return df
-
-    '''
-    @gen.coroutine
-    def show_df():
-        while True:
-            logger.warning(config.df().tail())
-            logger.warning('max_block_loaded:{}'
-                           .format(config.max_block_loaded))
-            # Now the lock is released.
-            time.sleep(2)
-
-
-    executor.submit(show_df)
-    '''
-
     def hashrate_plot(bcount):
-        df = get_initial_blocks()
+        df = get_initial_blocks(pc)
         df = calc_hashrate(df, bcount).compute()
         curve = hv.Curve(df, kdims=['block_number'], vdims=['hashrate'])\
             .options(width=1000,height=600)
@@ -92,7 +69,7 @@ def hashrate_tab():
         return div
 
     def difficulty_plot():
-        df = get_initial_blocks()
+        df = get_initial_blocks(pc)
         try:
             p = df.hvplot.line(x='block_number',y='difficulty')
             return p
@@ -105,17 +82,14 @@ def hashrate_tab():
     blockcount_stream = streams.Stream.define('Blockcount', bcount=10)()
     # create a slider widget
 
-
-
     initial_blockcount = 20
     blockcount_slider = Slider(start=100, end=1000, value=initial_blockcount,
                                step=100, title='Blockcount')
-
-
     try:
 
         dmap_hashrate = hv.DynamicMap(hashrate_plot,
-                                      streams=[blockcount_stream],datashade=True)\
+                                      streams=[blockcount_stream],
+                                      datashade=True)\
             .opts(plot=dict(width=800, height=400))
 
 
@@ -147,4 +121,4 @@ def hashrate_tab():
     except Exception:
         logger.error('rendering err:',exc_info=True)
 
-    return
+        return tab_error_flag('hashrate')

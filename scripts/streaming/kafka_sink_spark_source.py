@@ -107,13 +107,14 @@ class KafkaConnectPyspark:
         for mess in taken:
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-            block_month = myutils.get_month_from_timestamp(mess['block_timestamp'])
+            block_month = myutils.get_breakdown_from_timestamp(mess['block_timestamp'])
             #print(message)
-            print('message counter in taken:{}'.format(counter))
+            #print('message counter in taken:{}'.format(counter))
+            print('blocks loaded from taken:{}'.format(mess['block_number']))
+
             config.max_block_loaded = mess["block_number"]
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-
 
 
             # munge data
@@ -129,7 +130,12 @@ class KafkaConnectPyspark:
                                 message_dask[col] = []
                             message_dask[col].append(block_timestamp)
                             message_temp[col] = block_timestamp
-                            block_month = myutils.get_month_from_timestamp(mess[col])
+                            block_month, block_date = myutils.get_breakdown_from_timestamp(mess[col])
+                            if 'block_date' not in message_dask:
+                                message_dask['block_date'] = []
+                            message_dask['block_date'].append(block_date)
+                            message_temp['block_date'] = block_date
+
                             if 'block_month' not in message_dask:
                                 message_dask['block_month'] = []
                             message_dask['block_month'].append(block_month)
@@ -161,10 +167,12 @@ class KafkaConnectPyspark:
                 message = (message_temp["block_number"], message_temp["miner_address"],
                            message_temp["miner_addr"],message_temp["nonce"], message_temp["difficulty"],
                            message_temp["total_difficulty"], message_temp["nrg_consumed"], message_temp["nrg_limit"],
-                           message_temp["size"], message_temp["block_timestamp"], message_temp["block_month"],
+                           message_temp["size"], message_temp["block_timestamp"],
+                           message_temp["block_date"], message_temp["block_month"],
                            message_temp["num_transactions"],
                            message_temp["block_time"], message_temp["nrg_reward"], message_temp["transaction_id"],
                            message_temp["transaction_list"])
+
                 return message
                 # insert to cassandra
                 # self.update_cassandra(message)
@@ -180,7 +188,6 @@ class KafkaConnectPyspark:
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print('message counter:{}'.format(counter))
-                #print(message_dask)
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 counter = 1

@@ -1,14 +1,9 @@
-2018-12-02 14:12:23,718 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
+2018-12-03 16:58:38,279 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-03 17:25:37,864 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-03 17:28:58,792 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
 Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 209, in handle_rdds
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 216, in handle_rdds
     self.block_to_tuple(taken)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 112, in block_to_tuple
-    print('message counter in taken:{}'.format(counter))
-BrokenPipeError: [Errno 32] Broken pipe
-2018-12-02 15:02:18,469 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 209, in handle_rdds
-    self.block_to_tuple(taken)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 112, in block_to_tuple
-    print('message counter in taken:{}'.format(counter))
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 113, in block_to_tuple
+    print('blocks loaded from taken:{}'.format(mess['block_number']))
 BrokenPipeError: [Errno 32] Broken pipe

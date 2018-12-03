@@ -77,7 +77,7 @@ class PythonCassandra:
                                               miner_address varchar, miner_addr varchar,
                                               nonce varchar, difficulty bigint, 
                                               total_difficulty varchar, nrg_consumed bigint, nrg_limit bigint,
-                                              block_size bigint, block_timestamp timestamp, block_month tinyint, 
+                                              block_size bigint, block_timestamp timestamp, block_date timestamp, block_month tinyint, 
                                               num_transactions bigint, block_time bigint, nrg_reward varchar, 
                                               transaction_id bigint, transaction_list varchar,
                                               PRIMARY KEY (block_number));
@@ -143,9 +143,9 @@ class PythonCassandra:
                                             miner_addr, 
                                             nonce, difficulty, 
                                             total_difficulty, nrg_consumed, nrg_limit,
-                                            block_size, block_timestamp, block_month, num_transactions,
+                                            block_size, block_timestamp,block_date, block_month, num_transactions,
                                             block_time, nrg_reward, transaction_id, transaction_list) 
-                                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                             """)
 
         batch = BatchStatement()

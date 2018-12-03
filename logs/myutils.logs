@@ -1,0 +1,33 @@
+2018-12-03 16:54:01,993 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-03 16:54:16,576 - logs/myutils.logs - WARNING - Empty DataFrame
+Columns: []
+Index: []
+2018-12-03 16:54:17,093 - logs/myutils.logs - WARNING - Empty DataFrame
+Columns: []
+Index: []
+2018-12-03 16:58:33,712 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-03 16:58:47,707 - logs/myutils.logs - WARNING - Empty DataFrame
+Columns: []
+Index: []
+2018-12-03 16:58:48,315 - logs/myutils.logs - WARNING - Empty DataFrame
+Columns: []
+Index: []
+2018-12-03 17:25:32,676 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-03 17:25:48,147 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
+0             0       16384 2018-04-23           0  0000000000
+1             1       16384 2018-04-25      100805  a0518c8516
+2             2       15592 2018-04-25          14  a0518c8516
+3             3       15592 2018-04-25          14  a0518c8516
+4             4       15592 2018-04-25          13  a0518c8516
+2018-12-03 17:25:56,452 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
+0             0       16384 2018-04-23           0  0000000000
+1             1       16384 2018-04-25      100805  a0518c8516
+2             2       15592 2018-04-25          14  a0518c8516
+3             3       15592 2018-04-25          14  a0518c8516
+4             4       15592 2018-04-25          13  a0518c8516
+2018-12-03 17:26:07,363 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
+0             0       16384 2018-04-23           0  0000000000
+1             1       16384 2018-04-25      100805  a0518c8516
+2             2       15592 2018-04-25          14  a0518c8516
+3             3       15592 2018-04-25          14  a0518c8516
+4             4       15592 2018-04-25          13  a0518c8516

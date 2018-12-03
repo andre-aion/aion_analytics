@@ -11,7 +11,6 @@ from bokeh.models.widgets import DateRangeSlider, TextInput
 from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
 from bokeh.transform import factor_cmap
-from bokeh.palettes import Category20_16
 
 from pdb import set_trace;
 from scripts.utils.poolminer import munge_blockdetails

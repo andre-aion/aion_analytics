@@ -1,8 +1,14 @@
+from scripts.utils.mylogger import mylogger
 import pandas as pd
 from os.path import join, dirname
 from pandas.api.types import is_string_dtype
-from datetime import datetime
+from datetime import datetime, date
+import dask as dd
+from bokeh.models import Panel
+from bokeh.models.widgets import Div
 import config
+
+logger = mylogger(__file__)
 
 def mem_usage(pandas_obj):
     if isinstance(pandas_obj,pd.DataFrame):
@@ -41,7 +47,38 @@ def setdatetimeindex(df):
     return df
 
 
-def get_month_from_timestamp(ts):
+def get_breakdown_from_timestamp(ts):
     time = datetime.fromtimestamp(ts)
-    return time.month
+    return time.month, date.fromtimestamp(ts)
+
+def get_initial_blocks(pc):
+    # convert to datetime
+    mydate = ""
+    to_check = tuple(range(0, 5100))
+    qry ="""SELECT block_number, difficulty, block_date, 
+        block_time, miner_addr FROM block WHERE
+        block_number in """+str(to_check)
+
+    df = pd.DataFrame(list(pc.session.execute(qry)))
+    df = dd.dataframe.from_pandas(df, npartitions=10)
+    logger.warning(df.head(5))
+    return df
+
+
+def timestamp_to_datetime(ts):
+    return datetime.fromtimestamp(ts)
+
+
+# when a tab does not work
+def tab_error_flag(tabname):
+    print('IN POOLMINER')
+
+    # Make a tab with the layout
+    div = Div(text="""ERROR CREATING POOLMINER TAB, 
+    CHECK THE LOGS""",
+              width=200, height=100)
+
+    tab = Panel(child=div, title=tabname)
+
+    return tab
 
