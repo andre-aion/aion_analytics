@@ -1,9 +1,193 @@
-2018-12-03 16:58:38,279 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-03 17:25:37,864 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-03 17:28:58,792 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
+2018-12-04 08:02:25,304 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:10:48,266 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:15:58,279 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:20:36,678 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:23:06,486 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:25:00,311 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:35:24,157 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:46:52,813 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:47:56,398 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
 Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 216, in handle_rdds
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 215, in handle_rdds
     self.block_to_tuple(taken)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 113, in block_to_tuple
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 112, in block_to_tuple
     print('blocks loaded from taken:{}'.format(mess['block_number']))
 BrokenPipeError: [Errno 32] Broken pipe
+2018-12-04 08:51:38,963 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:51:51,373 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 214, in handle_rdds
+    taken = rdd.take(20000)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1358, in take
+    res = self.context.runJob(self, takeUpToNumLeft, p)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 1033, in runJob
+    sock_info = self._jvm.PythonRDD.runJob(self._jsc.sc(), mappedRDD._jrdd, partitions)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py", line 1257, in __call__
+    answer, self.gateway_client, self.target_id, self.name)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/sql/utils.py", line 63, in deco
+    return f(*a, **kw)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py", line 328, in get_return_value
+    format(target_id, ".", name), value)
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.runJob.
+: org.apache.spark.SparkException: Job 2 cancelled as part of cancellation of all jobs
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1651)
+	at org.apache.spark.scheduler.DAGScheduler.handleJobCancellation(DAGScheduler.scala:1586)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$doCancelAllJobs$1.apply$mcVI$sp(DAGScheduler.scala:735)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$doCancelAllJobs$1.apply(DAGScheduler.scala:735)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$doCancelAllJobs$1.apply(DAGScheduler.scala:735)
+	at scala.collection.mutable.HashSet.foreach(HashSet.scala:78)
+	at org.apache.spark.scheduler.DAGScheduler.doCancelAllJobs(DAGScheduler.scala:735)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1844)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1821)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1810)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:642)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2034)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2055)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2074)
+	at org.apache.spark.api.python.PythonRDD$.runJob(PythonRDD.scala:152)
+	at org.apache.spark.api.python.PythonRDD.runJob(PythonRDD.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:748)
+
+2018-12-04 08:52:17,430 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:52:29,674 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 214, in handle_rdds
+    taken = rdd.take(20000)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1358, in take
+    res = self.context.runJob(self, takeUpToNumLeft, p)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 1033, in runJob
+    sock_info = self._jvm.PythonRDD.runJob(self._jsc.sc(), mappedRDD._jrdd, partitions)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py", line 1257, in __call__
+    answer, self.gateway_client, self.target_id, self.name)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/sql/utils.py", line 63, in deco
+    return f(*a, **kw)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py", line 328, in get_return_value
+    format(target_id, ".", name), value)
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.runJob.
+: org.apache.spark.SparkException: Job 2 cancelled as part of cancellation of all jobs
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1651)
+	at org.apache.spark.scheduler.DAGScheduler.handleJobCancellation(DAGScheduler.scala:1586)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$doCancelAllJobs$1.apply$mcVI$sp(DAGScheduler.scala:735)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$doCancelAllJobs$1.apply(DAGScheduler.scala:735)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$doCancelAllJobs$1.apply(DAGScheduler.scala:735)
+	at scala.collection.mutable.HashSet.foreach(HashSet.scala:78)
+	at org.apache.spark.scheduler.DAGScheduler.doCancelAllJobs(DAGScheduler.scala:735)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1844)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1821)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1810)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:642)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2034)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2055)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2074)
+	at org.apache.spark.api.python.PythonRDD$.runJob(PythonRDD.scala:152)
+	at org.apache.spark.api.python.PythonRDD.runJob(PythonRDD.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:748)
+
+2018-12-04 08:53:37,905 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:55:23,896 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:56:57,100 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 08:58:04,275 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 09:02:17,760 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 09:03:27,118 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 09:03:39,160 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 214, in handle_rdds
+    taken = rdd.take(20000)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/rdd.py", line 1358, in take
+    res = self.context.runJob(self, takeUpToNumLeft, p)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 1033, in runJob
+    sock_info = self._jvm.PythonRDD.runJob(self._jsc.sc(), mappedRDD._jrdd, partitions)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py", line 1257, in __call__
+    answer, self.gateway_client, self.target_id, self.name)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/sql/utils.py", line 63, in deco
+    return f(*a, **kw)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py", line 328, in get_return_value
+    format(target_id, ".", name), value)
+py4j.protocol.Py4JJavaError: An error occurred while calling z:org.apache.spark.api.python.PythonRDD.runJob.
+: org.apache.spark.SparkException: Job 2 cancelled as part of cancellation of all jobs
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1651)
+	at org.apache.spark.scheduler.DAGScheduler.handleJobCancellation(DAGScheduler.scala:1586)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$doCancelAllJobs$1.apply$mcVI$sp(DAGScheduler.scala:735)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$doCancelAllJobs$1.apply(DAGScheduler.scala:735)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$doCancelAllJobs$1.apply(DAGScheduler.scala:735)
+	at scala.collection.mutable.HashSet.foreach(HashSet.scala:78)
+	at org.apache.spark.scheduler.DAGScheduler.doCancelAllJobs(DAGScheduler.scala:735)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1844)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1821)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1810)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:642)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2034)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2055)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2074)
+	at org.apache.spark.api.python.PythonRDD$.runJob(PythonRDD.scala:152)
+	at org.apache.spark.api.python.PythonRDD.runJob(PythonRDD.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:748)
+
+2018-12-04 09:13:34,870 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 09:14:42,281 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 09:19:39,185 - logs/kafka_sink_spark_source.logs - ERROR - ERROR IN UPDATE BLOCK WITH MESSAGES:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 69, in update_block_df
+    print('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+BrokenPipeError: [Errno 32] Broken pipe
+2018-12-04 09:19:39,187 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 215, in handle_rdds
+    self.block_to_tuple(taken)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 187, in block_to_tuple
+    print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+BrokenPipeError: [Errno 32] Broken pipe
+2018-12-04 09:20:02,701 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 10:22:34,042 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 10:25:32,923 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 10:32:34,320 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 10:36:34,808 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 10:38:40,765 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 10:40:47,946 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 10:42:00,186 - logs/kafka_sink_spark_source.logs - ERROR - ERROR IN UPDATE BLOCK WITH MESSAGES:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 69, in update_block_df
+    print('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+BrokenPipeError: [Errno 32] Broken pipe
+2018-12-04 10:42:00,187 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 215, in handle_rdds
+    self.block_to_tuple(taken)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 187, in block_to_tuple
+    print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+BrokenPipeError: [Errno 32] Broken pipe
+2018-12-04 10:44:38,889 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-04 10:47:51,281 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs

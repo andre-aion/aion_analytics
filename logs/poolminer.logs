@@ -1,59 +1,249 @@
-2018-12-03 17:25:37,329 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-03 17:25:48,923 - logs/poolminer.logs - WARNING - START DATE:2018-04-01
-2018-12-03 17:25:49,553 - logs/poolminer.logs - WARNING - PERCENTAGE:   miner_addr  block_number     ...      block_time  percentage
-0  0000000000             1     ...               1    0.019608
-1  a0518c8516          5099     ...            5099   99.980392
+2018-12-04 10:47:51,068 - logs/poolminer.logs - WARNING - logs/poolminer.logs
+2018-12-04 10:47:55,330 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:1524441600000000000
+2018-12-04 10:47:55,350 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
+2018-12-04 10:47:55,418 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-01 00:00:00
+2018-12-04 10:47:56,190 - logs/poolminer.logs - WARNING - START DATE:2018-04-01 00:00:00
+2018-12-04 10:47:56,192 - logs/poolminer.logs - WARNING - END DATE:2018-12-04
+2018-12-04 10:47:56,738 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
 
-[2 rows x 6 columns]
-2018-12-03 17:25:49,703 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 17:25:46.685776
-2018-12-03 17:26:28,254 - logs/poolminer.logs - WARNING - START DATE:2018-04-26 12:57:47
-2018-12-03 17:26:29,215 - logs/poolminer.logs - WARNING - PERCENTAGE:Empty DataFrame
-Columns: [miner_addr, block_number, difficulty, block_date, block_time, percentage]
+[5 rows x 5 columns]
+2018-12-04 10:48:51,220 - logs/poolminer.logs - WARNING - prep dataset start date:1522617473530
+2018-12-04 10:48:53,299 - logs/poolminer.logs - WARNING - START DATE:2018-04-01
+2018-12-04 10:48:53,300 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:48:55,166 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
+
+[5 rows x 5 columns]
+2018-12-04 10:49:03,363 - logs/poolminer.logs - WARNING - prep dataset start date:1523154188241
+2018-12-04 10:49:03,690 - logs/poolminer.logs - WARNING - START DATE:2018-04-07
+2018-12-04 10:49:03,784 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:49:04,765 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
+
+[5 rows x 5 columns]
+2018-12-04 10:49:13,462 - logs/poolminer.logs - WARNING - prep dataset start date:1523690902952
+2018-12-04 10:49:14,521 - logs/poolminer.logs - WARNING - START DATE:2018-04-14
+2018-12-04 10:49:14,521 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:49:14,755 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
+
+[5 rows x 5 columns]
+2018-12-04 10:49:24,257 - logs/poolminer.logs - WARNING - prep dataset start date:1524227617663
+2018-12-04 10:49:25,492 - logs/poolminer.logs - WARNING - START DATE:2018-04-20
+2018-12-04 10:49:25,492 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:49:26,724 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
+
+[5 rows x 5 columns]
+2018-12-04 10:49:37,066 - logs/poolminer.logs - WARNING - prep dataset start date:1524841005904
+2018-12-04 10:49:38,442 - logs/poolminer.logs - WARNING - START DATE:2018-04-27
+2018-12-04 10:49:38,442 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:49:40,137 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
 Index: []
-2018-12-03 17:26:29,224 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 13:25:46
-2018-12-03 17:26:41,825 - logs/poolminer.logs - WARNING - START DATE:2018-05-07 04:15:30
-2018-12-03 17:26:44,121 - logs/poolminer.logs - WARNING - PERCENTAGE:Empty DataFrame
-Columns: [miner_addr, block_number, difficulty, block_date, block_time, percentage]
+2018-12-04 10:49:45,628 - logs/poolminer.logs - WARNING - prep dataset start date:1525224373555
+2018-12-04 10:49:47,246 - logs/poolminer.logs - WARNING - START DATE:2018-05-01
+2018-12-04 10:49:47,246 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:49:48,660 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
 Index: []
-2018-12-03 17:26:44,129 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 13:25:46
-2018-12-03 17:26:56,866 - logs/poolminer.logs - WARNING - START DATE:2018-05-11 14:37:53
-2018-12-03 17:26:59,251 - logs/poolminer.logs - WARNING - PERCENTAGE:Empty DataFrame
-Columns: [miner_addr, block_number, difficulty, block_date, block_time, percentage]
+2018-12-04 10:49:56,243 - logs/poolminer.logs - WARNING - prep dataset start date:1525531067675
+2018-12-04 10:49:58,018 - logs/poolminer.logs - WARNING - START DATE:2018-05-05
+2018-12-04 10:49:58,019 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:50:00,292 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
 Index: []
-2018-12-03 17:26:59,276 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 13:25:46
-2018-12-03 17:27:13,180 - logs/poolminer.logs - WARNING - START DATE:2018-05-13 09:10:50
-2018-12-03 17:27:15,725 - logs/poolminer.logs - WARNING - PERCENTAGE:Empty DataFrame
-Columns: [miner_addr, block_number, difficulty, block_date, block_time, percentage]
+2018-12-04 10:50:07,067 - logs/poolminer.logs - WARNING - prep dataset start date:1525607741205
+2018-12-04 10:50:08,324 - logs/poolminer.logs - WARNING - START DATE:2018-05-06
+2018-12-04 10:50:08,324 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:50:08,498 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
 Index: []
-2018-12-03 17:27:15,732 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 13:25:46
-2018-12-03 17:27:27,072 - logs/poolminer.logs - WARNING - START DATE:2018-05-17 19:33:13
-2018-12-03 17:27:29,593 - logs/poolminer.logs - WARNING - PERCENTAGE:Empty DataFrame
-Columns: [miner_addr, block_number, difficulty, block_date, block_time, percentage]
+2018-12-04 10:50:16,110 - logs/poolminer.logs - WARNING - prep dataset start date:1525837761796
+2018-12-04 10:50:17,486 - logs/poolminer.logs - WARNING - START DATE:2018-05-08
+2018-12-04 10:50:17,486 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:50:18,564 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
 Index: []
-2018-12-03 17:27:29,778 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 13:25:46
-2018-12-03 17:27:41,828 - logs/poolminer.logs - WARNING - START DATE:2018-05-22 05:55:35
-2018-12-03 17:27:43,857 - logs/poolminer.logs - WARNING - PERCENTAGE:Empty DataFrame
-Columns: [miner_addr, block_number, difficulty, block_date, block_time, percentage]
+2018-12-04 10:50:27,255 - logs/poolminer.logs - WARNING - prep dataset start date:1525914435326
+2018-12-04 10:50:28,553 - logs/poolminer.logs - WARNING - START DATE:2018-05-09
+2018-12-04 10:50:28,556 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:50:29,819 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
 Index: []
-2018-12-03 17:27:43,872 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 13:25:46
-2018-12-03 17:27:55,894 - logs/poolminer.logs - WARNING - START DATE:2018-05-23 03:12:04
-2018-12-03 17:27:58,210 - logs/poolminer.logs - WARNING - PERCENTAGE:Empty DataFrame
-Columns: [miner_addr, block_number, difficulty, block_date, block_time, percentage]
+2018-12-04 10:50:37,793 - logs/poolminer.logs - WARNING - prep dataset start date:1525991108856
+2018-12-04 10:50:38,964 - logs/poolminer.logs - WARNING - START DATE:2018-05-10
+2018-12-04 10:50:38,965 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:50:40,311 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
 Index: []
-2018-12-03 17:27:58,252 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 13:25:46
-2018-12-03 17:28:09,053 - logs/poolminer.logs - WARNING - START DATE:2018-06-04 13:02:44
-2018-12-03 17:28:11,078 - logs/poolminer.logs - WARNING - PERCENTAGE:Empty DataFrame
-Columns: [miner_addr, block_number, difficulty, block_date, block_time, percentage]
+2018-12-04 10:50:48,674 - logs/poolminer.logs - WARNING - prep dataset start date:1526221129446
+2018-12-04 10:50:50,704 - logs/poolminer.logs - WARNING - START DATE:2018-05-13
+2018-12-04 10:50:50,706 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:50:52,064 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
 Index: []
-2018-12-03 17:28:11,087 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 13:25:46
-2018-12-03 17:28:24,152 - logs/poolminer.logs - WARNING - START DATE:2018-06-07 04:52:09
-2018-12-03 17:28:24,560 - logs/poolminer.logs - WARNING - PERCENTAGE:Empty DataFrame
-Columns: [miner_addr, block_number, difficulty, block_date, block_time, percentage]
+2018-12-04 10:51:00,151 - logs/poolminer.logs - WARNING - prep dataset start date:1526297802976
+2018-12-04 10:51:01,256 - logs/poolminer.logs - WARNING - START DATE:2018-05-14
+2018-12-04 10:51:01,256 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:51:02,726 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
 Index: []
-2018-12-03 17:28:24,565 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 13:25:46
-2018-12-03 17:28:38,867 - logs/poolminer.logs - WARNING - START DATE:2018-06-08 23:25:06
-2018-12-03 17:28:41,134 - logs/poolminer.logs - WARNING - PERCENTAGE:Empty DataFrame
-Columns: [miner_addr, block_number, difficulty, block_date, block_time, percentage]
+2018-12-04 10:51:11,791 - logs/poolminer.logs - WARNING - prep dataset start date:1526221129446
+2018-12-04 10:51:13,342 - logs/poolminer.logs - WARNING - START DATE:2018-05-13
+2018-12-04 10:51:13,342 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:51:14,584 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
 Index: []
-2018-12-03 17:28:41,139 - logs/poolminer.logs - WARNING - END DATE:2018-12-03 13:25:46
-2018-12-03 17:28:53,828 - logs/poolminer.logs - WARNING - START DATE:2018-06-08 02:08:38
+2018-12-04 10:51:22,968 - logs/poolminer.logs - WARNING - prep dataset start date:1526144455916
+2018-12-04 10:51:24,498 - logs/poolminer.logs - WARNING - START DATE:2018-05-12
+2018-12-04 10:51:24,498 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:51:26,413 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
+Index: []
+2018-12-04 10:51:35,846 - logs/poolminer.logs - WARNING - prep dataset start date:1526067782386
+2018-12-04 10:51:37,746 - logs/poolminer.logs - WARNING - START DATE:2018-05-11
+2018-12-04 10:51:37,746 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:51:39,924 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
+Index: []
+2018-12-04 10:51:48,643 - logs/poolminer.logs - WARNING - prep dataset start date:1525991108855
+2018-12-04 10:51:50,967 - logs/poolminer.logs - WARNING - START DATE:2018-05-10
+2018-12-04 10:51:51,275 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:51:52,301 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
+Index: []
+2018-12-04 10:52:00,537 - logs/poolminer.logs - WARNING - prep dataset start date:1525761088265
+2018-12-04 10:52:02,210 - logs/poolminer.logs - WARNING - START DATE:2018-05-08
+2018-12-04 10:52:02,213 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:52:03,831 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
+Index: []
+2018-12-04 10:52:14,676 - logs/poolminer.logs - WARNING - prep dataset start date:1525684414735
+2018-12-04 10:52:16,465 - logs/poolminer.logs - WARNING - START DATE:2018-05-07
+2018-12-04 10:52:16,466 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:52:18,495 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
+Index: []
+2018-12-04 10:52:27,668 - logs/poolminer.logs - WARNING - prep dataset start date:1525531067675
+2018-12-04 10:52:29,337 - logs/poolminer.logs - WARNING - START DATE:2018-05-05
+2018-12-04 10:52:29,337 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:52:31,037 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
+Index: []
+2018-12-04 10:52:41,067 - logs/poolminer.logs - WARNING - prep dataset start date:1525377720614
+2018-12-04 10:52:42,380 - logs/poolminer.logs - WARNING - START DATE:2018-05-03
+2018-12-04 10:52:42,381 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:52:44,342 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
+Index: []
+2018-12-04 10:52:53,776 - logs/poolminer.logs - WARNING - prep dataset start date:1524994352964
+2018-12-04 10:52:55,492 - logs/poolminer.logs - WARNING - START DATE:2018-04-29
+2018-12-04 10:52:55,533 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:52:57,571 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
+Index: []
+2018-12-04 10:53:05,580 - logs/poolminer.logs - WARNING - prep dataset start date:1524917679434
+2018-12-04 10:53:08,961 - logs/poolminer.logs - WARNING - START DATE:2018-04-28
+2018-12-04 10:53:08,961 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:53:09,196 - logs/poolminer.logs - WARNING - DF1:Empty DataFrame
+Columns: [block_number, difficulty, block_date, block_time, percentage]
+Index: []
+2018-12-04 10:53:19,437 - logs/poolminer.logs - WARNING - prep dataset start date:1524534311783
+2018-12-04 10:53:21,279 - logs/poolminer.logs - WARNING - START DATE:2018-04-23
+2018-12-04 10:53:21,280 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:53:22,792 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
+
+[5 rows x 5 columns]
+2018-12-04 10:53:36,816 - logs/poolminer.logs - WARNING - prep dataset start date:1524380964723
+2018-12-04 10:53:38,498 - logs/poolminer.logs - WARNING - START DATE:2018-04-22
+2018-12-04 10:53:38,498 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:53:40,521 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
+
+[5 rows x 5 columns]
+2018-12-04 10:53:55,364 - logs/poolminer.logs - WARNING - prep dataset start date:1524074270602
+2018-12-04 10:53:56,997 - logs/poolminer.logs - WARNING - START DATE:2018-04-18
+2018-12-04 10:53:56,998 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:53:59,164 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
+
+[5 rows x 5 columns]
+2018-12-04 10:54:12,384 - logs/poolminer.logs - WARNING - prep dataset start date:1523920923542
+2018-12-04 10:54:14,578 - logs/poolminer.logs - WARNING - START DATE:2018-04-16
+2018-12-04 10:54:14,726 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:54:17,956 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
+
+[5 rows x 5 columns]
+2018-12-04 10:54:33,886 - logs/poolminer.logs - WARNING - prep dataset start date:1523767576482
+2018-12-04 10:54:36,057 - logs/poolminer.logs - WARNING - START DATE:2018-04-15
+2018-12-04 10:54:36,058 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:54:38,662 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
+
+[5 rows x 5 columns]
+2018-12-04 10:54:56,948 - logs/poolminer.logs - WARNING - prep dataset start date:1523614229421
+2018-12-04 10:54:58,991 - logs/poolminer.logs - WARNING - START DATE:2018-04-13
+2018-12-04 10:54:58,991 - logs/poolminer.logs - WARNING - END DATE:2018-12-03
+2018-12-04 10:55:01,275 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+miner_addr                               ...                            
+0000000000            16          16     ...              16    0.248062
+a0518c8516          6258        6258     ...            6258   97.023256
+a09d899fdb             4           4     ...               4    0.062016
+a0a2a5179b           169         169     ...             169    2.620155
+a0a5852be2             3           3     ...               3    0.046512
+
+[5 rows x 5 columns]

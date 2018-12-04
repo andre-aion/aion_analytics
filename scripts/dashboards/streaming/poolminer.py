@@ -1,5 +1,5 @@
 import config
-from scripts.utils.myutils import get_initial_blocks, tab_error_flag
+from scripts.utils.myutils import get_initial_blocks, tab_error_flag, ms_to_date
 from scripts.utils.mylogger import mylogger
 from scripts.utils.pythonCassandra import PythonCassandra
 
@@ -23,8 +23,7 @@ import numpy as np
 import pandas as pd
 import dask as dd
 
-from dask.distributed import Client
-from dask import visualize, delayed
+from copy import copy
 
 import holoviews as hv
 hv.extension('bokeh',logo=False)
@@ -32,77 +31,40 @@ logger = mylogger(__file__)
 
 def poolminer_tab():
 
-    #make poolminer as singleton
+
     class Poolminer():
-        '''
-        df = None
-        df1 = None
-        n = 20
+
         pc = None
-        '''
-
-        class __impl:
-            """ Implementation of the singleton interface """
-
-            def spam(self):
-                """ Test method, return singleton id """
-                return id(self)
-
-        # storage for the instance reference
-        __instance = None
-
 
         def __init__(self):
-            if Poolminer.__instance is None:
-                # create and remember instance
-                Poolminer.__instance = Poolminer.__impl()
+            if self.pc is None:
                 self.pc = PythonCassandra()
                 self.pc.createsession()
                 self.pc.createkeyspace('aionv4')
                 self.df = get_initial_blocks(self.pc)
                 self.df1 = None
                 self.n = 30
-
-
-            # Store instance reference as the only member in the handle
-            self.__dict__['_Poolminer__instance'] = Poolminer.__instance
-
-        def __getattr__(self, attr):
-            """ Delegate access to implementation """
-            return getattr(self.__instance, attr)
-
-        def __setattr__(self, attr, value):
-            """ Delegate access to implementation """
-            return setattr(self.__instance, attr, value)
-
+            else:
+                pass
 
         def prep_dataset(self, start_date, end_date):
             try:
-                #convert dates from timestamp to datetime
-                if isinstance(start_date, int) == True:
-                    # change from milliseconds to seconds
-                    if start_date > 1630763200:
-                        start_date = (start_date // 1000)
-                    if end_date > 1630763200:
-                        end_date = (end_date // 1000)
-
-                    start_date = datetime.fromtimestamp(start_date)
-                    end_date = datetime.fromtimestamp(end_date)
+                logger.warning("prep dataset start date:%s", start_date)
+                # change from milliseconds to seconds
+                start_date = ms_to_date(start_date)
+                end_date = ms_to_date(end_date)
 
                 #set df1 while outputting bar graph
                 self.df1 = self.df[(self.df.block_date >= start_date) &
-                              (self.df.block_date <= end_date)]
+                                   (self.df.block_date <= end_date)]
 
-                self.df1 = self.df1.groupby('miner_addr').count().reset_index()
-                self.df1['percentage'] = 100*self.df1.block_number\
-                                         /self.df1['block_number'].sum().compute()
-                print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-                print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+                self.df1 = self.df1.groupby('miner_addr').count()
+                self.df1['percentage'] = round(100*self.df1.block_number\
+                                         /self.df1['block_number'].sum(),2).compute()
                 logger.warning('START DATE:%s',start_date)
-                logger.warning('PERCENTAGE:%s',self.df1.compute().head())
                 logger.warning('END DATE:%s',end_date)
-                print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-                print('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+                logger.warning('DF1:%s',self.df1.compute().head())
+                #logger.warning('DF:%s',self.df.compute().head())
 
                 return hv.Bars(self.df1, hv.Dimension('miner_addr'),'block_number')
             except Exception:
@@ -135,19 +97,35 @@ def poolminer_tab():
         stream_topN.event(n=new)
 
     try:
-        # STREAMS
+        # create class and get date range
+        pm = Poolminer()
+        ns = 1e-9
+
+        df = pm.df.head(1)
+        block_first_date = df['block_date'].values[0].astype(datetime)
+        #first_date = datetime.utcfromtimestamp(first_date * ns)
+        logger.warning('BLOCK FIRST DATE:%s', block_first_date)
+
+
+        df = pm.df.tail(1)
+        last_date = df['block_date'].values[-1].astype(datetime)
+        last_date = datetime.utcfromtimestamp(last_date *ns)
+        logger.warning('LAST DATE:%s', last_date)
+
         #format dates
         first_date = "2018-04-01 00:00:00"
-        # multiply by 1000 to convert to milliseconds
         first_date = datetime.strptime(first_date, "%Y-%m-%d %H:%M:%S")
-        last_date = datetime.now()
+        last_date = datetime.now().date()
 
-        stream_dates = streams.Stream.define('Dates',start_date = date(2018,4,1), end_date=last_date)()
+        # STREAMS Setup
+        stream_dates = streams.Stream.define('Dates', start_date=first_date,
+                                             end_date=last_date)()
         stream_topN = streams.Stream.define('TopN',n=30)()
 
         # MANAGE
-        date_range_select = DateRangeSlider(title="Select Date Range ", start=first_date, end=last_date,
-                                            value=(first_date, last_date), step=1)
+        date_range_select = DateRangeSlider(title="Select Date Range ", start=first_date,
+                                            end=last_date,
+                                            value=(first_date, last_date), step=5)
         # create a text widget for top N
         text_input = TextInput(value='30', title="Top N Miners (Max 50):")
 
@@ -155,15 +133,14 @@ def poolminer_tab():
         date_range_select.on_change('value',update_dates)
         text_input.on_change("value", update_topN)
 
-        # create plot and render to bokeh
-        pm = Poolminer()
+
 
         renderer = hv.renderer('bokeh')
 
 
         # ALL MINERS
         dmap_all = hv.DynamicMap(pm.prep_dataset,
-            streams=[stream_dates], datashade=True)\
+            streams=[stream_dates])\
             .opts(plot=dict(height=500, width=500))
         all_plot = renderer.get_plot(dmap_all)
 

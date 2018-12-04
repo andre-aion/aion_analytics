@@ -89,7 +89,7 @@ def hashrate_tab():
 
         dmap_hashrate = hv.DynamicMap(hashrate_plot,
                                       streams=[blockcount_stream],
-                                      datashade=True)\
+                                      )\
             .opts(plot=dict(width=800, height=400))
 
 

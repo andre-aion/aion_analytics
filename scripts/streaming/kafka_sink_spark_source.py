@@ -107,7 +107,6 @@ class KafkaConnectPyspark:
         for mess in taken:
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-            block_month = myutils.get_breakdown_from_timestamp(mess['block_timestamp'])
             #print(message)
             #print('message counter in taken:{}'.format(counter))
             print('blocks loaded from taken:{}'.format(mess['block_number']))

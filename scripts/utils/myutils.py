@@ -6,6 +6,7 @@ from datetime import datetime, date
 import dask as dd
 from bokeh.models import Panel
 from bokeh.models.widgets import Div
+import numpy as np
 import config
 
 logger = mylogger(__file__)
@@ -48,21 +49,23 @@ def setdatetimeindex(df):
 
 
 def get_breakdown_from_timestamp(ts):
-    time = datetime.fromtimestamp(ts)
-    return time.month, date.fromtimestamp(ts)
+    ns = 1e-6
+    mydate = datetime.fromtimestamp(ts).date()
+    return mydate.month, mydate
 
 def get_initial_blocks(pc):
-    # convert to datetime
-    mydate = ""
-    to_check = tuple(range(0, 5100))
-    qry ="""SELECT block_number, difficulty, block_date, 
-        block_time, miner_addr FROM block WHERE
-        block_number in """+str(to_check)
+    try:
+        to_check = tuple(range(0, 10000))
+        qry ="""SELECT block_number, difficulty, block_date, 
+            block_time, miner_addr FROM block WHERE
+            block_number in """+str(to_check)
 
-    df = pd.DataFrame(list(pc.session.execute(qry)))
-    df = dd.dataframe.from_pandas(df, npartitions=10)
-    logger.warning(df.head(5))
-    return df
+        df = pd.DataFrame(list(pc.session.execute(qry)))
+        df = dd.dataframe.from_pandas(df, npartitions=15)
+        #logger.warning('%s',df.head(5))
+        return df
+    except Exception:
+        logger.error('get initial blocks',exc_info=True)
 
 
 def timestamp_to_datetime(ts):
@@ -81,4 +84,20 @@ def tab_error_flag(tabname):
     tab = Panel(child=div, title=tabname)
 
     return tab
+
+
+# convert dates from timestamp[ms] to datetime[ns]
+def ms_to_date(ts):
+    try:
+        if isinstance(ts, int) == True:
+            if ts > 163076320:
+                ts = ts // 1000
+            ts = datetime.fromtimestamp(ts)
+            ts = np.datetime64(ts).astype(datetime).date()
+        return ts
+    except Exception:
+        logger.error('ms_to_date', exc_info=True)
+        return ts
+
+
 
