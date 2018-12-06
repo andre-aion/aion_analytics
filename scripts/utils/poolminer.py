@@ -14,3 +14,5 @@ def munge_blockdetails(df):
     df = df.drop(['miner_address'],axis=1)
     gc.collect()
     return df
+
+#def get_miner_list(df):

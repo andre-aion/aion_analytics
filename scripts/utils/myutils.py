@@ -7,6 +7,7 @@ import dask as dd
 from bokeh.models import Panel
 from bokeh.models.widgets import Div
 import numpy as np
+from tornado.gen import coroutine
 import config
 
 logger = mylogger(__file__)
@@ -55,7 +56,7 @@ def get_breakdown_from_timestamp(ts):
 
 def get_initial_blocks(pc):
     try:
-        to_check = tuple(range(0, 10000))
+        to_check = tuple(range(0, 15000))
         qry ="""SELECT block_number, difficulty, block_date, 
             block_time, miner_addr FROM block WHERE
             block_number in """+str(to_check)
@@ -90,10 +91,15 @@ def tab_error_flag(tabname):
 def ms_to_date(ts):
     try:
         if isinstance(ts, int) == True:
+            # change milli to seconds
             if ts > 163076320:
                 ts = ts // 1000
-            ts = datetime.fromtimestamp(ts)
-            ts = np.datetime64(ts).astype(datetime).date()
+            ts = datetime.utcfromtimestamp(ts)
+            # convert to nanosecond representation
+            ts = np.datetime64(ts).astype(datetime)
+            ts = pd.Timestamp(datetime.date(ts))
+
+            logger.warning('from ms_to_date: %s',ts)
         return ts
     except Exception:
         logger.error('ms_to_date', exc_info=True)

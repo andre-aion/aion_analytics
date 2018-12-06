@@ -36,6 +36,7 @@ from dask import visualize, delayed
 
 import holoviews as hv
 import time
+from tornado.gen import coroutine
 
 lock = Lock()
 executor = ThreadPoolExecutor()
@@ -43,19 +44,26 @@ logger = mylogger(__file__)
 
 hv.extension('bokeh', logo=False)
 
+@coroutine
 def hashrate_tab():
     pc = PythonCassandra()
     pc.createsession()
     pc.createkeyspace('aionv4')
 
     def hashrate_plot(bcount):
-        df = get_initial_blocks(pc)
-        df = calc_hashrate(df, bcount).compute()
-        curve = hv.Curve(df, kdims=['block_number'], vdims=['hashrate'])\
-            .options(width=1000,height=600)
-        del df
-        gc.collect()
-        return curve
+        try:
+            df = get_initial_blocks(pc)
+            df = calc_hashrate(df, bcount).compute()
+            #curve = hv.Curve(df, kdims=['block_number'], vdims=['hashrate'])\
+                #.options(width=1000,height=600)
+
+            curve = df.hvplot.line('block_number', 'hashrate',
+                                   title='Hashrate',width=1000, height=600)
+            del df
+            gc.collect()
+            return curve
+        except Exception:
+            logger.error('hashrate_plot:',exc_info=True)
 
     def update(attrname, old, new):
         # notify the holoviews stream of the slider update
@@ -71,10 +79,11 @@ def hashrate_tab():
     def difficulty_plot():
         df = get_initial_blocks(pc)
         try:
-            p = df.hvplot.line(x='block_number',y='difficulty')
+            p = df.hvplot.line(x='block_number',y='difficulty',
+                               title='Difficulty')
             return p
         except Exception:
-            logger.error('plot errpr:',exc_info=True)
+            logger.error('plot error:',exc_info=True)
 
         return
 
@@ -82,9 +91,9 @@ def hashrate_tab():
     blockcount_stream = streams.Stream.define('Blockcount', bcount=10)()
     # create a slider widget
 
-    initial_blockcount = 20
-    blockcount_slider = Slider(start=100, end=1000, value=initial_blockcount,
-                               step=100, title='Blockcount')
+    initial_blockcount = 50
+    blockcount_slider = Slider(start=0, end=1000, value=initial_blockcount,
+                               step=50, title='Blockcount')
     try:
 
         dmap_hashrate = hv.DynamicMap(hashrate_plot,
@@ -111,7 +120,7 @@ def hashrate_tab():
 
 
         # create the dashboard
-        grid = gridplot([[text_div,controls],[hash_plot.state],
+        grid = gridplot([[controls],[hash_plot.state],
                          [diff_plot.state]])
 
         # Make a tab with the layout

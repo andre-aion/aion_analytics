@@ -9,7 +9,6 @@ from scripts.utils import myutils
 from scripts.streaming.streamingBlock import Block
 from tornado.gen import coroutine
 from tornado.locks import Condition, Semaphore
-from bokeh.document import without_document_lock
 from concurrent.futures import ThreadPoolExecutor
 
 import json
@@ -17,12 +16,11 @@ import datetime
 
 from pyspark.streaming import StreamingContext
 from pyspark.streaming.kafka import KafkaUtils
-from queue import Queue
-from dask.distributed import Client
+from pyspark.streaming import StreamingContext
+from pyspark.sql import SQLContext, SparkSession
+from pyspark.context import SparkConf, SparkContext
+
 import gc
-from copy import copy
-import pandas as pd
-import dask as dd
 
 import config
 from scripts.utils.mylogger import mylogger
@@ -30,8 +28,9 @@ logger = mylogger(__file__)
 
 
 executor = ThreadPoolExecutor(max_workers=10)
-condition = Condition()
-sem = Semaphore
+checkpoint_dir = './data/sparkcheckpoint'
+
+
 class KafkaConnectPyspark:
     block_columns = [
         "block_number", "miner_address",
@@ -46,60 +45,76 @@ class KafkaConnectPyspark:
     pc.createsession()
     pc.createkeyspace('aionv4')
     pc.create_table_block()
+    checkpoint_dir = checkpoint_dir
+    ssc = None
 
     def __init__(self):
         '''
-        self.client = Client('127.0.0.1:8786')
-        self.input_queue = Queue()
-        self.remote_queue = self.client.scatter(self.input_queue)
+        cls.client = Client('127.0.0.1:8786')
+        cls.input_queue = Queue()
+        cls.remote_queue = cls.client.scatter(cls.input_queue)
         '''
 
+
+    @classmethod
+    def create_streaming_context(cls):
+        conf = SparkConf() \
+            .set("spark.streaming.kafka.backpressure.initialRate", 500) \
+            .set("spark.streaming.kafka.backpressure.enabled", 'true') \
+            .set('spark.streaming.kafka.maxRatePerPartition', 10000) \
+            .set('spark.streaming.receiver.writeAheadLog.enable', 'true')
+
+        spark = SparkSession \
+            .builder() \
+            .getOrCreate()
+
+        spark_context = SparkContext \
+            .builder \
+            .appName('poolminer') \
+            .master('local[2]') \
+            .config(conf=conf) \
+            .getOrCreate()
+        ssc = StreamingContext(spark_context, 0.5)
+        return ssc
+        
     @classmethod
     @coroutine
-    def update_block_df(self, messages):
-        #print(self.block.df.get_df().head())
+    def update_block_df(cls, messages):
         # convert to dataframe using stream
 
-        #source = source.map(messages).map(df.add_data)
-        #source.sink(self.block_df.add_data)
         try:
-            #self.block.add_data(messages)
-            #self.copy()
+            #cls.block.add_data(messages)
+            #cls.copy()
             config.block.add_data(messages)
             print('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
             print('################################################################')
             #print('STREAMING DATAFRAME UPDATED: TAIL PRINTED BELOW')
-            #print(self.block.df.get_df().tail())
+            #print(cls.block.df.get_df().tail())
             #print(config.block.get_df().tail())
         except Exception:
             logger.error("ERROR IN UPDATE BLOCK WITH MESSAGES:", exc_info=True)
 
 
     @classmethod
-    def set_ssc(self, ssc):
-        if 'self.ssc' not in locals():
-            self.ssc = ssc
-
-    # return column data source
-    @classmethod
-    def get_block_source(self):
-        return self.block_source
+    def set_ssc(cls, ssc):
+        if 'cls.ssc' not in locals():
+            cls.ssc = ssc
 
     @classmethod
-    def get_df(self):
-        return self.block.get_df()
+    def get_df(cls):
+        return cls.block.get_df()
 
     @classmethod
-    def get_queue(self):
-        return self.remote_queue.get()
+    def get_queue(cls):
+        return cls.remote_queue.get()
 
     @classmethod
     @coroutine
-    def update_cassandra(self, messages):
-        self.pc.insert_data_block(messages)
+    def update_cassandra(cls, messages):
+        cls.pc.insert_data_block(messages)
 
     @classmethod
-    def block_to_tuple(self, taken):
+    def block_to_tuple(cls, taken):
         messages_cass = list()
         message_dask = {}
         counter = 1
@@ -109,7 +124,7 @@ class KafkaConnectPyspark:
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             #print(message)
             #print('message counter in taken:{}'.format(counter))
-            print('blocks loaded from taken:{}'.format(mess['block_number']))
+            print('block # loaded from taken:{}'.format(mess['block_number']))
 
             config.max_block_loaded = mess["block_number"]
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
@@ -174,15 +189,15 @@ class KafkaConnectPyspark:
 
                 return message
                 # insert to cassandra
-                # self.update_cassandra(message)
+                # cls.update_cassandra(message)
             message_cass = munge_data()
             messages_cass.append(message_cass)
 
             # regulate # messages in one dict
             if counter >= 10:
                 #  update streaming dataframe
-                self.update_block_df(message_dask)
-                self.update_cassandra(messages_cass)
+                cls.update_block_df(message_dask)
+                cls.update_cassandra(messages_cass)
                 messages_cass = list()
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
@@ -196,14 +211,14 @@ class KafkaConnectPyspark:
                 del mess
                 gc.collect()
 
-        self.update_block_df(message_dask) # get remainder messages in last block thats less than 501
-        self.update_cassandra(messages_cass)
+        cls.update_block_df(message_dask) # get remainder messages in last block thats less than 501
+        cls.update_cassandra(messages_cass)
         del messages_cass
         del message_dask
 
 
     @classmethod
-    def handle_rdds(self,rdd):
+    def handle_rdds(cls,rdd):
         if rdd.isEmpty():
             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             print('################  RDD IS NONE')
@@ -212,33 +227,39 @@ class KafkaConnectPyspark:
 
         try:
             taken = rdd.take(20000)
-            self.block_to_tuple(taken)
+            cls.block_to_tuple(taken)
         except Exception:
             logger.error('HANDLE RDDS:{}',exc_info=True)
 
 
     @classmethod
-    def run(self):
+    def run(cls):
         topic='mainnetserver.aionv4.block'
-        kafkaParams = {"metadata.broker.list": "localhost:9092",
-                       "auto.offset.reset": "smallest"}
+        kafka_params = {"metadata.broker.list": "localhost:9092",
+                        "auto.offset.reset": "smallest"}
 
         try:
-            kafkaStream = KafkaUtils.createDirectStream(self.ssc,
-                                                             [topic], kafkaParams)
-            kafkaStream.checkpoint(30)
+            cls.ssc = StreamingContext.getOrCreate(checkpoint_dir,
+                                                   cls.create_streaming_context)
 
-            kafkaStream = kafkaStream.map(lambda x: json.loads(x[1]))
-            kafkaStream = kafkaStream.map(lambda x: x['payload']['after'])
-            #kafkaStream.pprint()
+            kafka_stream = KafkaUtils.createDirectStream(cls.ssc,
+                                                         [topic],
+                                                         kafka_params)
+            kafka_stream.checkpoint(15)
 
-            kafkaStream.foreachRDD(lambda rdd: self.handle_rdds(rdd) if not rdd.isEmpty() else None)
+            kafka_stream = kafka_stream.map(lambda x: json.loads(x[1]))
+            kafka_stream = kafka_stream.map(lambda x: x['payload']['after'])
+            # kafka_stream.pprint()
 
-            self.ssc.start()
-            self.ssc.awaitTermination()
+            kafka_stream.foreachRDD(lambda rdd: cls.handle_rdds(rdd) \
+                                    if not rdd.isEmpty() else None)
+
+            cls.ssc.checkpoint(cls.checkpoint_dir)
+            cls.ssc.start()
+            cls.ssc.awaitTermination()
 
         except Exception as ex:
-            print('THE SPARK SOURCE IS EMPTY:{}'.format(ex))
+            print('KAFKA/SPARK RUN :{}'.format(ex))
 
 
 

@@ -1,82 +1,44 @@
-2018-12-04 04:23:42,714 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 04:27:36,788 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 04:40:23,265 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 04:41:23,362 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 04:56:10,775 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 07:33:04,716 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:02:22,484 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:05:09,581 - logs/pythonCassandra.logs - ERROR - Insert error:
+2018-12-05 16:51:27,211 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 16:51:55,562 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 16:56:41,855 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 16:59:50,524 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 17:04:11,341 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 17:06:17,377 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 17:09:44,560 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 17:12:11,608 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 17:19:48,033 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 17:21:21,563 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 17:35:28,060 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 17:36:09,132 - logs/pythonCassandra.logs - ERROR - Insert error:
 Traceback (most recent call last):
   File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 155, in insert_data_block
     self.session.execute(batch)
   File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
   File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
 cassandra.cluster.NoHostAvailable: ('Unable to complete the operation against any hosts', {})
-2018-12-04 08:10:46,543 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:15:56,541 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:16:46,058 - logs/pythonCassandra.logs - ERROR - Insert error:
+2018-12-05 20:09:15,619 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 20:09:45,338 - logs/pythonCassandra.logs - ERROR - Insert error:
 Traceback (most recent call last):
   File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 155, in insert_data_block
     self.session.execute(batch)
   File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
   File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
 cassandra.cluster.NoHostAvailable: ('Unable to complete the operation against any hosts', {})
-2018-12-04 08:20:34,909 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:23:04,059 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:24:47,141 - logs/pythonCassandra.logs - ERROR - Insert error:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 155, in insert_data_block
-    self.session.execute(batch)
-  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
-  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
-cassandra.cluster.NoHostAvailable: ('Unable to complete the operation against any hosts', {})
-2018-12-04 08:24:57,728 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:35:22,448 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:46:51,170 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:51:37,297 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:52:14,191 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:53:35,861 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:53:57,712 - logs/pythonCassandra.logs - ERROR - Insert error:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 155, in insert_data_block
-    self.session.execute(batch)
-  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
-  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
-cassandra.cluster.NoHostAvailable: ('Unable to complete the operation against any hosts', {})
-2018-12-04 08:55:22,252 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:56:55,384 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 08:58:01,608 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 09:02:15,362 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 09:02:41,674 - logs/pythonCassandra.logs - ERROR - Insert error:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 155, in insert_data_block
-    self.session.execute(batch)
-  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
-  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
-cassandra.cluster.NoHostAvailable: ('Unable to complete the operation against any hosts', {})
-2018-12-04 09:03:25,467 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 09:13:33,218 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 09:14:40,554 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 09:20:00,053 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 10:22:31,305 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 10:23:39,933 - logs/pythonCassandra.logs - ERROR - Insert error:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 155, in insert_data_block
-    self.session.execute(batch)
-  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
-  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
-cassandra.cluster.NoHostAvailable: ('Unable to complete the operation against any hosts', {})
-2018-12-04 10:25:29,399 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 10:32:31,766 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 10:36:32,946 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 10:37:42,267 - logs/pythonCassandra.logs - ERROR - Insert error:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 155, in insert_data_block
-    self.session.execute(batch)
-  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
-  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
-cassandra.cluster.NoHostAvailable: ('Unable to complete the operation against any hosts', {})
-2018-12-04 10:38:39,115 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 10:40:43,639 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 10:44:36,552 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-04 10:47:49,580 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 20:11:45,205 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 20:12:48,281 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 20:14:16,648 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 20:15:28,094 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 20:16:14,718 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 20:22:00,936 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 20:23:21,883 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-05 20:46:09,405 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-06 07:17:33,212 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-06 07:18:25,556 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-06 07:23:02,580 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-06 07:26:45,592 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-06 09:31:27,410 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-06 09:41:15,856 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-06 09:45:33,079 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-06 09:48:42,847 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-06 10:20:15,071 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-06 10:25:23,249 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
