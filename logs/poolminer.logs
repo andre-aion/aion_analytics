@@ -1,283 +1,90 @@
-2018-12-07 18:47:57,753 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-07 18:48:04,982 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-07 18:48:04,987 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-07 18:48:05,000 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-07 18:48:05,424 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-07 18:48:05,425 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-07 18:48:05,764 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+2018-12-08 13:16:32,249 - logs/poolminer.logs - WARNING - logs/poolminer.logs
+2018-12-08 13:16:57,141 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
+2018-12-08 13:16:57,586 - logs/poolminer.logs - WARNING - LAST DATE:2018-05-01 00:00:00
+2018-12-08 13:16:57,719 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-08 13:17:06,720 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
+2018-12-08 13:17:06,839 - logs/poolminer.logs - WARNING - END DATE:2018-05-01 00:00:00
+2018-12-08 13:17:12,983 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
 miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
+0000000000           243         243     ...             243    1.011236
+a0518c8516          6262        6262     ...            6262   26.059093
+a0a2a5179b           852         852     ...             852    3.545568
+a0a5852be2            53          53     ...              53    0.220558
+a000686525           330         330     ...             330    1.373283
 
 [5 rows x 5 columns]
-2018-12-07 19:04:20,146 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-07 19:04:29,902 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-07 19:04:29,911 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-07 19:04:29,927 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-07 19:04:30,406 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-07 19:04:30,407 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-07 19:04:30,771 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+2018-12-08 13:20:17,481 - logs/poolminer.logs - WARNING - prep dataset start date:1524528000000
+2018-12-08 13:20:25,132 - logs/poolminer.logs - WARNING - START DATE:2018-04-24 00:00:00
+2018-12-08 13:20:25,133 - logs/poolminer.logs - WARNING - END DATE:2018-05-01 00:00:00
+2018-12-08 13:20:35,568 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
 miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
+a0518c8516          6262        6262     ...            6262   26.060177
+0000000000           242         242     ...             242    1.007116
+a0a2a5179b           852         852     ...             852    3.545716
+a0a5852be2            53          53     ...              53    0.220567
+a000686525           330         330     ...             330    1.373341
 
 [5 rows x 5 columns]
-2018-12-07 19:06:27,477 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-07 19:06:36,119 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-07 19:06:36,128 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-07 19:06:36,145 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-07 19:06:36,684 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-07 19:06:36,685 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-07 19:06:37,146 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+2018-12-08 13:21:27,158 - logs/poolminer.logs - WARNING - prep dataset start date:1524614400000
+2018-12-08 13:21:37,002 - logs/poolminer.logs - WARNING - START DATE:2018-04-25 00:00:00
+2018-12-08 13:21:37,003 - logs/poolminer.logs - WARNING - END DATE:2018-05-01 00:00:00
+2018-12-08 13:21:47,115 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
 miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
+a0518c8516          6262        6262     ...            6262   26.060177
+0000000000           242         242     ...             242    1.007116
+a0a2a5179b           852         852     ...             852    3.545716
+a0a5852be2            53          53     ...              53    0.220567
+a000686525           330         330     ...             330    1.373341
 
 [5 rows x 5 columns]
-2018-12-07 19:08:42,216 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-07 19:08:49,937 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-07 19:08:49,946 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-07 19:08:49,969 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-07 19:08:50,554 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-07 19:08:50,556 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-07 19:08:51,451 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+2018-12-08 13:22:34,691 - logs/poolminer.logs - WARNING - prep dataset start date:1524700800000
+2018-12-08 13:22:39,828 - logs/poolminer.logs - WARNING - START DATE:2018-04-26 00:00:00
+2018-12-08 13:22:39,829 - logs/poolminer.logs - WARNING - END DATE:2018-05-01 00:00:00
+2018-12-08 13:22:40,095 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
 miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
+0000000000            33          33     ...              33    0.365449
+a000686525           181         181     ...             181    2.004430
+a00339fa21            76          76     ...              76    0.841639
+a00621dcae            11          11     ...              11    0.121816
+a00a085822            43          43     ...              43    0.476190
 
 [5 rows x 5 columns]
-2018-12-07 19:10:05,148 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-07 19:10:12,987 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-07 19:10:12,993 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-07 19:10:13,010 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-07 19:10:13,499 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-07 19:10:13,500 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-07 19:10:13,865 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+2018-12-08 13:23:25,431 - logs/poolminer.logs - WARNING - prep dataset start date:1524787200000
+2018-12-08 13:23:25,758 - logs/poolminer.logs - WARNING - START DATE:2018-04-27 00:00:00
+2018-12-08 13:23:25,759 - logs/poolminer.logs - WARNING - END DATE:2018-05-01 00:00:00
+2018-12-08 13:23:28,996 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
 miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
+0000000000            33          33     ...              33    0.365449
+a000686525           181         181     ...             181    2.004430
+a00339fa21            76          76     ...              76    0.841639
+a00621dcae            11          11     ...              11    0.121816
+a00a085822            43          43     ...              43    0.476190
 
 [5 rows x 5 columns]
-2018-12-07 19:10:19,129 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-07 19:10:19,132 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-07 19:10:19,142 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-07 19:10:19,455 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-07 19:10:19,456 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-07 19:10:19,723 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+2018-12-08 13:24:17,431 - logs/poolminer.logs - WARNING - prep dataset start date:1524873600000
+2018-12-08 13:24:26,476 - logs/poolminer.logs - WARNING - START DATE:2018-04-28 00:00:00
+2018-12-08 13:24:26,476 - logs/poolminer.logs - WARNING - END DATE:2018-05-01 00:00:00
+2018-12-08 13:24:36,680 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
 miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
+0000000000            32          32     ...              32    0.377358
+a000686525           164         164     ...             164    1.933962
+a00339fa21            70          70     ...              70    0.825472
+a00a085822            43          43     ...              43    0.507075
+a00cf617de            23          23     ...              23    0.271226
 
 [5 rows x 5 columns]
-2018-12-07 19:17:55,053 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-07 19:18:02,963 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-07 19:18:02,969 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-07 19:18:02,986 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-07 19:18:03,556 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-07 19:18:03,556 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-07 19:18:04,026 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
+2018-12-08 14:31:14,173 - logs/poolminer.logs - WARNING - logs/poolminer.logs
+2018-12-08 14:31:31,272 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
+2018-12-08 14:31:31,276 - logs/poolminer.logs - WARNING - LAST DATE:2018-05-01 00:00:00
+2018-12-08 14:31:31,283 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-08 14:31:39,393 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
+2018-12-08 14:31:39,477 - logs/poolminer.logs - WARNING - END DATE:2018-05-01 00:00:00
+2018-12-08 14:31:45,631 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
 miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-07 19:20:20,653 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-07 19:20:29,858 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-07 19:20:29,871 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-07 19:20:29,903 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-07 19:20:30,630 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-07 19:20:30,631 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-07 19:20:31,196 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 11:15:05,866 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-08 11:15:10,922 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 11:15:10,926 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 11:15:10,936 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 11:15:11,208 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 11:15:11,209 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 11:15:11,485 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 12:02:32,229 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-08 12:02:36,933 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 12:02:36,938 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 12:02:36,951 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 12:02:37,223 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 12:02:37,223 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 12:02:37,473 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 12:05:07,451 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-08 12:05:12,525 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 12:05:12,529 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 12:05:12,541 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 12:05:12,805 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 12:05:12,806 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 12:05:13,288 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 12:08:24,424 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-08 12:08:29,058 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 12:08:29,063 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 12:08:29,071 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 12:08:29,344 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 12:08:29,345 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 12:08:29,553 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 12:08:38,862 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 12:08:38,864 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 12:08:38,870 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 12:08:39,082 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 12:08:39,082 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 12:08:39,283 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 12:09:25,601 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-08 12:09:29,840 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 12:09:29,844 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 12:09:29,852 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 12:09:30,164 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 12:09:30,164 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 12:09:30,405 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 12:13:38,092 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-08 12:13:42,852 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 12:13:42,855 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 12:13:42,865 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 12:13:43,218 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 12:13:43,218 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 12:13:43,697 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 12:16:48,646 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-08 12:16:53,409 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 12:16:53,419 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 12:16:53,432 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 12:16:53,847 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 12:16:53,847 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 12:16:54,197 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 12:18:10,997 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-08 12:18:15,648 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 12:18:15,653 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 12:18:15,662 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 12:18:15,908 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 12:18:15,908 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 12:18:16,128 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 12:20:51,850 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-08 12:20:56,968 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 12:20:56,971 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 12:20:56,980 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 12:20:57,252 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 12:20:57,252 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 12:20:57,506 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
-
-[5 rows x 5 columns]
-2018-12-08 12:22:14,118 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-08 12:22:18,846 - logs/poolminer.logs - WARNING - BLOCK FIRST DATE:2018-04-23 00:00:00
-2018-12-08 12:22:18,851 - logs/poolminer.logs - WARNING - LAST DATE:2018-04-25 00:00:00
-2018-12-08 12:22:18,862 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-08 12:22:19,187 - logs/poolminer.logs - WARNING - START DATE:2018-04-23 00:00:00
-2018-12-08 12:22:19,188 - logs/poolminer.logs - WARNING - END DATE:2018-04-25 00:00:00
-2018-12-08 12:22:19,443 - logs/poolminer.logs - WARNING - DF1:            block_number  difficulty     ...      block_time  percentage
-miner_addr                               ...                            
-0000000000           210         210     ...             210    1.400000
-a0518c8516          6262        6262     ...            6262   41.746667
-a00d7b5dcd            30          30     ...              30    0.200000
-a028f64849            40          40     ...              40    0.266667
-a029d06708            22          22     ...              22    0.146667
+0000000000           252         252     ...             252    0.900322
+a0518c8516          6262        6262     ...            6262   22.372276
+a000686525           416         416     ...             416    1.486245
+a00339fa21           226         226     ...             226    0.807431
+a00d7b5dcd            53          53     ...              53    0.189353
 
 [5 rows x 5 columns]

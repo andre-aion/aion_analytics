@@ -1,26 +1,9 @@
-2018-12-08 12:13:38,535 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-08 12:13:41,769 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-08 12:13:41,771 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f08407161d0>: 30000}
-2018-12-08 12:16:49,081 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-08 12:16:52,245 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-08 12:16:52,247 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f79d07d7048>: 30000}
-2018-12-08 12:18:11,415 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-08 12:18:15,056 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-08 12:18:15,058 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f44924da1d0>: 30000}
-2018-12-08 12:20:52,297 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-08 12:20:55,916 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-08 12:20:55,922 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f86c6d52f28>: 30000}
-2018-12-08 12:20:58,114 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f86e8800a20>
-2018-12-08 12:20:58,577 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [30000 -> 40000]
-2018-12-08 12:22:14,564 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-08 12:22:17,973 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-08 12:22:17,976 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f5b980870f0>: 40000}
-2018-12-08 12:22:20,716 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f5b99319c50>
-2018-12-08 12:22:20,740 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [40000 -> 50000]
-2018-12-08 12:22:35,013 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 214, in handle_rdds
-    cls.block_to_tuple(taken)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 112, in block_to_tuple
-    print('block # loaded from taken:{}'.format(mess['block_number']))
-BrokenPipeError: [Errno 32] Broken pipe
+2018-12-08 14:31:14,391 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-08 14:31:16,849 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
+2018-12-08 14:31:16,854 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{}
+2018-12-08 14:32:05,469 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7cb5f05fd0>
+2018-12-08 14:32:05,481 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [0 -> 500]
+2018-12-08 14:32:46,468 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7cb5f05fd0>
+2018-12-08 14:32:46,497 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [500 -> 1000]
+2018-12-08 14:33:29,330 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7cb5f05fd0>
+2018-12-08 14:33:29,336 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1000 -> 1500]

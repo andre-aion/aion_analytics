@@ -212,7 +212,6 @@ class KafkaConnectPyspark:
         try:
             taken = rdd.take(20000)
             cls.block_to_tuple(taken)
-            #cls.save_offsets(rdd)
 
         except Exception:
             logger.error('HANDLE RDDS:{}',exc_info=True)
@@ -278,11 +277,27 @@ class KafkaConnectPyspark:
             logger.error('SAVE OFFSETS:%s',exc_info=True)
 
     @classmethod
+    def reset_partition_offset(cls, zk, topic, partitions):
+        """Delete the specified partitions within the topic that the consumer
+                is subscribed to.
+                :param: groupid: The consumer group ID for the consumer.
+                :param: topic: Kafka topic.
+                :param: partitions: List of partitions within the topic to be deleted.
+        """
+        for partition in partitions:
+            path = "/consumers/{topic}/{partition}".format(
+                topic=topic,
+                partition=partition
+            )
+        zk.delete(path)
+
+    @classmethod
     def create_streaming_context(cls):
+        # NOTE THAT MAXRATEPERPARTIOINS DETERMINES THE KAFKA CHECKPOINTING PERIODS
         conf = SparkConf() \
-            .set("spark.streaming.kafka.backpressure.initialRate", 500) \
+            .set("spark.streaming.kafka.backpressure.initialRate", 250) \
             .set("spark.streaming.kafka.backpressure.enabled", 'true') \
-            .set('spark.streaming.kafka.maxRatePerPartition', 10000) \
+            .set('spark.streaming.kafka.maxRatePerPartition', 500) \
             .set('spark.streaming.receiver.writeAheadLog.enable', 'true')
 
         spark_context = SparkContext(appName='aion_analytics',
@@ -304,6 +319,7 @@ class KafkaConnectPyspark:
             topics = ['mainnetserver.aionv4.block']
             # setup checkpointing
             zk = cls.get_zookeeper_instance()
+            #cls.reset_partition_offset(zk,topics[0],[0]) #reset if necessary
             from_offsets = cls.read_offsets(zk, topics)
 
             kafka_params = {"metadata.broker.list": "localhost:9092",
@@ -314,15 +330,14 @@ class KafkaConnectPyspark:
                 .createDirectStream(cls.ssc, topics, kafka_params,
                                     fromOffsets=from_offsets)
 
-            kafka_stream.foreachRDD(lambda rdd: cls.save_offsets(rdd))
-            #kafka_stream.checkpoint(30)
-
+            kafka_stream1 = kafka_stream
             kafka_stream = kafka_stream.map(lambda x: json.loads(x[1]))
             kafka_stream = kafka_stream.map(lambda x: x['payload']['after'])
             # kafka_stream.pprint()
 
             kafka_stream.foreachRDD(lambda rdd: cls.handle_rdds(rdd) \
                 if not rdd.isEmpty() else None)
+            kafka_stream1.foreachRDD(lambda rdd: cls.save_offsets(rdd))
 
             # Start the context
             cls.ssc.start()

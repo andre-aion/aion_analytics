@@ -56,14 +56,14 @@ def get_breakdown_from_timestamp(ts):
 
 def get_initial_blocks(pc):
     try:
-        to_check = tuple(range(0, 15000))
+        to_check = tuple(range(0, 100000))
         qry ="""SELECT block_number, difficulty, block_date, 
-            block_time, miner_addr FROM block WHERE
-            block_number in """+str(to_check)
+            block_time, miner_addr FROM block
+            WHERE block_number in """+str(to_check)
 
         df = pd.DataFrame(list(pc.session.execute(qry)))
         df = dd.dataframe.from_pandas(df, npartitions=15)
-        #logger.warning('%s',df.head(5))
+        logger.warning('%s',df.head(5))
         return df
     except Exception:
         logger.error('get initial blocks',exc_info=True)
