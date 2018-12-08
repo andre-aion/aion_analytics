@@ -106,4 +106,13 @@ def ms_to_date(ts):
         return ts
 
 
-
+# nano_secs_to_date
+def ns_to_date(ts):
+    ns = 1e-9
+    try:
+        ts = datetime.utcfromtimestamp(ts * ns)
+        ts = pd.Timestamp(datetime.date(ts))
+        return ts
+    except Exception:
+        logger.error('ns_to_date', exc_info=True)
+        return ts

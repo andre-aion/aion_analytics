@@ -1,44 +1,102 @@
-2018-12-06 07:17:33,242 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-06 07:18:25,587 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-06 07:18:44,722 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23
-2018-12-06 07:18:44,723 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 07:18:50,449 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24
-2018-12-06 07:18:50,450 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 07:18:59,590 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24
-2018-12-06 07:18:59,591 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 07:19:19,096 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 07:19:19,096 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 07:19:40,142 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24
-2018-12-06 07:19:40,142 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 07:19:41,141 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24
-2018-12-06 07:19:41,141 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 07:19:42,054 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23
-2018-12-06 07:19:42,054 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 07:19:42,974 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23
-2018-12-06 07:19:42,974 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 07:19:43,868 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23
-2018-12-06 07:19:43,868 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24
-2018-12-06 07:19:44,707 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23
-2018-12-06 07:19:44,707 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24
-2018-12-06 07:19:48,233 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23
-2018-12-06 07:19:48,233 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24
-2018-12-06 07:19:49,389 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23
-2018-12-06 07:19:49,389 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 07:23:02,611 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-06 07:26:45,622 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-06 09:31:27,440 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-06 09:41:15,886 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-06 09:41:50,038 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23
-2018-12-06 09:41:50,038 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24
-2018-12-06 09:41:53,304 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23
-2018-12-06 09:41:53,305 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25
-2018-12-06 09:45:33,130 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-06 09:45:53,074 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
-2018-12-06 09:45:53,076 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
-2018-12-06 09:45:56,958 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
-2018-12-06 09:45:56,958 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24 00:00:00
-2018-12-06 09:46:00,987 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
-2018-12-06 09:46:00,988 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
-2018-12-06 09:48:42,902 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-06 10:20:15,128 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-06 10:25:23,279 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:23:53,657 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:27:31,802 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:29:14,194 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:31:07,352 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:33:40,113 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:34:12,584 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:35:26,188 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:37:42,249 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:39:10,337 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:40:15,241 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-06 14:40:15,244 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-06 14:40:23,834 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-06 14:40:23,835 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24 00:00:00
+2018-12-06 14:40:31,788 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-06 14:40:31,792 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
+2018-12-06 14:42:14,041 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 14:43:06,687 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 15:25:34,429 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 15:28:11,202 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 15:29:34,774 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 15:31:00,809 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 15:31:31,782 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-06 15:31:31,782 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24 00:00:00
+2018-12-06 15:31:35,435 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-06 15:31:35,435 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-06 15:31:44,083 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-06 15:31:44,084 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24 00:00:00
+2018-12-06 15:31:45,094 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-06 15:31:45,094 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
+2018-12-06 15:38:40,579 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 15:40:15,141 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 15:57:17,995 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 16:24:43,885 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 16:45:56,575 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 16:51:08,245 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 16:54:14,794 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 16:57:43,900 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 16:59:12,208 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 17:07:14,393 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-06 17:09:41,110 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 13:03:22,905 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 13:04:17,407 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24 00:00:00
+2018-12-07 13:04:17,407 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
+2018-12-07 13:04:33,665 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
+2018-12-07 13:04:33,665 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
+2018-12-07 13:04:45,317 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24 00:00:00
+2018-12-07 13:04:45,318 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
+2018-12-07 13:04:46,454 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-07 13:04:46,455 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
+2018-12-07 13:04:55,771 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-07 13:04:55,771 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24 00:00:00
+2018-12-07 13:04:57,246 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-07 13:04:57,246 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-07 13:04:59,525 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-07 13:04:59,526 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24 00:00:00
+2018-12-07 13:05:06,873 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-23 00:00:00
+2018-12-07 13:05:06,874 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
+2018-12-07 13:20:18,862 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 13:28:37,262 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 13:37:15,856 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 14:00:10,865 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 14:01:25,890 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 14:20:54,427 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 14:22:21,696 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 14:31:31,439 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 14:52:01,514 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 14:59:46,460 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 15:07:16,954 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 15:10:21,800 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 15:29:25,787 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 16:06:21,845 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 16:20:59,274 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 16:23:54,876 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 16:27:27,875 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 16:29:42,489 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 16:32:29,143 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 17:29:37,192 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 17:40:21,131 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 17:47:06,497 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 17:55:30,278 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 17:58:22,593 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 18:25:18,771 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 18:28:07,036 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 18:30:24,832 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 18:41:31,770 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 18:47:54,828 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 19:04:17,518 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 19:06:24,410 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 19:08:39,502 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 19:10:01,516 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 19:17:52,358 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-07 19:20:16,884 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-08 11:15:01,994 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-08 12:02:28,741 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-08 12:05:04,208 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-08 12:08:21,654 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-08 12:09:22,842 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-08 12:13:35,355 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-08 12:16:45,560 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-08 12:18:08,048 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-08 12:20:48,759 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-08 12:22:11,007 - logs/myutils.logs - WARNING - logs/myutils.logs

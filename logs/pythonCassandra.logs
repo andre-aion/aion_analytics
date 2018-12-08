@@ -1,44 +1,31 @@
-2018-12-05 16:51:27,211 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 16:51:55,562 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 16:56:41,855 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 16:59:50,524 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 17:04:11,341 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 17:06:17,377 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 17:09:44,560 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 17:12:11,608 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 17:19:48,033 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 17:21:21,563 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 17:35:28,060 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 17:36:09,132 - logs/pythonCassandra.logs - ERROR - Insert error:
+2018-12-07 18:47:54,757 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-07 19:04:17,471 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-07 19:06:24,331 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-07 19:08:39,435 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-07 19:10:01,420 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-07 19:17:52,294 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-07 19:20:16,746 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 11:15:01,910 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 12:02:28,626 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 12:05:04,128 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 12:08:21,595 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 12:09:22,780 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 12:13:35,295 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 12:16:45,491 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 12:18:07,986 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 12:18:37,147 - logs/pythonCassandra.logs - ERROR - Insert error:
 Traceback (most recent call last):
   File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 155, in insert_data_block
     self.session.execute(batch)
   File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
   File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
 cassandra.cluster.NoHostAvailable: ('Unable to complete the operation against any hosts', {})
-2018-12-05 20:09:15,619 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 20:09:45,338 - logs/pythonCassandra.logs - ERROR - Insert error:
+2018-12-08 12:20:48,687 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 12:22:10,937 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
+2018-12-08 12:22:34,642 - logs/pythonCassandra.logs - ERROR - Insert error:
 Traceback (most recent call last):
   File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 155, in insert_data_block
     self.session.execute(batch)
   File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
   File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
 cassandra.cluster.NoHostAvailable: ('Unable to complete the operation against any hosts', {})
-2018-12-05 20:11:45,205 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 20:12:48,281 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 20:14:16,648 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 20:15:28,094 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 20:16:14,718 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 20:22:00,936 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 20:23:21,883 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-05 20:46:09,405 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-06 07:17:33,212 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-06 07:18:25,556 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-06 07:23:02,580 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-06 07:26:45,592 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-06 09:31:27,410 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-06 09:41:15,856 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-06 09:45:33,079 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-06 09:48:42,847 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-06 10:20:15,071 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs
-2018-12-06 10:25:23,249 - logs/pythonCassandra.logs - WARNING - logs/pythonCassandra.logs

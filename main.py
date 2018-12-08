@@ -29,7 +29,7 @@ from pyspark.streaming import StreamingContext
 from pyspark.sql import SQLContext, SparkSession
 from pyspark.context import SparkConf, SparkContext
 
-  #
+
 executor = ThreadPoolExecutor(max_workers=20)
 kcp_connection = KafkaConnectPyspark()
 logger = mylogger(__file__)
@@ -43,6 +43,7 @@ def block_update():
 
 # run block streamer
 executor.submit(block_update)
+#block_update()
 
 @gen.coroutine
 def aion_analytics(doc):

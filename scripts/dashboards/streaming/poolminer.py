@@ -1,5 +1,5 @@
 import config
-from scripts.utils.myutils import get_initial_blocks, tab_error_flag, ms_to_date
+from scripts.utils.myutils import get_initial_blocks, tab_error_flag, ms_to_date, ns_to_date
 from scripts.utils.mylogger import mylogger
 from scripts.utils.pythonCassandra import PythonCassandra
 
@@ -122,21 +122,16 @@ def poolminer_tab():
     try:
         # create class and get date range
         pm = Poolminer()
-        ns = 1e-9
 
         # DYNAMIC DATES TO BOOKEND SLIDER
         df = pm.df.head(1)
         first_date = df['block_date'].values[0].astype(datetime)
-        first_date = datetime.utcfromtimestamp(first_date * ns)
-        first_date = pd.Timestamp(datetime.date(first_date))
-
+        first_date = ns_to_date(first_date)
         logger.warning('BLOCK FIRST DATE:%s', first_date)
-
 
         df = pm.df.tail(1)
         last_date = df['block_date'].values[-1].astype(datetime)
-        last_date = datetime.utcfromtimestamp(last_date * ns)
-        last_date = pd.Timestamp(datetime.date(last_date))
+        last_date = ns_to_date(last_date)
         logger.warning('LAST DATE:%s', last_date)
 
         '''   

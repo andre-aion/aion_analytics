@@ -1,10 +1,26 @@
-2018-12-06 07:17:35,165 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-06 07:18:27,289 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-06 07:23:04,423 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-06 07:26:47,357 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-06 09:31:29,137 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-06 09:41:17,856 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-06 09:45:35,849 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-06 09:48:45,583 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-06 10:20:18,154 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-06 10:25:25,617 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-08 12:13:38,535 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-08 12:13:41,769 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
+2018-12-08 12:13:41,771 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f08407161d0>: 30000}
+2018-12-08 12:16:49,081 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-08 12:16:52,245 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
+2018-12-08 12:16:52,247 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f79d07d7048>: 30000}
+2018-12-08 12:18:11,415 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-08 12:18:15,056 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
+2018-12-08 12:18:15,058 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f44924da1d0>: 30000}
+2018-12-08 12:20:52,297 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-08 12:20:55,916 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
+2018-12-08 12:20:55,922 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f86c6d52f28>: 30000}
+2018-12-08 12:20:58,114 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f86e8800a20>
+2018-12-08 12:20:58,577 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [30000 -> 40000]
+2018-12-08 12:22:14,564 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-08 12:22:17,973 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
+2018-12-08 12:22:17,976 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f5b980870f0>: 40000}
+2018-12-08 12:22:20,716 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f5b99319c50>
+2018-12-08 12:22:20,740 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [40000 -> 50000]
+2018-12-08 12:22:35,013 - logs/kafka_sink_spark_source.logs - ERROR - HANDLE RDDS:{}
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 214, in handle_rdds
+    cls.block_to_tuple(taken)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 112, in block_to_tuple
+    print('block # loaded from taken:{}'.format(mess['block_number']))
+BrokenPipeError: [Errno 32] Broken pipe
