@@ -1,46 +1,35 @@
-2018-12-08 13:16:29,775 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-08 13:16:56,021 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
+2018-12-10 07:11:56,679 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-10 07:12:27,979 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-10 07:12:33,718 - logs/myutils.logs - ERROR - check loaded dates
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 192, in check_loaded_dates
+    min_date , max_date  = dd.compute(df.block_date.min(),
+AttributeError: 'NoneType' object has no attribute 'block_date'
+2018-12-10 07:12:58,824 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
 0             0       16384 2018-04-23           0  0000000000
 1             1       16384 2018-04-25      100805  a0518c8516
 2             2       15592 2018-04-25          14  a0518c8516
 3             3       15592 2018-04-25          14  a0518c8516
 4             4       15592 2018-04-25          13  a0518c8516
-2018-12-08 13:18:41,239 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
+2018-12-10 07:13:22,588 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
 0             0       16384 2018-04-23           0  0000000000
 1             1       16384 2018-04-25      100805  a0518c8516
 2             2       15592 2018-04-25          14  a0518c8516
 3             3       15592 2018-04-25          14  a0518c8516
 4             4       15592 2018-04-25          13  a0518c8516
-2018-12-08 13:19:07,863 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
+2018-12-10 08:26:14,816 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-10 08:26:19,152 - logs/myutils.logs - ERROR - check loaded dates
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 192, in check_loaded_dates
+    min_date , max_date  = dd.compute(df.block_date.min(),
+AttributeError: 'NoneType' object has no attribute 'block_date'
+2018-12-10 08:26:42,787 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
 0             0       16384 2018-04-23           0  0000000000
 1             1       16384 2018-04-25      100805  a0518c8516
 2             2       15592 2018-04-25          14  a0518c8516
 3             3       15592 2018-04-25          14  a0518c8516
 4             4       15592 2018-04-25          13  a0518c8516
-2018-12-08 13:20:17,482 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-24 00:00:00
-2018-12-08 13:20:17,483 - logs/myutils.logs - WARNING - from ms_to_date: 2018-05-01 00:00:00
-2018-12-08 13:21:27,158 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-25 00:00:00
-2018-12-08 13:21:27,159 - logs/myutils.logs - WARNING - from ms_to_date: 2018-05-01 00:00:00
-2018-12-08 13:22:34,691 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-26 00:00:00
-2018-12-08 13:22:34,692 - logs/myutils.logs - WARNING - from ms_to_date: 2018-05-01 00:00:00
-2018-12-08 13:23:25,432 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-27 00:00:00
-2018-12-08 13:23:25,433 - logs/myutils.logs - WARNING - from ms_to_date: 2018-05-01 00:00:00
-2018-12-08 13:24:17,433 - logs/myutils.logs - WARNING - from ms_to_date: 2018-04-28 00:00:00
-2018-12-08 13:24:17,435 - logs/myutils.logs - WARNING - from ms_to_date: 2018-05-01 00:00:00
-2018-12-08 14:31:12,614 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-08 14:31:29,770 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
-0             0       16384 2018-04-23           0  0000000000
-1             1       16384 2018-04-25      100805  a0518c8516
-2             2       15592 2018-04-25          14  a0518c8516
-3             3       15592 2018-04-25          14  a0518c8516
-4             4       15592 2018-04-25          13  a0518c8516
-2018-12-08 14:32:46,024 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
-0             0       16384 2018-04-23           0  0000000000
-1             1       16384 2018-04-25      100805  a0518c8516
-2             2       15592 2018-04-25          14  a0518c8516
-3             3       15592 2018-04-25          14  a0518c8516
-4             4       15592 2018-04-25          13  a0518c8516
-2018-12-08 14:33:01,134 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
+2018-12-10 08:27:13,809 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
 0             0       16384 2018-04-23           0  0000000000
 1             1       16384 2018-04-25      100805  a0518c8516
 2             2       15592 2018-04-25          14  a0518c8516

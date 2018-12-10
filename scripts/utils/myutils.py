@@ -1,4 +1,7 @@
 from scripts.utils.mylogger import mylogger
+from scripts.utils.pythonRedis import LoadType, RedisStorage
+from scripts.streaming.streamingBlock import Block
+
 import pandas as pd
 from os.path import join, dirname
 from pandas.api.types import is_string_dtype
@@ -9,6 +12,7 @@ from bokeh.models.widgets import Div
 import numpy as np
 from tornado.gen import coroutine
 import config
+import gc
 
 logger = mylogger(__file__)
 
@@ -56,7 +60,7 @@ def get_breakdown_from_timestamp(ts):
 
 def get_initial_blocks(pc):
     try:
-        to_check = tuple(range(0, 100000))
+        to_check = tuple(range(0, 50000))
         qry ="""SELECT block_number, difficulty, block_date, 
             block_time, miner_addr FROM block
             WHERE block_number in """+str(to_check)
@@ -116,3 +120,187 @@ def ns_to_date(ts):
     except Exception:
         logger.error('ns_to_date', exc_info=True)
         return ts
+
+# date time to ns
+def date_to_ns(ts):
+    ts = int(ts.timestamp()*1000)
+    return ts
+
+# convert date format for building cassandra queries
+def date_to_cass_ts(ts):
+    #ts = pd.Timestamp(ts, unit='ns')
+    if isinstance(ts, str):
+        ts = datetime.strptime(ts,'%Y-%m-%d')
+    ts = int(ts.timestamp()*1000)
+    return ts
+
+
+#convert ms to string date
+def ms_to_str(ts):
+    # convert to datetime if necessary
+    if isinstance(ts,int) == True:
+        ts = ms_to_date(ts)
+
+    ts = datetime.strftime(ts,'%Y-%m-%d')
+    return ts
+
+# cols are a list
+def construct_read_query(table,cols,startdate,enddate):
+    qry = 'select '
+    if len(cols) >= 1:
+        for pos, col in enumerate(cols):
+            if pos > 0:
+                qry += ','
+            qry += col
+    else:
+        qry += '*'
+
+    qry += """ from {} where block_timestamp >={} and 
+        block_timestamp <={} ALLOW FILTERING"""\
+        .format(table, startdate, enddate)
+
+
+    logger.warning('query:%s',qry)
+    return qry
+
+# dates are in milliseconds from sliders
+def cass_load_from_daterange(pc, table, cols, from_date, to_date):
+    try:
+        if isinstance(from_date,int) == True:
+            # convert ms from slider to nano for cassandra
+            from_date = from_date
+            to_date = to_date
+        else:
+            # convert from datetime to ns
+            from_date = date_to_ns(from_date)
+            to_date = date_to_ns(to_date)
+
+        # construct query
+        qry = construct_read_query(table, cols,
+                                   from_date,
+                                   to_date)
+        df = pd.DataFrame(list(pc.session.execute(qry)))
+        df = dd.dataframe.from_pandas(df, npartitions=15)
+        logger.warning('data loaded from daterange :%s', df.tail(5))
+        return df
+
+    except Exception:
+        logger.error('load from daterange', exc_info=True)
+
+# check to see if the current data is within the active dataset
+def check_loaded_dates(df,start_date, end_date):
+    try:
+        flags = dict()
+        flags['start_flag'] = False
+        flags['min_date'] = None
+        flags['end_flag'] = False
+        flags['max_flag'] = None
+        # convert dates from ms to datetime
+        start_date = ms_to_date(start_date)
+        end_date = ms_to_date(end_date)
+
+        flags['min_date'] , flags['max_date']  = \
+            dd.compute(df.block_date.min(),
+                       df.block_date.max())
+
+        # check start
+        if start_date > flags['min_date']:
+            flags['start'] = True
+
+        # check end
+        if end_date < flags['max_date']:
+            flags['end'] = True
+
+        return flags
+    except Exception:
+        logger.error('check loaded dates', exc_info=True)
+
+# delta is integer: +-
+def get_relative_day(day,delta):
+    if isinstance(day,str):
+        day = datetime.strptime('%Y-%m-%d')
+    elif isinstance(day,int):
+        day = ms_to_date()
+    day = day + datetime.timedelta(days=delta)
+    day = datetime.strftime(day, '%Y-%m-%d')
+    return day
+
+
+# get the data differential from the required start range
+def construct_df_upon_load(pc, df, table, cols, req_start_date,
+                           req_end_date,load_flags):
+    redis = RedisStorage()
+    r = redis.conn
+    # get the data parameters to determine from whence to load
+    flags = redis.get_load_params(table, load_flags, req_start_date,
+                                  req_end_date, load_flags)
+    df_dict = dict()
+    # load all from redis
+    if flags['load_type'] & LoadType.REDIS_FULL == LoadType.REDIS_FULL:
+        sdate = datetime.strptime(load_flags['redis_key_full'][0])
+        edate = datetime.strptime(load_flags['redis_key_full'][1])
+
+        df = r.load_df(load_flags['redis_full'], table,
+                            sdate, edate)
+    # load all from cassandra
+    elif flags['load_type'] & LoadType.CASS_FULL == LoadType.CASS_FULL:
+        sdate = date_to_cass_ts(req_start_date)
+        edate = date_to_cass_ts(req_end_date)
+        df = cass_load_from_daterange(pc, table, cols, sdate, edate)
+
+    # load from both cassandra and redis
+    else:
+        # load start
+        df_temp = dict()
+
+        if flags['load_type'] & LoadType.START_REDIS == LoadType.START_REDIS:
+            sdate = datetime.strptime(load_flags['redis_start_range'][0])
+            edate = datetime.strptime(load_flags['redis_start_range'][1])
+            df_temp['redis'] = r.load_df(load_flags['redis_key_start'], table, sdate, edate)
+
+        if flags['load_type'] & LoadType.REDIS_START_ONLY != LoadType.REDIS_START_ONLY:
+            if flags['load_type'] & LoadType.START_CASS == LoadType.START_CASS:
+                sdate = date_to_cass_ts(load_flags['cass_end_range'][0])
+                edate = date_to_cass_ts(load_flags['cass_end_range'][1])
+                df_temp['cass'] = cass_load_from_daterange(pc, table, cols, sdate, edate)
+
+                if flags['load_type'] & LoadType.START_REDIS == LoadType.START_REDIS:
+                    df_temp['cass'] = df_temp['cass'].append(df_temp['redis'], ignore_index=True)
+            df = df_temp['cass'].append(df, ignore_index=True)
+
+        else:
+            df = df_temp['redis'].append(df, ignore_index=True)
+
+        del df_temp
+        gc.collect()
+
+        # load end
+        df_temp = dict()
+
+        if flags['load_type'] & LoadType.END_REDIS == LoadType.END_REDIS:
+            sdate = datetime.strptime(load_flags['redis_end_range'][0])
+            edate = datetime.strptime(load_flags['redis_end_range'][1])
+            df_temp['redis'] = r.load_df(load_flags['redis_key_end'], table, sdate, edate)
+
+        if flags['load_type'] & LoadType.REDIS_END_ONLY != LoadType.REDIS_END_ONLY:
+            if flags['load_type'] & LoadType.END_CASS == LoadType.END_CASS:
+                sdate = date_to_cass_ts(load_flags['cass_end_range'][0])
+                edate = date_to_cass_ts(load_flags['cass_end_range'][1])
+                df_temp['cass'] = cass_load_from_daterange(pc, table, cols, sdate, edate)
+
+                if flags['load_type'] & LoadType.END_REDIS == LoadType.END_REDIS:
+                    df_temp['redis'] = df_temp['redis'].append(df_temp['cass'], ignore_index=True)
+            df = df.append(df_temp['redis'], ignore_index=True)
+
+        else:
+            df = df.append(df_temp['redis'], ignore_index=True)
+
+        del df_temp
+        gc.collect()
+
+
+    # save df to  redis
+    r.save_df(df, table, req_start_date, req_end_date)
+
+    gc.collect()
+    return df

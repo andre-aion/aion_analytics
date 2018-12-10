@@ -295,9 +295,9 @@ class KafkaConnectPyspark:
     def create_streaming_context(cls):
         # NOTE THAT MAXRATEPERPARTIOINS DETERMINES THE KAFKA CHECKPOINTING PERIODS
         conf = SparkConf() \
-            .set("spark.streaming.kafka.backpressure.initialRate", 250) \
+            .set("spark.streaming.kafka.backpressure.initialRate", 150) \
             .set("spark.streaming.kafka.backpressure.enabled", 'true') \
-            .set('spark.streaming.kafka.maxRatePerPartition', 500) \
+            .set('spark.streaming.kafka.maxRatePerPartition', 250) \
             .set('spark.streaming.receiver.writeAheadLog.enable', 'true')
 
         spark_context = SparkContext(appName='aion_analytics',
