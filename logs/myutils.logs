@@ -1,35 +1,11 @@
-2018-12-10 07:11:56,679 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-10 07:12:27,979 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-10 07:12:33,718 - logs/myutils.logs - ERROR - check loaded dates
+2018-12-10 23:02:57,489 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-10 23:02:59,052 - logs/myutils.logs - WARNING - construct df:1
+2018-12-10 23:02:59,054 - logs/myutils.logs - ERROR - construct df from load
 Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 192, in check_loaded_dates
-    min_date , max_date  = dd.compute(df.block_date.min(),
-AttributeError: 'NoneType' object has no attribute 'block_date'
-2018-12-10 07:12:58,824 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
-0             0       16384 2018-04-23           0  0000000000
-1             1       16384 2018-04-25      100805  a0518c8516
-2             2       15592 2018-04-25          14  a0518c8516
-3             3       15592 2018-04-25          14  a0518c8516
-4             4       15592 2018-04-25          13  a0518c8516
-2018-12-10 07:13:22,588 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
-0             0       16384 2018-04-23           0  0000000000
-1             1       16384 2018-04-25      100805  a0518c8516
-2             2       15592 2018-04-25          14  a0518c8516
-3             3       15592 2018-04-25          14  a0518c8516
-4             4       15592 2018-04-25          13  a0518c8516
-2018-12-10 08:26:14,816 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-10 08:26:19,152 - logs/myutils.logs - ERROR - check loaded dates
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 192, in check_loaded_dates
-    min_date , max_date  = dd.compute(df.block_date.min(),
-AttributeError: 'NoneType' object has no attribute 'block_date'
-2018-12-10 08:26:42,787 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
-0             0       16384 2018-04-23           0  0000000000
-1             1       16384 2018-04-25      100805  a0518c8516
-2             2       15592 2018-04-25          14  a0518c8516
-3             3       15592 2018-04-25          14  a0518c8516
-4             4       15592 2018-04-25          13  a0518c8516
-2018-12-10 08:27:13,809 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 274, in construct_df_upon_load
+    df = df_temp['cass'].append(df, ignore_index=True)
+KeyError: 'cass'
+2018-12-10 23:03:15,746 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
 0             0       16384 2018-04-23           0  0000000000
 1             1       16384 2018-04-25      100805  a0518c8516
 2             2       15592 2018-04-25          14  a0518c8516

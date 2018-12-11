@@ -1,10 +1,10 @@
 import config
 from scripts.utils.myutils import get_initial_blocks, tab_error_flag, \
-    ms_to_date, ns_to_date, cass_load_from_daterange, check_loaded_dates, \
+    ms_to_date, ns_to_date, cass_load_from_daterange, set_loaded_params, \
     construct_df_upon_load
 from scripts.utils.mylogger import mylogger
 from scripts.utils.pythonCassandra import PythonCassandra
-from scripts.utils.pythonRedis import RedisStorage
+from scripts.streaming.streamingBlock import Block
 
 
 import datashader as ds
@@ -43,18 +43,19 @@ for i in range(0, 400, 5):
 
 @coroutine
 def poolminer_tab():
-
     class Poolminer():
         pc = None
         querycols = ['block_number', 'miner_addr', 'block_date']
         table = 'block'
+        block = Block()
+        df = block.get_df()
+        df1 = None
+
         def __init__(self):
             if self.pc is None:
                 self.pc = PythonCassandra()
                 self.pc.createsession()
                 self.pc.createkeyspace('aionv4')
-                self.df = None
-                self.df1 = None
                 self.n = 30
             else:
                 pass
@@ -62,13 +63,18 @@ def poolminer_tab():
 
         def load_data(self, start_date, end_date):
             # find the boundaries of the loaded data, redis_data
-            load_flags = check_loaded_dates(self.df, start_date,end_date)
+            load_params = set_loaded_params(self.df, start_date, end_date)
+            logger.warning('load_data:%s',load_params)
             # load from redis, cassandra if necessary
             self.df = construct_df_upon_load(self.pc, self.df, self.table,
                                              self.querycols, start_date,
-                                             end_date, load_flags)
+                                             end_date, load_params)
 
-            self.df1 = self.df.filter_dates(start_date, end_date)
+            # filter dates
+            logger.warning('load_data head:%s',self.df.head())
+            logger.warning('load_data tail:%s',self.df.tail())
+            self.filter_dates(start_date, end_date)
+
             return self.prep_dataset(start_date, end_date)
 
         def filter_dates(self, start_date, end_date):
@@ -83,9 +89,7 @@ def poolminer_tab():
 
         def prep_dataset(self, start_date, end_date):
             try:
-
                 logger.warning("prep dataset start date:%s", start_date)
-
 
                 self.df1 = self.df1.groupby('miner_addr').count()
                 self.df1['percentage'] = 100*self.df1.block_number\
@@ -145,7 +149,7 @@ def poolminer_tab():
         first_date_range = "2018-04-10 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        last_date = "2018-09-30 00:00:00"
+        last_date = "2018-05-30 00:00:00"
         last_date = datetime.strptime(last_date, "%Y-%m-%d %H:%M:%S")
 
 

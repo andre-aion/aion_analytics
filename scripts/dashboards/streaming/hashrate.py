@@ -49,17 +49,19 @@ def hashrate_tab():
     pc = PythonCassandra()
     pc.createsession()
     pc.createkeyspace('aionv4')
+    df = get_initial_blocks(pc)
+    global df
+
 
     def hashrate_plot(bcount):
         try:
-            df = get_initial_blocks(pc)
-            df = calc_hashrate(df, bcount).compute()
+            df1 = calc_hashrate(df, bcount).compute()
             #curve = hv.Curve(df, kdims=['block_number'], vdims=['hashrate'])\
                 #.options(width=1000,height=600)
 
-            curve = df.hvplot.line('block_number', 'hashrate',
+            curve = df1.hvplot.line('block_number', 'hashrate',
                                    title='Hashrate',width=1000, height=600)
-            del df
+            del df1
             gc.collect()
             return curve
         except Exception:
@@ -77,7 +79,6 @@ def hashrate_tab():
         return div
 
     def difficulty_plot():
-        df = get_initial_blocks(pc)
         try:
             p = df.hvplot.line(x='block_number',y='difficulty',
                                title='Difficulty')

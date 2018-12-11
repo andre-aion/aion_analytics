@@ -1,3 +1,4 @@
-2018-12-09 07:52:37,838 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
-2018-12-10 07:12:27,989 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
-2018-12-10 08:26:14,820 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
+2018-12-10 22:58:00,213 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
+2018-12-10 22:58:03,621 - logs/pythonRedis.logs - WARNING - retrieve data from redis:{'cass_start_range': None, 'load_type': 0, 'redis_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-10 23:02:57,024 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
+2018-12-10 23:02:59,052 - logs/pythonRedis.logs - WARNING - retrieve data from redis:{'cass_start_range': None, 'load_type': 0, 'redis_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}

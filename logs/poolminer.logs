@@ -1,17 +1,8 @@
-2018-12-09 07:52:41,190 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-09 07:53:00,198 - logs/poolminer.logs - WARNING - START DATE:2018-04-10 00:00:00
-2018-12-09 07:53:00,200 - logs/poolminer.logs - WARNING - END DATE:2018-06-30 00:00:00
-2018-12-09 07:53:04,843 - logs/poolminer.logs - WARNING - DF1:            block_number  block_date  percentage
-miner_addr                                      
-0000000000           794         794    0.330379
-a000686525          3514        3514    1.462156
-a00339fa21          1534        1534    0.638289
-a003e9a7b9          3137        3137    1.305289
-a004a26d31             7           7    0.002913
-2018-12-10 07:12:30,949 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-10 07:12:33,720 - logs/poolminer.logs - ERROR - poolminer:
+2018-12-10 23:02:58,808 - logs/poolminer.logs - WARNING - logs/poolminer.logs
+2018-12-10 23:02:59,051 - logs/poolminer.logs - WARNING - load_data:{'start': True, 'end': True, 'min_date': None, 'max_date': None}
+2018-12-10 23:02:59,055 - logs/poolminer.logs - ERROR - poolminer:
 Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 199, in poolminer_tab
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 186, in poolminer_tab
     all_plot = renderer.get_plot(dmap_all)
   File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
     plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
@@ -33,34 +24,6 @@ Traceback (most recent call last):
     retval = self.callback(*args, **kwargs)
   File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
     ret = self.callable(*args, **kwargs)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 65, in load_data
-    check_loaded_dates(self.df, start_date,end_date)
-TypeError: 'NoneType' object is not iterable
-2018-12-10 08:26:17,260 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-10 08:26:19,213 - logs/poolminer.logs - ERROR - poolminer:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 199, in poolminer_tab
-    all_plot = renderer.get_plot(dmap_all)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
-    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
-    initialize_dynamic(obj)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
-    dmap[dmap._initial_key()]
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
-    val = self._execute_callback(*tuple_key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
-    retval = self.callback(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
-    ret = self.callable(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
-    return self._process(map_obj[key], key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
-    val = self._execute_callback(*tuple_key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
-    retval = self.callback(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
-    ret = self.callable(*args, **kwargs)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 65, in load_data
-    check_loaded_dates(self.df, start_date,end_date)
-TypeError: 'NoneType' object is not iterable
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 74, in load_data
+    logger.warning('load_data head:%s',self.df.head())
+AttributeError: 'NoneType' object has no attribute 'head'
