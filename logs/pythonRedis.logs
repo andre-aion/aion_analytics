@@ -1,4 +1,11 @@
-2018-12-10 22:58:00,213 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
-2018-12-10 22:58:03,621 - logs/pythonRedis.logs - WARNING - retrieve data from redis:{'cass_start_range': None, 'load_type': 0, 'redis_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-10 23:02:57,024 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
-2018-12-10 23:02:59,052 - logs/pythonRedis.logs - WARNING - retrieve data from redis:{'cass_start_range': None, 'load_type': 0, 'redis_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-11 12:45:32,182 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
+2018-12-11 14:36:02,386 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
+2018-12-11 14:44:18,769 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
+2018-12-11 14:44:22,619 - logs/pythonRedis.logs - WARNING - retrieve data from redis:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-11 14:51:06,257 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
+2018-12-11 14:51:08,520 - logs/pythonRedis.logs - WARNING - retrieve data from redis:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-11 15:00:40,881 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
+2018-12-11 15:00:43,164 - logs/pythonRedis.logs - WARNING - retrieve data from redis:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-11 16:58:55,837 - logs/pythonRedis.logs - WARNING - logs/pythonRedis.logs
+2018-12-11 16:58:57,737 - logs/pythonRedis.logs - WARNING - params result:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-11 16:59:27,661 - logs/pythonRedis.logs - WARNING - block:2018-04-10:2018-05-30 saved to redis

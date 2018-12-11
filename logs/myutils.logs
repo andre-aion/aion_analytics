@@ -1,13 +1,22 @@
-2018-12-10 23:02:57,489 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-10 23:02:59,052 - logs/myutils.logs - WARNING - construct df:1
-2018-12-10 23:02:59,054 - logs/myutils.logs - ERROR - construct df from load
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 274, in construct_df_upon_load
-    df = df_temp['cass'].append(df, ignore_index=True)
-KeyError: 'cass'
-2018-12-10 23:03:15,746 - logs/myutils.logs - WARNING -    block_number  difficulty block_date  block_time  miner_addr
-0             0       16384 2018-04-23           0  0000000000
-1             1       16384 2018-04-25      100805  a0518c8516
-2             2       15592 2018-04-25          14  a0518c8516
-3             3       15592 2018-04-25          14  a0518c8516
-4             4       15592 2018-04-25          13  a0518c8516
+2018-12-11 16:58:56,269 - logs/myutils.logs - WARNING - logs/myutils.logs
+2018-12-11 16:58:57,737 - logs/myutils.logs - WARNING - construct df:1
+2018-12-11 16:58:57,739 - logs/myutils.logs - WARNING - query:select block_number,miner_addr,block_date from block where block_timestamp >=1523332800000 and 
+        block_timestamp <=1527652800000 ALLOW FILTERING
+2018-12-11 16:59:26,214 - logs/myutils.logs - WARNING - data loaded from daterange :        block_number  miner_addr block_date
+295251        199180  a0c7e08b1b 2018-05-18
+295252         43389  a0762b81cb 2018-04-29
+295253         31505  a0426ebf76 2018-04-27
+295254        280925  a003e9a7b9 2018-05-28
+295255        237513  a0762b81cb 2018-05-22
+2018-12-11 16:59:26,279 - logs/myutils.logs - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+0          1535  a0518c8516 2018-04-25
+1        219535  a0b8a29ddc 2018-05-20
+2        227203  a0db64eae1 2018-05-21
+3         82694  a0762b81cb 2018-05-03
+4         57379  a0c7e08b1b 2018-04-30
+2018-12-11 16:59:26,313 - logs/myutils.logs - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+295251        199180  a0c7e08b1b 2018-05-18
+295252         43389  a0762b81cb 2018-04-29
+295253         31505  a0426ebf76 2018-04-27
+295254        280925  a003e9a7b9 2018-05-28
+295255        237513  a0762b81cb 2018-05-22

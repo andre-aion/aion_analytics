@@ -1,308 +1,730 @@
-2018-12-10 21:00:17,641 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-10 21:00:25,850 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-10 21:00:25,854 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f0c17d97390>: 1287750}
-2018-12-10 21:00:57,211 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:00:57,228 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1287750 -> 1288000]
-2018-12-10 21:01:24,115 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:01:24,232 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1288000 -> 1288250]
-2018-12-10 21:01:47,141 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:01:47,148 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1288250 -> 1288500]
-2018-12-10 21:02:08,675 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:02:08,683 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1288500 -> 1288750]
-2018-12-10 21:02:30,682 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:02:30,689 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1288750 -> 1289000]
-2018-12-10 21:02:52,836 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:02:52,848 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1289000 -> 1289250]
-2018-12-10 21:03:14,705 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:03:14,716 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1289250 -> 1289500]
-2018-12-10 21:03:36,499 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:03:36,505 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1289500 -> 1289750]
-2018-12-10 21:03:57,116 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:03:57,123 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1289750 -> 1290000]
-2018-12-10 21:04:20,396 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:04:20,412 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1290000 -> 1290250]
-2018-12-10 21:04:44,968 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0c2f60a780>
-2018-12-10 21:04:44,976 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1290250 -> 1290500]
-2018-12-10 21:17:20,396 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-10 21:17:34,807 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-10 21:17:34,816 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f0d8b197128>: 1290500}
-2018-12-10 21:18:09,339 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0da2a0b710>
-2018-12-10 21:18:09,356 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1290500 -> 1290750]
-2018-12-10 21:18:36,723 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0da2a0b710>
-2018-12-10 21:18:36,733 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1290750 -> 1291000]
-2018-12-10 21:18:36,986 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0da2a0b710>
-2018-12-10 21:18:37,006 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1291000 -> 1291250]
-2018-12-10 21:19:05,460 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0da2a0b710>
-2018-12-10 21:19:05,472 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1291250 -> 1291500]
-2018-12-10 21:19:32,857 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0da2a0b710>
-2018-12-10 21:19:32,870 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1291500 -> 1291750]
-2018-12-10 21:20:01,352 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f0da2a0b710>
-2018-12-10 21:20:01,475 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1291750 -> 1292000]
-2018-12-10 21:31:15,926 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-10 21:31:21,949 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-10 21:31:21,952 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7fe8142f4550>: 1292000}
-2018-12-10 21:31:52,858 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:31:52,873 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1292000 -> 1292250]
-2018-12-10 21:32:23,684 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:32:23,811 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1292250 -> 1292500]
-2018-12-10 21:32:58,689 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:32:58,699 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1292500 -> 1292750]
-2018-12-10 21:33:26,797 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:33:26,808 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1292750 -> 1293000]
-2018-12-10 21:33:49,220 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:33:49,228 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1293000 -> 1293250]
-2018-12-10 21:34:13,322 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:34:13,331 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1293250 -> 1293500]
-2018-12-10 21:34:35,846 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:34:35,860 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1293500 -> 1293750]
-2018-12-10 21:34:58,443 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:34:58,450 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1293750 -> 1294000]
-2018-12-10 21:35:21,593 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:35:21,600 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1294000 -> 1294250]
-2018-12-10 21:35:43,129 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:35:43,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1294250 -> 1294500]
-2018-12-10 21:36:05,561 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:36:05,569 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1294500 -> 1294750]
-2018-12-10 21:36:27,341 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:36:27,352 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1294750 -> 1295000]
-2018-12-10 21:36:48,946 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:36:48,956 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1295000 -> 1295250]
-2018-12-10 21:37:11,753 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:37:11,763 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1295250 -> 1295500]
-2018-12-10 21:37:33,114 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:37:33,124 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1295500 -> 1295750]
-2018-12-10 21:37:54,472 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:37:54,481 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1295750 -> 1296000]
-2018-12-10 21:38:17,740 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:38:17,752 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1296000 -> 1296250]
-2018-12-10 21:38:39,062 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:38:39,069 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1296250 -> 1296500]
-2018-12-10 21:39:01,163 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:39:01,176 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1296500 -> 1296750]
-2018-12-10 21:39:23,102 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:39:23,110 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1296750 -> 1297000]
-2018-12-10 21:39:44,285 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:39:44,291 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1297000 -> 1297250]
-2018-12-10 21:40:05,219 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:40:05,226 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1297250 -> 1297500]
-2018-12-10 21:40:27,766 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:40:27,776 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1297500 -> 1297750]
-2018-12-10 21:40:49,627 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:40:49,637 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1297750 -> 1298000]
-2018-12-10 21:41:11,885 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:41:11,897 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1298000 -> 1298250]
-2018-12-10 21:41:33,216 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:41:33,222 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1298250 -> 1298500]
-2018-12-10 21:41:53,550 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:41:53,561 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1298500 -> 1298750]
-2018-12-10 21:42:17,112 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:42:17,120 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1298750 -> 1299000]
-2018-12-10 21:42:37,711 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:42:37,721 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1299000 -> 1299250]
-2018-12-10 21:42:58,204 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:42:58,211 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1299250 -> 1299500]
-2018-12-10 21:43:19,606 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:43:19,615 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1299500 -> 1299750]
-2018-12-10 21:43:40,522 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:43:40,529 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1299750 -> 1300000]
-2018-12-10 21:44:01,592 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:44:01,600 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1300000 -> 1300250]
-2018-12-10 21:44:24,334 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:44:24,344 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1300250 -> 1300500]
-2018-12-10 21:44:50,337 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:44:50,345 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1300500 -> 1300750]
-2018-12-10 21:45:14,997 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:45:15,007 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1300750 -> 1301000]
-2018-12-10 21:45:40,466 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:45:40,475 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1301000 -> 1301250]
-2018-12-10 21:46:08,173 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:46:08,184 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1301250 -> 1301500]
-2018-12-10 21:46:37,338 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:46:37,350 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1301500 -> 1301750]
-2018-12-10 21:47:02,376 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:47:02,383 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1301750 -> 1302000]
-2018-12-10 21:47:25,391 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:47:25,403 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1302000 -> 1302250]
-2018-12-10 21:47:48,726 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:47:48,738 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1302250 -> 1302500]
-2018-12-10 21:48:12,278 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:48:12,424 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1302500 -> 1302750]
-2018-12-10 21:48:33,507 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:48:33,516 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1302750 -> 1303000]
-2018-12-10 21:48:57,103 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:48:57,111 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1303000 -> 1303250]
-2018-12-10 21:49:23,148 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:49:23,156 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1303250 -> 1303500]
-2018-12-10 21:49:47,059 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:49:47,069 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1303500 -> 1303750]
-2018-12-10 21:50:09,814 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:50:09,823 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1303750 -> 1304000]
-2018-12-10 21:50:33,762 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:50:33,771 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1304000 -> 1304250]
-2018-12-10 21:50:57,893 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:50:57,899 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1304250 -> 1304500]
-2018-12-10 21:51:20,402 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:51:20,409 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1304500 -> 1304750]
-2018-12-10 21:51:41,140 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:51:41,150 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1304750 -> 1305000]
-2018-12-10 21:52:02,536 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fe82632a6a0>
-2018-12-10 21:52:02,545 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1305000 -> 1305250]
-2018-12-10 21:52:35,827 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-10 21:52:43,788 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-10 21:52:43,794 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f98941f80b8>: 1305250}
-2018-12-10 21:53:23,586 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f989d240550>
-2018-12-10 21:53:23,628 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1305250 -> 1305500]
-2018-12-10 21:53:50,692 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f989d240550>
-2018-12-10 21:53:50,712 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1305500 -> 1305750]
-2018-12-10 21:54:15,895 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f989d240550>
-2018-12-10 21:54:15,904 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1305750 -> 1306000]
-2018-12-10 22:20:56,118 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-10 22:21:03,213 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-10 22:21:03,216 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7fa6f8b98518>: 1306000}
-2018-12-10 22:21:39,701 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fa6f9c628d0>
-2018-12-10 22:21:39,714 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1306000 -> 1306250]
-2018-12-10 22:22:03,050 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fa6f9c628d0>
-2018-12-10 22:22:03,073 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1306250 -> 1306500]
-2018-12-10 22:22:29,780 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fa6f9c628d0>
-2018-12-10 22:22:29,801 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1306500 -> 1306750]
-2018-12-10 22:22:51,839 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fa6f9c628d0>
-2018-12-10 22:22:51,852 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1306750 -> 1307000]
-2018-12-10 22:28:39,565 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-10 22:28:47,660 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-10 22:28:47,663 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7fd4d8ec7ef0>: 1307000}
-2018-12-10 22:29:20,641 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:29:20,659 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1307000 -> 1307250]
-2018-12-10 22:29:43,065 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:29:43,077 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1307250 -> 1307500]
-2018-12-10 22:30:04,830 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:30:04,837 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1307500 -> 1307750]
-2018-12-10 22:30:26,683 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:30:26,690 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1307750 -> 1308000]
-2018-12-10 22:30:48,002 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:30:48,009 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1308000 -> 1308250]
-2018-12-10 22:31:08,652 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:31:08,662 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1308250 -> 1308500]
-2018-12-10 22:31:29,885 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:31:29,895 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1308500 -> 1308750]
-2018-12-10 22:31:52,244 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:31:52,256 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1308750 -> 1309000]
-2018-12-10 22:32:16,506 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:32:16,515 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1309000 -> 1309250]
-2018-12-10 22:32:37,340 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:32:37,348 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1309250 -> 1309500]
-2018-12-10 22:32:58,218 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7fd4d9f878d0>
-2018-12-10 22:32:58,227 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1309500 -> 1309750]
-2018-12-10 22:38:24,446 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-10 22:38:32,063 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-10 22:38:32,068 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f7a283b1278>: 1309750}
-2018-12-10 22:39:04,717 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7a4bbf88d0>
-2018-12-10 22:39:04,733 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1309750 -> 1310000]
-2018-12-10 22:51:59,388 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-10 22:52:05,762 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-10 22:52:05,779 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f7d9c4b50b8>: 1310000}
-2018-12-10 22:52:34,200 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:52:34,214 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1310000 -> 1310250]
-2018-12-10 22:52:56,529 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:52:56,538 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1310250 -> 1310500]
-2018-12-10 22:53:17,568 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:53:17,575 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1310500 -> 1310750]
-2018-12-10 22:53:36,786 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:53:36,794 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1310750 -> 1311000]
-2018-12-10 22:53:57,950 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:53:57,956 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1311000 -> 1311250]
-2018-12-10 22:54:19,098 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:54:19,112 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1311250 -> 1311500]
-2018-12-10 22:54:38,677 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:54:38,687 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1311500 -> 1311750]
-2018-12-10 22:54:58,577 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:54:58,583 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1311750 -> 1312000]
-2018-12-10 22:55:19,440 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:55:19,449 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1312000 -> 1312250]
-2018-12-10 22:55:40,115 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:55:40,121 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1312250 -> 1312500]
-2018-12-10 22:55:59,511 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:55:59,518 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1312500 -> 1312750]
-2018-12-10 22:56:18,690 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:56:18,697 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1312750 -> 1313000]
-2018-12-10 22:56:38,326 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:56:38,332 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1313000 -> 1313250]
-2018-12-10 22:56:57,971 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:56:57,982 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1313250 -> 1313500]
-2018-12-10 22:57:17,435 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:57:17,445 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1313500 -> 1313750]
-2018-12-10 22:57:37,038 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f7dadcf66d8>
-2018-12-10 22:57:37,045 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1313750 -> 1314000]
-2018-12-10 22:58:00,927 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-10 22:58:05,878 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-10 22:58:05,881 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f43c0079080>: 1314000}
-2018-12-10 22:58:33,849 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f43c913b668>
-2018-12-10 22:58:33,867 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1314000 -> 1314250]
-2018-12-10 22:58:56,466 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f43c913b668>
-2018-12-10 22:58:56,476 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1314250 -> 1314500]
-2018-12-10 22:59:17,421 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f43c913b668>
-2018-12-10 22:59:17,429 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1314500 -> 1314750]
-2018-12-10 22:59:38,394 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f43c913b668>
-2018-12-10 22:59:38,401 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1314750 -> 1315000]
-2018-12-10 22:59:59,325 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f43c913b668>
-2018-12-10 22:59:59,332 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1315000 -> 1315250]
-2018-12-10 23:02:57,446 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
-2018-12-10 23:03:00,252 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
-2018-12-10 23:03:00,253 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f3760093e48>: 1315250}
-2018-12-10 23:03:29,929 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:03:29,943 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1315250 -> 1315500]
-2018-12-10 23:03:53,223 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:03:53,229 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1315500 -> 1315750]
-2018-12-10 23:04:14,141 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:04:14,153 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1315750 -> 1316000]
-2018-12-10 23:04:34,607 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:04:34,616 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1316000 -> 1316250]
-2018-12-10 23:04:57,241 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:04:57,254 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1316250 -> 1316500]
-2018-12-10 23:05:19,392 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:05:19,402 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1316500 -> 1316750]
-2018-12-10 23:05:40,859 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:05:40,867 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1316750 -> 1317000]
-2018-12-10 23:06:01,213 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:06:01,223 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1317000 -> 1317250]
-2018-12-10 23:06:21,923 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:06:21,931 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1317250 -> 1317500]
-2018-12-10 23:06:41,846 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:06:41,851 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1317500 -> 1317750]
-2018-12-10 23:07:02,592 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:07:02,600 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1317750 -> 1318000]
-2018-12-10 23:07:24,052 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:07:24,061 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1318000 -> 1318250]
-2018-12-10 23:07:44,491 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:07:44,496 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1318250 -> 1318500]
-2018-12-10 23:08:05,693 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:08:05,701 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1318500 -> 1318750]
-2018-12-10 23:08:26,765 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:08:26,771 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1318750 -> 1319000]
-2018-12-10 23:08:47,564 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:08:47,574 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1319000 -> 1319250]
-2018-12-10 23:09:07,420 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:09:07,426 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1319250 -> 1319500]
-2018-12-10 23:09:28,035 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:09:28,042 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1319500 -> 1319750]
-2018-12-10 23:09:48,238 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:09:48,247 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1319750 -> 1320000]
-2018-12-10 23:10:08,489 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:10:08,496 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1320000 -> 1320250]
-2018-12-10 23:10:30,745 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:10:30,754 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1320250 -> 1320500]
-2018-12-10 23:10:51,729 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:10:51,736 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1320500 -> 1320750]
-2018-12-10 23:11:11,634 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:11:11,642 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1320750 -> 1321000]
-2018-12-10 23:11:32,975 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:11:32,984 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1321000 -> 1321250]
-2018-12-10 23:11:57,107 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:11:57,115 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1321250 -> 1321500]
-2018-12-10 23:12:18,988 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:12:18,994 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1321500 -> 1321750]
-2018-12-10 23:12:38,891 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:12:38,898 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1321750 -> 1322000]
-2018-12-10 23:12:59,190 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:12:59,195 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1322000 -> 1322250]
-2018-12-10 23:13:20,898 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f37638bf390>
-2018-12-10 23:13:20,907 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1322250 -> 1322500]
+2018-12-11 14:44:19,445 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-11 14:44:28,867 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
+2018-12-11 14:44:28,872 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f586c728c88>: 1789011}
+2018-12-11 14:44:34,623 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:34,642 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:34,833 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:34,846 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:35,047 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:35,064 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:35,242 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:35,257 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:35,583 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:35,597 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:35,791 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:35,805 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:36,246 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:36,258 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:37,177 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:37,186 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:38,157 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:38,168 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:39,158 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:39,165 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:40,156 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:40,164 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:41,153 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:41,163 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:42,148 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:42,156 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:43,133 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:43,143 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:44,165 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:44,174 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:45,131 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:45,142 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:46,165 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:46,173 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:47,143 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:47,151 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:48,140 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:48,148 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:49,153 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:49,162 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:50,131 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:50,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:51,130 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:51,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:52,141 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:52,150 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:53,406 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:53,414 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:54,168 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:54,179 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:55,138 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:55,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:56,122 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:56,130 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:57,123 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:57,131 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:58,123 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:58,129 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:44:59,132 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:44:59,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:00,126 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:00,132 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:01,131 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:01,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:02,146 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:02,156 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:03,241 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:03,255 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:04,187 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:04,200 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:06,265 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:06,308 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:06,743 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:06,759 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:07,151 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:07,159 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:08,129 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:08,136 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:09,360 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:09,371 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:10,171 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:10,180 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:11,136 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:11,140 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:12,089 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:12,094 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:13,128 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:13,132 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:45:14,105 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f58900bf710>
+2018-12-11 14:45:14,112 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:06,684 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-11 14:51:12,004 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
+2018-12-11 14:51:12,007 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f73a87b2710>: 1789011}
+2018-12-11 14:51:16,404 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:16,420 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:16,604 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:16,615 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:16,763 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:16,784 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:17,086 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:17,107 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:17,258 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:17,270 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:18,163 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:18,172 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:19,258 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:19,266 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:20,147 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:20,156 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:21,143 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:21,150 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:22,135 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:22,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:23,138 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:23,145 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:24,129 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:24,136 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:25,128 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:25,134 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:26,139 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:26,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:27,127 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:27,134 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:28,167 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:28,176 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:29,151 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:29,161 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:30,132 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:30,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:31,128 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:31,136 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:32,265 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:32,273 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:33,159 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:33,170 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:34,556 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:34,574 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:35,330 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:35,348 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:36,289 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:36,306 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:37,172 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:37,184 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:38,154 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:38,161 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:39,130 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:39,137 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:40,120 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:40,126 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:41,125 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:41,133 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:42,127 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:42,134 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:43,115 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:43,120 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:44,113 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:44,121 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:45,119 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:45,127 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:47,106 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:47,158 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:47,581 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:47,589 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:48,190 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:48,199 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:49,126 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:49,133 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:50,142 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:50,151 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:51,146 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:51,153 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:52,132 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:52,136 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 14:51:53,144 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f73cbf74898>
+2018-12-11 14:51:53,149 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:41,311 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-11 15:00:47,759 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
+2018-12-11 15:00:47,762 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7ff51855ba58>: 1789011}
+2018-12-11 15:00:52,113 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:52,128 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:52,340 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:52,354 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:52,598 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:52,613 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:52,863 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:52,880 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:53,330 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:53,349 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:54,210 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:54,224 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:55,171 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:55,183 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:56,152 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:56,162 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:57,156 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:57,165 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:58,145 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:58,155 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:00:59,152 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:00:59,161 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:00,138 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:00,144 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:01,227 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:01,236 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:02,150 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:02,158 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:03,168 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:03,180 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:04,162 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:04,174 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:05,248 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:05,276 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:06,216 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:06,234 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:07,217 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:07,230 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:08,213 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:08,242 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:09,234 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:09,249 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:10,317 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:10,332 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:11,209 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:11,223 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:12,372 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:12,384 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:13,198 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:13,212 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:14,234 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:14,248 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:15,556 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:15,567 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:16,226 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:16,242 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:17,195 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:17,209 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:18,162 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:18,172 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:19,148 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:19,158 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:20,136 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:20,145 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:21,139 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:21,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:22,133 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:22,140 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:23,136 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:23,142 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:24,121 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:24,128 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:25,115 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:25,123 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:26,127 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:26,135 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:28,178 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:28,231 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:28,777 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:28,792 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:29,149 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:29,162 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:30,194 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:30,204 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:31,318 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:31,503 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:32,220 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:32,232 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:33,144 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:33,152 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:34,125 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:34,131 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:35,117 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:35,123 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:36,138 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:36,143 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:37,136 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:37,141 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:38,131 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:38,136 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:39,163 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:39,169 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:40,128 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:40,133 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:41,135 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:41,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:42,132 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:42,138 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:43,135 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:43,141 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:44,127 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:44,132 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:45,141 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:45,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:46,127 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:46,132 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:47,142 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:47,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:48,129 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:48,136 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:49,125 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:49,131 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:50,125 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:50,131 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:51,131 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:51,137 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:52,145 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:52,150 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:53,149 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:53,158 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:54,123 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:54,128 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:55,134 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:55,140 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:56,142 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:56,146 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:57,130 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:57,136 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:58,150 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:58,155 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:01:59,131 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:01:59,136 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:00,129 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:00,140 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:01,137 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:01,143 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:02,123 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:02,130 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:03,147 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:03,153 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:04,129 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:04,134 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:05,133 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:05,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:06,139 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:06,148 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:07,103 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:07,107 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:08,122 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:08,128 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:09,130 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:09,134 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:10,136 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:10,142 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:11,141 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:11,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:12,103 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:12,108 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:13,110 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:13,116 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:14,108 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:14,114 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:15,130 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:15,135 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:16,126 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:16,131 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:17,091 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:17,096 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:18,135 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:18,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:19,103 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:19,108 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:20,129 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:20,133 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:21,146 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:21,150 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:22,142 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:22,149 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:23,092 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:23,099 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 15:02:24,089 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7ff53be7c8d0>
+2018-12-11 15:02:24,093 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:58:56,249 - logs/kafka_sink_spark_source.logs - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-11 16:59:00,760 - logs/kafka_sink_spark_source.logs - WARNING - TOPIC:mainnetserver.aionv4.block
+2018-12-11 16:59:00,780 - logs/kafka_sink_spark_source.logs - WARNING - FROM_OFFSETS:{<pyspark.streaming.kafka.TopicAndPartition object at 0x7f796dfdbd30>: 1789011}
+2018-12-11 16:59:05,569 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:05,585 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:05,765 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:05,778 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:05,939 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:05,950 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:06,134 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:06,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:06,299 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:06,312 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:07,178 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:07,189 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:08,191 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:08,203 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:09,239 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:09,254 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:10,194 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:10,205 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:11,168 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:11,181 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:12,148 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:12,155 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:13,148 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:13,155 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:14,211 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:14,222 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:15,175 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:15,184 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:16,151 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:16,160 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:17,146 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:17,158 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:18,174 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:18,187 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:19,162 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:19,175 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:20,155 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:20,164 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:21,169 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:21,177 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:22,141 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:22,148 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:23,140 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:23,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:24,142 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:24,151 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:25,170 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:25,182 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:26,619 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:26,631 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:27,165 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:27,176 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:28,406 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:28,420 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:30,029 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:30,042 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:30,322 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:30,339 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:31,476 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:31,508 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:32,325 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:32,343 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:33,305 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:33,315 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:34,132 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:34,140 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:35,174 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:35,186 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:36,168 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:36,179 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:37,134 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:37,142 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:38,131 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:38,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:39,149 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:39,160 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:40,165 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:40,172 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:41,138 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:41,153 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:42,124 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:42,131 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:43,103 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:43,108 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:44,490 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:44,543 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:45,128 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:45,139 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:46,130 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:46,138 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:47,608 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:47,616 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:48,122 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:48,129 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:49,187 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:49,193 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:50,206 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:50,211 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:51,197 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:51,204 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:52,186 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:52,194 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:53,099 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:53,103 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:54,143 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:54,148 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:55,177 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:55,182 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:56,174 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:56,181 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:57,151 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:57,161 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:58,152 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:58,160 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 16:59:59,225 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 16:59:59,232 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:00,119 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:00,124 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:01,121 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:01,127 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:02,147 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:02,153 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:03,103 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:03,108 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:04,135 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:04,140 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:05,140 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:05,144 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:06,210 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:06,223 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:07,151 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:07,157 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:08,219 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:08,229 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:09,137 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:09,145 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:10,206 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:10,214 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:11,181 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:11,190 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:12,151 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:12,159 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:13,182 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:13,192 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:14,145 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:14,155 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:15,151 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:15,156 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:16,158 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:16,165 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:17,114 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:17,119 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:18,172 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:18,178 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:19,160 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:19,170 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:20,136 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:20,142 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:21,169 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:21,180 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:22,179 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:22,184 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:23,107 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:23,112 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:24,206 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:24,214 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:25,198 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:25,205 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:26,190 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:26,197 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:27,182 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:27,189 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:28,142 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:28,150 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:29,162 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:29,172 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:30,169 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:30,183 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:31,137 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:31,143 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:32,199 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:32,207 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:33,172 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:33,183 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:34,174 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:34,183 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:35,159 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:35,166 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:36,145 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:36,150 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:37,173 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:37,179 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:38,197 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:38,205 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:39,138 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:39,144 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:40,181 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:40,185 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:41,146 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:41,156 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:42,181 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:42,192 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:43,163 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:43,175 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:44,157 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:44,162 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:45,123 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:45,129 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:46,201 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:46,208 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:47,146 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:47,154 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:48,189 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:48,194 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:49,128 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:49,133 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:50,153 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:50,160 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:51,159 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:51,173 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:52,196 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:52,207 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:53,156 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:53,164 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:54,139 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:54,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:55,130 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:55,134 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:56,178 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:56,189 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:57,173 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:57,181 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:58,150 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:58,159 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:00:59,197 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:00:59,207 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:00,118 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:00,125 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:01,145 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:01,155 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:02,159 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:02,168 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:03,148 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:03,158 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:04,181 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:04,190 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:05,140 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:05,151 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:06,139 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:06,149 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:07,127 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:07,132 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:08,093 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:08,099 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:09,098 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:09,105 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:10,158 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:10,163 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:11,151 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:11,162 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:12,218 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:12,225 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:13,135 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:13,140 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:14,158 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:14,166 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:15,146 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:15,151 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:16,194 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:16,203 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:17,178 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:17,185 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:18,155 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:18,163 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:19,169 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:19,177 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:20,172 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:20,182 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:21,139 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:21,148 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:22,181 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:22,190 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:23,140 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:23,147 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:24,078 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:24,083 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:25,081 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:25,086 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:26,077 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:26,081 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:27,077 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:27,081 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:28,090 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:28,096 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:29,152 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:29,163 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:30,149 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:30,159 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:31,203 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:31,212 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:32,143 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:32,155 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:33,133 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:33,144 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:34,198 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:34,205 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:35,124 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:35,131 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:36,154 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:36,162 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:37,200 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:37,209 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:38,148 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:38,160 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:39,153 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:39,161 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:40,152 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:40,162 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:41,158 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:41,162 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:42,182 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:42,190 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:43,131 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:43,136 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:44,190 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:44,198 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:45,186 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:45,197 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:46,167 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:46,172 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:47,194 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:47,203 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:48,171 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:48,180 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:49,199 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:49,209 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:50,174 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:50,184 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:51,182 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:51,192 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:52,160 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:52,170 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:53,183 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:53,192 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:54,200 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:54,210 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:55,158 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:55,168 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:56,122 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:56,129 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:57,173 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:57,185 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]
+2018-12-11 17:01:58,195 - logs/kafka_sink_spark_source.logs - WARNING - inside save offsets:<kazoo.client.KazooClient object at 0x7f79ab130898>
+2018-12-11 17:01:58,202 - logs/kafka_sink_spark_source.logs - WARNING - offset saved:OffsetRange(topic: mainnetserver.aionv4.block, partition: 0, range: [1789011 -> 1789011]

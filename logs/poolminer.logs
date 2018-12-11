@@ -1,29 +1,24 @@
-2018-12-10 23:02:58,808 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-10 23:02:59,051 - logs/poolminer.logs - WARNING - load_data:{'start': True, 'end': True, 'min_date': None, 'max_date': None}
-2018-12-10 23:02:59,055 - logs/poolminer.logs - ERROR - poolminer:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 186, in poolminer_tab
-    all_plot = renderer.get_plot(dmap_all)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
-    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
-    initialize_dynamic(obj)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
-    dmap[dmap._initial_key()]
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
-    val = self._execute_callback(*tuple_key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
-    retval = self.callback(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
-    ret = self.callable(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
-    return self._process(map_obj[key], key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
-    val = self._execute_callback(*tuple_key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
-    retval = self.callback(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
-    ret = self.callable(*args, **kwargs)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 74, in load_data
-    logger.warning('load_data head:%s',self.df.head())
-AttributeError: 'NoneType' object has no attribute 'head'
+2018-12-11 16:58:57,455 - logs/poolminer.logs - WARNING - logs/poolminer.logs
+2018-12-11 16:58:57,733 - logs/poolminer.logs - WARNING - load_data:{'start': True, 'end': True, 'min_date': 1262318400, 'max_date': 1262404800}
+2018-12-11 16:59:27,800 - logs/poolminer.logs - WARNING - load_data head:   block_number  miner_addr block_date
+0          1535  a0518c8516 2018-04-25
+1        219535  a0b8a29ddc 2018-05-20
+2        227203  a0db64eae1 2018-05-21
+3         82694  a0762b81cb 2018-05-03
+4         57379  a0c7e08b1b 2018-04-30
+2018-12-11 16:59:27,827 - logs/poolminer.logs - WARNING - load_data tail:        block_number  miner_addr block_date
+295251        199180  a0c7e08b1b 2018-05-18
+295252         43389  a0762b81cb 2018-04-29
+295253         31505  a0426ebf76 2018-04-27
+295254        280925  a003e9a7b9 2018-05-28
+295255        237513  a0762b81cb 2018-05-22
+2018-12-11 16:59:27,867 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-10 00:00:00
+2018-12-11 16:59:28,303 - logs/poolminer.logs - WARNING - START DATE:2018-04-10 00:00:00
+2018-12-11 16:59:28,303 - logs/poolminer.logs - WARNING - END DATE:2018-05-30 00:00:00
+2018-12-11 16:59:28,705 - logs/poolminer.logs - WARNING - DF1:            block_number  block_date  percentage
+miner_addr                                      
+0000000000           854         854    0.289241
+a000686525          3947        3947    1.336806
+a00339fa21          1746        1746    0.591351
+a003e9a7b9          5937        5937    2.010797
+a004a26d31             7           7    0.002371
