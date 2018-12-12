@@ -1,24 +1,38 @@
-2018-12-11 16:58:57,455 - logs/poolminer.logs - WARNING - logs/poolminer.logs
-2018-12-11 16:58:57,733 - logs/poolminer.logs - WARNING - load_data:{'start': True, 'end': True, 'min_date': 1262318400, 'max_date': 1262404800}
-2018-12-11 16:59:27,800 - logs/poolminer.logs - WARNING - load_data head:   block_number  miner_addr block_date
+2018-12-12 17:36:41,831 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-12 17:36:42,728 - logs/poolminer.logs:67 - WARNING - load_data:None
+2018-12-12 17:36:46,383 - logs/poolminer.logs:74 - WARNING - load_data head:   block_number  miner_addr block_date
 0          1535  a0518c8516 2018-04-25
 1        219535  a0b8a29ddc 2018-05-20
 2        227203  a0db64eae1 2018-05-21
 3         82694  a0762b81cb 2018-05-03
 4         57379  a0c7e08b1b 2018-04-30
-2018-12-11 16:59:27,827 - logs/poolminer.logs - WARNING - load_data tail:        block_number  miner_addr block_date
+2018-12-12 17:36:46,730 - logs/poolminer.logs:75 - WARNING - load_data tail:        block_number  miner_addr block_date
 295251        199180  a0c7e08b1b 2018-05-18
 295252         43389  a0762b81cb 2018-04-29
 295253         31505  a0426ebf76 2018-04-27
 295254        280925  a003e9a7b9 2018-05-28
 295255        237513  a0762b81cb 2018-05-22
-2018-12-11 16:59:27,867 - logs/poolminer.logs - WARNING - prep dataset start date:2018-04-10 00:00:00
-2018-12-11 16:59:28,303 - logs/poolminer.logs - WARNING - START DATE:2018-04-10 00:00:00
-2018-12-11 16:59:28,303 - logs/poolminer.logs - WARNING - END DATE:2018-05-30 00:00:00
-2018-12-11 16:59:28,705 - logs/poolminer.logs - WARNING - DF1:            block_number  block_date  percentage
+2018-12-12 17:36:46,860 - logs/poolminer.logs:92 - WARNING - prep dataset start date:2018-04-10 00:00:00
+2018-12-12 17:36:48,674 - logs/poolminer.logs:97 - WARNING - START DATE:2018-04-10 00:00:00
+2018-12-12 17:36:48,674 - logs/poolminer.logs:98 - WARNING - END DATE:2018-05-30 00:00:00
+2018-12-12 17:36:51,032 - logs/poolminer.logs:99 - WARNING - DF1:            block_number  block_date  percentage
 miner_addr                                      
 0000000000           854         854    0.289241
 a000686525          3947        3947    1.336806
 a00339fa21          1746        1746    0.591351
 a003e9a7b9          5937        5937    2.010797
 a004a26d31             7           7    0.002371
+2018-12-12 17:37:35,097 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-05-30 00:00:00')}
+2018-12-12 17:37:36,836 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,859 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,868 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,876 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,885 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,894 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,903 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,911 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,920 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,933 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,942 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,952 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 17:37:36,964 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}

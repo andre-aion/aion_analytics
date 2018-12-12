@@ -64,15 +64,15 @@ def poolminer_tab():
         def load_data(self, start_date, end_date):
             # find the boundaries of the loaded data, redis_data
             load_params = set_loaded_params(self.df, start_date, end_date)
-            logger.warning('load_data:%s',load_params)
+            logger.warning('load_data:%s', load_params)
             # load from redis, cassandra if necessary
             self.df = construct_df_upon_load(self.pc, self.df, self.table,
                                              self.querycols, start_date,
                                              end_date, load_params)
 
             # filter dates
-            logger.warning('load_data head:%s',self.df.head())
-            logger.warning('load_data tail:%s',self.df.tail())
+            logger.warning('load_data head:%s', self.df.head())
+            logger.warning('load_data tail:%s', self.df.tail())
             self.filter_dates(start_date, end_date)
 
             return self.prep_dataset(start_date, end_date)
@@ -155,14 +155,16 @@ def poolminer_tab():
 
         # STREAMS Setup
         # date comes out stream in milliseconds
-        stream_date_range = streams.Stream.define('Dates', start_date=first_date_range,
+        stream_date_range = streams.Stream.define('Dates',
+                                                  start_date=first_date_range,
                                                   end_date=last_date)()
         stream_topN = streams.Stream.define('TopN', n=str(pm.n))()
 
         # MANAGE
         millisecs_in_day = 86400000
         # SLIDER TO PULL DATA FROM CASSANDRA
-        date_range_select = DateRangeSlider(title="Select Date Range ", start=first_date_range,
+        date_range_select = DateRangeSlider(title="Select Date Range ",
+                                            start=first_date_range,
                                             end=last_date_range,
                                             value=(first_date_range, last_date),
                                             step=millisecs_in_day)

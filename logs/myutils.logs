@@ -1,22 +1,46 @@
-2018-12-11 16:58:56,269 - logs/myutils.logs - WARNING - logs/myutils.logs
-2018-12-11 16:58:57,737 - logs/myutils.logs - WARNING - construct df:1
-2018-12-11 16:58:57,739 - logs/myutils.logs - WARNING - query:select block_number,miner_addr,block_date from block where block_timestamp >=1523332800000 and 
-        block_timestamp <=1527652800000 ALLOW FILTERING
-2018-12-11 16:59:26,214 - logs/myutils.logs - WARNING - data loaded from daterange :        block_number  miner_addr block_date
-295251        199180  a0c7e08b1b 2018-05-18
-295252         43389  a0762b81cb 2018-04-29
-295253         31505  a0426ebf76 2018-04-27
-295254        280925  a003e9a7b9 2018-05-28
-295255        237513  a0762b81cb 2018-05-22
-2018-12-11 16:59:26,279 - logs/myutils.logs - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+2018-12-12 17:36:39,614 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-12 17:36:42,724 - logs/myutils.logs:240 - ERROR - set_params_loaded_params
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 214, in set_loaded_params
+    dd.compute(df.block_date.min(),
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 2520, in __getattr__
+    raise AttributeError("'DataFrame' object has no attribute %r" % key)
+AttributeError: 'DataFrame' object has no attribute 'block_date'
+2018-12-12 17:36:42,792 - logs/myutils.logs:266 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': ['2018-04-10', '2018-05-30'], 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-12 17:36:43,227 - logs/myutils.logs:272 - WARNING - 
+2018-12-12 17:36:43,440 - logs/myutils.logs:333 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
 0          1535  a0518c8516 2018-04-25
 1        219535  a0b8a29ddc 2018-05-20
 2        227203  a0db64eae1 2018-05-21
 3         82694  a0762b81cb 2018-05-03
 4         57379  a0c7e08b1b 2018-04-30
-2018-12-11 16:59:26,313 - logs/myutils.logs - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+2018-12-12 17:36:43,657 - logs/myutils.logs:334 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
 295251        199180  a0c7e08b1b 2018-05-18
 295252         43389  a0762b81cb 2018-04-29
 295253         31505  a0426ebf76 2018-04-27
 295254        280925  a003e9a7b9 2018-05-28
 295255        237513  a0762b81cb 2018-05-22
+2018-12-12 17:37:35,094 - logs/myutils.logs:217 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-12 17:37:35,096 - logs/myutils.logs:218 - WARNING - start from slider:1523318400000
+2018-12-12 17:37:35,097 - logs/myutils.logs:110 - WARNING - from ms_to_date: 2018-04-10 00:00:00
+2018-12-12 17:37:35,097 - logs/myutils.logs:110 - WARNING - from ms_to_date: 2018-05-31 00:00:00
+2018-12-12 17:37:35,097 - logs/myutils.logs:228 - WARNING - line 228, set_loaded_params:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-05-30 00:00:00')}
+2018-12-12 17:37:36,625 - logs/myutils.logs:257 - WARNING - df original, HEAD:   block_number  miner_addr block_date
+0          1535  a0518c8516 2018-04-25
+1        219535  a0b8a29ddc 2018-05-20
+2        227203  a0db64eae1 2018-05-21
+3         82694  a0762b81cb 2018-05-03
+4         57379  a0c7e08b1b 2018-04-30
+2018-12-12 17:37:36,784 - logs/myutils.logs:258 - WARNING - df original, TAIL:        block_number  miner_addr block_date
+295251        199180  a0c7e08b1b 2018-05-18
+295252         43389  a0762b81cb 2018-04-29
+295253         31505  a0426ebf76 2018-04-27
+295254        280925  a003e9a7b9 2018-05-28
+295255        237513  a0762b81cb 2018-05-22
+2018-12-12 17:37:36,817 - logs/myutils.logs:266 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': ['2018-04-09', '2018-05-30'], 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-12 17:37:36,819 - logs/myutils.logs:272 - WARNING - 
+2018-12-12 17:37:36,820 - logs/myutils.logs:343 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 333, in construct_df_upon_load
+    logger.warning("df constructed, HEAD:%s", df.head())
+AttributeError: 'NoneType' object has no attribute 'head'

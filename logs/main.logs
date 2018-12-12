@@ -2,3 +2,141 @@
 2018-12-11 14:51:08,007 - logs/main.logs - WARNING - logs/main.logs
 2018-12-11 15:00:42,647 - logs/main.logs - WARNING - logs/main.logs
 2018-12-11 16:58:57,501 - logs/main.logs - WARNING - logs/main.logs
+2018-12-11 17:10:55,335 - logs/main.logs - WARNING - logs/main.logs
+2018-12-11 17:17:17,770 - logs/main.logs - WARNING - logs/main.logs
+2018-12-11 17:31:00,898 - logs/main.logs - WARNING - logs/main.logs
+2018-12-11 18:18:11,477 - logs/main.logs - WARNING - logs/main.logs
+2018-12-11 18:32:48,828 - logs/main.logs - WARNING - logs/main.logs
+2018-12-11 19:39:45,740 - logs/main.logs - WARNING - logs/main.logs
+2018-12-11 19:43:27,265 - logs/main.logs - WARNING - logs/main.logs
+2018-12-11 19:55:36,421 - logs/main.logs - WARNING - logs/main.logs
+2018-12-11 19:58:52,849 - logs/main.logs - WARNING - logs/main.logs
+2018-12-12 10:06:16,822 - logs/main.logs - WARNING - logs/main.logs
+2018-12-12 10:29:44,395 - logs/main.logs - WARNING - logs/main.logs
+2018-12-12 10:35:16,059 - logs/main.logs - WARNING - logs/main.logs
+2018-12-12 10:52:55,458 - logs/main.logs - WARNING - logs/main.logs
+2018-12-12 11:06:06,551 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 13:00:52,722 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 13:28:31,772 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 13:50:03,209 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 13:56:44,556 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 13:58:37,303 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 14:00:06,269 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 14:01:11,894 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 14:04:11,116 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 14:05:26,122 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 14:08:47,694 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 14:44:01,748 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 14:54:50,890 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 14:56:26,159 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 14:57:05,673 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 15:11:24,651 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 15:15:20,787 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 15:25:08,667 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 15:30:23,779 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 15:30:47,477 - logs/main.logs:63 - ERROR - TABS:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 188, in poolminer_tab
+    all_plot = renderer.get_plot(dmap_all)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
+    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
+    initialize_dynamic(obj)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
+    dmap[dmap._initial_key()]
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
+    return self._process(map_obj[key], key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 74, in load_data
+    logger.warning('load_data head:%s', self.df.head())
+AttributeError: 'NoneType' object has no attribute 'head'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/main.py", line 56, in aion_analytics
+    pm = yield poolminer_tab()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 1133, in run
+    value = future.result()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/asyncio/futures.py", line 294, in result
+    raise self._exception
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 307, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/types.py", line 243, in wrapped
+    coro = func(*args, **kwargs)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 210, in poolminer_tab
+    return tab_error_flag('poolminer')
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 86, in tab_error_flag
+    print('IN POOLMINER')
+BrokenPipeError: [Errno 32] Broken pipe
+2018-12-12 15:32:05,895 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 15:32:26,392 - logs/main.logs:63 - ERROR - TABS:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 188, in poolminer_tab
+    all_plot = renderer.get_plot(dmap_all)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
+    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
+    initialize_dynamic(obj)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
+    dmap[dmap._initial_key()]
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
+    return self._process(map_obj[key], key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 74, in load_data
+    logger.warning('load_data head:%s', self.df.head())
+AttributeError: 'NoneType' object has no attribute 'head'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/main.py", line 56, in aion_analytics
+    pm = yield poolminer_tab()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 1133, in run
+    value = future.result()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/asyncio/futures.py", line 294, in result
+    raise self._exception
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 307, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/types.py", line 243, in wrapped
+    coro = func(*args, **kwargs)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 210, in poolminer_tab
+    return tab_error_flag('poolminer')
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 86, in tab_error_flag
+    print('IN POOLMINER')
+BrokenPipeError: [Errno 32] Broken pipe
+2018-12-12 15:38:08,741 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 15:45:44,851 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 15:57:17,885 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 16:15:28,073 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 16:22:51,689 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 16:45:07,328 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 16:45:48,406 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 16:48:43,253 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 16:55:06,082 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 17:27:52,742 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 17:29:37,261 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 17:36:03,473 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-12 17:36:41,916 - logs/main.logs:15 - WARNING - logs/main.logs

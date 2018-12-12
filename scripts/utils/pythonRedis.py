@@ -6,10 +6,11 @@ import zlib
 import pandas as pd
 import dask as dd
 from tornado.gen import coroutine
-from datetime import datetime
+from datetime import datetime, timedelta
 from enum import Enum
 from operator import xor
 import numpy as np
+import msgpack
 
 
 logger = mylogger(__file__)
@@ -36,18 +37,23 @@ class RedisStorage:
         pass
 
     # convert dates from timestamp[ms] to datetime[ns]
-    def ms_to_date(ts):
+    def ms_to_date(self, ts, precision='s'):
         try:
-            if isinstance(ts, int) == True:
+            if isinstance(ts, int):
                 # change milli to seconds
-                if ts > 163076320:
+                if ts > 16307632000:
                     ts = ts // 1000
-                ts = datetime.utcfromtimestamp(ts)
-                # convert to nanosecond representation
-                ts = np.datetime64(ts).astype(datetime)
-                ts = pd.Timestamp(datetime.date(ts))
+                if precision == 'ns':
+                    ts = datetime.utcfromtimestamp(ts)
+                    # convert to nanosecond representation
+                    ts = np.datetime64(ts).astype(datetime)
+                    ts = pd.Timestamp(datetime.date(ts))
+                elif precision == 's':# convert to ms respresentation
+                    ts = datetime.fromtimestamp(ts)
 
-                logger.warning('from ms_to_date: %s', ts)
+            elif isinstance(ts, datetime):
+                return ts
+                logger.warning('line 51, ms_to_date: %s', ts)
             return ts
         except Exception:
             logger.error('ms_to_date', exc_info=True)
@@ -58,23 +64,21 @@ class RedisStorage:
         if isinstance(day, str):
             day = datetime.strptime('%Y-%m-%d')
         elif isinstance(day, int):
-            day = self.ms_to_date()
-        day = day + datetime.timedelta(days=delta)
+            day = self.ms_to_date(day)
+        day = day + timedelta(days=delta)
         day = datetime.strftime(day, '%Y-%m-%d')
         return day
 
     # convert ms to string date
-    def slider_ts_to_str(self,ts):
+    def datetime_or_ts_to_str(self, ts):
         # convert to datetime if necessary
-        if isinstance(ts, int) == True:
-            ts = self.ms_to_date(ts)
-
+        ts = self.ms_to_date(ts)
         ts = datetime.strftime(ts, '%Y-%m-%d')
         return ts
 
     def compose_key(self,table, start_date,end_date):
-        start_date = self.slider_ts_to_str(start_date)
-        end_date = self.slider_ts_to_str(end_date)
+        start_date = self.datetime_or_ts_to_str(start_date)
+        end_date = self.datetime_or_ts_to_str(end_date)
         key = '{}:{}:{}'.format(table, start_date, end_date)
         return key
 
@@ -92,10 +96,21 @@ class RedisStorage:
 
     def load_df(self, key, table, start_date, end_date):
         try:
-            df = pickle.loads(self.conn.get(key))
+            if isinstance(key, str):
+                pass
+            else:
+                key = table+':'+self.datetime_or_ts_to_str(start_date) +\
+                    ':'+self.datetime_or_ts_to_str(end_date)
+            logger.warning('line 95:load-df key:%s', key)
+            df = pickle.loads(zlib.decompress(self.conn.get(key)))
+            # convert dates to datetime
+            start_date = self.ms_to_date(start_date)
+            end_date = self.ms_to_date(end_date)
+            logger.warning('load_df start date:%s',start_date)
             # filter using start date and end date
             df = df[(df.block_date >= start_date)
-                    and (df.block_date <= end_date)]
+                    & (df.block_date <= end_date)]
+            logger
             return df
         except Exception:
             logger.error('load df', exc_info=True)
@@ -116,8 +131,15 @@ class RedisStorage:
         return value & ~(1 << bit)
 
     # return the keys and flags for the data in redis and in cassandra
-    def set_load_params(self, table, req_start_date, req_end_date,
+    def set_load_params(self, table, start_date, end_date,
                         load_params):
+        req_start_date = self.ms_to_date(start_date)
+        req_end_date = self.ms_to_date(end_date)
+        str_req_start_date = datetime.strftime(req_start_date, '%Y-%m-%d')
+        str_req_end_date = datetime.strftime(req_end_date, '%Y-%m-%d')
+        logger.warning('set_load_params-req_start_date:%s', str_req_start_date)
+        logger.warning('set_load_params-req_end_date:%s', str_req_end_date)
+
         try:
             # get keys
             str_to_match = '*'+table+'*'
@@ -126,6 +148,7 @@ class RedisStorage:
             params = dict()
             params['load_type'] = 0
             params['redis_key_full'] = None
+            params['cass_key_full'] = None
             params['redis_key_start'] = None
             params['redis_key_end'] = None
             params['redis_start_range'] = None
@@ -135,23 +158,29 @@ class RedisStorage:
 
             if matches:
                 for match in matches:
+                    match = str(match,'utf-8')
                     logger.warning('match:%s', match)
 
-                    lst = str(match, 'utf-8').split(':')
+                    lst = match.split(':')
                     logger.warning('matching keys :%s', lst)
                     #convert start date in key to datetime
                     key_start_date = datetime.strptime(lst[1],'%Y-%m-%d')
                     key_end_date = datetime.strptime(lst[2],'%Y-%m-%d')
-                    # check to see if there is any data to be retrieved from reddis
-                    if req_start_date <= key_start_date and req_end_date >= key_end_date:
+
+                    # check to see if there is all data to be retrieved from reddis
+                    logger.warning('req_start_date:%s', req_start_date)
+                    logger.warning('key_start_date:%s', key_start_date)
+
+                    if req_start_date >= key_start_date and req_end_date <= key_end_date:
                         """
                         redis_df || ---------------------------- ||
                         required     | --------------------- |
                         """
                         logger.warning("Full match found: Redis data frame overlaps")
                         params['redis_key_full'] = match
-                        params['load_type'] = LoadType.FULL.value
-                        # turn off all other bits
+                        params['load_type'] = LoadType.REDIS_FULL.value
+                        params['redis_key_full'] = [str_req_start_date, str_req_end_date]
+                        # turn off all other bits and date ranges
                         params['load_type'] = self.clear_bit(params['load_type'], 1)
                         params['load_type'] = self.clear_bit(params['load_type'], 3)
                         params['load_type'] = self.clear_bit(params['load_type'], 7)
@@ -160,8 +189,17 @@ class RedisStorage:
                         params['load_type'] = self.clear_bit(params['load_type'], 63)
                         params['load_type'] = self.clear_bit(params['load_type'], 127)
 
+                        params['cass_full_range'] = None
+                        params['cass_start_range'] = None
+                        params['cass_end_range'] = None
+                        params['redis_start_range'] = None
+                        params['redis_end_range'] = None
+                        params['redis_key_end'] = None
+                        params['redis_key_start'] = None
+
+
                         break
-                    elif req_end_date > key_start_date or req_start_date < key_start_date:
+                    elif req_end_date < key_start_date or req_start_date > key_end_date:
                         """
                         redis_df                    || ---------------- ||
                         required   | ---------- |
@@ -172,6 +210,7 @@ class RedisStorage:
                         """
                         logger.warning("no overlay, retrieve ENTIRE df from casssandra")
                         params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)
+                        params['cass_key_full'] = [str_req_start_date, str_req_end_date]
                         # turn off all other bits
                         params['load_type'] = self.clear_bit(params['load_type'], 0)
                         params['load_type'] = self.clear_bit(params['load_type'], 3)
@@ -183,12 +222,11 @@ class RedisStorage:
 
                     else:
                             # turn cass full off if it is set
-                            self.clear_bit(1)
+                            params['load_type'] = self.clear_bit(params['load_type'], 1)
 
                             # the loaded start date is greater than the required start date
                             if load_params['start']:
-                                # if redis only is set, then stop do not check again
-
+                                # if redis only is set, then do not check again
                                 if params['load_type'] & LoadType.REDIS_START_ONLY.value != LoadType.REDIS_START_ONLY.value:
                                     loaded_day_before = self.get_relative_day(load_params['min_date'], -1)
                                     if load_params['min_date'] > key_start_date:
@@ -196,11 +234,15 @@ class RedisStorage:
                                         loaded_df           |-------------------------
                                         redis_df     ||--------------------- 
                                         """
+                                        # set redis values
                                         params['redis_key_start'] = match
+                                        params['redis_start_range'] = [lst[2], loaded_day_before]
                                         params['load_type'] = xor(params['load_type'], LoadType.REDIS_START_ONLY.value)
                                         params['load_type'] = xor(params['load_type'], LoadType.REDIS_START.value)
-                                        params['load_type'] = self.clear_bit(params['load_type'], 31) # clear end cass
-                                        params['redis_start_range'] = [lst[2], loaded_day_before]
+
+                                        # turn off cass values
+                                        params['load_type'] = self.clear_bit(params['load_type'], 7) # clear start cass
+                                        params['cass_start_range'] = None
 
                                     else:
 
@@ -222,12 +264,8 @@ class RedisStorage:
                                         if params['load_type'] & LoadType.REDIS_START.value \
                                                 != LoadType.REDIS_START.value:
 
-                                            logger.warning("retrieve START data from cassandra")
-
                                             #set params OPTION 1
                                             params['load_type'] = xor(params['load_type'], LoadType.START_CASS.value)
-                                            str_req_start_date = datetime.strftime(req_start_date,'%Y-%m-%d')
-                                            str_req_end_date = datetime.strftime(req_end_date,'%Y-%m-%d')
                                             params['cass_start_range'] = [str_req_start_date,loaded_day_before]
                                             # turn off redis start if its on
                                             params['load_type'] = self.clear_bit(params['load_type'], 3)
@@ -267,6 +305,12 @@ class RedisStorage:
                                         params['load_type'] = self.clear_bit(params['load_type'], 7) # clear start cass
                                         params['redis_end_range'] = [lst[2], loaded_day_after]
 
+                                        # turn off cass values
+                                        params['load_type'] = self.clear_bit(params['load_type'],
+                                                                             31)  # clear start cass
+                                        params['cass_start_range'] = None
+
+
                                     else:
 
                                         """
@@ -291,8 +335,10 @@ class RedisStorage:
                                             params['load_type'] = xor(params['load_type'], LoadType.CASS_END.value)
                                             str_req_end_date = datetime.strftime(req_end_date, '%Y-%m-%d')
                                             params['cass_end_range'] = [loaded_day_after, str_req_end_date]
-                                            # turn off redis end if its on
+
+                                            # turn off cass params
                                             params['load_type'] = self.clear_bit(params['load_type'], 15)
+                                            params['cass_end_range'] = None
 
                                             if load_params['max_date'] < key_end_date:
                                                 """
@@ -308,12 +354,30 @@ class RedisStorage:
                                                 key_day_after = self.get_relative_day(lst[2], 1)
                                                 params['cass_end_range'] = [key_day_after, str_req_end_date]
 
-                # if match is not accessed
+                # if no match extant pull all from cassandra
                 if params['load_type'] == 0:
+                    # set params for cass full range
                     params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)
+                    params['cass_full_range'] = [req_start_date, req_end_date]
+
+
+                    # turn off all other bits
+                    params['load_type'] = self.clear_bit(params['load_type'], 0)
+                    params['load_type'] = self.clear_bit(params['load_type'], 3)
+                    params['load_type'] = self.clear_bit(params['load_type'], 7)
+                    params['load_type'] = self.clear_bit(params['load_type'], 15)
+                    params['load_type'] = self.clear_bit(params['load_type'], 31)
+                    params['load_type'] = self.clear_bit(params['load_type'], 63)
+                    params['load_type'] = self.clear_bit(params['load_type'], 127)
+
 
             else:
-                # if no matches pull all from cassandra
+                # set params for cass full range
+                params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)
+                params['cass_full_range'] = [req_start_date, req_end_date]
+
+
+                # if no matches fallback is to pull all from cassandra
                 params['load_type'] = self.clear_bit(params['load_type'], 0)
                 params['load_type'] = self.clear_bit(params['load_type'], 3)
                 params['load_type'] = self.clear_bit(params['load_type'], 7)
@@ -321,8 +385,13 @@ class RedisStorage:
                 params['load_type'] = self.clear_bit(params['load_type'], 31)
                 params['load_type'] = self.clear_bit(params['load_type'], 63)
                 params['load_type'] = self.clear_bit(params['load_type'], 127)
-                params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)
 
+                params['cass_start_range'] = None
+                params['cass_end_range'] = None
+                params['redis_start_range'] = None
+                params['redis_end_range'] = None
+                params['redis_key_end'] = None
+                params['redis_key_start'] = None
 
             logger.warning("params result:%s", params)
 

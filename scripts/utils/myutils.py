@@ -31,8 +31,10 @@ def optimize_dataframe(df,timestamp_col='block_timestamp'):
     dtypes_type = [i.name for i in dtypes.values]
     column_types = dict(zip(dtypes_col, dtypes_type))
 
-    df_read_and_optimized = pd.read_csv(join(dirname(__file__), '../../data', 'blockdetails.csv'),
-                                        dtype=column_types, parse_dates=['block_timestamp'],infer_datetime_format=True)
+    df_read_and_optimized = pd.read_csv(join(dirname(__file__),
+                                             '../../data', 'blockdetails.csv'),
+                                             dtype=column_types, parse_dates=['block_timestamp'],
+                                             infer_datetime_format=True)
 
     return df_read_and_optimized
 
@@ -169,12 +171,16 @@ def construct_read_query(table, cols, startdate, enddate):
 
 # dates are in milliseconds from sliders
 def cass_load_from_daterange(pc, table, cols, from_date, to_date):
+    logger.warning('cass load from_date:%s', from_date)
+    logger.warning('cass load to_date:%s', to_date)
+
     try:
         if isinstance(from_date,int) == True:
             # convert ms from slider to nano for cassandra
-            from_date = from_date
-            to_date = to_date
-        else:
+            if from_date < 163076320:
+                from_date = from_date * 1000
+                to_date = to_date * 1000
+        elif isinstance(from_date,str) == True:
             # convert from datetime to ns
             from_date = date_to_cass_ts(from_date)
             to_date = date_to_cass_ts(to_date)
@@ -200,32 +206,38 @@ def set_loaded_params(df, start_date, end_date):
         params['end'] = False
         params['max_date'] = None
         # convert dates from ms to datetime
-        start_date = ms_to_date(start_date)
-        end_date = ms_to_date(end_date)
+        # start_date = ms_to_date(start_date)
+        #end_date = ms_to_date(end_date)
 
-        if len(df) > 0:
+        if df is not None:
             params['min_date'], params['max_date'] = \
                 dd.compute(df.block_date.min(),
                            df.block_date.max())
-            logger.warning('set_loaded_params:%s', params)
             # check start
-            if start_date > params['min_date']:
-                params['start'] = True
+            logger.warning('start_date from compute:%s', params['min_date'])
+            logger.warning('start from slider:%s', start_date)
+            if isinstance(start_date, int):
+                start_date = ms_to_date(start_date)
+                end_date = ms_to_date(end_date)
 
-            # check end
-            if end_date < params['max_date']:
-                params['end'] = True
+            if start_date > params['min_date']:
+                    params['start'] = True
+            if end_date > params['max_date']:
+                    params['end'] = True
+
+            logger.warning('line 228, set_loaded_params:%s', params)
+
         else:
             # if no df in memory set start date and end_date far in the past
             # this will trigger full cassandra load
-            params['min_date'] = date_to_ms('2010-01-01')
-            params['max_date'] = date_to_ms('2010-01-02')
+            params['min_date'] = datetime.strptime('2010-01-01','%Y-%m-%d')
+            params['max_date'] = datetime.strptime('2010-01-02','%Y-%m-%d')
             params['start'] = True
             params['end'] = True
 
         return params
     except Exception:
-        logger.error('check loaded dates', exc_info=True)
+        logger.error('set_params_loaded_params', exc_info=True)
 
 # delta is integer: +-
 def get_relative_day(day,delta):
@@ -240,7 +252,7 @@ def get_relative_day(day,delta):
 
 # get the data differential from the required start range
 def construct_df_upon_load(pc, df, table, cols, req_start_date,
-                           req_end_date,load_params):
+                           req_end_date, load_params):
     if len(df) > 0:
         logger.warning("df original, HEAD:%s", df.head())
         logger.warning("df original, TAIL:%s", df.tail())
@@ -251,16 +263,18 @@ def construct_df_upon_load(pc, df, table, cols, req_start_date,
         params = redis.set_load_params(table, req_start_date,
                                        req_end_date, load_params)
         # load all from redis
-        logger.warning('construct df:%s', LoadType.REDIS_FULL.value)
+        logger.warning('construct df, params:%s', params)
         if params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:
-            sdate = datetime.strptime(load_params['redis_key_full'][0])
-            edate = datetime.strptime(load_params['redis_key_full'][1])
-
-            df = redis.load_df(load_params['redis_full'], table, sdate, edate)
+            lst = params['redis_key_full']
+            sdate = date_to_ms(lst[0])
+            edate = date_to_ms(lst[1])
+            df = redis.load_df(params['redis_key_full'], table, sdate, edate)
+            logger.warning('')
         # load all from cassandra
         elif params['load_type'] & LoadType.CASS_FULL.value == LoadType.CASS_FULL.value:
             sdate = date_to_cass_ts(req_start_date)
             edate = date_to_cass_ts(req_end_date)
+            logger.warning('construct_df, in cass load, sdate:%s',sdate)
             df = cass_load_from_daterange(pc, table, cols, sdate, edate)
 
         # load from both cassandra and redis
@@ -268,39 +282,40 @@ def construct_df_upon_load(pc, df, table, cols, req_start_date,
             # load start
             block = Block()
             df_start = block.get_df()
+            df_end = block.get_df()
+            df_temp = None
+
             # add cass if needed, then add redis if needed
             if params['load_type'] & LoadType.START_CASS.value == LoadType.START_CASS.value:
-                sdate = date_to_cass_ts(load_params['cass_start_range'][0])
-                edate = date_to_cass_ts(load_params['cass_start_range'][1])
+                lst = params['cass_start_range']
+                sdate = date_to_ms(lst[0])
+                edate = date_to_ms(lst[1])
+
                 df_temp = cass_load_from_daterange(pc, table, cols, sdate, edate)
                 df_start = df_start.append(df_temp, ignore_index=True)
 
             if params['load_type'] & LoadType.REDIS_START.value == LoadType.REDIS_START.value:
-                sdate = datetime.strptime(load_params['redis_start_range'][0])
-                edate = datetime.strptime(load_params['redis_start_range'][1])
-                df_temp = redis.load_df(load_params['redis_key_start'], table, sdate, edate)
+                lst = params['redis_start_range']
+                sdate = date_to_ms(lst[0])
+                edate = date_to_ms(lst[1])
+                df_temp = redis.load_df(params['redis_key_start'], table, sdate, edate)
                 df_start = df_start.append(df_temp, ignore_index=True)
 
 
-            del df_temp
-            gc.collect()
-
             # load end, add redis df, then cass df if needed
-            df_end = block.get_df()
             if params['load_type'] & LoadType.REDIS_END.value == LoadType.REDIS_END.value:
-                sdate = datetime.strptime(load_params['redis_end_range'][0])
-                edate = datetime.strptime(load_params['redis_end_range'][1])
-                df_temp = redis.load_df(load_params['redis_key_end'], table, sdate, edate)
+                lst = params['redis_end_range'].split(':')
+                sdate = date_to_ms(lst[0])
+                edate = date_to_ms(lst[1])
+                df_temp = redis.load_df(params['redis_key_end'], table, sdate, edate)
                 df_end = df_end.append(df_temp, ignore_index=True)
 
             if params['load_type'] & LoadType.CASS_END.value == LoadType.CASS_END.value:
-                sdate = date_to_cass_ts(load_params['cass_end_range'][0])
-                edate = date_to_cass_ts(load_params['cass_end_range'][1])
+                lst = params['cass_end_range'].split(':')
+                sdate = date_to_ms(lst[0])
+                edate = date_to_ms(lst[1])
                 df_temp = cass_load_from_daterange(pc, table, cols, sdate, edate)
                 df_end = df_end.append(df_temp, ignore_index=True)
-
-            del df_temp
-            gc.collect()
 
 
             # concatenate end and start to original df
@@ -309,8 +324,14 @@ def construct_df_upon_load(pc, df, table, cols, req_start_date,
             if len(df_end>0):
                 df = df.append(df_end, ignore_index=True)
 
-        logger.warning("df constructed, HEAD:%s",df.head())
-        logger.warning("df constructed, TAIL:%s",df.tail())
+            del df_temp
+            del df_start
+            del df_end
+
+            gc.collect()
+
+        logger.warning("df constructed, HEAD:%s", df.head())
+        logger.warning("df constructed, TAIL:%s", df.tail())
 
                 # save df to  redis
         redis.save_df(df, table, req_start_date, req_end_date)
