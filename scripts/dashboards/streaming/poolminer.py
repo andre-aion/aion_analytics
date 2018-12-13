@@ -25,7 +25,7 @@ import hvplot.pandas
 
 import holoviews as hv, param, dask.dataframe as dd
 from holoviews.operation.datashader import rasterize, shade, datashade
-from datetime import datetime, date
+from datetime import datetime, date, time
 import numpy as np
 import pandas as pd
 import dask as dd
@@ -39,14 +39,16 @@ logger = mylogger(__file__)
 
 menu = list()
 for i in range(0, 400, 5):
-    if i != 0:
+    if i not in [0, 5]:
         menu.append(str(i))
 
 
 @coroutine
 def poolminer_tab():
     # source for top N table
-    src = ColumnDataSource(data=dict(percentage=[], miner_addr=[]))
+    src = ColumnDataSource(data=dict(percentage=[],
+                                     miner_addr=[],
+                                     block_number=[]))
 
     class Poolminer():
         pc = None
@@ -55,7 +57,6 @@ def poolminer_tab():
         block = Block()
         df = block.get_df()
         df1 = None
-        src = ColumnDataSource(data=dict(percentage=[],miner_addr=[]))
         n = 30
 
         def __init__(self):
@@ -113,7 +114,8 @@ def poolminer_tab():
                 logger.warning('prep dataset DF1:%s', self.df1.compute().head())
 
                 return self.df1.hvplot.bar('miner_addr','block_number', rot=90,
-                                           width=1500)
+                                           width=1500,title='block_number by miner address',
+                                           hover_cols=['percentage'])
             except Exception:
                 logger.error('munge df:', exc_info=True)
 
@@ -123,16 +125,26 @@ def poolminer_tab():
             try:
                 #table_n = df1.hvplot.table(columns=['miner_addr','percentage'],
                                           #title=title, width=400)
-                self.df2 = self.df1['percentage'].nlargest(self.n)
+                self.df2 = self.df1.nlargest(self.n,'percentage')
                 self.df2 = self.df2.reset_index().compute()
+                logger.warning('df2 after nlargest:%s',self.df2.head())
                 new_data = dict(
                     percentage=self.df2.percentage,
-                    miner_addr=self.df2.miner_addr
+                    miner_addr=self.df2.miner_addr,
+                    block_number=self.df2.block_number
                 )
-                src.stream(new_data)
+                #src.stream
+                src.stream(new_data, rollover=self.n)
+                columns = [
+                    TableColumn(field="miner_addr", title="Address"),
+                    TableColumn(field="percentage", title="percentage"),
+                    TableColumn(field="block_number", title="# of blocks")
+                ]
+
+                table_n = DataTable(source=src, columns=columns, width=300, height=600)
 
                 gc.collect()
-                #return table_n
+                return table_n
             except Exception:
                 logger.error('view_topN:', exc_info=True)
 
@@ -212,6 +224,7 @@ def poolminer_tab():
         columns = [
             TableColumn(field="miner_addr", title="Address"),
             TableColumn(field="percentage", title="percentage"),
+            TableColumn(field="block_number", title="# of blocks")
         ]
         topN_table = DataTable(source=src, columns=columns, width=200, height=600)
 

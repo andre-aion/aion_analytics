@@ -1,0 +1,79 @@
+2018-12-13 18:48:29,951 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-13 18:48:30,458 - logs/poolminer.logs:75 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-13 18:48:30,460 - logs/poolminer.logs:76 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-13 18:48:30,478 - logs/poolminer.logs:80 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-13 18:48:31,387 - logs/poolminer.logs:87 - WARNING - load_data head:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 18:48:31,434 - logs/poolminer.logs:88 - WARNING - load_data tail:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 18:48:31,481 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-13 18:48:33,430 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr  block_number  block_date  percentage
+0  a0fbcacc23         53595       53595   17.737996
+1  a0762b81cb         44895       44895   14.858612
+2  a0c7e08b1b         23038       23038    7.624740
+3  a09abfdfc0         13210       13210    4.372030
+4  a0426ebf76         12326       12326    4.079458
+2018-12-13 18:48:33,566 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-13 18:48:33,567 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-13 18:48:34,280 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            block_number  block_date  percentage
+miner_addr                                      
+0000000000           858         858    0.283967
+a000686525          3947        3947    1.306313
+a00339fa21          1768        1768    0.585144
+a003e9a7b9          6276        6276    2.077128
+a004a26d31             7           7    0.002317
+2018-12-13 18:49:39,876 - logs/poolminer.logs:171 - WARNING - topN selected value:10
+2018-12-13 18:49:39,876 - logs/poolminer.logs:172 - WARNING - topN singleton value:30
+2018-12-13 18:49:40,621 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr  block_number  block_date  percentage
+0  a0fbcacc23         53595       53595   17.737996
+1  a0762b81cb         44895       44895   14.858612
+2  a0c7e08b1b         23038       23038    7.624740
+3  a09abfdfc0         13210       13210    4.372030
+4  a0426ebf76         12326       12326    4.079458
+2018-12-13 18:49:43,625 - logs/poolminer.logs:171 - WARNING - topN selected value:30
+2018-12-13 18:49:43,625 - logs/poolminer.logs:172 - WARNING - topN singleton value:10
+2018-12-13 18:49:44,328 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr  block_number  block_date  percentage
+0  a0fbcacc23         53595       53595   17.737996
+1  a0762b81cb         44895       44895   14.858612
+2  a0c7e08b1b         23038       23038    7.624740
+3  a09abfdfc0         13210       13210    4.372030
+4  a0426ebf76         12326       12326    4.079458
+2018-12-13 18:49:55,624 - logs/poolminer.logs:75 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-13 18:49:55,625 - logs/poolminer.logs:76 - WARNING - load_data end date:2018-06-30 00:00:00
+2018-12-13 18:49:56,382 - logs/poolminer.logs:80 - WARNING - load_data:{'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
+2018-12-13 18:49:57,312 - logs/poolminer.logs:87 - WARNING - load_data head:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 18:49:57,381 - logs/poolminer.logs:88 - WARNING - load_data tail:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 18:49:57,441 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-13 18:49:59,295 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr  block_number  block_date  percentage
+0  a0fbcacc23         64514       64514   11.598314
+1  a0762b81cb         52350       52350    9.411473
+2  a07981da70         45685       45685    8.213240
+3  a0c7e08b1b         32880       32880    5.911160
+4  a0f2daa8de         20983       20983    3.772320
+2018-12-13 18:49:59,446 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-13 18:49:59,446 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-06-30 00:00:00
+2018-12-13 18:49:59,951 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            block_number  block_date  percentage
+miner_addr                                      
+0000000000          1258        1258    0.226163
+a000686525          4047        4047    0.727569
+a00339fa21          2382        2382    0.428235
+a003e9a7b9         15142       15142    2.722226
+a004a26d31             7           7    0.001258

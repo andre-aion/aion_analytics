@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e37c777-5f79-4b53-b24f-d13d04d36a0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/table_download.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/topN_download.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/topN_download.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/topN_download.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/hashrate.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/hashrate.logs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/kafka_sink_spark_source.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/kafka_sink_spark_source.logs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/main.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/main.logs" afterDir="false" />
@@ -16,7 +13,6 @@
       <change beforePath="$PROJECT_DIR$/logs/pythonRedis.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/pythonRedis.logs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/streamingBlock.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/streamingBlock.logs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/dashboards/streaming/poolminer.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/dashboards/streaming/poolminer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/utils/myutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/myutils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,14 +52,14 @@
     <favorites_list name="aion_analytics" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48190477">
+    <splitter split-orientation="horizontal" split-proportion="0.5549206">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/scripts/dashboards/streaming/poolminer.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="308">
-                  <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+                <state relative-caret-position="288">
+                  <caret line="133" column="54" lean-forward="true" selection-start-line="133" selection-start-column="54" selection-end-line="133" selection-end-column="54" />
                   <folding>
                     <element signature="e#0#24#0" expanded="true" />
                   </folding>
@@ -74,8 +70,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/assets/js/topN_download.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="353">
-                  <caret line="28" selection-start-line="28" selection-end-line="28" />
+                <state relative-caret-position="162">
+                  <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -83,8 +79,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/scripts/utils/myutils.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1494">
-                  <caret line="104" column="31" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
+                <state relative-caret-position="-246">
+                  <caret line="73" column="56" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="56" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
@@ -96,14 +92,22 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/logs/pythonRedis.logs">
-              <provider selected="true" editor-type-id="text-editor" />
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="198">
+                  <caret line="11" selection-start-line="11" selection-end-line="11" />
+                </state>
+              </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/logs/poolminer.logs">
-              <provider selected="true" editor-type-id="text-editor" />
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-740">
+                  <caret line="162" column="36" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="36" />
+                </state>
+              </provider>
             </entry>
           </file>
         </leaf>
@@ -218,9 +222,9 @@
         <option value="$PROJECT_DIR$/scripts/utils/myutils.py" />
         <option value="$PROJECT_DIR$/assets/js/__init__.py" />
         <option value="$PROJECT_DIR$/assets/js/table_download.js" />
-        <option value="$PROJECT_DIR$/assets/js/topN_download.js" />
-        <option value="$PROJECT_DIR$/logs/poolminer.logs" />
         <option value="$PROJECT_DIR$/logs/pythonRedis.logs" />
+        <option value="$PROJECT_DIR$/logs/poolminer.logs" />
+        <option value="$PROJECT_DIR$/assets/js/topN_download.js" />
         <option value="$PROJECT_DIR$/scripts/dashboards/streaming/poolminer.py" />
       </list>
     </option>
@@ -248,6 +252,12 @@
               <item name="aion_analytics" type="b2602c69:ProjectViewProjectNode" />
               <item name="aion_analytics" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="aion_analytics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="aion_analytics" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aion_analytics" type="b2602c69:ProjectViewProjectNode" />
@@ -388,12 +398,12 @@
       <workItem from="1544030186575" duration="34116000" />
       <workItem from="1544141135791" duration="78496000" />
       <workItem from="1544440197731" duration="47145000" />
-      <workItem from="1544531678848" duration="95283000" />
+      <workItem from="1544531678848" duration="99626000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="635413000" />
+    <option name="totallyTimeSpent" value="639756000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -406,8 +416,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="-2" width="1920" height="1082" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49612403" visible="true" weight="0.15504292" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49612403" visible="true" weight="0.15504292" />
       <window_info id="Structure" order="1" sideWeight="0.503876" side_tool="true" weight="0.16791846" />
       <window_info id="Favorites" order="2" sideWeight="0.5027996" side_tool="true" weight="0.20253165" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="0" weight="0.33804476" />
@@ -423,7 +434,7 @@
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" weight="0.3298122" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.3131313" />
       <window_info active="true" anchor="bottom" id="Database Console" order="12" visible="true" weight="0.36329588" />
-      <window_info anchor="bottom" x="1950" y="60" width="1034" height="992" id="Terminal" order="13" sideWeight="0.49594322" visible="true" weight="0.31511253" />
+      <window_info active="true" anchor="bottom" x="1950" y="60" width="1034" height="992" id="Terminal" order="13" sideWeight="0.49594322" visible="true" weight="0.3687031" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.5040568" side_tool="true" weight="0.45885006" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -474,7 +485,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scripts/streaming.py" />
     <entry file="file://$USER_HOME$/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/operation/datashader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -771,16 +781,6 @@
         <state relative-caret-position="-405" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/utils/myutils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1494">
-          <caret line="104" column="31" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/utils/pythonRedis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1550">
@@ -804,23 +804,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/logs/pythonRedis.logs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/kafka/producer/kafka.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-659">
+          <caret line="319" selection-start-line="319" selection-end-line="319" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/topN_download.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="162">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/logs/poolminer.logs">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-740">
+          <caret line="162" column="36" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="36" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/pythonRedis.logs">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/scripts/utils/myutils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-246">
+          <caret line="73" column="56" selection-start-line="73" selection-start-column="56" selection-end-line="73" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/dashboards/streaming/poolminer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        <state relative-caret-position="288">
+          <caret line="133" column="54" lean-forward="true" selection-start-line="133" selection-start-column="54" selection-end-line="133" selection-end-column="54" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>

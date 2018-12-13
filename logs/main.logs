@@ -67,3 +67,66 @@ BrokenPipeError: [Errno 32] Broken pipe
 2018-12-13 16:59:07,496 - logs/main.logs:15 - WARNING - logs/main.logs
 2018-12-13 17:05:06,493 - logs/main.logs:15 - WARNING - logs/main.logs
 2018-12-13 17:05:58,181 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 17:41:52,554 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 17:57:19,248 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 17:59:02,314 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:13:07,961 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:17:25,960 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:21:07,588 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:23:34,620 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:26:25,829 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:28:24,348 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:30:52,710 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:33:24,163 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:36:24,058 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:38:47,691 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:44:22,084 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:44:22,421 - logs/main.logs:63 - ERROR - TABS:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/main.py", line 56, in aion_analytics
+    pm = yield poolminer_tab()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 1133, in run
+    value = future.result()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/asyncio/futures.py", line 294, in result
+    raise self._exception
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 307, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/types.py", line 243, in wrapped
+    coro = func(*args, **kwargs)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 51, in poolminer_tab
+    block_number=[])
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/models/sources.py", line 130, in __init__
+    super(ColumnDataSource, self).__init__(**kw)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/model.py", line 219, in __init__
+    super(Model, self).__init__(**kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 236, in __init__
+    setattr(self, name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 271, in __setattr__
+    (name, self.__class__.__name__, text, nice_join(matches)))
+AttributeError: unexpected attribute 'block_number' to ColumnDataSource, possible attributes are callback, data, js_event_callbacks, js_property_callbacks, name, selected, selection_policy, subscribed_events or tags
+2018-12-13 18:45:05,287 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:45:05,910 - logs/main.logs:63 - ERROR - TABS:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/main.py", line 56, in aion_analytics
+    pm = yield poolminer_tab()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 1133, in run
+    value = future.result()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/asyncio/futures.py", line 294, in result
+    raise self._exception
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 307, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/types.py", line 243, in wrapped
+    coro = func(*args, **kwargs)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 51, in poolminer_tab
+    block_number=[])
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/models/sources.py", line 130, in __init__
+    super(ColumnDataSource, self).__init__(**kw)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/model.py", line 219, in __init__
+    super(Model, self).__init__(**kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 236, in __init__
+    setattr(self, name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 271, in __setattr__
+    (name, self.__class__.__name__, text, nice_join(matches)))
+AttributeError: unexpected attribute 'block_number' to ColumnDataSource, possible attributes are callback, data, js_event_callbacks, js_property_callbacks, name, selected, selection_policy, subscribed_events or tags
+2018-12-13 18:46:22,262 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 18:48:30,035 - logs/main.logs:15 - WARNING - logs/main.logs

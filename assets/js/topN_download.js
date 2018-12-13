@@ -1,7 +1,8 @@
 var data = source.data;
-filetext = 'miner_addr,percentage'+String.fromCharCode(10);
+filetext = 'miner_addr,block_number,percentage'+String.fromCharCode(10);
 for (i=0; i < data['miner_addr'].length; i++) {
     var currRow = [data['miner_addr'][i].toString(),
+                   data['block_number'][i].toString(),
                    data['percentage'][i].toString().concat('\\n')];
 
     var joined = currRow.join();
