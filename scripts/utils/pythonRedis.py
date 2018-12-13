@@ -154,6 +154,7 @@ class RedisStorage:
             params['cass_start_range'] = None
             params['redis_end_range'] = None
             params['cass_end_range'] = None
+            params['redis_keys_to_delete'] = []
 
             if matches:
                 for match in matches:
@@ -169,6 +170,16 @@ class RedisStorage:
                     # check to see if there is all data to be retrieved from reddis
                     logger.warning('req_start_date:%s', req_start_date)
                     logger.warning('key_start_date:%s', key_start_date)
+
+                    # matches to delete: make a list
+                    if req_start_date < key_start_date and req_end_date > key_end_date:
+                        """
+                        redis_df      || ---------------- ||
+                        required  | --------------------------- |
+                        
+                        """
+                        params['redis_keys_to_delete'].append(match)
+
 
                     if req_start_date >= key_start_date and req_end_date <= key_end_date:
                         """

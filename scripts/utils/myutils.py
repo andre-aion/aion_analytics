@@ -216,10 +216,9 @@ def set_params_to_load(df, start_date, end_date):
         # start_date = ms_to_date(start_date)
         #end_date = ms_to_date(end_date)
 
-        if df is not None:
+        if len(df) > 0:
             params['min_date'], params['max_date'] = \
-                dd.compute(df.block_date.min(),
-                           df.block_date.max())
+                dd.compute(df.block_date.min(), df.block_date.max())
             # check start
             logger.warning('start_date from compute:%s', params['min_date'])
             logger.warning('start from slider:%s', start_date)
@@ -245,6 +244,7 @@ def set_params_to_load(df, start_date, end_date):
         return params
     except Exception:
         logger.error('set_params_loaded_params', exc_info=True)
+        return params
 
 # delta is integer: +-
 def get_relative_day(day,delta):
@@ -342,7 +342,12 @@ def construct_df_upon_load(pc, df, table, cols, req_start_date,
         logger.warning("df constructed, TAIL:%s", df.tail())
 
         # save df to  redis
-        redis.save_df(df, table, req_start_date, req_end_date)
+        # save unless entire thing was already in redis
+        if params['load_type'] & LoadType.REDIS_FULL.value != LoadType.REDIS_FULL.value:
+            redis.save_df(df, table, req_start_date, req_end_date)
+        # clean up by deleting any smaller dfs in redis
+        for key in params['redis_keys_to_delete']:
+            redis.conn.delete(key)
 
         gc.collect()
         return df

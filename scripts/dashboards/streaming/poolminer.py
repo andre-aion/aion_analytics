@@ -6,7 +6,6 @@ from scripts.utils.mylogger import mylogger
 from scripts.utils.pythonCassandra import PythonCassandra
 from scripts.streaming.streamingBlock import Block
 
-
 import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
 from bokeh.models import Plot, ColumnDataSource, HoverTool, Panel, Range1d
@@ -14,7 +13,8 @@ from bokeh.models.glyphs import HBar
 
 import gc
 from bokeh.io import curdoc
-from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, Select
+from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, Select, \
+    DatePicker
 from holoviews import streams
 from holoviews.streams import Stream,RangeXY,RangeX,RangeY, Pipe
 from pdb import set_trace
@@ -62,6 +62,12 @@ def poolminer_tab():
 
 
         def load_data(self, start_date, end_date):
+            end_date = datetime.combine(end_date, datetime.min.time())
+            start_date = datetime.combine(start_date, datetime.min.time())
+
+            logger.warning('load_data start date:%s', start_date)
+            logger.warning('load_data end date:%s', end_date)
+
             # find the boundaries of the loaded data, redis_data
             load_params = set_params_to_load(self.df, start_date, end_date)
             logger.warning('load_data:%s', load_params)
@@ -94,9 +100,9 @@ def poolminer_tab():
                 self.df1 = self.df1.groupby('miner_addr').count()
                 self.df1['percentage'] = 100*self.df1.block_number\
                                          /self.df1['block_number'].sum().compute()
-                logger.warning('START DATE:%s',start_date)
-                logger.warning('END DATE:%s',end_date)
-                logger.warning('DF1:%s',self.df1.compute().head())
+                logger.warning('prep dataset START DATE:%s',start_date)
+                logger.warning('prep dataset END DATE:%s',end_date)
+                logger.warning('prep dataset DF1:%s',self.df1.compute().head())
 
                 return self.df1.hvplot.bar('miner_addr','block_number', rot=90,
                                            width=1500)
@@ -132,9 +138,14 @@ def poolminer_tab():
 
 
     # notify the holoviews stream of the slider update
-    def update_date_range(attrname, old, new):
+    def update_start_date(attrname, old, new):
         # notify the holoviews stream of the slider update
-        stream_date_range.event(start_date=new[0], end_date=new[1])
+        stream_start_date.event(start_date=new)
+
+    def update_end_date(attrname, old, new):
+    # notify the holoviews stream of the slider update
+        stream_end_date.event(end_date=new)
+
 
     def update_topN(attrname, old,new):
         stream_topN.event(n=new)
@@ -155,27 +166,28 @@ def poolminer_tab():
 
         # STREAMS Setup
         # date comes out stream in milliseconds
-        stream_date_range = streams.Stream.define('Dates',
-                                                  start_date=first_date_range,
+        stream_start_date = streams.Stream.define('Start_date',
+                                                  start_date=first_date_range)()
+        stream_end_date = streams.Stream.define('End_date',
                                                   end_date=last_date)()
+
         stream_topN = streams.Stream.define('TopN', n=str(pm.n))()
 
-        # MANAGE
-        millisecs_in_day = 86400000
-        # SLIDER TO PULL DATA FROM CASSANDRA
-        date_range_select = DateRangeSlider(title="Select Date Range ",
-                                            start=first_date_range,
-                                            end=last_date_range,
-                                            value=(first_date_range, last_date),
-                                            step=millisecs_in_day,
-                                            callback_policy="mouseup")
 
         # create a text widget for top N
-        # text_input = TextInput(value='30', title="Top N Miners (Max 50):")
         topN_select = Select(title='Top N', value=str(pm.n), options=menu)
 
+        datepicker_start = DatePicker(title="Start", min_date=first_date_range,
+                                      max_date=last_date_range, value=first_date_range
+                                      )
+        datepicker_end = DatePicker(title="End", min_date=first_date_range,
+                                    max_date=last_date_range, value=last_date)
+
+
         # add callbacks
-        date_range_select.on_change('value', update_date_range)
+        datepicker_start.on_change('value', update_start_date)
+        datepicker_end.on_change('value', update_end_date)
+
         topN_select.on_change("value", update_topN)
 
 
@@ -184,7 +196,7 @@ def poolminer_tab():
 
         # ALL MINERS
         dmap_all = hv.DynamicMap(pm.load_data,
-                                 streams=[stream_date_range])\
+                                 streams=[stream_start_date, stream_end_date])\
             .opts(plot=dict(height=500, width=1500))
         all_plot = renderer.get_plot(dmap_all)
 
@@ -195,7 +207,7 @@ def poolminer_tab():
 
 
         # put the controls in a single element
-        controls = WidgetBox(date_range_select, topN_select)
+        controls = WidgetBox(datepicker_start, datepicker_end, topN_select)
 
         # create the dashboard
         grid = gridplot([[controls, topN_plot.state], [all_plot.state]])

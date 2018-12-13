@@ -1,421 +1,113 @@
-2018-12-12 22:38:37,148 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-12 22:38:40,333 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-12 22:38:40,337 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-12 22:38:40,340 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 9, 0, 0), datetime.datetime(2018, 5, 30, 0, 0)], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-12 22:39:04,469 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-09:2018-05-30 saved to redis
-2018-12-12 22:41:34,550 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:41:34,550 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-12 22:41:34,550 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:41:34,550 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:41:34,551 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:41:34,551 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:41:34,551 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 32, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-05-30']}
-2018-12-12 22:41:56,533 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-05-30 saved to redis
-2018-12-12 22:42:25,845 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:42:25,846 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-06-02
-2018-12-12 22:42:25,846 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:42:25,847 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:42:25,847 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:42:25,848 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:42:25,848 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:42:25,848 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:42:25,848 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:42:25,848 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:42:25,849 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 8, 20, 0), datetime.datetime(2018, 6, 2, 20, 0)], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-06-02']}
-2018-12-12 22:42:46,961 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-06-02 saved to redis
-2018-12-12 22:42:49,335 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:42:49,335 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-06-08
-2018-12-12 22:42:49,336 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:42:49,337 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:42:49,337 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:42:49,337 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:42:49,337 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:42:49,338 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:42:49,338 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:42:49,338 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:42:49,339 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:42:49,339 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:42:49,339 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:42:49,339 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:42:49,340 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 32, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-06-08']}
-2018-12-12 22:43:14,056 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-06-08 saved to redis
-2018-12-12 22:43:46,797 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:43:46,798 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-06-13
-2018-12-12 22:43:46,798 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:43:46,798 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:43:46,799 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:43:46,799 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:43:46,800 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:43:46,800 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:43:46,801 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:43:46,801 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:43:46,801 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:43:46,802 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:43:46,802 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:43:46,803 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:43:46,803 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-08
-2018-12-12 22:43:46,804 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-08']
-2018-12-12 22:43:46,804 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:43:46,804 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:43:46,806 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 8, 20, 0), datetime.datetime(2018, 6, 13, 20, 0)], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-06-13']}
-2018-12-12 22:44:05,683 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-06-13 saved to redis
-2018-12-12 22:44:08,157 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:44:08,159 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-06-21
-2018-12-12 22:44:08,160 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:44:08,160 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:44:08,161 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:44:08,161 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:44:08,162 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:44:08,162 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:44:08,162 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:44:08,163 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:44:08,163 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:44:08,163 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:44:08,164 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:44:08,164 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:44:08,164 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-13
-2018-12-12 22:44:08,164 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-13']
-2018-12-12 22:44:08,165 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:44:08,165 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:44:08,165 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-08
-2018-12-12 22:44:08,165 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-08']
-2018-12-12 22:44:08,166 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:44:08,166 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:44:08,166 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 32, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-06-21']}
-2018-12-12 22:44:33,143 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-06-21 saved to redis
-2018-12-12 22:45:16,877 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:45:16,877 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-06-26
-2018-12-12 22:45:16,878 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-21
-2018-12-12 22:45:16,878 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-21']
-2018-12-12 22:45:16,878 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:16,878 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:16,878 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:45:16,879 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:45:16,879 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:16,879 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:16,880 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:45:16,880 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:45:16,880 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:16,880 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:45:16,881 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:45:16,881 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:45:16,881 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:16,881 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:16,882 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-13
-2018-12-12 22:45:16,882 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-13']
-2018-12-12 22:45:16,882 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:16,883 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:16,883 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-08
-2018-12-12 22:45:16,883 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-08']
-2018-12-12 22:45:16,883 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:16,887 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:16,888 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 8, 20, 0), datetime.datetime(2018, 6, 26, 20, 0)], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-06-26']}
-2018-12-12 22:45:38,606 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-06-26 saved to redis
-2018-12-12 22:45:43,225 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:45:43,225 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-07-05
-2018-12-12 22:45:43,227 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-21
-2018-12-12 22:45:43,227 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-21']
-2018-12-12 22:45:43,228 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:43,229 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:43,230 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:45:43,231 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:45:43,231 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:43,237 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:43,237 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-26
-2018-12-12 22:45:43,238 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-26']
-2018-12-12 22:45:43,239 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:43,240 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:43,241 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:45:43,242 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:45:43,242 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:43,243 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:45:43,243 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:45:43,244 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:45:43,245 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:43,245 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:43,246 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-13
-2018-12-12 22:45:43,247 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-13']
-2018-12-12 22:45:43,247 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:43,248 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:43,248 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-08
-2018-12-12 22:45:43,249 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-08']
-2018-12-12 22:45:43,250 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:45:43,251 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:45:43,252 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 32, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-07-05']}
-2018-12-12 22:46:18,337 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-07-05 saved to redis
-2018-12-12 22:47:15,676 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:47:15,677 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-07-13
-2018-12-12 22:47:15,678 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-21
-2018-12-12 22:47:15,678 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-21']
-2018-12-12 22:47:15,679 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:15,679 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:15,679 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:47:15,679 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:47:15,680 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:15,680 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:15,681 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-05
-2018-12-12 22:47:15,681 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-05']
-2018-12-12 22:47:15,681 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:15,681 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:15,682 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-26
-2018-12-12 22:47:15,682 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-26']
-2018-12-12 22:47:15,682 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:15,683 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:15,684 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:47:15,684 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:47:15,685 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:15,685 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:47:15,685 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:47:15,686 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:47:15,690 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:15,690 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:15,691 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-13
-2018-12-12 22:47:15,692 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-13']
-2018-12-12 22:47:15,692 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:15,692 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:15,693 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-08
-2018-12-12 22:47:15,693 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-08']
-2018-12-12 22:47:15,694 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:15,694 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:15,695 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 8, 20, 0), datetime.datetime(2018, 7, 13, 20, 0)], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-07-13']}
-2018-12-12 22:47:43,250 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-07-13 saved to redis
-2018-12-12 22:47:46,230 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:47:46,230 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-07-19
-2018-12-12 22:47:46,231 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-13
-2018-12-12 22:47:46,231 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-13']
-2018-12-12 22:47:46,231 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:46,231 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:46,232 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-21
-2018-12-12 22:47:46,232 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-21']
-2018-12-12 22:47:46,232 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:46,233 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:46,233 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:47:46,233 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:47:46,234 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:46,234 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:46,234 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-26
-2018-12-12 22:47:46,234 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-26']
-2018-12-12 22:47:46,235 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:46,235 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:46,235 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-05
-2018-12-12 22:47:46,236 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-05']
-2018-12-12 22:47:46,236 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:46,236 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:46,237 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:47:46,237 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:47:46,237 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:46,238 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:47:46,238 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-13
-2018-12-12 22:47:46,238 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-13']
-2018-12-12 22:47:46,238 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:46,239 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:46,239 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:47:46,239 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:47:46,239 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:46,240 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:46,240 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-08
-2018-12-12 22:47:46,240 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-08']
-2018-12-12 22:47:46,240 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:47:46,240 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:47:46,241 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 32, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-07-19']}
-2018-12-12 22:48:25,312 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-07-19 saved to redis
-2018-12-12 22:49:18,797 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:49:18,797 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-07-23
-2018-12-12 22:49:18,798 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-13
-2018-12-12 22:49:18,799 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-13']
-2018-12-12 22:49:18,799 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:18,799 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:18,799 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-21
-2018-12-12 22:49:18,800 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-21']
-2018-12-12 22:49:18,801 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:18,801 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:18,802 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:49:18,802 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:49:18,802 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:18,802 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:18,803 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-26
-2018-12-12 22:49:18,803 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-26']
-2018-12-12 22:49:18,803 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:18,803 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:18,804 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-05
-2018-12-12 22:49:18,804 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-05']
-2018-12-12 22:49:18,805 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:18,805 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:18,805 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:49:18,806 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:49:18,806 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:18,806 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:49:18,806 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-13
-2018-12-12 22:49:18,808 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-13']
-2018-12-12 22:49:18,808 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:18,808 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:18,808 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:49:18,812 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:49:18,813 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:18,813 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:18,814 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-08
-2018-12-12 22:49:18,814 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-08']
-2018-12-12 22:49:18,815 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:18,815 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:18,816 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-19
-2018-12-12 22:49:18,816 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-19']
-2018-12-12 22:49:18,816 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:18,817 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:18,818 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 8, 20, 0), datetime.datetime(2018, 7, 23, 20, 0)], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-07-23']}
-2018-12-12 22:49:42,452 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-07-23 saved to redis
-2018-12-12 22:49:45,396 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:49:45,396 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-07-24
-2018-12-12 22:49:45,397 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-13
-2018-12-12 22:49:45,397 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-13']
-2018-12-12 22:49:45,398 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,398 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:45,398 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-21
-2018-12-12 22:49:45,398 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-21']
-2018-12-12 22:49:45,399 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,399 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:45,399 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:49:45,399 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:49:45,400 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,400 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:45,400 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-26
-2018-12-12 22:49:45,400 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-26']
-2018-12-12 22:49:45,400 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,401 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:45,401 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-05
-2018-12-12 22:49:45,401 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-05']
-2018-12-12 22:49:45,401 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,401 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:45,402 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:49:45,402 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:49:45,402 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,402 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:49:45,402 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-13
-2018-12-12 22:49:45,402 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-13']
-2018-12-12 22:49:45,403 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,403 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:45,403 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:49:45,403 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:49:45,404 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,404 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:45,404 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-08
-2018-12-12 22:49:45,404 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-08']
-2018-12-12 22:49:45,404 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,404 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:45,405 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-23
-2018-12-12 22:49:45,405 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-23']
-2018-12-12 22:49:45,405 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,405 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:45,406 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-19
-2018-12-12 22:49:45,406 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-19']
-2018-12-12 22:49:45,406 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:49:45,406 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:49:45,407 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 32, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-07-24']}
-2018-12-12 22:50:17,289 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-07-24 saved to redis
-2018-12-12 22:51:11,464 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:51:11,464 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-07-27
-2018-12-12 22:51:11,465 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-13
-2018-12-12 22:51:11,465 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-13']
-2018-12-12 22:51:11,466 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,466 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,466 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-21
-2018-12-12 22:51:11,467 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-21']
-2018-12-12 22:51:11,467 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,467 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,468 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:51:11,468 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:51:11,468 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,468 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,469 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-26
-2018-12-12 22:51:11,469 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-26']
-2018-12-12 22:51:11,469 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,469 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,470 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-05
-2018-12-12 22:51:11,470 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-05']
-2018-12-12 22:51:11,470 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,471 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,471 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-24
-2018-12-12 22:51:11,472 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-24']
-2018-12-12 22:51:11,472 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,472 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,473 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:51:11,473 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:51:11,474 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,474 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:51:11,475 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-13
-2018-12-12 22:51:11,475 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-13']
-2018-12-12 22:51:11,475 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,475 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,475 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:51:11,475 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:51:11,476 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,477 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,477 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-08
-2018-12-12 22:51:11,477 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-08']
-2018-12-12 22:51:11,477 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,478 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,478 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-23
-2018-12-12 22:51:11,479 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-23']
-2018-12-12 22:51:11,479 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,480 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,480 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-19
-2018-12-12 22:51:11,480 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-19']
-2018-12-12 22:51:11,480 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:11,480 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:11,481 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 8, 20, 0), datetime.datetime(2018, 7, 27, 20, 0)], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-07-27']}
-2018-12-12 22:51:35,788 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-07-27 saved to redis
-2018-12-12 22:51:38,496 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_start_date:2018-04-08
-2018-12-12 22:51:38,496 - logs/pythonRedis.logs:141 - WARNING - set_load_params-req_end_date:2018-07-28
-2018-12-12 22:51:38,497 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-13
-2018-12-12 22:51:38,497 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-13']
-2018-12-12 22:51:38,498 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,498 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,498 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-21
-2018-12-12 22:51:38,498 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-21']
-2018-12-12 22:51:38,498 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,499 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,499 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-05-30
-2018-12-12 22:51:38,499 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-05-30']
-2018-12-12 22:51:38,499 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,499 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,500 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-26
-2018-12-12 22:51:38,500 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-26']
-2018-12-12 22:51:38,500 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,500 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,500 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-05
-2018-12-12 22:51:38,501 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-05']
-2018-12-12 22:51:38,501 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,501 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,501 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-27
-2018-12-12 22:51:38,501 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-27']
-2018-12-12 22:51:38,501 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,502 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,502 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-24
-2018-12-12 22:51:38,502 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-24']
-2018-12-12 22:51:38,502 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,502 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,503 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
-2018-12-12 22:51:38,503 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
-2018-12-12 22:51:38,503 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,503 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-12 22:51:38,503 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-13
-2018-12-12 22:51:38,503 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-13']
-2018-12-12 22:51:38,504 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,504 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,504 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-02
-2018-12-12 22:51:38,504 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-02']
-2018-12-12 22:51:38,504 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,505 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,505 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-06-08
-2018-12-12 22:51:38,505 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-06-08']
-2018-12-12 22:51:38,506 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,506 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,506 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-23
-2018-12-12 22:51:38,506 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-23']
-2018-12-12 22:51:38,507 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,507 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,507 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-08:2018-07-19
-2018-12-12 22:51:38,507 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-08', '2018-07-19']
-2018-12-12 22:51:38,507 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-08 20:00:00
-2018-12-12 22:51:38,507 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-08 00:00:00
-2018-12-12 22:51:38,508 - logs/pythonRedis.logs:389 - WARNING - params result:{'cass_start_range': None, 'load_type': 32, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-07-28']}
-2018-12-12 22:52:20,126 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-08:2018-07-28 saved to redis
+2018-12-13 00:43:18,260 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2018-12-13 00:43:22,695 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-13 00:43:22,699 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
+2018-12-13 00:43:22,702 - logs/pythonRedis.logs:161 - WARNING - match:block:2018-04-09:2018-06-14
+2018-12-13 00:43:22,702 - logs/pythonRedis.logs:164 - WARNING - matching keys :['block', '2018-04-09', '2018-06-14']
+2018-12-13 00:43:22,703 - logs/pythonRedis.logs:170 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 00:43:22,703 - logs/pythonRedis.logs:171 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 00:43:22,704 - logs/pythonRedis.logs:178 - WARNING - Full match found: Redis data frame overlaps
+2018-12-13 00:43:22,704 - logs/pythonRedis.logs:388 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-14', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 00:43:22,706 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-14
+2018-12-13 00:43:23,528 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-13 00:43:28,303 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-09:2018-05-30 saved to redis
+2018-12-13 00:44:56,854 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-13 00:44:56,854 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-06-30
+2018-12-13 00:44:56,855 - logs/pythonRedis.logs:161 - WARNING - match:block:2018-04-09:2018-06-14
+2018-12-13 00:44:56,855 - logs/pythonRedis.logs:164 - WARNING - matching keys :['block', '2018-04-09', '2018-06-14']
+2018-12-13 00:44:56,855 - logs/pythonRedis.logs:170 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 00:44:56,855 - logs/pythonRedis.logs:171 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 00:44:56,855 - logs/pythonRedis.logs:161 - WARNING - match:block:2018-04-09:2018-05-30
+2018-12-13 00:44:56,855 - logs/pythonRedis.logs:164 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
+2018-12-13 00:44:56,855 - logs/pythonRedis.logs:170 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 00:44:56,855 - logs/pythonRedis.logs:171 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 00:44:56,856 - logs/pythonRedis.logs:161 - WARNING - match:block:2018-04-09:2018-07-31
+2018-12-13 00:44:56,856 - logs/pythonRedis.logs:164 - WARNING - matching keys :['block', '2018-04-09', '2018-07-31']
+2018-12-13 00:44:56,856 - logs/pythonRedis.logs:170 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 00:44:56,856 - logs/pythonRedis.logs:171 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 00:44:56,856 - logs/pythonRedis.logs:178 - WARNING - Full match found: Redis data frame overlaps
+2018-12-13 00:44:56,856 - logs/pythonRedis.logs:388 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-07-31', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 00:44:56,856 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-07-31
+2018-12-13 00:44:57,032 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-13 00:44:58,421 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-09:2018-06-30 saved to redis
+2018-12-13 00:45:21,418 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-13 00:45:21,418 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-07-31
+2018-12-13 00:45:21,418 - logs/pythonRedis.logs:161 - WARNING - match:block:2018-04-09:2018-06-30
+2018-12-13 00:45:21,418 - logs/pythonRedis.logs:164 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
+2018-12-13 00:45:21,418 - logs/pythonRedis.logs:170 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 00:45:21,418 - logs/pythonRedis.logs:171 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 00:45:21,418 - logs/pythonRedis.logs:161 - WARNING - match:block:2018-04-09:2018-06-14
+2018-12-13 00:45:21,419 - logs/pythonRedis.logs:164 - WARNING - matching keys :['block', '2018-04-09', '2018-06-14']
+2018-12-13 00:45:21,419 - logs/pythonRedis.logs:170 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 00:45:21,419 - logs/pythonRedis.logs:171 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 00:45:21,419 - logs/pythonRedis.logs:161 - WARNING - match:block:2018-04-09:2018-05-30
+2018-12-13 00:45:21,419 - logs/pythonRedis.logs:164 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
+2018-12-13 00:45:21,419 - logs/pythonRedis.logs:170 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 00:45:21,419 - logs/pythonRedis.logs:171 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 00:45:21,419 - logs/pythonRedis.logs:161 - WARNING - match:block:2018-04-09:2018-07-31
+2018-12-13 00:45:21,419 - logs/pythonRedis.logs:164 - WARNING - matching keys :['block', '2018-04-09', '2018-07-31']
+2018-12-13 00:45:21,420 - logs/pythonRedis.logs:170 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 00:45:21,420 - logs/pythonRedis.logs:171 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 00:45:21,420 - logs/pythonRedis.logs:178 - WARNING - Full match found: Redis data frame overlaps
+2018-12-13 00:45:21,420 - logs/pythonRedis.logs:388 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-07-31', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 00:45:21,420 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-07-31
+2018-12-13 00:45:21,608 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-13 00:45:22,882 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-09:2018-07-31 saved to redis
+2018-12-13 00:45:49,471 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-13 00:45:49,471 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-06-03
+2018-12-13 00:45:49,471 - logs/pythonRedis.logs:161 - WARNING - match:block:2018-04-09:2018-06-30
+2018-12-13 00:45:49,471 - logs/pythonRedis.logs:164 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
+2018-12-13 00:45:49,471 - logs/pythonRedis.logs:170 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 00:45:49,471 - logs/pythonRedis.logs:171 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 00:45:49,472 - logs/pythonRedis.logs:178 - WARNING - Full match found: Redis data frame overlaps
+2018-12-13 00:45:49,472 - logs/pythonRedis.logs:388 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 00:45:49,472 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
+2018-12-13 00:45:49,652 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-13 00:45:50,919 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-09:2018-06-03 saved to redis
+2018-12-13 01:04:05,120 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2018-12-13 01:04:08,846 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-13 01:04:08,848 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
+2018-12-13 01:04:08,858 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
+2018-12-13 01:04:08,858 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
+2018-12-13 01:04:08,859 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 01:04:08,860 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 01:04:08,861 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
+2018-12-13 01:04:08,862 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 01:04:08,863 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
+2018-12-13 01:04:09,729 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-13 01:06:03,785 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2018-12-13 01:06:07,187 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-13 01:06:07,190 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
+2018-12-13 01:06:07,191 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
+2018-12-13 01:06:07,192 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
+2018-12-13 01:06:07,192 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 01:06:07,192 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 01:06:07,192 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
+2018-12-13 01:06:07,193 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 01:06:07,193 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
+2018-12-13 01:06:07,899 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-13 01:07:41,033 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-13 01:07:41,033 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-07-28
+2018-12-13 01:07:41,034 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
+2018-12-13 01:07:41,034 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
+2018-12-13 01:07:41,034 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 01:07:41,034 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 01:07:41,035 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-14
+2018-12-13 01:07:41,035 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-14']
+2018-12-13 01:07:41,035 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 01:07:41,036 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 01:07:41,036 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-03
+2018-12-13 01:07:41,036 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-03']
+2018-12-13 01:07:41,037 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 01:07:41,037 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 01:07:41,037 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-05-30
+2018-12-13 01:07:41,037 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
+2018-12-13 01:07:41,038 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 01:07:41,038 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 01:07:41,038 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-07-31
+2018-12-13 01:07:41,038 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-07-31']
+2018-12-13 01:07:41,038 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-13 01:07:41,038 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-13 01:07:41,039 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
+2018-12-13 01:07:41,039 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-07-31', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 01:07:41,039 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-07-31
+2018-12-13 01:07:41,394 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
