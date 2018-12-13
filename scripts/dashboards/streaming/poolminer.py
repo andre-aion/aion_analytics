@@ -1,3 +1,5 @@
+from os.path import join, dirname
+
 import config
 from scripts.utils.myutils import get_initial_blocks, tab_error_flag, \
     ms_to_date, ns_to_date, cass_load_from_daterange, set_params_to_load, \
@@ -8,13 +10,13 @@ from scripts.streaming.streamingBlock import Block
 
 import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
-from bokeh.models import Plot, ColumnDataSource, HoverTool, Panel, Range1d
+from bokeh.models import CustomJS, ColumnDataSource, HoverTool, Panel, Button
 from bokeh.models.glyphs import HBar
 
 import gc
 from bokeh.io import curdoc
 from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, Select, \
-    DatePicker
+    DatePicker, TableColumn, DataTable
 from holoviews import streams
 from holoviews.streams import Stream,RangeXY,RangeX,RangeY, Pipe
 from pdb import set_trace
@@ -43,6 +45,9 @@ for i in range(0, 400, 5):
 
 @coroutine
 def poolminer_tab():
+    # source for top N table
+    src = ColumnDataSource(data=dict(percentage=[], miner_addr=[]))
+
     class Poolminer():
         pc = None
         querycols = ['block_number', 'miner_addr', 'block_date']
@@ -50,13 +55,14 @@ def poolminer_tab():
         block = Block()
         df = block.get_df()
         df1 = None
+        src = ColumnDataSource(data=dict(percentage=[],miner_addr=[]))
+        n = 30
 
         def __init__(self):
             if self.pc is None:
                 self.pc = PythonCassandra()
                 self.pc.createsession()
                 self.pc.createkeyspace('aionv4')
-                self.n = 30
             else:
                 pass
 
@@ -100,9 +106,11 @@ def poolminer_tab():
                 self.df1 = self.df1.groupby('miner_addr').count()
                 self.df1['percentage'] = 100*self.df1.block_number\
                                          /self.df1['block_number'].sum().compute()
-                logger.warning('prep dataset START DATE:%s',start_date)
-                logger.warning('prep dataset END DATE:%s',end_date)
-                logger.warning('prep dataset DF1:%s',self.df1.compute().head())
+
+                self.view_topN()
+                logger.warning('prep dataset START DATE:%s', start_date)
+                logger.warning('prep dataset END DATE:%s', end_date)
+                logger.warning('prep dataset DF1:%s', self.df1.compute().head())
 
                 return self.df1.hvplot.bar('miner_addr','block_number', rot=90,
                                            width=1500)
@@ -110,19 +118,21 @@ def poolminer_tab():
                 logger.error('munge df:', exc_info=True)
 
 
-        def view_topN(self, n):
+        def view_topN(self):
             # change n from string to int
             try:
-                self.set_n(n)
-                df2 = self.df1['percentage'].nlargest(self.n)
-                df2 = df2.reset_index().compute()
-                title = 'Top {} miners'.format(self.n)
-                bars_n = df2.hvplot.table(columns=['miner_addr','percentage'],
-                                          title=title, width=400)
+                #table_n = df1.hvplot.table(columns=['miner_addr','percentage'],
+                                          #title=title, width=400)
+                self.df2 = self.df1['percentage'].nlargest(self.n)
+                self.df2 = self.df2.reset_index().compute()
+                new_data = dict(
+                    percentage=self.df2.percentage,
+                    miner_addr=self.df2.miner_addr
+                )
+                src.stream(new_data)
 
-                del df2
                 gc.collect()
-                return bars_n
+                #return table_n
             except Exception:
                 logger.error('view_topN:', exc_info=True)
 
@@ -137,19 +147,19 @@ def poolminer_tab():
                     logger.error('set_n', exc_info=True)
 
 
-    # notify the holoviews stream of the slider update
+    # notify the holoviews stream of the slider updates
     def update_start_date(attrname, old, new):
-        # notify the holoviews stream of the slider update
         stream_start_date.event(start_date=new)
 
     def update_end_date(attrname, old, new):
-    # notify the holoviews stream of the slider update
         stream_end_date.event(end_date=new)
 
-
-    def update_topN(attrname, old,new):
-        stream_topN.event(n=new)
-
+    # update based on selected top n
+    def update_topN():
+        logger.warning('topN selected value:%s',topN_select.value)
+        logger.warning('topN singleton value:%s',pm.n)
+        pm.set_n(topN_select.value)
+        pm.view_topN()
 
     try:
         # create class and get date range
@@ -178,8 +188,7 @@ def poolminer_tab():
         topN_select = Select(title='Top N', value=str(pm.n), options=menu)
 
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
-                                      max_date=last_date_range, value=first_date_range
-                                      )
+                                      max_date=last_date_range, value=first_date_range)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
 
@@ -187,12 +196,9 @@ def poolminer_tab():
         # add callbacks
         datepicker_start.on_change('value', update_start_date)
         datepicker_end.on_change('value', update_end_date)
-
-        topN_select.on_change("value", update_topN)
-
+        topN_select.on_change("value", lambda attr, old, new: update_topN())
 
         renderer = hv.renderer('bokeh')
-
 
         # ALL MINERS
         dmap_all = hv.DynamicMap(pm.load_data,
@@ -200,17 +206,26 @@ def poolminer_tab():
             .opts(plot=dict(height=500, width=1500))
         all_plot = renderer.get_plot(dmap_all)
 
-        # TOP N MINERS
-        dmap_topN = hv.DynamicMap(pm.view_topN, streams=[stream_topN])\
-            .opts(plot=dict(height=500, width=500))
-        topN_plot=renderer.get_plot(dmap_topN)
+        # --------------------- TOP N MINERS -----------------------------------
+        # set up data source for the ton N miners table
 
+        columns = [
+            TableColumn(field="miner_addr", title="Address"),
+            TableColumn(field="percentage", title="percentage"),
+        ]
+        topN_table = DataTable(source=src, columns=columns, width=200, height=600)
+
+        download_button = Button(label='Save Table to CSV', button_type="success")
+        download_button.callback = CustomJS(args=dict(source=src),
+            code=open(join(dirname(__file__),
+                           "../../../assets/js/topN_download.js")).read())
 
         # put the controls in a single element
-        controls = WidgetBox(datepicker_start, datepicker_end, topN_select)
+        controls = WidgetBox(datepicker_start, datepicker_end,
+                             download_button, topN_select)
 
         # create the dashboard
-        grid = gridplot([[controls, topN_plot.state], [all_plot.state]])
+        grid = gridplot([[controls, topN_table], [all_plot.state]])
 
         # Make a tab with the layout
         tab = Panel(child=grid, title='Poolminer')

@@ -42,3 +42,570 @@
 804073        237513  a0762b81cb 2018-05-22
 804074        326942  a0e8f240cc 2018-06-02
 804075        749312  a0d1565b5b 2018-07-24
+2018-12-13 08:32:50,145 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 08:32:52,248 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 08:32:52,687 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 08:32:52,729 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 08:32:52,832 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 08:35:59,622 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 08:36:02,574 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 08:36:03,575 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 08:36:03,649 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 08:36:03,782 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 11:08:07,472 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 11:08:10,514 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 11:08:11,129 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 11:08:11,184 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 11:08:11,270 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 11:09:00,115 - logs/myutils.logs:223 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-13 11:09:00,119 - logs/myutils.logs:224 - WARNING - start from slider:2018-04-09 00:00:00
+2018-12-13 11:09:00,120 - logs/myutils.logs:234 - WARNING - set_params_to_load:{'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
+2018-12-13 11:09:00,458 - logs/myutils.logs:264 - WARNING - df original, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 11:09:00,491 - logs/myutils.logs:265 - WARNING - df original, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 11:09:00,508 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 11:09:00,795 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 11:09:00,812 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 11:09:00,841 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 13:48:04,703 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 13:50:08,926 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 13:50:12,054 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 13:50:13,301 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 13:50:13,390 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 13:50:13,579 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 13:52:29,704 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 13:59:39,489 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 14:38:27,931 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 15:09:25,680 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 15:11:50,403 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 15:11:52,223 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 15:11:52,576 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 15:11:52,597 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:11:52,647 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:14:16,471 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 15:14:19,560 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 15:14:20,720 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 15:14:20,796 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:14:20,991 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:15:09,709 - logs/myutils.logs:223 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-13 15:15:09,710 - logs/myutils.logs:224 - WARNING - start from slider:2018-04-09 00:00:00
+2018-12-13 15:15:09,711 - logs/myutils.logs:234 - WARNING - set_params_to_load:{'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
+2018-12-13 15:15:09,938 - logs/myutils.logs:264 - WARNING - df original, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:15:09,969 - logs/myutils.logs:265 - WARNING - df original, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:15:09,987 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 15:15:10,203 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 15:15:10,218 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:15:10,241 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:16:29,153 - logs/myutils.logs:223 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-13 15:16:29,154 - logs/myutils.logs:224 - WARNING - start from slider:2018-04-09 00:00:00
+2018-12-13 15:16:29,154 - logs/myutils.logs:234 - WARNING - set_params_to_load:{'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
+2018-12-13 15:16:29,346 - logs/myutils.logs:264 - WARNING - df original, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:16:29,367 - logs/myutils.logs:265 - WARNING - df original, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:16:29,378 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 15:16:29,564 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 15:16:29,577 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:16:29,598 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:42:44,811 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 15:42:46,773 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 15:42:47,042 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 15:42:47,061 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:42:47,102 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:49:04,950 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 15:49:06,548 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 15:49:06,866 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 15:49:06,887 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:49:06,932 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:51:54,642 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 15:51:56,924 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 15:51:57,679 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 15:51:57,753 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:51:57,885 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:53:09,780 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 15:53:12,657 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 15:53:13,961 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 15:53:14,046 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:53:14,244 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:54:23,898 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 15:54:26,215 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 15:54:26,893 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 15:54:26,935 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:54:27,050 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:55:27,745 - logs/myutils.logs:223 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-13 15:55:27,746 - logs/myutils.logs:224 - WARNING - start from slider:2018-04-09 00:00:00
+2018-12-13 15:55:27,746 - logs/myutils.logs:234 - WARNING - set_params_to_load:{'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
+2018-12-13 15:55:27,892 - logs/myutils.logs:264 - WARNING - df original, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:55:27,914 - logs/myutils.logs:265 - WARNING - df original, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 15:55:27,926 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 15:55:28,108 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 15:55:28,123 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 15:55:28,150 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:11:09,850 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:11:12,381 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:11:13,446 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:11:13,528 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:11:13,747 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:16:17,155 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:16:21,417 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:16:22,999 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:16:23,083 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:16:23,364 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:17:43,392 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:17:43,625 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:17:43,638 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:17:43,670 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:21:01,016 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:21:03,712 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:21:04,588 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:21:04,643 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:21:04,790 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:32:00,014 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:32:03,508 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:32:04,639 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:32:04,715 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:32:04,883 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:33:08,318 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:33:11,120 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:33:12,160 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:33:12,225 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:33:12,400 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:35:29,342 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:35:32,247 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:35:33,193 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:35:33,247 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:35:33,437 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:48:58,677 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:49:03,004 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:49:04,599 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:49:04,671 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:49:04,845 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:53:34,155 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:53:38,021 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:53:39,177 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:53:39,258 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:53:39,422 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:55:46,613 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:55:49,364 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:55:50,311 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:55:50,386 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:55:50,612 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:57:35,150 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:57:38,282 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:57:39,548 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:57:39,644 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:57:39,809 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 16:59:05,537 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 16:59:08,267 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 16:59:09,090 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 16:59:09,179 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 16:59:09,356 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 17:05:04,443 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 17:05:07,255 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 17:05:08,471 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 17:05:08,621 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 17:05:08,833 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 17:05:56,228 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-13 17:05:59,079 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 17:05:59,944 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 17:06:00,012 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 17:06:00,196 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 17:12:00,942 - logs/myutils.logs:223 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-13 17:12:00,943 - logs/myutils.logs:224 - WARNING - start from slider:2018-04-09 00:00:00
+2018-12-13 17:12:00,943 - logs/myutils.logs:234 - WARNING - set_params_to_load:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
+2018-12-13 17:12:01,196 - logs/myutils.logs:264 - WARNING - df original, HEAD:   block_number  miner_addr block_date
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+6         57379  a0c7e08b1b 2018-04-30
+2018-12-13 17:12:01,222 - logs/myutils.logs:265 - WARNING - df original, TAIL:        block_number  miner_addr block_date
+804068        511307  a0061525a5 2018-06-25
+804069        493742  a07981da70 2018-06-22
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+2018-12-13 17:12:01,237 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-07-31', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-13 17:12:01,433 - logs/myutils.logs:279 - WARNING - 
+2018-12-13 17:12:01,444 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+0        562418  a07981da70 2018-07-01
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+2018-12-13 17:12:01,465 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:        block_number  miner_addr block_date
+804071        786645  a06e783985 2018-07-28
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+804075        749312  a0d1565b5b 2018-07-24
+2018-12-13 17:13:59,031 - logs/myutils.logs:223 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-13 17:13:59,032 - logs/myutils.logs:224 - WARNING - start from slider:2018-04-09 00:00:00
+2018-12-13 17:13:59,032 - logs/myutils.logs:234 - WARNING - set_params_to_load:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-07-31 00:00:00')}
+2018-12-13 17:13:59,246 - logs/myutils.logs:264 - WARNING - df original, HEAD:   block_number  miner_addr block_date
+0        562418  a07981da70 2018-07-01
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+2018-12-13 17:13:59,275 - logs/myutils.logs:265 - WARNING - df original, TAIL:        block_number  miner_addr block_date
+804071        786645  a06e783985 2018-07-28
+804072        553067  a0dc858ab3 2018-06-30
+804073        237513  a0762b81cb 2018-05-22
+804074        326942  a0e8f240cc 2018-06-02
+804075        749312  a0d1565b5b 2018-07-24
+2018-12-13 17:13:59,290 - logs/myutils.logs:273 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 9, 0, 0), datetime.datetime(2018, 8, 31, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-08-31']}
+2018-12-13 17:13:59,290 - logs/myutils.logs:140 - WARNING - date_to_cass_ts:2018-04-09 00:00:00
+2018-12-13 17:13:59,291 - logs/myutils.logs:147 - WARNING - date_to_cass_ts:1523246400000
+2018-12-13 17:13:59,291 - logs/myutils.logs:140 - WARNING - date_to_cass_ts:2018-08-31 00:00:00
+2018-12-13 17:13:59,291 - logs/myutils.logs:147 - WARNING - date_to_cass_ts:1535688000000
+2018-12-13 17:13:59,291 - logs/myutils.logs:284 - WARNING - construct_df, in cass load, sdate:1523246400000
+2018-12-13 17:13:59,291 - logs/myutils.logs:181 - WARNING - cass load from_date:1523246400000
+2018-12-13 17:13:59,291 - logs/myutils.logs:182 - WARNING - cass load to_date:1535688000000
+2018-12-13 17:13:59,292 - logs/myutils.logs:176 - WARNING - query:select block_number,miner_addr,block_date from block where block_timestamp >=1523246400000 and 
+        block_timestamp <=1535688000000 ALLOW FILTERING
+2018-12-13 17:14:24,159 - logs/myutils.logs:201 - WARNING - data loaded from daterange :         block_number  miner_addr block_date
+1043425        553067  a0dc858ab3 2018-06-30
+1043426        237513  a0762b81cb 2018-05-22
+1043427        326942  a0e8f240cc 2018-06-02
+1043428        749312  a0d1565b5b 2018-07-24
+1043429       1054080  a0c5da302c 2018-08-30
+2018-12-13 17:14:24,191 - logs/myutils.logs:341 - WARNING - df constructed, HEAD:   block_number  miner_addr block_date
+0        870550  a0f2daa8de 2018-08-07
+1        562418  a07981da70 2018-07-01
+2          1535  a0518c8516 2018-04-25
+3        903146  a08fbc834b 2018-08-11
+4        219535  a0b8a29ddc 2018-05-20
+2018-12-13 17:14:24,216 - logs/myutils.logs:342 - WARNING - df constructed, TAIL:         block_number  miner_addr block_date
+1043425        553067  a0dc858ab3 2018-06-30
+1043426        237513  a0762b81cb 2018-05-22
+1043427        326942  a0e8f240cc 2018-06-02
+1043428        749312  a0d1565b5b 2018-07-24
+1043429       1054080  a0c5da302c 2018-08-30

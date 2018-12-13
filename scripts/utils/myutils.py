@@ -102,7 +102,7 @@ def ms_to_date(ts):
     try:
         if isinstance(ts, int) == True:
             # change milli to seconds
-            if ts > 163076320:
+            if ts > 16307632000:
                 ts = ts // 1000
             ts = datetime.utcfromtimestamp(ts)
             # convert to nanosecond representation
