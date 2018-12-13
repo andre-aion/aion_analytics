@@ -1,38 +1,365 @@
-2018-12-12 17:36:41,831 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-12 17:36:42,728 - logs/poolminer.logs:67 - WARNING - load_data:None
-2018-12-12 17:36:46,383 - logs/poolminer.logs:74 - WARNING - load_data head:   block_number  miner_addr block_date
+2018-12-12 22:38:39,357 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-12 22:38:40,229 - logs/poolminer.logs:67 - WARNING - load_data:None
+2018-12-12 22:39:04,558 - logs/poolminer.logs:74 - WARNING - load_data head:   block_number  miner_addr block_date
 0          1535  a0518c8516 2018-04-25
 1        219535  a0b8a29ddc 2018-05-20
 2        227203  a0db64eae1 2018-05-21
 3         82694  a0762b81cb 2018-05-03
 4         57379  a0c7e08b1b 2018-04-30
-2018-12-12 17:36:46,730 - logs/poolminer.logs:75 - WARNING - load_data tail:        block_number  miner_addr block_date
+2018-12-12 22:39:04,574 - logs/poolminer.logs:75 - WARNING - load_data tail:        block_number  miner_addr block_date
 295251        199180  a0c7e08b1b 2018-05-18
 295252         43389  a0762b81cb 2018-04-29
 295253         31505  a0426ebf76 2018-04-27
 295254        280925  a003e9a7b9 2018-05-28
 295255        237513  a0762b81cb 2018-05-22
-2018-12-12 17:36:46,860 - logs/poolminer.logs:92 - WARNING - prep dataset start date:2018-04-10 00:00:00
-2018-12-12 17:36:48,674 - logs/poolminer.logs:97 - WARNING - START DATE:2018-04-10 00:00:00
-2018-12-12 17:36:48,674 - logs/poolminer.logs:98 - WARNING - END DATE:2018-05-30 00:00:00
-2018-12-12 17:36:51,032 - logs/poolminer.logs:99 - WARNING - DF1:            block_number  block_date  percentage
+2018-12-12 22:39:04,597 - logs/poolminer.logs:92 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-12 22:39:04,811 - logs/poolminer.logs:97 - WARNING - START DATE:2018-04-09 00:00:00
+2018-12-12 22:39:04,811 - logs/poolminer.logs:98 - WARNING - END DATE:2018-05-30 00:00:00
+2018-12-12 22:39:05,017 - logs/poolminer.logs:99 - WARNING - DF1:            block_number  block_date  percentage
 miner_addr                                      
 0000000000           854         854    0.289241
 a000686525          3947        3947    1.336806
 a00339fa21          1746        1746    0.591351
 a003e9a7b9          5937        5937    2.010797
 a004a26d31             7           7    0.002371
-2018-12-12 17:37:35,097 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-05-30 00:00:00')}
-2018-12-12 17:37:36,836 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,859 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,868 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,876 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,885 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,894 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,903 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,911 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,920 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,933 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,942 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,952 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-12 17:37:36,964 - logs/poolminer.logs:67 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-12 22:41:34,518 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-05-30 00:00:00')}
+2018-12-12 22:41:56,688 - logs/poolminer.logs:74 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+0      0 2018-04-25       ...                   NaN              NaN
+1      1 2018-05-20       ...                   NaN              NaN
+2      2 2018-05-21       ...                   NaN              NaN
+3      3 2018-05-03       ...                   NaN              NaN
+4      4 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:41:56,822 - logs/poolminer.logs:75 - WARNING - load_data tail:        index block_date       ...        transaction_id transaction_list
+19674  295250 2018-05-18       ...                   NaN              NaN
+19675  295251 2018-04-29       ...                   NaN              NaN
+19676  295252 2018-04-27       ...                   NaN              NaN
+19677  295253 2018-05-28       ...                   NaN              NaN
+19678  295254 2018-05-22       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:41:56,901 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:42:00,136 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:42:00,136 - logs/poolminer.logs:98 - WARNING - END DATE:1527724800000
+2018-12-12 22:42:03,535 - logs/poolminer.logs:99 - WARNING - DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1707        1707     ...                     0    0.289072
+a000686525   7894        7894     ...                     0    1.336808
+a00339fa21   3492        3492     ...                     0    0.591352
+a003e9a7b9  11874       11874     ...                     0    2.010801
+a004a26d31     14          14     ...                     0    0.002371
+
+[5 rows x 18 columns]
+2018-12-12 22:42:24,104 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-05-30 00:00:00')}
+2018-12-12 22:42:47,055 - logs/poolminer.logs:74 - WARNING - load_data head:   block_number  miner_addr block_date
+0          1535  a0518c8516 2018-04-25
+1        219535  a0b8a29ddc 2018-05-20
+2        227203  a0db64eae1 2018-05-21
+3         82694  a0762b81cb 2018-05-03
+4         57379  a0c7e08b1b 2018-04-30
+2018-12-12 22:42:47,071 - logs/poolminer.logs:75 - WARNING - load_data tail:        block_number  miner_addr block_date
+326645        306246  a0c7e08b1b 2018-05-31
+326646         31505  a0426ebf76 2018-04-27
+326647        280925  a003e9a7b9 2018-05-28
+326648        237513  a0762b81cb 2018-05-22
+326649        326942  a0e8f240cc 2018-06-02
+2018-12-12 22:42:47,090 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:42:47,324 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:42:47,324 - logs/poolminer.logs:98 - WARNING - END DATE:1527984000000
+2018-12-12 22:42:47,531 - logs/poolminer.logs:99 - WARNING - DF1:            block_number  block_date  percentage
+miner_addr                                      
+0000000000           869         869    0.266034
+a000686525          3950        3950    1.209245
+a00339fa21          1846        1846    0.565131
+a003e9a7b9          7513        7513    2.300015
+a004a26d31             7           7    0.002143
+2018-12-12 22:42:49,258 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-02 00:00:00')}
+2018-12-12 22:43:14,240 - logs/poolminer.logs:74 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+0      0 2018-04-25       ...                   NaN              NaN
+1      1 2018-05-20       ...                   NaN              NaN
+2      2 2018-05-21       ...                   NaN              NaN
+3      3 2018-05-03       ...                   NaN              NaN
+4      4 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:43:14,403 - logs/poolminer.logs:75 - WARNING - load_data tail:        index block_date       ...        transaction_id transaction_list
+24623  369611 2018-05-31       ...                   NaN              NaN
+24624  369612 2018-04-27       ...                   NaN              NaN
+24625  369613 2018-05-28       ...                   NaN              NaN
+24626  369614 2018-05-22       ...                   NaN              NaN
+24627  369615 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:43:14,508 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:43:17,623 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:43:17,623 - logs/poolminer.logs:98 - WARNING - END DATE:1528502400000
+2018-12-12 22:43:21,291 - logs/poolminer.logs:99 - WARNING - DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1807        1807     ...                     0    0.259527
+a000686525   7981        7981     ...                     0    1.146257
+a00339fa21   3785        3785     ...                     0    0.543614
+a003e9a7b9  16662       16662     ...                     0    2.393051
+a004a26d31     14          14     ...                     0    0.002011
+
+[5 rows x 18 columns]
+2018-12-12 22:43:44,755 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-08 00:00:00')}
+2018-12-12 22:44:05,777 - logs/poolminer.logs:74 - WARNING - load_data head:   block_number  miner_addr block_date
+0          1535  a0518c8516 2018-04-25
+1        219535  a0b8a29ddc 2018-05-20
+2        227203  a0db64eae1 2018-05-21
+3         82694  a0762b81cb 2018-05-03
+4         57379  a0c7e08b1b 2018-04-30
+2018-12-12 22:44:05,792 - logs/poolminer.logs:75 - WARNING - load_data tail:        block_number  miner_addr block_date
+417272        306246  a0c7e08b1b 2018-05-31
+417273         31505  a0426ebf76 2018-04-27
+417274        280925  a003e9a7b9 2018-05-28
+417275        237513  a0762b81cb 2018-05-22
+417276        326942  a0e8f240cc 2018-06-02
+2018-12-12 22:44:05,812 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:44:06,033 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:44:06,034 - logs/poolminer.logs:98 - WARNING - END DATE:1528934400000
+2018-12-12 22:44:06,266 - logs/poolminer.logs:99 - WARNING - DF1:            block_number  block_date  percentage
+miner_addr                                      
+0000000000           946         946    0.226708
+a000686525          4047        4047    0.969859
+a00339fa21          2045        2045    0.490082
+a003e9a7b9         10572       10572    2.533569
+a004a26d31             7           7    0.001678
+2018-12-12 22:44:08,096 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-14 00:00:00')}
+2018-12-12 22:44:33,295 - logs/poolminer.logs:74 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+0      0 2018-04-25       ...                   NaN              NaN
+1      1 2018-05-20       ...                   NaN              NaN
+2      2 2018-05-21       ...                   NaN              NaN
+3      3 2018-05-03       ...                   NaN              NaN
+4      4 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:44:33,424 - logs/poolminer.logs:75 - WARNING - load_data tail:        index block_date       ...        transaction_id transaction_list
+31712  475890 2018-05-31       ...                   NaN              NaN
+31713  475891 2018-04-27       ...                   NaN              NaN
+31714  475892 2018-05-28       ...                   NaN              NaN
+31715  475893 2018-05-22       ...                   NaN              NaN
+31716  475894 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:44:33,491 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:44:36,975 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:44:36,976 - logs/poolminer.logs:98 - WARNING - END DATE:1529625600000
+2018-12-12 22:44:42,541 - logs/poolminer.logs:99 - WARNING - DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1910        1910     ...                     0    0.213845
+a000686525   8094        8094     ...                     0    0.906208
+a00339fa21   4229        4229     ...                     0    0.473481
+a003e9a7b9  22874       22874     ...                     0    2.560985
+a004a26d31     14          14     ...                     0    0.001567
+
+[5 rows x 18 columns]
+2018-12-12 22:45:14,568 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-21 00:00:00')}
+2018-12-12 22:45:38,757 - logs/poolminer.logs:74 - WARNING - load_data head:   block_number  miner_addr block_date
+0          1535  a0518c8516 2018-04-25
+1        219535  a0b8a29ddc 2018-05-20
+2        227203  a0db64eae1 2018-05-21
+3         82694  a0762b81cb 2018-05-03
+4         57379  a0c7e08b1b 2018-04-30
+2018-12-12 22:45:38,784 - logs/poolminer.logs:75 - WARNING - load_data tail:        block_number  miner_addr block_date
+523632        280925  a003e9a7b9 2018-05-28
+523633        511307  a0061525a5 2018-06-25
+523634        493742  a07981da70 2018-06-22
+523635        237513  a0762b81cb 2018-05-22
+523636        326942  a0e8f240cc 2018-06-02
+2018-12-12 22:45:38,820 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:45:39,374 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:45:39,375 - logs/poolminer.logs:98 - WARNING - END DATE:1530057600000
+2018-12-12 22:45:39,904 - logs/poolminer.logs:99 - WARNING - DF1:            block_number  block_date  percentage
+miner_addr                                      
+0000000000          1114        1114    0.212743
+a000686525          4047        4047    0.772864
+a00339fa21          2300        2300    0.439236
+a003e9a7b9         13938       13938    2.661768
+a004a26d31             7           7    0.001337
+2018-12-12 22:45:43,125 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-26 00:00:00')}
+2018-12-12 22:46:18,488 - logs/poolminer.logs:74 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+0      0 2018-04-25       ...                   NaN              NaN
+1      1 2018-05-20       ...                   NaN              NaN
+2      2 2018-05-21       ...                   NaN              NaN
+3      3 2018-05-03       ...                   NaN              NaN
+4      4 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:46:18,618 - logs/poolminer.logs:75 - WARNING - load_data tail:        index block_date       ...        transaction_id transaction_list
+39340  590170 2018-06-25       ...                   NaN              NaN
+39341  590171 2018-06-22       ...                   NaN              NaN
+39342  590172 2018-06-30       ...                   NaN              NaN
+39343  590173 2018-05-22       ...                   NaN              NaN
+39344  590174 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:46:18,684 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:46:22,929 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:46:22,929 - logs/poolminer.logs:98 - WARNING - END DATE:1530835200000
+2018-12-12 22:46:27,778 - logs/poolminer.logs:99 - WARNING - DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   2532        2532     ...                     0    0.227327
+a000686525   8094        8094     ...                     0    0.726694
+a00339fa21   4777        4777     ...                     0    0.428887
+a003e9a7b9  29616       29616     ...                     0    2.658977
+a004a26d31     14          14     ...                     0    0.001257
+
+[5 rows x 18 columns]
+2018-12-12 22:47:11,446 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-07-05 00:00:00')}
+2018-12-12 22:47:43,351 - logs/poolminer.logs:74 - WARNING - load_data head:   block_number  miner_addr block_date
+0        562418  a07981da70 2018-07-01
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+2018-12-12 22:47:43,367 - logs/poolminer.logs:75 - WARNING - load_data tail:        block_number  miner_addr block_date
+662694        511307  a0061525a5 2018-06-25
+662695        493742  a07981da70 2018-06-22
+662696        553067  a0dc858ab3 2018-06-30
+662697        237513  a0762b81cb 2018-05-22
+662698        326942  a0e8f240cc 2018-06-02
+2018-12-12 22:47:43,387 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:47:43,625 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:47:43,625 - logs/poolminer.logs:98 - WARNING - END DATE:1531526400000
+2018-12-12 22:47:43,851 - logs/poolminer.logs:99 - WARNING - DF1:            block_number  block_date  percentage
+miner_addr                                      
+0000000000          1751        1751    0.264223
+a000686525          4306        4306    0.649767
+a00339fa21          2678        2678    0.404105
+a003e9a7b9         15678       15678    2.365780
+a004a26d31             7           7    0.001056
+2018-12-12 22:47:46,172 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-07-13 00:00:00')}
+2018-12-12 22:48:25,483 - logs/poolminer.logs:74 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+0      0 2018-07-01       ...                   NaN              NaN
+1      1 2018-04-25       ...                   NaN              NaN
+2      2 2018-05-20       ...                   NaN              NaN
+3      3 2018-05-21       ...                   NaN              NaN
+4      4 2018-05-03       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:48:25,626 - logs/poolminer.logs:75 - WARNING - load_data tail:        index block_date       ...        transaction_id transaction_list
+47034  705636 2018-06-25       ...                   NaN              NaN
+47035  705637 2018-06-22       ...                   NaN              NaN
+47036  705638 2018-06-30       ...                   NaN              NaN
+47037  705639 2018-05-22       ...                   NaN              NaN
+47038  705640 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:48:25,689 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:48:30,997 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:48:30,997 - logs/poolminer.logs:98 - WARNING - END DATE:1532044800000
+2018-12-12 22:48:38,390 - logs/poolminer.logs:99 - WARNING - DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   3607        3607     ...                     0    0.263604
+a000686525   8694        8694     ...                     0    0.635368
+a00339fa21   5497        5497     ...                     0    0.401728
+a003e9a7b9  31356       31356     ...                     0    2.291536
+a004a26d31     14          14     ...                     0    0.001023
+
+[5 rows x 18 columns]
+2018-12-12 22:49:15,633 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-07-19 00:00:00')}
+2018-12-12 22:49:42,541 - logs/poolminer.logs:74 - WARNING - load_data head:   block_number  miner_addr block_date
+0        562418  a07981da70 2018-07-01
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+2018-12-12 22:49:42,555 - logs/poolminer.logs:75 - WARNING - load_data tail:        block_number  miner_addr block_date
+745191        511307  a0061525a5 2018-06-25
+745192        493742  a07981da70 2018-06-22
+745193        553067  a0dc858ab3 2018-06-30
+745194        237513  a0762b81cb 2018-05-22
+745195        326942  a0e8f240cc 2018-06-02
+2018-12-12 22:49:42,574 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:49:42,812 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:49:42,812 - logs/poolminer.logs:98 - WARNING - END DATE:1532390400000
+2018-12-12 22:49:43,083 - logs/poolminer.logs:99 - WARNING - DF1:            block_number  block_date  percentage
+miner_addr                                      
+0000000000          1857        1857    0.249196
+a000686525          4411        4411    0.591925
+a00339fa21          2910        2910    0.390501
+a003e9a7b9         15678       15678    2.103876
+a004a26d31             7           7    0.000939
+2018-12-12 22:49:45,344 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-07-23 00:00:00')}
+2018-12-12 22:50:17,466 - logs/poolminer.logs:74 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+0      0 2018-07-01       ...                   NaN              NaN
+1      1 2018-04-25       ...                   NaN              NaN
+2      2 2018-05-20       ...                   NaN              NaN
+3      3 2018-05-21       ...                   NaN              NaN
+4      4 2018-05-03       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:50:17,615 - logs/poolminer.logs:75 - WARNING - load_data tail:        index block_date       ...        transaction_id transaction_list
+49762  746584 2018-06-22       ...                   NaN              NaN
+49763  746585 2018-06-30       ...                   NaN              NaN
+49764  746586 2018-05-22       ...                   NaN              NaN
+49765  746587 2018-06-02       ...                   NaN              NaN
+49766  746588 2018-07-24       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:50:17,677 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:50:22,785 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:50:22,785 - logs/poolminer.logs:98 - WARNING - END DATE:1532476800000
+2018-12-12 22:50:27,980 - logs/poolminer.logs:99 - WARNING - DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   3713        3713     ...                     0    0.248896
+a000686525   8822        8822     ...                     0    0.591372
+a00339fa21   5823        5823     ...                     0    0.390338
+a003e9a7b9  31356       31356     ...                     0    2.101911
+a004a26d31     14          14     ...                     0    0.000938
+
+[5 rows x 18 columns]
+2018-12-12 22:51:08,044 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-07-24 00:00:00')}
+2018-12-12 22:51:35,881 - logs/poolminer.logs:74 - WARNING - load_data head:   block_number  miner_addr block_date
+0        562418  a07981da70 2018-07-01
+1          1535  a0518c8516 2018-04-25
+2        219535  a0b8a29ddc 2018-05-20
+3        227203  a0db64eae1 2018-05-21
+4         82694  a0762b81cb 2018-05-03
+2018-12-12 22:51:35,895 - logs/poolminer.logs:75 - WARNING - load_data tail:        block_number  miner_addr block_date
+778293        775427  a08091ab03 2018-07-27
+778294        553067  a0dc858ab3 2018-06-30
+778295        237513  a0762b81cb 2018-05-22
+778296        326942  a0e8f240cc 2018-06-02
+778297        749312  a0d1565b5b 2018-07-24
+2018-12-12 22:51:35,912 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:51:36,164 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:51:36,165 - logs/poolminer.logs:98 - WARNING - END DATE:1532736000000
+2018-12-12 22:51:36,410 - logs/poolminer.logs:99 - WARNING - DF1:            block_number  block_date  percentage
+miner_addr                                      
+0000000000          1857        1857    0.238598
+a000686525          4411        4411    0.566749
+a00339fa21          2993        2993    0.384557
+a003e9a7b9         15678       15678    2.014396
+a004a26d31             7           7    0.000899
+2018-12-12 22:51:38,441 - logs/poolminer.logs:67 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-07-27 00:00:00')}
+2018-12-12 22:52:20,309 - logs/poolminer.logs:74 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+0      0 2018-07-01       ...                   NaN              NaN
+1      1 2018-04-25       ...                   NaN              NaN
+2      2 2018-05-20       ...                   NaN              NaN
+3      3 2018-05-21       ...                   NaN              NaN
+4      4 2018-05-03       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:52:20,464 - logs/poolminer.logs:75 - WARNING - load_data tail:        index block_date       ...        transaction_id transaction_list
+51974  779694 2018-07-27       ...                   NaN              NaN
+51975  779695 2018-06-30       ...                   NaN              NaN
+51976  779696 2018-05-22       ...                   NaN              NaN
+51977  779697 2018-06-02       ...                   NaN              NaN
+51978  779698 2018-07-24       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-12 22:52:20,528 - logs/poolminer.logs:92 - WARNING - prep dataset start date:1523232000000
+2018-12-12 22:52:27,127 - logs/poolminer.logs:97 - WARNING - START DATE:1523232000000
+2018-12-12 22:52:27,128 - logs/poolminer.logs:98 - WARNING - END DATE:1532822400000
+2018-12-12 22:52:32,608 - logs/poolminer.logs:99 - WARNING - DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   3713        3713     ...                     0    0.238319
+a000686525   8822        8822     ...                     0    0.566240
+a00339fa21   5988        5988     ...                     0    0.384340
+a003e9a7b9  31356       31356     ...                     0    2.012584
+a004a26d31     14          14     ...                     0    0.000899
+
+[5 rows x 18 columns]

@@ -94,7 +94,8 @@ def hashrate_tab():
 
     initial_blockcount = 50
     blockcount_slider = Slider(start=0, end=1000, value=initial_blockcount,
-                               step=50, title='Blockcount')
+                               step=50, title='Blockcount',
+                               callback_policy="mouseup")
     try:
 
         dmap_hashrate = hv.DynamicMap(hashrate_plot,

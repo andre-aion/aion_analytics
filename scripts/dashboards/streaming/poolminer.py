@@ -1,6 +1,6 @@
 import config
 from scripts.utils.myutils import get_initial_blocks, tab_error_flag, \
-    ms_to_date, ns_to_date, cass_load_from_daterange, set_loaded_params, \
+    ms_to_date, ns_to_date, cass_load_from_daterange, set_params_to_load, \
     construct_df_upon_load
 from scripts.utils.mylogger import mylogger
 from scripts.utils.pythonCassandra import PythonCassandra
@@ -63,7 +63,7 @@ def poolminer_tab():
 
         def load_data(self, start_date, end_date):
             # find the boundaries of the loaded data, redis_data
-            load_params = set_loaded_params(self.df, start_date, end_date)
+            load_params = set_params_to_load(self.df, start_date, end_date)
             logger.warning('load_data:%s', load_params)
             # load from redis, cassandra if necessary
             self.df = construct_df_upon_load(self.pc, self.df, self.table,
@@ -146,7 +146,7 @@ def poolminer_tab():
 
         #STATIC DATES
         #format dates
-        first_date_range = "2018-04-10 00:00:00"
+        first_date_range = "2018-04-09 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = "2018-05-30 00:00:00"
@@ -167,7 +167,8 @@ def poolminer_tab():
                                             start=first_date_range,
                                             end=last_date_range,
                                             value=(first_date_range, last_date),
-                                            step=millisecs_in_day)
+                                            step=millisecs_in_day,
+                                            callback_policy="mouseup")
 
         # create a text widget for top N
         # text_input = TextInput(value='30', title="Top N Miners (Max 50):")

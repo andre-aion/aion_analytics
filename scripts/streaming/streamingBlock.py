@@ -18,7 +18,7 @@ class Block:
         try:
             return self.df.get_df()
         except Exception:
-            logger.error('get block dataframe:',exc_info=True)
+            logger.error('get block dataframe:', exc_info=True)
         return
 
     def add_data(self, messages):
