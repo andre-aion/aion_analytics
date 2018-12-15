@@ -251,7 +251,7 @@ class KafkaConnectPyspark:
                     except Exception:
                         logger.error('MAKE FIRST OFFSET:{}', exc_info=True)
 
-            logger.warning("FROM_OFFSETS:%s",from_offsets)
+            #logger.warning("FROM_OFFSETS:%s",from_offsets)
             return from_offsets
         except Exception:
             logger.error('READ OFFSETS:{}',exc_info=True)
@@ -267,9 +267,9 @@ class KafkaConnectPyspark:
 
         try:
             zk = cls.get_zookeeper_instance()
-            logger.warning("inside save offsets:%s", zk)
+            #logger.warning("inside save offsets:%s", zk)
             for offset in rdd.offsetRanges():
-                logger.warning("offset saved:%s",offset)
+                #logger.warning("offset saved:%s",offset)
                 path = ZK_CHECKPOINT_PATH + offset.topic + '/' + str(offset.partition)
                 zk.ensure_path(path)
                 zk.set(path, str(offset.untilOffset).encode())

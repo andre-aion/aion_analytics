@@ -77,20 +77,26 @@ class PythonCassandra:
                                               miner_address varchar, miner_addr varchar,
                                               nonce varchar, difficulty bigint, 
                                               total_difficulty varchar, nrg_consumed bigint, nrg_limit bigint,
-                                              block_size bigint, block_timestamp timestamp, block_date timestamp, block_month tinyint, 
+                                              block_size bigint, block_timestamp timestamp, block_date timestamp, 
+                                              block_year tinyint, block_month tinyint, block_day tinyint,
                                               num_transactions bigint, block_time bigint, nrg_reward varchar, 
                                               transaction_id bigint, transaction_list varchar,
                                               PRIMARY KEY (block_number));
                  """
         self.session.execute(c_sql)
+        '''
+        self.session.execute("CREATE INDEX IF NOT EXISTS block_block_year_idx ON block (block_year);")
         self.session.execute("CREATE INDEX IF NOT EXISTS block_block_month_idx ON block (block_month);")
+        self.session.execute("CREATE INDEX IF NOT EXISTS block_block_day_idx ON block (block_day);")
+
         self.session.execute("CREATE INDEX IF NOT EXISTS block_block_timestamp ON block (block_timestamp);")
         self.session.execute("""
                         CREATE INDEX IF NOT EXISTS block_miner_address_idx ON block (miner_address);
                 """)
         self.session.execute("""
-                        CREATE INDEX IF NOT EXISTS block_transaction_id_idx ON block (transaction_id);
+                        CREATE INDEX IF NOT EXISTS block_transaction_hash_idx ON block (transaction_hash);
                 """)
+        '''
         self.log.info("Block Table Created !!!")
 
 
@@ -147,6 +153,18 @@ class PythonCassandra:
                                             block_time, nrg_reward, transaction_id, transaction_list) 
                                             VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                                             """)
+        '''
+        insert_sql = self.session.prepare("""
+                                            INSERT INTO block(block_number, miner_address, 
+                                            miner_addr, 
+                                            nonce, difficulty, 
+                                            total_difficulty, nrg_consumed, nrg_limit,
+                                            block_size, block_timestamp, block_date, block_year, 
+                                            block_month, block_day, num_transactions,
+                                            block_time, nrg_reward, transaction_hash, transaction_hashes) 
+                                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                                            """)
+        '''
 
         batch = BatchStatement()
         for message in messages:

@@ -1,188 +1,100 @@
-2018-12-13 17:41:50,840 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 17:41:52,817 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 17:41:52,818 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 17:41:52,819 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 17:41:52,819 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 17:41:52,819 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 17:41:52,819 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 17:41:52,820 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 17:41:52,820 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 17:41:52,820 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 17:41:53,133 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 17:57:16,220 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 17:57:19,571 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 17:57:19,572 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 17:57:19,573 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 17:57:19,573 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 17:57:19,574 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 17:57:19,574 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 17:57:19,574 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 17:57:19,574 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 17:57:19,575 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 17:57:20,260 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 17:58:59,083 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 17:59:02,711 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 17:59:02,714 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 17:59:02,716 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 17:59:02,716 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 17:59:02,717 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 17:59:02,717 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 17:59:02,717 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 17:59:02,718 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 17:59:02,718 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 17:59:03,399 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:13:05,034 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:13:08,779 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:13:08,783 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:13:08,785 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:13:08,786 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:13:08,786 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:13:08,787 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:13:08,787 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:13:08,788 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:13:08,789 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:13:09,726 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:17:22,957 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:17:26,834 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:17:26,838 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:17:26,839 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:17:26,840 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:17:26,840 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:17:26,841 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:17:26,841 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:17:26,841 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:17:26,842 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:17:27,560 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:21:04,905 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:21:08,306 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:21:08,317 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:21:08,323 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:21:08,325 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:21:08,327 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:21:08,328 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:21:08,329 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:21:08,330 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:21:08,333 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:21:09,926 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:23:29,480 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:23:35,457 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:23:35,460 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:23:35,462 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:23:35,462 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:23:35,463 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:23:35,463 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:23:35,464 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:23:35,464 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:23:35,466 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:23:36,616 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:26:22,612 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:26:26,294 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:26:26,296 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:26:26,297 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:26:26,298 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:26:26,298 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:26:26,298 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:26:26,299 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:26:26,299 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:26:26,300 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:26:27,023 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:28:20,635 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:28:25,336 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:28:25,339 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:28:25,341 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:28:25,342 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:28:25,342 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:28:25,342 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:28:25,343 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:28:25,343 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:28:25,344 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:28:25,809 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:30:49,431 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:30:53,637 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:30:53,639 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:30:53,641 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:30:53,642 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:30:53,643 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:30:53,646 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:30:53,647 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:30:53,647 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:30:53,648 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:30:54,179 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:33:21,398 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:33:24,624 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:33:24,629 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:33:24,631 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:33:24,631 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:33:24,632 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:33:24,632 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:33:24,632 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:33:24,632 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:33:24,633 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:33:25,235 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:36:21,225 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:36:24,554 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:36:24,557 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:36:24,558 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:36:24,558 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:36:24,559 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:36:24,559 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:36:24,560 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:36:24,560 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:36:24,561 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:36:25,153 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:38:27,508 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:38:43,833 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:38:48,005 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:38:48,007 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:38:48,009 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:38:48,009 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:38:48,010 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:38:48,010 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:38:48,010 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:38:48,011 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:38:48,012 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:38:48,459 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:40:01,141 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:40:01,141 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-06-30
-2018-12-13 18:40:01,142 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:40:01,143 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:40:01,143 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:40:01,143 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:40:01,144 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:40:01,144 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:40:01,145 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:40:01,490 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:44:19,106 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:45:02,047 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:46:18,123 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:46:22,758 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:46:22,762 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:46:22,764 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:46:22,765 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:46:22,765 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:46:22,766 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:46:22,766 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:46:22,767 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:46:22,768 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:46:23,358 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:48:26,274 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
-2018-12-13 18:48:30,485 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:48:30,489 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
-2018-12-13 18:48:30,492 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:48:30,492 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:48:30,493 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:48:30,493 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:48:30,494 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:48:30,494 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:48:30,496 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:48:31,052 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
-2018-12-13 18:49:56,774 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
-2018-12-13 18:49:56,774 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-06-30
-2018-12-13 18:49:56,775 - logs/pythonRedis.logs:162 - WARNING - match:block:2018-04-09:2018-06-30
-2018-12-13 18:49:56,775 - logs/pythonRedis.logs:165 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
-2018-12-13 18:49:56,775 - logs/pythonRedis.logs:171 - WARNING - req_start_date:2018-04-09 00:00:00
-2018-12-13 18:49:56,775 - logs/pythonRedis.logs:172 - WARNING - key_start_date:2018-04-09 00:00:00
-2018-12-13 18:49:56,775 - logs/pythonRedis.logs:189 - WARNING - Full match found: Redis data frame overlaps
-2018-12-13 18:49:56,776 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
-2018-12-13 18:49:56,776 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
-2018-12-13 18:49:57,083 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-15 06:55:42,396 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2018-12-15 06:55:46,995 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-15 06:55:46,998 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
+2018-12-15 06:55:47,000 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-06-30
+2018-12-15 06:55:47,001 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
+2018-12-15 06:55:47,002 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 06:55:47,002 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 06:55:47,002 - logs/pythonRedis.logs:189 - WARNING - Full redis_key found: Redis data frame overlaps
+2018-12-15 06:55:47,003 - logs/pythonRedis.logs:399 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-15 06:55:47,004 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
+2018-12-15 06:55:47,695 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-15 07:01:58,721 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2018-12-15 07:02:02,730 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-15 07:02:02,733 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
+2018-12-15 07:02:02,736 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-06-30
+2018-12-15 07:02:02,737 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
+2018-12-15 07:02:02,737 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:02:02,737 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:02:02,738 - logs/pythonRedis.logs:191 - WARNING - Full redis_key found: Redis data frame overlaps
+2018-12-15 07:02:02,738 - logs/pythonRedis.logs:401 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-15 07:02:02,740 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-06-30
+2018-12-15 07:02:03,233 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-15 07:04:30,394 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-15 07:04:30,394 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-08-31
+2018-12-15 07:04:30,395 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-06-30
+2018-12-15 07:04:30,395 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-06-30']
+2018-12-15 07:04:30,396 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:04:30,396 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:04:30,396 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-06-14
+2018-12-15 07:04:30,397 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-06-14']
+2018-12-15 07:04:30,397 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:04:30,398 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:04:30,398 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-06-03
+2018-12-15 07:04:30,399 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-06-03']
+2018-12-15 07:04:30,399 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:04:30,400 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:04:30,400 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-05-30
+2018-12-15 07:04:30,401 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
+2018-12-15 07:04:30,401 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:04:30,402 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:04:30,403 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-08-31
+2018-12-15 07:04:30,403 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-08-31']
+2018-12-15 07:04:30,404 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:04:30,404 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:04:30,404 - logs/pythonRedis.logs:191 - WARNING - Full redis_key found: Redis data frame overlaps
+2018-12-15 07:04:30,404 - logs/pythonRedis.logs:401 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-08-31', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [b'block:2018-04-09:2018-06-30', b'block:2018-04-09:2018-06-14', b'block:2018-04-09:2018-06-03', b'block:2018-04-09:2018-05-30'], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-15 07:04:30,405 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-08-31
+2018-12-15 07:04:30,807 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-15 07:13:41,630 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-15 07:13:41,630 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-09-30
+2018-12-15 07:13:41,630 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-08-31
+2018-12-15 07:13:41,630 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-08-31']
+2018-12-15 07:13:41,631 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:13:41,631 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:13:41,631 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-07-31
+2018-12-15 07:13:41,631 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-07-31']
+2018-12-15 07:13:41,631 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:13:41,632 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:13:41,632 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-07-01
+2018-12-15 07:13:41,632 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-07-01']
+2018-12-15 07:13:41,632 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:13:41,632 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:13:41,632 - logs/pythonRedis.logs:401 - WARNING - params result:{'cass_start_range': None, 'load_type': 32, 'redis_key_full': None, 'cass_key_full': None, 'redis_start_range': None, 'redis_keys_to_delete': [b'block:2018-04-09:2018-08-31', b'block:2018-04-09:2018-07-31', b'block:2018-04-09:2018-07-01'], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': ['2018-04-24', '2018-09-30']}
+2018-12-15 07:14:31,384 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-09:2018-09-30 saved to redis
+2018-12-15 07:27:50,104 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2018-12-15 07:27:54,072 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-15 07:27:54,074 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
+2018-12-15 07:27:54,075 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-09-30
+2018-12-15 07:27:54,075 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-09-30']
+2018-12-15 07:27:54,075 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:27:54,076 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:27:54,076 - logs/pythonRedis.logs:191 - WARNING - Full redis_key found: Redis data frame overlaps
+2018-12-15 07:27:54,076 - logs/pythonRedis.logs:401 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-09-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-15 07:27:54,076 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-09-30
+2018-12-15 07:27:55,627 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-15 07:28:03,613 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-09:2018-05-30 saved to redis
+2018-12-15 07:32:35,651 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2018-12-15 07:32:39,460 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-15 07:32:39,462 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
+2018-12-15 07:32:39,463 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-05-30
+2018-12-15 07:32:39,464 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
+2018-12-15 07:32:39,464 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:32:39,465 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:32:39,465 - logs/pythonRedis.logs:191 - WARNING - Full redis_key found: Redis data frame overlaps
+2018-12-15 07:32:39,465 - logs/pythonRedis.logs:401 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-05-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-15 07:32:39,466 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-05-30
+2018-12-15 07:32:41,181 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-15 07:32:49,051 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-09:2018-05-30 saved to redis
+2018-12-15 07:37:32,719 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2018-12-15 07:37:35,784 - logs/pythonRedis.logs:139 - WARNING - set_load_params-req_start_date:2018-04-09
+2018-12-15 07:37:35,786 - logs/pythonRedis.logs:140 - WARNING - set_load_params-req_end_date:2018-05-30
+2018-12-15 07:37:35,787 - logs/pythonRedis.logs:163 - WARNING - redis_key:block:2018-04-09:2018-05-30
+2018-12-15 07:37:35,787 - logs/pythonRedis.logs:166 - WARNING - matching keys :['block', '2018-04-09', '2018-05-30']
+2018-12-15 07:37:35,787 - logs/pythonRedis.logs:172 - WARNING - req_start_date:2018-04-09 00:00:00
+2018-12-15 07:37:35,788 - logs/pythonRedis.logs:173 - WARNING - key_start_date:2018-04-09 00:00:00
+2018-12-15 07:37:35,788 - logs/pythonRedis.logs:191 - WARNING - Full redis_key found: Redis data frame overlaps
+2018-12-15 07:37:35,789 - logs/pythonRedis.logs:401 - WARNING - params result:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-05-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-15 07:37:35,790 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-05-30
+2018-12-15 07:37:38,810 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
+2018-12-15 07:37:49,113 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-09:2018-05-30 saved to redis

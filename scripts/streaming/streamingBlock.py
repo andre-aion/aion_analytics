@@ -5,6 +5,14 @@ logger = mylogger(__file__)
 
 
 class Block:
+    """
+    columns = ["block_number", "miner_address", "miner_addr",
+               "nonce", "difficulty",
+               "total_difficulty", "nrg_consumed", "nrg_limit",
+               "size", "block_timestamp", "year", "month", "day", "num_transactions",
+               "block_time", "nrg_reward", "transaction_hash", "transaction_hashes"]
+    """
+
     columns = ["block_number", "miner_address", "miner_addr",
                "nonce", "difficulty",
                "total_difficulty", "nrg_consumed", "nrg_limit",

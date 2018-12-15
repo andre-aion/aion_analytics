@@ -342,12 +342,19 @@ def construct_df_upon_load(pc, df, table, cols, req_start_date,
         logger.warning("df constructed, TAIL:%s", df.tail())
 
         # save df to  redis
-        # save unless entire thing was already in redis
-        if params['load_type'] & LoadType.REDIS_FULL.value != LoadType.REDIS_FULL.value:
-            redis.save_df(df, table, req_start_date, req_end_date)
-        # clean up by deleting any smaller dfs in redis
+        # clean up by deleting any dfs in redis smaller than the one we just saved
+        """
+        redis_df      || ---------------- ||
+        required  |---------------------------- |
+
+        """
         for key in params['redis_keys_to_delete']:
             redis.conn.delete(key)
+            logger.warning('bigger df added so deleted key:%s',
+                           str(key, 'utf-8'))
+
+        # save (including overwrite to redis)
+        redis.save_df(df, table, req_start_date, req_end_date)
 
         gc.collect()
         return df

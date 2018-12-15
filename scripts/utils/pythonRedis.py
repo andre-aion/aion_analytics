@@ -53,7 +53,7 @@ class RedisStorage:
 
             elif isinstance(ts, datetime):
                 return ts
-                logger.warning('line 51, ms_to_date: %s', ts)
+                logger.warning('ms_to_date: %s', ts)
             return ts
         except Exception:
             logger.error('ms_to_date', exc_info=True)
@@ -157,37 +157,39 @@ class RedisStorage:
             params['redis_keys_to_delete'] = []
 
             if matches:
-                for match in matches:
-                    match = str(match,'utf-8')
-                    logger.warning('match:%s', match)
+                for redis_key in matches:
+                    redis_key_encoded = redis_key
+                    redis_key = str(redis_key,'utf-8')
+                    logger.warning('redis_key:%s', redis_key)
 
-                    match_key_list = match.split(':')
-                    logger.warning('matching keys :%s', match_key_list)
+                    redis_key_list = redis_key.split(':')
+                    logger.warning('matching keys :%s', redis_key_list)
                     #convert start date in key to datetime
-                    key_start_date = datetime.strptime(match_key_list[1],'%Y-%m-%d')
-                    key_end_date = datetime.strptime(match_key_list[2],'%Y-%m-%d')
+                    key_start_date = datetime.strptime(redis_key_list[1],'%Y-%m-%d')
+                    key_end_date = datetime.strptime(redis_key_list[2],'%Y-%m-%d')
 
                     # check to see if there is all data to be retrieved from reddis
                     logger.warning('req_start_date:%s', req_start_date)
                     logger.warning('key_start_date:%s', key_start_date)
 
                     # matches to delete: make a list
-                    if req_start_date < key_start_date and req_end_date > key_end_date:
+                    if req_start_date <= key_start_date and req_end_date >= key_end_date:
                         """
                         redis_df      || ---------------- ||
                         required  | --------------------------- |
-                        
-                        """
-                        params['redis_keys_to_delete'].append(match)
 
+                        """
+                        # only add keys that are not exactly matched
+                        if req_start_date != key_start_date or req_end_date != key_end_date:
+                            params['redis_keys_to_delete'].append(redis_key_encoded)
 
                     if req_start_date >= key_start_date and req_end_date <= key_end_date:
                         """
                         redis_df || ---------------------------- ||
                         required     | --------------------- |
                         """
-                        logger.warning("Full match found: Redis data frame overlaps")
-                        params['redis_key_full'] = match
+                        logger.warning("Full redis_key found: Redis data frame overlaps")
+                        params['redis_key_full'] = redis_key
                         params['load_type'] = LoadType.REDIS_FULL.value
                         # turn off all other bits and date ranges
                         params['load_type'] = self.clear_bit(params['load_type'], 1)
@@ -244,8 +246,8 @@ class RedisStorage:
                                         redis_df     ||--------------------- 
                                         """
                                         # set redis values
-                                        params['redis_key_start'] = match
-                                        params['redis_start_range'] = [match_key_list[1], loaded_day_before]
+                                        params['redis_key_start'] = redis_key
+                                        params['redis_start_range'] = [redis_key_list[1], loaded_day_before]
                                         params['load_type'] = xor(params['load_type'], LoadType.REDIS_START_ONLY.value)
                                         params['load_type'] = xor(params['load_type'], LoadType.REDIS_START.value)
 
@@ -290,11 +292,11 @@ class RedisStorage:
                                                 """
                                                 # set start date range to get from redis and cassandra
                                                 # set params
-                                                params['redis_key_start'] = match
+                                                params['redis_key_start'] = redis_key
                                                 params['load_type'] = xor(params, LoadType.REDIS_START.value)
-                                                params['redis_start_range'] = [match_key_list[1], loaded_day_before]
+                                                params['redis_start_range'] = [redis_key_list[1], loaded_day_before]
                                                 # set/adjust parameters for grabbing redis and cass data
-                                                key_day_before = self.get_relative_day(match_key_list[1], -1)
+                                                key_day_before = self.get_relative_day(redis_key_list[1], -1)
                                                 params['cass_start_range'] = [str_req_start_date, key_day_before]
 
 
@@ -308,11 +310,11 @@ class RedisStorage:
                                         loaded_df    ------------------------- ||
                                         redis_df                   --------------------- |
                                         """
-                                        params['redis_key_end'] = match
+                                        params['redis_key_end'] = redis_key
                                         params['load_type'] = xor(params['load_type'], LoadType.REDIS_END_ONLY.value)
                                         params['load_type'] = xor(params['load_type'], LoadType.REDIS_END.value)
                                         params['load_type'] = self.clear_bit(params['load_type'], 7) # clear start cass
-                                        params['redis_end_range'] = [match_key_list[2], loaded_day_after]
+                                        params['redis_end_range'] = [redis_key_list[2], loaded_day_after]
 
                                         # turn off cass values
                                         params['load_type'] = self.clear_bit(params['load_type'], 31)
@@ -350,14 +352,14 @@ class RedisStorage:
                                                 loaded_df         ------------|
                                                 """
                                                 # set params
-                                                params['redis_key_end'] = match
+                                                params['redis_key_end'] = redis_key
                                                 params['load_type'] = xor(params, LoadType.REDIS_END.value)
-                                                params['redis_end_range'] = [loaded_day_after, match_key_list[2]]
+                                                params['redis_end_range'] = [loaded_day_after, redis_key_list[2]]
                                                 # set/adjust parameters for grabbing redis and cass data
-                                                key_day_after = self.get_relative_day(match_key_list[2], 1)
+                                                key_day_after = self.get_relative_day(redis_key_list[2], 1)
                                                 params['cass_end_range'] = [key_day_after, str_req_end_date]
 
-                # if no match extant pull all from cassandra
+                # if no redis_key extant pull all from cassandra
                 if params['load_type'] == 0:
                     # set params for cass full range
                     params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)

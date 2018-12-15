@@ -226,7 +226,7 @@ def poolminer_tab():
             TableColumn(field="percentage", title="percentage"),
             TableColumn(field="block_number", title="# of blocks")
         ]
-        topN_table = DataTable(source=src, columns=columns, width=200, height=600)
+        topN_table = DataTable(source=src, columns=columns, width=400, height=600)
 
         download_button = Button(label='Save Table to CSV', button_type="success")
         download_button.callback = CustomJS(args=dict(source=src),

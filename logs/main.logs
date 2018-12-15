@@ -130,3 +130,13 @@ Traceback (most recent call last):
 AttributeError: unexpected attribute 'block_number' to ColumnDataSource, possible attributes are callback, data, js_event_callbacks, js_property_callbacks, name, selected, selection_policy, subscribed_events or tags
 2018-12-13 18:46:22,262 - logs/main.logs:15 - WARNING - logs/main.logs
 2018-12-13 18:48:30,035 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-13 21:06:23,302 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-14 13:10:40,201 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-14 14:56:17,933 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-15 06:34:26,154 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-15 06:37:31,428 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-15 06:55:46,442 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-15 07:02:01,702 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-15 07:27:53,439 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-15 07:32:38,623 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-15 07:37:35,354 - logs/main.logs:15 - WARNING - logs/main.logs

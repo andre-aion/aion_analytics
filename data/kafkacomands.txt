@@ -39,17 +39,29 @@ sudo nano config/connect-standalone.properties
 
 /usr/local/spark/spark-2.3.2-bin-hadoop2.7/bin/spark-submit --driver-memory 6g --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.3.2 main.py
 
-name = aionv4-connector     
-connector.class= io.debezium.connector.mysql.MySqlConnector
-database.hostname= localhost
-database.port= 3306
-database.user= debezium
-database.password= dbz
-database.server.id= 42
-database.server.name= aionv4
+#--------------------------------------------------------------
+KAFKA CONNECT SOURCE  WORKING CONFIG 12/14/2018
+#--------------------------------------------------------------
+name=mainnet-block-source
+connector.class=io.debezium.connector.mysql.MySqlConnector
+tasks.max=1
+
+topic.prefix=source-aion-
+mode=incrementing
+increment.column.name=block_timestamp
+database.server.id=1
+database.server.name=mainnetserver
 database.whitelist=aionv4
-database.history.kafka.bootstrap.servers= localhost:9092
-database.history.kafka.topic= dbhistory_aionv4 
-include.schema.changes= true
-tasks.max=20
-snapshot.mode=SCHEMA_ONLY_RECOVERY
+table.whitelist=aionv4.block
+database.hostname=40.113.226.240
+database.port=3306
+database.user=kafka
+database.password=1233tka061
+database.history.kafka.bootstrap.servers=localhost:9092
+database.history.kafka.topic=aion.block
+include.schema.changes=false
+#snapshot.mode=SCHEMA_ONLY_RECOVERY
+# -------------------------------------------------------------
+
+# view last block loaded that kafka pulled from database
+bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092 --topic mainnetserver.aionv4.block
