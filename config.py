@@ -1,34 +1,74 @@
 # GLOBAL VARIABLES
-from scripts.streaming.streamingBlock import Block
 
-from streamz import Stream
-from streamz.dataframe import DataFrame
-import pandas as pd
-import dask as dd
-from tornado import gen
-from tornado.locks import Lock
-from copy import copy
-import gc
+columns = {}
+insert_sql = {}
+dedup_cols = {}
+create_table_sql = {}
+create_indexes= {}
+
+columns['block'] = ["block_number", "miner_address", "miner_addr",
+               "nonce", "difficulty",
+               "total_difficulty", "nrg_consumed", "nrg_limit",
+               "size", "block_timestamp", "year", "month", "day", "num_transactions",
+               "block_time", "nrg_reward", "transaction_hash", "transaction_hashes"]
+
+dedup_cols['block'] = ['block_number']
+insert_sql['block'] = """
+                    INSERT INTO block(block_number, miner_address, 
+                    miner_addr, 
+                    nonce, difficulty, 
+                    total_difficulty, nrg_consumed, nrg_limit,
+                    block_size, block_timestamp, block_date, block_year, 
+                    block_month, block_day, num_transactions,
+                    block_time, nrg_reward, transaction_hash, transaction_hashes) 
+                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                    """
+
+columns['transaction'] = ['transaction_hash','transaction_index','block_number'
+                       'transaction_timestamp','block_timestamp',
+                       'from_addr','to_addr','value','nrg_consumed',
+                       'nrg_price','nonce','contract_addr','transaction_year',
+                       'transaction_month','transaction_day']
+
+create_indexes['block'] = [
+        "CREATE INDEX IF NOT EXISTS block_block_year_idx ON block (block_year);",
+        "CREATE INDEX IF NOT EXISTS block_block_month_idx ON block (block_month);",
+        "CREATE INDEX IF NOT EXISTS block_block_day_idx ON block (block_day);",
+        "CREATE INDEX IF NOT EXISTS block_block_timestamp ON block (block_timestamp);",
+        "CREATE INDEX IF NOT EXISTS block_miner_address_idx ON block (miner_address);",
+        "CREATE INDEX IF NOT EXISTS block_transaction_hash_idx ON block (transaction_hash);"
+    ]
 
 
-block = Block()
-max_block_loaded = 0
-stream = Stream()
+insert_sql['transaction'] = """ INSERT INTO transaction(
+            transaction_hash,transaction_index, block_number,
+            transaction_timestamp,block_timestamp, 
+            from_addr, to_addr, value, 
+            nrg_consumed, nrg_price, nonce, contract_addr,
+            transaction_year, transaction_month, transaction_day)
+            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+            """
 
-# instantiate
-#sdf = DataFrame(example=block.get_df(), stream=stream)
+create_table_sql['transaction'] = """
+                CREATE TABLE IF NOT EXISTS transaction (id bigint,
+                      transaction_hash varchar, block_hash varchar, block_number bigint,
+                      transaction_index bigint, from_addr varchar, to_addr varchar, 
+                      nrg_consumed bigint, nrg_price bigint, transaction_timestamp bigint,
+                      block_timestamp timestamp, tx_value varchar, transaction_log varchar,
+                      tx_data varchar, nonce varchar, tx_error varchar, contract_addr varchar,
+                      PRIMARY KEY (transaction_hash)
+                      );
+                """
 
-'''
-temp = {}
-temp['block_number'] = list(range(1,1000))
-temp['difficulty'] = [a*a for a in temp['block_number']]
-df_temp = pd.DataFrame.from_dict(temp)
-df_test = dd.dataframe.from_pandas(df_temp, npartitions=15)
-'''
 
-def df(max_load_value=75):
-    df =block.get_df()
-    while len(df) == 0 or len(df) <= max_load_value:
-        df = block.get_df()
-    return df
-
+create_table_sql['block'] = """
+                CREATE TABLE IF NOT EXISTS block (block_number bigint,
+                                              miner_address varchar, miner_addr varchar,
+                                              nonce varchar, difficulty bigint, 
+                                              total_difficulty varchar, nrg_consumed bigint, nrg_limit bigint,
+                                              block_size bigint, block_timestamp timestamp, block_date timestamp, 
+                                              block_year tinyint, block_month tinyint, block_day tinyint,
+                                              num_transactions bigint, block_time bigint, nrg_reward varchar, 
+                                              transaction_id bigint, transaction_list varchar,
+                                              PRIMARY KEY (block_number));
+                 """

@@ -1,6 +1,7 @@
 from scripts.utils.mylogger import mylogger
 from scripts.utils.pythonRedis import LoadType, RedisStorage
-from scripts.streaming.streamingBlock import Block
+from scripts.streaming.streamingDataframe import StreamingDataframe
+from config import block_columns, block_dedup_cols
 
 import pandas as pd
 from os.path import join, dirname
@@ -11,7 +12,6 @@ from bokeh.models import Panel
 from bokeh.models.widgets import Div
 import numpy as np
 from tornado.gen import coroutine
-import config
 import gc
 import calendar
 from time import mktime
@@ -287,7 +287,8 @@ def construct_df_upon_load(pc, df, table, cols, req_start_date,
         # load from both cassandra and redis
         else:
             # load start
-            block = Block()
+            block = StreamingDataFrame('block', block_columns,
+                                       block_dedup_cols)
             df_start = block.get_df()
             df_end = block.get_df()
             df_temp = None

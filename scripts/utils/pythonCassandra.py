@@ -1,4 +1,5 @@
 from scripts.utils.mylogger import mylogger
+from config import insert_sql, create_table_sql, create_indexes
 import argparse
 import logging
 import os
@@ -12,13 +13,6 @@ from cassandra.cqlengine.models import Model
 from cassandra.cluster import Cluster, BatchStatement
 from cassandra.query import SimpleStatement
 
-from kafka.client import KafkaClient
-from cassandra.policies import DCAwareRoundRobinPolicy
-import datetime
-import time
-import sys
-from datetime import datetime
-import pprint
 import gc
 from pdb import set_trace
 
@@ -71,116 +65,37 @@ class PythonCassandra:
             self.log.info("setting keyspace...")
         self.session.set_keyspace(keyspace)
 
-    def create_table_block(self):
-        c_sql = """
-                CREATE TABLE IF NOT EXISTS block (block_number bigint,
-                                              miner_address varchar, miner_addr varchar,
-                                              nonce varchar, difficulty bigint, 
-                                              total_difficulty varchar, nrg_consumed bigint, nrg_limit bigint,
-                                              block_size bigint, block_timestamp timestamp, block_date timestamp, 
-                                              block_year tinyint, block_month tinyint, block_day tinyint,
-                                              num_transactions bigint, block_time bigint, nrg_reward varchar, 
-                                              transaction_id bigint, transaction_list varchar,
-                                              PRIMARY KEY (block_number));
-                 """
+    def create_table_block(self, table):
+        c_sql = create_table_sql[table]
         self.session.execute(c_sql)
-        '''
+        """
         self.session.execute("CREATE INDEX IF NOT EXISTS block_block_year_idx ON block (block_year);")
         self.session.execute("CREATE INDEX IF NOT EXISTS block_block_month_idx ON block (block_month);")
         self.session.execute("CREATE INDEX IF NOT EXISTS block_block_day_idx ON block (block_day);")
 
         self.session.execute("CREATE INDEX IF NOT EXISTS block_block_timestamp ON block (block_timestamp);")
-        self.session.execute("""
-                        CREATE INDEX IF NOT EXISTS block_miner_address_idx ON block (miner_address);
-                """)
-        self.session.execute("""
-                        CREATE INDEX IF NOT EXISTS block_transaction_hash_idx ON block (transaction_hash);
-                """)
-        '''
-        self.log.info("Block Table Created !!!")
+        self.session.execute("CREATE INDEX IF NOT EXISTS block_miner_address_idx ON block (miner_address);"
+        self.session.execute("CREATE INDEX IF NOT EXISTS block_transaction_hash_idx ON block (transaction_hash);"
+        """
+        # create indexes
+        for sql in create_indexes[table]:
+            self.session.execute(sql)
+
+        logger.warning("%s Table Created !!!",table)
 
 
-    def create_table_transaction(self):
-        c_sql = """
-                CREATE TABLE IF NOT EXISTS transaction (id bigint,
-                                              transaction_hash varchar, block_hash varchar, block_number bigint,
-                                              transaction_index bigint, from_addr varchar, to_addr varchar, 
-                                              nrg_consumed bigint, nrg_price bigint, transaction_timestamp bigint,
-                                              block_timestamp timestamp, tx_value varchar, transaction_log varchar,
-                                              tx_data varchar, nonce varchar, tx_error varchar, contract_addr varchar,
-                                              PRIMARY KEY ((transaction_timestamp),block_number)
-                                              );
-                 """
-        self.session.execute(c_sql)
-        self.log.info("Transaction Table Created !!!")
 
-    def insert_data_transaction(self, message):
-        insert_sql = self.session.prepare(
-            """ INSERT INTO transaction(
-            id,transaction_hash, block_hash, block_number,
-            transaction_index, from_addr, to_addr, 
-            nrg_consumed, nrg_price, transaction_timestamp,
-            block_timestamp, tx_value, transaction_log,
-            tx_data, nonce, tx_error, contract_addr)
-            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-            """
-        )
+    def insert_data(self, table, message):
+        qry = self.session.prepare(insert_sql[table])
         batch = BatchStatement()
         # batch.add(insert_sql, (1, 'LyubovK'))
         try:
             batch.add(insert_sql, message)
-        except:
-            print('#########################################################################################')
-            print('#########################################################################################')
-            print('message not inserted')
-            print('#########################################################################################')
-            print('#########################################################################################')
-
+        except Exception:
+            logger.error(table+' insert failed:', exc_info=True)
             self.ssc.stop()
 
 
         self.session.execute(batch)
         self.log.info('Batch Insert Completed')
 
-    # message is a list
-    def insert_data_block(self, messages):
-        insert_sql = self.session.prepare("""
-                                            INSERT INTO block(block_number, miner_address, 
-                                            miner_addr, 
-                                            nonce, difficulty, 
-                                            total_difficulty, nrg_consumed, nrg_limit,
-                                            block_size, block_timestamp,block_date, block_month, num_transactions,
-                                            block_time, nrg_reward, transaction_id, transaction_list) 
-                                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-                                            """)
-        '''
-        insert_sql = self.session.prepare("""
-                                            INSERT INTO block(block_number, miner_address, 
-                                            miner_addr, 
-                                            nonce, difficulty, 
-                                            total_difficulty, nrg_consumed, nrg_limit,
-                                            block_size, block_timestamp, block_date, block_year, 
-                                            block_month, block_day, num_transactions,
-                                            block_time, nrg_reward, transaction_hash, transaction_hashes) 
-                                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-                                            """)
-        '''
-
-        batch = BatchStatement()
-        for message in messages:
-            batch.add(insert_sql, message)
-        try:
-            self.session.execute(batch)
-            self.log.info('Block Batch Insert Completed')
-            print('#########################################################################################')
-            print('#########################################################################################')
-            print('#########################################################################################')
-            print('#########################################################################################')
-            print('SUCCESS: batch inserted into block')
-            print('#########################################################################################')
-            print('#########################################################################################')
-            print('#########################################################################################')
-            print('#########################################################################################')
-
-        except Exception:
-            logger.error('Insert error:', exc_info=True)

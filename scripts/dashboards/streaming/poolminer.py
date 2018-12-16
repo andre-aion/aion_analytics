@@ -1,12 +1,12 @@
 from os.path import join, dirname
 
-import config
-from scripts.utils.myutils import get_initial_blocks, tab_error_flag, \
+from scripts.utils.myutils import tab_error_flag, \
     ms_to_date, ns_to_date, cass_load_from_daterange, set_params_to_load, \
     construct_df_upon_load
 from scripts.utils.mylogger import mylogger
 from scripts.utils.pythonCassandra import PythonCassandra
-from scripts.streaming.streamingBlock import Block
+from scripts.streaming.streamingDataframe import StreamingDataframe
+from config import block_dedup_cols, block_columns
 
 import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
@@ -53,8 +53,7 @@ def poolminer_tab():
     class Poolminer():
         pc = None
         querycols = ['block_number', 'miner_addr', 'block_date']
-        table = 'block'
-        block = Block()
+        block = StreamingDataFrame('block', block_columns, block_dedup_cols)
         df = block.get_df()
         df1 = None
         n = 30

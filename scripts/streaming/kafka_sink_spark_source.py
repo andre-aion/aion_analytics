@@ -9,7 +9,8 @@ if module_path not in sys.path:
 
 from scripts.utils.pythonCassandra import PythonCassandra
 from scripts.utils import myutils
-from scripts.streaming.streamingBlock import Block
+from scripts.streaming.streamingDataframe import StreamingDataframe
+from config import columns, dedup_cols, create_table_sql
 from tornado.gen import coroutine
 from tornado.locks import Condition, Semaphore
 from concurrent.futures import ThreadPoolExecutor
@@ -25,7 +26,6 @@ from pyspark.context import SparkConf, SparkContext
 
 import gc
 
-import config
 from scripts.utils.mylogger import mylogger
 logger = mylogger(__file__)
 
@@ -38,19 +38,21 @@ ZK_CHECKPOINT_PATH = 'consumers/'
 
 
 class KafkaConnectPyspark:
-    block_columns = [
-        "block_number", "miner_address",
-        "nonce", "difficulty",
-        "total_difficulty", "nrg_consumed", "nrg_limit",
-        "size", "block_timestamp", "num_transactions",
-        "block_time", "nrg_reward", "transaction_id", "transaction_list"]
-    block = Block()
     # cassandra setup
     pc = PythonCassandra()
     pc.setlogger()
     pc.createsession()
-    pc.createkeyspace('aionv4')
-    pc.create_table_block()
+    pc.createkeyspace('aion')
+
+    table = 'block'
+    block = StreamingDataframe(table, columns[table], dedup_cols[table])
+    pc.create_table_block(table)
+
+    table = 'transaction'
+    transaction = StreamingDataframe(table, columns[table], dedup_cols[table])
+    pc.create_table_block(table)
+
+
     checkpoint_dir = CHECKPOINT_DIR
     zk_checkpoint_dir = ZK_CHECKPOINT_PATH
 
@@ -62,24 +64,6 @@ class KafkaConnectPyspark:
         cls.remote_queue = cls.client.scatter(cls.input_queue)
         '''
 
-
-    @classmethod
-    @coroutine
-    def update_block_df(cls, messages):
-        # convert to dataframe using stream
-        try:
-            #cls.block.add_data(messages)
-            #cls.copy()
-            #config.block.add_data(messages)
-            print('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
-            print('################################################################')
-            #print('STREAMING DATAFRAME UPDATED: TAIL PRINTED BELOW')
-            #print(cls.block.df.get_df().tail())
-            #print(config.block.get_df().tail())
-        except Exception:
-            logger.error("ERROR IN UPDATE BLOCK WITH MESSAGES:", exc_info=True)
-
-
     @classmethod
     def set_ssc(cls, ssc):
         if 'cls.ssc' not in locals():
@@ -90,13 +74,56 @@ class KafkaConnectPyspark:
         return cls.block.get_df()
 
     @classmethod
-    def get_queue(cls):
-        return cls.remote_queue.get()
+    @coroutine
+    def update_cassandra(cls, table, messages):
+        cls.pc.insert_data(table, messages)
 
     @classmethod
-    @coroutine
-    def update_cassandra(cls, messages):
-        cls.pc.insert_data_block(messages)
+    def transaction_to_tuple(cls, taken):
+        messages_cass = list()
+        message_dask = {}
+        counter = 1
+
+        for mess in taken:
+            print('block # loaded from tx:%s', mess['block_number'])
+
+            def munge_data():
+                message_temp = {}
+                for col in cls.transaction.columns:
+                    message_temp[col] = mess[col]
+
+                message = (message_temp['transaction_hash'],message_temp['transaction_index'],
+                           message_temp['block_number'],
+                           message_temp['transaction_timestamp'],message_temp['block_timestamp'],
+                           message_temp['from_addr'],message_temp['to_addr'],
+                           message_temp['value'],message_temp['nrg_consumed'],
+                           message_temp['nrg_price'],message_temp['nonce'],
+                           message_temp['contract_addr'],message_temp['transaction_year'],
+                           message_temp['transaction_month'],message_temp['transaction_day'])
+
+                return message
+
+            message_cass = munge_data()
+            messages_cass.append(message_cass)# regulate # messages in one dict
+            if counter >= 10:
+                #  update streaming dataframe
+                cls.update_cassandra('block', messages_cass)
+                messages_cass = list()
+                print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+                print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+                logger.warning('tx message counter:{}'.format(counter))
+                print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+                print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+                counter = 1
+            else:
+                counter += 1
+                del mess
+                gc.collect()
+
+        cls.update_cassandra('block', messages_cass)
+        del messages_cass
+
+
 
     @classmethod
     def block_to_tuple(cls, taken):
@@ -111,17 +138,15 @@ class KafkaConnectPyspark:
             #print('message counter in taken:{}'.format(counter))
             print('block # loaded from taken:{}'.format(mess['block_number']))
 
-            config.max_block_loaded = mess["block_number"]
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             #print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
 
-            # munge data
             # convert timestamp, add miner_addr
             #@coroutine
             def munge_data():
                 message_temp = {}
-                for col in config.block.columns:
+                for col in cls.block.columns:
                     if col in mess:
                         if col == 'block_timestamp':  # get time columns
                             block_timestamp = datetime.datetime.fromtimestamp(mess[col])
@@ -135,10 +160,6 @@ class KafkaConnectPyspark:
                             message_dask['block_date'].append(block_date)
                             message_temp['block_date'] = block_date
 
-                            if 'block_month' not in message_dask:
-                                message_dask['block_month'] = []
-                            message_dask['block_month'].append(block_month)
-                            message_temp['block_month'] = block_month
 
                         elif col == 'miner_address': # truncate miner address
                             if col not in message_dask:
@@ -167,26 +188,25 @@ class KafkaConnectPyspark:
                            message_temp["miner_addr"],message_temp["nonce"], message_temp["difficulty"],
                            message_temp["total_difficulty"], message_temp["nrg_consumed"], message_temp["nrg_limit"],
                            message_temp["size"], message_temp["block_timestamp"],
-                           message_temp["block_date"], message_temp["block_month"],
+                           message_temp["block_date"], message_temp['block_year'],
+                           message_temp["block_month"],message_temp['block_day'],
                            message_temp["num_transactions"],
                            message_temp["block_time"], message_temp["nrg_reward"], message_temp["transaction_id"],
                            message_temp["transaction_list"])
 
                 return message
                 # insert to cassandra
-                # cls.update_cassandra(message)
             message_cass = munge_data()
             messages_cass.append(message_cass)
 
             # regulate # messages in one dict
             if counter >= 10:
                 #  update streaming dataframe
-                cls.update_block_df(message_dask)
-                cls.update_cassandra(messages_cass)
+                cls.update_cassandra('block', messages_cass)
                 messages_cass = list()
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-                print('message counter:{}'.format(counter))
+                print('block message counter:{}'.format(counter))
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
                 counter = 1
@@ -196,25 +216,38 @@ class KafkaConnectPyspark:
                 del mess
                 gc.collect()
 
-        cls.update_block_df(message_dask) # get remainder messages in last block thats less than 501
-        cls.update_cassandra(messages_cass)
+        cls.update_cassandra('block', messages_cass)
         del messages_cass
         del message_dask
 
 
     @classmethod
-    def handle_rdds(cls,rdd):
+    def handle_block_rdds(cls,rdd):
         if rdd.isEmpty():
             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-            print('################  RDD IS NONE')
+            logger.print(' RDD IS NONE')
             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             return
         try:
-            taken = rdd.take(20000)
+            taken = rdd.take(10000)
             cls.block_to_tuple(taken)
 
         except Exception:
             logger.error('HANDLE RDDS:{}',exc_info=True)
+
+    @classmethod
+    def handle_transaction_rdds(cls, rdd):
+        if rdd.isEmpty():
+            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            logger.print(' RDD IS NONE')
+            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            return
+        try:
+            taken = rdd.take(10000)
+            cls.block_to_tuple(taken)
+
+        except Exception:
+            logger.error('HANDLE RDDS:{}', exc_info=True)
 
     @classmethod
     def get_zookeeper_instance(cls):
@@ -259,12 +292,6 @@ class KafkaConnectPyspark:
     @classmethod
     @coroutine
     def save_offsets(cls, rdd):
-        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-        print("inside save offsets:%s")
-        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-
         try:
             zk = cls.get_zookeeper_instance()
             #logger.warning("inside save offsets:%s", zk)
@@ -298,8 +325,8 @@ class KafkaConnectPyspark:
             .set("spark.streaming.kafka.backpressure.initialRate", 150) \
             .set("spark.streaming.kafka.backpressure.enabled", 'true') \
             .set('spark.streaming.kafka.maxRatePerPartition', 250) \
-            .set('spark.streaming.receiver.writeAheadLog.enable', 'true')
-
+            .set('spark.streaming.receiver.writeAheadLog.enable', 'true') \
+            .set("spark.streaming.concurrentJobs", 4)
         spark_context = SparkContext(appName='aion_analytics',
                                      conf=conf)
 
@@ -307,16 +334,30 @@ class KafkaConnectPyspark:
 
         return ssc
 
+    @classmethod
+    @coroutine
+    def kafka_stream(cls,table,stream):
+        stream = stream.map(lambda x: json.loads(x[1]))
+        stream = stream.map(lambda x: x['payload']['after'])
+        # kafka_stream.pprint()
+        if table == 'block':
+            stream.foreachRDD(lambda rdd: cls.handle_block_rdds(rdd) \
+                if not rdd.isEmpty() else None)
+        else:
+            stream.foreachRDD(lambda rdd: cls.handle_transaction_rdds(rdd) \
+                if not rdd.isEmpty() else None)
+        stream.foreachRDD(lambda rdd: cls.save_offsets(rdd))
 
     @classmethod
     def run(cls):
         try:
             # Get StreamingContext from checkpoint data or create a new one
-            #cls.ssc = StreamingContext.getActiveOrCreate(cls.zk_checkpoint_dir,cls.create_streaming_context)
             cls.ssc = cls.create_streaming_context()
 
             # SETUP KAFKA SOURCE
-            topics = ['mainnetserver.aionv4.block']
+            block_topic = ['mainnetserver.aion.block']
+            transaction_topic = [ 'mainnet.aion.transaction']
+            topics=[block_topic, transaction_topic]
             # setup checkpointing
             zk = cls.get_zookeeper_instance()
             #cls.reset_partition_offset(zk,topics[0],[0]) #reset if necessary
@@ -326,18 +367,16 @@ class KafkaConnectPyspark:
                             "auto.offset.reset": "smallest"}
 
 
-            kafka_stream = KafkaUtils \
-                .createDirectStream(cls.ssc, topics, kafka_params,
+            block_stream = KafkaUtils \
+                .createDirectStream(cls.ssc, block_topic, kafka_params,
+                                    fromOffsets=from_offsets)
+            transaction_stream = KafkaUtils \
+                .createDirectStream(cls.ssc, transaction_topic, kafka_params,
                                     fromOffsets=from_offsets)
 
-            kafka_stream1 = kafka_stream
-            kafka_stream = kafka_stream.map(lambda x: json.loads(x[1]))
-            kafka_stream = kafka_stream.map(lambda x: x['payload']['after'])
-            # kafka_stream.pprint()
+            cls.kafka_stream(block_stream)
+            cls.kafka_stream(transaction_stream)
 
-            kafka_stream.foreachRDD(lambda rdd: cls.handle_rdds(rdd) \
-                if not rdd.isEmpty() else None)
-            kafka_stream1.foreachRDD(lambda rdd: cls.save_offsets(rdd))
 
             # Start the context
             cls.ssc.start()
