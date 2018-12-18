@@ -98,3 +98,4 @@
 2018-12-15 07:37:35,790 - logs/pythonRedis.logs:104 - WARNING - line 95:load-df key:block:2018-04-09:2018-05-30
 2018-12-15 07:37:38,810 - logs/pythonRedis.logs:110 - WARNING - load_df start date:2018-04-09 00:00:00
 2018-12-15 07:37:49,113 - logs/pythonRedis.logs:92 - WARNING - block:2018-04-09:2018-05-30 saved to redis
+2018-12-17 09:06:00,326 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
