@@ -5,8 +5,8 @@ from scripts.utils.myutils import tab_error_flag, \
     construct_df_upon_load
 from scripts.utils.mylogger import mylogger
 from scripts.utils.pythonCassandra import PythonCassandra
-from scripts.streaming.streamingDataframe import StreamingDataframe
-from config import block_dedup_cols, block_columns
+from scripts.streaming.streamingDataframe import StreamingDataframe as SD
+from config import dedup_cols, columns as cols
 
 import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
@@ -53,8 +53,8 @@ def poolminer_tab():
     class Poolminer():
         pc = None
         querycols = ['block_number', 'miner_addr', 'block_date']
-        block = StreamingDataFrame('block', block_columns, block_dedup_cols)
-        df = block.get_df()
+        streaming_dataframe = SD('block', cols, dedup_cols)
+        df = streaming_dataframe.get_df()
         df1 = None
         n = 30
 
@@ -78,7 +78,8 @@ def poolminer_tab():
             load_params = set_params_to_load(self.df, start_date, end_date)
             logger.warning('load_data:%s', load_params)
             # load from redis, cassandra if necessary
-            self.df = construct_df_upon_load(self.pc, self.df, self.table,
+            self.df = construct_df_upon_load(self.pc, self.df,
+                                             pm.streaming_dataframe.table_name,
                                              self.querycols, start_date,
                                              end_date, load_params)
 

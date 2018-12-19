@@ -2,18 +2,29 @@ import pandas as pd
 import dask as dd
 from dask.dataframe import from_pandas,from_array
 import gc
+from scripts.utils.mylogger import mylogger
+
+logger = mylogger(__file__)
 
 # Manage dask dataframes from streaming library
 class StreamingDataframe:
     def __init__(self, table_name, columns, dedup_columns):
-        self.partitions = 15
-        self.table_name = table_name
-        self.columns = columns
-        self.dedup_columns = dedup_columns
-        # initialize as pandas
-        df = pd.DataFrame(columns=columns)
-        # convert to dask
-        self.df = from_pandas(df, npartitions=self.partitions, name=table_name, sort=True)
+        try:
+            self.partitions = 15
+            self.table_name = table_name
+            logger.warning("init:%s",table_name)
+            logger.warning("init:%s",columns)
+
+            self.columns = columns[table_name]
+            self.dedup_columns = dedup_columns[table_name]
+            # initialize as pandas
+            df = pd.DataFrame(columns=columns)
+            # convert to dask
+            self.df = from_pandas(df, npartitions=self.partitions,
+                                  name=table_name, sort=True)
+        except Exception:
+            logger.error("init:%s", exc_info=True)
+
 
     # data: dict of lists from rdds
     def add_data(self, data, chunksize=500):
@@ -23,10 +34,10 @@ class StreamingDataframe:
         # append to current array
         try:
             self.df = self.df.append(df_temp)
-        except Exception as ex:
-            print("DASK ARRAY CONCATENATION PROBLEM WITH {}: {}"
-                  .format(self.table_name,ex))
-        self.deduplicate()
+            self.deduplicate()
+
+        except Exception :
+            logger.error("add data", exc_info=True)
         del df
         del data
         gc.collect()
@@ -36,8 +47,8 @@ class StreamingDataframe:
     def deduplicate(self):
         try:
             self.df.drop_duplicates(subset=self.dedup_columns, keep='last', inplace=True)
-        except Exception as ex:
-            print("DEDUPLICATON ERROR WITH {} : {}".format(self.table_name, ex))
+        except Exception:
+            logger.error("DEDUPLICATON ERROR WITH", exc_info=True)
 
 
     # truncate data frame

@@ -1,7 +1,7 @@
 from scripts.utils.mylogger import mylogger
 from scripts.utils.pythonRedis import LoadType, RedisStorage
-from scripts.streaming.streamingDataframe import StreamingDataframe
-from config import block_columns, block_dedup_cols
+from scripts.streaming.streamingDataframe import StreamingDataframe as SD
+from config import columns, dedup_cols
 
 import pandas as pd
 from os.path import join, dirname
@@ -52,9 +52,10 @@ def setdatetimeindex(df):
     # set timestamp as index
     meta = ('block_timestamp', 'datetime64[ns]')
     df['block_timestamp'] = df['block_timestamp']
-    df['block_timestamp'] = df.block_timestamp.map_partitions(pd.to_datetime, unit='s',
-                                                              format="%Y-%m-%d %H:%M:%S",
-                                                              meta=meta)
+    df['block_timestamp'] = df.block_timestamp\
+        .map_partitions(pd.to_datetime, unit='s',
+                                        format="%Y-%m-%d %H:%M:%S",
+                                        meta=meta)
     df = df.set_index('block_timestamp')
     return df
 
@@ -62,7 +63,7 @@ def setdatetimeindex(df):
 def get_breakdown_from_timestamp(ts):
     ns = 1e-6
     mydate = datetime.fromtimestamp(ts).date()
-    return mydate.month, mydate
+    return mydate
 
 def get_initial_blocks(pc):
     try:
@@ -287,10 +288,9 @@ def construct_df_upon_load(pc, df, table, cols, req_start_date,
         # load from both cassandra and redis
         else:
             # load start
-            block = StreamingDataFrame('block', block_columns,
-                                       block_dedup_cols)
-            df_start = block.get_df()
-            df_end = block.get_df()
+            streaming_dataframe = SD(table, columns, dedup_cols)
+            df_start = streaming_dataframe.get_df()
+            df_end = streaming_dataframe.get_df()
             df_temp = None
 
             # add cass if needed, then add redis if needed
@@ -325,13 +325,11 @@ def construct_df_upon_load(pc, df, table, cols, req_start_date,
                 df_temp = cass_load_from_daterange(pc, table, cols, sdate, edate)
                 df_end = df_end.append(df_temp)
 
-
             # concatenate end and start to original df
             if len(df_start>0):
                 df = df_start.append(df).reset_index()
             if len(df_end>0):
                 df = df.append(df_end).reset_index()
-
 
             del df_temp
             del df_start

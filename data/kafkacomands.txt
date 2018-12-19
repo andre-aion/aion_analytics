@@ -18,7 +18,7 @@ bin/connect-standalone.sh config/connect-standalone.properties config/block-sour
 
 bin/connect-standalone.sh config/connect-standalone.properties config/mainnet-block-source.properties
 
-bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic mainnetserver.aionv4.block --from-beginning
+bin/kafka-console-consumer.sh --bootstrap-server PLAINTEXT://:9093 --topic staging.aion.block --from-beginning
 	
 	bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic dbhistory.aion
 
@@ -192,6 +192,7 @@ plugin.path=/usr/local/share/kafka/plugins/
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 broker.id=1
 listeners=PLAINTEXT://:9093
+advertised.host=localhost
 advertised.listeners=PLAINTEXT://localhost:9093
 num.network.threads=3
 num.io.threads=8
@@ -256,3 +257,14 @@ curl -s localhost:8083/connectors/connectorName/tasks | jq .
 
 # restarting a task
 curl -X POST localhost:8083/connectors/connectorName/tasks/0/restart
+
+
+# zookeeper offset delete
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9093 --reset_offsets "staging-aion-block"
+
+# list consumer groups
+bin/kafka-consumer-groups.sh --list --zookeeper localhost:2181
+
+# get information about offsets of consumer groups
+bin/kafka-consumer-groups.sh --describe  --bootstrap-server localhost:9092
+ --offsets --group aion-analytics-connect-cluster

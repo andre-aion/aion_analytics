@@ -1,212 +1,489 @@
-2018-12-12 23:31:44,858 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:31:46,635 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:31:46,635 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:37:49,543 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:37:51,928 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:37:51,928 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:44:42,952 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:44:44,715 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:44:44,715 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:47:48,189 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:47:49,948 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:47:49,948 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:50:52,186 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:50:53,931 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:50:53,931 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:53:32,619 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:53:34,452 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-12 23:53:34,452 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:03:28,896 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:03:31,839 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:03:31,839 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:20:24,506 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:20:27,067 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:20:27,067 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:30:12,471 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:30:14,312 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:30:14,312 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:31:39,493 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:31:43,611 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:31:43,611 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:41:17,791 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:41:19,845 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:41:19,845 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:43:18,248 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:43:21,758 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 00:43:21,758 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 01:04:05,103 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 01:04:07,953 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 01:04:07,953 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 01:06:03,775 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 01:06:06,415 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 01:06:06,415 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 08:32:49,626 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 08:32:51,685 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 08:32:51,685 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 08:35:58,810 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 08:36:02,043 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 08:36:02,043 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 11:08:06,691 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 11:08:09,736 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 11:08:09,736 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:48:04,150 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:48:06,365 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:48:06,365 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:50:07,985 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:50:11,364 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:50:11,364 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:52:28,753 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:52:32,420 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:52:32,420 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:59:38,741 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:59:41,509 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 13:59:41,509 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 14:38:27,447 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 14:38:29,271 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 14:38:29,271 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:09:25,154 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:09:27,202 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:09:27,202 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:11:49,894 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:11:51,895 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:11:51,895 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:14:15,754 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:14:18,576 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:14:18,576 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:42:44,270 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:42:46,481 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:42:46,481 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:49:04,507 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:49:06,236 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:49:06,236 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:51:54,037 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:51:56,571 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:51:56,571 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:53:09,024 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:53:12,149 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:53:12,149 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:54:23,200 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:54:25,856 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 15:54:25,856 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:11:09,261 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:11:11,897 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:11:11,897 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:16:16,187 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:16:20,063 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:16:20,063 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:21:00,236 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:21:03,229 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:21:03,229 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:31:59,386 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:32:01,996 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:32:01,996 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:33:07,610 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:33:10,270 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:33:10,270 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:35:28,616 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:35:31,416 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:35:31,416 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:48:57,964 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:49:01,064 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:49:01,064 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:53:33,693 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:53:36,305 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:53:36,305 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:55:45,743 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:55:48,631 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:55:48,631 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:57:34,455 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:57:37,087 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:57:37,087 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:59:04,837 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:59:07,480 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 16:59:07,480 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:05:03,989 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:05:06,448 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:05:06,448 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:05:55,537 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:05:58,165 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:05:58,165 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:41:50,834 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:41:52,543 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:41:52,543 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:57:16,208 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:57:19,229 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:57:19,229 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:58:59,075 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:59:02,296 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 17:59:02,296 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:13:05,026 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:13:07,941 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:13:07,941 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:17:22,943 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:17:25,943 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:17:25,943 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:21:04,895 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:21:07,571 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:21:07,571 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:23:29,458 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:23:34,581 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:23:34,581 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:26:22,589 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:26:25,809 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:26:25,809 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:28:20,625 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:28:24,306 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:28:24,306 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:30:49,420 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:30:52,692 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:30:52,692 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:33:21,387 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:33:24,143 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:33:24,143 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:36:21,215 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:36:24,041 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:36:24,041 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:38:27,497 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:38:43,822 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:38:47,670 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:38:47,670 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:44:19,097 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:44:22,067 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:44:22,067 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:45:02,037 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:45:05,265 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:45:05,265 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:46:18,113 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:46:22,237 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:46:22,237 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:48:26,264 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:48:30,015 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 18:48:30,015 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 21:06:21,091 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 21:06:23,288 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-13 21:06:23,288 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-14 13:10:37,954 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-14 13:10:40,184 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-14 13:10:40,184 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-14 14:56:13,889 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-14 14:56:17,906 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-14 14:56:17,906 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 06:34:22,333 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 06:34:26,117 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 06:34:26,117 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 06:37:28,353 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 06:37:31,404 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 06:37:31,404 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 06:55:42,383 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 06:55:46,416 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 06:55:46,416 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:01:58,708 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:02:01,685 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:02:01,685 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:27:50,085 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:27:53,419 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:27:53,419 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:32:35,640 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:32:38,602 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:32:38,602 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:37:32,711 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:37:35,332 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-15 07:37:35,332 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-17 09:06:00,303 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:17:13,143 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:17:17,142 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:17:17,142 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:43:00,252 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:43:04,382 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:43:04,382 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:46:01,227 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:46:02,980 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:46:02,980 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:51:20,259 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:51:21,968 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:51:21,968 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:53:53,621 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:53:57,149 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 20:53:57,149 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:29:02,659 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:29:06,780 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:29:06,780 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:32:38,718 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:32:43,995 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:32:43,995 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:39:12,345 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:39:14,114 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:39:14,114 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:48:18,759 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:48:20,526 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:48:20,526 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:51:18,426 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:51:21,706 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:51:21,706 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:53:01,089 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:53:06,736 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:53:06,736 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:55:43,854 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:55:48,074 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 21:55:48,074 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:03:29,201 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:03:30,971 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:03:30,971 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:21:05,216 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:21:07,948 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:21:07,948 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:22:10,747 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:22:13,501 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:22:13,501 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:24:42,224 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:24:45,392 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:24:45,392 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:28:14,911 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:28:16,648 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:28:16,648 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:29:47,133 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:29:52,541 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:29:52,541 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:31:37,522 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:31:41,344 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:31:41,344 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:37:32,873 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:37:35,046 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:37:35,046 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:42:51,637 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:42:53,895 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:42:53,895 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:43:17,377 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:43:20,241 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:43:20,241 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:47:28,206 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:47:31,134 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:47:31,134 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:52:59,407 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:53:02,185 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:53:02,185 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:54:41,989 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:54:46,066 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:54:46,066 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:59:24,086 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:59:26,427 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 22:59:26,427 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:21:27,111 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:21:30,713 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:21:30,713 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:26:36,961 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:26:39,770 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:26:39,770 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:28:48,293 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:28:51,749 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:28:51,749 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:29:31,472 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:29:35,031 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:29:35,031 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:30:13,182 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:30:15,986 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:30:15,986 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:31:42,970 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:31:45,263 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:31:45,263 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:32:43,237 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:32:46,523 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:32:46,523 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:34:09,608 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:34:13,192 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:34:13,192 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:39:32,091 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:39:34,811 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-18 23:39:34,811 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 08:31:07,729 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 08:31:11,769 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 08:31:11,769 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 09:20:30,567 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 09:20:38,721 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 09:20:38,721 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 09:20:56,975 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 09:20:56,975 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 09:20:56,979 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 09:20:56,979 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 10:24:07,761 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 10:24:10,704 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 10:24:10,704 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 10:50:59,545 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 10:51:17,173 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 10:51:17,173 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 10:55:07,239 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 10:55:17,309 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 10:55:17,309 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 10:57:04,110 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 10:57:04,110 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 10:57:04,113 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 10:57:04,113 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 12:46:14,040 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 12:46:20,971 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 12:46:20,971 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:01:51,223 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:01:56,698 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:01:56,698 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:04:21,041 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 13:04:21,041 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 13:04:21,050 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 13:04:21,050 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 13:07:26,000 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:07:30,849 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:07:30,849 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:09:41,556 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 13:09:41,556 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 13:09:41,558 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 13:09:41,558 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 13:13:51,857 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:13:55,703 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:13:55,703 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:31:48,603 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:31:50,666 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:31:50,666 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:35:34,365 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:35:36,537 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:35:36,537 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:44:14,531 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:44:17,156 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 13:44:17,156 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:08:59,315 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:09:02,438 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:09:02,438 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:28:06,324 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:28:17,257 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:28:17,257 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:42:36,973 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:42:40,135 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:42:40,135 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:47:30,190 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:47:33,879 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:47:33,879 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:56:43,846 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:56:47,123 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:56:47,123 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 14:59:17,449 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 14:59:17,449 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 14:59:17,451 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 14:59:17,451 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 15:16:57,608 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:17:07,437 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:17:07,437 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:18:28,621 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:18:32,279 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:18:32,279 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:23:44,231 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:23:47,521 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:23:47,521 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:26:52,752 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 15:26:52,752 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 15:26:52,753 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 15:26:52,753 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 15:27:34,898 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:27:38,513 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:27:38,513 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:32:09,428 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:32:13,216 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:32:13,216 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:34:04,537 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:34:08,321 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:34:08,321 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:49:57,956 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:50:00,010 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:50:00,010 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:57:19,890 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:57:22,006 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:57:22,006 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:58:49,684 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:58:54,396 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 15:58:54,396 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 16:18:53,496 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 16:18:55,581 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 16:18:55,581 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:19:37,303 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:19:40,714 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:19:40,714 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:28:25,553 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:28:27,754 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:28:27,754 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:30:22,449 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 17:30:22,449 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 17:30:22,451 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 17:30:22,451 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 17:40:19,452 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:40:22,644 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:40:22,644 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:42:09,078 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:42:13,671 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:42:13,671 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:44:09,370 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:44:14,172 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:44:14,172 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 17:44:48,420 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 17:44:48,420 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 17:44:48,424 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 17:44:48,424 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'

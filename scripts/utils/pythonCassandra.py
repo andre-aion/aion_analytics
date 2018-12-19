@@ -1,5 +1,7 @@
 from scripts.utils.mylogger import mylogger
 from config import insert_sql, create_table_sql, create_indexes
+from concurrent.futures import ThreadPoolExecutor
+
 import argparse
 import logging
 import os
@@ -15,6 +17,8 @@ from cassandra.query import SimpleStatement
 
 import gc
 from pdb import set_trace
+
+executor = ThreadPoolExecutor(max_workers=20)
 
 logger = mylogger(__file__)
 class PythonCassandra:
@@ -65,37 +69,30 @@ class PythonCassandra:
             self.log.info("setting keyspace...")
         self.session.set_keyspace(keyspace)
 
-    def create_table_block(self, table):
+    def create_table(self, table):
         c_sql = create_table_sql[table]
         self.session.execute(c_sql)
-        """
-        self.session.execute("CREATE INDEX IF NOT EXISTS block_block_year_idx ON block (block_year);")
-        self.session.execute("CREATE INDEX IF NOT EXISTS block_block_month_idx ON block (block_month);")
-        self.session.execute("CREATE INDEX IF NOT EXISTS block_block_day_idx ON block (block_day);")
 
-        self.session.execute("CREATE INDEX IF NOT EXISTS block_block_timestamp ON block (block_timestamp);")
-        self.session.execute("CREATE INDEX IF NOT EXISTS block_miner_address_idx ON block (miner_address);"
-        self.session.execute("CREATE INDEX IF NOT EXISTS block_transaction_hash_idx ON block (transaction_hash);"
-        """
         # create indexes
         for sql in create_indexes[table]:
             self.session.execute(sql)
 
-        logger.warning("%s Table Created !!!",table)
+            logger.warning("Attempted:%s", sql)
+
+        logger.warning("%s Table & indexes Created/Checked !!!", table)
 
 
-
-    def insert_data(self, table, message):
+    def insert_data(self, table, messages):
         qry = self.session.prepare(insert_sql[table])
         batch = BatchStatement()
         # batch.add(insert_sql, (1, 'LyubovK'))
-        try:
-            batch.add(insert_sql, message)
-        except Exception:
-            logger.error(table+' insert failed:', exc_info=True)
-            self.ssc.stop()
-
+        for message in messages:
+            logger.warning("insert %s data:%s",table,message)
+            try:
+                batch.add(qry, message)
+            except Exception:
+                logger.error(table.upper()+' INSERT FAILED:', exc_info=True)
 
         self.session.execute(batch)
-        self.log.info('Batch Insert Completed')
+        self.log.info('%s Batch Insert Completed',table)
 

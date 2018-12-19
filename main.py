@@ -29,10 +29,9 @@ from pyspark.streaming import StreamingContext
 from pyspark.sql import SQLContext, SparkSession
 from pyspark.context import SparkConf, SparkContext
 
-
-executor = ThreadPoolExecutor(max_workers=20)
-kcp_connection = KafkaConnectPyspark()
 logger = mylogger(__file__)
+executor = ThreadPoolExecutor(max_workers=10)
+kcp_connection = KafkaConnectPyspark()
 
 
 @gen.coroutine
@@ -43,12 +42,11 @@ def block_update():
 
 # run block streamer
 executor.submit(block_update)
-#block_update()
 
 @gen.coroutine
 def aion_analytics(doc):
     ###
-    # Setup callbacks
+    # Setup callback
     ###
 
     # SETUP BOKEH OBJECTS
@@ -68,7 +66,7 @@ def aion_analytics(doc):
 @gen.coroutine
 @without_document_lock
 def launch_server():
-    #server = yield executor.submit(Server({'/': aion_analytics}, num_procs=3, port=0))
+    #server = yield executor.submit(Server({'/': aion_analytics}, num_procs=1, port=0))
     server = Server({'/': aion_analytics}, num_procs=1, port=0)
     server.start()
     server.io_loop.add_callback(server.show, "/")
