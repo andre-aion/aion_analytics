@@ -130,3 +130,212 @@ a004a26d31     14          14     ...                     0    0.002317
 
 [5 rows x 18 columns]
 2018-12-19 21:42:38,985 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-19 21:48:26,088 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 21:48:26,414 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 21:48:26,415 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 21:48:26,454 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 21:48:42,822 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:24:59,836 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 22:25:00,790 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:25:00,795 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:25:00,861 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:25:24,654 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:25:25,558 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:25:25,821 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-19 22:25:36,172 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:25:36,173 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:25:36,178 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:25:36,377 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:25:36,377 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:25:36,384 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:25:36,936 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:25:36,937 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:25:36,946 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:26:52,043 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 22:26:53,054 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:26:53,056 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:26:53,091 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:27:13,553 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:27:14,653 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:27:15,277 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-19 22:27:22,497 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:27:22,501 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:27:22,510 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:27:40,211 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:27:40,938 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:27:41,171 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-19 22:28:14,526 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-19 22:28:14,957 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-19 22:28:14,958 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-19 22:28:33,805 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-19 22:32:49,038 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 22:32:50,097 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:32:50,104 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:32:50,223 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:33:15,546 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:33:16,478 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:33:16,797 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-19 22:33:53,426 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-19 22:33:53,859 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-19 22:33:53,860 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-19 22:34:11,406 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-19 22:36:27,345 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 22:36:28,038 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:36:28,043 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:36:28,104 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:36:48,830 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:36:48,832 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:36:48,852 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:36:49,901 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:36:49,902 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:36:49,907 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:37:00,274 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:37:00,593 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:37:00,691 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-19 22:37:19,467 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-19 22:37:19,622 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-19 22:37:19,623 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-19 22:37:27,968 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-19 22:39:23,058 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 22:39:29,600 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:39:29,617 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:39:29,731 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:39:46,905 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:39:49,918 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:39:50,593 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00

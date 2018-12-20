@@ -92,7 +92,8 @@ class KafkaConnectPyspark:
                         message_dask['block_date'].append(block_date)
                         message_temp['block_date'] = block_date
                     else:
-                        message_temp[col] = mess[col]
+                        if col != 'block_date':
+                            message_temp[col] = mess[col]
 
                 message = (message_temp['transaction_hash'],message_temp['transaction_index'],
                            message_temp['block_number'],
@@ -216,32 +217,22 @@ class KafkaConnectPyspark:
         del messages_cass
         del message_dask
 
-
-    def handle_block_rdds(cls,rdd):
+    def handle_rdds(cls, rdd):
         if rdd.isEmpty():
             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-            logger.warning(' RDD IS NONE')
+            logger.warning('%s RDD IS EMPTY',cls.table)
             print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             return
         try:
             taken = rdd.take(5000)
-            cls.block_to_tuple(taken)
+            if cls.table == 'block':
+                cls.block_to_tuple(taken)
+            else:
+                cls.transaction_to_tuple(taken)
 
         except Exception:
-            logger.error('HANDLE RDDS:{}',exc_info=True)
+            logger.error('HANDLE RDDS:',exc_info=True)
 
-    def handle_transaction_rdds(cls, rdd):
-        if rdd.isEmpty():
-            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-            logger.print(' RDD IS NONE')
-            print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-            return
-        try:
-            taken = rdd.take(5000)
-            cls.block_to_tuple(taken)
-
-        except Exception:
-            logger.error('HANDLE RDDS:{}', exc_info=True)
 
     def get_zookeeper_instance(cls):
         from kazoo.client import KazooClient
@@ -331,12 +322,9 @@ class KafkaConnectPyspark:
             stream = stream.map(lambda x: json.loads(x[1]))
             if cls.table == 'transaction':
                 stream.pprint()
-            if cls.table == 'block':
-                stream = stream.foreachRDD(lambda rdd: cls.handle_block_rdds(rdd) \
-                    if not rdd.isEmpty() else None)
-            else:
-                stream = stream.foreachRDD(lambda rdd: cls.handle_transaction_rdds(rdd) \
-                    if not rdd.isEmpty() else None)
+            stream = stream.foreachRDD(lambda rdd: cls.handle_rdds(rdd) \
+                if not rdd.isEmpty() else None)
+
             stream1.foreachRDD(lambda rdd: cls.save_offsets(rdd))
 
             return stream

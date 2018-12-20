@@ -49,14 +49,14 @@ dedup_cols['transaction'] = ['transaction_hash']
 columns['transaction'] = ['transaction_hash','transaction_index','block_number',
                        'transaction_timestamp','block_timestamp',"block_date",
                        'from_addr','to_addr','value','nrg_consumed',
-                       'nrg_price','nonce','contract_addr','transaction_year',
-                       'transaction_month','transaction_day']
+                       'nrg_price','nonce','contract_addr','year',
+                       'month','day']
 
 
 insert_sql['transaction'] = """ INSERT INTO transaction(
             transaction_hash,transaction_index, block_number,
             transaction_timestamp,block_timestamp, block_date, 
-            from_addr, to_addr, value, 
+            from_addr, to_addr, transaction_value, 
             nrg_consumed, nrg_price, nonce, contract_addr,
             transaction_year, transaction_month, transaction_day)
             VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
@@ -66,7 +66,7 @@ create_table_sql['transaction'] = """
                 CREATE TABLE IF NOT EXISTS transaction (
                       transaction_hash varchar,transaction_index smallint, block_number bigint,
                       transaction_timestamp bigint,block_timestamp timestamp, block_date timestamp,
-                      from_addr varchar, to_addr varchar, tx_value varchar,
+                      from_addr varchar, to_addr varchar, transaction_value varchar,
                       nrg_consumed bigint, nrg_price bigint, nonce varchar, contract_addr varchar,
                       transaction_year smallint, transaction_month tinyint, transaction_day tinyint,
                       PRIMARY KEY (block_number, transaction_index)
