@@ -721,3 +721,420 @@ AttributeError: 'NoneType' object has no attribute '__call__'
 2018-12-19 22:39:20,088 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
 2018-12-19 22:39:23,134 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
 2018-12-19 22:39:23,134 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 22:54:32,703 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 22:54:34,895 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 22:54:34,895 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:40:59,933 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:41:01,831 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:41:01,831 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:43:33,699 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:43:38,163 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:43:38,163 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:44:56,084 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:44:59,065 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:44:59,065 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:50:40,064 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:50:43,170 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:50:43,170 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-19 23:53:24,918 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 23:53:24,918 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-19 23:53:24,920 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-19 23:53:24,920 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 00:13:31,564 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:13:35,956 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:13:35,956 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:14:53,049 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:14:57,943 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:14:57,943 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:16:32,261 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 00:16:32,261 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 00:16:32,263 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 00:16:32,263 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 00:17:18,930 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:17:24,321 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:17:24,321 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:18:44,744 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 00:18:44,744 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 00:18:44,746 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 00:18:44,746 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 00:18:53,559 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:18:57,095 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:18:57,095 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:21:41,000 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:21:43,571 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:21:43,571 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:22:46,192 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:22:50,333 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:22:50,333 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:25:48,757 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:25:52,117 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:25:52,117 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:27:34,031 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:27:37,565 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:27:37,565 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:29:10,891 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:29:14,379 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:29:14,379 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:31:50,913 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:31:54,069 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:31:54,069 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:32:39,582 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:32:43,045 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 00:32:43,045 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 01:55:27,504 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 01:55:31,749 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 01:55:31,749 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 01:56:54,046 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 01:56:57,504 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 01:56:57,504 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 01:59:40,692 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 01:59:44,238 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 01:59:44,238 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:16:56,855 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:16:59,767 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:16:59,767 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:19:34,757 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:19:38,058 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:19:38,058 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:21:01,839 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:21:05,037 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:21:05,037 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:21:47,369 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:21:50,290 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:21:50,290 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:22:08,899 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:22:12,005 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:22:12,005 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:30:16,625 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:30:19,696 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:30:19,696 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:31:45,699 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:31:48,865 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:31:48,865 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:35:47,152 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:35:49,657 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:35:49,657 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:39:07,226 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:39:12,030 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:39:12,030 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:40:56,787 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:41:00,629 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:41:00,629 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:43:47,430 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:43:52,669 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:43:52,669 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:44:00,710 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 02:44:00,710 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 02:44:00,727 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 02:44:00,727 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 02:45:32,152 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:45:36,058 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:45:36,058 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:47:05,517 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:47:09,385 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:47:09,385 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:52:08,134 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:52:11,987 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:52:11,987 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:59:35,856 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:59:39,829 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 02:59:39,829 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:00:33,835 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:00:37,124 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:00:37,124 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:02:02,480 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:02:06,323 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:02:06,323 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:02:55,119 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:02:59,624 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:02:59,624 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:04:33,168 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 03:04:33,168 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 03:04:33,173 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 03:04:33,173 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 03:06:23,402 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:06:27,267 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:06:27,267 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:12:12,061 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:12:16,083 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:12:16,083 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:14:16,501 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:14:20,454 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:14:20,454 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:14:56,391 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 03:14:56,391 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 03:14:56,392 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 03:14:56,392 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 03:17:18,858 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:17:22,753 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:17:22,753 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:18:03,756 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 03:18:03,756 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 03:18:03,758 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 03:18:03,758 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 03:19:19,807 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:19:23,700 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:19:23,700 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:21:57,542 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 03:21:57,542 - logs/hashrate.logs:87 - ERROR - plot error:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 83, in difficulty_plot
+    p = df.hvplot.line(x='block_number',y='difficulty',
+AttributeError: 'NoneType' object has no attribute 'hvplot'
+2018-12-20 03:21:57,544 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 03:21:57,544 - logs/hashrate.logs:133 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
+    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
+    if self.callback.noargs:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
+    return self.argspec == noargs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
+    return util.argspec(self.callable)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
+    return argspec(callable_obj.__call__)
+AttributeError: 'NoneType' object has no attribute '__call__'
+2018-12-20 03:25:11,563 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:25:16,284 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-20 03:25:16,284 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs

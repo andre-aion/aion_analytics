@@ -1,5 +1,9 @@
 from os.path import dirname, join
 from concurrent.futures import ThreadPoolExecutor
+import threading
+from multiprocessing import Process
+
+
 import asyncio
 from tornado import gen
 from tornado.locks import Condition
@@ -31,18 +35,31 @@ from pyspark.context import SparkConf, SparkContext
 
 logger = mylogger(__file__)
 executor = ThreadPoolExecutor(max_workers=10)
-table = 'transaction'
-kcp = {}
-kcp[table] = KafkaConnectPyspark(table)
-
-@gen.coroutine
-def stream_runner(table):
-    global kcp
-    kcp[table].run()
 
 
-# call streamer
-executor.submit(stream_runner,table)
+# set up stream runners
+conf = SparkConf() \
+    .set("spark.streaming.kafka.backpressure.initialRate", 150) \
+    .set("spark.streaming.kafka.backpressure.enabled", 'true') \
+    .set('spark.streaming.kafka.maxRatePerPartition', 250) \
+    .set('spark.streaming.receiver.writeAheadLog.enable', 'true') \
+    .set("spark.streaming.concurrentJobs", 2)
+spark_context = SparkContext(appName='aion_analytics',conf=conf)
+ssc = StreamingContext(spark_context,1)
+
+def tx_runner(spark_context,conf,ssc):
+    kcp_tx = KafkaConnectPyspark('transaction',spark_context,conf,ssc)
+    kcp_tx.run()
+
+
+def block_runner(spark_context,conf,ssc):
+    kcp_block = KafkaConnectPyspark('block',spark_context,conf,ssc)
+    kcp_block.run()
+
+t1 = threading.Thread(target=tx_runner,args=(spark_context,conf,ssc,))
+t1.daemon=True
+t2 = threading.Thread(target=block_runner,args=(spark_context,conf,ssc,))
+t2.daemon=True
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -76,7 +93,11 @@ def launch_server():
 
 if __name__ == '__main__':
     print('Opening Bokeh application on http://localhost:5006/')
+    t1.start()
+    t2.start()
     try:
-        launch_server()
+        threading.Thread(target=launch_server).start()
+
     except Exception:
         logger.error("WEBSERVER LAUNCH:", exc_info=True)
+

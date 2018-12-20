@@ -1,11 +1,5 @@
-2018-12-19 20:26:26,209 - logs/main.logs:15 - WARNING - logs/main.logs
-2018-12-19 20:31:44,476 - logs/main.logs:15 - WARNING - logs/main.logs
-2018-12-19 21:39:34,669 - logs/main.logs:15 - WARNING - logs/main.logs
-2018-12-19 21:42:15,454 - logs/main.logs:15 - WARNING - logs/main.logs
-2018-12-19 21:48:26,136 - logs/main.logs:15 - WARNING - logs/main.logs
-2018-12-19 22:24:59,945 - logs/main.logs:15 - WARNING - logs/main.logs
-2018-12-19 22:26:52,200 - logs/main.logs:15 - WARNING - logs/main.logs
-2018-12-19 22:31:01,519 - logs/main.logs:62 - ERROR - TABS:
+2018-12-20 03:19:23,701 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-20 03:21:57,545 - logs/main.logs:79 - ERROR - TABS:
 Traceback (most recent call last):
   File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
     dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
@@ -22,7 +16,7 @@ AttributeError: 'NoneType' object has no attribute '__call__'
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/main.py", line 56, in aion_analytics
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/main.py", line 73, in aion_analytics
     hr = yield hashrate_tab()
   File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 1133, in run
     value = future.result()
@@ -37,38 +31,4 @@ Traceback (most recent call last):
   File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 89, in tab_error_flag
     print('IN POOLMINER')
 BrokenPipeError: [Errno 32] Broken pipe
-2018-12-19 22:32:49,138 - logs/main.logs:15 - WARNING - logs/main.logs
-2018-12-19 22:36:27,442 - logs/main.logs:15 - WARNING - logs/main.logs
-2018-12-19 22:39:12,657 - logs/main.logs:62 - ERROR - TABS:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
-    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
-    if self.callback.noargs:
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
-    return self.argspec == noargs
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
-    return util.argspec(self.callable)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
-    return argspec(callable_obj.__call__)
-AttributeError: 'NoneType' object has no attribute '__call__'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/main.py", line 56, in aion_analytics
-    hr = yield hashrate_tab()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 1133, in run
-    value = future.result()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/asyncio/futures.py", line 294, in result
-    raise self._exception
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 307, in wrapper
-    result = func(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/types.py", line 243, in wrapped
-    coro = func(*args, **kwargs)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 135, in hashrate_tab
-    return tab_error_flag('hashrate')
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 89, in tab_error_flag
-    print('IN POOLMINER')
-BrokenPipeError: [Errno 32] Broken pipe
-2018-12-19 22:39:23,134 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-20 03:25:16,285 - logs/main.logs:15 - WARNING - logs/main.logs

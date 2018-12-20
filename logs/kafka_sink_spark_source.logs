@@ -1,0 +1,114 @@
+2018-12-20 03:12:13,022 - logs/kafka_sink_spark_source.logs:15 - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-20 03:14:17,428 - logs/kafka_sink_spark_source.logs:15 - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-20 03:17:19,772 - logs/kafka_sink_spark_source.logs:15 - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-20 03:19:20,765 - logs/kafka_sink_spark_source.logs:15 - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-20 03:19:25,968 - logs/kafka_sink_spark_source.logs:310 - ERROR - create streaming context
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 303, in create_streaming_context
+    if cls.spark_context is None:
+AttributeError: type object 'KafkaConnectPyspark' has no attribute 'spark_context'
+2018-12-20 03:19:26,060 - logs/kafka_sink_spark_source.logs:310 - ERROR - create streaming context
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 303, in create_streaming_context
+    if cls.spark_context is None:
+AttributeError: type object 'KafkaConnectPyspark' has no attribute 'spark_context'
+2018-12-20 03:19:26,280 - logs/kafka_sink_spark_source.logs:243 - WARNING - TOPIC:staging.aion.transaction
+2018-12-20 03:19:26,285 - logs/kafka_sink_spark_source.logs:243 - WARNING - TOPIC:staging.aion.block
+2018-12-20 03:19:26,316 - logs/kafka_sink_spark_source.logs:358 - ERROR - KAFKA/SPARK RUN:%s
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 348, in run
+    fromOffsets=from_offsets)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/streaming/kafka.py", line 138, in createDirectStream
+    helper = KafkaUtils._get_helper(ssc._sc)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/streaming/kafka.py", line 217, in _get_helper
+    return sc._jvm.org.apache.spark.streaming.kafka.KafkaUtilsPythonHelper()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py", line 1598, in __getattr__
+    raise Py4JError("{0} does not exist in the JVM".format(new_fqn))
+py4j.protocol.Py4JError: org.apache.spark does not exist in the JVM
+2018-12-20 03:19:26,317 - logs/kafka_sink_spark_source.logs:358 - ERROR - KAFKA/SPARK RUN:%s
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 348, in run
+    fromOffsets=from_offsets)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/streaming/kafka.py", line 138, in createDirectStream
+    helper = KafkaUtils._get_helper(ssc._sc)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/streaming/kafka.py", line 217, in _get_helper
+    return sc._jvm.org.apache.spark.streaming.kafka.KafkaUtilsPythonHelper()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py", line 1525, in __call__
+    answer, self._gateway_client, None, self._fqn)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py", line 342, in get_return_value
+    return OUTPUT_CONVERTER[type](answer[2:], gateway_client)
+KeyError: 'p'
+2018-12-20 03:25:12,756 - logs/kafka_sink_spark_source.logs:15 - WARNING - logs/kafka_sink_spark_source.logs
+2018-12-20 03:25:18,832 - logs/kafka_sink_spark_source.logs:310 - ERROR - create streaming context
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 303, in create_streaming_context
+    if cls.spark_context is None:
+AttributeError: type object 'KafkaConnectPyspark' has no attribute 'spark_context'
+2018-12-20 03:25:18,874 - logs/kafka_sink_spark_source.logs:310 - ERROR - create streaming context
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 303, in create_streaming_context
+    if cls.spark_context is None:
+AttributeError: type object 'KafkaConnectPyspark' has no attribute 'spark_context'
+2018-12-20 03:25:19,026 - logs/kafka_sink_spark_source.logs:243 - WARNING - TOPIC:staging.aion.transaction
+2018-12-20 03:25:19,028 - logs/kafka_sink_spark_source.logs:262 - ERROR - MAKE FIRST OFFSET:{}
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 248, in read_offsets
+    partitions = zk.get_children(topic_path)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/kazoo/client.py", line 1096, in get_children
+    include_data=include_data).get()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/kazoo/handlers/utils.py", line 73, in get
+    raise self._exception
+kazoo.exceptions.ConnectionClosedError: Connection has been closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 257, in read_offsets
+    zk.ensure_path(topic_path+'/'+"0")
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/kazoo/client.py", line 939, in ensure_path
+    return self.ensure_path_async(path, acl).get()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/kazoo/handlers/utils.py", line 79, in get
+    raise self._exception
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/kazoo/handlers/utils.py", line 227, in captured_function
+    return function(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/kazoo/handlers/utils.py", line 245, in captured_function
+    value = function(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/kazoo/client.py", line 967, in exists_completion
+    if result.get():
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/kazoo/handlers/utils.py", line 73, in get
+    raise self._exception
+kazoo.exceptions.ConnectionClosedError: Connection has been closed
+2018-12-20 03:25:19,144 - logs/kafka_sink_spark_source.logs:243 - WARNING - TOPIC:staging.aion.block
+2018-12-20 03:25:19,825 - logs/kafka_sink_spark_source.logs:315 - WARNING - inside kafka stream:block
+2018-12-20 03:25:19,826 - logs/kafka_sink_spark_source.logs:315 - WARNING - inside kafka stream:transaction
+2018-12-20 03:25:29,751 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:30,692 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:31,623 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:32,518 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:33,839 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:35,491 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:36,618 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:38,056 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:41,626 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:42,542 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:43,935 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:45,472 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:46,418 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:48,315 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:50,138 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:52,015 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:52,914 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:55,281 - logs/kafka_sink_spark_source.logs:112 - WARNING - tx message counter:10
+2018-12-20 03:25:56,724 - logs/kafka_sink_spark_source.logs:228 - ERROR - HANDLE RDDS:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 223, in handle_rdds
+    cls.block_to_tuple(taken)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 196, in block_to_tuple
+    cls.update_cassandra(messages_cass)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/kafka_sink_spark_source.py", line 64, in update_cassandra
+    cls.pc.insert_data(cls.table, messages)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 96, in insert_data
+    self.session.execute(batch)
+  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
+  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
+cassandra.cluster.NoHostAvailable: ('Unable to complete the operation against any hosts', {<Host: 127.0.0.1 datacenter1>: ConnectionException('Pool is shutdown',)})

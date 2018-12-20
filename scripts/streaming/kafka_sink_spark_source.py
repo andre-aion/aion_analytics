@@ -36,24 +36,18 @@ ZK_CHECKPOINT_PATH = 'consumers/'
 
 
 class KafkaConnectPyspark:
-    # cassandra setup
-    pc = PythonCassandra()
-    pc.setlogger()
-    pc.createsession()
-    pc.createkeyspace('aion')
 
-    zk_checkpoint_dir = ZK_CHECKPOINT_PATH
+    def __init__(self, table, spark_context,conf,ssc):
+        # cassandra setup
+        self.pc = PythonCassandra()
+        self.pc.setlogger()
+        self.pc.createsession()
+        self.pc.createkeyspace('aion')
 
-    ssc = None
-    conf = SparkConf() \
-        .set("spark.streaming.kafka.backpressure.initialRate", 150) \
-        .set("spark.streaming.kafka.backpressure.enabled", 'true') \
-        .set('spark.streaming.kafka.maxRatePerPartition', 250) \
-        .set('spark.streaming.receiver.writeAheadLog.enable', 'true') \
-        .set("spark.streaming.concurrentJobs", 2)
-    spark_context = None
-
-    def __init__(self, table):
+        self.zk_checkpoint_dir = ZK_CHECKPOINT_PATH
+        self.spark_context = spark_context
+        self.ssc = ssc
+        self.conf = conf
         self.table = table
         self.streaming_dataframe = StreamingDataframe(table, columns, dedup_cols)
         executor.submit(self.pc.create_table(table))

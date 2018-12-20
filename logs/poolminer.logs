@@ -339,3 +339,1490 @@ a004a26d31     14          14     ...                     0    0.002317
 
 [5 rows x 18 columns]
 2018-12-19 22:39:50,593 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-19 22:54:34,828 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 22:54:35,412 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 22:54:35,416 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 22:54:35,567 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 22:54:54,440 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:54:56,599 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:54:56,809 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-19 23:41:01,791 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 23:43:38,047 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 23:44:58,991 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 23:50:43,099 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-19 23:50:46,130 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 23:50:46,135 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 23:50:46,164 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 23:50:57,160 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 23:50:57,552 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 23:50:57,675 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-19 23:51:16,701 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-19 23:51:16,867 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-19 23:51:16,867 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-19 23:51:18,256 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-19 23:51:18,256 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-19 23:51:18,259 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-19 23:51:27,073 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 23:51:27,456 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 23:51:27,580 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-19 23:51:48,937 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-19 23:51:49,143 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-19 23:51:49,143 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-19 23:51:58,890 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-20 00:13:35,806 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 00:13:36,948 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:13:36,951 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:13:36,971 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:13:46,760 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:13:47,061 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:13:47,150 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 00:13:59,463 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:13:59,463 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:13:59,466 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:14:09,020 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:14:09,306 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:14:09,393 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 00:14:27,391 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 00:14:27,600 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 00:14:27,600 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 00:14:38,898 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-20 00:14:57,828 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 00:14:59,374 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:14:59,379 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:14:59,421 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:15:12,946 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:15:13,357 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:15:13,484 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 00:15:34,465 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 00:15:34,666 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 00:15:34,667 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 00:15:45,145 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-20 00:15:58,623 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:15:58,624 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:15:58,628 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:16:09,659 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:16:10,057 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:16:10,186 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 00:16:38,104 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 00:16:38,381 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 00:16:38,382 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 00:16:49,770 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-20 00:17:24,191 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 00:17:27,036 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:17:27,045 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:17:27,158 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:17:53,314 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:17:58,611 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:17:59,523 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 00:18:57,009 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 00:18:58,251 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:18:58,256 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:18:58,365 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:19:17,085 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:19:19,994 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:19:20,182 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 00:21:43,499 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 00:21:44,641 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:21:44,645 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:21:44,778 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:22:05,569 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:22:11,359 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:22:11,474 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 00:22:50,239 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 00:22:51,246 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:22:51,250 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:22:51,326 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:23:11,839 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:23:17,161 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:23:17,642 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 00:25:52,037 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 00:25:53,463 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:25:53,487 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:25:53,655 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:26:13,517 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:26:17,810 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:26:18,298 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 00:27:37,476 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 00:27:38,878 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:27:38,883 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:27:39,053 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:27:58,867 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:28:03,839 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:28:04,737 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 00:28:37,481 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:28:37,483 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:28:37,492 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:28:37,822 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 00:28:37,823 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 00:28:37,835 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 00:29:14,289 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 00:31:53,996 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 00:32:42,967 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 01:55:31,645 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 01:55:34,004 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 01:55:34,010 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 01:55:34,092 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 01:55:54,779 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 01:56:57,399 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 01:56:59,050 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 01:56:59,055 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 01:56:59,161 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 01:57:19,605 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 01:57:23,987 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 01:57:24,130 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 01:59:44,153 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 01:59:44,681 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 01:59:44,685 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 01:59:44,765 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:00:04,586 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:00:06,589 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:00:06,775 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:16:59,681 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:17:00,241 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:17:00,243 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:17:00,303 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:17:17,889 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:17:20,045 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:17:20,162 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:19:37,967 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:19:38,732 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:19:38,734 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:19:38,743 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:19:47,196 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:19:47,508 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:19:47,601 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:20:05,328 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 02:20:05,495 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 02:20:05,496 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 02:21:04,967 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:21:50,218 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:22:11,935 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:22:12,451 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:22:12,454 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:22:12,483 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:22:33,460 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:22:37,379 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:22:37,916 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:30:19,594 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:30:20,612 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:30:20,630 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:30:20,723 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:30:30,807 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:30:31,199 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:30:31,312 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:31:48,794 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:31:49,697 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:31:49,701 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:31:49,801 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:32:10,564 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:32:14,730 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:35:49,588 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:35:50,112 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:35:50,114 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:35:50,136 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:35:58,283 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:35:58,603 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:35:58,696 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:36:19,073 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 02:36:19,236 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 02:36:19,236 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 02:39:11,925 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:39:12,500 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:39:12,503 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:39:12,545 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:39:22,563 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:39:22,882 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:39:22,981 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:39:39,825 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 02:39:39,991 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 02:39:39,992 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 02:39:48,396 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-20 02:41:00,503 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:41:01,242 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:41:01,248 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:41:01,351 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:41:11,732 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:41:12,063 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:41:12,161 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:41:29,164 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 02:41:29,328 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 02:41:29,328 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 02:41:32,998 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:41:32,998 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:41:33,001 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:41:41,444 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:41:41,758 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:41:41,854 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:41:58,634 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 02:41:58,804 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 02:41:58,804 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 02:42:07,459 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-20 02:43:52,551 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:43:53,380 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:43:53,384 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:43:53,476 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:44:17,676 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:44:20,237 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:44:20,527 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:45:35,956 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:45:37,246 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:45:37,249 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:45:37,310 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:45:56,877 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:47:09,288 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:47:10,242 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:47:10,248 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:47:10,342 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:47:28,062 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:47:31,585 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:47:31,709 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:52:11,894 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 02:52:13,059 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 02:52:13,063 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 02:52:13,114 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 02:52:23,722 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:52:24,078 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:52:24,251 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 02:59:39,735 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 03:00:37,046 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 03:00:39,666 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 03:00:39,670 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 03:00:39,702 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 03:00:49,669 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:00:50,089 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:00:50,298 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 03:00:55,208 - logs/poolminer.logs:120 - ERROR - munge df:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 109, in prep_dataset
+    /self.df1['block_number'].sum().compute()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
+    pack_exception=pack_exception, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 492, in get_async
+    key, res_info, failed = queue_get(queue)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 141, in queue_get
+    return q.get()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/queue.py", line 164, in get
+    self.not_empty.wait()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/threading.py", line 293, in wait
+    waiter.acquire()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 253, in signal_handler
+    self.cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 1003, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py", line 1257, in __call__
+    answer, self.gateway_client, self.target_id, self.name)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py", line 328, in get_return_value
+    format(target_id, ".", name), value)
+py4j.protocol.Py4JJavaError: <unprintable Py4JJavaError object>
+2018-12-20 03:00:55,781 - logs/poolminer.logs:249 - ERROR - poolminer:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 219, in poolminer_tab
+    all_plot = renderer.get_plot(dmap_all)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
+    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
+    initialize_dynamic(obj)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
+    dmap[dmap._initial_key()]
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
+    return self._process(map_obj[key], key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1135, in __getitem__
+    self._cache(tuple_key, val)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1181, in _cache
+    self[key] = val
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 518, in __setitem__
+    self._add_item(key, value, update=False)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 160, in _add_item
+    self._item_check(dim_vals, data)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 820, in _item_check
+    super(UniformNdMapping, self)._item_check(dim_vals, data)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 143, in _item_check
+    restr=data_type))
+TypeError: DynamicMap does not accept NoneType type, data elements have to be a ('ViewableElement', 'NdMapping', 'Layout').
+2018-12-20 03:02:06,212 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 03:02:09,321 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 03:02:09,324 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 03:02:09,334 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 03:02:20,798 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:02:21,350 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:02:21,539 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 03:02:42,661 - logs/poolminer.logs:149 - ERROR - view_topN:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 129, in view_topN
+    self.df2 = self.df2.reset_index().compute()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
+    pack_exception=pack_exception, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 504, in get_async
+    finish_task(dsk, key, state, results, keyorder.get)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 321, in finish_task
+    release_data(dep, state, delete=delete)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 295, in release_data
+    del state['cache'][key]
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 253, in signal_handler
+    self.cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 1003, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py", line 1257, in __call__
+    answer, self.gateway_client, self.target_id, self.name)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py", line 328, in get_return_value
+    format(target_id, ".", name), value)
+py4j.protocol.Py4JJavaError: An error occurred while calling o42.cancelAllJobs.
+: java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+This stopped SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.GatewayConnection.run(GatewayConnection.java:238)
+java.lang.Thread.run(Thread.java:748)
+
+The currently active SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.GatewayConnection.run(GatewayConnection.java:238)
+java.lang.Thread.run(Thread.java:748)
+         
+	at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:99)
+	at org.apache.spark.SparkContext.cancelAllJobs(SparkContext.scala:2221)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:748)
+
+2018-12-20 03:02:42,706 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 03:02:42,707 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 03:02:55,905 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-20 03:02:59,499 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 03:03:03,786 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 03:03:03,794 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 03:03:03,845 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 03:03:10,712 - logs/poolminer.logs:249 - ERROR - poolminer:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 178, in poolminer_tab
+    pm = Poolminer()
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 64, in __init__
+    self.pc.createsession()
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonCassandra.py", line 36, in createsession
+    self.session = self.cluster.connect(self.keyspace)
+  File "cassandra/cluster.py", line 1205, in cassandra.cluster.Cluster.connect (cassandra/cluster.c:17856)
+  File "cassandra/cluster.py", line 1252, in cassandra.cluster.Cluster._new_session (cassandra/cluster.c:19012)
+  File "cassandra/cluster.py", line 1982, in cassandra.cluster.Session.__init__ (cassandra/cluster.c:34928)
+  File "cassandra/cluster.py", line 2387, in cassandra.cluster.Session.add_or_renew_pool (cassandra/cluster.c:42800)
+  File "cassandra/cluster.py", line 2512, in cassandra.cluster.Session.submit (cassandra/cluster.c:46016)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/concurrent/futures/thread.py", line 113, in submit
+    self._adjust_thread_count()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/concurrent/futures/thread.py", line 129, in _adjust_thread_count
+    t.start()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/threading.py", line 849, in start
+    self._started.wait()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/threading.py", line 549, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/threading.py", line 293, in wait
+    waiter.acquire()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 253, in signal_handler
+    self.cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 1003, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py", line 1257, in __call__
+    answer, self.gateway_client, self.target_id, self.name)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py", line 328, in get_return_value
+    format(target_id, ".", name), value)
+py4j.protocol.Py4JJavaError: An error occurred while calling o43.cancelAllJobs.
+: java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+This stopped SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.GatewayConnection.run(GatewayConnection.java:238)
+java.lang.Thread.run(Thread.java:748)
+
+The currently active SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.GatewayConnection.run(GatewayConnection.java:238)
+java.lang.Thread.run(Thread.java:748)
+         
+	at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:99)
+	at org.apache.spark.SparkContext.cancelAllJobs(SparkContext.scala:2221)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:748)
+
+2018-12-20 03:06:27,162 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 03:06:29,777 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 03:06:29,786 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 03:06:29,814 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 03:06:40,181 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:06:40,576 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:06:40,746 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 03:07:00,718 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 03:07:00,966 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 03:07:00,966 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 03:07:05,287 - logs/poolminer.logs:120 - ERROR - munge df:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 114, in prep_dataset
+    logger.warning('prep dataset DF1:%s', self.df1.compute().head())
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
+    pack_exception=pack_exception, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 492, in get_async
+    key, res_info, failed = queue_get(queue)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 141, in queue_get
+    return q.get()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/queue.py", line 164, in get
+    self.not_empty.wait()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/threading.py", line 293, in wait
+    waiter.acquire()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 253, in signal_handler
+    self.cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 1003, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py", line 1257, in __call__
+    answer, self.gateway_client, self.target_id, self.name)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py", line 328, in get_return_value
+    format(target_id, ".", name), value)
+py4j.protocol.Py4JJavaError: An error occurred while calling o42.cancelAllJobs.
+: java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+This stopped SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.GatewayConnection.run(GatewayConnection.java:238)
+java.lang.Thread.run(Thread.java:748)
+
+The currently active SparkContext was created at:
+
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+py4j.Gateway.invoke(Gateway.java:238)
+py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+py4j.GatewayConnection.run(GatewayConnection.java:238)
+java.lang.Thread.run(Thread.java:748)
+         
+	at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:99)
+	at org.apache.spark.SparkContext.cancelAllJobs(SparkContext.scala:2221)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.GatewayConnection.run(GatewayConnection.java:238)
+	at java.lang.Thread.run(Thread.java:748)
+
+2018-12-20 03:07:05,335 - logs/poolminer.logs:249 - ERROR - poolminer:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 219, in poolminer_tab
+    all_plot = renderer.get_plot(dmap_all)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
+    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
+    initialize_dynamic(obj)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
+    dmap[dmap._initial_key()]
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
+    return self._process(map_obj[key], key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1135, in __getitem__
+    self._cache(tuple_key, val)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1181, in _cache
+    self[key] = val
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 518, in __setitem__
+    self._add_item(key, value, update=False)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 160, in _add_item
+    self._item_check(dim_vals, data)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 820, in _item_check
+    super(UniformNdMapping, self)._item_check(dim_vals, data)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 143, in _item_check
+    restr=data_type))
+TypeError: DynamicMap does not accept NoneType type, data elements have to be a ('ViewableElement', 'NdMapping', 'Layout').
+2018-12-20 03:12:15,987 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 03:12:19,462 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 03:12:19,464 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 03:12:19,512 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 03:12:30,453 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:12:30,794 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:12:30,895 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 03:12:36,282 - logs/poolminer.logs:120 - ERROR - munge df:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 109, in prep_dataset
+    /self.df1['block_number'].sum().compute()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
+    pack_exception=pack_exception, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 492, in get_async
+    key, res_info, failed = queue_get(queue)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 141, in queue_get
+    return q.get()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/queue.py", line 164, in get
+    self.not_empty.wait()
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/threading.py", line 293, in wait
+    waiter.acquire()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 253, in signal_handler
+    self.cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 1003, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py", line 1257, in __call__
+    answer, self.gateway_client, self.target_id, self.name)
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py", line 328, in get_return_value
+    format(target_id, ".", name), value)
+py4j.protocol.Py4JJavaError: <unprintable Py4JJavaError object>
+2018-12-20 03:12:36,812 - logs/poolminer.logs:249 - ERROR - poolminer:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 219, in poolminer_tab
+    all_plot = renderer.get_plot(dmap_all)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
+    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
+    initialize_dynamic(obj)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
+    dmap[dmap._initial_key()]
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
+    return self._process(map_obj[key], key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1135, in __getitem__
+    self._cache(tuple_key, val)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1181, in _cache
+    self[key] = val
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 518, in __setitem__
+    self._add_item(key, value, update=False)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 160, in _add_item
+    self._item_check(dim_vals, data)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 820, in _item_check
+    super(UniformNdMapping, self)._item_check(dim_vals, data)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 143, in _item_check
+    restr=data_type))
+TypeError: DynamicMap does not accept NoneType type, data elements have to be a ('ViewableElement', 'NdMapping', 'Layout').
+2018-12-20 03:14:20,346 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 03:14:23,889 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 03:14:23,891 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 03:14:23,918 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 03:14:34,953 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:14:35,327 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:14:35,440 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 03:14:53,951 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 03:14:54,131 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 03:14:54,131 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 03:14:55,885 - logs/poolminer.logs:120 - ERROR - munge df:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 114, in prep_dataset
+    logger.warning('prep dataset DF1:%s', self.df1.compute().head())
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
+    pack_exception=pack_exception, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 504, in get_async
+    finish_task(dsk, key, state, results, keyorder.get)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 321, in finish_task
+    release_data(dep, state, delete=delete)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 295, in release_data
+    del state['cache'][key]
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 253, in signal_handler
+    self.cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 1003, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+AttributeError: 'NoneType' object has no attribute 'cancelAllJobs'
+2018-12-20 03:14:55,900 - logs/poolminer.logs:249 - ERROR - poolminer:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 219, in poolminer_tab
+    all_plot = renderer.get_plot(dmap_all)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
+    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
+    initialize_dynamic(obj)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
+    dmap[dmap._initial_key()]
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
+    return self._process(map_obj[key], key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1135, in __getitem__
+    self._cache(tuple_key, val)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1181, in _cache
+    self[key] = val
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 518, in __setitem__
+    self._add_item(key, value, update=False)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 160, in _add_item
+    self._item_check(dim_vals, data)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 820, in _item_check
+    super(UniformNdMapping, self)._item_check(dim_vals, data)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 143, in _item_check
+    restr=data_type))
+TypeError: DynamicMap does not accept NoneType type, data elements have to be a ('ViewableElement', 'NdMapping', 'Layout').
+2018-12-20 03:17:22,659 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 03:17:25,663 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 03:17:25,664 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 03:17:25,683 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 03:17:35,830 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:17:36,153 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:17:36,257 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 03:17:54,521 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 03:17:54,689 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 03:17:54,689 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 03:18:03,414 - logs/poolminer.logs:120 - ERROR - munge df:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 114, in prep_dataset
+    logger.warning('prep dataset DF1:%s', self.df1.compute().head())
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
+    (result,) = compute(self, traverse=False, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
+    results = schedule(dsk, keys, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
+    pack_exception=pack_exception, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 504, in get_async
+    finish_task(dsk, key, state, results, keyorder.get)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 321, in finish_task
+    release_data(dep, state, delete=delete)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 295, in release_data
+    del state['cache'][key]
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 253, in signal_handler
+    self.cancelAllJobs()
+  File "/usr/local/spark/spark-2.3.2-bin-hadoop2.7/python/lib/pyspark.zip/pyspark/context.py", line 1003, in cancelAllJobs
+    self._jsc.sc().cancelAllJobs()
+AttributeError: 'NoneType' object has no attribute 'cancelAllJobs'
+2018-12-20 03:18:03,419 - logs/poolminer.logs:249 - ERROR - poolminer:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/poolminer.py", line 219, in poolminer_tab
+    all_plot = renderer.get_plot(dmap_all)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
+    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
+    initialize_dynamic(obj)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
+    dmap[dmap._initial_key()]
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
+    return self._process(map_obj[key], key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1135, in __getitem__
+    self._cache(tuple_key, val)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1181, in _cache
+    self[key] = val
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 518, in __setitem__
+    self._add_item(key, value, update=False)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 160, in _add_item
+    self._item_check(dim_vals, data)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 820, in _item_check
+    super(UniformNdMapping, self)._item_check(dim_vals, data)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 143, in _item_check
+    restr=data_type))
+TypeError: DynamicMap does not accept NoneType type, data elements have to be a ('ViewableElement', 'NdMapping', 'Layout').
+2018-12-20 03:19:23,605 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 03:19:26,621 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 03:19:26,625 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 03:19:26,649 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 03:19:37,010 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:19:37,330 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:19:37,432 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 03:19:54,548 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 03:19:54,720 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 03:19:54,720 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 03:19:58,576 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 03:19:58,576 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 03:19:58,580 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 03:20:07,241 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:20:07,559 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:20:07,657 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00
+2018-12-20 03:20:24,941 - logs/poolminer.logs:130 - WARNING - df2 after nlargest:   miner_addr   index     ...      transaction_list  percentage
+0  a0fbcacc23  107190     ...                     0   17.738025
+1  a0762b81cb   89790     ...                     0   14.858637
+2  a0c7e08b1b   46076     ...                     0    7.624753
+3  a09abfdfc0   26420     ...                     0    4.372037
+4  a0426ebf76   24652     ...                     0    4.079464
+
+[5 rows x 19 columns]
+2018-12-20 03:20:25,102 - logs/poolminer.logs:112 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
+2018-12-20 03:20:25,103 - logs/poolminer.logs:113 - WARNING - prep dataset END DATE:2018-05-30 00:00:00
+2018-12-20 03:20:33,598 - logs/poolminer.logs:114 - WARNING - prep dataset DF1:            index  block_date     ...      transaction_list  percentage
+miner_addr                        ...                                  
+0000000000   1715        1715     ...                     0    0.283802
+a000686525   7894        7894     ...                     0    1.306316
+a00339fa21   3536        3536     ...                     0    0.585145
+a003e9a7b9  12552       12552     ...                     0    2.077131
+a004a26d31     14          14     ...                     0    0.002317
+
+[5 rows x 18 columns]
+2018-12-20 03:25:16,180 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-20 03:25:19,878 - logs/poolminer.logs:74 - WARNING - load_data start date:2018-04-09 00:00:00
+2018-12-20 03:25:19,880 - logs/poolminer.logs:75 - WARNING - load_data end date:2018-05-30 00:00:00
+2018-12-20 03:25:19,913 - logs/poolminer.logs:79 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-20 03:25:35,174 - logs/poolminer.logs:87 - WARNING - load_data head:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:25:37,406 - logs/poolminer.logs:88 - WARNING - load_data tail:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:25:37,807 - logs/poolminer.logs:105 - WARNING - prep dataset start date:2018-04-09 00:00:00

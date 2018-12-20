@@ -247,3 +247,805 @@ cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="
 85827  1287461 2018-06-02       ...                   NaN              NaN
 
 [5 rows x 18 columns]
+2018-12-19 22:54:33,219 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-19 22:54:35,579 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-19 22:54:39,018 - logs/myutils.logs:280 - WARNING - 
+2018-12-19 22:54:39,570 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 22:54:40,586 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 23:41:00,428 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-19 23:43:34,632 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-19 23:44:56,846 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-19 23:50:40,861 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-19 23:50:46,182 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-19 23:50:48,602 - logs/myutils.logs:280 - WARNING - 
+2018-12-19 23:50:49,089 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 23:50:49,659 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 23:51:18,263 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-19 23:51:19,409 - logs/myutils.logs:280 - WARNING - 
+2018-12-19 23:51:19,674 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 23:51:20,077 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-19 23:53:24,906 - logs/myutils.logs:80 - ERROR - get initial blocks
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 75, in get_initial_blocks
+    df = pd.DataFrame(list(pc.session.execute(qry)))
+  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
+  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table block"
+2018-12-20 00:13:32,405 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 00:13:36,978 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:13:38,618 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 00:13:38,996 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:13:39,487 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:13:59,470 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:14:00,489 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 00:14:00,698 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:14:01,121 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:14:54,442 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 00:14:59,433 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:15:02,330 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 00:15:02,821 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:15:03,550 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:15:58,634 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:16:00,216 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 00:16:00,522 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:16:00,993 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:16:32,248 - logs/myutils.logs:80 - ERROR - get initial blocks
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 75, in get_initial_blocks
+    df = pd.DataFrame(list(pc.session.execute(qry)))
+  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
+  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table block"
+2018-12-20 00:17:20,168 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 00:17:27,186 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:17:32,623 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 00:17:33,238 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:17:34,155 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:18:44,735 - logs/myutils.logs:80 - ERROR - get initial blocks
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 75, in get_initial_blocks
+    df = pd.DataFrame(list(pc.session.execute(qry)))
+  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
+  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table block"
+2018-12-20 00:18:54,489 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 00:18:58,377 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:19:01,519 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 00:19:02,251 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:19:02,944 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:21:41,617 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 00:21:44,794 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:21:48,175 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 00:21:48,879 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:21:49,700 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:22:47,377 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 00:22:51,338 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:22:54,181 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 00:22:54,874 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:22:55,796 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:25:49,602 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 00:25:53,673 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:25:56,972 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 00:25:57,857 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:25:58,900 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:27:34,943 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 00:27:39,070 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:27:42,561 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 00:27:43,373 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:27:44,483 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 00:28:37,506 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 00:29:11,770 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 00:31:51,732 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 00:32:40,408 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 01:55:28,566 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 01:55:34,120 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 01:55:37,211 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 01:55:37,768 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 01:55:38,908 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 01:56:54,756 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 01:56:59,181 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 01:57:02,069 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 01:57:02,824 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 01:57:03,573 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 01:59:41,612 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 01:59:44,778 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 01:59:48,169 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 01:59:49,128 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 01:59:50,027 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:16:57,462 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:17:00,312 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:17:03,438 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:17:04,111 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:17:04,991 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:19:35,412 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:19:38,748 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:19:39,872 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:19:40,150 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:19:40,549 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:21:02,695 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:21:48,027 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:22:09,702 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:22:12,495 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:22:15,293 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:22:16,019 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:22:16,887 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:30:17,224 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:30:20,736 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:30:22,519 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:30:23,029 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:30:23,587 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:31:46,509 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:31:49,825 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:31:53,213 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:31:54,114 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:31:55,199 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:35:47,785 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:35:50,140 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:35:50,796 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:35:50,976 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:35:51,208 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:39:08,020 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:39:12,551 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:39:14,188 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:39:14,670 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:39:15,368 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:40:57,709 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:41:01,364 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:41:03,247 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:41:03,820 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:41:04,335 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:41:33,005 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:41:34,013 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:41:34,221 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:41:34,553 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:43:48,686 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:43:53,487 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:43:57,931 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:43:58,788 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:44:00,444 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:44:00,685 - logs/myutils.logs:80 - ERROR - get initial blocks
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 75, in get_initial_blocks
+    df = pd.DataFrame(list(pc.session.execute(qry)))
+  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
+  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table block"
+2018-12-20 02:45:33,130 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:45:37,318 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:45:39,135 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:45:39,624 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:45:40,394 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:47:06,473 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:47:10,364 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:47:12,533 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:47:13,145 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:47:13,636 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:52:09,093 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 02:52:13,127 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 02:52:15,155 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 02:52:15,830 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:52:16,306 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 02:59:36,783 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 03:00:34,641 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 03:00:39,718 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 03:00:40,989 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 03:00:41,454 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:00:42,115 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:02:03,401 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 03:02:09,341 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 03:02:11,868 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 03:02:12,127 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:02:12,687 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:02:56,203 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 03:03:03,860 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 03:03:07,174 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 03:03:07,618 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:03:08,524 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:04:33,164 - logs/myutils.logs:80 - ERROR - get initial blocks
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 75, in get_initial_blocks
+    df = pd.DataFrame(list(pc.session.execute(qry)))
+  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
+  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table block"
+2018-12-20 03:06:24,407 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 03:06:29,836 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 03:06:31,184 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 03:06:31,787 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:06:32,454 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:12:13,023 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 03:12:19,523 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 03:12:22,207 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 03:12:22,483 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:12:22,855 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:14:17,429 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 03:14:23,933 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 03:14:26,794 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 03:14:27,070 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:14:27,482 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:14:56,369 - logs/myutils.logs:80 - ERROR - get initial blocks
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 75, in get_initial_blocks
+    df = pd.DataFrame(list(pc.session.execute(qry)))
+  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
+  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table block"
+2018-12-20 03:17:19,772 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 03:17:25,691 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 03:17:27,293 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 03:17:27,625 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:17:28,159 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:18:03,743 - logs/myutils.logs:80 - ERROR - get initial blocks
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 75, in get_initial_blocks
+    df = pd.DataFrame(list(pc.session.execute(qry)))
+  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
+  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table block"
+2018-12-20 03:19:20,766 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 03:19:26,661 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 03:19:28,388 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 03:19:28,838 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:19:29,344 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:19:58,584 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 03:19:59,673 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 03:19:59,875 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:20:00,259 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:21:57,531 - logs/myutils.logs:80 - ERROR - get initial blocks
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 75, in get_initial_blocks
+    df = pd.DataFrame(list(pc.session.execute(qry)))
+  File "cassandra/cluster.py", line 2030, in cassandra.cluster.Session.execute (cassandra/cluster.c:35551)
+  File "cassandra/cluster.py", line 3844, in cassandra.cluster.ResponseFuture.result (cassandra/cluster.c:74495)
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="unconfigured table block"
+2018-12-20 03:25:12,756 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-20 03:25:19,919 - logs/myutils.logs:274 - WARNING - construct df, params:{'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-09:2018-06-30', 'cass_key_full': None, 'redis_start_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None}
+2018-12-20 03:25:22,991 - logs/myutils.logs:280 - WARNING - 
+2018-12-20 03:25:23,278 - logs/myutils.logs:340 - WARNING - df constructed, HEAD:   index block_date       ...        transaction_id transaction_list
+2      2 2018-04-25       ...                   NaN              NaN
+4      4 2018-05-20       ...                   NaN              NaN
+5      5 2018-05-21       ...                   NaN              NaN
+6      6 2018-05-03       ...                   NaN              NaN
+8      8 2018-04-30       ...                   NaN              NaN
+
+[5 rows x 18 columns]
+2018-12-20 03:25:23,838 - logs/myutils.logs:341 - WARNING - df constructed, TAIL:         index block_date       ...        transaction_id transaction_list
+85820  1287454 2018-06-25       ...                   NaN              NaN
+85821  1287455 2018-06-22       ...                   NaN              NaN
+85825  1287459 2018-06-30       ...                   NaN              NaN
+85826  1287460 2018-05-22       ...                   NaN              NaN
+85827  1287461 2018-06-02       ...                   NaN              NaN
+
+[5 rows x 18 columns]
