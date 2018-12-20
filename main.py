@@ -31,17 +31,18 @@ from pyspark.context import SparkConf, SparkContext
 
 logger = mylogger(__file__)
 executor = ThreadPoolExecutor(max_workers=10)
-kcp_connection = KafkaConnectPyspark()
-
+table = 'transaction'
+kcp = {}
+kcp[table] = KafkaConnectPyspark(table)
 
 @gen.coroutine
-def block_update():
-    global kcp_connection
-    kcp_connection.run()
+def stream_runner(table):
+    global kcp
+    kcp[table].run()
 
 
-# run block streamer
-executor.submit(block_update)
+# call streamer
+executor.submit(stream_runner,table)
 
 @gen.coroutine
 def aion_analytics(doc):
