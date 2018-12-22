@@ -8,37 +8,18 @@ from scripts.utils.mylogger import mylogger
 logger = mylogger(__file__)
 
 def str_to_hex(x):
-    return int(x, base=16)
+    logger.warning("the str to convert:%s", x)
+    if isinstance(x,int):
+        return x
+    elif isinstance(x,str):
+        return int(x, base=16)
+    else:
+        return 0
 
 def calc_hashrate(df,blockcount):
-    df['rolling_mean'] = df.block_time.rolling(blockcount).mean()
+    #logger.warning('columns in calc hashrate:%s',df.columns.values)
+    df['rolling_mean'] = df.block_time.rolling(blockcount).mean().compute()
     df = df.dropna()
     df['hashrate'] = df.difficulty / df.rolling_mean
-    df = df.drop(['rolling_mean','difficulty'],axis=1)
-    gc.collect()
-    return df
-
-
-def load_data(start, end):
-    #find max block in dataset
-    if start > end:
-        start = end - 5000
-        logger.warning("start > end, range adjusted")
-
-    if start > config.max_block_loaded:
-        start = config.max_block_loaded - 5000
-        logger.warning("start block number is too high, "
-                       "adjusted downwards to {}".format(start))
-    if config.max_block_loaded < end:
-        end = config.max_block_loaded
-        logger.warning("starting block number is too high, "
-                       "adjusted downwards to {}".format(start))
-
-    if start < 0:
-        start = 0
-    logger.warning(config.block.get_df())
-    df = config.block.get_df()[(int(config.block.get_df()['block_number']) >= start)
-                               & (int(config.block.get_df()['block_number']) <= end)]
-
     return df
 

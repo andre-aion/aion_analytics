@@ -314,8 +314,6 @@ class KafkaConnectPyspark:
             stream1 = stream
             logger.warning("inside kafka stream:%s", cls.table)
             stream = stream.map(lambda x: json.loads(x[1]))
-            if cls.table == 'transaction':
-                stream.pprint()
             stream = stream.foreachRDD(lambda rdd: cls.handle_rdds(rdd) \
                 if not rdd.isEmpty() else None)
 

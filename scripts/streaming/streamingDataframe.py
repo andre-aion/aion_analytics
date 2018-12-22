@@ -13,12 +13,11 @@ class StreamingDataframe:
             self.partitions = 15
             self.table_name = table_name
             logger.warning("init:%s",table_name)
-            logger.warning("init:%s",columns)
 
             self.columns = columns[table_name]
             self.dedup_columns = dedup_columns[table_name]
             # initialize as pandas
-            df = pd.DataFrame(columns=columns)
+            df = pd.DataFrame(columns=self.columns)
             # convert to dask
             self.df = from_pandas(df, npartitions=self.partitions,
                                   name=table_name, sort=True)

@@ -12,7 +12,7 @@
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
     <data-source name="aion@staging" uuid="320597cf-ea23-4904-a5c7-77834a8b6f07">
-      <database-info product="MySQL" version="5.7.24-0ubuntu0.16.04.1-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" dbms="MYSQL" exact-version="5.7.24">
+      <database-info product="MySQL" version="5.7.24-0ubuntu0.16.04.1-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" dbms="MYSQL" exact-version="5.7.24" exact-driver-version="5.1">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>

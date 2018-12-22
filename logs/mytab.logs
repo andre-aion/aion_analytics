@@ -1,0 +1,370 @@
+2018-12-22 11:47:23,580 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-22 11:47:38,354 - logs/mytab.logs:37 - WARNING - load_data:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2018-12-22 11:47:39,113 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 11:47:39,217 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
+969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+
+[5 rows x 18 columns]
+2018-12-22 11:47:39,352 - logs/mytab.logs:61 - WARNING - post load and filter:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 11:47:40,514 - logs/mytab.logs:37 - WARNING - load_data:{'end': True, 'min_date': Timestamp('2018-11-30 00:00:00'), 'max_date': Timestamp('2018-12-02 00:00:00'), 'start': False}
+2018-12-22 11:47:42,057 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 11:47:42,176 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
+969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+
+[5 rows x 18 columns]
+2018-12-22 11:47:42,322 - logs/mytab.logs:61 - WARNING - post load and filter:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 11:51:26,204 - logs/mytab.logs:37 - WARNING - load_data:{'end': True, 'min_date': Timestamp('2018-11-30 00:00:00'), 'max_date': Timestamp('2018-12-02 00:00:00'), 'start': False}
+2018-12-22 11:51:27,193 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                        ...                                                         transaction_hashes
+0       1814459                        ...                          [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703                        ...                                                                         []
+2       1814265                        ...                          [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710                        ...                                                                         []
+4       1823836                        ...                          [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 11:51:27,274 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                        ...                                                         transaction_hashes
+965       1823905                        ...                                                                         []
+966       1814412                        ...                          [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230                        ...                          [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866                        ...                                                                         []
+969       1823792                        ...                                                                         []
+
+[5 rows x 18 columns]
+2018-12-22 11:51:27,359 - logs/mytab.logs:61 - WARNING - post load and filter:   block_number                        ...                                                         transaction_hashes
+0       1814459                        ...                          [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703                        ...                                                                         []
+2       1814265                        ...                          [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710                        ...                                                                         []
+4       1823836                        ...                          [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:13:39,796 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-22 12:13:53,854 - logs/mytab.logs:37 - WARNING - load_data:{'start': True, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-22 12:13:54,914 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:13:55,055 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
+969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+
+[5 rows x 18 columns]
+2018-12-22 12:13:57,660 - logs/mytab.logs:69 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:13:59,205 - logs/mytab.logs:37 - WARNING - load_data:{'start': False, 'end': True, 'max_date': Timestamp('2018-12-02 00:00:00'), 'min_date': Timestamp('2018-11-30 00:00:00')}
+2018-12-22 12:14:01,024 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:14:01,147 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
+969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+
+[5 rows x 18 columns]
+2018-12-22 12:14:02,945 - logs/mytab.logs:69 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:15:41,558 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-22 12:15:59,010 - logs/mytab.logs:37 - WARNING - load_data:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-22 12:16:00,457 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:16:00,626 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
+969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+
+[5 rows x 18 columns]
+2018-12-22 12:16:04,847 - logs/mytab.logs:70 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:16:06,633 - logs/mytab.logs:37 - WARNING - load_data:{'start': False, 'min_date': Timestamp('2018-11-30 00:00:00'), 'end': True, 'max_date': Timestamp('2018-12-02 00:00:00')}
+2018-12-22 12:16:08,831 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:16:08,966 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
+969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+
+[5 rows x 18 columns]
+2018-12-22 12:16:12,462 - logs/mytab.logs:70 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:21:28,661 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-22 12:21:45,229 - logs/mytab.logs:37 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-22 12:21:46,660 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                        ...                                                         transaction_hashes
+0       1814459                        ...                          [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703                        ...                                                                         []
+2       1814265                        ...                          [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710                        ...                                                                         []
+4       1823836                        ...                          [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:21:46,812 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                        ...                                                         transaction_hashes
+965       1823905                        ...                                                                         []
+966       1814412                        ...                          [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230                        ...                          [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866                        ...                                                                         []
+969       1823792                        ...                                                                         []
+
+[5 rows x 18 columns]
+2018-12-22 12:21:49,996 - logs/mytab.logs:69 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:21:52,593 - logs/mytab.logs:37 - WARNING - load_data:{'start': False, 'end': True, 'min_date': Timestamp('2018-11-30 00:00:00'), 'max_date': Timestamp('2018-12-02 00:00:00')}
+2018-12-22 12:21:55,061 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                        ...                                                         transaction_hashes
+0       1814459                        ...                          [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703                        ...                                                                         []
+2       1814265                        ...                          [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710                        ...                                                                         []
+4       1823836                        ...                          [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:21:55,205 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                        ...                                                         transaction_hashes
+965       1823905                        ...                                                                         []
+966       1814412                        ...                          [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230                        ...                          [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866                        ...                                                                         []
+969       1823792                        ...                                                                         []
+
+[5 rows x 18 columns]
+2018-12-22 12:21:57,740 - logs/mytab.logs:69 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:22:49,521 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-22 12:23:08,849 - logs/mytab.logs:37 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-22 12:23:10,302 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                        ...                                                         transaction_hashes
+0       1814459                        ...                          [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703                        ...                                                                         []
+2       1814265                        ...                          [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710                        ...                                                                         []
+4       1823836                        ...                          [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:23:10,450 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                        ...                                                         transaction_hashes
+965       1823905                        ...                                                                         []
+966       1814412                        ...                          [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230                        ...                          [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866                        ...                                                                         []
+969       1823792                        ...                                                                         []
+
+[5 rows x 18 columns]
+2018-12-22 12:23:13,779 - logs/mytab.logs:69 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:23:16,084 - logs/mytab.logs:37 - WARNING - load_data:{'max_date': Timestamp('2018-12-02 00:00:00'), 'start': False, 'end': True, 'min_date': Timestamp('2018-11-30 00:00:00')}
+2018-12-22 12:23:18,900 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                        ...                                                         transaction_hashes
+0       1814459                        ...                          [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703                        ...                                                                         []
+2       1814265                        ...                          [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710                        ...                                                                         []
+4       1823836                        ...                          [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:23:19,054 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                        ...                                                         transaction_hashes
+965       1823905                        ...                                                                         []
+966       1814412                        ...                          [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230                        ...                          [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866                        ...                                                                         []
+969       1823792                        ...                                                                         []
+
+[5 rows x 18 columns]
+2018-12-22 12:23:21,843 - logs/mytab.logs:69 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:30:27,865 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-22 12:30:50,148 - logs/mytab.logs:37 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True}
+2018-12-22 12:30:51,789 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:30:51,948 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
+969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+
+[5 rows x 18 columns]
+2018-12-22 12:30:55,635 - logs/mytab.logs:69 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:30:58,214 - logs/mytab.logs:37 - WARNING - load_data:{'min_date': Timestamp('2018-11-30 00:00:00'), 'max_date': Timestamp('2018-12-02 00:00:00'), 'start': False, 'end': True}
+2018-12-22 12:31:01,416 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:31:01,579 - logs/mytab.logs:49 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
+969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+
+[5 rows x 18 columns]
+2018-12-22 12:31:04,817 - logs/mytab.logs:69 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:34:45,880 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-22 12:35:17,178 - logs/mytab.logs:37 - WARNING - load_data:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-22 12:35:20,076 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
+2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
+4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:35:20,259 - logs/mytab.logs:49 - WARNING - load_data tail:    block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+55       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+56       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+57       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+58       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
+59       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+
+[5 rows x 18 columns]
+2018-12-22 12:35:24,581 - logs/mytab.logs:69 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30
+2018-12-22 12:35:28,742 - logs/mytab.logs:37 - WARNING - load_data:{'end': True, 'max_date': Timestamp('2018-12-02 00:00:00'), 'min_date': Timestamp('2018-11-30 00:00:00'), 'start': False}
+2018-12-22 12:35:33,666 - logs/mytab.logs:48 - WARNING - load_data head:   block_number                        ...                                                         transaction_hashes
+0       1814459                        ...                          [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
+1       1814703                        ...                                                                         []
+2       1814265                        ...                          [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
+3       1814710                        ...                                                                         []
+4       1823836                        ...                          [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+
+[5 rows x 18 columns]
+2018-12-22 12:35:33,895 - logs/mytab.logs:49 - WARNING - load_data tail:    block_number                        ...                                                         transaction_hashes
+55       1823905                        ...                                                                         []
+56       1814412                        ...                          [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
+57       1814230                        ...                          [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
+58       1823866                        ...                                                                         []
+59       1823792                        ...                                                                         []
+
+[5 rows x 18 columns]
+2018-12-22 12:35:37,911 - logs/mytab.logs:69 - WARNING - post load and filter:              block_time  difficulty block_date
+block_number                                   
+1814222               22    11193718 2018-11-30
+1814223               10    11188253 2018-11-30
+1814224                2    11188253 2018-11-30
+1814225               16    11193716 2018-11-30
+1814226                3    11188251 2018-11-30

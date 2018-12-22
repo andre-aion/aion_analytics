@@ -93,7 +93,6 @@ class RedisStorage:
         except Exception:
             logger.error('save df',exc_info=True)
 
-
     def load_df(self, key, table, start_date, end_date):
         try:
             if isinstance(key, str):

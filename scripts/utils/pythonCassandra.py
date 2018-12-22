@@ -1,26 +1,23 @@
+import datetime
+from time import mktime
+
 from scripts.utils.mylogger import mylogger
 from config import insert_sql, create_table_sql, create_indexes
 from concurrent.futures import ThreadPoolExecutor
 
-import argparse
 import logging
-import os
-import json
-import mysql
-from mysql.connector import errorcode
-
-import logging
-from cassandra.cqlengine import columns
-from cassandra.cqlengine.models import Model
 from cassandra.cluster import Cluster, BatchStatement
-from cassandra.query import SimpleStatement
-
+import pandas as pd
+import dask as dd
+from datetime import datetime
 import gc
 from pdb import set_trace
 
 executor = ThreadPoolExecutor(max_workers=20)
 
 logger = mylogger(__file__)
+
+
 class PythonCassandra:
     def __init__(self):
         self.cluster = None
@@ -79,7 +76,7 @@ class PythonCassandra:
 
             logger.warning("Attempted:%s", sql)
 
-        logger.warning("%s Table & indexes Created/Checked !!!", table)
+        #logger.warning("%s Table & indexes Created/Checked !!!", table)
 
 
     def insert_data(self, table, messages):
@@ -87,12 +84,67 @@ class PythonCassandra:
         batch = BatchStatement()
         # batch.add(insert_sql, (1, 'LyubovK'))
         for message in messages:
-            logger.warning("insert %s data:%s",table,message)
+            #logger.warning("insert %s data:%s",table,message)
             try:
                 batch.add(qry, message)
             except Exception:
                 logger.error(table.upper()+' INSERT FAILED:', exc_info=True)
 
         self.session.execute(batch)
-        self.log.info('%s Batch Insert Completed',table)
 
+    # cols are a list
+    def construct_read_query(self, table, cols, startdate, enddate):
+        qry = 'select '
+        if len(cols) >= 1:
+            for pos, col in enumerate(cols[table]):
+                if pos > 0:
+                    qry += ','
+                qry += col
+        else:
+            qry += '*'
+
+        qry += """ from {} where block_timestamp >={} and 
+            block_timestamp <={} ALLOW FILTERING""" \
+            .format(table, startdate, enddate)
+
+        logger.warning('query:%s', qry)
+        return qry
+
+    # dates  are in milliseconds from sliders
+    def load_from_daterange(self, table, cols, from_date, to_date):
+        logger.warning('cass load from_date:%s', from_date)
+        logger.warning('cass load to_date:%s', to_date)
+
+        try:
+            if isinstance(from_date, int) == True:
+                # convert ms from slider to nano for cassandra
+                if from_date < 16307632000:
+                    from_date = from_date * 1000
+                    to_date = to_date * 1000
+            elif isinstance(from_date, str) == True:
+                # convert from datetime to ns
+                from_date = self.date_to_cass_ts(from_date)
+                to_date = self.date_to_cass_ts(to_date)
+
+            # construct query
+            qry = self.construct_read_query(table, cols,
+                                       from_date,
+                                       to_date)
+            df = pd.DataFrame(list(self.session.execute(qry)))
+            df = dd.dataframe.from_pandas(df, npartitions=15)
+            #logger.warning('data loaded from daterange :%s', df.tail(5))
+            return df
+
+        except Exception:
+            logger.error('cass load from daterange:%s', exc_info=True)
+
+    # convert date format for building cassandra queries
+    def date_to_cass_ts(self, ts):
+        if isinstance(ts, str):
+            ts = datetime.strptime(ts, '%Y-%m-%d')
+            ts = int(ts.timestamp() * 1000)
+        elif isinstance(ts, datetime):
+            # ts = pd.Timestamp(ts, unit='ns')
+            ts = int(mktime(ts.timetuple()) * 1000)
+        logger.warning('date_to_cass_ts:%s', ts)
+        return ts

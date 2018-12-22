@@ -1,34 +1,21 @@
-2018-12-20 03:19:23,701 - logs/main.logs:15 - WARNING - logs/main.logs
-2018-12-20 03:21:57,545 - logs/main.logs:79 - ERROR - TABS:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 108, in hashrate_tab
-    dmap_diff = hv.DynamicMap(difficulty_plot(),datashade=True)\
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 760, in __init__
-    if self.callback.noargs:
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 525, in noargs
-    return self.argspec == noargs
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 519, in argspec
-    return util.argspec(self.callable)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/util.py", line 273, in argspec
-    return argspec(callable_obj.__call__)
-AttributeError: 'NoneType' object has no attribute '__call__'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/main.py", line 73, in aion_analytics
-    hr = yield hashrate_tab()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 1133, in run
-    value = future.result()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/asyncio/futures.py", line 294, in result
-    raise self._exception
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/gen.py", line 307, in wrapper
-    result = func(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/types.py", line 243, in wrapped
-    coro = func(*args, **kwargs)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 135, in hashrate_tab
-    return tab_error_flag('hashrate')
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 89, in tab_error_flag
-    print('IN POOLMINER')
-BrokenPipeError: [Errno 32] Broken pipe
-2018-12-20 03:25:16,285 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 10:13:29,555 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 10:24:06,935 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 10:27:31,410 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 10:36:13,274 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 10:41:58,021 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 10:43:57,962 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 10:56:53,145 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 11:01:51,172 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 11:15:36,372 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 11:16:06,627 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 11:20:18,667 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 11:23:38,544 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 11:26:38,459 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 11:28:54,290 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 11:47:24,992 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 12:13:41,168 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 12:15:42,912 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 12:21:30,057 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 12:22:50,895 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 12:30:29,250 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-22 12:34:47,310 - logs/main.logs:15 - WARNING - logs/main.logs

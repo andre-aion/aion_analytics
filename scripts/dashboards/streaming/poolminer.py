@@ -1,20 +1,18 @@
+from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
 from scripts.utils.myutils import tab_error_flag, \
-    ms_to_date, ns_to_date, cass_load_from_daterange, set_params_to_load, \
+    ms_to_date, ns_to_date, set_params_to_load, \
     construct_df_upon_load
 from scripts.utils.mylogger import mylogger
-from scripts.utils.pythonCassandra import PythonCassandra
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from config import dedup_cols, columns as cols
 
 import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
 from bokeh.models import CustomJS, ColumnDataSource, HoverTool, Panel, Button
-from bokeh.models.glyphs import HBar
 
 import gc
-from bokeh.io import curdoc
 from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, Select, \
     DatePicker, TableColumn, DataTable
 from holoviews import streams
@@ -23,14 +21,10 @@ from pdb import set_trace
 import hvplot.dask
 import hvplot.pandas
 
-import holoviews as hv, param, dask.dataframe as dd
-from holoviews.operation.datashader import rasterize, shade, datashade
 from datetime import datetime, date, time
-import numpy as np
-import pandas as pd
-import dask as dd
 
 from tornado.gen import coroutine
+executor = ThreadPoolExecutor(max_workers=5)
 
 
 import holoviews as hv
@@ -42,6 +36,8 @@ for i in range(0, 400, 5):
     if i not in [0, 5]:
         menu.append(str(i))
 
+table = 'block'
+
 
 @coroutine
 def poolminer_tab():
@@ -51,21 +47,16 @@ def poolminer_tab():
                                      block_number=[]))
 
     class Poolminer():
-        pc = None
-        querycols = ['block_number', 'miner_addr', 'block_date']
+        querycols = ['block_number', 'miner_addr', 'block_date','block_time']
+        cols = cols
+        dedup_cols = dedup_cols
         streaming_dataframe = SD('block', cols, dedup_cols)
         df = streaming_dataframe.get_df()
         df1 = None
         n = 30
-
+        table = table
         def __init__(self):
-            if self.pc is None:
-                self.pc = PythonCassandra()
-                self.pc.createsession()
-                self.pc.createkeyspace('aionv4')
-            else:
-                pass
-
+            pass
 
         def load_data(self, start_date, end_date):
             end_date = datetime.combine(end_date, datetime.min.time())
@@ -75,14 +66,16 @@ def poolminer_tab():
             logger.warning('load_data end date:%s', end_date)
 
             # find the boundaries of the loaded data, redis_data
-            load_params = set_params_to_load(self.df, start_date, end_date)
+            load_params = set_params_to_load(self.df, start_date,
+                                                             end_date)
+
             logger.warning('load_data:%s', load_params)
             # load from redis, cassandra if necessary
-            self.df = construct_df_upon_load(self.pc, self.df,
-                                             pm.streaming_dataframe.table_name,
-                                             self.querycols, start_date,
+            self.df = construct_df_upon_load(self.df,
+                                             self.table,
+                                             self.cols,
+                                             self.dedup_cols, start_date,
                                              end_date, load_params)
-
             # filter dates
             logger.warning('load_data head:%s', self.df.head())
             logger.warning('load_data tail:%s', self.df.tail())
@@ -111,7 +104,7 @@ def poolminer_tab():
                 self.view_topN()
                 logger.warning('prep dataset START DATE:%s', start_date)
                 logger.warning('prep dataset END DATE:%s', end_date)
-                logger.warning('prep dataset DF1:%s', self.df1.compute().head())
+                #logger.warning('prep dataset DF1:%s', self.df1.compute().head())
 
                 return self.df1.hvplot.bar('miner_addr','block_number', rot=90,
                                            width=1500,title='block_number by miner address',
@@ -119,15 +112,15 @@ def poolminer_tab():
             except Exception:
                 logger.error('munge df:', exc_info=True)
 
-
         def view_topN(self):
+            logger.warning("top n called:%s",self.n)
             # change n from string to int
             try:
                 #table_n = df1.hvplot.table(columns=['miner_addr','percentage'],
                                           #title=title, width=400)
                 self.df2 = self.df1.nlargest(self.n,'percentage')
                 self.df2 = self.df2.reset_index().compute()
-                logger.warning('df2 after nlargest:%s',self.df2.head())
+                #logger.warning('df2 after nlargest:%s',self.df2.head())
                 new_data = dict(
                     percentage=self.df2.percentage,
                     miner_addr=self.df2.miner_addr,
@@ -147,7 +140,6 @@ def poolminer_tab():
                 return table_n
             except Exception:
                 logger.error('view_topN:', exc_info=True)
-
 
         def set_n(self, n):
             if isinstance(n, int):
@@ -169,7 +161,6 @@ def poolminer_tab():
     # update based on selected top n
     def update_topN():
         logger.warning('topN selected value:%s',topN_select.value)
-        logger.warning('topN singleton value:%s',pm.n)
         pm.set_n(topN_select.value)
         pm.view_topN()
 
@@ -182,7 +173,7 @@ def poolminer_tab():
         first_date_range = "2018-04-09 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        last_date = "2018-05-30 00:00:00"
+        last_date = "2018-12-22 00:00:00"
         last_date = datetime.strptime(last_date, "%Y-%m-%d %H:%M:%S")
 
 
