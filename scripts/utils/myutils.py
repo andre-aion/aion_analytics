@@ -192,6 +192,12 @@ def set_params_to_load(df, start_date, end_date):
         return params
     except Exception:
         logger.error('set_params_loaded_params', exc_info=True)
+        # if error set start date and end_date far in the past
+        # this will trigger full cassandra load
+        params['min_date'] = datetime.strptime('2010-01-01', '%Y-%m-%d')
+        params['max_date'] = datetime.strptime('2010-01-02', '%Y-%m-%d')
+        params['start'] = True
+        params['end'] = True
         return params
 
 # delta is integer: +-
@@ -221,6 +227,7 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
         # get the data parameters to determine from whence to load
         params = redis.set_load_params(table, req_start_date,
                                        req_end_date, load_params)
+        logger.warning("params before hashrate error:%s",params)
         # load all from redis
         logger.warning('construct df, params:%s', params)
         if params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:

@@ -1,2 +1,2 @@
-from . import poolminer
+from . import blockminer
 from . import hashrate

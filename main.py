@@ -15,7 +15,7 @@ from bokeh.server.server import Server
 from pdb import set_trace
 
 # GET THE DASHBOARDS
-from scripts.dashboards.streaming.poolminer import poolminer_tab
+from scripts.dashboards.streaming.blockminer import blockminer_tab
 from scripts.dashboards.streaming.hashrate import hashrate_tab
 from scripts.utils.mylogger import mylogger
 
@@ -27,7 +27,7 @@ def aion_analytics(doc):
 
     # SETUP BOKEH OBJECTS
     try:
-        pm = yield poolminer_tab()
+        pm = yield blockminer_tab()
         hr = yield hashrate_tab()
         tabs = Tabs(tabs=[pm, hr])
         doc.add_root(tabs)

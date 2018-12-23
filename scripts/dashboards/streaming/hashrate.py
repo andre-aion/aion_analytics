@@ -51,6 +51,7 @@ def hashrate_tab():
             Mytab.__init__(self, table, cols, dedup_cols, query_cols)
 
         def load_this_data(self, start_date, end_date, bcount):
+
             self.locals['blockcount'] = bcount
             self.load_data(start_date, end_date)
             self.difficulty_plot()
@@ -63,7 +64,7 @@ def hashrate_tab():
                     #.options(width=1000,height=600)
 
                 curve = df1.hvplot.line('block_number', 'hashrate',
-                                       title='Hashrate',width=1000, height=600)
+                                        title='Hashrate',width=1000, height=600)
                 del df1
                 gc.collect()
                 return curve
@@ -105,12 +106,12 @@ def hashrate_tab():
 
         # STATIC DATES
         # format dates
-        first_date_range = "2018-04-09 00:00:00"
+        first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        last_date = "2018-12-22 00:00:00"
+        last_date = "2018-05-23 00:00:00"
         last_date = datetime.strptime(last_date, "%Y-%m-%d %H:%M:%S")
-        thistab.load_data(first_date_range,last_date_range)
+        thistab.load_data(first_date_range,last_date)
 
 
         # MANAGE STREAM
@@ -126,23 +127,24 @@ def hashrate_tab():
         # create a slider widget
 
         initial_blockcount = 10
-        blockcount_slider = Slider(start=0, end=100, value=initial_blockcount,
-                                   step=5, title='Blockcount',
+        blockcount_slider = Slider(start=0, end=1000, value=initial_blockcount,
+                                   step=50, title='Blockcount',
                                    callback_policy="mouseup")
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date_range)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
-                                    max_date=last_date_range, value=last_date)
+                                    max_date=last_date, value=last_date)
 
         # declare plots
         dmap_hashrate = hv.DynamicMap(
             thistab.load_this_data, streams=[stream_start_date,
                                              stream_end_date,
-                                             stream_blockcount]) \
-            .opts(plot=dict(width=800, height=400))
+                                             stream_blockcount],
+                                             datashade=True) \
+            .opts(plot=dict(width=1000, height=400))
 
         dmap_diff = hv.DynamicMap(
-            thistab.difficulty_plot())\
+            thistab.difficulty_plot(),datashade=True)\
             .opts(plot=dict(width=1000, height=400))
 
         text_div = thistab.difficulty_text()
@@ -176,4 +178,4 @@ def hashrate_tab():
     except Exception:
         logger.error('rendering err:',exc_info=True)
 
-        return tab_error_flag('hashrate')
+        return tab_error_flag(__file__)

@@ -1,210 +1,52 @@
-2018-12-22 11:47:24,622 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-22 11:47:25,157 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-09 00:00:00
-2018-12-22 11:47:25,158 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-12-22 00:00:00
-2018-12-22 11:47:25,177 - logs/poolminer.logs:72 - WARNING - load_data:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-22 11:47:25,600 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
-0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
-1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
-2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
-3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
-4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+2018-12-22 20:06:45,323 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-22 20:06:46,605 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-22 20:06:46,607 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-05-01 00:00:00
+2018-12-22 20:06:46,687 - logs/poolminer.logs:72 - WARNING - load_data:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-22 20:07:12,482 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-22 20:07:14,099 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-22 20:07:14,102 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-05-01 00:00:00
+2018-12-22 20:07:14,119 - logs/poolminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2018-12-22 20:07:26,333 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number        ...         transaction_hashes
+0          1535        ...                         []
+1         57379        ...                         []
+2         12775        ...                         []
+3         46073        ...                         []
+4         23958        ...                         []
 
 [5 rows x 18 columns]
-2018-12-22 11:47:25,786 - logs/poolminer.logs:81 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
-965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
-966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
-967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
-968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
-969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+2018-12-22 20:07:26,613 - logs/poolminer.logs:81 - WARNING - load_data tail:      block_number        ...         transaction_hashes
+4164         34430        ...                         []
+4165         37003        ...                         []
+4166         16902        ...                         []
+4167         43389        ...                         []
+4168         31505        ...                         []
 
 [5 rows x 18 columns]
-2018-12-22 11:47:25,912 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-09 00:00:00
-2018-12-22 11:47:27,219 - logs/poolminer.logs:116 - WARNING - top n called:30
-2018-12-22 11:47:28,248 - logs/poolminer.logs:123 - WARNING - df2 after nlargest:   miner_addr  block_number  miner_address  nonce  difficulty  total_difficulty     ...      block_day  num_transactions  block_time  approx_nrg_reward  transaction_hashes  percentage
-0  a08091ab03           413            413    413         413               413     ...            413               413         413                413                 413   42.577320
-1  a0a1e55cbb           153            153    153         153               153     ...            153               153         153                153                 153   15.773196
-2  a00983f07c           122            122    122         122               122     ...            122               122         122                122                 122   12.577320
-3  a0f2daa8de            89             89     89          89                89     ...             89                89          89                 89                  89    9.175258
-4  a0fde4c8c5            69             69     69          69                69     ...             69                69          69                 69                  69    7.113402
-
-[5 rows x 19 columns]
-2018-12-22 11:47:28,403 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
-2018-12-22 11:47:28,403 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-12-22 00:00:00
-2018-12-22 11:47:29,421 - logs/poolminer.logs:107 - WARNING - prep dataset DF1:            block_number  miner_address  nonce  difficulty  total_difficulty  nrg_consumed     ...      block_day  num_transactions  block_time  approx_nrg_reward  transaction_hashes  percentage
-miner_addr                                                                                     ...                                                                                                
-a00983f07c           122            122    122         122               122           122     ...            122               122         122                122                 122   12.577320
-a04055a0fa            19             19     19          19                19            19     ...             19                19          19                 19                  19    1.958763
-a0437f899d            11             11     11          11                11            11     ...             11                11          11                 11                  11    1.134021
-a05801fb2d            19             19     19          19                19            19     ...             19                19          19                 19                  19    1.958763
-a08091ab03           413            413    413         413               413           413     ...            413               413         413                413                 413   42.577320
+2018-12-22 20:07:26,774 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-22 20:07:28,340 - logs/poolminer.logs:116 - WARNING - top n called:30
+2018-12-22 20:07:29,910 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-22 20:07:29,910 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-05-01 00:00:00
+2018-12-22 20:09:49,186 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-22 20:09:50,215 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-22 20:09:50,217 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-05-01 00:00:00
+2018-12-22 20:09:50,265 - logs/poolminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-22 20:10:00,592 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
+0          1535  a0518c851697466c45cac097c26ba82f648285483411fe...  a0518c8516         ...                  4                0.0                  []
+1         57379  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
+2         12775  a00d6f9214fed1d5c99f8f0486151c00ffff9248205408...  a00d6f9214         ...                  6                0.0                  []
+3         46073  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                 25                0.0                  []
+4         23958  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 20                0.0                  []
 
 [5 rows x 18 columns]
-2018-12-22 12:13:40,833 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-22 12:13:41,305 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-09 00:00:00
-2018-12-22 12:13:41,306 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-12-22 00:00:00
-2018-12-22 12:13:41,319 - logs/poolminer.logs:72 - WARNING - load_data:{'start': True, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-22 12:13:41,543 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number                        ...                                                         transaction_hashes
-0       1814459                        ...                          [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
-1       1814703                        ...                                                                         []
-2       1814265                        ...                          [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
-3       1814710                        ...                                                                         []
-4       1823836                        ...                          [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
+2018-12-22 20:10:00,747 - logs/poolminer.logs:81 - WARNING - load_data tail:      block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
+4164         34430  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                  1                0.0                  []
+4165         37003  a0985fa3ff2fe4812c3ed3435923a227b1db9835d6c0ca...  a0985fa3ff         ...                  8                0.0                  []
+4166         16902  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 11                0.0                  []
+4167         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
+4168         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                 14                0.0                  []
 
 [5 rows x 18 columns]
-2018-12-22 12:13:41,623 - logs/poolminer.logs:81 - WARNING - load_data tail:     block_number                        ...                                                         transaction_hashes
-965       1823905                        ...                                                                         []
-966       1814412                        ...                          [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
-967       1814230                        ...                          [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
-968       1823866                        ...                                                                         []
-969       1823792                        ...                                                                         []
-
-[5 rows x 18 columns]
-2018-12-22 12:13:41,680 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-09 00:00:00
-2018-12-22 12:13:42,281 - logs/poolminer.logs:116 - WARNING - top n called:30
-2018-12-22 12:13:42,867 - logs/poolminer.logs:123 - WARNING - df2 after nlargest:   miner_addr  block_number  miner_address     ...      approx_nrg_reward  transaction_hashes  percentage
-0  a08091ab03           413            413     ...                    413                 413   42.577320
-1  a0a1e55cbb           153            153     ...                    153                 153   15.773196
-2  a00983f07c           122            122     ...                    122                 122   12.577320
-3  a0f2daa8de            89             89     ...                     89                  89    9.175258
-4  a0fde4c8c5            69             69     ...                     69                  69    7.113402
-
-[5 rows x 19 columns]
-2018-12-22 12:13:42,974 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
-2018-12-22 12:13:42,974 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-12-22 00:00:00
-2018-12-22 12:13:43,595 - logs/poolminer.logs:107 - WARNING - prep dataset DF1:            block_number  miner_address  nonce     ...      approx_nrg_reward  transaction_hashes  percentage
-miner_addr                                         ...                                                       
-a00983f07c           122            122    122     ...                    122                 122   12.577320
-a04055a0fa            19             19     19     ...                     19                  19    1.958763
-a0437f899d            11             11     11     ...                     11                  11    1.134021
-a05801fb2d            19             19     19     ...                     19                  19    1.958763
-a08091ab03           413            413    413     ...                    413                 413   42.577320
-
-[5 rows x 18 columns]
-2018-12-22 12:15:42,585 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-22 12:15:43,052 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-09 00:00:00
-2018-12-22 12:15:43,053 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-12-22 00:00:00
-2018-12-22 12:15:43,066 - logs/poolminer.logs:72 - WARNING - load_data:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-22 12:15:43,338 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
-0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
-1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
-2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
-3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
-4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
-
-[5 rows x 18 columns]
-2018-12-22 12:15:43,438 - logs/poolminer.logs:81 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
-965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
-966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
-967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
-968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
-969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
-
-[5 rows x 18 columns]
-2018-12-22 12:15:43,497 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-09 00:00:00
-2018-12-22 12:15:44,256 - logs/poolminer.logs:116 - WARNING - top n called:30
-2018-12-22 12:15:45,000 - logs/poolminer.logs:123 - WARNING - df2 after nlargest:   miner_addr  block_number  miner_address  nonce  difficulty  total_difficulty     ...      block_day  num_transactions  block_time  approx_nrg_reward  transaction_hashes  percentage
-0  a08091ab03           413            413    413         413               413     ...            413               413         413                413                 413   42.577320
-1  a0a1e55cbb           153            153    153         153               153     ...            153               153         153                153                 153   15.773196
-2  a00983f07c           122            122    122         122               122     ...            122               122         122                122                 122   12.577320
-3  a0f2daa8de            89             89     89          89                89     ...             89                89          89                 89                  89    9.175258
-4  a0fde4c8c5            69             69     69          69                69     ...             69                69          69                 69                  69    7.113402
-
-[5 rows x 19 columns]
-2018-12-22 12:15:45,108 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
-2018-12-22 12:15:45,108 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-12-22 00:00:00
-2018-12-22 12:21:29,720 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-22 12:21:30,197 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-09 00:00:00
-2018-12-22 12:21:30,198 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-12-22 00:00:00
-2018-12-22 12:21:30,218 - logs/poolminer.logs:72 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-22 12:21:30,473 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number                        ...                                                         transaction_hashes
-0       1814459                        ...                          [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
-1       1814703                        ...                                                                         []
-2       1814265                        ...                          [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
-3       1814710                        ...                                                                         []
-4       1823836                        ...                          [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
-
-[5 rows x 18 columns]
-2018-12-22 12:21:30,561 - logs/poolminer.logs:81 - WARNING - load_data tail:     block_number                        ...                                                         transaction_hashes
-965       1823905                        ...                                                                         []
-966       1814412                        ...                          [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
-967       1814230                        ...                          [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
-968       1823866                        ...                                                                         []
-969       1823792                        ...                                                                         []
-
-[5 rows x 18 columns]
-2018-12-22 12:21:30,625 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-09 00:00:00
-2018-12-22 12:21:31,444 - logs/poolminer.logs:116 - WARNING - top n called:30
-2018-12-22 12:21:32,297 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
-2018-12-22 12:21:32,297 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-12-22 00:00:00
-2018-12-22 12:22:50,548 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-22 12:22:51,038 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-09 00:00:00
-2018-12-22 12:22:51,039 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-12-22 00:00:00
-2018-12-22 12:22:51,070 - logs/poolminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-22 12:22:51,324 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number                        ...                                                         transaction_hashes
-0       1814459                        ...                          [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
-1       1814703                        ...                                                                         []
-2       1814265                        ...                          [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
-3       1814710                        ...                                                                         []
-4       1823836                        ...                          [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
-
-[5 rows x 18 columns]
-2018-12-22 12:22:51,425 - logs/poolminer.logs:81 - WARNING - load_data tail:     block_number                        ...                                                         transaction_hashes
-965       1823905                        ...                                                                         []
-966       1814412                        ...                          [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
-967       1814230                        ...                          [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
-968       1823866                        ...                                                                         []
-969       1823792                        ...                                                                         []
-
-[5 rows x 18 columns]
-2018-12-22 12:22:51,489 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-09 00:00:00
-2018-12-22 12:22:52,462 - logs/poolminer.logs:116 - WARNING - top n called:30
-2018-12-22 12:22:53,413 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
-2018-12-22 12:22:53,413 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-12-22 00:00:00
-2018-12-22 12:30:28,909 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-22 12:30:29,402 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-09 00:00:00
-2018-12-22 12:30:29,404 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-12-22 00:00:00
-2018-12-22 12:30:29,428 - logs/poolminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True}
-2018-12-22 12:30:29,695 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
-0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
-1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
-2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
-3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
-4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
-
-[5 rows x 18 columns]
-2018-12-22 12:30:29,815 - logs/poolminer.logs:81 - WARNING - load_data tail:     block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
-965       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
-966       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
-967       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
-968       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
-969       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
-
-[5 rows x 18 columns]
-2018-12-22 12:30:29,885 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-09 00:00:00
-2018-12-22 12:30:31,023 - logs/poolminer.logs:116 - WARNING - top n called:30
-2018-12-22 12:30:32,199 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
-2018-12-22 12:30:32,199 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-12-22 00:00:00
-2018-12-22 12:34:46,939 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-22 12:34:47,448 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-09 00:00:00
-2018-12-22 12:34:47,449 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-12-22 00:00:00
-2018-12-22 12:34:47,488 - logs/poolminer.logs:72 - WARNING - load_data:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
-2018-12-22 12:34:47,852 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
-0       1814459  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000210  [6211aa91e20a1b2076b4c20019fc5983c8b6ef0435e7d...
-1       1814703  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.000000                                                 []
-2       1814265  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...                        ...                                  0.001801  [0184a7e85dd4f73180a88423f99aadef58cae74c6a6a9...
-3       1814710  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000                                                 []
-4       1823836  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                  0.000000  [423693378b7c56f58ebc43953860ef2172e62a0afabd1...
-
-[5 rows x 18 columns]
-2018-12-22 12:34:47,989 - logs/poolminer.logs:81 - WARNING - load_data tail:    block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
-55       1823905  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
-56       1814412  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [e2c36a05906fa8a3782f29cedceff9c06d0b5aaad9494...
-57       1814230  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00021  [8bd520a4ff217d1ad754a509710ca8ec26aaa0207bda6...
-58       1823866  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...                        ...                                   0.00000                                                 []
-59       1823792  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
-
-[5 rows x 18 columns]
-2018-12-22 12:34:48,059 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-09 00:00:00
-2018-12-22 12:34:50,519 - logs/poolminer.logs:116 - WARNING - top n called:30
-2018-12-22 12:34:52,648 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-09 00:00:00
-2018-12-22 12:34:52,648 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-12-22 00:00:00
+2018-12-22 20:10:00,851 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-22 20:10:02,383 - logs/poolminer.logs:116 - WARNING - top n called:30
+2018-12-22 20:10:04,043 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-22 20:10:04,043 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-05-01 00:00:00

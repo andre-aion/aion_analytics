@@ -1,9 +1,12 @@
-2018-12-22 11:26:36,627 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
-2018-12-22 11:28:52,634 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
-2018-12-22 11:47:23,359 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
-2018-12-22 12:13:39,584 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
-2018-12-22 12:15:41,317 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
-2018-12-22 12:21:28,440 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
-2018-12-22 12:22:49,293 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
-2018-12-22 12:30:27,642 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
-2018-12-22 12:34:45,660 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-22 19:54:32,853 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-22 19:55:06,751 - logs/pythonCassandra.logs:149 - WARNING - date_to_cass_ts:1524456000000
+2018-12-22 19:55:06,752 - logs/pythonCassandra.logs:149 - WARNING - date_to_cass_ts:1545451200000
+2018-12-22 19:55:06,752 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1524456000000
+2018-12-22 19:55:06,752 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545451200000
+2018-12-22 19:55:06,752 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1524456000000 and 
+            block_timestamp <=1545451200000 ALLOW FILTERING
+2018-12-22 20:01:35,699 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-22 20:06:41,900 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-22 20:07:08,547 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-22 20:09:46,010 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-22 20:28:57,332 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs

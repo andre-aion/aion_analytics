@@ -402,3 +402,21 @@ class RedisStorage:
             return params
         except Exception:
             logger.error('set load params:%s', exc_info=True)
+            params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)
+            params['cass_key_full'] = [str_req_start_date, str_req_end_date]
+            # turn off all other bits
+            params['load_type'] = self.clear_bit(params['load_type'], 0)
+            params['load_type'] = self.clear_bit(params['load_type'], 3)
+            params['load_type'] = self.clear_bit(params['load_type'], 7)
+            params['load_type'] = self.clear_bit(params['load_type'], 15)
+            params['load_type'] = self.clear_bit(params['load_type'], 31)
+            params['load_type'] = self.clear_bit(params['load_type'], 63)
+            params['load_type'] = self.clear_bit(params['load_type'], 127)
+
+            params['cass_start_range'] = None
+            params['cass_end_range'] = None
+            params['redis_start_range'] = None
+            params['redis_end_range'] = None
+            params['redis_key_end'] = None
+            params['redis_key_start'] = None
+            return params

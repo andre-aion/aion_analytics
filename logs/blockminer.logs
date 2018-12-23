@@ -1,0 +1,24 @@
+2018-12-22 20:29:01,977 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-22 20:29:03,645 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-22 20:29:03,648 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-01 00:00:00
+2018-12-22 20:29:03,674 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2018-12-22 20:29:15,714 - logs/blockminer.logs:80 - WARNING - load_data head:   block_number        ...         transaction_hashes
+0          1535        ...                         []
+1         57379        ...                         []
+2         12775        ...                         []
+3         46073        ...                         []
+4         23958        ...                         []
+
+[5 rows x 18 columns]
+2018-12-22 20:29:15,950 - logs/blockminer.logs:81 - WARNING - load_data tail:      block_number        ...         transaction_hashes
+4164         34430        ...                         []
+4165         37003        ...                         []
+4166         16902        ...                         []
+4167         43389        ...                         []
+4168         31505        ...                         []
+
+[5 rows x 18 columns]
+2018-12-22 20:29:16,077 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-22 20:29:19,962 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-22 20:29:25,108 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-22 20:29:25,108 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-01 00:00:00

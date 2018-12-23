@@ -27,8 +27,12 @@ class Mytab:
         self.dedup_cols = dedup_cols
 
     def load_data(self,start_date, end_date):
+        logger.warning("load_data,start_date:%s", start_date)
+        logger.warning("load_data,end_date:%s", end_date)
         end_date = datetime.combine(end_date, datetime.min.time())
         start_date = datetime.combine(start_date, datetime.min.time())
+        logger.warning("load_data,start_date:%s",start_date)
+        logger.warning("load_data,end_date:%s",end_date)
 
 
         # find the boundaries of the loaded data, redis_data

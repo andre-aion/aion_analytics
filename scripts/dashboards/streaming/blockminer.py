@@ -40,13 +40,13 @@ table = 'block'
 
 
 @coroutine
-def poolminer_tab():
+def blockminer_tab():
     # source for top N table
     src = ColumnDataSource(data=dict(percentage=[],
                                      miner_addr=[],
                                      block_number=[]))
 
-    class Poolminer():
+    class Blockminer():
         querycols = ['block_number', 'miner_addr', 'block_date','block_time']
         cols = cols
         dedup_cols = dedup_cols
@@ -166,14 +166,14 @@ def poolminer_tab():
 
     try:
         # create class and get date range
-        pm = Poolminer()
+        pm = Blockminer()
 
         #STATIC DATES
         #format dates
-        first_date_range = "2018-04-09 00:00:00"
+        first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        last_date = "2018-12-22 00:00:00"
+        last_date = "2018-05-23 00:00:00"
         last_date = datetime.strptime(last_date, "%Y-%m-%d %H:%M:%S")
 
 
@@ -237,6 +237,6 @@ def poolminer_tab():
         return tab
 
     except Exception:
-        logger.error("poolminer:", exc_info=True)
+        logger.error("Graph draw", exc_info=True)
 
-        return tab_error_flag('poolminer')
+        return tab_error_flag(__file__)

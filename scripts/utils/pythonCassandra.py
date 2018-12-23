@@ -114,6 +114,11 @@ class PythonCassandra:
     def load_from_daterange(self, table, cols, from_date, to_date):
         logger.warning('cass load from_date:%s', from_date)
         logger.warning('cass load to_date:%s', to_date)
+        #date sanity check
+        if from_date > to_date:
+            logger.warning("END DATE IS GREATER THAN START DATE")
+            logger.warning("BOTH DATES SET TO START DATE")
+            from_date = to_date
 
         try:
             if isinstance(from_date, int) == True:

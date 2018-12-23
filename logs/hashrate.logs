@@ -1,202 +1,40 @@
-2018-12-22 12:21:28,440 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:21:30,056 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:21:30,056 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:21:59,422 - logs/hashrate.logs:71 - ERROR - hashrate_plot:
+2018-12-22 19:54:32,854 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 19:54:37,911 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 19:54:37,911 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:01:35,700 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:01:41,302 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:01:41,302 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:06:41,901 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:06:46,241 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:06:46,241 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:07:08,548 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:07:13,319 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:07:13,319 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:08:12,706 - logs/hashrate.logs:179 - ERROR - rendering err:
 Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 61, in hashrate_plot
-    df1 = calc_hashrate(self.df1, bcount)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/hashrate.py", line 24, in calc_hashrate
-    df.compute()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
-    (result,) = compute(self, traverse=False, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
-    results = schedule(dsk, keys, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
-    pack_exception=pack_exception, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 501, in get_async
-    raise_exception(exc, tb)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/compatibility.py", line 112, in reraise
-    raise exc
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 272, in execute_task
-    result = _execute_task(task, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 253, in _execute_task
-    return func(*args2)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/rolling.py", line 24, in overlap_chunk
-    raise NotImplementedError(msg)
-NotImplementedError: Partition size is less than overlapping window size. Try using ``df.repartition`` to increase the partition size.
-2018-12-22 12:21:59,422 - logs/hashrate.logs:71 - ERROR - hashrate_plot:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 61, in hashrate_plot
-    df1 = calc_hashrate(self.df1, bcount)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/hashrate.py", line 24, in calc_hashrate
-    df.compute()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
-    (result,) = compute(self, traverse=False, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
-    results = schedule(dsk, keys, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
-    pack_exception=pack_exception, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 501, in get_async
-    raise_exception(exc, tb)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/compatibility.py", line 112, in reraise
-    raise exc
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 272, in execute_task
-    result = _execute_task(task, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 253, in _execute_task
-    return func(*args2)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/rolling.py", line 24, in overlap_chunk
-    raise NotImplementedError(msg)
-NotImplementedError: Partition size is less than overlapping window size. Try using ``df.repartition`` to increase the partition size.
-2018-12-22 12:21:59,427 - logs/hashrate.logs:177 - ERROR - rendering err:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 158, in hashrate_tab
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 160, in hashrate_tab
     hash_plot = renderer.get_plot(dmap_hashrate)
   File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
     plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
-    initialize_dynamic(obj)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
-    dmap[dmap._initial_key()]
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
-    val = self._execute_callback(*tuple_key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
-    retval = self.callback(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
-    ret = self.callable(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
-    return self._process(map_obj[key], key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1135, in __getitem__
-    self._cache(tuple_key, val)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1181, in _cache
-    self[key] = val
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 518, in __setitem__
-    self._add_item(key, value, update=False)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 160, in _add_item
-    self._item_check(dim_vals, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 820, in _item_check
-    super(UniformNdMapping, self)._item_check(dim_vals, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 143, in _item_check
-    restr=data_type))
-TypeError: DynamicMap does not accept NoneType type, data elements have to be a ('ViewableElement', 'NdMapping', 'Layout').
-2018-12-22 12:21:59,427 - logs/hashrate.logs:177 - ERROR - rendering err:
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 186, in get_plot
+    obj = collate(obj)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 60, in collate
+    "setting dynamic=False." % obj_name)
+Exception: Nesting a DynamicMap inside a DynamicMap is not supported. Ensure that the DynamicMap callback returns an Element or (Nd)Overlay. If you have applied an operation ensure it is not dynamic by setting dynamic=False.
+2018-12-22 20:08:12,706 - logs/hashrate.logs:179 - ERROR - rendering err:
 Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 158, in hashrate_tab
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 160, in hashrate_tab
     hash_plot = renderer.get_plot(dmap_hashrate)
   File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
     plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
-    initialize_dynamic(obj)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
-    dmap[dmap._initial_key()]
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
-    val = self._execute_callback(*tuple_key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
-    retval = self.callback(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
-    ret = self.callable(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
-    return self._process(map_obj[key], key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1135, in __getitem__
-    self._cache(tuple_key, val)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1181, in _cache
-    self[key] = val
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 518, in __setitem__
-    self._add_item(key, value, update=False)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 160, in _add_item
-    self._item_check(dim_vals, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 820, in _item_check
-    super(UniformNdMapping, self)._item_check(dim_vals, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/ndmapping.py", line 143, in _item_check
-    restr=data_type))
-TypeError: DynamicMap does not accept NoneType type, data elements have to be a ('ViewableElement', 'NdMapping', 'Layout').
-2018-12-22 12:22:49,294 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:22:50,894 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:22:50,894 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:23:23,603 - logs/hashrate.logs:177 - ERROR - rendering err:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 158, in hashrate_tab
-    hash_plot = renderer.get_plot(dmap_hashrate)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
-    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 203, in get_plot
-    plot.update(init_key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/plot.py", line 520, in update
-    return self.initialize_plot()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/element.py", line 740, in initialize_plot
-    ranges = self.compute_ranges(self.hmap, key, ranges)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/plot.py", line 387, in compute_ranges
-    self._compute_group_range(group, elements, ranges)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/plot.py", line 447, in _compute_group_range
-    dim_range = el.range(dim)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/data/__init__.py", line 288, in range
-    elif dim in self.dimensions() and data_range and len(self):
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/data/__init__.py", line 600, in __len__
-    return self.interface.length(self)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/data/interface.py", line 360, in length
-    return len(dataset.data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 476, in __len__
-    split_every=False).compute()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
-    (result,) = compute(self, traverse=False, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
-    results = schedule(dsk, keys, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
-    pack_exception=pack_exception, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 501, in get_async
-    raise_exception(exc, tb)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/compatibility.py", line 112, in reraise
-    raise exc
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 272, in execute_task
-    result = _execute_task(task, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 253, in _execute_task
-    return func(*args2)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/rolling.py", line 24, in overlap_chunk
-    raise NotImplementedError(msg)
-NotImplementedError: Partition size is less than overlapping window size. Try using ``df.repartition`` to increase the partition size.
-2018-12-22 12:23:23,603 - logs/hashrate.logs:177 - ERROR - rendering err:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/streaming/hashrate.py", line 158, in hashrate_tab
-    hash_plot = renderer.get_plot(dmap_hashrate)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
-    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 203, in get_plot
-    plot.update(init_key)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/plot.py", line 520, in update
-    return self.initialize_plot()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/element.py", line 740, in initialize_plot
-    ranges = self.compute_ranges(self.hmap, key, ranges)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/plot.py", line 387, in compute_ranges
-    self._compute_group_range(group, elements, ranges)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/plot.py", line 447, in _compute_group_range
-    dim_range = el.range(dim)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/data/__init__.py", line 288, in range
-    elif dim in self.dimensions() and data_range and len(self):
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/data/__init__.py", line 600, in __len__
-    return self.interface.length(self)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/data/interface.py", line 360, in length
-    return len(dataset.data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 476, in __len__
-    split_every=False).compute()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
-    (result,) = compute(self, traverse=False, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
-    results = schedule(dsk, keys, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
-    pack_exception=pack_exception, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 501, in get_async
-    raise_exception(exc, tb)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/compatibility.py", line 112, in reraise
-    raise exc
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 272, in execute_task
-    result = _execute_task(task, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 253, in _execute_task
-    return func(*args2)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/rolling.py", line 24, in overlap_chunk
-    raise NotImplementedError(msg)
-NotImplementedError: Partition size is less than overlapping window size. Try using ``df.repartition`` to increase the partition size.
-2018-12-22 12:30:27,642 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:30:29,250 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:30:29,250 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:34:45,661 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:34:47,310 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
-2018-12-22 12:34:47,310 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 186, in get_plot
+    obj = collate(obj)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 60, in collate
+    "setting dynamic=False." % obj_name)
+Exception: Nesting a DynamicMap inside a DynamicMap is not supported. Ensure that the DynamicMap callback returns an Element or (Nd)Overlay. If you have applied an operation ensure it is not dynamic by setting dynamic=False.
+2018-12-22 20:09:46,011 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:09:49,912 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:09:49,912 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:28:57,333 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:29:02,758 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
+2018-12-22 20:29:02,758 - logs/hashrate.logs:15 - WARNING - logs/hashrate.logs
