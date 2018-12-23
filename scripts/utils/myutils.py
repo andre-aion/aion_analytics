@@ -234,7 +234,7 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
             lst = params['redis_key_full'].split(':')
             sdate = date_to_ms(lst[1])
             edate = date_to_ms(lst[2])
-            df = redis.load_df(params['redis_key_full'], table, sdate, edate)
+            df = redis.load(table, sdate, edate,params['redis_key_full'],'dataframe',)
         # load all from cassandra
         elif params['load_type'] & LoadType.CASS_FULL.value == LoadType.CASS_FULL.value:
             sdate = pc.date_to_cass_ts(req_start_date)
@@ -263,7 +263,7 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
                 lst = params['redis_start_range']
                 sdate = date_to_ms(lst[0])
                 edate = date_to_ms(lst[1])
-                df_temp = redis.load_df(params['redis_key_start'], table, sdate, edate)
+                df_temp = redis.load( table, sdate, edate,params['redis_key_start'],'dataframe')
                 df_start = df_start.append(df_temp)
 
 
@@ -272,7 +272,7 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
                 lst = params['redis_end_range']
                 sdate = date_to_ms(lst[0])
                 edate = date_to_ms(lst[1])
-                df_temp = redis.load_df(params['redis_key_end'], table, sdate, edate)
+                df_temp = redis.load(table, sdate, edate,params['redis_key_end'],'dataframe')
                 df_end = df_end.append(df_temp)
 
             if params['load_type'] & LoadType.CASS_END.value == LoadType.CASS_END.value:
@@ -312,7 +312,7 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
         # save (including overwrite to redis
         # reset index to sort
         df = df.reset_index('block_number')
-        redis.save_df(df, table, req_start_date, req_end_date)
+        redis.save(df, table, req_start_date, req_end_date)
 
         gc.collect()
         return df

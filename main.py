@@ -1,22 +1,15 @@
-from functools import partial
-from os.path import dirname, join
 from concurrent.futures import ThreadPoolExecutor
-import threading
-from multiprocessing import Process
 
 from tornado import gen
 from bokeh.document import without_document_lock
 
 # Bokeh basics
-from bokeh.io import curdoc
-from bokeh.models.widgets import Tabs, Div
+from bokeh.models.widgets import Tabs
 from bokeh.server.server import Server
 
-from pdb import set_trace
-
 # GET THE DASHBOARDS
-from scripts.dashboards.streaming.blockminer import blockminer_tab
-from scripts.dashboards.streaming.hashrate import hashrate_tab
+from scripts.dashboards.blockminer import blockminer_tab
+from scripts.dashboards.hashrate import hashrate_tab
 from scripts.utils.mylogger import mylogger
 
 logger = mylogger(__file__)

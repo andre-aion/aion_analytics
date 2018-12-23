@@ -14,7 +14,7 @@ class Mytab:
     pc.createsession()
     pc.createkeyspace('aion')
 
-    def __init__(self,table,cols,dedup_cols, query_cols):
+    def __init__(self,table,cols,dedup_cols, query_cols=[]):
 
         self.table = table
         self.load_params = dict()

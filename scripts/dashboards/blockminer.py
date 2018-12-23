@@ -222,7 +222,7 @@ def blockminer_tab():
         download_button = Button(label='Save Table to CSV', button_type="success")
         download_button.callback = CustomJS(args=dict(source=src),
             code=open(join(dirname(__file__),
-                           "../../../assets/js/topN_download.js")).read())
+                           "../../assets/js/topN_download.js")).read())
 
         # put the controls in a single element
         controls = WidgetBox(datepicker_start, datepicker_end,

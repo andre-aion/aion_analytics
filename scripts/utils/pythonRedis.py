@@ -76,43 +76,51 @@ class RedisStorage:
         ts = datetime.strftime(ts, '%Y-%m-%d')
         return ts
 
-    def compose_key(self,table, start_date,end_date):
+    # key_params: list of parameters to put in key
+    def compose_key(self,key_params, start_date,end_date):
+        if isinstance(key_params,str):
+            key_params = key_params.split(',')
         start_date = self.datetime_or_ts_to_str(start_date)
         end_date = self.datetime_or_ts_to_str(end_date)
-        key = '{}:{}:{}'.format(table, start_date, end_date)
+        key = ''
+        for kp in key_params:
+            key += kp+':'
+        key = '{}:{}'.format(start_date, end_date)
         return key
 
+
     @coroutine
-    def save_df(self, df, table, start_date, end_date):
+    def save(self,item, key_params, start_date, end_date):
         try:
             #convert dates to strings
-            key = self.compose_key(table, start_date, end_date)
+            key = self.compose_key(key_params, start_date, end_date)
             self.conn.setex(name=key, time=EXPIRATION_SECONDS,
-                            value=zlib.compress(pickle.dumps(df)))
+                            value=zlib.compress(pickle.dumps(item)))
             logger.warning("%s saved to redis",key)
         except Exception:
             logger.error('save df',exc_info=True)
 
-    def load_df(self, key, table, start_date, end_date):
-        try:
-            if isinstance(key, str):
-                pass
-            else:
-                key = table+':'+self.datetime_or_ts_to_str(start_date) +\
-                    ':'+self.datetime_or_ts_to_str(end_date)
-            logger.warning('line 95:load-df key:%s', key)
-            df = pickle.loads(zlib.decompress(self.conn.get(key)))
-            # convert dates to datetime
-            start_date = self.ms_to_date(start_date)
-            end_date = self.ms_to_date(end_date)
 
-            logger.warning('load_df start date:%s',start_date)
-            # filter using start date and end date
-            df = df[(df.block_date >= start_date)
-                    & (df.block_date <= end_date)]
-            return df
+    def load(self, key_params, start_date, end_date, key=None, item_type=''):
+        try:
+            if key is None:
+                key = self.compose_key(key_params)
+            logger.warning('load-df key:%s', key)
+            item = pickle.loads(zlib.decompress(self.conn.get(key)))
+
+            # if item is dataframe filter using start date and end date
+            if item_type == 'dataframe':
+                # convert dates to datetime
+                start_date = self.ms_to_date(start_date)
+                end_date = self.ms_to_date(end_date)
+
+                logger.warning('load  start date:%s', start_date)
+                item = item[(item.block_date >= start_date)
+                       & (item.block_date <= end_date)]
+            return item
         except Exception:
-            logger.error('load df', exc_info=True)
+            logger.error('load item', exc_info=True)
+
 
     # small endian, starting with index 1
     def isKthBitSet(self,n, k):
@@ -128,6 +136,7 @@ class RedisStorage:
     # small endian starting with 0th index
     def clear_bit(self, value, bit):
         return value & ~(1 << bit)
+
 
     # return the keys and flags for the data in redis and in cassandra
     def set_load_params(self, table, start_date, end_date, load_params):
