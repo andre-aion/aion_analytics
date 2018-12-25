@@ -1,52 +1,361 @@
-2018-12-22 20:06:45,323 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-22 20:06:46,605 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
-2018-12-22 20:06:46,607 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-05-01 00:00:00
-2018-12-22 20:06:46,687 - logs/poolminer.logs:72 - WARNING - load_data:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
-2018-12-22 20:07:12,482 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-22 20:07:14,099 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
-2018-12-22 20:07:14,102 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-05-01 00:00:00
-2018-12-22 20:07:14,119 - logs/poolminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
-2018-12-22 20:07:26,333 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number        ...         transaction_hashes
-0          1535        ...                         []
-1         57379        ...                         []
-2         12775        ...                         []
-3         46073        ...                         []
-4         23958        ...                         []
+2018-12-24 21:21:41,325 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-24 21:21:51,048 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-24 21:21:51,048 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-24 21:24:21,764 - logs/poolminer.logs:108 - WARNING - block entering poolminer warehouse:                                            miner_address  block_number                                 transaction_hashes block_date
+225035  a01252aa9f4bd395324f5896002f0525a7470193c3416f...        140445                                                 [] 2018-05-10
+225036  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        146574                                                 [] 2018-05-11
+225037  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        198558  [673c11a2a191353dcbbe19eb99bfce80cf088d3db9c56... 2018-05-18
+225038  a00339fa21a77726f9635de520778fccc9b08c11ec6ebc...        150183                                                 [] 2018-05-12
+225039  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        168532                                                 [] 2018-05-14
+225040  a0c6cff5a0182bfcaf0e6dc21a33cce30b14e23451c55c...        185362                                                 [] 2018-05-16
+225041  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        173426                                                 [] 2018-05-14
+225042  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...         47807                                                 [] 2018-04-29
+225043  a000686525b368c42d53a6513e69dac03aba38e0c2f183...        122251                                                 [] 2018-05-08
+225044  a05ac5fe78ed3804f27e60dea3d5d2afedd7903a11ec16...        238140  [1669f4b91a46dc3bdba92a270eaf846189c6e1fd7a91d... 2018-05-22
+225045  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        153637                                                 [] 2018-05-12
+225046  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...         14182                                                 [] 2018-04-25
+225047  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...         35676                                                 [] 2018-04-28
+225048  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...         95583                                                 [] 2018-05-05
+225049  a000686525b368c42d53a6513e69dac03aba38e0c2f183...         89182                                                 [] 2018-05-04
+225050  a02fcb8800a9663b9b1c3c4e38063800c7bcf0b3de2b94...         86664                                                 [] 2018-05-04
+225051  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        146323  [53f3b5a225a7bd67ee400bfb226eec183006dc7ec8954... 2018-05-11
+225052  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...         34430                                                 [] 2018-04-28
+225053  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        180221                                                 [] 2018-05-15
+225054  a0985fa3ff2fe4812c3ed3435923a227b1db9835d6c0ca...         37003                                                 [] 2018-04-28
+225055  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...         16902                                                 [] 2018-04-26
+225056  a0a5ecf0ead1fd01092bbac788368c72ee4dde410e82c6...        230237  [73f636dcd1a9f88633269fbd022534605fba89d646cac... 2018-05-21
+225057  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...         74141                                                 [] 2018-05-02
+225058  a0bfe9f851dc3d8d4327e35c07b77a006b18ba696f6ac6...        128545                                                 [] 2018-05-09
+225059  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...        163996                                                 [] 2018-05-13
+225060  a09abfdfc07a71af39f7d5493f608a18a730ddb2e62958...        216986                                                 [] 2018-05-20
+225061  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...        199180                                                 [] 2018-05-18
+225062  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...         43389                                                 [] 2018-04-29
+225063  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...         31505                                                 [] 2018-04-27
+225064  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        237513                                                 [] 2018-05-22:
+2018-12-24 21:24:21,764 - logs/poolminer.logs:108 - WARNING - block entering poolminer warehouse:                                            miner_address  block_number                                 transaction_hashes block_date
+225035  a01252aa9f4bd395324f5896002f0525a7470193c3416f...        140445                                                 [] 2018-05-10
+225036  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        146574                                                 [] 2018-05-11
+225037  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        198558  [673c11a2a191353dcbbe19eb99bfce80cf088d3db9c56... 2018-05-18
+225038  a00339fa21a77726f9635de520778fccc9b08c11ec6ebc...        150183                                                 [] 2018-05-12
+225039  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        168532                                                 [] 2018-05-14
+225040  a0c6cff5a0182bfcaf0e6dc21a33cce30b14e23451c55c...        185362                                                 [] 2018-05-16
+225041  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        173426                                                 [] 2018-05-14
+225042  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...         47807                                                 [] 2018-04-29
+225043  a000686525b368c42d53a6513e69dac03aba38e0c2f183...        122251                                                 [] 2018-05-08
+225044  a05ac5fe78ed3804f27e60dea3d5d2afedd7903a11ec16...        238140  [1669f4b91a46dc3bdba92a270eaf846189c6e1fd7a91d... 2018-05-22
+225045  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        153637                                                 [] 2018-05-12
+225046  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...         14182                                                 [] 2018-04-25
+225047  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...         35676                                                 [] 2018-04-28
+225048  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...         95583                                                 [] 2018-05-05
+225049  a000686525b368c42d53a6513e69dac03aba38e0c2f183...         89182                                                 [] 2018-05-04
+225050  a02fcb8800a9663b9b1c3c4e38063800c7bcf0b3de2b94...         86664                                                 [] 2018-05-04
+225051  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        146323  [53f3b5a225a7bd67ee400bfb226eec183006dc7ec8954... 2018-05-11
+225052  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...         34430                                                 [] 2018-04-28
+225053  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        180221                                                 [] 2018-05-15
+225054  a0985fa3ff2fe4812c3ed3435923a227b1db9835d6c0ca...         37003                                                 [] 2018-04-28
+225055  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...         16902                                                 [] 2018-04-26
+225056  a0a5ecf0ead1fd01092bbac788368c72ee4dde410e82c6...        230237  [73f636dcd1a9f88633269fbd022534605fba89d646cac... 2018-05-21
+225057  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...         74141                                                 [] 2018-05-02
+225058  a0bfe9f851dc3d8d4327e35c07b77a006b18ba696f6ac6...        128545                                                 [] 2018-05-09
+225059  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...        163996                                                 [] 2018-05-13
+225060  a09abfdfc07a71af39f7d5493f608a18a730ddb2e62958...        216986                                                 [] 2018-05-20
+225061  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...        199180                                                 [] 2018-05-18
+225062  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...         43389                                                 [] 2018-04-29
+225063  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...         31505                                                 [] 2018-04-27
+225064  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        237513                                                 [] 2018-05-22:
+2018-12-24 21:24:21,855 - logs/poolminer.logs:123 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes', 'block_date']:
+2018-12-24 21:24:21,855 - logs/poolminer.logs:123 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes', 'block_date']:
+2018-12-24 21:24:21,867 - logs/poolminer.logs:127 - WARNING - df_block datatypes:miner_address                 object
+block_number                   int64
+transaction_hashes            object
+block_date            datetime64[ns]
+dtype: object
+2018-12-24 21:24:21,867 - logs/poolminer.logs:127 - WARNING - df_block datatypes:miner_address                 object
+block_number                   int64
+transaction_hashes            object
+block_date            datetime64[ns]
+dtype: object
+2018-12-24 21:24:24,861 - logs/poolminer.logs:136 - WARNING - df after merge:1191    NaN
+1192    NaN
+1193    NaN
+1194    NaN
+1195    NaN
+1196    NaN
+1197    NaN
+1198    NaN
+1199    NaN
+1200    NaN
+1201    NaN
+1202    NaN
+1203    NaN
+1204    NaN
+1205    NaN
+1206    NaN
+1207    NaN
+1208    NaN
+1209    NaN
+1210    NaN
+1211    NaN
+1212    NaN
+1213    NaN
+1214    NaN
+1215    NaN
+1216    NaN
+1217    NaN
+1218    NaN
+1219    NaN
+1220    NaN
+Name: transaction_hash, dtype: object:
+2018-12-24 21:24:24,861 - logs/poolminer.logs:136 - WARNING - df after merge:1191    NaN
+1192    NaN
+1193    NaN
+1194    NaN
+1195    NaN
+1196    NaN
+1197    NaN
+1198    NaN
+1199    NaN
+1200    NaN
+1201    NaN
+1202    NaN
+1203    NaN
+1204    NaN
+1205    NaN
+1206    NaN
+1207    NaN
+1208    NaN
+1209    NaN
+1210    NaN
+1211    NaN
+1212    NaN
+1213    NaN
+1214    NaN
+1215    NaN
+1216    NaN
+1217    NaN
+1218    NaN
+1219    NaN
+1220    NaN
+Name: transaction_hash, dtype: object:
+2018-12-24 21:24:35,289 - logs/poolminer.logs:88 - WARNING - warehouse on load:      index                                      miner_address  block_number block_date transaction_hash from_addr to_addr  approx_value
+1181   1181  a09b09ac3f8f58b176cf9309225ea9eda4a0457cd58213...        203994 2018-05-18              NaN       NaN     NaN           NaN
+1182   1182  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        107697 2018-05-06              NaN       NaN     NaN           NaN
+1183   1183  a025915055b523283574df53d1fd15afd3cd1c5b48c320...        144779 2018-05-11              NaN       NaN     NaN           NaN
+1184   1184  a0fda6a183f8dde4cb3846d0e63f32833003e461459c66...        228265 2018-05-21              NaN       NaN     NaN           NaN
+1185   1185  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        217861 2018-05-20              NaN       NaN     NaN           NaN
+1186   1186  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        103999 2018-05-06              NaN       NaN     NaN           NaN
+1187   1187  a0219e582ed70748147d4274a34a5ab548a796ad2da3a9...        229734 2018-05-21              NaN       NaN     NaN           NaN
+1188   1188  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...         89521 2018-05-04              NaN       NaN     NaN           NaN
+1189   1189  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        126503 2018-05-09              NaN       NaN     NaN           NaN
+1190   1190  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...        104429 2018-05-06              NaN       NaN     NaN           NaN
+1191   1191  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        213535 2018-05-19              NaN       NaN     NaN           NaN
+1192   1192  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        153133 2018-05-12              NaN       NaN     NaN           NaN
+1193   1193  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...        129620 2018-05-09              NaN       NaN     NaN           NaN
+1194   1194  a07398efc3ac4ab6f9b32616cfe97c7df45c45f35505b3...        113624 2018-05-07              NaN       NaN     NaN           NaN
+1195   1195  a00b69920c75b99a452c343d89a1b7bff2c8ae7f0b0228...        215307 2018-05-20              NaN       NaN     NaN           NaN
+1196   1196  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        121949 2018-05-08              NaN       NaN     NaN           NaN
+1197   1197  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...         45222 2018-04-29              NaN       NaN     NaN           NaN
+1198   1198  a0a5ecf0ead1fd01092bbac788368c72ee4dde410e82c6...        158332 2018-05-13              NaN       NaN     NaN           NaN
+1199   1199  a01a85b43ab035fc1ded37d077c26cb51049c1d5ce8c15...         86095 2018-05-04              NaN       NaN     NaN           NaN
+1200   1200  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        166013 2018-05-14              NaN       NaN     NaN           NaN
+1201   1201  a03f136a2c7f6f08e1dafd23bbdb013860b44e0a84f7c4...        232041 2018-05-22              NaN       NaN     NaN           NaN
+1202   1202  a02862632bdc74c3fe295b7292c499290cdead596fc415...        157218 2018-05-13              NaN       NaN     NaN           NaN
+1203   1203  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        114948 2018-05-07              NaN       NaN     NaN           NaN
+1204   1204  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...        200498 2018-05-18              NaN       NaN     NaN           NaN
+1205   1205  a0c6cff5a0182bfcaf0e6dc21a33cce30b14e23451c55c...        173273 2018-05-14              NaN       NaN     NaN           NaN
+1206   1206  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...        156858 2018-05-12              NaN       NaN     NaN           NaN
+1207   1207  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        212474 2018-05-19              NaN       NaN     NaN           NaN
+1208   1208  a09b09ac3f8f58b176cf9309225ea9eda4a0457cd58213...        213153 2018-05-19              NaN       NaN     NaN           NaN
+1209   1209  a0ef10e5c17bddb4cfa77af683a6466ee72e6ce072ef48...        227368 2018-05-21              NaN       NaN     NaN           NaN
+1210   1210  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        215534 2018-05-20              NaN       NaN     NaN           NaN
+1211   1211  a09100c8c9496d606cb8c19641f5aecf8694af7b376a50...        159757 2018-05-13              NaN       NaN     NaN           NaN
+1212   1212  a0bfe9f851dc3d8d4327e35c07b77a006b18ba696f6ac6...         57145 2018-04-30              NaN       NaN     NaN           NaN
+1213   1213  a0afd9455999d2c1c409f33b4175bc5d36519dd655d5fe...         81811 2018-05-03              NaN       NaN     NaN           NaN
+1214   1214  a0219e582ed70748147d4274a34a5ab548a796ad2da3a9...        201259 2018-05-18              NaN       NaN     NaN           NaN
+1215   1215  a0bfe9f851dc3d8d4327e35c07b77a006b18ba696f6ac6...        106583 2018-05-06              NaN       NaN     NaN           NaN
+1216   1216  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        146599 2018-05-11              NaN       NaN     NaN           NaN
+1217   1217  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        125028 2018-05-09              NaN       NaN     NaN           NaN
+1218   1218  a0bfe9f851dc3d8d4327e35c07b77a006b18ba696f6ac6...        118110 2018-05-08              NaN       NaN     NaN           NaN
+1219   1219  a0f099ce1dd5d006e852854010147560b6b390ae074d70...         92934 2018-05-05              NaN       NaN     NaN           NaN
+1220   1220  a0fda6a183f8dde4cb3846d0e63f32833003e461459c66...        133111 2018-05-10              NaN       NaN     NaN           NaN
+2018-12-24 21:24:35,289 - logs/poolminer.logs:88 - WARNING - warehouse on load:      index                                      miner_address  block_number block_date transaction_hash from_addr to_addr  approx_value
+1181   1181  a09b09ac3f8f58b176cf9309225ea9eda4a0457cd58213...        203994 2018-05-18              NaN       NaN     NaN           NaN
+1182   1182  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        107697 2018-05-06              NaN       NaN     NaN           NaN
+1183   1183  a025915055b523283574df53d1fd15afd3cd1c5b48c320...        144779 2018-05-11              NaN       NaN     NaN           NaN
+1184   1184  a0fda6a183f8dde4cb3846d0e63f32833003e461459c66...        228265 2018-05-21              NaN       NaN     NaN           NaN
+1185   1185  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        217861 2018-05-20              NaN       NaN     NaN           NaN
+1186   1186  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        103999 2018-05-06              NaN       NaN     NaN           NaN
+1187   1187  a0219e582ed70748147d4274a34a5ab548a796ad2da3a9...        229734 2018-05-21              NaN       NaN     NaN           NaN
+1188   1188  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...         89521 2018-05-04              NaN       NaN     NaN           NaN
+1189   1189  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        126503 2018-05-09              NaN       NaN     NaN           NaN
+1190   1190  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...        104429 2018-05-06              NaN       NaN     NaN           NaN
+1191   1191  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        213535 2018-05-19              NaN       NaN     NaN           NaN
+1192   1192  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        153133 2018-05-12              NaN       NaN     NaN           NaN
+1193   1193  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...        129620 2018-05-09              NaN       NaN     NaN           NaN
+1194   1194  a07398efc3ac4ab6f9b32616cfe97c7df45c45f35505b3...        113624 2018-05-07              NaN       NaN     NaN           NaN
+1195   1195  a00b69920c75b99a452c343d89a1b7bff2c8ae7f0b0228...        215307 2018-05-20              NaN       NaN     NaN           NaN
+1196   1196  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        121949 2018-05-08              NaN       NaN     NaN           NaN
+1197   1197  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...         45222 2018-04-29              NaN       NaN     NaN           NaN
+1198   1198  a0a5ecf0ead1fd01092bbac788368c72ee4dde410e82c6...        158332 2018-05-13              NaN       NaN     NaN           NaN
+1199   1199  a01a85b43ab035fc1ded37d077c26cb51049c1d5ce8c15...         86095 2018-05-04              NaN       NaN     NaN           NaN
+1200   1200  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        166013 2018-05-14              NaN       NaN     NaN           NaN
+1201   1201  a03f136a2c7f6f08e1dafd23bbdb013860b44e0a84f7c4...        232041 2018-05-22              NaN       NaN     NaN           NaN
+1202   1202  a02862632bdc74c3fe295b7292c499290cdead596fc415...        157218 2018-05-13              NaN       NaN     NaN           NaN
+1203   1203  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        114948 2018-05-07              NaN       NaN     NaN           NaN
+1204   1204  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...        200498 2018-05-18              NaN       NaN     NaN           NaN
+1205   1205  a0c6cff5a0182bfcaf0e6dc21a33cce30b14e23451c55c...        173273 2018-05-14              NaN       NaN     NaN           NaN
+1206   1206  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...        156858 2018-05-12              NaN       NaN     NaN           NaN
+1207   1207  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        212474 2018-05-19              NaN       NaN     NaN           NaN
+1208   1208  a09b09ac3f8f58b176cf9309225ea9eda4a0457cd58213...        213153 2018-05-19              NaN       NaN     NaN           NaN
+1209   1209  a0ef10e5c17bddb4cfa77af683a6466ee72e6ce072ef48...        227368 2018-05-21              NaN       NaN     NaN           NaN
+1210   1210  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        215534 2018-05-20              NaN       NaN     NaN           NaN
+1211   1211  a09100c8c9496d606cb8c19641f5aecf8694af7b376a50...        159757 2018-05-13              NaN       NaN     NaN           NaN
+1212   1212  a0bfe9f851dc3d8d4327e35c07b77a006b18ba696f6ac6...         57145 2018-04-30              NaN       NaN     NaN           NaN
+1213   1213  a0afd9455999d2c1c409f33b4175bc5d36519dd655d5fe...         81811 2018-05-03              NaN       NaN     NaN           NaN
+1214   1214  a0219e582ed70748147d4274a34a5ab548a796ad2da3a9...        201259 2018-05-18              NaN       NaN     NaN           NaN
+1215   1215  a0bfe9f851dc3d8d4327e35c07b77a006b18ba696f6ac6...        106583 2018-05-06              NaN       NaN     NaN           NaN
+1216   1216  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...        146599 2018-05-11              NaN       NaN     NaN           NaN
+1217   1217  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...        125028 2018-05-09              NaN       NaN     NaN           NaN
+1218   1218  a0bfe9f851dc3d8d4327e35c07b77a006b18ba696f6ac6...        118110 2018-05-08              NaN       NaN     NaN           NaN
+1219   1219  a0f099ce1dd5d006e852854010147560b6b390ae074d70...         92934 2018-05-05              NaN       NaN     NaN           NaN
+1220   1220  a0fda6a183f8dde4cb3846d0e63f32833003e461459c66...        133111 2018-05-10              NaN       NaN     NaN           NaN
+2018-12-24 21:24:35,455 - logs/poolminer.logs:94 - WARNING - tier 1 miners:<generator object make_tier1_list at 0x7f0d6b40a258>
+2018-12-24 21:24:35,455 - logs/poolminer.logs:94 - WARNING - tier 1 miners:<generator object make_tier1_list at 0x7f0d6b40a258>
+2018-12-24 21:24:41,343 - logs/poolminer.logs:156 - WARNING - miners found by paid out: 0
+2018-12-24 21:24:41,343 - logs/poolminer.logs:156 - WARNING - miners found by paid out: 0
+2018-12-24 21:24:41,530 - logs/poolminer.logs:178 - ERROR - block mined daily
+Traceback (most recent call last):
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/utils.py", line 137, in raise_on_meta_error
+    yield
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3314, in elemwise
+    meta = partial_by_order(*parts, function=op, other=other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/utils.py", line 878, in partial_by_order
+    return function(*args2, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1283, in wrapper
+    res = na_op(values, other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1143, in na_op
+    result = _comp_method_OBJECT_ARRAY(op, x, y)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1122, in _comp_method_OBJECT_ARRAY
+    result = libops.scalar_compare(x, y, op)
+  File "pandas/_libs/ops.pyx", line 98, in pandas._libs.ops.scalar_compare
+TypeError: unorderable types: str() >= float()
 
-[5 rows x 18 columns]
-2018-12-22 20:07:26,613 - logs/poolminer.logs:81 - WARNING - load_data tail:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
+During handling of the above exception, another exception occurred:
 
-[5 rows x 18 columns]
-2018-12-22 20:07:26,774 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-22 20:07:28,340 - logs/poolminer.logs:116 - WARNING - top n called:30
-2018-12-22 20:07:29,910 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
-2018-12-22 20:07:29,910 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-05-01 00:00:00
-2018-12-22 20:09:49,186 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2018-12-22 20:09:50,215 - logs/poolminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
-2018-12-22 20:09:50,217 - logs/poolminer.logs:66 - WARNING - load_data end date:2018-05-01 00:00:00
-2018-12-22 20:09:50,265 - logs/poolminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-22 20:10:00,592 - logs/poolminer.logs:80 - WARNING - load_data head:   block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
-0          1535  a0518c851697466c45cac097c26ba82f648285483411fe...  a0518c8516         ...                  4                0.0                  []
-1         57379  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
-2         12775  a00d6f9214fed1d5c99f8f0486151c00ffff9248205408...  a00d6f9214         ...                  6                0.0                  []
-3         46073  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                 25                0.0                  []
-4         23958  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 20                0.0                  []
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 171, in list_from_blocks_mined_daily
+    df_temp = df_temp[df_temp.miner_address >= threshold]
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 1183, in <lambda>
+    return lambda self, other: elemwise(op, self, other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3314, in elemwise
+    meta = partial_by_order(*parts, function=op, other=other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/contextlib.py", line 77, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/utils.py", line 154, in raise_on_meta_error
+    raise ValueError(msg)
+ValueError: Metadata inference failed in `ge`.
 
-[5 rows x 18 columns]
-2018-12-22 20:10:00,747 - logs/poolminer.logs:81 - WARNING - load_data tail:      block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
-4164         34430  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                  1                0.0                  []
-4165         37003  a0985fa3ff2fe4812c3ed3435923a227b1db9835d6c0ca...  a0985fa3ff         ...                  8                0.0                  []
-4166         16902  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 11                0.0                  []
-4167         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
-4168         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                 14                0.0                  []
+Original error is below:
+------------------------
+TypeError('unorderable types: str() >= float()',)
 
-[5 rows x 18 columns]
-2018-12-22 20:10:00,851 - logs/poolminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-22 20:10:02,383 - logs/poolminer.logs:116 - WARNING - top n called:30
-2018-12-22 20:10:04,043 - logs/poolminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
-2018-12-22 20:10:04,043 - logs/poolminer.logs:106 - WARNING - prep dataset END DATE:2018-05-01 00:00:00
+Traceback:
+---------
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/utils.py", line 137, in raise_on_meta_error
+    yield
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3314, in elemwise
+    meta = partial_by_order(*parts, function=op, other=other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/utils.py", line 878, in partial_by_order
+    return function(*args2, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1283, in wrapper
+    res = na_op(values, other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1143, in na_op
+    result = _comp_method_OBJECT_ARRAY(op, x, y)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1122, in _comp_method_OBJECT_ARRAY
+    result = libops.scalar_compare(x, y, op)
+  File "pandas/_libs/ops.pyx", line 98, in pandas._libs.ops.scalar_compare
+
+2018-12-24 21:24:41,530 - logs/poolminer.logs:178 - ERROR - block mined daily
+Traceback (most recent call last):
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/utils.py", line 137, in raise_on_meta_error
+    yield
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3314, in elemwise
+    meta = partial_by_order(*parts, function=op, other=other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/utils.py", line 878, in partial_by_order
+    return function(*args2, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1283, in wrapper
+    res = na_op(values, other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1143, in na_op
+    result = _comp_method_OBJECT_ARRAY(op, x, y)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1122, in _comp_method_OBJECT_ARRAY
+    result = libops.scalar_compare(x, y, op)
+  File "pandas/_libs/ops.pyx", line 98, in pandas._libs.ops.scalar_compare
+TypeError: unorderable types: str() >= float()
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 171, in list_from_blocks_mined_daily
+    df_temp = df_temp[df_temp.miner_address >= threshold]
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 1183, in <lambda>
+    return lambda self, other: elemwise(op, self, other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3314, in elemwise
+    meta = partial_by_order(*parts, function=op, other=other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/contextlib.py", line 77, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/utils.py", line 154, in raise_on_meta_error
+    raise ValueError(msg)
+ValueError: Metadata inference failed in `ge`.
+
+Original error is below:
+------------------------
+TypeError('unorderable types: str() >= float()',)
+
+Traceback:
+---------
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/utils.py", line 137, in raise_on_meta_error
+    yield
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3314, in elemwise
+    meta = partial_by_order(*parts, function=op, other=other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/utils.py", line 878, in partial_by_order
+    return function(*args2, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1283, in wrapper
+    res = na_op(values, other)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1143, in na_op
+    result = _comp_method_OBJECT_ARRAY(op, x, y)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py", line 1122, in _comp_method_OBJECT_ARRAY
+    result = libops.scalar_compare(x, y, op)
+  File "pandas/_libs/ops.pyx", line 98, in pandas._libs.ops.scalar_compare
+
+2018-12-24 21:24:41,532 - logs/poolminer.logs:238 - ERROR - tier 1 miner list
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 229, in make_tier1_list
+    tier1_miner_list = list(set(lst_a + lst_b))
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+2018-12-24 21:24:41,532 - logs/poolminer.logs:238 - ERROR - tier 1 miner list
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 229, in make_tier1_list
+    tier1_miner_list = list(set(lst_a + lst_b))
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+2018-12-24 21:24:41,567 - logs/poolminer.logs:183 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 132, in poolminer_tab
+    thistab.load_this_data(first_date_range,last_date)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 89, in load_this_data
+    return self.make_tier1_table(start_date, end_date)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 97, in make_tier1_table
+    self.tier1_df = self.tier1_df.groupBy(['miner_address','block_date'])\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 2520, in __getattr__
+    raise AttributeError("'DataFrame' object has no attribute %r" % key)
+AttributeError: 'DataFrame' object has no attribute 'groupBy'
+2018-12-24 21:24:41,567 - logs/poolminer.logs:183 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 132, in poolminer_tab
+    thistab.load_this_data(first_date_range,last_date)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 89, in load_this_data
+    return self.make_tier1_table(start_date, end_date)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 97, in make_tier1_table
+    self.tier1_df = self.tier1_df.groupBy(['miner_address','block_date'])\
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 2520, in __getattr__
+    raise AttributeError("'DataFrame' object has no attribute %r" % key)
+AttributeError: 'DataFrame' object has no attribute 'groupBy'

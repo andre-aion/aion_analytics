@@ -71,9 +71,10 @@ class RedisStorage:
 
     # convert ms to string date
     def datetime_or_ts_to_str(self, ts):
-        # convert to datetime if necessary
-        ts = self.ms_to_date(ts)
-        ts = datetime.strftime(ts, '%Y-%m-%d')
+        if isinstance(ts,str) == False:
+            # convert to datetime if necessary
+            ts = self.ms_to_date(ts)
+            ts = datetime.strftime(ts, '%Y-%m-%d')
         return ts
 
     # key_params: list of parameters to put in key
@@ -82,10 +83,13 @@ class RedisStorage:
             key_params = key_params.split(',')
         start_date = self.datetime_or_ts_to_str(start_date)
         end_date = self.datetime_or_ts_to_str(end_date)
+        logger.warning('start_date in compose key:%s',start_date)
         key = ''
         for kp in key_params:
+            if isinstance(kp,str)== False:
+                kp = str(kp)
             key += kp+':'
-        key = '{}:{}'.format(start_date, end_date)
+        key = '{}{}:{}'.format(key,start_date, end_date)
         return key
 
 

@@ -18,7 +18,8 @@ def str_to_hex(x):
 
 def calc_hashrate(df,blockcount):
     #logger.warning('columns in calc hashrate:%s',df.columns.values)
-    df['rolling_mean'] = df.block_time.rolling(blockcount).mean().compute()
+    df['rolling_mean'] = df.block_time.rolling(blockcount).mean()
+    df.compute()
     df = df.dropna()
     df['hashrate'] = df.difficulty / df.rolling_mean
     return df

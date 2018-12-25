@@ -1,3 +1,4 @@
+from dask.dataframe.utils import make_meta
 from tornado.gen import coroutine
 
 from scripts.utils.mylogger import mylogger
@@ -5,58 +6,114 @@ from scripts.utils.pythonRedis import RedisStorage
 import pandas as pd
 import dask as dd
 import gc
+import re
+from dask.dataframe.reshape import melt
+import numpy as np
 
 r = RedisStorage()
 logger = mylogger(__file__)
 
-def remove_quotes(x):
-    x = x.replace("'","")
-    return x
+def remove_quotes(row):
+    return row['transaction_hashes'].replace("\'", "")
+def remove_brackets(row):
+    row['transaction_hashes']=row['transaction_hashes'].replace("[","")
+    row['transaction_hashes']=row['transaction_hashes'].replace("]","")
+    return row
+
+def remove_char(row):
+    return re.sub('\[','',row['transaction_hashes'])
+
+
+
+def list_to_rows(df, column, sep=',', keep=False):
+    """
+    Split the values of a column and expand so the new DataFrame has one split
+    value per row. Filters rows where the column is missing.
+
+    Params
+    ------
+    df : pandas.DataFrame
+        dataframe with the column to split and expand
+    column : str
+        the column to split and expand
+    sep : str
+        the string used to split the column's values
+    keep : bool
+        whether to retain the presplit value as it's own row
+
+    Returns
+    -------
+    pandas.DataFrame
+        Returns a dataframe with the same columns as `df`.
+    """
+    indexes = list()
+    new_values = list()
+    df = df.dropna(subset=[column])
+    for i, presplit in enumerate(df[column].astype(str)):
+        values = presplit.split(sep)
+        if keep and len(values) > 1:
+            indexes.append(i)
+            new_values.append(presplit)
+        for value in values:
+            indexes.append(i)
+            new_values.append(value)
+    new_df = df.iloc[indexes, :].copy()
+    new_df[column] = new_values
+    return new_df
 
 # explode into new line for each list member
-def explode_transaction_hashes(df,column='transaction_hashes'):
+def explode_transaction_hashes(df):
+    meta=('transaction_hashes',str)
     try:
-        df = df[column].map_partitions(remove_quotes)
-        return df[column].apply(pd.Series, 1).stack().reset_index(level=1, drop=True)
+        # remove quotes
+        col_to_explode = 'transaction_hashes'
+        '''
+        df = df.map_partitions(lambda df1:
+                               df1.assign(transaction_hashes=
+                                          remove_quotes(df1.transaction_hashes)),
+                               meta=df)
+                               '''
+        df['transaction_hashes'] = df.apply(remove_quotes,axis=1)
+
+        # explode the list
+        df = list_to_rows(df,"transaction_hashes")
+        df = df.apply(remove_brackets, axis=1)
+
+        return df
     except Exception:
         logger.error("explode transaction hashes", exc_info=True)
 
-def get_key_in_redis(key_params,start_date,end_date):
-    # get keys
-    str_to_match = r.compose_key(key_params,start_date,end_date)
-    matches = r.conn.scan_iter(match=str_to_match)
-    redis_key = None
-    if matches:
-        for redis_key in matches:
-            redis_key_encoded = redis_key
-            redis_key = str(redis_key, 'utf-8')
-            logger.warning('redis_key:%s', redis_key)
-            break
-    return redis_key
 
 # make data warehouse only if tier1 and tier2 miner lists do not exits
 def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
-    warehouse = warehouse_needed(start_date,end_date)
+    df_tx = df_tx[['transaction_hash','from_addr','to_addr','approx_value']]
+    df_block = df_block[['miner_address','block_number','transaction_hashes',
+                                 'block_date']]
+    logger.warning("block entering poolminer warehouse:%s:",
+                   df_block.tail(30))
     try:
-        # first look for ware house in redis
-        key_params = ['block_tx_warehouse']
-        warehouse_key = get_key_in_redis(key_params, start_date, end_date)
-        if warehouse_key is not None:
-            df = r.load(key_params,start_date,end_date,key=warehouse_key,item_type='dataframe')
-            return df
-        else:
-                df_block = explode_transaction_hashes(df_block)
-                # join block and transaction table
-                df = df_block.merge(df_tx, how='left',
-                                              left_on='transaction_hashes',
-                                              right_on='transaction_hash')  # do the merge\
-                df = df.drop('transaction_hashes',axis=1)
-                df = df.reset_index()
-                df = df.compute()
+        key_params = 'block_tx_warehouse'
+        meta = make_meta({
+                          'block_date': 'M8', 'block_number': 'i8',
+                          'miner_address': 'object', 'transaction_hashes': 'object'})
+        #df_block = df_block.map_partitions(explode_transaction_hashes)
+        logger.warning('COLUMNS %s:',df_block.columns.tolist())
+        #logger.warning("transaction hash:%s",df_tx['transaction_hash'].tail(20))
+        df_block.reset_index()
 
-                # save to redis
-                r.save(df, key_params, start_date, end_date)
-                return df
+        logger.warning("df_block datatypes:%s",df_block.dtypes)
+
+        # join block and transaction table
+        df = df_block.merge(df_tx, how='left',
+                                      left_on='transaction_hashes',
+                                      right_on='transaction_hash')  # do the merge\
+        df = df.drop(['transaction_hashes'],axis=1)
+        df = df.reset_index()
+        logger.warning("df after merge:%s:",
+                       df['transaction_hash'].tail(30))
+        # save to redis
+        r.save(df, key_params, start_date, end_date)
+        return df
     except Exception:
         logger.error("make poolminer warehouse",exc_info=True)
 
@@ -69,7 +126,7 @@ def daily_percent(df,x):
 @coroutine
 def list_by_tx_paid_out(df, delta_days, threshold=10):
     try:
-        df_temp = df.groupBy('from_addr').agg({'to_addr': 'count'}).reset_index()
+        df_temp = df.groupby('from_addr')['to_addr'].count().reset_index()
         # find daily mean
         df_temp = df_temp[df_temp.to_addr >= threshold*delta_days]
         lst = df_temp['to_addr'].unique().compute()
@@ -84,7 +141,7 @@ def list_by_tx_paid_out(df, delta_days, threshold=10):
 @coroutine
 def list_from_blocks_mined_daily(df,delta_days,threshold_percentage=1):
     try:
-        df_temp = df.groupBy('miner_address').agg({'block_number': 'count'}).reset_index()
+        df_temp = df.groupby('miner_address')['block_number'].count().reset_index()
         total_blocks_mined_daily = 8640
         # convert percentage threshold to number
         threshold = threshold_percentage*delta_days*total_blocks_mined_daily/100
@@ -185,7 +242,7 @@ def make_tier2_list(df,tier1_miner_list,
             # GET THE POOLS FOR FREQUENT PAYMENTS RECEIVED
             # filter dataframe to retain only tx payouts from tier1 miner list
             df_temp = df[df.from_addr.isin(tier1_miner_list)]
-            df_temp = df_temp.groupBy('to_addr').agg({'from_addr': 'couunt'}).reset_index()
+            df_temp = df_temp.groupby('to_addr')['from_addr'].couunt().reset_index()
             threshold = threshold_tier2_pay_in * (end_date-start_date).days
             df_temp = df_temp[df_temp.to_addr >= threshold]
 

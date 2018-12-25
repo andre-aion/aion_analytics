@@ -160,6 +160,7 @@ def set_params_to_load(df, start_date, end_date):
         params['min_date'] = None
         params['end'] = False
         params['max_date'] = None
+        params['in_memory'] = False
         # convert dates from ms to datetime
         # start_date = ms_to_date(start_date)
         #end_date = ms_to_date(end_date)
@@ -176,10 +177,13 @@ def set_params_to_load(df, start_date, end_date):
 
             if start_date > params['min_date']:
                     params['start'] = True
-            if end_date > params['max_date']:
+            if end_date < params['max_date']:
                     params['end'] = True
 
             logger.warning('set_params_to_load:%s', params)
+            # if table alread in memory then set in-memory flag
+            if params['start'] == False and params['end_date'] == False:
+                params['in_memory'] = True
 
         else:
             # if no df in memory set start date and end_date far in the past
@@ -311,8 +315,12 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
 
         # save (including overwrite to redis
         # reset index to sort
-        df = df.reset_index('block_number')
-        redis.save(df, table, req_start_date, req_end_date)
+        if table == 'transaction':
+            logger.warning('%s in construct df on load %s',table,df.head())
+        # do not save if entire table loaded from redis
+        if params['load_type'] & LoadType.REDIS_FULL.value != LoadType.REDIS_FULL.value:
+            logger.warning("%s saved to reddis:%s",table.upper(),df.tail(10))
+            redis.save(df, table, req_start_date, req_end_date)
 
         gc.collect()
         return df

@@ -10,6 +10,7 @@ from bokeh.server.server import Server
 # GET THE DASHBOARDS
 from scripts.dashboards.blockminer import blockminer_tab
 from scripts.dashboards.hashrate import hashrate_tab
+from scripts.dashboards.poolminer import poolminer_tab
 from scripts.utils.mylogger import mylogger
 
 logger = mylogger(__file__)
@@ -20,9 +21,10 @@ def aion_analytics(doc):
 
     # SETUP BOKEH OBJECTS
     try:
-        pm = yield blockminer_tab()
+        bm = yield blockminer_tab()
         hr = yield hashrate_tab()
-        tabs = Tabs(tabs=[pm, hr])
+        pm = yield poolminer_tab()
+        tabs = Tabs(tabs=[bm, hr, pm])
         doc.add_root(tabs)
 
     except Exception:

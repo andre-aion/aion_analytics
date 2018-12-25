@@ -1,24 +1,24 @@
-2018-12-22 20:29:01,977 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2018-12-22 20:29:03,645 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
-2018-12-22 20:29:03,648 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-01 00:00:00
-2018-12-22 20:29:03,674 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-22 20:29:15,714 - logs/blockminer.logs:80 - WARNING - load_data head:   block_number        ...         transaction_hashes
-0          1535        ...                         []
-1         57379        ...                         []
-2         12775        ...                         []
-3         46073        ...                         []
-4         23958        ...                         []
+2018-12-24 21:21:49,241 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-24 21:21:51,815 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-24 21:21:51,819 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-24 21:21:51,883 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2018-12-24 21:23:21,506 - logs/blockminer.logs:80 - WARNING - load_data head:   block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
+0          1535  a0518c851697466c45cac097c26ba82f648285483411fe...  a0518c8516         ...                  4                0.0                  []
+1        219535  a0b8a29ddcb87870dc2f6d36c11c23acd2824d24cf9b23...  a0b8a29ddc         ...                 25                0.0                  []
+2        227203  a0db64eae1278d63f546cf6f246ea00d040701e373dbc9...  a0db64eae1         ...                  3                0.0                  []
+3         82694  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
+4         57379  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
 
 [5 rows x 18 columns]
-2018-12-22 20:29:15,950 - logs/blockminer.logs:81 - WARNING - load_data tail:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
+2018-12-24 21:23:21,687 - logs/blockminer.logs:81 - WARNING - load_data tail:        block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
+225060        216986  a09abfdfc07a71af39f7d5493f608a18a730ddb2e62958...  a09abfdfc0         ...                 16                0.0                  []
+225061        199180  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
+225062         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
+225063         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                 14                0.0                  []
+225064        237513  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  1                0.0                  []
 
 [5 rows x 18 columns]
-2018-12-22 20:29:16,077 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
-2018-12-22 20:29:19,962 - logs/blockminer.logs:116 - WARNING - top n called:30
-2018-12-22 20:29:25,108 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
-2018-12-22 20:29:25,108 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-01 00:00:00
+2018-12-24 21:23:21,892 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-24 21:23:22,702 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-24 21:23:23,668 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-24 21:23:23,668 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00

@@ -97,7 +97,7 @@ def blockminer_tab():
             try:
                 logger.warning("prep dataset start date:%s", start_date)
 
-                self.df1 = self.df1.groupby('miner_addr').count()
+                self.df1 = self.df1.groupby('miner_address').count()
                 self.df1['percentage'] = 100*self.df1.block_number\
                                          /self.df1['block_number'].sum().compute()
 
@@ -123,7 +123,7 @@ def blockminer_tab():
                 #logger.warning('df2 after nlargest:%s',self.df2.head())
                 new_data = dict(
                     percentage=self.df2.percentage,
-                    miner_addr=self.df2.miner_addr,
+                    miner_addr=self.df2.miner_address,
                     block_number=self.df2.block_number
                 )
                 #src.stream

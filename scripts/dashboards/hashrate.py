@@ -59,7 +59,7 @@ def hashrate_tab():
 
         def hashrate_plot(self,bcount):
             try:
-                df1 = calc_hashrate(self.df1, bcount)
+                df1 = calc_hashrate(self.df1, bcount).reset_index()
                 #curve = hv.Curve(df, kdims=['block_number'], vdims=['hashrate'])\
                     #.options(width=1000,height=600)
 

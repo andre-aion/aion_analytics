@@ -1,207 +1,58 @@
-2018-12-22 19:26:47,876 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-22 19:26:52,590 - logs/myutils.logs:231 - WARNING - construct df, params:{'cass_end_range': None, 'redis_key_start': None, 'cass_start_range': None, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'cass_full_range': None, 'redis_key_end': None, 'load_type': 1, 'redis_keys_to_delete': []}
-2018-12-22 19:27:03,393 - logs/myutils.logs:231 - WARNING - construct df, params:None
-2018-12-22 19:27:03,393 - logs/myutils.logs:320 - ERROR - construct df from load
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 232, in construct_df_upon_load
-    if params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:
-TypeError: 'NoneType' object is not subscriptable
-2018-12-22 19:27:41,488 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-22 19:27:45,876 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_key_start': None, 'cass_key_full': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_full_range': None, 'redis_keys_to_delete': [], 'cass_start_range': None, 'redis_start_range': None, 'load_type': 1, 'redis_key_end': None, 'cass_end_range': None, 'redis_end_range': None}
-2018-12-22 19:27:57,472 - logs/myutils.logs:231 - WARNING - construct df, params:None
-2018-12-22 19:27:57,472 - logs/myutils.logs:320 - ERROR - construct df from load
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 232, in construct_df_upon_load
-    if params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:
-TypeError: 'NoneType' object is not subscriptable
-2018-12-22 19:35:11,390 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-22 19:35:16,012 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_start_range': None, 'cass_start_range': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_key_full': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'redis_keys_to_delete': [], 'cass_end_range': None, 'redis_key_end': None, 'load_type': 1, 'cass_full_range': None}
-2018-12-22 19:35:16,012 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_start_range': None, 'cass_start_range': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_key_full': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'redis_keys_to_delete': [], 'cass_end_range': None, 'redis_key_end': None, 'load_type': 1, 'cass_full_range': None}
-2018-12-22 19:35:31,250 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_start_range': None, 'cass_start_range': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_key_full': None, 'redis_key_full': None, 'redis_keys_to_delete': [b'block:2018-04-23:2018-05-01'], 'cass_end_range': None, 'redis_key_end': None, 'load_type': 2, 'cass_full_range': [datetime.datetime(2018, 4, 23, 0, 0), datetime.datetime(2018, 12, 22, 0, 0)]}
-2018-12-22 19:35:31,251 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_start_range': None, 'cass_start_range': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_key_full': None, 'redis_key_full': None, 'redis_keys_to_delete': [b'block:2018-04-23:2018-05-01'], 'cass_end_range': None, 'redis_key_end': None, 'load_type': 2, 'cass_full_range': [datetime.datetime(2018, 4, 23, 0, 0), datetime.datetime(2018, 12, 22, 0, 0)]}
-2018-12-22 19:35:31,251 - logs/myutils.logs:242 - WARNING - construct_df, in cass load, sdate:1524456000000
-2018-12-22 19:35:52,201 - logs/myutils.logs:310 - WARNING - bigger df added so deleted key:block:2018-04-23:2018-05-01
-2018-12-22 19:36:01,493 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 19:36:01,495 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 19:36:01,495 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-12-20 00:00:00'), 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False}
-2018-12-22 19:36:01,626 - logs/myutils.logs:223 - WARNING - df original, TAIL:       block_number        ...         transaction_hashes
-21060       1931242        ...                         []
-21061         43389        ...                         []
-21062         31505        ...                         []
-21063       1884472        ...                         []
-21064       1933110        ...                         []
+2018-12-24 21:21:41,200 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-24 21:21:52,002 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_full': None, 'cass_key_full': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 23, 0, 0), datetime.datetime(2018, 5, 23, 0, 0)], 'redis_start_range': None}
+2018-12-24 21:21:52,003 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_full': None, 'cass_key_full': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 23, 0, 0), datetime.datetime(2018, 5, 23, 0, 0)], 'redis_start_range': None}
+2018-12-24 21:21:52,008 - logs/myutils.logs:242 - WARNING - construct_df, in cass load, sdate:1524456000000
+2018-12-24 21:23:11,592 - logs/myutils.logs:318 - WARNING - BLOCK saved to reddis:        block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+225055         16902  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...                        ...                                   0.00000                                                 []
+225056        230237  a0a5ecf0ead1fd01092bbac788368c72ee4dde410e82c6...                        ...                                   0.00042  [73f636dcd1a9f88633269fbd022534605fba89d646cac...
+225057         74141  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...                        ...                                   0.00000                                                 []
+225058        128545  a0bfe9f851dc3d8d4327e35c07b77a006b18ba696f6ac6...                        ...                                   0.00000                                                 []
+225059        163996  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...                        ...                                   0.00000                                                 []
+225060        216986  a09abfdfc07a71af39f7d5493f608a18a730ddb2e62958...                        ...                                   0.00000                                                 []
+225061        199180  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...                        ...                                   0.00000                                                 []
+225062         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...                        ...                                   0.00000                                                 []
+225063         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...                        ...                                   0.00000                                                 []
+225064        237513  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...                        ...                                   0.00000                                                 []
+
+[10 rows x 18 columns]
+2018-12-24 21:23:38,127 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'load_type': 1, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23', 'cass_key_full': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_start_range': None, 'cass_full_range': None, 'redis_start_range': None}
+2018-12-24 21:23:38,128 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'load_type': 1, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23', 'cass_key_full': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_start_range': None, 'cass_full_range': None, 'redis_start_range': None}
+2018-12-24 21:23:42,303 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-24 21:23:42,307 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
+2018-12-24 21:23:42,308 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'max_date': Timestamp('2018-05-23 00:00:00'), 'start': False}
+2018-12-24 21:23:42,893 - logs/myutils.logs:223 - WARNING - df original, TAIL:        block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
+225060        216986  a09abfdfc07a71af39f7d5493f608a18a730ddb2e62958...  a09abfdfc0         ...                 16                0.0                  []
+225061        199180  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
+225062         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
+225063         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                 14                0.0                  []
+225064        237513  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  1                0.0                  []
 
 [5 rows x 18 columns]
-2018-12-22 19:36:01,708 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_start_range': None, 'cass_start_range': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_key_full': None, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'redis_keys_to_delete': [], 'cass_end_range': None, 'redis_key_end': None, 'load_type': 1, 'cass_full_range': None}
-2018-12-22 19:36:01,708 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_start_range': None, 'cass_start_range': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_key_full': None, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'redis_keys_to_delete': [], 'cass_end_range': None, 'redis_key_end': None, 'load_type': 1, 'cass_full_range': None}
-2018-12-22 19:44:14,495 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-22 19:44:21,227 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'redis_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'redis_start_range': None, 'cass_key_full': None, 'redis_keys_to_delete': [], 'cass_start_range': None, 'redis_key_start': None, 'redis_key_end': None}
-2018-12-22 19:44:21,227 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'redis_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'redis_start_range': None, 'cass_key_full': None, 'redis_keys_to_delete': [], 'cass_start_range': None, 'redis_key_start': None, 'redis_key_end': None}
-2018-12-22 19:44:48,836 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'redis_end_range': None, 'load_type': 2, 'redis_key_full': None, 'redis_start_range': None, 'cass_key_full': ['2018-04-23', '2018-12-22'], 'redis_keys_to_delete': [b'block:2018-04-23:2018-05-01'], 'cass_start_range': None, 'redis_key_start': None, 'redis_key_end': None}
-2018-12-22 19:44:48,836 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'redis_end_range': None, 'load_type': 2, 'redis_key_full': None, 'redis_start_range': None, 'cass_key_full': ['2018-04-23', '2018-12-22'], 'redis_keys_to_delete': [b'block:2018-04-23:2018-05-01'], 'cass_start_range': None, 'redis_key_start': None, 'redis_key_end': None}
-2018-12-22 19:44:48,837 - logs/myutils.logs:242 - WARNING - construct_df, in cass load, sdate:1524456000000
-2018-12-22 19:45:12,032 - logs/myutils.logs:310 - WARNING - bigger df added so deleted key:block:2018-04-23:2018-05-01
-2018-12-22 19:45:22,774 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 19:45:22,775 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 19:45:22,775 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-12-20 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'end': False}
-2018-12-22 19:45:22,922 - logs/myutils.logs:223 - WARNING - df original, TAIL:       block_number        ...         transaction_hashes
-21472       1931242        ...                         []
-21473         43389        ...                         []
-21474         31505        ...                         []
-21475       1884472        ...                         []
-21476       1933110        ...                         []
+2018-12-24 21:23:43,192 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'load_type': 1, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23', 'cass_key_full': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_start_range': None, 'cass_full_range': None, 'redis_start_range': None}
+2018-12-24 21:23:43,193 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'load_type': 1, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23', 'cass_key_full': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_start_range': None, 'cass_full_range': None, 'redis_start_range': None}
+2018-12-24 21:23:47,898 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'load_type': 1, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23', 'cass_key_full': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_start_range': None, 'cass_full_range': None, 'redis_start_range': None}
+2018-12-24 21:23:47,898 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'load_type': 1, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23', 'cass_key_full': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_start_range': None, 'cass_full_range': None, 'redis_start_range': None}
+2018-12-24 21:23:50,792 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_full': None, 'cass_key_full': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 23, 0, 0), datetime.datetime(2018, 5, 23, 0, 0)], 'redis_start_range': None}
+2018-12-24 21:23:50,793 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_full': None, 'cass_key_full': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_end_range': None, 'cass_start_range': None, 'cass_full_range': [datetime.datetime(2018, 4, 23, 0, 0), datetime.datetime(2018, 5, 23, 0, 0)], 'redis_start_range': None}
+2018-12-24 21:23:50,797 - logs/myutils.logs:242 - WARNING - construct_df, in cass load, sdate:1524456000000
+2018-12-24 21:24:19,668 - logs/myutils.logs:315 - WARNING - transaction in construct df on load                                     transaction_hash  transaction_index  block_number  transaction_timestamp       ...       contract_addr transaction_year transaction_month transaction_day
+0  76e504bdfc3481dae7f77dd0cea8261135770fd600c9fa...                  0        211044       1526749048194969       ...                                 2018                 5              19
+1  4740c1bd07deda65d70e5683e639cf392f7af43d80cd98...                  1        211044       1526749049707207       ...                                 2018                 5              19
+2  6dd63c5f868976c81ba992265d583cfb93e924141ee479...                  2        211044       1526749049708059       ...                                 2018                 5              19
+3  5cb898a97045bddc6e9a27b1df6460454a10a40292eddf...                  3        211044       1526749049708804       ...                                 2018                 5              19
+4  7d46bc7ebd288e037d38dbfca3270c388fe8923f3e5103...                  0        104937       1525637031658010       ...                                 2018                 5               6
 
-[5 rows x 18 columns]
-2018-12-22 19:45:23,013 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'redis_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'redis_start_range': None, 'cass_key_full': None, 'redis_keys_to_delete': [], 'cass_start_range': None, 'redis_key_start': None, 'redis_key_end': None}
-2018-12-22 19:45:23,013 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'redis_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'redis_start_range': None, 'cass_key_full': None, 'redis_keys_to_delete': [], 'cass_start_range': None, 'redis_key_start': None, 'redis_key_end': None}
-2018-12-22 19:54:33,404 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-22 19:54:39,156 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_end_range': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'load_type': 1, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'cass_start_range': None, 'redis_key_start': None}
-2018-12-22 19:54:39,157 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_end_range': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'load_type': 1, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'cass_start_range': None, 'redis_key_start': None}
-2018-12-22 19:55:06,751 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_end_range': None, 'redis_key_full': None, 'cass_key_full': ['2018-04-23', '2018-12-22'], 'load_type': 2, 'redis_key_end': None, 'redis_keys_to_delete': [b'block:2018-04-23:2018-05-01'], 'redis_start_range': None, 'cass_end_range': None, 'cass_start_range': None, 'redis_key_start': None}
-2018-12-22 19:55:06,751 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_end_range': None, 'redis_key_full': None, 'cass_key_full': ['2018-04-23', '2018-12-22'], 'load_type': 2, 'redis_key_end': None, 'redis_keys_to_delete': [b'block:2018-04-23:2018-05-01'], 'redis_start_range': None, 'cass_end_range': None, 'cass_start_range': None, 'redis_key_start': None}
-2018-12-22 19:55:06,752 - logs/myutils.logs:242 - WARNING - construct_df, in cass load, sdate:1524456000000
-2018-12-22 19:55:22,945 - logs/myutils.logs:310 - WARNING - bigger df added so deleted key:block:2018-04-23:2018-05-01
-2018-12-22 19:55:31,818 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 19:55:31,819 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 19:55:31,820 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-12-20 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False}
-2018-12-22 19:55:31,975 - logs/myutils.logs:223 - WARNING - df original, TAIL:       block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
-21915       1931242  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b...  a0fde4c8c5         ...                  2                0.0                  []
-21916         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
-21917         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                 14                0.0                  []
-21918       1884472  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...  a08091ab03         ...                 25                0.0                  []
-21919       1933110  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...  a08091ab03         ...                  2                0.0                  []
+[5 rows x 16 columns]
+2018-12-24 21:24:19,803 - logs/myutils.logs:318 - WARNING - TRANSACTION saved to reddis:                                        transaction_hash  transaction_index  block_number  transaction_timestamp       ...       contract_addr transaction_year transaction_month transaction_day
+54318  834fd04329c0cb576d34abf958be2e5da2dd16e58f9187...                  0        187854       1526505281874068       ...                                 2018                 5              16
+54319  673c11a2a191353dcbbe19eb99bfce80cf088d3db9c566...                  0        198558       1526617494653407       ...                                 2018                 5              18
+54320  1669f4b91a46dc3bdba92a270eaf846189c6e1fd7a91d5...                  0        238140       1527031499453242       ...                                 2018                 5              22
+54321  d5f9855ea1a91a255cfbb84d31c7814d76021c116cca0c...                  1        238140       1527031499456211       ...                                 2018                 5              22
+54322  53f3b5a225a7bd67ee400bfb226eec183006dc7ec89544...                  0        146323       1526071066662064       ...                                 2018                 5              11
+54323  c1ff68bf260224d17c753908220296d7cb063fc6cb67f1...                  1        146323       1526071066663369       ...                                 2018                 5              11
+54324  5c054761f9b24ecda363de75690ec383b0a478af0924a1...                  0        130244       1525903755133444       ...                                 2018                 5               9
+54325  69845d793d48f3125e05638537bdd9359dee0db66c51a7...                  1        130244       1525903755134570       ...                                 2018                 5               9
+54326  73f636dcd1a9f88633269fbd022534605fba89d646cacf...                  0        230237       1526950723349850       ...                                 2018                 5              22
+54327  60f74d8fba842ee1bec99e6a459de622936c4db6c4ed2e...                  1        230237       1526950723359355       ...                                 2018                 5              22
 
-[5 rows x 18 columns]
-2018-12-22 19:55:32,064 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_end_range': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'cass_key_full': None, 'load_type': 1, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'cass_start_range': None, 'redis_key_start': None}
-2018-12-22 19:55:32,064 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_end_range': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'cass_key_full': None, 'load_type': 1, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'cass_start_range': None, 'redis_key_start': None}
-2018-12-22 19:55:32,938 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_end_range': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'cass_key_full': None, 'load_type': 1, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'cass_start_range': None, 'redis_key_start': None}
-2018-12-22 19:55:32,939 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_end_range': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'cass_key_full': None, 'load_type': 1, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'cass_start_range': None, 'redis_key_start': None}
-2018-12-22 19:55:33,121 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_end_range': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'cass_key_full': None, 'load_type': 1, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'cass_start_range': None, 'redis_key_start': None}
-2018-12-22 19:55:33,121 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_end_range': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'cass_key_full': None, 'load_type': 1, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'cass_start_range': None, 'redis_key_start': None}
-2018-12-22 20:01:36,515 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-22 20:01:42,258 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'cass_end_range': None, 'redis_end_range': None, 'cass_full_range': None, 'cass_start_range': None, 'load_type': 1, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-22 20:01:42,259 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_full': 'block:2018-04-23:2018-12-22', 'cass_end_range': None, 'redis_end_range': None, 'cass_full_range': None, 'cass_start_range': None, 'load_type': 1, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-22 20:02:02,555 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_end_range': None, 'redis_end_range': None, 'cass_full_range': None, 'cass_start_range': None, 'load_type': 1, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-22 20:02:02,555 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_end_range': None, 'redis_end_range': None, 'cass_full_range': None, 'cass_start_range': None, 'load_type': 1, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-22 20:02:14,956 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 20:02:14,957 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 20:02:14,957 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'start': False, 'end': False, 'max_date': Timestamp('2018-05-01 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:02:15,580 - logs/myutils.logs:223 - WARNING - df original, TAIL:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:02:15,669 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_end_range': None, 'redis_end_range': None, 'cass_full_range': None, 'cass_start_range': None, 'load_type': 1, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-22 20:02:15,669 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_end_range': None, 'redis_end_range': None, 'cass_full_range': None, 'cass_start_range': None, 'load_type': 1, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-22 20:06:42,426 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-22 20:06:46,763 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_end_range': None, 'cass_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_start_range': None, 'cass_full_range': None, 'load_type': 1, 'cass_key_full': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None, 'redis_keys_to_delete': []}
-2018-12-22 20:06:46,763 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_end_range': None, 'cass_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_start_range': None, 'cass_full_range': None, 'load_type': 1, 'cass_key_full': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None, 'redis_keys_to_delete': []}
-2018-12-22 20:07:09,222 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-22 20:07:14,199 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_key_start': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_start_range': None, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'redis_key_end': None, 'redis_end_range': None, 'cass_full_range': None}
-2018-12-22 20:07:14,199 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_key_start': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_start_range': None, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'redis_key_end': None, 'redis_end_range': None, 'cass_full_range': None}
-2018-12-22 20:07:43,038 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_key_start': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_start_range': None, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'redis_key_end': None, 'redis_end_range': None, 'cass_full_range': None}
-2018-12-22 20:07:43,039 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_key_start': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_start_range': None, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'redis_key_end': None, 'redis_end_range': None, 'cass_full_range': None}
-2018-12-22 20:07:57,609 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 20:07:57,610 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 20:07:57,611 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-05-01 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'end': False}
-2018-12-22 20:07:58,581 - logs/myutils.logs:223 - WARNING - df original, TAIL:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:07:58,662 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_key_start': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_start_range': None, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'redis_key_end': None, 'redis_end_range': None, 'cass_full_range': None}
-2018-12-22 20:07:58,663 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_key_start': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_start_range': None, 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_end_range': None, 'redis_key_end': None, 'redis_end_range': None, 'cass_full_range': None}
-2018-12-22 20:09:46,635 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-22 20:09:50,500 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:09:50,500 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:10:21,047 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:10:21,048 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:10:36,947 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 20:10:36,949 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 20:10:36,949 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-05-01 00:00:00'), 'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:10:38,351 - logs/myutils.logs:223 - WARNING - df original, TAIL:      block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
-4164         34430  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                  1                0.0                  []
-4165         37003  a0985fa3ff2fe4812c3ed3435923a227b1db9835d6c0ca...  a0985fa3ff         ...                  8                0.0                  []
-4166         16902  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 11                0.0                  []
-4167         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
-4168         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                 14                0.0                  []
-
-[5 rows x 18 columns]
-2018-12-22 20:10:38,431 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:10:38,431 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:14:48,257 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 20:14:48,257 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 20:14:48,257 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-05-01 00:00:00'), 'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:14:49,809 - logs/myutils.logs:223 - WARNING - df original, TAIL:      block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
-4164         34430  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                  1                0.0                  []
-4165         37003  a0985fa3ff2fe4812c3ed3435923a227b1db9835d6c0ca...  a0985fa3ff         ...                  8                0.0                  []
-4166         16902  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 11                0.0                  []
-4167         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
-4168         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                 14                0.0                  []
-
-[5 rows x 18 columns]
-2018-12-22 20:14:49,882 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:14:49,883 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:15:30,688 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 20:15:30,688 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 20:15:30,689 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-05-01 00:00:00'), 'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:15:32,311 - logs/myutils.logs:223 - WARNING - df original, TAIL:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:15:32,384 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:15:32,384 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:16:10,160 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 20:16:10,160 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 20:16:10,161 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-05-01 00:00:00'), 'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:16:12,258 - logs/myutils.logs:223 - WARNING - df original, TAIL:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:16:12,382 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:16:12,382 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:16:54,097 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 20:16:54,097 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 20:16:54,097 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-05-01 00:00:00'), 'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:16:56,415 - logs/myutils.logs:223 - WARNING - df original, TAIL:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:16:56,511 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:16:56,512 - logs/myutils.logs:232 - WARNING - construct df, params:{'cass_end_range': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_start': None, 'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'redis_key_full': 'block:2018-04-23:2018-05-01', 'cass_key_full': None, 'redis_keys_to_delete': [], 'redis_start_range': None}
-2018-12-22 20:28:58,025 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-22 20:29:03,766 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_key_full': 'block:2018-04-23:2018-05-01', 'redis_end_range': None, 'redis_key_end': None, 'cass_key_full': None, 'cass_full_range': None, 'redis_key_start': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'load_type': 1, 'redis_start_range': None}
-2018-12-22 20:29:03,766 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_key_full': 'block:2018-04-23:2018-05-01', 'redis_end_range': None, 'redis_key_end': None, 'cass_key_full': None, 'cass_full_range': None, 'redis_key_start': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'load_type': 1, 'redis_start_range': None}
-2018-12-22 20:29:59,430 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_key_full': 'block:2018-04-23:2018-05-01', 'redis_end_range': None, 'redis_key_end': None, 'cass_key_full': None, 'cass_full_range': None, 'redis_key_start': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'load_type': 1, 'redis_start_range': None}
-2018-12-22 20:29:59,430 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_key_full': 'block:2018-04-23:2018-05-01', 'redis_end_range': None, 'redis_key_end': None, 'cass_key_full': None, 'cass_full_range': None, 'redis_key_start': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'load_type': 1, 'redis_start_range': None}
-2018-12-22 20:30:28,160 - logs/myutils.logs:171 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-22 20:30:28,161 - logs/myutils.logs:172 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-22 20:30:28,162 - logs/myutils.logs:182 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'max_date': Timestamp('2018-05-01 00:00:00'), 'start': False}
-2018-12-22 20:30:31,149 - logs/myutils.logs:223 - WARNING - df original, TAIL:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:30:31,234 - logs/myutils.logs:230 - WARNING - params before hashrate error:{'redis_key_full': 'block:2018-04-23:2018-05-01', 'redis_end_range': None, 'redis_key_end': None, 'cass_key_full': None, 'cass_full_range': None, 'redis_key_start': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'load_type': 1, 'redis_start_range': None}
-2018-12-22 20:30:31,234 - logs/myutils.logs:232 - WARNING - construct df, params:{'redis_key_full': 'block:2018-04-23:2018-05-01', 'redis_end_range': None, 'redis_key_end': None, 'cass_key_full': None, 'cass_full_range': None, 'redis_key_start': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'load_type': 1, 'redis_start_range': None}
+[10 rows x 16 columns]

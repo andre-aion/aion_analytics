@@ -22,8 +22,8 @@ dedup_cols['block'] = ['block_number']
 dedup_cols['transaction'] = ['transaction_hash']
 columns['transaction'] = ['transaction_hash','transaction_index','block_number',
                        'transaction_timestamp','block_timestamp',"block_date",
-                       'from_addr','to_addr','value','nrg_consumed',
-                       'nrg_price','nonce','contract_addr','year',
-                       'month','day']
+                       'from_addr','to_addr','approx_value','nrg_consumed',
+                       'nrg_price','nonce','contract_addr','transaction_year',
+                       'transaction_month','transaction_day']
 
 

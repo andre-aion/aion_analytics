@@ -14,8 +14,12 @@ class StreamingDataframe:
             self.table_name = table_name
             logger.warning("init:%s",table_name)
 
-            self.columns = columns[table_name]
-            self.dedup_columns = dedup_columns[table_name]
+            if len(columns) > 0 :
+                self.columns = columns[table_name]
+                self.dedup_columns = dedup_columns[table_name]
+            else:
+                self.columns = []
+                self.dedup_columns = []
             # initialize as pandas
             df = pd.DataFrame(columns=self.columns)
             # convert to dask

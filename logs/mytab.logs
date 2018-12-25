@@ -1,284 +1,79 @@
-2018-12-22 20:06:42,427 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
-2018-12-22 20:07:09,224 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
-2018-12-22 20:07:42,990 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:07:42,991 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:07:42,991 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:07:42,991 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:07:42,997 - logs/mytab.logs:41 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
-2018-12-22 20:07:52,948 - logs/mytab.logs:52 - WARNING - load_data head:   block_number        ...         transaction_hashes
-0          1535        ...                         []
-1         57379        ...                         []
-2         12775        ...                         []
-3         46073        ...                         []
-4         23958        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:07:53,088 - logs/mytab.logs:53 - WARNING - load_data tail:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:07:55,804 - logs/mytab.logs:73 - WARNING - post load and filter:              block_time  difficulty block_date
-block_number                                   
-0                      0       16384 2018-04-23
-1                 100805       16384 2018-04-25
-2                     14       15592 2018-04-25
-3                     14       15592 2018-04-25
-4                     13       15592 2018-04-25
-2018-12-22 20:07:55,861 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:07:55,862 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:07:55,862 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:07:55,862 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:07:57,611 - logs/mytab.logs:41 - WARNING - load_data:{'max_date': Timestamp('2018-05-01 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'end': False}
-2018-12-22 20:08:07,826 - logs/mytab.logs:52 - WARNING - load_data head:   block_number        ...         transaction_hashes
-0          1535        ...                         []
-1         57379        ...                         []
-2         12775        ...                         []
-3         46073        ...                         []
-4         23958        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:08:07,977 - logs/mytab.logs:53 - WARNING - load_data tail:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:08:10,695 - logs/mytab.logs:73 - WARNING - post load and filter:              block_time  difficulty block_date
-block_number                                   
-0                      0       16384 2018-04-23
-1                 100805       16384 2018-04-25
-2                     14       15592 2018-04-25
-3                     14       15592 2018-04-25
-4                     13       15592 2018-04-25
-2018-12-22 20:09:46,637 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
-2018-12-22 20:10:21,013 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:10:21,013 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:10:21,013 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:10:21,013 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:10:21,017 - logs/mytab.logs:41 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-22 20:10:30,348 - logs/mytab.logs:52 - WARNING - load_data head:   block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
+2018-12-24 21:21:41,203 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-24 21:23:37,929 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
+2018-12-24 21:23:37,930 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-23 00:00:00
+2018-12-24 21:23:37,933 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
+2018-12-24 21:23:37,935 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-23 00:00:00
+2018-12-24 21:23:37,947 - logs/mytab.logs:41 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2018-12-24 21:23:40,556 - logs/mytab.logs:52 - WARNING - load_data head:   block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
 0          1535  a0518c851697466c45cac097c26ba82f648285483411fe...  a0518c8516         ...                  4                0.0                  []
-1         57379  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
-2         12775  a00d6f9214fed1d5c99f8f0486151c00ffff9248205408...  a00d6f9214         ...                  6                0.0                  []
-3         46073  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                 25                0.0                  []
-4         23958  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 20                0.0                  []
+1        219535  a0b8a29ddcb87870dc2f6d36c11c23acd2824d24cf9b23...  a0b8a29ddc         ...                 25                0.0                  []
+2        227203  a0db64eae1278d63f546cf6f246ea00d040701e373dbc9...  a0db64eae1         ...                  3                0.0                  []
+3         82694  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
+4         57379  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
 
 [5 rows x 18 columns]
-2018-12-22 20:10:30,518 - logs/mytab.logs:53 - WARNING - load_data tail:      block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
-4164         34430  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                  1                0.0                  []
-4165         37003  a0985fa3ff2fe4812c3ed3435923a227b1db9835d6c0ca...  a0985fa3ff         ...                  8                0.0                  []
-4166         16902  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 11                0.0                  []
-4167         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
-4168         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                 14                0.0                  []
-
-[5 rows x 18 columns]
-2018-12-22 20:10:34,253 - logs/mytab.logs:73 - WARNING - post load and filter:              block_time  difficulty block_date
-block_number                                   
-0                      0       16384 2018-04-23
-1                 100805       16384 2018-04-25
-2                     14       15592 2018-04-25
-3                     14       15592 2018-04-25
-4                     13       15592 2018-04-25
-2018-12-22 20:10:34,306 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:10:34,307 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:10:34,307 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:10:34,307 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:10:36,949 - logs/mytab.logs:41 - WARNING - load_data:{'max_date': Timestamp('2018-05-01 00:00:00'), 'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:10:48,052 - logs/mytab.logs:52 - WARNING - load_data head:   block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
+2018-12-24 21:23:40,992 - logs/mytab.logs:72 - WARNING - post load and filter:   index  block_time  difficulty block_date  block_number
+0      0           4       27890 2018-04-25          1535
+1      1          25     6266561 2018-05-20        219535
+2      2           3     6443790 2018-05-21        227203
+3      3           6     3546500 2018-05-03         82694
+4      4          10     3158455 2018-04-30         57379
+2018-12-24 21:23:41,218 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
+2018-12-24 21:23:41,219 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-23 00:00:00
+2018-12-24 21:23:41,220 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
+2018-12-24 21:23:41,221 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-23 00:00:00
+2018-12-24 21:23:42,309 - logs/mytab.logs:41 - WARNING - load_data:{'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'max_date': Timestamp('2018-05-23 00:00:00'), 'start': False}
+2018-12-24 21:23:45,825 - logs/mytab.logs:52 - WARNING - load_data head:   block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
 0          1535  a0518c851697466c45cac097c26ba82f648285483411fe...  a0518c8516         ...                  4                0.0                  []
-1         57379  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
-2         12775  a00d6f9214fed1d5c99f8f0486151c00ffff9248205408...  a00d6f9214         ...                  6                0.0                  []
-3         46073  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                 25                0.0                  []
-4         23958  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 20                0.0                  []
+1        219535  a0b8a29ddcb87870dc2f6d36c11c23acd2824d24cf9b23...  a0b8a29ddc         ...                 25                0.0                  []
+2        227203  a0db64eae1278d63f546cf6f246ea00d040701e373dbc9...  a0db64eae1         ...                  3                0.0                  []
+3         82694  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
+4         57379  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
 
 [5 rows x 18 columns]
-2018-12-22 20:10:48,226 - logs/mytab.logs:53 - WARNING - load_data tail:      block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
-4164         34430  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                  1                0.0                  []
-4165         37003  a0985fa3ff2fe4812c3ed3435923a227b1db9835d6c0ca...  a0985fa3ff         ...                  8                0.0                  []
-4166         16902  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 11                0.0                  []
-4167         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
-4168         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                 14                0.0                  []
-
-[5 rows x 18 columns]
-2018-12-22 20:10:51,765 - logs/mytab.logs:73 - WARNING - post load and filter:              block_time  difficulty block_date
-block_number                                   
-0                      0       16384 2018-04-23
-1                 100805       16384 2018-04-25
-2                     14       15592 2018-04-25
-3                     14       15592 2018-04-25
-4                     13       15592 2018-04-25
-2018-12-22 20:14:45,329 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:14:45,329 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:14:45,329 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:14:45,330 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:14:48,258 - logs/mytab.logs:41 - WARNING - load_data:{'max_date': Timestamp('2018-05-01 00:00:00'), 'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:15:02,080 - logs/mytab.logs:52 - WARNING - load_data head:   block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
+2018-12-24 21:23:46,203 - logs/mytab.logs:72 - WARNING - post load and filter:   index  block_time  difficulty block_date  block_number
+0      0           4       27890 2018-04-25          1535
+1      1          25     6266561 2018-05-20        219535
+2      2           3     6443790 2018-05-21        227203
+3      3           6     3546500 2018-05-03         82694
+4      4          10     3158455 2018-04-30         57379
+2018-12-24 21:23:47,750 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
+2018-12-24 21:23:47,751 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-23 00:00:00
+2018-12-24 21:23:47,751 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
+2018-12-24 21:23:47,752 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-23 00:00:00
+2018-12-24 21:23:47,759 - logs/mytab.logs:41 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2018-12-24 21:23:50,223 - logs/mytab.logs:52 - WARNING - load_data head:   block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
 0          1535  a0518c851697466c45cac097c26ba82f648285483411fe...  a0518c8516         ...                  4                0.0                  []
-1         57379  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
-2         12775  a00d6f9214fed1d5c99f8f0486151c00ffff9248205408...  a00d6f9214         ...                  6                0.0                  []
-3         46073  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                 25                0.0                  []
-4         23958  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 20                0.0                  []
+1        219535  a0b8a29ddcb87870dc2f6d36c11c23acd2824d24cf9b23...  a0b8a29ddc         ...                 25                0.0                  []
+2        227203  a0db64eae1278d63f546cf6f246ea00d040701e373dbc9...  a0db64eae1         ...                  3                0.0                  []
+3         82694  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
+4         57379  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...  a0c7e08b1b         ...                 10                0.0                  []
 
 [5 rows x 18 columns]
-2018-12-22 20:15:02,284 - logs/mytab.logs:53 - WARNING - load_data tail:      block_number                                      miner_address  miner_addr         ...         block_time  approx_nrg_reward  transaction_hashes
-4164         34430  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                  1                0.0                  []
-4165         37003  a0985fa3ff2fe4812c3ed3435923a227b1db9835d6c0ca...  a0985fa3ff         ...                  8                0.0                  []
-4166         16902  a0fbcacc2343a1e3c426d8063eef677c69dc258ac65b15...  a0fbcacc23         ...                 11                0.0                  []
-4167         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...  a0762b81cb         ...                  6                0.0                  []
-4168         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...  a0426ebf76         ...                 14                0.0                  []
+2018-12-24 21:23:50,589 - logs/mytab.logs:72 - WARNING - post load and filter:   index block_date  block_number                                      miner_address     block_timestamp transaction_hashes
+0      0 2018-04-25          1535  a0518c851697466c45cac097c26ba82f648285483411fe... 2018-04-25 01:37:03                 []
+1      1 2018-05-20        219535  a0b8a29ddcb87870dc2f6d36c11c23acd2824d24cf9b23... 2018-05-20 13:42:17                 []
+2      2 2018-05-21        227203  a0db64eae1278d63f546cf6f246ea00d040701e373dbc9... 2018-05-21 11:55:29                 []
+3      3 2018-05-03         82694  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c... 2018-05-03 23:35:28                 []
+4      4 2018-04-30         57379  a0c7e08b1baa0393c62152a65f99c75319186ab3548906... 2018-04-30 21:59:00                 []
+2018-12-24 21:23:50,663 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
+2018-12-24 21:23:50,664 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-23 00:00:00
+2018-12-24 21:23:50,664 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
+2018-12-24 21:23:50,664 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-23 00:00:00
+2018-12-24 21:23:50,670 - logs/mytab.logs:41 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2018-12-24 21:24:21,527 - logs/mytab.logs:52 - WARNING - load_data head:                                    transaction_hash  transaction_index  block_number  transaction_timestamp       ...       contract_addr transaction_year transaction_month transaction_day
+0  76e504bdfc3481dae7f77dd0cea8261135770fd600c9fa...                  0        211044       1526749048194969       ...                                 2018                 5              19
+1  4740c1bd07deda65d70e5683e639cf392f7af43d80cd98...                  1        211044       1526749049707207       ...                                 2018                 5              19
+2  6dd63c5f868976c81ba992265d583cfb93e924141ee479...                  2        211044       1526749049708059       ...                                 2018                 5              19
+3  5cb898a97045bddc6e9a27b1df6460454a10a40292eddf...                  3        211044       1526749049708804       ...                                 2018                 5              19
+4  7d46bc7ebd288e037d38dbfca3270c388fe8923f3e5103...                  0        104937       1525637031658010       ...                                 2018                 5               6
 
-[5 rows x 18 columns]
-2018-12-22 20:15:07,035 - logs/mytab.logs:73 - WARNING - post load and filter:              block_time  difficulty block_date
-block_number                                   
-0                      0       16384 2018-04-23
-1                 100805       16384 2018-04-25
-2                     14       15592 2018-04-25
-3                     14       15592 2018-04-25
-4                     13       15592 2018-04-25
-2018-12-22 20:15:27,498 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:15:27,499 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:15:27,499 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:15:27,499 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:15:30,689 - logs/mytab.logs:41 - WARNING - load_data:{'max_date': Timestamp('2018-05-01 00:00:00'), 'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:15:42,155 - logs/mytab.logs:52 - WARNING - load_data head:   block_number        ...         transaction_hashes
-0          1535        ...                         []
-1         57379        ...                         []
-2         12775        ...                         []
-3         46073        ...                         []
-4         23958        ...                         []
+[5 rows x 16 columns]
+2018-12-24 21:24:21,677 - logs/mytab.logs:72 - WARNING - post load and filter:   index block_date     ...                                                 to_addr approx_value
+0      0 2018-05-19     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...     1.358690
+1      1 2018-05-19     ...       a0c122b32786867cee1b4940280bf9f9fd782af019044e...     0.665824
+2      2 2018-05-19     ...       a08507198549743a1c005a69c6e7d9a4e110fe3d1b0110...     0.665824
+3      3 2018-05-19     ...       a04e625e67f21973403b6cc458f79d19e098e05a5540a7...     0.027176
+4      4 2018-05-06     ...       a08507198549743a1c005a69c6e7d9a4e110fe3d1b0110...     1.031170
 
-[5 rows x 18 columns]
-2018-12-22 20:15:42,341 - logs/mytab.logs:53 - WARNING - load_data tail:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:15:46,360 - logs/mytab.logs:73 - WARNING - post load and filter:              block_time  difficulty block_date
-block_number                                   
-0                      0       16384 2018-04-23
-1                 100805       16384 2018-04-25
-2                     14       15592 2018-04-25
-3                     14       15592 2018-04-25
-4                     13       15592 2018-04-25
-2018-12-22 20:16:06,651 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:16:06,652 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:16:06,652 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:16:06,652 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:16:10,161 - logs/mytab.logs:41 - WARNING - load_data:{'max_date': Timestamp('2018-05-01 00:00:00'), 'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:16:23,007 - logs/mytab.logs:52 - WARNING - load_data head:   block_number        ...         transaction_hashes
-0          1535        ...                         []
-1         57379        ...                         []
-2         12775        ...                         []
-3         46073        ...                         []
-4         23958        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:16:23,220 - logs/mytab.logs:53 - WARNING - load_data tail:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:16:27,488 - logs/mytab.logs:73 - WARNING - post load and filter:              block_time  difficulty block_date
-block_number                                   
-0                      0       16384 2018-04-23
-1                 100805       16384 2018-04-25
-2                     14       15592 2018-04-25
-3                     14       15592 2018-04-25
-4                     13       15592 2018-04-25
-2018-12-22 20:16:50,373 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:16:50,374 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:16:50,374 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:16:50,374 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:16:54,098 - logs/mytab.logs:41 - WARNING - load_data:{'max_date': Timestamp('2018-05-01 00:00:00'), 'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-22 20:17:08,989 - logs/mytab.logs:52 - WARNING - load_data head:   block_number        ...         transaction_hashes
-0          1535        ...                         []
-1         57379        ...                         []
-2         12775        ...                         []
-3         46073        ...                         []
-4         23958        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:17:09,278 - logs/mytab.logs:53 - WARNING - load_data tail:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:17:15,476 - logs/mytab.logs:73 - WARNING - post load and filter:              block_time  difficulty block_date
-block_number                                   
-0                      0       16384 2018-04-23
-1                 100805       16384 2018-04-25
-2                     14       15592 2018-04-25
-3                     14       15592 2018-04-25
-4                     13       15592 2018-04-25
-2018-12-22 20:28:58,027 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
-2018-12-22 20:29:59,393 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:29:59,393 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:29:59,393 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:29:59,394 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:29:59,398 - logs/mytab.logs:41 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-22 20:30:14,550 - logs/mytab.logs:52 - WARNING - load_data head:   block_number        ...         transaction_hashes
-0          1535        ...                         []
-1         57379        ...                         []
-2         12775        ...                         []
-3         46073        ...                         []
-4         23958        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:30:14,926 - logs/mytab.logs:53 - WARNING - load_data tail:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:30:23,161 - logs/mytab.logs:73 - WARNING - post load and filter:              block_time  difficulty block_date
-block_number                                   
-0                      0       16384 2018-04-23
-1                 100805       16384 2018-04-25
-2                     14       15592 2018-04-25
-3                     14       15592 2018-04-25
-4                     13       15592 2018-04-25
-2018-12-22 20:30:23,220 - logs/mytab.logs:30 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:30:23,220 - logs/mytab.logs:31 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:30:23,220 - logs/mytab.logs:34 - WARNING - load_data,start_date:2018-04-23 00:00:00
-2018-12-22 20:30:23,220 - logs/mytab.logs:35 - WARNING - load_data,end_date:2018-05-01 00:00:00
-2018-12-22 20:30:28,162 - logs/mytab.logs:41 - WARNING - load_data:{'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'max_date': Timestamp('2018-05-01 00:00:00'), 'start': False}
-2018-12-22 20:30:42,106 - logs/mytab.logs:52 - WARNING - load_data head:   block_number        ...         transaction_hashes
-0          1535        ...                         []
-1         57379        ...                         []
-2         12775        ...                         []
-3         46073        ...                         []
-4         23958        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:30:42,352 - logs/mytab.logs:53 - WARNING - load_data tail:      block_number        ...         transaction_hashes
-4164         34430        ...                         []
-4165         37003        ...                         []
-4166         16902        ...                         []
-4167         43389        ...                         []
-4168         31505        ...                         []
-
-[5 rows x 18 columns]
-2018-12-22 20:30:47,894 - logs/mytab.logs:73 - WARNING - post load and filter:              block_time  difficulty block_date
-block_number                                   
-0                      0       16384 2018-04-23
-1                 100805       16384 2018-04-25
-2                     14       15592 2018-04-25
-3                     14       15592 2018-04-25
-4                     13       15592 2018-04-25
+[5 rows x 6 columns]

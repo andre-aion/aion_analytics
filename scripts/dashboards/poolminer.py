@@ -49,7 +49,7 @@ tables['block'] = 'block'
 tables['transaction'] = 'transaction'
 
 @coroutine
-def hashrate_tab():
+def poolminer_tab():
     # source for top N table
     tier1_src = ColumnDataSource(data= dict(
                 block_date=[],
@@ -62,12 +62,12 @@ def hashrate_tab():
                           query_cols=['block_date','block_number',
                                       'miner_address','block_timestamp',
                                       'transaction_hashes'])
-        transaction_tab = Mytab('transacton',cols, dedup_cols,
-                                query_cols=['block_date','block_timestamp',
+        transaction_tab = Mytab('transaction',cols, dedup_cols,
+                                query_cols=['block_date',
                                             'transaction_hash','from_addr',
                                             'to_addr','approx_value'])
         def __init__(self, table, cols=[], dedup_cols=[], query_cols=[]):
-            Mytab.__init__(self, table, cols=[], dedup_cols=[], query_cols=[])
+            Mytab.__init__(self, table, cols, dedup_cols, query_cols)
             self.table = table
             self.df = None
             self.tier1_df1 = None
@@ -75,22 +75,26 @@ def hashrate_tab():
         def load_this_data(self, start_date, end_date):
             end_date = datetime.combine(end_date, datetime.min.time())
             start_date = datetime.combine(start_date, datetime.min.time())
-            # check to see
-            # load warehouse data
-            make_warehouse = warehouse_needed(start_date, end_date)
-            if make_warehouse:
+            # check to see if table loaded
+            block_tx_needed = thistab.load_data(start_date,end_date)
+            if block_tx_needed:
                 # load the two tables
                 self.block_tab.load_data(start_date,end_date)
                 self.transaction_tab.load_data(start_date,end_date)
-                self.df = make_poolminer_warehouse(self.block_tab.df,
-                                                   self.transaction_tab.df)
-            # load the warehouse
-            self.load_data(start_date, end_date)
+                self.df = make_poolminer_warehouse(
+                                                   self.transaction_tab.df,
+                                                   self.block_tab.df,
+                                                   start_date,
+                                                   end_date)
+            else:
+                # load the warehouse
+                logger.warning('warehouse already loaded:%s',self.df.tail(40))
             return self.make_tier1_table(start_date, end_date)
 
         def make_tier1_table(self,start_date,end_date):
             # get tier1 miners list
-            tier1_miners_list = make_tier1_list(start_date,end_date)
+            tier1_miners_list = make_tier1_list(self.df,start_date,end_date)
+            logger.warning("tier 1 miners:%s",tier1_miners_list)
             # filter dataframe to get list
             self.tier1_df = self.df[self.df.from_addr.isin(tier1_miners_list)]
             self.tier1_df = self.tier1_df.groupBy(['miner_address','block_date'])\
@@ -118,8 +122,8 @@ def hashrate_tab():
 
 
     try:
-        query_cols=['block_time','difficulty','block_date','block_number']
-        thistab = Thistab('block_tx_warehouse', cols, dedup_cols, query_cols)
+        #query_cols=['block_time','difficulty','block_date','block_number']
+        thistab = Thistab('block_tx_warehouse')
 
         # STATIC DATES
         # format dates
@@ -128,7 +132,7 @@ def hashrate_tab():
         last_date_range = datetime.now().date()
         last_date = "2018-05-23 00:00:00"
         last_date = datetime.strptime(last_date, "%Y-%m-%d %H:%M:%S")
-        thistab.load_data(first_date_range,last_date)
+        thistab.load_this_data(first_date_range,last_date)
 
 
         # MANAGE STREAM
