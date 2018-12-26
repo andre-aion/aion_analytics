@@ -1,7 +1,7 @@
 from scripts.utils.mylogger import mylogger
 from scripts.utils.hashrate import calc_hashrate
 from scripts.utils.myutils import get_initial_blocks, tab_error_flag
-from scripts.utils.mytab import Mytab
+from scripts.utils.mytab import Mytab, DataLocation
 from config import dedup_cols, columns as cols
 from tornado import gen
 from concurrent.futures import ThreadPoolExecutor
@@ -50,16 +50,17 @@ def hashrate_tab():
         def __init__(self, table, cols, dedup_cols, query_cols):
             Mytab.__init__(self, table, cols, dedup_cols, query_cols)
 
-        def load_this_data(self, start_date, end_date, bcount):
-
+        def load_this_data(self, start_date, end_date, bcount=10):
             self.locals['blockcount'] = bcount
-            self.load_data(start_date, end_date)
+            data_in_memory = self.is_data_in_memory(start_date,end_date)
+            if data_in_memory != DataLocation.IN_MEMORY:
+                self.load_data(start_date, end_date)
             self.difficulty_plot()
             return self.hashrate_plot(bcount)
 
         def hashrate_plot(self,bcount):
             try:
-                df1 = calc_hashrate(self.df1, bcount).reset_index()
+                df1 = calc_hashrate(self.df1, bcount)
                 #curve = hv.Curve(df, kdims=['block_number'], vdims=['hashrate'])\
                     #.options(width=1000,height=600)
 
@@ -111,7 +112,8 @@ def hashrate_tab():
         last_date_range = datetime.now().date()
         last_date = "2018-05-23 00:00:00"
         last_date = datetime.strptime(last_date, "%Y-%m-%d %H:%M:%S")
-        thistab.load_data(first_date_range,last_date)
+
+        thistab.load_this_data(first_date_range, last_date,)
 
 
         # MANAGE STREAM

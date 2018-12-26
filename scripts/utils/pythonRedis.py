@@ -100,9 +100,9 @@ class RedisStorage:
             key = self.compose_key(key_params, start_date, end_date)
             self.conn.setex(name=key, time=EXPIRATION_SECONDS,
                             value=zlib.compress(pickle.dumps(item)))
-            logger.warning("%s saved to redis",key)
+            logger.warning("SAVE: %s saved to redis",key)
         except Exception:
-            logger.error('save df',exc_info=True)
+            logger.error('save to redis',exc_info=True)
 
 
     def load(self, key_params, start_date, end_date, key=None, item_type=''):
@@ -112,15 +112,17 @@ class RedisStorage:
             logger.warning('load-df key:%s', key)
             item = pickle.loads(zlib.decompress(self.conn.get(key)))
 
+            '''
             # if item is dataframe filter using start date and end date
             if item_type == 'dataframe':
                 # convert dates to datetime
                 start_date = self.ms_to_date(start_date)
                 end_date = self.ms_to_date(end_date)
 
-                logger.warning('load  start date:%s', start_date)
+                logger.warning('LOAD: loaded from redis:%s', key_params)
                 item = item[(item.block_date >= start_date)
                        & (item.block_date <= end_date)]
+            '''
             return item
         except Exception:
             logger.error('load item', exc_info=True)

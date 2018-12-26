@@ -13,13 +13,6 @@ import numpy as np
 r = RedisStorage()
 logger = mylogger(__file__)
 
-def remove_quotes(row):
-    return row['transaction_hashes'].replace("\'", "")
-def remove_brackets(row):
-    row['transaction_hashes']=row['transaction_hashes'].replace("[","")
-    row['transaction_hashes']=row['transaction_hashes'].replace("]","")
-    return row
-
 def remove_char(row):
     return re.sub('\[','',row['transaction_hashes'])
 
@@ -56,7 +49,10 @@ def list_to_rows(df, column, sep=',', keep=False):
             new_values.append(presplit)
         for value in values:
             indexes.append(i)
+            # remove stray brackets
+            value = re.sub('\[|\]',"",value)
             new_values.append(value)
+
     new_df = df.iloc[indexes, :].copy()
     new_df[column] = new_values
     return new_df
@@ -73,11 +69,8 @@ def explode_transaction_hashes(df):
                                           remove_quotes(df1.transaction_hashes)),
                                meta=df)
                                '''
-        df['transaction_hashes'] = df.apply(remove_quotes,axis=1)
-
         # explode the list
         df = list_to_rows(df,"transaction_hashes")
-        df = df.apply(remove_brackets, axis=1)
 
         return df
     except Exception:
@@ -86,22 +79,22 @@ def explode_transaction_hashes(df):
 
 # make data warehouse only if tier1 and tier2 miner lists do not exits
 def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
+    logger.warning("df_tx columns in make_poolminer_warehose:%s",df_tx.columns.tolist())
+    logger.warning("df_block columns in make_poolminer_warehose:%s",df_block.columns.tolist())
+
     df_tx = df_tx[['transaction_hash','from_addr','to_addr','approx_value']]
     df_block = df_block[['miner_address','block_number','transaction_hashes',
                                  'block_date']]
-    logger.warning("block entering poolminer warehouse:%s:",
-                   df_block.tail(30))
     try:
         key_params = 'block_tx_warehouse'
         meta = make_meta({
                           'block_date': 'M8', 'block_number': 'i8',
                           'miner_address': 'object', 'transaction_hashes': 'object'})
-        #df_block = df_block.map_partitions(explode_transaction_hashes)
+        df_block = df_block.map_partitions(explode_transaction_hashes)
         logger.warning('COLUMNS %s:',df_block.columns.tolist())
-        #logger.warning("transaction hash:%s",df_tx['transaction_hash'].tail(20))
         df_block.reset_index()
-
-        logger.warning("df_block datatypes:%s",df_block.dtypes)
+        logger.warning("transaction hash:%s",df_tx['transaction_hash'].tail(20))
+        logger.warning("df_block transaction_hashes:%s",df_block['transaction_hashes'].tail(30))
 
         # join block and transaction table
         df = df_block.merge(df_tx, how='left',
@@ -109,8 +102,11 @@ def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
                                       right_on='transaction_hash')  # do the merge\
         df = df.drop(['transaction_hashes'],axis=1)
         df = df.reset_index()
+        values = {'transaction_hash': 0}
+        df = df.fillna(value=values)
         logger.warning("df after merge:%s:",
                        df['transaction_hash'].tail(30))
+        logger.warning(("merged columns",df.columns.tolist()))
         # save to redis
         r.save(df, key_params, start_date, end_date)
         return df
@@ -123,14 +119,17 @@ def daily_percent(df,x):
     total = df.block_number.sum()
     return 100*x.block_number/total
 
-@coroutine
 def list_by_tx_paid_out(df, delta_days, threshold=10):
+    lst = []
     try:
         df_temp = df.groupby('from_addr')['to_addr'].count().reset_index()
         # find daily mean
         df_temp = df_temp[df_temp.to_addr >= threshold*delta_days]
-        lst = df_temp['to_addr'].unique().compute()
+        lst = df_temp['from_addr'].unique().compute()
+        lst = [str(x) for x in lst if not isinstance(x,str)]
         logger.warning("miners found by paid out: %s",len(lst))
+        logger.warning("miners found by blocks mined: %s", lst)
+
         del df_temp
         gc.collect()
         return lst
@@ -138,21 +137,37 @@ def list_by_tx_paid_out(df, delta_days, threshold=10):
         logger.error("tx paid out", exc_info=True)
 
 
-@coroutine
 def list_from_blocks_mined_daily(df,delta_days,threshold_percentage=1):
+    lst = []
     try:
         df_temp = df.groupby('miner_address')['block_number'].count().reset_index()
         total_blocks_mined_daily = 8640
         # convert percentage threshold to number
         threshold = threshold_percentage*delta_days*total_blocks_mined_daily/100
-        df_temp = df_temp[df_temp.miner_address >= threshold]
+        df_temp = df_temp[df_temp.block_number >= threshold]
         lst = df_temp['miner_address'].unique().compute()
+        lst = [str(x) for x in lst if not isinstance(x,str)]
         logger.warning("miners found by blocks mined: %s", len(lst))
+        logger.warning("miners found by blocks mined: %s", lst)
+
         del df_temp
         gc.collect()
         return lst
     except Exception:
         logger.error("block mined daily", exc_info=True)
+
+def get_key_in_redis(key_params,start_date,end_date):
+    # get keys
+    str_to_match = r.compose_key(key_params,start_date,end_date)
+    matches = r.conn.scan_iter(match=str_to_match)
+    redis_key = None
+    if matches:
+        for redis_key in matches:
+            redis_key_encoded = redis_key
+            redis_key = str(redis_key, 'utf-8')
+            logger.warning('redis_key:%s', redis_key)
+            break
+    return redis_key
 
 
 def warehouse_needed(start_date,end_date, threshold_tx_paid_out=10,threshold_blocks_mined_per_day=1,
@@ -200,8 +215,8 @@ def make_tier1_list(df, start_date, end_date, threshold_tx_paid_out=10,
 
             # tier 1 = percentage mined per day > threshold || transactions paid out > threshold per day#
             # make unique list of tier 1
-            lst_a = yield list_by_tx_paid_out(df,delta_days,threshold_tx_paid_out)
-            lst_b = yield list_from_blocks_mined_daily(df, delta_days,threshold_blocks_mined_per_day)
+            lst_a = list_by_tx_paid_out(df,delta_days,threshold_tx_paid_out)
+            lst_b = list_from_blocks_mined_daily(df, delta_days,threshold_blocks_mined_per_day)
             # merge lists, drop duplicates
             tier1_miner_list = list(set(lst_a + lst_b))
             # save tier1 miner list to redis

@@ -4,7 +4,7 @@ from scripts.utils.mylogger import mylogger
 from scripts.utils.poolminer import make_poolminer_warehouse, make_tier1_list,\
     make_tier2_list, warehouse_needed
 from scripts.utils.myutils import tab_error_flag
-from scripts.utils.mytab import Mytab
+from scripts.utils.mytab import Mytab, DataLocation
 from config import dedup_cols, columns as cols
 from tornado import gen
 from concurrent.futures import ThreadPoolExecutor
@@ -58,58 +58,71 @@ def poolminer_tab():
                 block_number=[]))
 
     class Thistab(Mytab):
-        block_tab = Mytab('block', cols, dedup_cols,
-                          query_cols=['block_date','block_number',
-                                      'miner_address','block_timestamp',
-                                      'transaction_hashes'])
+        block_tab = Mytab('block', cols, dedup_cols)
         transaction_tab = Mytab('transaction',cols, dedup_cols,
                                 query_cols=['block_date',
                                             'transaction_hash','from_addr',
                                             'to_addr','approx_value'])
+
         def __init__(self, table, cols=[], dedup_cols=[], query_cols=[]):
             Mytab.__init__(self, table, cols, dedup_cols, query_cols)
             self.table = table
-            self.df = None
             self.tier1_df1 = None
 
         def load_this_data(self, start_date, end_date):
             end_date = datetime.combine(end_date, datetime.min.time())
             start_date = datetime.combine(start_date, datetime.min.time())
             # check to see if table loaded
-            block_tx_needed = thistab.load_data(start_date,end_date)
-            if block_tx_needed:
+            data_location = self.is_data_in_memory(start_date,end_date)
+            if data_location == DataLocation.IN_MEMORY:
+                thistab.filter_df(start_date,end_date)
+                logger.warning('warehouse already loaded:%s',self.df.tail(40))
+            elif data_location == DataLocation.IN_REDIS:
+                self.load_data(start_date, end_date)
+            else:
                 # load the two tables
                 self.block_tab.load_data(start_date,end_date)
                 self.transaction_tab.load_data(start_date,end_date)
-                self.df = make_poolminer_warehouse(
-                                                   self.transaction_tab.df,
-                                                   self.block_tab.df,
-                                                   start_date,
-                                                   end_date)
-            else:
-                # load the warehouse
-                logger.warning('warehouse already loaded:%s',self.df.tail(40))
+                self.load_data(start_date,end_date,df_tx=self.transaction_tab.df,
+                               df_block=self.block_tab.df)
+                # make the warehouse
+
             return self.make_tier1_table(start_date, end_date)
 
         def make_tier1_table(self,start_date,end_date):
             # get tier1 miners list
-            tier1_miners_list = make_tier1_list(self.df,start_date,end_date)
+            logger.warning(("merged columns",self.df.columns.tolist()))
+
+            tier1_miners_list = make_tier1_list(self.df1,start_date,end_date)
             logger.warning("tier 1 miners:%s",tier1_miners_list)
             # filter dataframe to get list
-            self.tier1_df = self.df[self.df.from_addr.isin(tier1_miners_list)]
-            self.tier1_df = self.tier1_df.groupBy(['miner_address','block_date'])\
+            logger.warning('d1f before filter:%s',self.df1['from_addr'].head(20))
+            #mask = self.df1['from_addr'].isin(tier1_miners_list)
+            #tier1_df = self.df1[mask].compute()
+            dct = {}
+            dct['from_addr'] = tier1_miners_list
+            dct['index'] = list(range(len(tier1_miners_list)))
+            df = pd.DataFrame(dct)
+            ddf = dd.dataframe.from_pandas(df, npartitions=1)
+            logger.warning('ddf from list :%s',ddf.head(20))
+            tier1_df = self.df1.merge(ddf, how='inner',
+                                      on='from_addr')  # do the merge\
+            tier1_df.compute()
+            logger.warning('tier 1_df before groupby:%s',tier1_df.head(20))
+
+            tier1_df = tier1_df.groupby(['miner_address','block_date'])\
                 .agg({'approx_value':'sum',
                       'block_number':'count'}).reset_index()
-
+            logger.warning('tier 1_df after groupby:%s',tier1_df.head(20))
             new_data = dict(
-                block_date=self.tier1_df.block_date,
-                miner_address=self.tier1_df.miner_address,
-                approx_value=self.tier1_df.approx_value,
-                block_number=self.tier1_df.block_number
+                block_date=tier1_df.block_date,
+                miner_address=tier1_df.miner_address,
+                approx_value=tier1_df.approx_value,
+                block_number=tier1_df.block_number
             )
             # src.stream
-            tier1_src.stream(new_data)
-            return self.tier1_df.hvplot.table(columns=['miner_address','block_date',
+            #tier1_src.stream(new_data,rollover=self.table)
+            return tier1_df.hvplot.table(columns=['miner_address','block_date',
                                       'block_number','approx_value'],width=800)
 
         # notify the holoviews stream of the slider updates
@@ -122,8 +135,9 @@ def poolminer_tab():
 
 
     try:
-        #query_cols=['block_time','difficulty','block_date','block_number']
-        thistab = Thistab('block_tx_warehouse')
+        query_cols=['block_date','block_number','to_addr',
+                    'from_addr','miner_address','approx_value','transaction_hash']
+        thistab = Thistab('block_tx_warehouse',query_cols=query_cols)
 
         # STATIC DATES
         # format dates
@@ -132,6 +146,7 @@ def poolminer_tab():
         last_date_range = datetime.now().date()
         last_date = "2018-05-23 00:00:00"
         last_date = datetime.strptime(last_date, "%Y-%m-%d %H:%M:%S")
+
         thistab.load_this_data(first_date_range,last_date)
 
 

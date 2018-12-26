@@ -47,7 +47,7 @@ def blockminer_tab():
                                      block_number=[]))
 
     class Blockminer():
-        querycols = ['block_number', 'miner_addr', 'block_date','block_time']
+        querycols = ['block_number', 'miner_address', 'block_date','block_time']
         cols = cols
         dedup_cols = dedup_cols
         streaming_dataframe = SD('block', cols, dedup_cols)
@@ -106,7 +106,7 @@ def blockminer_tab():
                 logger.warning('prep dataset END DATE:%s', end_date)
                 #logger.warning('prep dataset DF1:%s', self.df1.compute().head())
 
-                return self.df1.hvplot.bar('miner_addr','block_number', rot=90,
+                return self.df1.hvplot.bar('miner_address','block_number', rot=90,
                                            width=1500,title='block_number by miner address',
                                            hover_cols=['percentage'])
             except Exception:
@@ -232,7 +232,7 @@ def blockminer_tab():
         grid = gridplot([[controls, topN_table], [all_plot.state]])
 
         # Make a tab with the layout
-        tab = Panel(child=grid, title='Poolminer')
+        tab = Panel(child=grid, title='Blockminer')
 
         return tab
 

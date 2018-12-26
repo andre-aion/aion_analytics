@@ -153,46 +153,40 @@ def slider_ts_to_str(ts):
 
 #
 # check to see if the current data is within the active dataset
-def set_params_to_load(df, start_date, end_date):
+def set_params_to_load(df, req_start_date, req_end_date):
     try:
+        if isinstance(req_start_date, int):
+            req_start_date = ms_to_date(req_start_date)
+            req_end_date = ms_to_date(req_end_date)
         params = dict()
-        params['start'] = False
-        params['min_date'] = None
-        params['end'] = False
-        params['max_date'] = None
+        params['start'] = True
+        params['min_date'] = datetime.strptime('2010-01-01', '%Y-%m-%d')
+        params['max_date'] = datetime.strptime('2010-01-02', '%Y-%m-%d')
+        params['end'] = True
         params['in_memory'] = False
         # convert dates from ms to datetime
         # start_date = ms_to_date(start_date)
         #end_date = ms_to_date(end_date)
-
         if len(df) > 0:
             params['min_date'], params['max_date'] = \
                 dd.compute(df.block_date.min(), df.block_date.max())
             # check start
             logger.warning('start_date from compute:%s', params['min_date'])
-            logger.warning('start from slider:%s', start_date)
-            if isinstance(start_date, int):
-                start_date = ms_to_date(start_date)
-                end_date = ms_to_date(end_date)
+            logger.warning('start from slider:%s', req_start_date)
 
-            if start_date > params['min_date']:
-                    params['start'] = True
-            if end_date < params['max_date']:
-                    params['end'] = True
+
+            # set flag to true if data has to be fetched
+            if req_start_date <= params['min_date']:
+                    params['start'] = False
+            if req_end_date >= params['max_date']:
+                    params['end'] = False
 
             logger.warning('set_params_to_load:%s', params)
-            # if table alread in memory then set in-memory flag
-            if params['start'] == False and params['end_date'] == False:
+            # if table already in memory then set in-memory flag
+            if params['start'] == False and params['end'] == False:
                 params['in_memory'] = True
-
-        else:
-            # if no df in memory set start date and end_date far in the past
-            # this will trigger full cassandra load
-            params['min_date'] = datetime.strptime('2010-01-01','%Y-%m-%d')
-            params['max_date'] = datetime.strptime('2010-01-02','%Y-%m-%d')
-            params['start'] = True
-            params['end'] = True
-
+                return params
+        logger.warning("in set_params_to_load:%s",params)
         return params
     except Exception:
         logger.error('set_params_loaded_params', exc_info=True)
@@ -202,6 +196,7 @@ def set_params_to_load(df, start_date, end_date):
         params['max_date'] = datetime.strptime('2010-01-02', '%Y-%m-%d')
         params['start'] = True
         params['end'] = True
+        params['in_memory']=False
         return params
 
 # delta is integer: +-

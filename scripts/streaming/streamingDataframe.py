@@ -12,7 +12,6 @@ class StreamingDataframe:
         try:
             self.partitions = 15
             self.table_name = table_name
-            logger.warning("init:%s",table_name)
 
             if len(columns) > 0 :
                 self.columns = columns[table_name]
@@ -25,6 +24,8 @@ class StreamingDataframe:
             # convert to dask
             self.df = from_pandas(df, npartitions=self.partitions,
                                   name=table_name, sort=True)
+            logger.warning("init:%s",table_name)
+
         except Exception:
             logger.error("init:%s", exc_info=True)
 
