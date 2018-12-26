@@ -2,7 +2,7 @@ from os.path import join, dirname
 
 from scripts.utils.mylogger import mylogger
 from scripts.utils.poolminer import make_poolminer_warehouse, make_tier1_list,\
-    make_tier2_list, warehouse_needed
+    make_tier2_list,is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag
 from scripts.utils.mytab import Mytab, DataLocation
 from config import dedup_cols, columns as cols
@@ -13,10 +13,11 @@ from tornado.locks import Lock
 
 import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
-from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d, Button, CustomJS
+from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d, CustomJS
 import gc
 from bokeh.io import curdoc
-from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, DatePicker
+from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, \
+    DatePicker, TableColumn, DataTable, Button
 from holoviews import streams
 from holoviews.streams import Stream, RangeXY, RangeX, RangeY, Pipe
 from pdb import set_trace
@@ -54,7 +55,7 @@ def poolminer_tab():
     tier1_src = ColumnDataSource(data= dict(
                 block_date=[],
                 miner_address=[],
-                approx_value=[],
+                value=[],
                 block_number=[]))
 
     class Thistab(Mytab):
@@ -67,63 +68,66 @@ def poolminer_tab():
         def __init__(self, table, cols=[], dedup_cols=[], query_cols=[]):
             Mytab.__init__(self, table, cols, dedup_cols, query_cols)
             self.table = table
-            self.tier1_df1 = None
+            self.tier1_df = self.df
+
+        def df_loaded_check(self,start_date, end_date):
+            # check to see if block_tx_warehouse is loaded
+            data_location = self.is_data_in_memory(start_date, end_date)
+            if data_location == DataLocation.IN_MEMORY:
+                logger.warning('warehouse already loaded:%s', self.df.tail(40))
+                pass
+            elif data_location == DataLocation.IN_REDIS:
+                self.load_data(start_date, end_date)
+            else:
+                # load the two tables and make the block
+                self.block_tab.load_data(start_date, end_date)
+                self.transaction_tab.load_data(start_date, end_date)
+                self.load_data(start_date, end_date, df_tx=self.transaction_tab.df,
+                               df_block=self.block_tab.df)
 
         def load_this_data(self, start_date, end_date):
             end_date = datetime.combine(end_date, datetime.min.time())
             start_date = datetime.combine(start_date, datetime.min.time())
-            # check to see if table loaded
-            data_location = self.is_data_in_memory(start_date,end_date)
-            if data_location == DataLocation.IN_MEMORY:
-                thistab.filter_df(start_date,end_date)
-                logger.warning('warehouse already loaded:%s',self.df.tail(40))
-            elif data_location == DataLocation.IN_REDIS:
-                self.load_data(start_date, end_date)
-            else:
-                # load the two tables
-                self.block_tab.load_data(start_date,end_date)
-                self.transaction_tab.load_data(start_date,end_date)
-                self.load_data(start_date,end_date,df_tx=self.transaction_tab.df,
-                               df_block=self.block_tab.df)
-                # make the warehouse
+            threshold_paid_out = 1
+            threshold_blocks_mined = 1
+            tier1_miners_list = is_tier1_in_memory(start_date, end_date,
+                                                   threshold_paid_out,
+                                                   threshold_blocks_mined)
+            # generate the list if necessary
+            if tier1_miners_list is None:
+                self.df_loaded_check(start_date, end_date)
 
-            return self.make_tier1_table(start_date, end_date)
+                self.df1 = self.filter_df(start_date, end_date)
+                values = {'approx_value': 0,
+                          'from_addr': 'unknown', 'block_number': 0}
+                self.df1 = self.df1.fillna(values)
+                # with data in hand, make the list
+                tier1_miners_list = make_tier1_list(self.df1, start_date, end_date,
+                                                    threshold_paid_out, threshold_blocks_mined)
 
-        def make_tier1_table(self,start_date,end_date):
+            logger.warning('tier 1 miners list:%s',tier1_miners_list)
+            return self.make_tier1_table(tier1_miners_list,start_date,end_date)
+
+        def make_tier1_table(self,tier1_miners_list,start_date,end_date):
+            # ensure tier1 is loaded
+            self.df_loaded_check(start_date,end_date)
+            self.filter_df(start_date,end_date)
             # get tier1 miners list
-            logger.warning(("merged columns",self.df.columns.tolist()))
+            logger.warning("merged column in make tier1:%s",self.df1.columns.tolist())
+            logger.warning("merged column in make tier1:%s",self.df1.tail(30))
 
-            tier1_miners_list = make_tier1_list(self.df1,start_date,end_date)
-            logger.warning("tier 1 miners:%s",tier1_miners_list)
-            # filter dataframe to get list
-            logger.warning('d1f before filter:%s',self.df1['from_addr'].head(20))
-            #mask = self.df1['from_addr'].isin(tier1_miners_list)
-            #tier1_df = self.df1[mask].compute()
-            dct = {}
-            dct['from_addr'] = tier1_miners_list
-            dct['index'] = list(range(len(tier1_miners_list)))
-            df = pd.DataFrame(dct)
-            ddf = dd.dataframe.from_pandas(df, npartitions=1)
-            logger.warning('ddf from list :%s',ddf.head(20))
-            tier1_df = self.df1.merge(ddf, how='inner',
-                                      on='from_addr')  # do the merge\
-            tier1_df.compute()
-            logger.warning('tier 1_df before groupby:%s',tier1_df.head(20))
-
-            tier1_df = tier1_df.groupby(['miner_address','block_date'])\
+            # load the dataframe
+            self.df1['from_addr'] = self.df1['from_addr'].astype(str)
+            self.tier1_df = self.df1.groupby(['from_addr','block_date'])\
                 .agg({'approx_value':'sum',
                       'block_number':'count'}).reset_index()
-            logger.warning('tier 1_df after groupby:%s',tier1_df.head(20))
-            new_data = dict(
-                block_date=tier1_df.block_date,
-                miner_address=tier1_df.miner_address,
-                approx_value=tier1_df.approx_value,
-                block_number=tier1_df.block_number
-            )
-            # src.stream
-            #tier1_src.stream(new_data,rollover=self.table)
-            return tier1_df.hvplot.table(columns=['miner_address','block_date',
-                                      'block_number','approx_value'],width=800)
+            logger.warning('tier 1_df before merge/filter:%s',self.tier1_df.tail(30))
+            self.tier1_df = self.tier1_df[self.tier1_df.from_addr.isin(tier1_miners_list)]
+            logger.warning('tier 1_df after filter:%s',self.tier1_df.tail(20))
+
+            return self.tier1_df.hvplot.table(columns=['from_addr','block_date',
+                                         'block_number','approx_value'],width=800)
+
 
         # notify the holoviews stream of the slider updates
 
@@ -161,7 +165,7 @@ def poolminer_tab():
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date_range)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
-                                    max_date=last_date, value=last_date)
+                                    max_date=last_date_range, value=last_date)
 
         # declare plots
         dmap_miner1 = hv.DynamicMap(
@@ -174,11 +178,11 @@ def poolminer_tab():
         datepicker_end.on_change('value', update_end_date)
 
         download_button = Button(label='Save Table to CSV', button_type="success")
-        download_button.callback = CustomJS(args=dict(source=tier1_src),
-                                            code=open(join(dirname(__file__),
-                                                           "../../assets/js/tier1_miner_download.js"))
-                                            .read())
+        path = join(dirname(__file__),'../../data/export-*.csv')
 
+        def name(i):
+            return 'tier1_miner'
+        download_button.on_click(thistab.tier1_df.to_csv(path,name_function=name))
 
         # Render layout to bokeh server Document and attach callback
         renderer = hv.renderer('bokeh')
@@ -199,3 +203,4 @@ def poolminer_tab():
 
     except Exception:
         logger.error('rendering err:',exc_info=True)
+        return tab_error_flag('poolminer')

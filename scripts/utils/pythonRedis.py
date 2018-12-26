@@ -155,7 +155,7 @@ class RedisStorage:
 
         try:
             # get keys
-            str_to_match = '*'+table+'*'
+            str_to_match = '*'+table+':*'
             matches = self.conn.scan_iter(match=str_to_match)
             # 10000: cass end
             params = dict()
@@ -316,7 +316,7 @@ class RedisStorage:
 
                             # if the required load date is more than the required start date
                             if load_params['end']:
-                                # if the end only needs to be loaded from reddis, then never repeat this step
+                                # if the end only needs to be loaded from redis, then never repeat this step
                                 if params['load_type'] & LoadType.REDIS_END_ONLY.value != LoadType.REDIS_END_ONLY.value:
                                     loaded_day_after = self.get_relative_day(load_params['min_date'], 1)
                                     if load_params['max_date'] < key_end_date:

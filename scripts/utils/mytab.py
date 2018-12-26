@@ -50,18 +50,21 @@ class Mytab:
 
         # if table not in live memory then go to redis and cassandra
         if load_params['in_memory'] == False:
-            self.params = r.set_load_params(self.table, start_date, end_date, self.load_params)
+            self.params = r.set_load_params(self.table, start_date, end_date,
+                                            self.load_params)
             if self.table != 'block_tx_warehouse':
                 return DataLocation.IN_CONSTRUCTION
             else:  # if table is block_tx_warehouse
                 # LOAD ALL FROM REDIS
-                if self.params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:
+                if self.params['load_type'] & LoadType.REDIS_FULL.value == \
+                        LoadType.REDIS_FULL.value:
                     return DataLocation.IN_REDIS
                 else:  # load block and tx and make the warehouse
                     return DataLocation.IN_CONSTRUCTION
         else:  # if table in live memory
             return DataLocation.IN_MEMORY
 
+        return DataLocation.IN_CONSTRUCTION
 
     def load_data(self,start_date, end_date,df_tx=None,df_block=None):
         end_date = datetime.combine(end_date, datetime.min.time())
@@ -77,7 +80,6 @@ class Mytab:
                                                  self.dedup_cols,
                                                  start_date,
                                                  end_date, self.load_params)
-                self.filter_df(start_date, end_date)
             else: # if table is block_tx_warehouse
                 # LOAD ALL FROM REDIS
                 if self.params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:
@@ -85,7 +87,6 @@ class Mytab:
                     sdate = date_to_ms(lst[1])
                     edate = date_to_ms(lst[2])
                     self.df = r.load(table, sdate, edate, self.params['redis_key_full'], 'dataframe')
-                    self.filter_df(start_date, end_date)
                     # load from source other than 100% redis
                 else: # load block and tx and make the warehouse,
                     self.df = make_poolminer_warehouse(
@@ -93,12 +94,7 @@ class Mytab:
                         df_block,
                         start_date,
                         end_date)
-                    self.filter_df(start_date,end_date)
-
-        else: # if table in live memory
-            self.filter_df(start_date, end_date)
-
-
+                    logger.warning("WAREHOUSE UPDATED WITH END DATE:%s",end_date)
 
     def filter_df(self, start_date, end_date):
         # change from milliseconds to seconds
@@ -111,12 +107,12 @@ class Mytab:
 
         # slice to retain cols
         logger.warning("in filter_df:%s",self.df1.columns.tolist())
-        if self.query_cols is not None:
-            if len(self.query_cols) > 0:
-                self.df1 = self.df1[self.query_cols]
+        #if self.query_cols is not None:
+            #if len(self.query_cols) > 0:
+                #self.df1 = self.df1[self.query_cols]
         #self.df1 = self.df1.reset_index()
-        self.df1 = self.df1.fillna(0)
+        #self.df1 = self.df1.fillna(0)
 
-        logger.warning("post load and filter:%s",self.df1.head(20))
-
+        #logger.warning("post filter:%s",self.df1.head(20))
+        return self.df1
 

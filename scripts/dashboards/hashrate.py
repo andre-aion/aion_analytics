@@ -60,10 +60,9 @@ def hashrate_tab():
 
         def hashrate_plot(self,bcount):
             try:
-                df1 = calc_hashrate(self.df1, bcount)
+                df1 = calc_hashrate(self.df, bcount)
                 #curve = hv.Curve(df, kdims=['block_number'], vdims=['hashrate'])\
                     #.options(width=1000,height=600)
-
                 curve = df1.hvplot.line('block_number', 'hashrate',
                                         title='Hashrate',width=1000, height=600)
                 del df1
@@ -135,7 +134,7 @@ def hashrate_tab():
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date_range)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
-                                    max_date=last_date, value=last_date)
+                                    max_date=last_date_range, value=last_date)
 
         # declare plots
         dmap_hashrate = hv.DynamicMap(
@@ -180,4 +179,4 @@ def hashrate_tab():
     except Exception:
         logger.error('rendering err:',exc_info=True)
 
-        return tab_error_flag(__file__)
+        return tab_error_flag('hashrate')

@@ -102,7 +102,8 @@ def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
                                       right_on='transaction_hash')  # do the merge\
         df = df.drop(['transaction_hashes'],axis=1)
         df = df.reset_index()
-        values = {'transaction_hash': 0}
+        values = {'transaction_hash': 'unknown','approx_value':0,
+                  'from_addr':'unknown','to_addr':'unknown','block_number':0}
         df = df.fillna(value=values)
         logger.warning("df after merge:%s:",
                        df['transaction_hash'].tail(30))
@@ -119,16 +120,19 @@ def daily_percent(df,x):
     total = df.block_number.sum()
     return 100*x.block_number/total
 
-def list_by_tx_paid_out(df, delta_days, threshold=10):
+def list_by_tx_paid_out(df, delta_days, threshold=5):
     lst = []
     try:
         df_temp = df.groupby('from_addr')['to_addr'].count().reset_index()
         # find daily mean
         df_temp = df_temp[df_temp.to_addr >= threshold*delta_days]
-        lst = df_temp['from_addr'].unique().compute()
-        lst = [str(x) for x in lst if not isinstance(x,str)]
+        values = {'from_addr': 'unknown'}
+        df_temp = df_temp.fillna(values)
+        lst1 = df_temp['from_addr'].unique().compute()
+        lst = [str(x) for x in lst1]
+
         logger.warning("miners found by paid out: %s",len(lst))
-        logger.warning("miners found by blocks mined: %s", lst)
+        logger.warning("miners found by paid out: %s",lst)
 
         del df_temp
         gc.collect()
@@ -145,8 +149,11 @@ def list_from_blocks_mined_daily(df,delta_days,threshold_percentage=1):
         # convert percentage threshold to number
         threshold = threshold_percentage*delta_days*total_blocks_mined_daily/100
         df_temp = df_temp[df_temp.block_number >= threshold]
-        lst = df_temp['miner_address'].unique().compute()
-        lst = [str(x) for x in lst if not isinstance(x,str)]
+        values = {'miner_address':'unknown',
+                  'block_number': 0}
+        df_temp = df_temp.fillna(values)
+        lst1 = df_temp['miner_address'].unique().compute()
+        lst = [str(x) for x in lst1]
         logger.warning("miners found by blocks mined: %s", len(lst))
         logger.warning("miners found by blocks mined: %s", lst)
 
@@ -170,71 +177,53 @@ def get_key_in_redis(key_params,start_date,end_date):
     return redis_key
 
 
-def warehouse_needed(start_date,end_date, threshold_tx_paid_out=10,threshold_blocks_mined_per_day=1,
-                     threshold_tier2_pay_in=2):
+def is_tier1_in_memory(start_date, end_date, threshold_tx_paid_out=5,
+                    threshold_blocks_mined_per_day=0.5):
+    # check to is if it is saved in redis
+    key_params = ['tier1_miner_list', threshold_tx_paid_out,
+                  threshold_blocks_mined_per_day]
+    redis_key = get_key_in_redis(key_params, start_date, end_date)
+
+    # load data from redis if saved, else compose miner list
+    if redis_key is not None:
+        return r.load(key_params, start_date, end_date,
+                                  key=redis_key, item_type='list')
+    else:
+        return None
+
+def make_tier1_list(df, start_date, end_date, threshold_tx_paid_out=5,
+                    threshold_blocks_mined_per_day=0.5):
     try:
-        make_warehouse = True
-        # look for both miner lists first
-        # check to is if it is saved in redis
+        # Count transactions paid out per day: group transactions by date and miner
+        # find min day find max day
         key_params = ['tier1_miner_list', threshold_tx_paid_out,
                       threshold_blocks_mined_per_day]
-        tier1_list = get_key_in_redis(key_params, start_date, end_date)
-        if tier1_list is not None:
-            # then look for tier2 list
-            key_params = ['tier2_miner_list', threshold_tier2_pay_in]
-            tier2_list = get_key_in_redis(key_params, start_date, end_date)
-            if tier2_list is not None:
-                # then simply return the two lists
-                make_warehouse = False
+        delta_days = (end_date - start_date).days
+        if delta_days <= 0:
+            delta_days = 1
 
-        return make_warehouse
+        # tier 1 = percentage mined per day > threshold || transactions paid out > threshold per day#
+        # make unique list of tier 1
+        lst_a = list_by_tx_paid_out(df,delta_days,threshold_tx_paid_out)
+        lst_b = list_from_blocks_mined_daily(df, delta_days,threshold_blocks_mined_per_day)
+        # merge lists, drop duplicates
+        tier1_miners_list = list(set(lst_a + lst_b))
+        # save tier1 miner list to redis
+        r.save(tier1_miners_list,key_params,start_date, end_date)
+
+        del lst_a, lst_b
+        gc.collect()
+
+        return tier1_miners_list
     except Exception:
-        logger.error("warehouse needed", exc_info=True)
-
-
-def make_tier1_list(df, start_date, end_date, threshold_tx_paid_out=10,
-                    threshold_blocks_mined_per_day=1,):
-
-    try:
-        # check to is if it is saved in redis
-        key_params = ['tier1_miner_list',threshold_tx_paid_out,
-                      threshold_blocks_mined_per_day]
-        redis_key = get_key_in_redis(key_params,start_date,end_date)
-
-        # load data from redis if saved, else compose miner list
-        if redis_key is not None:
-            tier1_miner_list = r.load(key_params,start_date,end_date,
-                                      key=redis_key,item_type='list')
-        else:
-            # Count transactions paid out per day: group transactions by date and miner
-            # find min day find max day
-
-            delta_days = (end_date - start_date).days
-            if delta_days <= 0:
-                delta_days = 1
-
-            # tier 1 = percentage mined per day > threshold || transactions paid out > threshold per day#
-            # make unique list of tier 1
-            lst_a = list_by_tx_paid_out(df,delta_days,threshold_tx_paid_out)
-            lst_b = list_from_blocks_mined_daily(df, delta_days,threshold_blocks_mined_per_day)
-            # merge lists, drop duplicates
-            tier1_miner_list = list(set(lst_a + lst_b))
-            # save tier1 miner list to redis
-            r.save(tier1_miner_list,key_params,start_date, end_date)
-
-            del lst_a, lst_b
-            gc.collect()
-
-        return tier1_miner_list
-    except Exception:
-        logger.error("tier 1 miner list", exc_info=True)
+        logger.error("make tier 1 miner list", exc_info=True)
 
 
 def make_tier2_list(df,tier1_miner_list,
                     start_date, end_date,
                     threshold_tier2_pay_in=1,
-                    threshold_tx_paid_out=10,
-                    threshold_blocks_mined_per_day=1
+                    threshold_tx_paid_out=5,
+                    threshold_blocks_mined_per_day=0.5
                     ):
     try:
         # check to is if it is saved in redis
@@ -250,8 +239,6 @@ def make_tier2_list(df,tier1_miner_list,
             tier1_miner_list = make_tier1_list(df,start_date,end_date,
                                                threshold_tx_paid_out,
                                                threshold_blocks_mined_per_day)
-            # get or make warehouse
-            # Count transactions paid out per day: group transactions by date and miner
             # find min day find max day
 
             # GET THE POOLS FOR FREQUENT PAYMENTS RECEIVED
@@ -276,5 +263,6 @@ def make_tier2_list(df,tier1_miner_list,
 
     except Exception:
         logger.error("tier 1 miner list", exc_info=True)
+
 
 

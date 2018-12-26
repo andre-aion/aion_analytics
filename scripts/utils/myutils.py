@@ -176,9 +176,9 @@ def set_params_to_load(df, req_start_date, req_end_date):
 
 
             # set flag to true if data has to be fetched
-            if req_start_date <= params['min_date']:
+            if req_start_date >= params['min_date']:
                     params['start'] = False
-            if req_end_date >= params['max_date']:
+            if req_end_date <= params['max_date']:
                     params['end'] = False
 
             logger.warning('set_params_to_load:%s', params)

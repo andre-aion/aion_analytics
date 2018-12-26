@@ -47,7 +47,7 @@ def blockminer_tab():
                                      block_number=[]))
 
     class Blockminer():
-        querycols = ['block_number', 'miner_address', 'block_date','block_time']
+        querycols = ['block_number', 'miner_address','miner_addr', 'block_date','block_time']
         cols = cols
         dedup_cols = dedup_cols
         streaming_dataframe = SD('block', cols, dedup_cols)
@@ -77,8 +77,8 @@ def blockminer_tab():
                                              self.dedup_cols, start_date,
                                              end_date, load_params)
             # filter dates
-            logger.warning('load_data head:%s', self.df.head())
-            logger.warning('load_data tail:%s', self.df.tail())
+            #logger.warning('load_data head:%s', self.df.head())
+            #logger.warning('load_data tail:%s', self.df.tail())
             self.filter_dates(start_date, end_date)
 
             return self.prep_dataset(start_date, end_date)
@@ -97,7 +97,7 @@ def blockminer_tab():
             try:
                 logger.warning("prep dataset start date:%s", start_date)
 
-                self.df1 = self.df1.groupby('miner_address').count()
+                self.df1 = self.df1.groupby('miner_addr').count()
                 self.df1['percentage'] = 100*self.df1.block_number\
                                          /self.df1['block_number'].sum().compute()
 
@@ -106,7 +106,7 @@ def blockminer_tab():
                 logger.warning('prep dataset END DATE:%s', end_date)
                 #logger.warning('prep dataset DF1:%s', self.df1.compute().head())
 
-                return self.df1.hvplot.bar('miner_address','block_number', rot=90,
+                return self.df1.hvplot.bar('miner_addr','block_number', rot=90,
                                            width=1500,title='block_number by miner address',
                                            hover_cols=['percentage'])
             except Exception:
@@ -123,10 +123,9 @@ def blockminer_tab():
                 #logger.warning('df2 after nlargest:%s',self.df2.head())
                 new_data = dict(
                     percentage=self.df2.percentage,
-                    miner_addr=self.df2.miner_address,
+                    miner_addr=self.df2.miner_addr,
                     block_number=self.df2.block_number
                 )
-                #src.stream
                 src.stream(new_data, rollover=self.n)
                 columns = [
                     TableColumn(field="miner_addr", title="Address"),
@@ -239,4 +238,4 @@ def blockminer_tab():
     except Exception:
         logger.error("Graph draw", exc_info=True)
 
-        return tab_error_flag(__file__)
+        return tab_error_flag('blockminer')
