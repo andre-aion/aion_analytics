@@ -23,3 +23,68 @@
 2018-12-26 23:25:09,977 - logs/main.logs:15 - WARNING - logs/main.logs
 2018-12-26 23:38:54,063 - logs/main.logs:15 - WARNING - logs/main.logs
 2018-12-26 23:48:46,114 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-26 23:59:26,514 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 00:06:21,452 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 00:11:48,384 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 06:53:52,807 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 07:00:55,263 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 07:22:33,488 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 07:42:06,769 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 07:46:40,773 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 07:47:25,304 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 07:47:59,922 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 08:40:05,813 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 08:49:43,610 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 08:58:35,391 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 09:08:22,501 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 09:37:56,817 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 09:40:51,370 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 09:57:00,469 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 10:00:37,852 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 10:03:46,002 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 10:09:46,769 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 10:14:21,759 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 10:18:01,000 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 10:23:49,877 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 10:49:05,061 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 10:52:32,991 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 10:55:08,015 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 11:16:32,202 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 11:19:54,352 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 11:22:24,878 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 11:26:48,273 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 11:28:18,837 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 11:32:13,069 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 11:35:41,459 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 11:43:53,548 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 11:55:15,244 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 12:07:42,491 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 12:11:10,485 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 12:17:27,958 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 12:54:42,390 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 13:07:13,837 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 13:23:41,395 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 13:46:10,086 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 13:56:37,185 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 14:03:59,790 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 14:44:01,184 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 14:46:35,369 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 14:46:35,370 - logs/main.logs:47 - ERROR - WEBSERVER LAUNCH:
+Traceback (most recent call last):
+  File "main.py", line 41, in launch_server
+    server = Server({'/': aion_analytics}, num_procs=1, port=5006)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/server/server.py", line 396, in __init__
+    sockets, self._port = bind_sockets(self.address, self.port)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/server/util.py", line 32, in bind_sockets
+    ss = netutil.bind_sockets(port=port or 0, address=address)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/tornado/netutil.py", line 168, in bind_sockets
+    sock.bind(sockaddr)
+OSError: [Errno 98] Address already in use
+2018-12-27 14:49:08,440 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 14:57:40,683 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 15:21:51,694 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 15:37:47,171 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 15:44:17,894 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 15:46:20,262 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 16:37:36,194 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-27 16:40:22,864 - logs/main.logs:15 - WARNING - logs/main.logs

@@ -63,13 +63,6 @@ def explode_transaction_hashes(df):
     meta=('transaction_hashes',str)
     try:
         # remove quotes
-        col_to_explode = 'transaction_hashes'
-        '''
-        df = df.map_partitions(lambda df1:
-                               df1.assign(transaction_hashes=
-                                          remove_quotes(df1.transaction_hashes)),
-                               meta=df)
-                               '''
         # explode the list
         df = list_to_rows(df,"transaction_hashes")
 
@@ -94,8 +87,6 @@ def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
         df_block = df_block.map_partitions(explode_transaction_hashes)
         logger.warning('COLUMNS %s:',df_block.columns.tolist())
         df_block.reset_index()
-        logger.warning("transaction hash:%s",df_tx['transaction_hash'].tail(20))
-        logger.warning("df_block transaction_hashes:%s",df_block['transaction_hashes'].tail(30))
 
         # join block and transaction table
         df = df_block.merge(df_tx, how='left',
@@ -106,8 +97,6 @@ def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
         values = {'transaction_hash': 'unknown','approx_value':0,
                   'from_addr':'unknown','to_addr':'unknown','block_number':0}
         df = df.fillna(value=values)
-        logger.warning("df after merge:%s:",
-                       df['transaction_hash'].tail(30))
         logger.warning(("merged columns",df.columns.tolist()))
         # save to redis
         r.save(df, key_params, start_date, end_date)
@@ -126,6 +115,7 @@ def list_by_tx_paid_out(df, delta_days, threshold=5):
     try:
         df_temp = df.groupby('from_addr')['to_addr'].count().reset_index()
         # find daily mean
+        logger.warning("tx paid out threshold:%s",threshold)
         df_temp = df_temp[df_temp.to_addr >= threshold*delta_days]
         values = {'from_addr': 'unknown'}
         df_temp = df_temp.fillna(values)
@@ -133,7 +123,6 @@ def list_by_tx_paid_out(df, delta_days, threshold=5):
         lst = [str(x) for x in lst1]
 
         logger.warning("miners found by paid out: %s",len(lst))
-        logger.warning("miners found by paid out: %s",lst)
 
         del df_temp
         gc.collect()
@@ -142,13 +131,14 @@ def list_by_tx_paid_out(df, delta_days, threshold=5):
         logger.error("tx paid out", exc_info=True)
 
 
-def list_from_blocks_mined_daily(df,delta_days,threshold_percentage=1):
+def list_from_blocks_mined_daily(df,delta_days,threshold=1):
     lst = []
     try:
         df_temp = df.groupby('miner_address')['block_number'].count().reset_index()
         total_blocks_mined_daily = 8640
         # convert percentage threshold to number
-        threshold = threshold_percentage*delta_days*total_blocks_mined_daily/100
+        threshold = threshold*delta_days*total_blocks_mined_daily/100
+        logger.warning("blocks mined daily threshold:%s",threshold)
         df_temp = df_temp[df_temp.block_number >= threshold]
         values = {'miner_address':'unknown',
                   'block_number': 0}
@@ -156,7 +146,6 @@ def list_from_blocks_mined_daily(df,delta_days,threshold_percentage=1):
         lst1 = df_temp['miner_address'].unique().compute()
         lst = [str(x) for x in lst1]
         logger.warning("miners found by blocks mined: %s", len(lst))
-        logger.warning("miners found by blocks mined: %s", lst)
 
         del df_temp
         gc.collect()
@@ -211,7 +200,17 @@ def make_tier1_list(df, start_date, end_date, threshold_tx_paid_out=5,
         lst_a = list_by_tx_paid_out(df,delta_days,threshold_tx_paid_out)
         lst_b = list_from_blocks_mined_daily(df, delta_days,threshold_blocks_mined_per_day)
         # merge lists, drop duplicates
-        tier1_miners_list = list(set(lst_a + lst_b))
+        if lst_a and lst_b:
+            tier1_miners_list = list(set(lst_a + lst_b))
+        else:
+            if lst_a:
+                tier1_miners_list = list(set(lst_a))
+            elif lst_b:
+                tier1_miners_list = list(set(lst_b))
+            else:
+                tier1_miners_list = []
+
+
         # save tier1 miner list to redis
         r.save(tier1_miners_list,key_params,start_date, end_date)
 
@@ -243,14 +242,14 @@ def is_tier2_in_memory(start_date, end_date,
     except Exception:
         logger.error("is_tier2_in_memory", exc_info=True)
 
-def make_tier2_list(df,start_date, end_date,
+def make_tier2_list(df, start_date, end_date,
                     tier1_miners_list,
-                    threshold_tier2_pay_in=1,
+                    threshold_tier2_paid_in=1,
                     threshold_tx_paid_out=5,
                     threshold_blocks_mined_per_day=0.5
                     ):
     try:
-        key_params = ['tier2_miners_list', threshold_tier2_pay_in,
+        key_params = ['tier2_miners_list', threshold_tier2_paid_in,
                       threshold_tx_paid_out, threshold_blocks_mined_per_day]
         # ensure both are datetimes
         if isinstance(end_date,datetime):
@@ -267,17 +266,18 @@ def make_tier2_list(df,start_date, end_date,
         # threshold tx pay-ins from tier1 miner list
         df_temp = df[df.from_addr.isin(tier1_miners_list)]
         df_temp = df_temp.groupby('to_addr')['from_addr'].count().reset_index()
-        threshold = threshold_tier2_pay_in * delta_days
+        threshold = threshold_tier2_paid_in * delta_days
         df_temp = df_temp[df_temp.from_addr >= threshold]
         tier2_miners_list = df_temp.to_addr.unique().compute()
-
-        # save list to redis
-        r.save(tier2_miners_list,key_params,start_date,end_date)
         del df_temp
         gc.collect()
+        if tier1_miners_list:
+            # save list to redis
+            r.save(tier2_miners_list, key_params, start_date, end_date)
 
-        return tier2_miners_list
-        logger.warning("tier2_miners_list:%s",tier2_miners_list)
+            return tier2_miners_list
+        return []
+        #logger.warning("tier2_miners_list:%s",tier2_miners_list)
 
     except Exception:
         logger.error("tier 2 miner list", exc_info=True)
