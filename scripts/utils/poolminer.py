@@ -244,12 +244,12 @@ def is_tier2_in_memory(start_date, end_date,
 
 def make_tier2_list(df, start_date, end_date,
                     tier1_miners_list,
-                    threshold_tier2_paid_in=1,
+                    threshold_tier2_received=1,
                     threshold_tx_paid_out=5,
                     threshold_blocks_mined_per_day=0.5
                     ):
     try:
-        key_params = ['tier2_miners_list', threshold_tier2_paid_in,
+        key_params = ['tier2_miners_list', threshold_tier2_received,
                       threshold_tx_paid_out, threshold_blocks_mined_per_day]
         # ensure both are datetimes
         if isinstance(end_date,datetime):
@@ -266,7 +266,7 @@ def make_tier2_list(df, start_date, end_date,
         # threshold tx pay-ins from tier1 miner list
         df_temp = df[df.from_addr.isin(tier1_miners_list)]
         df_temp = df_temp.groupby('to_addr')['from_addr'].count().reset_index()
-        threshold = threshold_tier2_paid_in * delta_days
+        threshold = threshold_tier2_received * delta_days
         df_temp = df_temp[df_temp.from_addr >= threshold]
         tier2_miners_list = df_temp.to_addr.unique().compute()
         del df_temp
