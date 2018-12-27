@@ -108,7 +108,11 @@ class RedisStorage:
     def load(self, key_params, start_date, end_date, key=None, item_type=''):
         try:
             if key is None:
-                key = self.compose_key(key_params)
+                start_date = self.datetime_or_ts_to_str(start_date)
+                end_date = self.datetime_or_ts_to_str(end_date)
+
+
+                key = self.compose_key(key_params,start_date,end_date)
             logger.warning('load-df key:%s', key)
             item = pickle.loads(zlib.decompress(self.conn.get(key)))
 
@@ -394,7 +398,6 @@ class RedisStorage:
                 # set params for cass full range
                 params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)
                 params['cass_full_range'] = [req_start_date, req_end_date]
-
 
                 # if no matches fallback is to pull all from cassandra
                 params['load_type'] = self.clear_bit(params['load_type'], 0)

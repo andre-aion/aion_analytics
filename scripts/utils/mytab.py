@@ -67,34 +67,38 @@ class Mytab:
         return DataLocation.IN_CONSTRUCTION
 
     def load_data(self,start_date, end_date,df_tx=None,df_block=None):
-        end_date = datetime.combine(end_date, datetime.min.time())
-        start_date = datetime.combine(start_date, datetime.min.time())
-        # if table not in live memory then go to redis and cassandra
-        load_params = set_params_to_load(self.df, start_date,end_date)
-        if load_params['in_memory'] == False:
-            if self.table != 'block_tx_warehouse':
-                # load from redis, cassandra if necessary
-                self.df = construct_df_upon_load(self.df,
-                                                 self.table,
-                                                 self.cols,
-                                                 self.dedup_cols,
-                                                 start_date,
-                                                 end_date, self.load_params)
-            else: # if table is block_tx_warehouse
-                # LOAD ALL FROM REDIS
-                if self.params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:
-                    lst = self.params['redis_key_full'].split(':')
-                    sdate = date_to_ms(lst[1])
-                    edate = date_to_ms(lst[2])
-                    self.df = r.load(table, sdate, edate, self.params['redis_key_full'], 'dataframe')
-                    # load from source other than 100% redis
-                else: # load block and tx and make the warehouse,
-                    self.df = make_poolminer_warehouse(
-                        df_tx,
-                        df_block,
-                        start_date,
-                        end_date)
-                    logger.warning("WAREHOUSE UPDATED WITH END DATE:%s",end_date)
+        try:
+            end_date = datetime.combine(end_date, datetime.min.time())
+            start_date = datetime.combine(start_date, datetime.min.time())
+            # if table not in live memory then go to redis and cassandra
+            load_params = set_params_to_load(self.df, start_date,end_date)
+            if load_params['in_memory'] == False:
+                if self.table != 'block_tx_warehouse':
+                    # load from redis, cassandra if necessary
+                    self.df = construct_df_upon_load(self.df,
+                                                     self.table,
+                                                     self.cols,
+                                                     self.dedup_cols,
+                                                     start_date,
+                                                     end_date, self.load_params)
+                else: # if table is block_tx_warehouse
+                    # LOAD ALL FROM REDIS
+                    if self.params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:
+                        lst = self.params['redis_key_full'].split(':')
+                        sdate = date_to_ms(lst[1])
+                        edate = date_to_ms(lst[2])
+                        key_params = ['block_tx_warehouse']
+                        self.df = r.load(key_params, sdate, edate, self.params['redis_key_full'], 'dataframe')
+                        # load from source other than 100% redis
+                    else: # load block and tx and make the warehouse,
+                        self.df = make_poolminer_warehouse(
+                            df_tx,
+                            df_block,
+                            start_date,
+                            end_date)
+                        logger.warning("WAREHOUSE UPDATED WITH END DATE:%s",end_date)
+        except Exception:
+            logger.error("load_data:",ex_info=True)
 
     def filter_df(self, start_date, end_date):
         # change from milliseconds to seconds

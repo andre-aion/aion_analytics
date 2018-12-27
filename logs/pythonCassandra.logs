@@ -447,3 +447,17 @@
 2018-12-26 19:48:17,585 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1530331200000
 2018-12-26 19:48:17,586 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1524456000000 and 
             block_timestamp <=1530331200000 ALLOW FILTERING
+2018-12-26 21:53:24,546 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 21:54:22,266 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 22:00:10,016 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 22:01:31,363 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 22:06:20,319 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 22:08:18,356 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 22:40:35,346 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 22:42:01,553 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 22:54:02,059 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 23:03:13,865 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 23:25:07,736 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 23:36:16,334 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 23:38:51,263 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-26 23:48:44,424 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs

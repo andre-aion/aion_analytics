@@ -9,6 +9,7 @@ import gc
 import re
 from dask.dataframe.reshape import melt
 import numpy as np
+from datetime import date, datetime
 
 r = RedisStorage()
 logger = mylogger(__file__)
@@ -179,24 +180,27 @@ def get_key_in_redis(key_params,start_date,end_date):
 
 def is_tier1_in_memory(start_date, end_date, threshold_tx_paid_out=5,
                     threshold_blocks_mined_per_day=0.5):
-    # check to is if it is saved in redis
-    key_params = ['tier1_miner_list', threshold_tx_paid_out,
-                  threshold_blocks_mined_per_day]
-    redis_key = get_key_in_redis(key_params, start_date, end_date)
+    try:
+        # check to is if it is saved in redis
+        key_params = ['tier1_miners_list', threshold_tx_paid_out,
+                      threshold_blocks_mined_per_day]
+        redis_key = get_key_in_redis(key_params, start_date, end_date)
 
-    # load data from redis if saved, else compose miner list
-    if redis_key is not None:
-        return r.load(key_params, start_date, end_date,
-                                  key=redis_key, item_type='list')
-    else:
-        return None
+        # load data from redis if saved, else compose miner list
+        if redis_key is not None:
+            return r.load(key_params, start_date, end_date,
+                                      key=redis_key, item_type='list')
+        else:
+            return None
+    except Exception:
+        logger.error("is_tier1_in_memory:",exc_info=True)
 
 def make_tier1_list(df, start_date, end_date, threshold_tx_paid_out=5,
                     threshold_blocks_mined_per_day=0.5):
     try:
         # Count transactions paid out per day: group transactions by date and miner
         # find min day find max day
-        key_params = ['tier1_miner_list', threshold_tx_paid_out,
+        key_params = ['tier1_miners_list', threshold_tx_paid_out,
                       threshold_blocks_mined_per_day]
         delta_days = (end_date - start_date).days
         if delta_days <= 0:
@@ -218,51 +222,65 @@ def make_tier1_list(df, start_date, end_date, threshold_tx_paid_out=5,
     except Exception:
         logger.error("make tier 1 miner list", exc_info=True)
 
+def is_tier2_in_memory(start_date, end_date,
+                       threshold_tier2_pay_in=1,
+                       threshold_tx_paid_out=5,
+                       threshold_blocks_mined_per_day=0.5):
+    try:
+        # check to is if it is saved in redis
+        # check to is if it is saved in redis
+        key_params = ['tier2_miners_list', threshold_tier2_pay_in,
+                      threshold_tx_paid_out, threshold_blocks_mined_per_day,
+                      start_date, end_date]
+        redis_key = get_key_in_redis(key_params, start_date, end_date)
 
-def make_tier2_list(df,tier1_miner_list,
-                    start_date, end_date,
+        # load data from redis if saved, else compose miner list
+        if redis_key is not None:
+            return r.load(key_params, start_date, end_date,
+                          key=redis_key, item_type='list')
+        else:
+            return None
+    except Exception:
+        logger.error("is_tier2_in_memory", exc_info=True)
+
+def make_tier2_list(df,start_date, end_date,
+                    tier1_miners_list,
                     threshold_tier2_pay_in=1,
                     threshold_tx_paid_out=5,
                     threshold_blocks_mined_per_day=0.5
                     ):
     try:
-        # check to is if it is saved in redis
-        key_params = ['tier2_miner_list',threshold_tier2_pay_in,
-                      start_date, end_date]
-        redis_key = get_key_in_redis(key_params,start_date,end_date)
+        key_params = ['tier2_miners_list', threshold_tier2_pay_in,
+                      threshold_tx_paid_out, threshold_blocks_mined_per_day]
+        # ensure both are datetimes
+        if isinstance(end_date,datetime):
+            end_date = end_date.date()
+        if isinstance(start_date,date):
+            start_date = start_date.date()
 
-        # load data from redis if saved, else compose miner list
-        if redis_key is not None:
-            tier2_miner_list = r.load(key_params,start_date,end_date,
-                                      key=redis_key,item_type='list')
-        else:
-            tier1_miner_list = make_tier1_list(df,start_date,end_date,
-                                               threshold_tx_paid_out,
-                                               threshold_blocks_mined_per_day)
-            # find min day find max day
+        delta_days = (end_date - start_date).days
+        if delta_days <= 0:
+            delta_days = 1
 
-            # GET THE POOLS FOR FREQUENT PAYMENTS RECEIVED
-            # filter dataframe to retain only tx payouts from tier1 miner list
-            df_temp = df[df.from_addr.isin(tier1_miner_list)]
-            df_temp = df_temp.groupby('to_addr')['from_addr'].couunt().reset_index()
-            threshold = threshold_tier2_pay_in * (end_date-start_date).days
-            df_temp = df_temp[df_temp.to_addr >= threshold]
+        # GET THE POOLS FOR FREQUENT PAYMENTS RECEIVED
+        # filter dataframe to retain only great than
+        # threshold tx pay-ins from tier1 miner list
+        df_temp = df[df.from_addr.isin(tier1_miners_list)]
+        df_temp = df_temp.groupby('to_addr')['from_addr'].count().reset_index()
+        threshold = threshold_tier2_pay_in * delta_days
+        df_temp = df_temp[df_temp.from_addr >= threshold]
+        tier2_miners_list = df_temp.to_addr.unique().compute()
 
-            tier2_miner_list = df_temp.to_addr.unique().compute()
+        # save list to redis
+        r.save(tier2_miners_list,key_params,start_date,end_date)
+        del df_temp
+        gc.collect()
 
-            # save list to redis
-            key_params = ['tier2_miner_list',threshold_tier2_pay_in]
-            r.load(tier2_miner_list,key_params,start_date,end_date)
-            del df_temp
-            gc.collect()
-
-
-
-        return tier2_miner_list
-        logger.warning("tier2_miner_list:%s",tier2_miner_list)
+        return tier2_miners_list
+        logger.warning("tier2_miners_list:%s",tier2_miners_list)
 
     except Exception:
-        logger.error("tier 1 miner list", exc_info=True)
+        logger.error("tier 2 miner list", exc_info=True)
 
 
 

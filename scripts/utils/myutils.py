@@ -233,7 +233,7 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
             lst = params['redis_key_full'].split(':')
             sdate = date_to_ms(lst[1])
             edate = date_to_ms(lst[2])
-            df = redis.load(table, sdate, edate,params['redis_key_full'],'dataframe',)
+            df = redis.load(table, sdate, edate,params['redis_key_full'],'dataframe')
         # load all from cassandra
         elif params['load_type'] & LoadType.CASS_FULL.value == LoadType.CASS_FULL.value:
             sdate = pc.date_to_cass_ts(req_start_date)
