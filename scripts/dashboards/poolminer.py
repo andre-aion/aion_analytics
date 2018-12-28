@@ -83,6 +83,7 @@ def poolminer_tab():
             self.threshold_blocks_mined = 1
             self.tier2_miners_list = []
             self.tier1_miners_list = []
+            self.tier1_miners_activated = False
 
         def df_loaded_check(self,start_date, end_date):
             # check to see if block_tx_warehouse is loaded
@@ -175,11 +176,6 @@ def poolminer_tab():
             del tier1_df
             gc.collect()
 
-            '''
-            return self.tier1_df.hvplot.table(columns=['from_addr','block_date',
-                                         'block_number','approx_value'],width=600)
-            '''
-
         def date_to_str(self, ts):
 
             if isinstance(ts,datetime):
@@ -248,21 +244,6 @@ def poolminer_tab():
             del new_data
             del tier2_df
             gc.collect()
-            '''
-            return self.tier2_df.hvplot.table(columns=['to_addr', 'block_date',
-                                                  'approx_value'], width=500)
-            '''
-
-
-
-        # notify the holoviews stream of the slider updates
-    '''
-    def update_start_date(attrname, old, new):
-        stream_start_date.event(start_date=new)
-
-    def update_end_date(attrname, old, new):
-        stream_end_date.event(end_date=new)
-    '''
 
     def update_threshold_tier_2_received(attrname, old, new):
         thistab.make_tier2_table(datepicker_start.value, datepicker_end.value,
@@ -271,6 +252,7 @@ def poolminer_tab():
                                  select_blocks_mined.value)
 
     def update(attr, old, new):
+        thistab.tier1_miners_activated = True
         thistab.load_this_data(datepicker_start.value, datepicker_end.value,
                                select_tx_paid_out.value,
                                select_blocks_mined.value)
@@ -279,6 +261,8 @@ def poolminer_tab():
                                  select_tx_received.value,
                                  select_tx_paid_out.value,
                                  select_blocks_mined.value)
+        thistab.tier1_miners_activated = False
+
 
     try:
         query_cols=['block_date','block_number','to_addr',
@@ -304,21 +288,6 @@ def poolminer_tab():
 
         # MANAGE STREAM
         # date comes out stream in milliseconds
-        '''
-        stream_start_date = streams.Stream.define('Start_date',
-                                                  start_date=first_date_range)()
-        stream_end_date = streams.Stream.define('End_date', end_date=last_date)()
-        stream_threshold_tier2_received = streams.Stream.define('Threshold_tier2_pay_in',
-                                                               threshold_tier2_received=
-                                                               thistab.threshold_tier2_received)()
-        stream_threshold_blocks_mined = streams.Stream.define('Threshold_tier1_blocks_mined',
-                                                              threshold_blocks_mined=
-                                                              thistab.threshold_blocks_mined)()
-
-        stream_threshold_tx_paid_out = streams.Stream.define('Threshold_tier1_paid_out',
-                                                              threshold_tx_paid_out=
-                                                              thistab.threshold_tx_paid_out)()
-        '''
 
         # CREATE WIDGETS
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
@@ -384,7 +353,8 @@ def poolminer_tab():
             download_button_2)
 
         # create the dashboard
-        grid = gridplot([[controls_left, controls_right],
+        spacing_div = thistab.spacing_div(width=200,height=400)
+        grid = gridplot([[controls_left,controls_right],
                          [tier1_table, tier2_table]])
 
         # Make a tab with the layout
@@ -394,3 +364,5 @@ def poolminer_tab():
     except Exception:
         logger.error('rendering err:',exc_info=True)
         return tab_error_flag('poolminer')
+
+

@@ -26,4 +26,9 @@ columns['transaction'] = ['transaction_hash','transaction_index','block_number',
                        'nrg_price','nonce','contract_addr','transaction_year',
                        'transaction_month','transaction_day']
 
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#                             block tx warehouse
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+columns['block_tx_warehouse'] = ['miner_address', 'block_number', 'block_date',
+                                 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']

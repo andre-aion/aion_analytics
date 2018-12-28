@@ -9,6 +9,7 @@ from bokeh.server.server import Server
 
 # GET THE DASHBOARDS
 from scripts.dashboards.blockminer import blockminer_tab
+from scripts.dashboards.churn import churn_tab
 from scripts.dashboards.hashrate import hashrate_tab
 from scripts.dashboards.poolminer import poolminer_tab
 from scripts.utils.mylogger import mylogger
@@ -24,7 +25,8 @@ def aion_analytics(doc):
         bm = yield blockminer_tab()
         #hr = yield hashrate_tab()
         pm = yield poolminer_tab()
-        tabs = Tabs(tabs=[pm, bm])
+        ch = yield churn_tab()
+        tabs = Tabs(tabs=[bm, pm, ch])
         doc.add_root(tabs)
 
     except Exception:

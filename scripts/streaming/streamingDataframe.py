@@ -15,9 +15,12 @@ class StreamingDataframe:
 
             if len(columns) > 0 :
                 self.columns = columns[table_name]
-                self.dedup_columns = dedup_columns[table_name]
             else:
                 self.columns = []
+
+            if len(dedup_columns) > 0:
+                self.dedup_columns = columns[table_name]
+            else:
                 self.dedup_columns = []
             # initialize as pandas
             df = pd.DataFrame(columns=self.columns)

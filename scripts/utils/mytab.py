@@ -10,6 +10,8 @@ from scripts.utils.myutils import set_params_to_load, construct_df_upon_load, \
 from scripts.utils.pythonCassandra import PythonCassandra
 from scripts.utils.pythonRedis import RedisStorage, LoadType
 from scripts.utils.poolminer import make_poolminer_warehouse
+from bokeh.models.widgets import Div, Paragraph
+
 r = RedisStorage()
 logger = mylogger(__file__)
 table = 'block'
@@ -72,6 +74,9 @@ class Mytab:
             start_date = datetime.combine(start_date, datetime.min.time())
             # if table not in live memory then go to redis and cassandra
             load_params = set_params_to_load(self.df, start_date,end_date)
+            logger.warning("TABLE:%s",self.table)
+            self.params = r.set_load_params(self.table, start_date, end_date,
+                                            load_params)
             if load_params['in_memory'] == False:
                 if self.table != 'block_tx_warehouse':
                     # load from redis, cassandra if necessary
@@ -98,7 +103,7 @@ class Mytab:
                             end_date)
                         logger.warning("WAREHOUSE UPDATED WITH END DATE:%s",end_date)
         except Exception:
-            logger.error("load_data:",ex_info=True)
+            logger.error("load_data:",exc_info=True)
 
     def filter_df(self, start_date, end_date):
         # change from milliseconds to seconds
@@ -117,6 +122,13 @@ class Mytab:
         #self.df1 = self.df1.reset_index()
         #self.df1 = self.df1.fillna(0)
 
+
         #logger.warning("post filter:%s",self.df1.head(20))
-        return self.df1
+
+    def spacing_div(self, width=20, height=100):
+        return Div(text='', width=width, height=height)
+
+    def spacing_paragraph(self,width=20, height=100):
+        return Paragraph(text='', width=width, height=height)
+
 

@@ -254,7 +254,7 @@ def make_tier2_list(df, start_date, end_date,
         # ensure both are datetimes
         if isinstance(end_date,datetime):
             end_date = end_date.date()
-        if isinstance(start_date,date):
+        if isinstance(start_date,datetime):
             start_date = start_date.date()
 
         delta_days = (end_date - start_date).days
@@ -264,6 +264,8 @@ def make_tier2_list(df, start_date, end_date,
         # GET THE POOLS FOR FREQUENT PAYMENTS RECEIVED
         # filter dataframe to retain only great than
         # threshold tx pay-ins from tier1 miner list
+        logger.warning("df in make tier 2 columns:%s",df.columns.tolist())
+
         df_temp = df[df.from_addr.isin(tier1_miners_list)]
         df_temp = df_temp.groupby('to_addr')['from_addr'].count().reset_index()
         threshold = threshold_tier2_received * delta_days

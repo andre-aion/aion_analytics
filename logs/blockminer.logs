@@ -132,3 +132,357 @@
 2018-12-27 19:01:57,479 - logs/blockminer.logs:116 - WARNING - top n called:15
 2018-12-27 19:01:57,956 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
 2018-12-27 19:01:57,956 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-06-24 00:00:00
+2018-12-28 00:17:40,257 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 00:17:41,191 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 00:17:41,193 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 00:17:41,204 - logs/blockminer.logs:72 - WARNING - load_data:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-28 00:17:43,818 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 00:17:44,373 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 00:17:44,955 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 00:17:44,955 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 00:54:48,496 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 00:54:49,180 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 00:54:49,182 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 00:54:49,197 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True}
+2018-12-28 00:54:52,091 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 00:54:53,135 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 00:54:54,101 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 00:54:54,102 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 00:57:02,906 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 00:57:04,108 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 00:57:04,110 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 00:57:04,124 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-28 00:57:07,105 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 00:57:07,617 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 00:57:08,228 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 00:57:08,229 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 01:04:32,619 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 01:04:33,574 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:04:33,577 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:04:33,643 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
+2018-12-28 01:04:37,546 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 01:04:38,573 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 01:04:39,507 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 01:04:39,507 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 01:14:10,890 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 01:14:11,708 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:14:11,711 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:14:11,739 - logs/blockminer.logs:72 - WARNING - load_data:{'in_memory': False, 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 01:14:14,525 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 01:14:15,015 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 01:14:15,608 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 01:14:15,608 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 01:34:25,608 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 01:34:26,110 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:34:26,111 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:34:26,131 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 01:34:27,246 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 01:34:27,528 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 01:34:27,871 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 01:34:27,871 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 01:34:39,939 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:34:39,940 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:34:39,943 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 01:34:40,017 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:34:40,017 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:34:40,021 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 01:34:40,134 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:34:40,135 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:34:40,139 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 01:35:12,451 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:35:12,451 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:35:12,455 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 01:35:12,626 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:35:12,626 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:35:12,629 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 01:35:12,681 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:35:12,682 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:35:12,683 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 01:35:14,221 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:35:14,221 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:35:14,224 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 01:35:14,371 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:35:14,371 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:35:14,375 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 01:35:27,354 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 01:35:27,854 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:35:27,856 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:35:27,862 - logs/blockminer.logs:72 - WARNING - load_data:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 01:35:28,917 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 01:35:29,209 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 01:35:29,552 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 01:35:29,552 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 01:50:36,060 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 01:50:36,556 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:50:36,557 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:50:36,573 - logs/blockminer.logs:72 - WARNING - load_data:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2018-12-28 01:50:37,634 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 01:50:37,896 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 01:50:38,216 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 01:50:38,216 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 01:52:46,740 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 01:52:47,303 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:52:47,304 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:52:47,312 - logs/blockminer.logs:72 - WARNING - load_data:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
+2018-12-28 01:52:48,463 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 01:52:48,756 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 01:52:49,088 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 01:52:49,089 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 01:57:14,126 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 01:57:14,640 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 01:57:14,641 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 01:57:14,652 - logs/blockminer.logs:72 - WARNING - load_data:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 01:57:15,803 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 01:57:16,070 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 01:57:16,391 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 01:57:16,392 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 02:01:17,306 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 02:01:17,833 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 02:01:17,835 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 02:01:17,843 - logs/blockminer.logs:72 - WARNING - load_data:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 02:01:18,965 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 02:01:19,313 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 02:01:19,818 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 02:01:19,819 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 08:08:22,156 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 08:08:23,486 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:08:23,487 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:08:23,501 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 08:08:25,317 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 08:08:25,905 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 08:08:26,400 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 08:08:26,400 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 08:27:05,332 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 08:27:06,406 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:27:06,408 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:27:06,425 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 08:27:08,554 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 08:27:09,004 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 08:27:09,529 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 08:27:09,530 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 08:42:33,297 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 08:42:34,119 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:42:34,121 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:42:34,176 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 08:42:35,970 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 08:42:36,437 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 08:42:36,947 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 08:42:36,948 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 08:42:41,756 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:42:41,757 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:42:41,761 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 08:42:41,958 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:42:41,959 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:42:41,966 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 08:42:42,122 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:42:42,122 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:42:42,127 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 08:43:36,839 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:43:36,839 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:43:36,843 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 08:43:37,005 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:43:37,005 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:43:37,008 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 08:43:38,271 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:43:38,271 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:43:38,274 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 08:43:38,461 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:43:38,462 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:43:38,465 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 08:43:38,580 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:43:38,580 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:43:38,583 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 08:43:38,767 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:43:38,767 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:43:38,771 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 08:43:55,831 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 08:43:57,228 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:43:57,230 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:43:57,238 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True}
+2018-12-28 08:44:31,981 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 08:44:32,380 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 08:44:32,910 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 08:44:32,910 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 08:57:13,992 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 08:57:14,831 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 08:57:14,832 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 08:57:14,882 - logs/blockminer.logs:72 - WARNING - load_data:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 08:57:15,836 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 08:57:16,384 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 08:57:16,991 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 08:57:16,992 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 09:00:05,749 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 09:00:06,552 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:00:06,554 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:00:06,565 - logs/blockminer.logs:72 - WARNING - load_data:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-28 09:00:07,445 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 09:00:07,977 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 09:00:08,633 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 09:00:08,633 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 09:12:32,855 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 09:12:33,686 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:12:33,688 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:12:33,748 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
+2018-12-28 09:12:34,636 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 09:12:35,076 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 09:12:35,813 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 09:12:35,813 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 09:16:33,348 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 09:16:34,567 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:16:34,569 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:16:34,598 - logs/blockminer.logs:72 - WARNING - load_data:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 09:16:35,476 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 09:16:36,093 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 09:16:36,691 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 09:16:36,692 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 09:32:43,440 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 09:32:44,732 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:32:44,734 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:32:44,769 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2018-12-28 09:32:46,518 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 09:32:47,432 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 09:32:48,221 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 09:32:48,222 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 09:43:44,980 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 09:43:46,013 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:43:46,015 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:43:46,050 - logs/blockminer.logs:72 - WARNING - load_data:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False}
+2018-12-28 09:43:47,435 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 09:43:48,204 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 09:43:49,096 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 09:43:49,096 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 09:49:48,391 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 09:49:50,123 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:49:50,125 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:49:50,143 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True}
+2018-12-28 09:49:51,153 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 09:49:51,607 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 09:49:52,161 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 09:49:52,161 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 09:52:16,996 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 09:52:17,526 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:52:17,529 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:52:17,536 - logs/blockminer.logs:72 - WARNING - load_data:{'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 09:52:18,104 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 09:52:18,544 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 09:52:19,377 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 09:52:19,378 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 09:55:43,328 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 09:55:43,837 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:55:43,838 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:55:43,844 - logs/blockminer.logs:72 - WARNING - load_data:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 09:55:44,375 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 09:55:44,622 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 09:55:45,000 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 09:55:45,001 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 09:56:07,421 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:56:07,422 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:56:07,425 - logs/blockminer.logs:72 - WARNING - load_data:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 09:56:39,623 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 09:56:39,936 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 09:56:40,367 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 09:56:40,367 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 09:56:42,515 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:56:42,516 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:56:42,518 - logs/blockminer.logs:72 - WARNING - load_data:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 09:56:42,748 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:56:42,748 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:56:42,751 - logs/blockminer.logs:72 - WARNING - load_data:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 09:56:42,881 - logs/blockminer.logs:239 - ERROR - Graph draw
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/blockminer.py", line 209, in blockminer_tab
+    all_plot = renderer.get_plot(dmap_all)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py", line 162, in get_plot
+    plot = super(BokehRenderer, self_or_cls).get_plot(obj, renderer, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/renderer.py", line 182, in get_plot
+    initialize_dynamic(obj)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/util.py", line 244, in initialize_dynamic
+    dmap[dmap._initial_key()]
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/util/__init__.py", line 437, in dynamic_operation
+    return self._process(map_obj[key], key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 1132, in __getitem__
+    val = self._execute_callback(*tuple_key)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 911, in _execute_callback
+    retval = self.callback(*args, **kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/core/spaces.py", line 574, in __call__
+    ret = self.callable(*args, **kwargs)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/blockminer.py", line 82, in load_data
+    self.filter_dates(start_date, end_date)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/blockminer.py", line 92, in filter_dates
+    self.df1 = self.df[(self.df.block_date >= start_date) &
+AttributeError: 'NoneType' object has no attribute 'block_date'
+2018-12-28 09:57:00,764 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 09:57:01,456 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 09:57:01,458 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 09:57:01,477 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True}
+2018-12-28 09:57:02,366 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 09:57:02,821 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 09:57:03,451 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 09:57:03,451 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 10:02:46,709 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:02:47,393 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 10:02:47,395 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 10:02:47,438 - logs/blockminer.logs:72 - WARNING - load_data:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True}
+2018-12-28 10:02:48,510 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 10:02:49,053 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 10:02:49,729 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 10:02:49,729 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 10:11:42,968 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:11:43,512 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 10:11:43,513 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 10:11:43,524 - logs/blockminer.logs:72 - WARNING - load_data:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:11:44,011 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 10:11:44,270 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 10:11:44,631 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 10:11:44,632 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 10:15:16,506 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:15:17,005 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 10:15:17,007 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 10:15:17,015 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:15:17,491 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 10:15:17,718 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 10:15:18,035 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 10:15:18,035 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 10:16:00,156 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 10:16:00,156 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 10:16:00,160 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:16:00,272 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 10:16:00,272 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 10:16:00,278 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:16:00,424 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 10:16:00,424 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 10:16:00,429 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:16:00,546 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 10:16:00,546 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 10:16:00,557 - logs/blockminer.logs:72 - WARNING - load_data:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:17:30,546 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:17:31,063 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 10:17:31,064 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 10:17:31,073 - logs/blockminer.logs:72 - WARNING - load_data:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 10:17:31,567 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 10:17:31,815 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 10:17:32,200 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 10:17:32,200 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00
+2018-12-28 10:24:26,959 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:30:22,840 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:33:43,963 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:35:22,562 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:38:57,354 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:42:03,516 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:51:42,268 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 10:54:22,248 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 11:07:50,123 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 11:17:03,033 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2018-12-28 11:17:03,528 - logs/blockminer.logs:65 - WARNING - load_data start date:2018-04-23 00:00:00
+2018-12-28 11:17:03,529 - logs/blockminer.logs:66 - WARNING - load_data end date:2018-05-23 00:00:00
+2018-12-28 11:17:03,547 - logs/blockminer.logs:72 - WARNING - load_data:{'end': True, 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 11:17:04,441 - logs/blockminer.logs:98 - WARNING - prep dataset start date:2018-04-23 00:00:00
+2018-12-28 11:17:04,703 - logs/blockminer.logs:116 - WARNING - top n called:30
+2018-12-28 11:17:05,026 - logs/blockminer.logs:105 - WARNING - prep dataset START DATE:2018-04-23 00:00:00
+2018-12-28 11:17:05,026 - logs/blockminer.logs:106 - WARNING - prep dataset END DATE:2018-05-23 00:00:00

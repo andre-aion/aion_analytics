@@ -1,523 +1,318 @@
-2018-12-26 22:40:35,584 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-26 22:40:37,394 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-26 22:40:37,398 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-26 22:42:01,783 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-26 22:42:03,371 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-26 22:42:03,377 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-26 22:42:58,576 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-26 22:42:58,578 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-26 22:42:58,578 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-26 22:54:02,291 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-26 22:54:04,150 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True}
-2018-12-26 22:54:04,165 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True}
-2018-12-26 22:55:09,080 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-26 22:55:09,082 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-26 22:55:09,082 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False, 'start': False}
-2018-12-26 23:03:14,111 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-26 23:03:16,020 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-26 23:03:16,023 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-26 23:04:02,391 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-26 23:04:02,393 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-26 23:04:02,393 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-26 23:05:24,618 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-26 23:05:24,618 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-26 23:05:24,618 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-26 23:15:45,138 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-26 23:15:45,139 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-26 23:15:45,139 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-26 23:16:28,507 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-26 23:16:28,508 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-26 23:16:28,508 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-26 23:25:08,045 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-26 23:25:10,526 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-26 23:25:10,538 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-26 23:26:23,920 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-26 23:26:23,922 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-26 23:26:23,922 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-26 23:36:16,712 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-26 23:38:51,634 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-26 23:38:54,658 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-26 23:38:54,665 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-26 23:48:44,652 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-26 23:48:46,306 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-26 23:48:46,315 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-26 23:49:53,298 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-26 23:49:53,300 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-26 23:49:53,300 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-26 23:59:25,106 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-26 23:59:26,686 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
-2018-12-26 23:59:26,692 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
-2018-12-27 00:00:34,332 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 00:00:34,334 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 00:00:34,334 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False}
-2018-12-27 00:06:18,895 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 00:06:21,717 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 00:06:21,732 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 00:07:04,649 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 00:07:04,650 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 00:07:04,650 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'in_memory': False, 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 00:11:46,255 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 00:11:48,616 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-27 00:11:48,624 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-27 00:12:29,022 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 00:12:29,024 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 00:12:29,024 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'in_memory': False, 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-27 06:53:50,853 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 06:53:53,130 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False}
-2018-12-27 06:53:53,147 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False}
-2018-12-27 06:54:33,272 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 06:54:33,273 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 06:54:33,273 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False}
-2018-12-27 07:00:52,855 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 07:00:55,574 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
-2018-12-27 07:00:55,583 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
-2018-12-27 07:01:35,214 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 07:01:35,215 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 07:01:35,215 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False}
-2018-12-27 07:22:31,996 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 07:22:33,671 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True}
-2018-12-27 07:22:33,676 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True}
-2018-12-27 07:23:11,190 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 07:23:11,191 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 07:23:11,191 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'end': False}
-2018-12-27 07:42:05,382 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 07:42:06,945 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
-2018-12-27 07:42:06,950 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
-2018-12-27 07:46:38,286 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 07:46:41,067 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 07:46:41,074 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 07:47:23,509 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 07:47:25,536 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
-2018-12-27 07:47:25,548 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
-2018-12-27 07:47:57,777 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 07:48:00,195 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 07:48:00,205 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 07:48:29,706 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 07:48:29,707 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 07:48:29,707 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'end': False, 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 07:54:30,257 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 07:54:30,257 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 07:54:30,257 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'end': False, 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 08:40:04,385 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 08:40:06,188 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 08:40:06,192 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 08:40:40,116 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 08:40:40,118 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 08:40:40,119 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False}
-2018-12-27 08:49:42,136 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 08:49:43,790 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True}
-2018-12-27 08:49:43,799 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True}
-2018-12-27 08:50:18,657 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 08:50:18,658 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 08:50:18,659 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False, 'in_memory': False, 'start': False}
-2018-12-27 08:58:33,869 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 08:58:35,581 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True}
-2018-12-27 08:58:35,587 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True}
-2018-12-27 08:59:08,417 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 08:59:08,419 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 08:59:08,419 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'end': False}
-2018-12-27 09:01:33,276 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 09:01:33,276 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 09:01:33,276 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'end': False}
-2018-12-27 09:08:15,535 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 09:08:23,738 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'in_memory': False}
-2018-12-27 09:08:23,750 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'in_memory': False}
-2018-12-27 09:09:58,748 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 09:09:58,752 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 09:09:58,753 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'end': False, 'in_memory': False}
-2018-12-27 09:37:55,241 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 09:37:57,043 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 09:37:57,052 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 09:38:30,792 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 09:38:30,794 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 09:38:30,795 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False}
-2018-12-27 09:40:49,530 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 09:40:52,006 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
-2018-12-27 09:40:52,014 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
-2018-12-27 09:41:29,540 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 09:41:29,542 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 09:41:29,543 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False}
-2018-12-27 09:56:59,065 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 09:57:00,652 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 09:57:00,659 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 09:57:41,911 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 09:57:41,913 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 09:57:41,913 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 10:00:36,351 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 10:00:38,014 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 10:00:38,018 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 10:01:13,601 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 10:01:13,602 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 10:01:13,602 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'start': False, 'end': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 10:03:43,574 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 10:03:46,293 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'in_memory': False}
-2018-12-27 10:03:46,302 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'in_memory': False}
-2018-12-27 10:04:35,597 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 10:04:35,600 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 10:04:35,601 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'end': False, 'in_memory': False}
-2018-12-27 10:09:43,042 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 10:09:47,072 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 10:09:47,082 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 10:10:25,736 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 10:10:25,738 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 10:10:25,738 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'in_memory': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 10:14:18,753 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 10:14:22,150 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True}
-2018-12-27 10:14:22,164 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True}
-2018-12-27 10:15:01,091 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 10:15:01,092 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 10:15:01,093 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'end': False}
-2018-12-27 10:17:58,648 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 10:18:01,288 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
-2018-12-27 10:18:01,299 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
-2018-12-27 10:18:38,853 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 10:18:38,855 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 10:18:38,855 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False}
-2018-12-27 10:23:47,797 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 10:23:50,128 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 10:23:50,135 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 10:24:25,416 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 10:24:25,418 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 10:24:25,418 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'start': False, 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 10:49:01,730 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 10:49:05,436 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'start': True}
-2018-12-27 10:49:05,446 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'start': True}
-2018-12-27 10:49:42,233 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 10:49:42,234 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 10:49:42,235 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-06-30 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'end': False, 'start': False}
-2018-12-27 10:51:20,708 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'start': True}
-2018-12-27 10:51:20,717 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'start': True}
-2018-12-27 10:52:30,496 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 10:52:33,265 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True}
-2018-12-27 10:52:33,274 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True}
-2018-12-27 10:53:07,904 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 10:53:07,905 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 10:53:07,905 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'end': False}
-2018-12-27 10:55:04,490 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 10:55:08,266 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 10:55:08,273 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 10:55:42,790 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 10:55:42,791 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 10:55:42,791 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False}
-2018-12-27 11:16:30,244 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 11:16:32,583 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-27 11:16:32,600 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-27 11:17:24,204 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 11:17:24,206 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 11:17:24,207 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'in_memory': False, 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-27 11:19:52,559 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 11:19:54,730 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 11:19:54,740 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 11:20:34,354 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 11:20:34,357 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 11:20:34,357 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 11:22:19,736 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 11:22:25,410 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False}
-2018-12-27 11:22:25,425 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False}
-2018-12-27 11:23:25,680 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 11:23:25,682 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 11:23:25,683 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'in_memory': False}
-2018-12-27 11:26:44,627 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 11:26:48,790 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'in_memory': False}
-2018-12-27 11:26:48,804 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'in_memory': False}
-2018-12-27 11:26:55,376 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'in_memory': False}
-2018-12-27 11:26:55,388 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'in_memory': False}
-2018-12-27 11:28:14,438 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 11:28:19,281 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 11:28:19,291 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 11:29:07,525 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 11:29:07,527 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 11:29:07,527 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 11:32:08,608 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 11:32:13,646 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 11:32:13,657 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 11:33:08,260 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 11:33:08,263 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 11:33:08,263 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 11:35:37,408 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 11:35:41,964 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False}
-2018-12-27 11:35:41,978 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False}
-2018-12-27 11:36:31,983 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 11:36:31,985 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 11:36:31,985 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False}
-2018-12-27 11:43:49,957 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 11:43:54,158 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
-2018-12-27 11:43:54,169 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
-2018-12-27 11:44:40,242 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 11:44:40,244 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 11:44:40,245 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False}
-2018-12-27 11:47:49,301 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
-2018-12-27 11:47:49,310 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
-2018-12-27 11:48:45,234 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 11:48:45,235 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 11:48:45,235 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False}
-2018-12-27 11:50:41,837 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
-2018-12-27 11:50:41,846 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
-2018-12-27 11:51:32,766 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 11:51:32,766 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 11:51:32,766 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False}
-2018-12-27 11:55:11,295 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 11:55:15,572 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'in_memory': False, 'end': True}
-2018-12-27 11:55:15,578 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'in_memory': False, 'end': True}
-2018-12-27 11:56:01,572 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 11:56:01,575 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 11:56:01,576 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'in_memory': False, 'end': False}
-2018-12-27 12:07:39,717 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 12:07:42,758 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 12:07:42,765 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 12:08:32,758 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 12:08:32,759 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 12:08:32,759 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 12:11:07,203 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 12:11:10,794 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
-2018-12-27 12:11:10,804 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
-2018-12-27 12:11:44,778 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 12:11:44,781 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 12:11:44,781 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False}
-2018-12-27 12:17:23,767 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 12:17:28,870 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
-2018-12-27 12:17:28,882 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
-2018-12-27 12:18:07,056 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 12:18:07,057 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 12:18:07,058 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False}
-2018-12-27 12:54:39,897 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 13:07:12,163 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 13:07:14,094 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 13:07:14,099 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 13:07:47,085 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 13:07:47,086 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 13:07:47,087 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 13:08:31,305 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 13:08:31,305 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 13:08:31,305 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 13:23:39,932 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 13:23:41,578 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
-2018-12-27 13:23:41,582 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
-2018-12-27 13:24:32,880 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 13:24:32,882 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 13:24:32,882 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False, 'start': False, 'in_memory': False}
-2018-12-27 13:46:06,095 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 13:46:10,544 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-27 13:46:10,554 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-27 13:47:01,343 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 13:47:01,345 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 13:47:01,345 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False, 'in_memory': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-27 13:56:34,917 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 13:56:37,614 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
-2018-12-27 13:56:37,623 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
-2018-12-27 13:57:27,018 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 13:57:27,021 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 13:57:27,021 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False}
-2018-12-27 14:03:54,991 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 14:04:00,990 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'end': True}
-2018-12-27 14:04:00,999 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'end': True}
-2018-12-27 14:04:44,086 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 14:04:44,088 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 14:04:44,088 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-06-30 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'start': False, 'end': False}
-2018-12-27 14:43:57,414 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 14:44:01,747 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-27 14:44:01,762 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-27 14:44:47,452 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 14:44:47,453 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 14:44:47,453 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-27 14:46:31,895 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 14:49:05,045 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 14:49:08,915 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 14:49:08,926 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 14:49:47,651 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 14:49:47,653 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 14:49:47,653 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'end': False, 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 14:57:38,634 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 14:57:40,999 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
-2018-12-27 14:57:41,007 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
-2018-12-27 14:58:15,063 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 14:58:15,064 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 14:58:15,064 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False}
-2018-12-27 15:14:57,245 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:14:57,245 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:14:57,245 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False}
-2018-12-27 15:15:14,143 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:15:14,144 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:15:14,144 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False}
-2018-12-27 15:21:50,298 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 15:21:51,885 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
-2018-12-27 15:21:51,891 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
-2018-12-27 15:22:25,185 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:22:25,186 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:22:25,186 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'start': False, 'end': False}
-2018-12-27 15:27:35,745 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:27:35,745 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:27:35,745 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'start': False, 'end': False}
-2018-12-27 15:27:52,639 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:27:52,639 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:27:52,639 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'start': False, 'end': False}
-2018-12-27 15:37:45,346 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 15:37:47,395 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
-2018-12-27 15:37:47,403 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
-2018-12-27 15:38:16,860 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:38:16,862 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:38:16,863 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False}
-2018-12-27 15:40:10,877 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:40:10,877 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:40:10,878 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False}
-2018-12-27 15:40:27,335 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:40:27,335 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:40:27,336 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'start': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False}
-2018-12-27 15:44:16,569 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 15:44:18,053 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
-2018-12-27 15:44:18,058 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
-2018-12-27 15:44:51,373 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:44:51,375 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:44:51,375 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False}
-2018-12-27 15:46:18,787 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 15:46:20,424 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 15:46:20,429 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 15:46:48,849 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:46:48,851 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:46:48,851 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 15:49:11,375 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:49:11,375 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:49:11,375 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 15:49:44,054 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 15:49:44,054 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 15:49:44,054 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00')}
-2018-12-27 16:37:34,861 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 16:37:36,404 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'in_memory': False}
-2018-12-27 16:37:36,412 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True, 'in_memory': False}
-2018-12-27 16:38:03,529 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 16:38:03,530 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 16:38:03,530 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'end': False, 'in_memory': False}
-2018-12-27 16:40:21,531 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 16:40:23,031 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-27 16:40:23,039 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
-2018-12-27 16:40:52,426 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 16:40:52,428 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 16:40:52,429 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-27 16:46:23,504 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 16:46:23,504 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 16:46:23,504 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-27 16:48:48,646 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 16:48:48,646 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 16:48:48,646 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-27 16:49:22,497 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 16:49:22,497 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 16:49:22,497 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-27 17:06:40,056 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 17:06:40,056 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 17:06:40,057 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00')}
-2018-12-27 17:19:53,467 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 17:19:54,974 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
-2018-12-27 17:19:54,978 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
-2018-12-27 17:20:20,704 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 17:20:20,705 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 17:20:20,705 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False}
-2018-12-27 17:24:18,973 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 17:24:20,676 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False}
-2018-12-27 17:24:20,680 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False}
-2018-12-27 17:26:10,661 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 17:26:12,231 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True}
-2018-12-27 17:26:12,235 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True}
-2018-12-27 17:26:46,337 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 17:26:46,338 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 17:26:46,339 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'end': False}
-2018-12-27 18:23:10,850 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 18:23:12,358 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'end': True}
-2018-12-27 18:23:12,366 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'end': True}
-2018-12-27 18:24:17,388 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 18:24:19,604 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 18:24:19,613 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
-2018-12-27 18:26:26,658 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 18:26:28,152 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
-2018-12-27 18:26:28,158 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
-2018-12-27 18:29:09,420 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:29:09,421 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:29:09,421 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False}
-2018-12-27 18:29:42,611 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:29:42,612 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:29:42,612 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'end': False}
-2018-12-27 18:35:51,717 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 18:35:53,514 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 18:35:53,523 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 18:39:41,664 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 18:39:41,667 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 18:44:06,819 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 18:44:08,345 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True}
-2018-12-27 18:44:08,349 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True}
-2018-12-27 18:45:13,207 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:45:13,209 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:45:13,209 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'start': False}
-2018-12-27 18:45:46,831 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:45:46,831 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:45:46,831 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-06-30 00:00:00'), 'in_memory': False, 'start': False}
-2018-12-27 18:47:37,746 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 18:47:39,267 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True}
-2018-12-27 18:47:39,273 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True}
-2018-12-27 18:50:30,038 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:50:30,039 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:50:30,039 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'end': False}
-2018-12-27 18:51:06,317 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:51:06,317 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:51:06,317 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'end': False}
-2018-12-27 18:52:24,080 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:52:24,080 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:52:24,080 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'end': False}
-2018-12-27 18:53:02,745 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:53:02,746 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:53:02,746 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'start': False, 'end': False}
-2018-12-27 18:55:25,629 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 18:55:27,404 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 18:55:27,433 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'cass_key_full': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'load_type': 1, 'redis_end_range': None, 'redis_key_end': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'redis_key_start': None, 'redis_start_range': None}
-2018-12-27 18:55:27,433 - logs/myutils.logs:231 - WARNING - construct df, params:{'cass_key_full': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'load_type': 1, 'redis_end_range': None, 'redis_key_end': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'redis_key_start': None, 'redis_start_range': None}
-2018-12-27 18:55:32,446 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 18:55:32,450 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 18:55:56,469 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 18:55:56,505 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'cass_key_full': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'load_type': 1, 'redis_end_range': None, 'redis_key_end': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'redis_key_start': None, 'redis_start_range': None}
-2018-12-27 18:55:56,505 - logs/myutils.logs:231 - WARNING - construct df, params:{'cass_key_full': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'load_type': 1, 'redis_end_range': None, 'redis_key_end': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'redis_key_start': None, 'redis_start_range': None}
-2018-12-27 18:56:02,235 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 18:56:02,275 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'cass_key_full': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'load_type': 1, 'redis_end_range': None, 'redis_key_end': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'redis_key_start': None, 'redis_start_range': None}
-2018-12-27 18:56:02,275 - logs/myutils.logs:231 - WARNING - construct df, params:{'cass_key_full': None, 'cass_full_range': None, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'load_type': 1, 'redis_end_range': None, 'redis_key_end': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'redis_key_start': None, 'redis_start_range': None}
-2018-12-27 18:56:02,341 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
-2018-12-27 18:56:02,530 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'cass_key_full': ['2018-04-23', '2018-05-23'], 'redis_key_full': None, 'load_type': 2, 'redis_end_range': None, 'redis_key_end': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'redis_key_start': None, 'redis_start_range': None}
-2018-12-27 18:56:02,531 - logs/myutils.logs:231 - WARNING - construct df, params:{'cass_key_full': ['2018-04-23', '2018-05-23'], 'redis_key_full': None, 'load_type': 2, 'redis_end_range': None, 'redis_key_end': None, 'cass_start_range': None, 'cass_end_range': None, 'redis_keys_to_delete': [], 'redis_key_start': None, 'redis_start_range': None}
-2018-12-27 18:56:02,532 - logs/myutils.logs:241 - WARNING - construct_df, in cass load, sdate:1524456000000
-2018-12-27 18:56:10,680 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
-2018-12-27 18:56:12,845 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False}
-2018-12-27 18:56:12,888 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'cass_start_range': None, 'redis_start_range': None, 'cass_key_full': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'cass_end_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-27 18:56:12,888 - logs/myutils.logs:231 - WARNING - construct df, params:{'cass_start_range': None, 'redis_start_range': None, 'cass_key_full': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'cass_end_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-27 18:56:21,927 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False}
-2018-12-27 18:56:21,930 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False}
-2018-12-27 18:57:20,426 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:57:20,427 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:57:20,427 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False}
-2018-12-27 18:58:30,225 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:58:30,225 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:58:30,226 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False}
-2018-12-27 18:59:03,340 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 18:59:03,340 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 18:59:03,340 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False}
-2018-12-27 19:01:28,586 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 19:01:28,586 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 19:01:28,586 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False}
-2018-12-27 19:01:28,602 - logs/myutils.logs:222 - WARNING - df original, TAIL:        block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
-522202        528471  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
-522203        511307  a0061525a5e19470069c176cdeb7f578d537debdfce2fd...                        ...                                   0.00000                                                 []
-522204        493742  a07981da70ce919e1db5f051c3c386eb526e6ce8b9e2bf...                        ...                                   0.00000                                                 []
-522205        237513  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...                        ...                                   0.00000                                                 []
-522206        326942  a0e8f240ccd02ccbf1f470baacba2b304e6275369218ab...                        ...                                   0.00021  [45da01df13b0691c663ebb6adf332f7eb5dda9b457a11...
+2018-12-28 10:11:41,787 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:11:43,524 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:11:43,558 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'cass_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'cass_key_full': ['2018-04-23', '2018-05-23'], 'redis_key_full': 'block:2018-04-23:2018-05-23', 'cass_full_range': None, 'redis_keys_to_delete': [], 'load_type': 1}
+2018-12-28 10:11:43,558 - logs/myutils.logs:231 - WARNING - construct df, params:{'cass_start_range': None, 'redis_key_end': None, 'redis_end_range': None, 'cass_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'cass_key_full': ['2018-04-23', '2018-05-23'], 'redis_key_full': 'block:2018-04-23:2018-05-23', 'cass_full_range': None, 'redis_keys_to_delete': [], 'load_type': 1}
+2018-12-28 10:11:47,176 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:11:47,179 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:11:47,676 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:11:47,680 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:11:59,016 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:11:59,020 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:12:34,960 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:12:34,961 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:12:34,961 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'in_memory': False, 'start': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'max_date': Timestamp('2018-06-23 00:00:00')}
+2018-12-28 10:12:45,262 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-28 10:12:45,262 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
+2018-12-28 10:12:45,262 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'in_memory': False, 'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-05-23 00:00:00')}
+2018-12-28 10:15:15,407 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:15:17,015 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:15:17,042 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_start': None, 'cass_full_range': None, 'redis_end_range': None, 'cass_end_range': None, 'load_type': 1, 'cass_key_full': ['2018-04-23', '2018-05-23'], 'cass_start_range': None, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23'}
+2018-12-28 10:15:17,042 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_start': None, 'cass_full_range': None, 'redis_end_range': None, 'cass_end_range': None, 'load_type': 1, 'cass_key_full': ['2018-04-23', '2018-05-23'], 'cass_start_range': None, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23'}
+2018-12-28 10:15:20,548 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:15:20,552 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:15:40,897 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:15:40,901 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:16:00,160 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:16:00,278 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:16:00,334 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_start': None, 'cass_full_range': None, 'redis_end_range': None, 'cass_end_range': None, 'load_type': 1, 'cass_key_full': ['2018-04-23', '2018-05-23'], 'cass_start_range': None, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23'}
+2018-12-28 10:16:00,334 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_start': None, 'cass_full_range': None, 'redis_end_range': None, 'cass_end_range': None, 'load_type': 1, 'cass_key_full': ['2018-04-23', '2018-05-23'], 'cass_start_range': None, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23'}
+2018-12-28 10:16:00,429 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:16:00,493 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_start': None, 'cass_full_range': None, 'redis_end_range': None, 'cass_end_range': None, 'load_type': 1, 'cass_key_full': ['2018-04-23', '2018-05-23'], 'cass_start_range': None, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23'}
+2018-12-28 10:16:00,494 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'redis_key_start': None, 'cass_full_range': None, 'redis_end_range': None, 'cass_end_range': None, 'load_type': 1, 'cass_key_full': ['2018-04-23', '2018-05-23'], 'cass_start_range': None, 'redis_keys_to_delete': [], 'redis_key_full': 'block:2018-04-23:2018-05-23'}
+2018-12-28 10:16:00,557 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:17:29,392 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:17:31,073 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 10:17:31,104 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_start_range': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-05-23', 'cass_start_range': None, 'cass_key_full': ['2018-04-23', '2018-05-23'], 'cass_full_range': None, 'redis_end_range': None}
+2018-12-28 10:17:31,104 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_start_range': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-05-23', 'cass_start_range': None, 'cass_key_full': ['2018-04-23', '2018-05-23'], 'cass_full_range': None, 'redis_end_range': None}
+2018-12-28 10:17:34,814 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 10:17:34,818 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 10:17:54,522 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 10:17:54,527 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 10:18:15,653 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:18:15,654 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:18:15,654 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-23 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00'), 'in_memory': False, 'start': False}
+2018-12-28 10:18:23,220 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 10:18:23,226 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 10:20:23,218 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:20:23,219 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:20:23,219 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': True, 'max_date': Timestamp('2018-06-23 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00'), 'in_memory': False, 'start': False}
+2018-12-28 10:20:23,219 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': Timestamp('2018-06-23 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00'), 'in_memory': False, 'start': False}
+2018-12-28 10:20:23,225 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 10:20:23,259 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_start_range': None, 'redis_keys_to_delete': [b'block:2018-06-13:2018-06-30'], 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_start_range': None, 'cass_key_full': ['2018-05-23', '2018-07-27'], 'redis_end_range': None}
+2018-12-28 10:20:23,259 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_start_range': None, 'redis_keys_to_delete': [b'block:2018-06-13:2018-06-30'], 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_start_range': None, 'cass_key_full': ['2018-05-23', '2018-07-27'], 'redis_end_range': None}
+2018-12-28 10:20:23,260 - logs/myutils.logs:241 - WARNING - construct_df, in cass load, sdate:1527048000000
+2018-12-28 10:20:52,352 - logs/myutils.logs:309 - WARNING - bigger df added so deleted key:block:2018-06-13:2018-06-30
+2018-12-28 10:20:52,354 - logs/myutils.logs:317 - WARNING - BLOCK saved to reddis:        block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+507643        751204  a07702020675a4fc043c9c08a3899efd8ff15a9adada42...                        ...                                   0.00000                                                 []
+507644        280925  a003e9a7b933ab4d9667d018c42eca5e23a0be86c33588...                        ...                                   0.00000                                                 []
+507645        644212  a06e78398580c0f37add71f2b8914bcef5be4938b05e02...                        ...                                   0.00000                                                 []
+507646        739208  a0db64eae1278d63f546cf6f246ea00d040701e373dbc9...                        ...                                   0.00000                                                 []
+507647        528471  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
+507648        511307  a0061525a5e19470069c176cdeb7f578d537debdfce2fd...                        ...                                   0.00000                                                 []
+507649        493742  a07981da70ce919e1db5f051c3c386eb526e6ce8b9e2bf...                        ...                                   0.00000                                                 []
+507650        553067  a0dc858ab3ca0708b85c0e119a83b2f5dbe3c242c816d9...                        ...                                   0.00000                                                 []
+507651        326942  a0e8f240ccd02ccbf1f470baacba2b304e6275369218ab...                        ...                                   0.00021  [45da01df13b0691c663ebb6adf332f7eb5dda9b457a11...
+507652        749312  a0d1565b5b1056942421b2473d25cc2ad2e14d1ed358a9...                        ...                                   0.00000                                                 []
 
-[5 rows x 18 columns]
-2018-12-27 19:01:28,645 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'cass_start_range': None, 'redis_start_range': None, 'cass_key_full': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'cass_end_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-27 19:01:28,645 - logs/myutils.logs:231 - WARNING - construct df, params:{'cass_start_range': None, 'redis_start_range': None, 'cass_key_full': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'cass_end_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-27 19:01:56,104 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
-2018-12-27 19:01:56,104 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
-2018-12-27 19:01:56,104 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-06-30 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False, 'in_memory': False}
-2018-12-27 19:01:56,123 - logs/myutils.logs:222 - WARNING - df original, TAIL:        block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
-522202        528471  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...                        ...                                   0.00000                                                 []
-522203        511307  a0061525a5e19470069c176cdeb7f578d537debdfce2fd...                        ...                                   0.00000                                                 []
-522204        493742  a07981da70ce919e1db5f051c3c386eb526e6ce8b9e2bf...                        ...                                   0.00000                                                 []
-522205        237513  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...                        ...                                   0.00000                                                 []
-522206        326942  a0e8f240ccd02ccbf1f470baacba2b304e6275369218ab...                        ...                                   0.00021  [45da01df13b0691c663ebb6adf332f7eb5dda9b457a11...
+[10 rows x 18 columns]
+2018-12-28 10:21:04,904 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True}
+2018-12-28 10:21:04,934 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_start_range': None, 'redis_keys_to_delete': [b'transaction:2018-05-23:2018-06-23'], 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_start_range': None, 'cass_key_full': ['2018-05-23', '2018-07-27'], 'redis_end_range': None}
+2018-12-28 10:21:04,934 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_start_range': None, 'redis_keys_to_delete': [b'transaction:2018-05-23:2018-06-23'], 'redis_key_end': None, 'redis_key_start': None, 'cass_end_range': None, 'load_type': 2, 'redis_key_full': None, 'cass_start_range': None, 'cass_key_full': ['2018-05-23', '2018-07-27'], 'redis_end_range': None}
+2018-12-28 10:21:04,935 - logs/myutils.logs:241 - WARNING - construct_df, in cass load, sdate:1527048000000
+2018-12-28 10:21:25,955 - logs/myutils.logs:309 - WARNING - bigger df added so deleted key:transaction:2018-05-23:2018-06-23
+2018-12-28 10:21:25,957 - logs/myutils.logs:314 - WARNING - transaction in construct df on load                                     transaction_hash  transaction_index  block_number  transaction_timestamp       ...       contract_addr transaction_year transaction_month transaction_day
+0  8e1c7bec3964614addb913a9843e2eb6f7613347f49d64...                  0        365538       1528367831626973       ...                                 2018                 6               7
+1  dfdbec91639ad42abb342de5977d2b004e87b7380bd3c9...                  1        365538       1528367831628772       ...                                 2018                 6               7
+2  76c91747adce10c21691d6c7f628b5d0e634dc3c34096d...                  2        365538       1528367831630678       ...                                 2018                 6               7
+3  1a633f8989e8e01da058cbe2ba279fc5f20728b891166a...                  3        365538       1528367831632106       ...                                 2018                 6               7
+4  a9d6e4fccfc3d7c8f95732b66c62e97b1c2aecaccbc225...                  4        365538       1528367831633981       ...                                 2018                 6               7
 
-[5 rows x 18 columns]
-2018-12-27 19:01:56,164 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'cass_start_range': None, 'redis_start_range': None, 'cass_key_full': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'cass_end_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
-2018-12-27 19:01:56,164 - logs/myutils.logs:231 - WARNING - construct df, params:{'cass_start_range': None, 'redis_start_range': None, 'cass_key_full': None, 'cass_full_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-06-30', 'cass_end_range': None, 'redis_end_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'redis_key_start': None}
+[5 rows x 16 columns]
+2018-12-28 10:21:26,021 - logs/myutils.logs:317 - WARNING - TRANSACTION saved to reddis:                                         transaction_hash  transaction_index  block_number       ...        transaction_year transaction_month transaction_day
+485420  79e11acfdfe4efd723200d0be2fb80cc673976702a1e0d...                  0        698201       ...                    2018                 7              17
+485421  02acc054007c29bd9f808bc21291898f2e95c371e426ce...                  1        698201       ...                    2018                 7              17
+485422  2ce4dc4227cac963acc4a43cb91f15c88a3efd5cf48a30...                  2        698201       ...                    2018                 7              17
+485423  6c9965d3ff68bc50a508e18c85ba9ff44b962ed8f7a151...                  3        698201       ...                    2018                 7              17
+485424  6c758bcff06e01e584f0b35f207171486288213448522b...                  4        698201       ...                    2018                 7              17
+485425  0d8709ef506f4ab330cc04cdb60b2d0c627655d578e7c9...                  5        698201       ...                    2018                 7              17
+485426  2c7ffd4c07eed6e9fae5cdec22fa62d451bdbf1c784075...                  6        698201       ...                    2018                 7              17
+485427  7c8b32c47c69142eff78adeb6c2735ee63e50cabc24b4c...                  7        698201       ...                    2018                 7              17
+485428  7a5742d47443a6932005d75c46bed5fdff667b9ac7263a...                  8        698201       ...                    2018                 7              17
+485429  45da01df13b0691c663ebb6adf332f7eb5dda9b457a112...                  0        326942       ...                    2018                 6               2
+
+[10 rows x 16 columns]
+2018-12-28 10:21:46,690 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:21:46,690 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:21:46,691 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': True, 'max_date': Timestamp('2018-06-23 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00'), 'in_memory': False, 'start': False}
+2018-12-28 10:21:46,691 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': Timestamp('2018-06-23 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00'), 'in_memory': False, 'start': False}
+2018-12-28 10:22:25,284 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-28 10:22:25,284 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
+2018-12-28 10:22:25,284 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-05-23 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'in_memory': False, 'start': False}
+2018-12-28 10:24:25,752 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:24:27,810 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:24:27,815 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:25:00,757 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:25:00,758 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:25:00,758 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'in_memory': False, 'max_date': Timestamp('2018-07-27 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00')}
+2018-12-28 10:25:11,092 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:25:11,098 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:25:54,993 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:25:54,993 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:25:54,993 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'in_memory': False, 'max_date': Timestamp('2018-07-27 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00')}
+2018-12-28 10:26:14,895 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-28 10:26:14,895 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
+2018-12-28 10:26:14,895 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'end': False, 'in_memory': False, 'max_date': Timestamp('2018-05-23 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00')}
+2018-12-28 10:30:21,798 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:30:23,336 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
+2018-12-28 10:30:23,340 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
+2018-12-28 10:30:55,602 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:30:55,603 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:30:55,604 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'end': False, 'max_date': Timestamp('2018-07-27 00:00:00'), 'in_memory': False}
+2018-12-28 10:31:06,030 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
+2018-12-28 10:31:06,037 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False}
+2018-12-28 10:33:42,896 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:33:44,481 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:33:44,486 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:34:17,793 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:34:17,795 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:34:17,795 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'max_date': Timestamp('2018-07-27 00:00:00'), 'in_memory': False, 'start': False, 'min_date': Timestamp('2018-05-23 00:00:00')}
+2018-12-28 10:34:27,768 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:34:27,782 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:35:21,472 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:35:23,078 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2018-12-28 10:35:23,081 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2018-12-28 10:36:00,289 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:36:00,291 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:36:00,291 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-07-27 00:00:00'), 'start': False, 'in_memory': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'end': False}
+2018-12-28 10:36:13,027 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2018-12-28 10:36:13,033 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2018-12-28 10:37:06,667 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:37:06,667 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:37:06,667 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-07-27 00:00:00'), 'start': False, 'in_memory': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'end': False}
+2018-12-28 10:37:26,988 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-28 10:37:26,989 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
+2018-12-28 10:37:26,989 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-05-23 00:00:00'), 'start': False, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False}
+2018-12-28 10:38:56,302 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:38:57,844 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2018-12-28 10:38:57,849 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2018-12-28 10:39:34,714 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:39:34,715 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:39:34,715 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'start': False, 'max_date': Timestamp('2018-07-27 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00'), 'end': False}
+2018-12-28 10:39:45,351 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2018-12-28 10:39:45,356 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2018-12-28 10:40:31,553 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:40:31,553 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:40:31,553 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'start': False, 'max_date': Timestamp('2018-07-27 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00'), 'end': False}
+2018-12-28 10:40:53,918 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-28 10:40:53,918 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
+2018-12-28 10:40:53,918 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'start': False, 'max_date': Timestamp('2018-05-23 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00'), 'end': False}
+2018-12-28 10:42:02,414 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:42:04,038 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:42:04,042 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:42:41,268 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:42:41,269 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:42:41,269 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'in_memory': False, 'end': False, 'max_date': Timestamp('2018-07-27 00:00:00'), 'start': False, 'min_date': Timestamp('2018-05-23 00:00:00')}
+2018-12-28 10:42:52,304 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:42:52,311 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 10:51:41,118 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:51:43,094 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:51:43,098 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:52:16,953 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:52:16,954 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:52:16,954 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'in_memory': False, 'start': False, 'max_date': Timestamp('2018-07-27 00:00:00')}
+2018-12-28 10:52:30,890 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:52:30,900 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 10:54:21,148 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 10:54:22,818 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:54:22,823 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:55:01,013 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 10:55:01,014 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 10:55:01,014 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'max_date': Timestamp('2018-07-27 00:00:00'), 'end': False, 'in_memory': False}
+2018-12-28 10:55:12,049 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 10:55:12,056 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 11:03:38,789 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 11:03:38,789 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 11:03:38,789 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'max_date': Timestamp('2018-07-27 00:00:00'), 'end': True, 'in_memory': False}
+2018-12-28 11:03:38,790 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'max_date': Timestamp('2018-07-27 00:00:00'), 'end': True, 'in_memory': False}
+2018-12-28 11:03:38,798 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 11:03:38,834 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_key_full': None, 'redis_key_start': None, 'cass_key_full': ['2018-05-23', '2018-07-31'], 'cass_start_range': None, 'redis_key_end': None, 'load_type': 2, 'cass_end_range': None, 'redis_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [b'block:2018-05-23:2018-07-27']}
+2018-12-28 11:03:38,834 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_key_full': None, 'redis_key_start': None, 'cass_key_full': ['2018-05-23', '2018-07-31'], 'cass_start_range': None, 'redis_key_end': None, 'load_type': 2, 'cass_end_range': None, 'redis_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [b'block:2018-05-23:2018-07-27']}
+2018-12-28 11:03:38,835 - logs/myutils.logs:241 - WARNING - construct_df, in cass load, sdate:1527048000000
+2018-12-28 11:04:12,605 - logs/myutils.logs:309 - WARNING - bigger df added so deleted key:block:2018-05-23:2018-07-27
+2018-12-28 11:04:12,607 - logs/myutils.logs:317 - WARNING - BLOCK saved to reddis:        block_number                        ...                                                         transaction_hashes
+540091        644212                        ...                                                                         []
+540092        739208                        ...                                                                         []
+540093        528471                        ...                                                                         []
+540094        511307                        ...                                                                         []
+540095        493742                        ...                                                                         []
+540096        775427                        ...                                                                         []
+540097        786645                        ...                          [a8b93044ee0006b0539be936b897e39905b09541e141b...
+540098        553067                        ...                                                                         []
+540099        326942                        ...                          [45da01df13b0691c663ebb6adf332f7eb5dda9b457a11...
+540100        749312                        ...                                                                         []
+
+[10 rows x 18 columns]
+2018-12-28 11:04:22,071 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2018-12-28 11:04:22,095 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_key_full': None, 'redis_key_start': None, 'cass_key_full': ['2018-05-23', '2018-07-31'], 'cass_start_range': None, 'redis_key_end': None, 'load_type': 2, 'cass_end_range': None, 'redis_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [b'transaction:2018-05-23:2018-07-27']}
+2018-12-28 11:04:22,095 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_key_full': None, 'redis_key_start': None, 'cass_key_full': ['2018-05-23', '2018-07-31'], 'cass_start_range': None, 'redis_key_end': None, 'load_type': 2, 'cass_end_range': None, 'redis_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [b'transaction:2018-05-23:2018-07-27']}
+2018-12-28 11:04:22,096 - logs/myutils.logs:241 - WARNING - construct_df, in cass load, sdate:1527048000000
+2018-12-28 11:04:42,326 - logs/myutils.logs:309 - WARNING - bigger df added so deleted key:transaction:2018-05-23:2018-07-27
+2018-12-28 11:04:42,328 - logs/myutils.logs:314 - WARNING - transaction in construct df on load                                     transaction_hash       ...         transaction_day
+0  8e1c7bec3964614addb913a9843e2eb6f7613347f49d64...       ...                       7
+1  dfdbec91639ad42abb342de5977d2b004e87b7380bd3c9...       ...                       7
+2  76c91747adce10c21691d6c7f628b5d0e634dc3c34096d...       ...                       7
+3  1a633f8989e8e01da058cbe2ba279fc5f20728b891166a...       ...                       7
+4  a9d6e4fccfc3d7c8f95732b66c62e97b1c2aecaccbc225...       ...                       7
+
+[5 rows x 16 columns]
+2018-12-28 11:04:42,387 - logs/myutils.logs:317 - WARNING - TRANSACTION saved to reddis:                                         transaction_hash       ...         transaction_day
+521795  02acc054007c29bd9f808bc21291898f2e95c371e426ce...       ...                      17
+521796  2ce4dc4227cac963acc4a43cb91f15c88a3efd5cf48a30...       ...                      17
+521797  6c9965d3ff68bc50a508e18c85ba9ff44b962ed8f7a151...       ...                      17
+521798  6c758bcff06e01e584f0b35f207171486288213448522b...       ...                      17
+521799  0d8709ef506f4ab330cc04cdb60b2d0c627655d578e7c9...       ...                      17
+521800  2c7ffd4c07eed6e9fae5cdec22fa62d451bdbf1c784075...       ...                      17
+521801  7c8b32c47c69142eff78adeb6c2735ee63e50cabc24b4c...       ...                      17
+521802  7a5742d47443a6932005d75c46bed5fdff667b9ac7263a...       ...                      17
+521803  a8b93044ee0006b0539be936b897e39905b09541e141b4...       ...                      28
+521804  45da01df13b0691c663ebb6adf332f7eb5dda9b457a112...       ...                       2
+
+[10 rows x 16 columns]
+2018-12-28 11:05:07,720 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 11:05:07,720 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 11:05:07,720 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'max_date': Timestamp('2018-07-27 00:00:00'), 'end': True, 'in_memory': False}
+2018-12-28 11:05:07,720 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'max_date': Timestamp('2018-07-27 00:00:00'), 'end': True, 'in_memory': False}
+2018-12-28 11:05:47,972 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-28 11:05:47,972 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
+2018-12-28 11:05:47,973 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'start': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'max_date': Timestamp('2018-05-23 00:00:00'), 'end': False, 'in_memory': False}
+2018-12-28 11:07:48,731 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 11:07:50,769 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-28 11:07:50,774 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-28 11:08:27,947 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 11:08:27,949 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 11:08:27,949 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-07-27 00:00:00'), 'end': False, 'in_memory': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'start': False}
+2018-12-28 11:08:40,569 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-28 11:08:40,575 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-28 11:11:28,182 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 11:11:28,182 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 11:11:28,183 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-07-27 00:00:00'), 'end': False, 'in_memory': False, 'min_date': Timestamp('2018-05-23 00:00:00'), 'start': False}
+2018-12-28 11:11:48,076 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-28 11:11:48,077 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
+2018-12-28 11:11:48,077 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-05-23 00:00:00'), 'end': True, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False}
+2018-12-28 11:11:48,077 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': Timestamp('2018-05-23 00:00:00'), 'end': True, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False}
+2018-12-28 11:11:48,081 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-28 11:11:48,102 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_start_range': None, 'redis_end_range': None, 'redis_key_start': None, 'cass_key_full': ['2018-04-23', '2018-06-16'], 'redis_key_end': None, 'cass_start_range': None, 'redis_keys_to_delete': [b'block:2018-04-23:2018-05-23'], 'load_type': 2, 'cass_end_range': None, 'redis_key_full': None}
+2018-12-28 11:11:48,102 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_start_range': None, 'redis_end_range': None, 'redis_key_start': None, 'cass_key_full': ['2018-04-23', '2018-06-16'], 'redis_key_end': None, 'cass_start_range': None, 'redis_keys_to_delete': [b'block:2018-04-23:2018-05-23'], 'load_type': 2, 'cass_end_range': None, 'redis_key_full': None}
+2018-12-28 11:11:48,103 - logs/myutils.logs:241 - WARNING - construct_df, in cass load, sdate:1524456000000
+2018-12-28 11:12:20,893 - logs/myutils.logs:309 - WARNING - bigger df added so deleted key:block:2018-04-23:2018-05-23
+2018-12-28 11:12:20,895 - logs/myutils.logs:317 - WARNING - BLOCK saved to reddis:        block_number                                      miner_address                        ...                         approx_nrg_reward                                 transaction_hashes
+411992        163996  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...                        ...                                   0.00000                                                 []
+411993        216986  a09abfdfc07a71af39f7d5493f608a18a730ddb2e62958...                        ...                                   0.00000                                                 []
+411994        273209  a0b8a29ddcb87870dc2f6d36c11c23acd2824d24cf9b23...                        ...                                   0.00000                                                 []
+411995        199180  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...                        ...                                   0.00000                                                 []
+411996         43389  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...                        ...                                   0.00000                                                 []
+411997        306246  a0c7e08b1baa0393c62152a65f99c75319186ab3548906...                        ...                                   0.00000                                                 []
+411998         31505  a0426ebf76da84e3a5e9a3668306eea53afe3c2c192545...                        ...                                   0.00000                                                 []
+411999        280925  a003e9a7b933ab4d9667d018c42eca5e23a0be86c33588...                        ...                                   0.00000                                                 []
+412000        237513  a0762b81cb7cd5a1dca3bd800a8f7c11d81b2d90924a0c...                        ...                                   0.00000                                                 []
+412001        326942  a0e8f240ccd02ccbf1f470baacba2b304e6275369218ab...                        ...                                   0.00021  [45da01df13b0691c663ebb6adf332f7eb5dda9b457a11...
+
+[10 rows x 18 columns]
+2018-12-28 11:12:32,618 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2018-12-28 11:12:32,647 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_start_range': None, 'redis_end_range': None, 'redis_key_start': None, 'cass_key_full': ['2018-04-23', '2018-06-16'], 'redis_key_end': None, 'cass_start_range': None, 'redis_keys_to_delete': [], 'load_type': 2, 'cass_end_range': None, 'redis_key_full': None}
+2018-12-28 11:12:32,647 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_start_range': None, 'redis_end_range': None, 'redis_key_start': None, 'cass_key_full': ['2018-04-23', '2018-06-16'], 'redis_key_end': None, 'cass_start_range': None, 'redis_keys_to_delete': [], 'load_type': 2, 'cass_end_range': None, 'redis_key_full': None}
+2018-12-28 11:12:32,648 - logs/myutils.logs:241 - WARNING - construct_df, in cass load, sdate:1524456000000
+2018-12-28 11:12:48,462 - logs/myutils.logs:314 - WARNING - transaction in construct df on load                                     transaction_hash  transaction_index  block_number  transaction_timestamp       ...       contract_addr transaction_year transaction_month transaction_day
+0  76e504bdfc3481dae7f77dd0cea8261135770fd600c9fa...                  0        211044       1526749048194969       ...                                 2018                 5              19
+1  4740c1bd07deda65d70e5683e639cf392f7af43d80cd98...                  1        211044       1526749049707207       ...                                 2018                 5              19
+2  6dd63c5f868976c81ba992265d583cfb93e924141ee479...                  2        211044       1526749049708059       ...                                 2018                 5              19
+3  5cb898a97045bddc6e9a27b1df6460454a10a40292eddf...                  3        211044       1526749049708804       ...                                 2018                 5              19
+4  8e1c7bec3964614addb913a9843e2eb6f7613347f49d64...                  0        365538       1528367831626973       ...                                 2018                 6               7
+
+[5 rows x 16 columns]
+2018-12-28 11:12:48,533 - logs/myutils.logs:317 - WARNING - TRANSACTION saved to reddis:                                         transaction_hash  transaction_index  block_number       ...        transaction_year transaction_month transaction_day
+167675  69845d793d48f3125e05638537bdd9359dee0db66c51a7...                  1        130244       ...                    2018                 5               9
+167676  d9164415557f3f30cfd19c32b76152456ea1e3fbf03953...                  0        295149       ...                    2018                 5              29
+167677  73f636dcd1a9f88633269fbd022534605fba89d646cacf...                  0        230237       ...                    2018                 5              22
+167678  60f74d8fba842ee1bec99e6a459de622936c4db6c4ed2e...                  1        230237       ...                    2018                 5              22
+167679  4593371209714135442ec407d03f649292817f92227d83...                  0        411185       ...                    2018                 6              12
+167680  475a97736e53f22075587f670582d7b55c6e579a871050...                  1        411185       ...                    2018                 6              12
+167681  6bf73ef561e889273403149051f089a4d88a654ff9b851...                  2        411185       ...                    2018                 6              12
+167682  f6983c60a99784124ccab780ca69fd6bbcec9082a2f30e...                  3        411185       ...                    2018                 6              12
+167683  84058e9c515e5931dbf97eb1da9bc9d29d3884daa9fafa...                  4        411185       ...                    2018                 6              12
+167684  45da01df13b0691c663ebb6adf332f7eb5dda9b457a112...                  0        326942       ...                    2018                 6               2
+
+[10 rows x 16 columns]
+2018-12-28 11:13:06,456 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-28 11:13:06,456 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
+2018-12-28 11:13:06,456 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-05-23 00:00:00'), 'end': True, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False}
+2018-12-28 11:13:06,456 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'max_date': Timestamp('2018-05-23 00:00:00'), 'end': True, 'in_memory': False, 'min_date': Timestamp('2018-04-23 00:00:00'), 'start': False}
+2018-12-28 11:17:01,956 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2018-12-28 11:17:03,547 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 11:17:03,571 - logs/myutils.logs:229 - WARNING - params before hashrate error:{'redis_end_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_key_full': None, 'redis_key_start': None, 'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-06-16', 'redis_key_end': None, 'cass_end_range': None}
+2018-12-28 11:17:03,571 - logs/myutils.logs:231 - WARNING - construct df, params:{'redis_end_range': None, 'cass_full_range': None, 'redis_keys_to_delete': [], 'redis_start_range': None, 'cass_key_full': None, 'redis_key_start': None, 'cass_start_range': None, 'load_type': 1, 'redis_key_full': 'block:2018-04-23:2018-06-16', 'redis_key_end': None, 'cass_end_range': None}
+2018-12-28 11:17:09,613 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 11:17:09,624 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 11:17:28,670 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 11:17:28,676 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 11:18:03,049 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 11:18:03,051 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 11:18:03,051 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'start': False, 'in_memory': False, 'max_date': Timestamp('2018-07-27 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00')}
+2018-12-28 11:18:14,265 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 11:18:14,272 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'end': True, 'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 11:37:39,823 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-05-23 00:00:00
+2018-12-28 11:37:39,823 - logs/myutils.logs:175 - WARNING - start from slider:2018-05-23 00:00:00
+2018-12-28 11:37:39,824 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'start': False, 'in_memory': False, 'max_date': Timestamp('2018-07-27 00:00:00'), 'min_date': Timestamp('2018-05-23 00:00:00')}
+2018-12-28 11:38:00,359 - logs/myutils.logs:174 - WARNING - start_date from compute:2018-04-23 00:00:00
+2018-12-28 11:38:00,359 - logs/myutils.logs:175 - WARNING - start from slider:2018-04-23 00:00:00
+2018-12-28 11:38:00,359 - logs/myutils.logs:184 - WARNING - set_params_to_load:{'end': False, 'start': False, 'in_memory': False, 'max_date': Timestamp('2018-05-23 00:00:00'), 'min_date': Timestamp('2018-04-23 00:00:00')}
