@@ -673,3 +673,329 @@
 2018-12-28 11:12:32,648 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1524456000000 and 
             block_timestamp <=1529121600000 ALLOW FILTERING
 2018-12-28 11:17:01,702 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 12:27:09,458 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 12:28:28,353 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 12:37:54,863 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 12:41:29,291 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 12:42:28,795 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 12:46:21,388 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 13:02:52,331 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 13:06:21,339 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 13:08:25,972 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 13:26:28,211 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 13:38:22,841 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 13:38:24,972 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 13:38:24,973 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 13:38:24,973 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 13:38:24,973 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 13:38:24,973 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 13:39:02,095 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 13:39:02,095 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 13:39:02,095 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 13:39:02,095 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 13:39:02,096 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 13:39:34,571 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 13:39:34,571 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 13:39:34,571 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 13:39:34,571 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 13:39:34,571 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 13:40:11,478 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 13:40:11,479 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 13:40:11,479 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 13:40:11,479 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 13:40:11,479 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 13:44:07,772 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 13:59:51,175 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 14:15:40,941 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 14:17:49,077 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 14:19:14,722 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 14:20:27,806 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 14:20:29,629 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 14:20:29,630 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 14:20:29,630 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 14:20:29,630 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 14:20:29,630 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 14:21:01,608 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 14:21:01,608 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 14:21:01,608 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 14:21:01,608 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 14:21:01,608 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 14:22:58,045 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 14:22:58,045 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 14:22:58,045 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 14:22:58,045 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 14:22:58,045 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 14:23:35,522 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 14:23:35,523 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 14:23:35,523 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 14:23:35,523 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 14:23:35,523 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 14:36:07,002 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 14:36:32,311 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 14:36:34,558 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 14:36:34,559 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 14:36:34,559 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 14:36:34,559 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 14:36:34,560 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 14:37:11,182 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 14:37:11,183 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 14:37:11,183 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 14:37:11,183 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 14:37:11,183 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 14:39:34,548 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 14:39:34,548 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 14:39:34,549 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 14:39:34,549 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 14:39:34,549 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 14:40:11,068 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 14:40:11,068 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 14:40:11,068 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 14:40:11,068 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 14:40:11,068 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 14:51:11,120 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 14:51:14,152 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 14:51:14,155 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 14:51:14,156 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 14:51:14,156 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 14:51:14,156 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 14:51:54,073 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 14:51:54,073 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 14:51:54,074 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 14:51:54,074 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 14:51:54,074 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 14:54:36,267 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 14:54:36,267 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 14:54:36,267 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 14:54:36,267 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 14:54:36,268 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 14:55:35,161 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 14:55:35,161 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 14:55:35,162 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 14:55:35,162 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 14:55:35,162 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 15:10:07,413 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 15:10:13,148 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:10:13,152 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:10:13,154 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:10:13,154 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:10:13,155 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:11:08,727 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:11:08,727 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:11:08,728 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:11:08,728 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:11:08,728 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:13:48,221 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 15:13:48,221 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 15:13:48,221 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 15:13:48,221 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 15:13:48,222 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 15:14:32,325 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 15:14:32,325 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 15:14:32,326 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 15:14:32,326 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 15:14:32,326 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 15:26:42,586 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 15:26:47,060 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:26:47,062 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:26:47,062 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:26:47,062 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:26:47,062 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:27:43,789 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:27:43,789 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:27:43,789 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:27:43,789 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:27:43,790 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:30:45,753 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 15:30:49,944 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:30:49,946 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:30:49,947 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:30:49,947 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:30:49,947 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:31:47,281 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 15:31:47,281 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 15:31:47,282 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 15:31:47,282 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 15:31:47,283 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 15:32:06,471 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 15:32:06,471 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 15:32:06,472 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 15:32:06,472 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 15:32:06,472 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 15:33:06,700 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 15:33:12,102 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:33:12,105 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:33:12,106 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:33:12,107 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:33:12,107 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:33:53,475 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 15:33:53,475 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 15:33:53,476 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 15:33:53,476 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 15:33:53,476 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 15:34:44,407 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 15:34:44,408 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 15:34:44,408 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 15:34:44,408 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 15:34:44,409 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 15:36:22,180 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:36:22,180 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:36:22,180 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:36:22,180 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:36:22,181 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:36:56,429 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:36:56,429 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:36:56,430 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:36:56,430 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:36:56,430 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:37:31,267 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:37:31,267 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:37:31,267 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:37:31,267 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:37:31,268 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:37:31,627 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:37:31,627 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:37:31,628 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:37:31,628 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:37:31,628 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:37:31,785 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:37:31,785 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:37:31,786 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:37:31,786 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:37:31,786 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:37:32,019 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:37:32,019 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:37:32,019 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:37:32,020 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:37:32,020 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:37:32,304 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:37:32,305 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:37:32,305 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:37:32,306 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:37:32,306 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:37:32,499 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:37:32,500 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:37:32,500 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:37:32,500 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:37:32,501 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:40:29,808 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 15:40:33,535 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:40:33,536 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:40:33,537 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:40:33,537 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:40:33,537 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:41:18,318 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 15:41:18,318 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 15:41:18,318 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 15:41:18,318 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 15:41:18,318 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 15:41:59,350 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 15:41:59,350 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 15:41:59,350 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 15:41:59,350 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 15:41:59,351 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 15:43:04,518 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:43:04,518 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:43:04,519 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:43:04,519 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:43:04,519 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:43:40,479 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:43:40,479 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:43:40,479 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:43:40,479 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:43:40,480 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:51:53,062 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 15:52:11,072 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 15:52:14,352 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:52:14,354 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:52:14,355 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:52:14,355 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:52:14,355 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:53:00,061 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1541044800000
+2018-12-28 15:53:00,061 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 15:53:00,062 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1541044800000
+2018-12-28 15:53:00,062 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 15:53:00,062 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1541044800000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 15:55:19,089 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 15:55:19,089 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 15:55:19,089 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 15:55:19,090 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 15:55:19,090 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 15:56:00,738 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1538366400000
+2018-12-28 15:56:00,738 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1543550400000
+2018-12-28 15:56:00,739 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1538366400000
+2018-12-28 15:56:00,739 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1543550400000
+2018-12-28 15:56:00,739 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1538366400000 and 
+            block_timestamp <=1543550400000 ALLOW FILTERING
+2018-12-28 16:38:53,025 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1533096000000
+2018-12-28 16:38:53,025 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 16:38:53,025 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1533096000000
+2018-12-28 16:38:53,025 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 16:38:53,025 - logs/pythonCassandra.logs:110 - WARNING - query:select block_number,miner_address,miner_addr,nonce,difficulty,total_difficulty,nrg_consumed,nrg_limit,block_size,block_timestamp,block_date,block_year,block_month,block_day,num_transactions,block_time,approx_nrg_reward,transaction_hashes from block where block_timestamp >=1533096000000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 16:40:12,103 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1533096000000
+2018-12-28 16:40:12,104 - logs/pythonCassandra.logs:154 - WARNING - date_to_cass_ts:1545969600000
+2018-12-28 16:40:12,104 - logs/pythonCassandra.logs:115 - WARNING - cass load from_date:1533096000000
+2018-12-28 16:40:12,104 - logs/pythonCassandra.logs:116 - WARNING - cass load to_date:1545969600000
+2018-12-28 16:40:12,104 - logs/pythonCassandra.logs:110 - WARNING - query:select transaction_hash,transaction_index,block_number,transaction_timestamp,block_timestamp,block_date,from_addr,to_addr,approx_value,nrg_consumed,nrg_price,nonce,contract_addr,transaction_year,transaction_month,transaction_day from transaction where block_timestamp >=1533096000000 and 
+            block_timestamp <=1545969600000 ALLOW FILTERING
+2018-12-28 17:01:21,261 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 17:43:41,576 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 17:49:31,410 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 18:03:21,589 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 18:15:00,579 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 18:26:27,408 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 18:33:01,107 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 18:42:44,405 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 18:56:37,351 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 19:07:33,526 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 19:10:09,524 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 19:19:38,969 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 19:21:58,481 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 19:30:12,517 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 19:34:30,199 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 19:37:00,274 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs
+2018-12-28 19:41:44,188 - logs/pythonCassandra.logs:15 - WARNING - logs/pythonCassandra.logs

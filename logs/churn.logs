@@ -227,3 +227,306 @@ TypeError: 'NoneType' object is not iterable
 2018-12-28 11:37:50,208 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
 2018-12-28 11:37:50,209 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
 2018-12-28 11:38:05,721 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 12:28:29,993 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 12:28:42,887 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:28:42,888 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:28:45,991 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 12:28:45,991 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 12:28:45,992 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:29:25,614 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 12:29:25,615 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:29:32,239 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 12:37:56,882 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 12:38:11,527 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:38:11,528 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:38:15,452 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 12:38:15,452 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 12:38:15,453 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:39:12,805 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 12:39:12,807 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:39:21,668 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 12:41:31,771 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 12:41:50,570 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:41:50,571 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:41:54,851 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 12:41:54,851 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 12:41:54,852 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:42:32,139 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 12:42:48,196 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:42:48,198 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:42:51,208 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 12:42:51,208 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 12:42:51,209 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:43:33,559 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 12:43:33,560 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:43:40,554 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 12:46:24,944 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 12:46:39,869 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:46:39,871 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:46:43,326 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 12:46:43,326 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 12:46:43,328 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:47:33,588 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 12:47:33,589 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 12:47:40,473 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 13:02:54,701 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 13:03:08,639 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:03:08,640 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:03:11,240 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 13:03:11,241 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:03:11,241 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:03:51,247 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:03:51,248 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:04:00,912 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 13:06:22,938 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 13:06:32,744 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:06:32,746 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:06:35,997 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 13:06:35,997 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:06:35,998 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:07:15,372 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:07:15,373 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:07:21,968 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 13:08:27,598 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 13:08:39,852 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:08:39,854 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:08:43,161 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 13:08:43,161 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:08:43,162 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:26:30,273 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 13:27:00,120 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:27:00,121 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:27:02,730 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 13:27:02,730 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:27:02,731 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:27:46,085 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:27:46,085 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:27:52,584 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 13:38:24,499 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 13:39:34,530 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:41:27,871 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:41:49,657 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 13:41:49,658 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:41:49,659 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:42:50,081 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:42:50,083 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:43:22,324 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 13:44:09,755 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 13:44:52,452 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:44:52,454 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:44:54,586 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 13:44:54,586 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:44:54,587 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:45:48,801 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 13:45:48,802 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 13:46:02,709 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 13:59:53,903 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 14:00:39,184 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:00:39,187 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:00:41,522 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 14:00:41,523 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 14:00:41,524 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:01:38,987 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 14:01:38,989 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:01:51,830 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 14:15:42,591 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 14:16:18,622 - logs/churn.logs:416 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/churn.py", line 331, in churn_tab
+    thistab = Thistab('block_tx_warehouse', column,query_cols=query_cols)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/churn.py", line 78, in __init__
+    Mytab.__init__(self, table, cols, dedup_cols, query_cols)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/mytab.py", line 38, in __init__
+    self.df = streaming_dataframe.get_df()
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/streamingDataframe.py", line 67, in get_df
+    return self.df
+AttributeError: 'StreamingDataframe' object has no attribute 'df'
+2018-12-28 14:17:50,767 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 14:18:25,838 - logs/churn.logs:416 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/churn.py", line 331, in churn_tab
+    thistab = Thistab('block_tx_warehouse', column,query_cols=query_cols)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/churn.py", line 78, in __init__
+    Mytab.__init__(self, table, cols, dedup_cols, query_cols)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/mytab.py", line 38, in __init__
+    self.df = streaming_dataframe.get_df()
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/streaming/streamingDataframe.py", line 67, in get_df
+    return self.df
+AttributeError: 'StreamingDataframe' object has no attribute 'df'
+2018-12-28 14:19:16,407 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 14:20:29,419 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 14:22:57,993 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:24:43,567 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:24:45,706 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 14:24:45,706 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 14:24:45,707 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:25:50,796 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 14:25:50,797 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:26:18,057 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 14:36:08,614 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 14:36:34,091 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 14:39:34,512 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:41:31,728 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:41:34,098 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 14:41:34,098 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 14:41:34,099 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:42:33,215 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 14:42:33,215 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:43:04,250 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 14:51:13,761 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 14:54:36,195 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:57:12,974 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:57:16,348 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 14:57:16,349 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 14:57:16,350 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:58:38,372 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 14:58:38,373 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 14:59:28,581 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 15:10:12,597 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 15:13:48,171 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:15:41,896 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:15:44,159 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 15:15:44,159 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 15:15:44,159 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:16:48,974 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 15:16:48,975 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:17:34,813 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 15:26:46,590 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 15:30:49,119 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 15:31:47,126 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:32:06,295 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:33:11,233 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 15:33:53,399 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:36:22,128 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:36:56,385 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:36:56,387 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:40:32,835 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 15:41:18,277 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:43:04,468 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:44:37,758 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 15:44:37,759 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 15:44:37,759 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:45:32,482 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 15:45:32,483 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:46:04,501 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 15:52:13,884 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 15:55:19,044 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:57:09,171 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:57:11,407 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 15:57:11,408 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 15:57:11,408 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:58:06,542 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 15:58:06,543 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 15:58:37,952 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 17:01:25,333 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 17:02:55,223 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 17:02:55,224 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 17:03:02,553 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 17:03:02,553 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 17:03:02,554 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 17:05:09,084 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 17:05:09,085 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 17:05:37,909 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 17:43:44,877 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 17:49:33,107 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 17:52:27,468 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 17:52:27,470 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 17:52:33,947 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 17:52:33,947 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 17:52:33,947 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 17:54:36,219 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 17:54:36,220 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 17:55:02,247 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 18:03:23,767 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 18:05:58,323 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:05:58,325 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:06:04,835 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 18:06:04,835 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:06:04,836 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:08:06,618 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:08:06,619 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:08:32,845 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 18:15:04,413 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 18:17:49,568 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:17:49,570 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:17:56,309 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 18:17:56,310 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:17:56,310 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:19:57,925 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:19:57,926 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:20:24,624 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 18:26:29,750 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 18:28:58,589 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:28:58,591 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:29:04,495 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 18:29:04,496 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:29:04,497 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:30:56,628 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:30:56,628 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:31:19,406 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 18:33:04,040 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 18:36:19,243 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:36:19,245 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:36:25,494 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 18:36:25,494 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:36:25,496 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:38:35,823 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:38:35,824 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:39:02,179 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 18:42:45,996 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 18:45:07,117 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:45:07,118 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:45:12,348 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 18:45:12,348 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:45:12,349 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:47:02,106 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:47:02,107 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:47:27,764 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 18:56:39,014 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 18:59:11,131 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:59:11,133 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 18:59:16,782 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 18:59:16,782 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 18:59:16,783 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:01:18,237 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 19:01:18,238 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:01:41,526 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 19:07:35,158 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 19:10:12,756 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 19:12:51,120 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:12:51,122 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:12:57,707 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 19:12:57,707 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 19:12:57,708 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:14:59,376 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 19:14:59,377 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:15:25,684 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 19:19:40,873 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 19:22:01,843 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 19:30:14,383 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 19:32:53,089 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:32:53,090 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:32:58,330 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 19:32:58,330 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 19:32:58,331 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:34:31,971 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 19:37:03,297 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 19:40:03,574 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:40:03,575 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:40:09,618 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 19:40:09,619 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 19:40:09,620 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:41:47,037 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2018-12-28 19:44:55,556 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:44:55,557 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:45:02,356 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 19:45:02,356 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 19:45:02,357 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:47:12,516 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 19:47:12,517 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:47:41,268 - logs/churn.logs:300 - WARNING - tier 2 churn completed
+2018-12-28 19:50:09,268 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:51:02,107 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s
+2018-12-28 19:51:59,581 - logs/churn.logs:247 - WARNING - tier 1 churn completed
+2018-12-28 19:51:59,583 - logs/churn.logs:189 - WARNING - tier 2 triggered:0.5
+2018-12-28 19:51:59,584 - logs/churn.logs:165 - WARNING - tier 1 triggered:%s

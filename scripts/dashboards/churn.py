@@ -278,9 +278,9 @@ def churn_tab():
                                len(ref_list),
                                len(period_list),
                                churn_count,
-                               round(churned_percentage,2),
+                               int(round(churned_percentage)),
                                new_miners_count,
-                               new_miners_percentage
+                               int(round(new_miners_percentage))
                                )
             #return Div(text=text, width=300, height=200)
             return text
@@ -328,19 +328,17 @@ def churn_tab():
     try:
         query_cols = ['block_date', 'block_number', 'to_addr',
                       'from_addr', 'miner_address', 'approx_value', 'transaction_hash']
-        thistab = Thistab('block_tx_warehouse', query_cols=query_cols)
+        thistab = Thistab('block_tx_warehouse', cols, query_cols=query_cols)
 
         # STATIC DATES
         # format dates
-        first_date_range = "2018-04-23 00:00:00"
-        first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
+        first_date_range = datetime.strptime("2018-04-23 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
 
-        ref_first_date = first_date_range
-        ref_last_date = datetime.strptime("2018-05-23","%Y-%m-%d")
-        period_first_date = datetime.strptime("2018-05-23","%Y-%m-%d")
-        period_last_date = "2018-06-23 00:00:00"
-        period_last_date = datetime.strptime(period_last_date, "%Y-%m-%d %H:%M:%S")
+        ref_first_date = datetime.strptime("2018-10-01","%Y-%m-%d")
+        ref_last_date = datetime.strptime("2018-11-30","%Y-%m-%d")
+        period_first_date = datetime.strptime("2018-11-01","%Y-%m-%d")
+        period_last_date = last_date_range
 
 
         tier1_text = thistab.tier1_churn(period_first_date, period_last_date,

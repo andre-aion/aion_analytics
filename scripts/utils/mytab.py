@@ -1,5 +1,7 @@
 from datetime import datetime
 from enum import Enum
+from os.path import join, dirname
+import pandas as pd
 
 from tornado.gen import coroutine
 
@@ -39,6 +41,7 @@ class Mytab:
         self.dedup_cols = dedup_cols
         self.params = None
         self.load_params = None
+        self.poolname_dict = self.get_poolname_dict()
 
 
     def is_data_in_memory(self,start_date,end_date):
@@ -130,5 +133,27 @@ class Mytab:
 
     def spacing_paragraph(self,width=20, height=100):
         return Paragraph(text='', width=width, height=height)
+
+    def get_poolname_dict(self):
+        file = join(dirname(__file__), '../../data/poolinfo.csv')
+        df = pd.read_csv(file)
+        a = df['address'].tolist()
+        b = df['poolname'].tolist()
+        poolname_dict = dict(zip(a, b))
+        return poolname_dict
+
+    def poolname_verbose(self,x):
+        # add verbose poolname
+        if x in self.poolname_dict.keys():
+            return self.poolname_dict[x]
+        return x
+
+    def poolname_verbose_trun(self,x):
+        if x in self.poolname_dict.keys():
+            return self.poolname_dict[x]
+        else:
+            if len(x) > 10:
+                return x[0:10]
+        return x
 
 

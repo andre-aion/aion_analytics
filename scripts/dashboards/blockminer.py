@@ -1,6 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
+from scripts.utils.mytab import DataLocation, Mytab
 from scripts.utils.myutils import tab_error_flag, \
     ms_to_date, ns_to_date, set_params_to_load, \
     construct_df_upon_load
@@ -11,6 +12,7 @@ from config import dedup_cols, columns as cols
 import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
 from bokeh.models import CustomJS, ColumnDataSource, HoverTool, Panel, Button
+
 
 import gc
 from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, Select, \
@@ -36,8 +38,6 @@ for i in range(0, 400, 5):
     if i not in [0, 5]:
         menu.append(str(i))
 
-table = 'block'
-
 
 @coroutine
 def blockminer_tab():
@@ -46,67 +46,56 @@ def blockminer_tab():
                                      miner_addr=[],
                                      block_number=[]))
 
-    class Blockminer():
-        querycols = ['block_number', 'miner_address','miner_addr', 'block_date','block_time']
-        cols = cols
-        dedup_cols = dedup_cols
-        streaming_dataframe = SD('block', cols, dedup_cols)
-        df = streaming_dataframe.get_df()
-        df1 = None
-        n = 30
-        table = table
-        def __init__(self):
-            pass
+    class Thistab(Mytab):
+        def __init__(self,table,cols,dedup_cols,query_cols=[]):
+            Mytab.__init__(self, table, cols, dedup_cols, query_cols)
+            self.table = table
+            self.n = 20
+            self.df2 = None
 
-        def load_data(self, start_date, end_date):
+        def df_loaded_check(self, start_date, end_date):
+            # check to see if block_tx_warehouse is loaded
+            data_location = self.is_data_in_memory(start_date, end_date)
+            if data_location == DataLocation.IN_MEMORY:
+                # logger.warning('warehouse already loaded:%s', self.df.tail(40))
+                pass
+            elif data_location == DataLocation.IN_REDIS:
+                self.load_data(start_date, end_date)
+            else:
+                # load the two tables and make the block
+                self.load_data(start_date, end_date)
+            self.filter_df(start_date, end_date)
+
+        def load_this_data(self, start_date, end_date):
             end_date = datetime.combine(end_date, datetime.min.time())
             start_date = datetime.combine(start_date, datetime.min.time())
 
             logger.warning('load_data start date:%s', start_date)
             logger.warning('load_data end date:%s', end_date)
 
-            # find the boundaries of the loaded data, redis_data
-            load_params = set_params_to_load(self.df, start_date,
-                                                             end_date)
+            self.df_loaded_check(start_date, end_date)
 
-            logger.warning('load_data:%s', load_params)
-            # load from redis, cassandra if necessary
-            self.df = construct_df_upon_load(self.df,
-                                             self.table,
-                                             self.cols,
-                                             self.dedup_cols, start_date,
-                                             end_date, load_params)
             # filter dates
             #logger.warning('load_data head:%s', self.df.head())
             #logger.warning('load_data tail:%s', self.df.tail())
-            self.filter_dates(start_date, end_date)
 
             return self.prep_dataset(start_date, end_date)
-
-        def filter_dates(self, start_date, end_date):
-            # change from milliseconds to seconds
-            start_date = ms_to_date(start_date)
-            end_date = ms_to_date(end_date)
-
-            # set df1 while outputting bar graph
-            self.df1 = self.df[(self.df.block_date >= start_date) &
-                               (self.df.block_date <= end_date)]
 
 
         def prep_dataset(self, start_date, end_date):
             try:
                 logger.warning("prep dataset start date:%s", start_date)
-
-                self.df1 = self.df1.groupby('miner_addr').count()
+                self.df1 = self.df1[['miner_address', 'block_number']]
+                self.df1['miner_address'] = self.df1['miner_address']\
+                    .map(self.poolname_verbose_trun)
+                self.df1 = self.df1.groupby(['miner_address']).count()
                 self.df1['percentage'] = 100*self.df1.block_number\
                                          /self.df1['block_number'].sum().compute()
-
+                logger.warning("topN column:%s",self.df1.columns.tolist())
                 self.view_topN()
-                logger.warning('prep dataset START DATE:%s', start_date)
-                logger.warning('prep dataset END DATE:%s', end_date)
                 #logger.warning('prep dataset DF1:%s', self.df1.compute().head())
 
-                return self.df1.hvplot.bar('miner_addr','block_number', rot=90,
+                return self.df1.hvplot.bar('miner_address','block_number', rot=90,
                                            width=1500,title='block_number by miner address',
                                            hover_cols=['percentage'])
             except Exception:
@@ -118,12 +107,13 @@ def blockminer_tab():
             try:
                 #table_n = df1.hvplot.table(columns=['miner_addr','percentage'],
                                           #title=title, width=400)
+                self.df1 = self.df1.reset_index() #
                 self.df2 = self.df1.nlargest(self.n,'percentage')
-                self.df2 = self.df2.reset_index().compute()
-                #logger.warning('df2 after nlargest:%s',self.df2.head())
+                logger.warning('miner addr:%s',self.df2.miner_address.head(30))
+                self.df2 = self.df2.compute()
                 new_data = dict(
                     percentage=self.df2.percentage,
-                    miner_addr=self.df2.miner_addr,
+                    miner_addr=self.df2.miner_address,
                     block_number=self.df2.block_number
                 )
                 src.stream(new_data, rollover=self.n)
@@ -165,21 +155,21 @@ def blockminer_tab():
 
     try:
         # create class and get date range
-        pm = Blockminer()
+        query_cols = ['block_number', 'miner_address', 'miner_addr', 'block_date', 'block_time']
+        pm = Thistab('block',cols,dedup_cols)
 
         #STATIC DATES
         #format dates
         first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        last_date = "2018-05-23 00:00:00"
-        last_date = datetime.strptime(last_date, "%Y-%m-%d %H:%M:%S")
-
+        first_date = datetime.strptime("2018-11-01",'%Y-%m-%d')
+        last_date = datetime.now().date()
 
         # STREAMS Setup
         # date comes out stream in milliseconds
         stream_start_date = streams.Stream.define('Start_date',
-                                                  start_date=first_date_range)()
+                                                  start_date=first_date)()
         stream_end_date = streams.Stream.define('End_date',
                                                   end_date=last_date)()
 
@@ -190,7 +180,7 @@ def blockminer_tab():
         topN_select = Select(title='Top N', value=str(pm.n), options=menu)
 
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
-                                      max_date=last_date_range, value=first_date_range)
+                                      max_date=last_date_range, value=first_date)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
 
@@ -203,7 +193,7 @@ def blockminer_tab():
         renderer = hv.renderer('bokeh')
 
         # ALL MINERS
-        dmap_all = hv.DynamicMap(pm.load_data,
+        dmap_all = hv.DynamicMap(pm.load_this_data,
                                  streams=[stream_start_date, stream_end_date])\
             .opts(plot=dict(height=500, width=1500))
         all_plot = renderer.get_plot(dmap_all)

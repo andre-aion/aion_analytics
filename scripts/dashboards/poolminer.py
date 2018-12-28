@@ -1,3 +1,4 @@
+import csv
 from os.path import join, dirname
 
 from scripts.utils.mylogger import mylogger
@@ -52,17 +53,16 @@ tables['transaction'] = 'transaction'
 menu = [str(x * 0.5) for x in range(0, 80)]
 menu_blocks_mined = [str(x) if x > 0 else '' for x in range(0,50)]
 
+
 @coroutine
 def poolminer_tab():
     # source for top N table
     tier2_src = ColumnDataSource(data= dict(
                 to_addr=[],
-                block_date=[],
                 approx_value=[]))
 
     tier1_src = ColumnDataSource(data=dict(
         from_addr=[],
-        block_date=[],
         block_number=[],
         approx_value=[]))
 
@@ -109,7 +109,7 @@ def poolminer_tab():
             if tier_1_miners_list is None:
                 self.df_loaded_check(start_date, end_date)
 
-                self.df1 = self.filter_df(start_date, end_date)
+                self.filter_df(start_date, end_date)
                 values = {'approx_value': 0, 'to_addr': 'unknown',
                           'from_addr': 'unknown', 'block_number': 0}
                 self.df1 = self.df1.fillna(values)
@@ -136,42 +136,56 @@ def poolminer_tab():
             return self.make_tier1_table(tier_1_miners_list,start_date,end_date)
 
         def make_tier1_table(self,tier1_miners_list,start_date,end_date):
-            logger.warning("tier 1 triggered:%s:%s",start_date,end_date)
-            # ensure tier1 is loaded
-            self.df_loaded_check(start_date,end_date)
-            self.filter_df(start_date,end_date)
-            # get tier1 miners list
-            logger.warning("merged column in make tier1:%s",self.df1.columns.tolist())
+            try:
+                logger.warning("tier 1 triggered:%s:%s",start_date,end_date)
+                # ensure tier1 is loaded
+                self.df_loaded_check(start_date,end_date)
+                self.filter_df(start_date,end_date)
+                # get tier1 miners list
+                logger.warning("merged column in make tier1:%s",self.df1.columns.tolist())
 
-            # load the dataframe
-            self.df1['from_addr'] = self.df1['from_addr'].astype(str)
-            self.tier1_df = self.df1.groupby(['from_addr','block_date'])\
-                .agg({'approx_value':'sum',
-                      'block_number':'count'}).reset_index()
-            self.tier1_df = self.tier1_df[self.tier1_df.from_addr.isin(tier1_miners_list)]
+                # load the dataframe
+                self.df1['from_addr'] = self.df1['from_addr'].astype(str)
+                self.tier1_df = self.df1.groupby(['from_addr'])\
+                    .agg({'approx_value':'sum',
+                          'block_number':'count'}).reset_index()
+                self.tier1_df = self.tier1_df[self.tier1_df.from_addr.isin(tier1_miners_list)]
 
-            # for csv export
-            values = {'approx_value': 0, 'from_addr': 'unknown',
-                      'block_number': 0}
 
-            self.tier1_df = self.tier1_df.fillna(values)
-            tier1_df = self.tier1_df.compute()
-            new_data = {}
-            for x in ['from_addr', 'block_date', 'approx_value', 'block_number']:
-                if x == 'block_date':
-                    tier1_df[x] = tier1_df[x].dt.strftime('%Y-%m-%d')
-                new_data[x] = tier1_df[x].tolist()
+                # for csv export
+                values = {'approx_value': 0, 'from_addr': 'unknown',
+                          'block_number': 0}
 
-            tier1_src.stream(new_data, rollover=len(tier1_df))
-            logger.warning("TIER 1 Calculations finished:%s", len(tier1_df.index))
-            columns = [
-                TableColumn(field="block_date", title="Date"),
-                TableColumn(field="from_addr", title="Address"),
-                TableColumn(field="approx_value", title="Value"),
-                TableColumn(field="block_number", title="# of blocks"),
+                self.tier1_df = self.tier1_df.fillna(values)
 
-            ]
-            return DataTable(source=tier1_src,columns=columns,width=600,height=1400)
+                #self.tier1_df['from_addr'] = self.tier1_df['from_addr'].map(lambda x: self.poolname_verbose(x))
+                self.tier1_df['from_addr'] = self.tier1_df['from_addr'].map(self.poolname_verbose)
+                #logger.warning('POOLNAMES IN from_addr:%s',self.tier1_df['from_addr'])
+
+                # make source for table and csv
+                new_data = {}
+                tier1_df = self.tier1_df.compute()
+
+                for x in ['from_addr', 'approx_value', 'block_number']:
+                    if x == 'block_date':
+                        tier1_df[x] = tier1_df[x].dt.strftime('%Y-%m-%d')
+                    new_data[x] = tier1_df[x].tolist()
+
+                tier1_src.stream(new_data, rollover=len(tier1_df))
+                logger.warning("TIER 1 Calculations finished:%s", len(tier1_df.index))
+                columns = [
+                    TableColumn(field="from_addr", title="Address"),
+                    TableColumn(field="approx_value", title="Value"),
+                    TableColumn(field="block_number", title="# of blocks"),
+
+                ]
+                return DataTable(source=tier1_src,columns=columns,width=600,height=1400)
+                '''
+                return tier1_df.hvplot.table(columns=['miner_address', 'block_date',
+                                                  'block_number', 'approx_value'], width=800)
+                '''
+            except Exception:
+                logger.warning("make tier 1 table",exc_info=True)
             del new_data
             del tier1_df
             gc.collect()
@@ -187,59 +201,62 @@ def poolminer_tab():
                              threshold_tier2_received,
                              threshold_tx_paid_out,
                              threshold_blocks_mined):
-            logger.warning("tier 2 triggered:%s",threshold_tier2_received)
-            if isinstance(threshold_tier2_received,str):
-                threshold_tier2_received = float(threshold_tier2_received)
-            if isinstance(threshold_blocks_mined, str):
-                threshold_blocks_mined = int(threshold_blocks_mined)
-            if isinstance(threshold_tx_paid_out,str):
-                threshold_tx_paid_out = float(threshold_tx_paid_out)
-            self.threshold_tx_paid_out = threshold_tx_paid_out
-            self.threshold_blocks_mined = threshold_blocks_mined
-            self.threshold_tier2_received = threshold_tier2_received
+            try:
+                logger.warning("tier 2 triggered:%s",threshold_tier2_received)
+                if isinstance(threshold_tier2_received,str):
+                    threshold_tier2_received = float(threshold_tier2_received)
+                if isinstance(threshold_blocks_mined, str):
+                    threshold_blocks_mined = int(threshold_blocks_mined)
+                if isinstance(threshold_tx_paid_out,str):
+                    threshold_tx_paid_out = float(threshold_tx_paid_out)
+                self.threshold_tx_paid_out = threshold_tx_paid_out
+                self.threshold_blocks_mined = threshold_blocks_mined
+                self.threshold_tier2_received = threshold_tier2_received
 
-            tier2_miners_list = is_tier2_in_memory(start_date, end_date,
-                                                   threshold_tx_paid_out,
-                                                   threshold_blocks_mined)
-            # generate the list if necessary
-            if tier2_miners_list is None:
-                # get tier 1 miners list
-                tier_1_miners_list = self.tier_1_loaded_check(start_date,end_date)
+                tier2_miners_list = is_tier2_in_memory(start_date, end_date,
+                                                       threshold_tx_paid_out,
+                                                       threshold_blocks_mined)
+                # generate the list if necessary
+                if tier2_miners_list is None:
+                    # get tier 1 miners list
+                    tier_1_miners_list = self.tier_1_loaded_check(start_date,end_date)
 
-                tier2_miners_list = \
-                    make_tier2_list(self.df, start_date, end_date,
-                                    tier_1_miners_list,
-                                    threshold_tier2_received=threshold_tier2_received,
-                                    threshold_tx_paid_out=threshold_tx_paid_out,
-                                    threshold_blocks_mined_per_day=threshold_blocks_mined)
+                    tier2_miners_list = \
+                        make_tier2_list(self.df, start_date, end_date,
+                                        tier_1_miners_list,
+                                        threshold_tier2_received=threshold_tier2_received,
+                                        threshold_tx_paid_out=threshold_tx_paid_out,
+                                        threshold_blocks_mined_per_day=threshold_blocks_mined)
 
-            # load the dataframe
-            self.df1['to_addr'] = self.df1['to_addr'].astype(str)
-            self.tier2_df = self.df1.groupby(['to_addr', 'block_date']) \
-                .agg({'approx_value': 'sum'}).reset_index()
-            self.tier2_df = self.tier2_df[self.tier2_df.to_addr.isin(tier2_miners_list)]
+                # load the dataframe
+                self.df1['to_addr'] = self.df1['to_addr'].astype(str)
+                self.tier2_df = self.df1.groupby(['to_addr']) \
+                    .agg({'approx_value': 'sum'}).reset_index()
+                self.tier2_df = self.tier2_df[self.tier2_df.to_addr.isin(tier2_miners_list)]
 
-            # for csv export
-            values = {'approx_value': 0, 'to_addr': 'unknown',
-                      'from_addr': 'unknown'}
+                # for csv export
+                values = {'approx_value': 0, 'to_addr': 'unknown',
+                          'from_addr': 'unknown'}
 
-            self.tier2_df = self.tier2_df.fillna(values)
-            tier2_df = self.tier2_df.compute()
-            new_data={}
-            for x in ['to_addr','block_date','approx_value']:
-                if x == 'block_date':
-                    tier2_df[x] = tier2_df[x].dt.strftime('%Y-%m-%d')
-                new_data[x] = tier2_df[x].tolist()
+                self.tier2_df = self.tier2_df.fillna(values)
+                tier2_df = self.tier2_df.compute()
+                new_data={}
+                for x in ['to_addr','approx_value']:
+                    if x == 'block_date':
+                        tier2_df[x] = tier2_df[x].dt.strftime('%Y-%m-%d')
+                    new_data[x] = tier2_df[x].tolist()
 
-            logger.warning("TIER 2 Calculations finished:%s", len(tier2_df.index))
-            tier2_src.stream(new_data, rollover=len(tier2_df))
-            columns = [
-                TableColumn(field="block_date", title="Date"),
-                TableColumn(field="to_addr", title="Address"),
-                TableColumn(field="approx_value", title="Value"),
+                logger.warning("TIER 2 Calculations finished:%s", len(tier2_df.index))
+                tier2_src.stream(new_data, rollover=len(tier2_df))
+                columns = [
+                    TableColumn(field="to_addr", title="Address"),
+                    TableColumn(field="approx_value", title="Value"),
 
-            ]
-            return DataTable(source=tier2_src, columns=columns, width=400, height=1400)
+                ]
+                return DataTable(source=tier2_src, columns=columns, width=400, height=1400)
+            except Exception:
+                logger.warning("make tier 2 table",exc_info=True)
+
 
             del new_data
             del tier2_df
@@ -274,14 +291,14 @@ def poolminer_tab():
         first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        last_date = "2018-05-23 00:00:00"
-        last_date = datetime.strptime(last_date, "%Y-%m-%d %H:%M:%S")
+        first_date = datetime.strptime("2018-11-01",'%Y-%m-%d')
+        last_date = datetime.now().date()
 
-        thistab.load_this_data(first_date_range,last_date,
+        thistab.load_this_data(first_date,last_date,
                                thistab.threshold_tx_paid_out,
                                thistab.threshold_blocks_mined)
 
-        thistab.make_tier2_table(first_date_range,last_date,
+        thistab.make_tier2_table(first_date,last_date,
                                  thistab.threshold_tier2_received,
                                  thistab.threshold_tx_paid_out,
                                  thistab.threshold_blocks_mined)
@@ -291,7 +308,7 @@ def poolminer_tab():
 
         # CREATE WIDGETS
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
-                                      max_date=last_date_range, value=first_date_range)
+                                      max_date=last_date_range, value=first_date)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
         select_tx_received = Select(title='Threshold, Tier2: daily tx received',
@@ -305,7 +322,6 @@ def poolminer_tab():
                                     options=menu)
 
         columns = [
-            TableColumn(field="block_date", title="Date"),
             TableColumn(field="from_addr", title="Address"),
             TableColumn(field="approx_value", title="Value"),
             TableColumn(field="block_number", title="# of blocks"),
@@ -314,12 +330,12 @@ def poolminer_tab():
         tier1_table = DataTable(source=tier1_src, columns=columns, width=600, height=1400)
 
         columns = [
-            TableColumn(field="block_date", title="Date"),
             TableColumn(field="to_addr", title="Address"),
             TableColumn(field="approx_value", title="Value"),
 
         ]
         tier2_table = DataTable(source=tier2_src, columns=columns, width=400, height=1400)
+
 
         # handle callbacks
         datepicker_start.on_change('value', update)
