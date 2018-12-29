@@ -101,3 +101,9 @@ AttributeError: 'StreamingDataframe' object has no attribute 'df'
 2018-12-28 19:34:31,972 - logs/main.logs:15 - WARNING - logs/main.logs
 2018-12-28 19:37:03,298 - logs/main.logs:15 - WARNING - logs/main.logs
 2018-12-28 19:41:47,038 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-28 20:29:02,724 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-28 20:41:45,656 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-28 20:50:28,816 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-28 21:10:34,754 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-28 21:44:49,155 - logs/main.logs:15 - WARNING - logs/main.logs
+2018-12-28 21:53:29,755 - logs/main.logs:15 - WARNING - logs/main.logs

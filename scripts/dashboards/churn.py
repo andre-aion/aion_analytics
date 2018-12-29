@@ -282,7 +282,9 @@ def churn_tab():
                                new_miners_count,
                                int(round(new_miners_percentage))
                                )
-            #return Div(text=text, width=300, height=200)
+
+            # print notifications
+
             return text
 
         def tier2_churn(self, period_start_date, period_end_date,
@@ -298,9 +300,12 @@ def churn_tab():
                                                                 threshold_tx_paid_out,
                                                                 threshold_blocks_mined)
             logger.warning("tier 2 churn completed")
+
             return self.stats('TIER 2',ref_tier2_miners_list,period_tier2_miners_list)
 
     def update_threshold_tier_2_received(attrname, old, new):
+        notification_div.text = thistab.notification_updater\
+            ("Tier 2 calculations in progress! Please wait.")
         tier2_stats.text = thistab.tier2_churn(datepicker_churn_start.value,
                             datepicker_churn_end.value,
                             datepicker_ref_start.value,
@@ -308,8 +313,11 @@ def churn_tab():
                             select_tx_received.value,
                             select_tx_paid_out.value,
                             select_blocks_mined.value)
+        notification_div.text = thistab.notification_updater("")
 
     def update(attr, old, new):
+        notification_div.text = thistab.notification_updater \
+            ("Tiers 1 and 2 calculations in progress! Please wait.")
         tier1_stats.text = thistab.tier1_churn(datepicker_churn_start.value,
                             datepicker_churn_end.value,
                             datepicker_ref_start.value,
@@ -324,6 +332,8 @@ def churn_tab():
                             select_tx_received.value,
                             select_tx_paid_out.value,
                             select_blocks_mined.value)
+        notification_div.text = thistab.notification_updater("")
+
 
     try:
         query_cols = ['block_date', 'block_number', 'to_addr',
@@ -352,6 +362,8 @@ def churn_tab():
                                           thistab.threshold_tx_paid_out,
                                           thistab.threshold_blocks_mined)
 
+        notification_text = thistab.notification_updater("")
+
 
         # MANAGE STREAM
         # date comes out stream in milliseconds
@@ -377,7 +389,8 @@ def churn_tab():
 
         tier1_stats = Div(text=tier1_text,width=300,height=400)
         tier2_stats = Div(text=tier2_text,width=300,height=400)
-
+        # Notification
+        notification_div = Div(text=notification_text,width=500,height=50)
 
 
         # handle callbacks
@@ -406,6 +419,7 @@ def churn_tab():
 
         # create the dashboard
         grid = gridplot([[controls_left,controls_right],
+                         [notification_div],
                 [tier1_stats,tier2_stats]])
 
         # Make a tab with the layout

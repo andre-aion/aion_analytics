@@ -156,4 +156,7 @@ class Mytab:
                 return x[0:10]
         return x
 
+    def notification_updater(self,text):
+        return '<h3  style="color:red">{}</h3>'.format(text)
+
 

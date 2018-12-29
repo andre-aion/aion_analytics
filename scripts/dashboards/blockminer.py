@@ -147,11 +147,16 @@ def blockminer_tab():
     def update_end_date(attrname, old, new):
         stream_end_date.event(end_date=new)
 
+
     # update based on selected top n
     def update_topN():
+        notification_div.text = pm.notification_updater \
+            ("Calculations in progress! Please wait.")
         logger.warning('topN selected value:%s',topN_select.value)
         pm.set_n(topN_select.value)
         pm.view_topN()
+        notification_div.text = pm.notification_updater("")
+
 
     try:
         # create class and get date range
@@ -165,6 +170,9 @@ def blockminer_tab():
         last_date_range = datetime.now().date()
         first_date = datetime.strptime("2018-11-01",'%Y-%m-%d')
         last_date = datetime.now().date()
+
+        notification_text = pm.notification_updater("")
+
 
         # STREAMS Setup
         # date comes out stream in milliseconds
@@ -184,6 +192,8 @@ def blockminer_tab():
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
 
+        # Notification
+        notification_div = Div(text=notification_text, width=500, height=50)
 
         # add callbacks
         datepicker_start.on_change('value', update_start_date)
@@ -218,7 +228,9 @@ def blockminer_tab():
                              download_button, topN_select)
 
         # create the dashboard
-        grid = gridplot([[controls, topN_table], [all_plot.state]])
+        grid = gridplot([[notification_div],
+                         [controls, topN_table],
+                         [all_plot.state]])
 
         # Make a tab with the layout
         tab = Panel(child=grid, title='Blockminer')

@@ -473,3 +473,133 @@
 2018-12-28 19:47:12,523 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
 2018-12-28 19:47:12,528 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
 2018-12-28 19:47:19,202 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 19:52:54,621 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'end': True, 'in_memory': False, 'min_date': Timestamp('2018-08-01 00:00:00'), 'max_date': Timestamp('2018-12-20 00:00:00')}
+2018-12-28 19:53:31,564 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 19:53:40,402 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 19:54:49,136 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'end': False, 'in_memory': False, 'min_date': Timestamp('2018-08-01 00:00:00'), 'max_date': Timestamp('2018-12-20 00:00:00')}
+2018-12-28 19:54:49,141 - logs/mytab.logs:80 - WARNING - TABLE:block
+2018-12-28 19:56:05,808 - logs/mytab.logs:80 - WARNING - TABLE:transaction
+2018-12-28 19:57:45,970 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 19:58:31,538 - logs/mytab.logs:107 - WARNING - WAREHOUSE UPDATED WITH END DATE:2018-11-30 00:00:00
+2018-12-28 19:58:32,071 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 19:59:34,368 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'end': True, 'in_memory': False, 'min_date': Timestamp('2018-08-01 00:00:00'), 'max_date': Timestamp('2018-12-20 00:00:00')}
+2018-12-28 19:59:34,376 - logs/mytab.logs:80 - WARNING - TABLE:block
+2018-12-28 20:01:02,388 - logs/mytab.logs:80 - WARNING - TABLE:transaction
+2018-12-28 20:02:49,398 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:03:43,666 - logs/mytab.logs:107 - WARNING - WAREHOUSE UPDATED WITH END DATE:2018-12-28 00:00:00
+2018-12-28 20:03:43,686 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:05:24,543 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'end': True, 'in_memory': False, 'min_date': Timestamp('2018-07-01 00:00:00'), 'max_date': Timestamp('2018-12-20 00:00:00')}
+2018-12-28 20:06:10,244 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:06:22,933 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:28:59,584 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-28 20:29:03,106 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 20:29:03,113 - logs/mytab.logs:80 - WARNING - TABLE:block
+2018-12-28 20:29:07,254 - logs/mytab.logs:121 - WARNING - in filter_df:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 20:30:04,918 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 20:30:04,923 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:30:11,096 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:32:29,430 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2018-12-28 20:32:29,435 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:32:35,464 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:32:35,478 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:41:43,594 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-28 20:41:46,022 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 20:41:46,027 - logs/mytab.logs:80 - WARNING - TABLE:block
+2018-12-28 20:41:51,329 - logs/mytab.logs:121 - WARNING - in filter_df:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 20:42:59,035 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 20:42:59,040 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:43:05,931 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:45:49,170 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 20:45:49,176 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:45:56,087 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:45:56,104 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:46:57,624 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': False, 'end': True, 'start': False, 'max_date': Timestamp('2018-12-20 00:00:00')}
+2018-12-28 20:47:41,554 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:47:50,773 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:48:16,141 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2018-12-28 20:48:16,146 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:48:22,963 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:50:25,655 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-28 20:50:29,439 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 20:50:29,449 - logs/mytab.logs:80 - WARNING - TABLE:block
+2018-12-28 20:50:34,662 - logs/mytab.logs:121 - WARNING - in filter_df:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 20:51:38,899 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 20:51:38,903 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:51:45,942 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:54:20,403 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 20:54:20,407 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:54:28,354 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:54:28,371 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:55:33,637 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-12-20 00:00:00'), 'end': True}
+2018-12-28 20:56:19,301 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:56:27,331 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:56:51,014 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 20:56:51,019 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:56:58,647 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:58:32,880 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-12-20 00:00:00'), 'end': True}
+2018-12-28 20:59:11,984 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 20:59:18,845 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:01:23,767 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': True, 'max_date': Timestamp('2018-12-20 00:00:00'), 'end': False}
+2018-12-28 21:01:23,783 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:10:32,426 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-28 21:10:35,370 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 21:10:35,381 - logs/mytab.logs:80 - WARNING - TABLE:block
+2018-12-28 21:10:41,169 - logs/mytab.logs:121 - WARNING - in filter_df:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 21:11:49,375 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 21:11:49,379 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:11:56,335 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:14:40,881 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 21:14:40,885 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:14:47,520 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:14:47,538 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:15:53,697 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-12-20 00:00:00'), 'end': True}
+2018-12-28 21:16:36,294 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:16:43,345 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:17:05,242 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True}
+2018-12-28 21:17:05,252 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:17:12,032 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:20:27,681 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-12-20 00:00:00'), 'end': True}
+2018-12-28 21:21:04,693 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:21:11,019 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:22:49,732 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'min_date': Timestamp('2018-07-01 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-12-20 00:00:00'), 'end': True}
+2018-12-28 21:22:49,785 - logs/mytab.logs:80 - WARNING - TABLE:block
+2018-12-28 21:22:55,804 - logs/mytab.logs:121 - WARNING - in filter_df:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 21:24:15,141 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-12-20 00:00:00'), 'end': True}
+2018-12-28 21:24:55,734 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:25:02,323 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:26:03,236 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': True, 'max_date': Timestamp('2018-12-20 00:00:00'), 'end': False}
+2018-12-28 21:26:03,257 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:27:01,120 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'min_date': Timestamp('2018-07-01 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-12-20 00:00:00'), 'end': True}
+2018-12-28 21:27:01,159 - logs/mytab.logs:80 - WARNING - TABLE:block
+2018-12-28 21:27:05,706 - logs/mytab.logs:121 - WARNING - in filter_df:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 21:44:46,335 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-28 21:44:49,622 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True}
+2018-12-28 21:44:49,631 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:44:57,465 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:47:34,707 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True}
+2018-12-28 21:47:34,712 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:47:42,982 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:47:43,018 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:48:44,529 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': False, 'max_date': Timestamp('2018-12-20 00:00:00'), 'start': False, 'end': True}
+2018-12-28 21:49:23,059 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:49:29,377 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:49:49,699 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'end': True}
+2018-12-28 21:49:49,703 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:49:55,694 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:53:28,119 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2018-12-28 21:53:30,109 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2018-12-28 21:53:30,113 - logs/mytab.logs:80 - WARNING - TABLE:block
+2018-12-28 21:53:32,893 - logs/mytab.logs:121 - WARNING - in filter_df:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 21:54:38,557 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2018-12-28 21:54:38,562 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:54:45,105 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:57:37,515 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2018-12-28 21:57:37,519 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:57:44,444 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:57:44,463 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:58:51,934 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': False, 'end': True, 'max_date': Timestamp('2018-12-20 00:00:00'), 'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': False}
+2018-12-28 21:59:34,044 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 21:59:39,595 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:59:58,271 - logs/mytab.logs:54 - WARNING - is_data_in_memory:{'start': True, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2018-12-28 21:59:58,274 - logs/mytab.logs:80 - WARNING - TABLE:block_tx_warehouse
+2018-12-28 22:00:03,659 - logs/mytab.logs:121 - WARNING - in filter_df:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']

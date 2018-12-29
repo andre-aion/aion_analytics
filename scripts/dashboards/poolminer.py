@@ -263,12 +263,18 @@ def poolminer_tab():
             gc.collect()
 
     def update_threshold_tier_2_received(attrname, old, new):
+        notification_div.text = thistab.notification_updater \
+            ("Tier 2 calculations in progress! Please wait.")
         thistab.make_tier2_table(datepicker_start.value, datepicker_end.value,
                                  select_tx_received.value,
                                  select_tx_paid_out.value,
                                  select_blocks_mined.value)
+        notification_div.text = thistab.notification_updater("")
+
 
     def update(attr, old, new):
+        notification_div.text = thistab.notification_updater \
+            ("Tiers 1 and 2 calculations in progress! Please wait.")
         thistab.tier1_miners_activated = True
         thistab.load_this_data(datepicker_start.value, datepicker_end.value,
                                select_tx_paid_out.value,
@@ -279,6 +285,8 @@ def poolminer_tab():
                                  select_tx_paid_out.value,
                                  select_blocks_mined.value)
         thistab.tier1_miners_activated = False
+        notification_div.text = thistab.notification_updater("")
+
 
 
     try:
@@ -302,6 +310,8 @@ def poolminer_tab():
                                  thistab.threshold_tier2_received,
                                  thistab.threshold_tx_paid_out,
                                  thistab.threshold_blocks_mined)
+
+        notification_text = thistab.notification_updater("")
 
         # MANAGE STREAM
         # date comes out stream in milliseconds
@@ -335,7 +345,8 @@ def poolminer_tab():
 
         ]
         tier2_table = DataTable(source=tier2_src, columns=columns, width=400, height=1400)
-
+        # Notification
+        notification_div = Div(text=notification_text, width=500, height=50)
 
         # handle callbacks
         datepicker_start.on_change('value', update)
@@ -371,6 +382,7 @@ def poolminer_tab():
         # create the dashboard
         spacing_div = thistab.spacing_div(width=200,height=400)
         grid = gridplot([[controls_left,controls_right],
+                         [notification_div],
                          [tier1_table, tier2_table]])
 
         # Make a tab with the layout

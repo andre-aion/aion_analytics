@@ -1065,3 +1065,263 @@ Name: from_addr, Length: 7744, dtype: object
 2018-12-28 19:51:59,406 - logs/poolminer.logs:148 - WARNING - miners found by blocks mined: 13
 2018-12-28 19:51:59,585 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-11-01:2018-12-28
 2018-12-28 19:51:59,585 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-11-01:2018-12-28
+2018-12-28 19:53:40,403 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 19:53:40,403 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 19:54:09,740 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-07-01:2018-11-30
+2018-12-28 19:54:09,740 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-07-01:2018-11-30
+2018-12-28 19:57:45,973 - logs/poolminer.logs:76 - WARNING - df_tx columns in make_poolminer_warehose:['transaction_hash', 'transaction_index', 'block_number', 'transaction_timestamp', 'block_timestamp', 'block_date', 'from_addr', 'to_addr', 'approx_value', 'nrg_consumed', 'nrg_price', 'nonce', 'contract_addr', 'transaction_year', 'transaction_month', 'transaction_day']
+2018-12-28 19:57:45,973 - logs/poolminer.logs:76 - WARNING - df_tx columns in make_poolminer_warehose:['transaction_hash', 'transaction_index', 'block_number', 'transaction_timestamp', 'block_timestamp', 'block_date', 'from_addr', 'to_addr', 'approx_value', 'nrg_consumed', 'nrg_price', 'nonce', 'contract_addr', 'transaction_year', 'transaction_month', 'transaction_day']
+2018-12-28 19:57:45,974 - logs/poolminer.logs:77 - WARNING - df_block columns in make_poolminer_warehose:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 19:57:45,974 - logs/poolminer.logs:77 - WARNING - df_block columns in make_poolminer_warehose:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 19:57:45,989 - logs/poolminer.logs:88 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes', 'block_date']:
+2018-12-28 19:57:45,989 - logs/poolminer.logs:88 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes', 'block_date']:
+2018-12-28 19:57:46,045 - logs/poolminer.logs:100 - WARNING - ('merged columns', ['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
+2018-12-28 19:57:46,045 - logs/poolminer.logs:100 - WARNING - ('merged columns', ['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
+2018-12-28 19:58:32,071 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 19:58:32,071 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:02:49,420 - logs/poolminer.logs:76 - WARNING - df_tx columns in make_poolminer_warehose:['transaction_hash', 'transaction_index', 'block_number', 'transaction_timestamp', 'block_timestamp', 'block_date', 'from_addr', 'to_addr', 'approx_value', 'nrg_consumed', 'nrg_price', 'nonce', 'contract_addr', 'transaction_year', 'transaction_month', 'transaction_day']
+2018-12-28 20:02:49,420 - logs/poolminer.logs:76 - WARNING - df_tx columns in make_poolminer_warehose:['transaction_hash', 'transaction_index', 'block_number', 'transaction_timestamp', 'block_timestamp', 'block_date', 'from_addr', 'to_addr', 'approx_value', 'nrg_consumed', 'nrg_price', 'nonce', 'contract_addr', 'transaction_year', 'transaction_month', 'transaction_day']
+2018-12-28 20:02:49,421 - logs/poolminer.logs:77 - WARNING - df_block columns in make_poolminer_warehose:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 20:02:49,421 - logs/poolminer.logs:77 - WARNING - df_block columns in make_poolminer_warehose:['block_number', 'miner_address', 'miner_addr', 'nonce', 'difficulty', 'total_difficulty', 'nrg_consumed', 'nrg_limit', 'block_size', 'block_timestamp', 'block_date', 'block_year', 'block_month', 'block_day', 'num_transactions', 'block_time', 'approx_nrg_reward', 'transaction_hashes']
+2018-12-28 20:02:49,444 - logs/poolminer.logs:88 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes', 'block_date']:
+2018-12-28 20:02:49,444 - logs/poolminer.logs:88 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes', 'block_date']:
+2018-12-28 20:02:49,501 - logs/poolminer.logs:100 - WARNING - ('merged columns', ['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
+2018-12-28 20:02:49,501 - logs/poolminer.logs:100 - WARNING - ('merged columns', ['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
+2018-12-28 20:03:43,699 - logs/poolminer.logs:118 - WARNING - tx paid out threshold:1.0
+2018-12-28 20:03:43,699 - logs/poolminer.logs:118 - WARNING - tx paid out threshold:1.0
+2018-12-28 20:04:13,145 - logs/poolminer.logs:125 - WARNING - miners found by paid out: 148
+2018-12-28 20:04:13,145 - logs/poolminer.logs:125 - WARNING - miners found by paid out: 148
+2018-12-28 20:04:13,281 - logs/poolminer.logs:141 - WARNING - blocks mined daily threshold:15552.0
+2018-12-28 20:04:13,281 - logs/poolminer.logs:141 - WARNING - blocks mined daily threshold:15552.0
+2018-12-28 20:04:38,463 - logs/poolminer.logs:148 - WARNING - miners found by blocks mined: 20
+2018-12-28 20:04:38,463 - logs/poolminer.logs:148 - WARNING - miners found by blocks mined: 20
+2018-12-28 20:04:38,680 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-07-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 20:04:38,680 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-07-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 20:06:22,939 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:06:22,939 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:07:18,339 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:149
+2018-12-28 20:07:18,339 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:149
+2018-12-28 20:07:18,342 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 20:07:18,342 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 20:07:18,369 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-07-01:2018-12-28
+2018-12-28 20:07:18,369 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-07-01:2018-12-28
+2018-12-28 20:07:18,379 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:07:18,379 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:08:09,811 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:1315
+2018-12-28 20:08:09,811 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:1315
+2018-12-28 20:28:59,584 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 20:29:02,717 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 20:29:02,717 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 20:30:04,915 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:30:04,915 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:30:04,916 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 20:30:04,916 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 20:30:11,096 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:30:11,096 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:31:48,573 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 20:31:48,573 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 20:31:48,574 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 20:31:48,574 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 20:31:48,576 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:31:48,576 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:31:48,577 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:31:48,577 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:32:29,372 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 20:32:29,372 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 20:32:29,424 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 20:32:29,424 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 20:32:29,425 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:32:29,425 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:41:43,594 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 20:41:45,650 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 20:41:45,650 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 20:42:59,032 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:42:59,032 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:42:59,033 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 20:42:59,033 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 20:43:05,932 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:43:05,932 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:45:03,455 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 20:45:03,455 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 20:45:03,456 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 20:45:03,456 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 20:45:03,458 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:45:03,458 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:45:03,458 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:45:03,458 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:45:49,063 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 20:45:49,063 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 20:45:49,161 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 20:45:49,161 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 20:45:49,163 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:45:49,163 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:45:56,106 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:45:56,106 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:47:50,774 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:47:50,774 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:48:16,137 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 20:48:16,137 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 20:48:22,963 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:48:22,963 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:50:25,655 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 20:50:28,809 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 20:50:28,809 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 20:51:38,895 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:51:38,895 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:51:38,896 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 20:51:38,896 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 20:51:45,942 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:51:45,942 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:53:38,388 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 20:53:38,388 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 20:53:38,390 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 20:53:38,390 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 20:53:38,391 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:53:38,391 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:53:38,392 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:53:38,392 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:54:20,300 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 20:54:20,300 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 20:54:20,394 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 20:54:20,394 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 20:54:20,395 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:54:20,395 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:54:28,373 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:54:28,373 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 20:56:27,332 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:56:27,332 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:56:51,010 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 20:56:51,010 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 20:56:58,648 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:56:58,648 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:57:36,624 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-11-01:2018-12-28
+2018-12-28 20:57:36,624 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-11-01:2018-12-28
+2018-12-28 20:59:18,845 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:59:18,845 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 20:59:59,085 - logs/poolminer.logs:118 - WARNING - tx paid out threshold:1.0
+2018-12-28 20:59:59,085 - logs/poolminer.logs:118 - WARNING - tx paid out threshold:1.0
+2018-12-28 21:00:21,555 - logs/poolminer.logs:125 - WARNING - miners found by paid out: 114
+2018-12-28 21:00:21,555 - logs/poolminer.logs:125 - WARNING - miners found by paid out: 114
+2018-12-28 21:00:21,725 - logs/poolminer.logs:141 - WARNING - blocks mined daily threshold:5184.0
+2018-12-28 21:00:21,725 - logs/poolminer.logs:141 - WARNING - blocks mined daily threshold:5184.0
+2018-12-28 21:00:46,406 - logs/poolminer.logs:148 - WARNING - miners found by blocks mined: 15
+2018-12-28 21:00:46,406 - logs/poolminer.logs:148 - WARNING - miners found by blocks mined: 15
+2018-12-28 21:01:23,783 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:01:23,783 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:10:32,426 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 21:10:34,748 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 21:10:34,748 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 21:11:49,371 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:11:49,371 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:11:49,372 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 21:11:49,372 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 21:11:56,335 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:11:56,335 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:13:53,120 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 21:13:53,120 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 21:13:53,122 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 21:13:53,122 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 21:13:53,123 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:13:53,123 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:13:53,124 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:13:53,124 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:14:40,805 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 21:14:40,805 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 21:14:40,874 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:14:40,874 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:14:40,875 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:14:40,875 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:14:47,540 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:14:47,540 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:16:43,345 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:16:43,345 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:17:05,239 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:17:05,239 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:17:12,033 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:17:12,033 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:19:51,114 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-09-02:2018-12-28
+2018-12-28 21:19:51,114 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-09-02:2018-12-28
+2018-12-28 21:19:51,116 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-09-02 00:00:00:2018-12-28 00:00:00
+2018-12-28 21:19:51,116 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-09-02 00:00:00:2018-12-28 00:00:00
+2018-12-28 21:21:11,020 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:21:11,020 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:22:04,561 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:138
+2018-12-28 21:22:04,561 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:138
+2018-12-28 21:22:04,563 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 21:22:04,563 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 21:22:04,565 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-09-02:2018-12-28
+2018-12-28 21:22:04,565 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-09-02:2018-12-28
+2018-12-28 21:22:04,565 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:22:04,565 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:22:49,646 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:1184
+2018-12-28 21:22:49,646 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:1184
+2018-12-28 21:23:16,025 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-11-01:2018-12-28
+2018-12-28 21:23:16,025 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-11-01:2018-12-28
+2018-12-28 21:25:02,323 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:25:02,323 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:25:23,131 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-10-01:2018-11-30
+2018-12-28 21:25:23,131 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1.0:1:2018-10-01:2018-11-30
+2018-12-28 21:26:03,257 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:26:03,257 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:44:46,334 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 21:44:49,153 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 21:44:49,153 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 21:44:49,608 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:44:49,608 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:44:49,610 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 21:44:49,610 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 21:44:57,466 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:44:57,466 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:46:51,035 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 21:46:51,035 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 21:46:51,037 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 21:46:51,037 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 21:46:51,039 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:46:51,039 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:46:51,041 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:46:51,041 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:47:34,623 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 21:47:34,623 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 21:47:34,699 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:47:34,699 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:47:34,701 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:47:34,701 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:47:43,021 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:47:43,021 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:49:29,377 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:49:29,377 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:49:49,695 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:49:49,695 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:49:55,694 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:49:55,694 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:53:28,118 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 21:53:29,754 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 21:53:29,754 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2018-12-28 21:54:38,554 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:54:38,554 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:54:38,555 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 21:54:38,555 - logs/poolminer.logs:140 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2018-12-28 00:00:00
+2018-12-28 21:54:45,105 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:54:45,105 - logs/poolminer.logs:145 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:56:42,582 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 21:56:42,582 - logs/poolminer.logs:175 - WARNING - TIER 1 Calculations finished:106
+2018-12-28 21:56:42,584 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 21:56:42,584 - logs/poolminer.logs:205 - WARNING - tier 2 triggered:0.5
+2018-12-28 21:56:42,588 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:56:42,588 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:56:42,589 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:56:42,589 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:57:37,435 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 21:57:37,435 - logs/poolminer.logs:249 - WARNING - TIER 2 Calculations finished:972
+2018-12-28 21:57:37,508 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:57:37,508 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:57:37,510 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:57:37,510 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:57:44,465 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:57:44,465 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2018-12-28
+2018-12-28 21:59:39,595 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:59:39,595 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 21:59:58,268 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 21:59:58,268 - logs/poolminer.logs:165 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2018-12-28 22:00:03,660 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2018-12-28 22:00:03,660 - logs/poolminer.logs:267 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
