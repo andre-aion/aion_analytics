@@ -1,25 +1,52 @@
-2019-01-01 18:54:36,593 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
-2019-01-01 18:54:36,593 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
-2019-01-01 18:54:36,593 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
-2019-01-01 18:54:38,184 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
-2019-01-01 18:54:38,184 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
-2019-01-01 18:54:38,184 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
-2019-01-01 18:54:38,184 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
-2019-01-01 18:54:38,184 - logs/pythonClickhouse.logs:100 - WARNING - load data start_date:2018-11-01 00:00:00
-2019-01-01 18:54:38,184 - logs/pythonClickhouse.logs:100 - WARNING - load data start_date:2018-11-01 00:00:00
-2019-01-01 18:54:38,184 - logs/pythonClickhouse.logs:101 - WARNING - load_data  to_date:2019-01-01 00:00:00
-2019-01-01 18:54:38,184 - logs/pythonClickhouse.logs:101 - WARNING - load_data  to_date:2019-01-01 00:00:00
-2019-01-01 18:54:38,185 - logs/pythonClickhouse.logs:94 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+2019-01-01 19:00:37,823 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-01 19:00:37,823 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-01 19:00:37,823 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-01 19:00:39,394 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
+2019-01-01 19:00:39,394 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
+2019-01-01 19:00:39,394 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
+2019-01-01 19:00:39,394 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
+2019-01-01 19:00:39,394 - logs/pythonClickhouse.logs:100 - WARNING - load data start_date:2018-11-01 00:00:00
+2019-01-01 19:00:39,394 - logs/pythonClickhouse.logs:100 - WARNING - load data start_date:2018-11-01 00:00:00
+2019-01-01 19:00:39,394 - logs/pythonClickhouse.logs:101 - WARNING - load_data  to_date:2019-01-01 00:00:00
+2019-01-01 19:00:39,394 - logs/pythonClickhouse.logs:101 - WARNING - load_data  to_date:2019-01-01 00:00:00
+2019-01-01 19:00:39,394 - logs/pythonClickhouse.logs:94 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
                toDate(block_timestamp) <= toDate('2019-01-01 00:00:00') ORDER BY block_timestamp
-2019-01-01 18:54:38,185 - logs/pythonClickhouse.logs:94 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+2019-01-01 19:00:39,394 - logs/pythonClickhouse.logs:94 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
                toDate(block_timestamp) <= toDate('2019-01-01 00:00:00') ORDER BY block_timestamp
-2019-01-01 18:54:45,602 - logs/pythonClickhouse.logs:115 - WARNING - query result:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+2019-01-01 19:00:44,637 - logs/pythonClickhouse.logs:115 - WARNING - query result:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
 394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
 394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
 394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
 394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
 394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
-2019-01-01 18:54:45,602 - logs/pythonClickhouse.logs:115 - WARNING - query result:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+2019-01-01 19:00:44,637 - logs/pythonClickhouse.logs:115 - WARNING - query result:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-01 19:14:53,515 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-01 19:14:53,515 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-01 19:14:53,515 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-01 19:14:55,127 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
+2019-01-01 19:14:55,127 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
+2019-01-01 19:14:55,127 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
+2019-01-01 19:14:55,127 - logs/pythonClickhouse.logs:60 - WARNING - IS DATETIME
+2019-01-01 19:14:55,127 - logs/pythonClickhouse.logs:100 - WARNING - load data start_date:2018-11-01 00:00:00
+2019-01-01 19:14:55,127 - logs/pythonClickhouse.logs:100 - WARNING - load data start_date:2018-11-01 00:00:00
+2019-01-01 19:14:55,127 - logs/pythonClickhouse.logs:101 - WARNING - load_data  to_date:2019-01-01 00:00:00
+2019-01-01 19:14:55,127 - logs/pythonClickhouse.logs:101 - WARNING - load_data  to_date:2019-01-01 00:00:00
+2019-01-01 19:14:55,128 - logs/pythonClickhouse.logs:94 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-01 00:00:00') ORDER BY block_timestamp
+2019-01-01 19:14:55,128 - logs/pythonClickhouse.logs:94 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-01 00:00:00') ORDER BY block_timestamp
+2019-01-01 19:15:00,341 - logs/pythonClickhouse.logs:115 - WARNING - query result:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-01 19:15:00,341 - logs/pythonClickhouse.logs:115 - WARNING - query result:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
 394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
 394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
 394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10

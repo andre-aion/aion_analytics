@@ -1,65 +1,31 @@
-2019-01-01 18:54:36,600 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-01 18:54:38,020 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-01 18:54:38,020 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-01 18:55:03,217 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
-2019-01-01 18:55:03,217 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
-2019-01-01 18:55:03,217 - logs/poolminer.logs:143 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2019-01-01 00:00:00
-2019-01-01 18:55:03,217 - logs/poolminer.logs:143 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2019-01-01 00:00:00
-2019-01-01 18:55:04,755 - logs/poolminer.logs:148 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-01 18:55:04,755 - logs/poolminer.logs:148 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-01 18:55:34,456 - logs/poolminer.logs:178 - WARNING - TIER 1 Calculations finished:103
-2019-01-01 18:55:34,456 - logs/poolminer.logs:178 - WARNING - TIER 1 Calculations finished:103
-2019-01-01 18:55:34,458 - logs/poolminer.logs:208 - WARNING - tier 2 triggered:0.5
-2019-01-01 18:55:34,458 - logs/poolminer.logs:208 - WARNING - tier 2 triggered:0.5
-2019-01-01 18:55:34,459 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
-2019-01-01 18:55:34,459 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
-2019-01-01 18:56:10,376 - logs/poolminer.logs:284 - ERROR - tier 2 miner list
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 266, in make_tier2_list
-    logger.warning("df in make tier 2 columns:%s",df.columns.tolist())
-AttributeError: 'NoneType' object has no attribute 'columns'
-2019-01-01 18:56:10,376 - logs/poolminer.logs:284 - ERROR - tier 2 miner list
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 266, in make_tier2_list
-    logger.warning("df in make tier 2 columns:%s",df.columns.tolist())
-AttributeError: 'NoneType' object has no attribute 'columns'
-2019-01-01 18:56:10,392 - logs/poolminer.logs:265 - WARNING - make tier 2 table
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 242, in make_tier2_table
-    self.tier2_df = self.tier2_df[self.tier2_df.to_addr.isin(tier2_miners_list)]
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 2086, in isin
-    return elemwise(M.isin, self, list(values))
-TypeError: 'NoneType' object is not iterable
-2019-01-01 18:56:10,392 - logs/poolminer.logs:265 - WARNING - make tier 2 table
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 242, in make_tier2_table
-    self.tier2_df = self.tier2_df[self.tier2_df.to_addr.isin(tier2_miners_list)]
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 2086, in isin
-    return elemwise(M.isin, self, list(values))
-TypeError: 'NoneType' object is not iterable
-2019-01-01 18:56:10,392 - logs/poolminer.logs:400 - ERROR - rendering err:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 319, in poolminer_tab
-    thistab.threshold_blocks_mined)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 268, in make_tier2_table
-    del new_data
-UnboundLocalError: local variable 'new_data' referenced before assignment
-2019-01-01 18:56:10,392 - logs/poolminer.logs:400 - ERROR - rendering err:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 319, in poolminer_tab
-    thistab.threshold_blocks_mined)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 268, in make_tier2_table
-    del new_data
-UnboundLocalError: local variable 'new_data' referenced before assignment
-2019-01-01 18:56:10,436 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
-2019-01-01 18:56:10,436 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
-2019-01-01 18:56:10,437 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
-2019-01-01 18:56:10,437 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
-2019-01-01 18:56:11,941 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
-2019-01-01 18:56:11,941 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
-2019-01-01 18:57:00,116 - logs/poolminer.logs:266 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-01 18:57:00,116 - logs/poolminer.logs:266 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-01 18:57:08,773 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
-2019-01-01 18:57:08,773 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
-2019-01-01 18:57:10,580 - logs/poolminer.logs:266 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-01 18:57:10,580 - logs/poolminer.logs:266 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-01 19:14:53,522 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-01 19:14:54,932 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-01 19:14:54,932 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-01 19:15:17,791 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
+2019-01-01 19:15:17,791 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
+2019-01-01 19:15:17,792 - logs/poolminer.logs:143 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2019-01-01 00:00:00
+2019-01-01 19:15:17,792 - logs/poolminer.logs:143 - WARNING - tier 1 triggered:2018-11-01 00:00:00:2019-01-01 00:00:00
+2019-01-01 19:15:19,314 - logs/poolminer.logs:148 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-01 19:15:19,314 - logs/poolminer.logs:148 - WARNING - merged column in make tier1:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-01 19:15:50,662 - logs/poolminer.logs:178 - WARNING - TIER 1 Calculations finished:103
+2019-01-01 19:15:50,662 - logs/poolminer.logs:178 - WARNING - TIER 1 Calculations finished:103
+2019-01-01 19:15:50,663 - logs/poolminer.logs:209 - WARNING - tier 2 triggered:0.5
+2019-01-01 19:15:50,663 - logs/poolminer.logs:209 - WARNING - tier 2 triggered:0.5
+2019-01-01 19:15:50,664 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
+2019-01-01 19:15:50,664 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
+2019-01-01 19:16:27,831 - logs/poolminer.logs:266 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-01 19:16:27,831 - logs/poolminer.logs:266 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-01 19:16:46,951 - logs/poolminer.logs:257 - WARNING - TIER 2 Calculations finished:819
+2019-01-01 19:16:46,951 - logs/poolminer.logs:257 - WARNING - TIER 2 Calculations finished:819
+2019-01-01 19:16:47,020 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2019-01-01 19:16:47,020 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2019-01-01 19:16:47,022 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
+2019-01-01 19:16:47,022 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
+2019-01-01 19:16:48,780 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
+2019-01-01 19:16:48,780 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-01
+2019-01-01 19:17:34,613 - logs/poolminer.logs:266 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-01 19:17:34,613 - logs/poolminer.logs:266 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-01 19:17:43,616 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2019-01-01 19:17:43,616 - logs/poolminer.logs:164 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2019-01-01 19:17:45,438 - logs/poolminer.logs:266 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-01 19:17:45,438 - logs/poolminer.logs:266 - WARNING - df in make tier 2 columns:['index', 'miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']

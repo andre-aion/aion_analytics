@@ -240,3 +240,57 @@ Name: miner_address, dtype: object
 26            a0afea235b
 10            a01252aa9f
 Name: miner_address, dtype: object
+2019-01-01 19:00:38,886 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2019-01-01 19:00:39,378 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
+2019-01-01 19:00:39,379 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
+2019-01-01 19:00:44,847 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
+2019-01-01 19:00:57,033 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
+2019-01-01 19:00:57,033 - logs/blockminer.logs:105 - WARNING - top n called:20
+2019-01-01 19:00:57,989 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
+0          AionPool.Tech
+1           AionPool.org
+3                Centrys
+2     BlockwareSolutions
+33            a0fde4c8c5
+5              GloryPool
+8             a0061525a5
+24            a09b74d135
+22            a08fbc834b
+15            a04b19c1e9
+12            a04055a0fa
+4                 F2Pool
+11            a023fae1b6
+13            a0437f899d
+29            a0c373f6e0
+7            WhibbitPool
+28            a0be94dde5
+26            a0afea235b
+10            a01252aa9f
+Name: miner_address, dtype: object
+2019-01-01 19:14:54,590 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2019-01-01 19:14:55,114 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
+2019-01-01 19:14:55,115 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
+2019-01-01 19:15:00,567 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
+2019-01-01 19:15:10,526 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
+2019-01-01 19:15:10,526 - logs/blockminer.logs:105 - WARNING - top n called:20
+2019-01-01 19:15:11,074 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
+0          AionPool.Tech
+1           AionPool.org
+3                Centrys
+2     BlockwareSolutions
+33            a0fde4c8c5
+5              GloryPool
+8             a0061525a5
+24            a09b74d135
+22            a08fbc834b
+15            a04b19c1e9
+12            a04055a0fa
+4                 F2Pool
+11            a023fae1b6
+13            a0437f899d
+29            a0c373f6e0
+7            WhibbitPool
+28            a0be94dde5
+26            a0afea235b
+10            a01252aa9f
+Name: miner_address, dtype: object

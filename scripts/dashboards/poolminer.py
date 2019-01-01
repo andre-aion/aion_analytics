@@ -187,10 +187,11 @@ def poolminer_tab():
                 return tier1_df.hvplot.table(columns=['miner_address', 'block_date',
                                                   'block_number', 'approx_value'], width=800)
                 '''
+                del new_data
+                del tier1_df
             except Exception:
                 logger.warning("make tier 1 table",exc_info=True)
-            del new_data
-            del tier1_df
+
             gc.collect()
 
         def date_to_str(self, ts):
@@ -224,7 +225,7 @@ def poolminer_tab():
                     if not self.tier1_miners_activated:
                         # get tier 1 miners list
                         tier_1_miners_list = self.tier_1_loaded_check(start_date,end_date)
-                        self.df = self.df_loaded_check(start_date,end_date)
+                        self.df_loaded_check(start_date,end_date)
 
                     tier2_miners_list = \
                         make_tier2_list(self.df, start_date, end_date,
@@ -260,14 +261,14 @@ def poolminer_tab():
                     TableColumn(field="approx_value", title="Value"),
 
                 ]
+                del new_data
+                del tier2_df
+
                 return DataTable(source=tier2_src, columns=columns, width=400, height=1400)
             except Exception:
                 logger.warning("make tier 2 table",exc_info=True)
 
 
-            del new_data
-            del tier2_df
-            gc.collect()
 
     def update_threshold_tier_2_received(attrname, old, new):
         notification_div.text = thistab.notification_updater \
