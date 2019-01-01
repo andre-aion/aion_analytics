@@ -69,20 +69,6 @@ def get_breakdown_from_timestamp(ts):
     mydate = datetime.fromtimestamp(ts).date()
     return mydate
 
-def get_initial_blocks(pc):
-    try:
-        to_check = tuple(range(0, 50000))
-        qry ="""SELECT block_number, difficulty, block_date, 
-            block_time, miner_addr FROM block
-            WHERE block_number in """+str(to_check)
-
-        df = pd.DataFrame(list(pc.session.execute(qry)))
-        df = dd.dataframe.from_pandas(df, npartitions=15)
-        #logger.warning('from get initial block: %s',df.head(5))
-        return df
-    except Exception:
-        logger.error('get initial blocks',exc_info=True)
-
 
 def timestamp_to_datetime(ts):
     return datetime.fromtimestamp(ts)
@@ -170,7 +156,7 @@ def set_params_to_load(df, req_start_date, req_end_date):
         #end_date = ms_to_date(end_date)
         if len(df) > 0:
             params['min_date'], params['max_date'] = \
-                dd.compute(df.block_date.min(), df.block_date.max())
+                dd.compute(df.block_timestamp.min(), df.block_timestamp.max())
             # check start
             logger.warning('start_date from compute:%s', params['min_date'])
             logger.warning('start from slider:%s', req_start_date)
@@ -241,8 +227,8 @@ def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
         # load all from cassandra
         elif params['load_type'] & LoadType.DISK_STORAGE_FULL.value == LoadType.DISK_STORAGE_FULL.value:
             if cass_or_ch == 'cass':
-                sdate = pc.date_to_disk_storage_ts(req_start_date)
-                edate = pc.date_to_disk_storage_ts(req_end_date)
+                sdate = pc.date_to_cass_ts(req_start_date)
+                edate = pc.date_to_cass_ts(req_end_date)
                 df = pc.load_from_daterange(table, cols, sdate, edate)
             else:
                 sdate = req_start_date
@@ -321,10 +307,7 @@ def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
             logger.warning('bigger df added so deleted key:%s',
                            str(key, 'utf-8'))
 
-        # save (including overwrite to redis
-        # reset index to sort
-        if table == 'transaction':
-            logger.warning('%s in construct df on load %s',table,df.head())
+        # save (including overwrite to redis)
         # do not save if entire table loaded from redis
         if params['load_type'] & LoadType.REDIS_FULL.value != LoadType.REDIS_FULL.value:
             logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))

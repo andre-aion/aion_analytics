@@ -61,18 +61,25 @@ def churn_tab():
         approx_value=[]))
 
     class Thistab(Mytab):
+        cols = ['transaction_hashes','block_date','block_timestamp','miner_address','block_number']
         block_tab = Mytab('block', cols, dedup_cols)
-        cols = ['block_date',
+        block_tab.key_tab = 'poolminer'
+        ref_block_tab = Mytab('block', cols, dedup_cols)
+        ref_block_tab.key_tab = 'poolminer'
+
+        cols = ['block_date','block_timestamp',
                 'transaction_hash', 'from_addr',
                 'to_addr', 'approx_value']
         transaction_tab = Mytab('transaction', cols, dedup_cols)
-        cols = ['block_date', 'transaction_hash', 'from_addr',
-                'to_addr', 'approx_value']
+        transaction_tab.key_tab = 'poolminer'
         ref_transaction_tab = Mytab('transaction', cols, dedup_cols)
-        ref_block_tab = Mytab('block', cols, dedup_cols)
-        ref_block_tx_warehouse_tab = Mytab('block_tx_warehouse', cols, [])
+        ref_transaction_tab.key_tab = 'poolminer'
 
-        def __init__(self, table, cols=[], dedup_cols=[]):
+        ref_block_tx_warehouse_tab = Mytab('block_tx_warehouse', cols, [])
+        tier1_ref_miners_activated = False
+        tier1_period_miners_activated = False
+
+        def __init__(self, table,key_tab='',cols=[], dedup_cols=[]):
             Mytab.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.tier1_df = self.df
@@ -82,7 +89,10 @@ def churn_tab():
             self.threshold_blocks_mined = 1
             self.tier2_miners_list = []
             self.tier1_miners_list = []
-            self.key_tab = ''
+            self.key_tab = key_tab
+
+            self.tier1_ref_miners_list = []
+            self.tier1_period_miners_list = []
 
         def df_loaded_check(self, start_date, end_date):
             # check to see if block_tx_warehouse is loaded
@@ -174,12 +184,11 @@ def churn_tab():
             start_date = datetime.combine(start_date, datetime.min.time())
 
             if when == 'reference':
-                tier_1_miners_list = self.make_ref_tier_1_miners(start_date, end_date)
+                self.tier1_ref_miners_list = self.make_ref_tier_1_miners(start_date, end_date)
             else:
                 # ensure tier1 is loaded
-                tier_1_miners_list = self.make_tier1_miners(start_date, end_date)
+                self.tier1_period_miners_list = self.make_tier1_miners(start_date, end_date)
 
-            return tier_1_miners_list
 
         def make_tier2_miners_list(self,when, start_date, end_date,
                                    threshold_tx_received,
@@ -203,29 +212,37 @@ def churn_tab():
             if tier2_miners_list is None:
                 # get tier 1 miners list
                 if when == 'reference':
-                    tier_1_miners_list = self.make_tier1_miners_list('reference',start_date, end_date,
-                                                                     threshold_tx_paid_out,
-                                                                     threshold_blocks_mined)
-                    self.ref_warehouse_loaded_check(start_date, end_date)
+                    # if both tier1 and tier2 are being run, then skip the calculationf for the tier1
+                    # miners list and the warehouse. they just been calculated
+                    if not self.tier1_ref_miners_activated:
+                        self.make_tier1_miners_list('reference',start_date, end_date,
+                                                                         threshold_tx_paid_out,
+                                                                         threshold_blocks_mined)
+                        self.ref_warehouse_loaded_check(start_date, end_date)
+
                     tier2_miners_list = \
                         make_tier2_list(self.ref_block_tx_warehouse_tab.df1, start_date, end_date,
-                                        tier_1_miners_list,
+                                        self.tier1_ref_miners_list,
                                         threshold_tier2_received=threshold_tx_received,
                                         threshold_tx_paid_out=threshold_tx_paid_out,
                                         threshold_blocks_mined_per_day=threshold_blocks_mined)
+
+                    self.tier1_ref_miners_activated = False
 
                 else:
-                    tier_1_miners_list = self.make_tier1_miners_list('period',start_date, end_date,
-                                                                     threshold_tx_paid_out,
-                                                                     threshold_blocks_mined)
-                    self.df_loaded_check(start_date, end_date)
+                    if not self.tier1_period_miners_activated:
+                        self.make_tier1_miners_list('period',start_date, end_date,
+                                                                         threshold_tx_paid_out,
+                                                                         threshold_blocks_mined)
+                        self.df_loaded_check(start_date, end_date)
                     tier2_miners_list = \
                         make_tier2_list(self.df1, start_date, end_date,
-                                        tier_1_miners_list,
+                                        self.tier1_period_miners_list,
                                         threshold_tier2_received=threshold_tx_received,
                                         threshold_tx_paid_out=threshold_tx_paid_out,
                                         threshold_blocks_mined_per_day=threshold_blocks_mined)
 
+                    self.tier1_period_miners_activated = False
 
             return tier2_miners_list
 
@@ -234,17 +251,18 @@ def churn_tab():
                         ref_start_date, ref_end_date,
                         threshold_tx_paid_out, threshold_blocks_mined):
             # filter current data warehouse by the tier 1 miner list
-            ref_tier1_miners_list = self.make_tier1_miners_list('reference',
-                                                                ref_start_date, ref_end_date,
-                                                                threshold_tx_paid_out,
-                                                                threshold_blocks_mined)
+            self.make_tier1_miners_list('reference',
+                                        ref_start_date, ref_end_date,
+                                        threshold_tx_paid_out,
+                                        threshold_blocks_mined)
 
-            period_tier1_miners_list = self.make_tier1_miners_list('period',
-                                                                   period_start_date, period_end_date,
-                                                                   threshold_tx_paid_out,
-                                                                   threshold_blocks_mined)
+            self.make_tier1_miners_list('period',
+                                       period_start_date, period_end_date,
+                                       threshold_tx_paid_out,
+                                       threshold_blocks_mined)
+
             logger.warning("tier 1 churn completed")
-            return self.stats('TIER 1',ref_tier1_miners_list,period_tier1_miners_list)
+            return self.stats('TIER 1',self.tier1_ref_miners_list,self.tier1_period_miners_list)
 
         def stats(self,tier,ref_list, period_list):
             # STATS OF INTEREST
@@ -317,6 +335,8 @@ def churn_tab():
     def update(attr, old, new):
         notification_div.text = thistab.notification_updater \
             ("Tiers 1 and 2 calculations in progress! Please wait.")
+        thistab.tier1_ref_miners_activated = True
+        thistab.tier1_period_miners_activated = True
         tier1_stats.text = thistab.tier1_churn(datepicker_churn_start.value,
                             datepicker_churn_end.value,
                             datepicker_ref_start.value,
@@ -331,11 +351,13 @@ def churn_tab():
                             select_tx_received.value,
                             select_tx_paid_out.value,
                             select_blocks_mined.value)
+        thistab.tier1_ref_miners_activated = True
+        thistab.tier1_period_miners_activated = True
         notification_div.text = thistab.notification_updater("")
 
 
     try:
-        cols = ['block_date', 'block_number', 'to_addr',
+        cols = ['block_date','block_timestamp', 'block_number', 'to_addr',
                       'from_addr', 'miner_address', 'approx_value', 'transaction_hash']
         thistab = Thistab('block_tx_warehouse', cols)
 

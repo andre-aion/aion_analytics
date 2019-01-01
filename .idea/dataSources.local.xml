@@ -2,7 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="aionv4@localhost" uuid="5985f098-7dd1-462c-b33e-b3fc4d616ae0">
-      <database-info product="MySQL" version="5.7.24-0ubuntu0.18.04.1-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" dbms="MYSQL" exact-version="5.7.24">
+      <database-info product="MySQL" version="5.7.24-0ubuntu0.18.04.1-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )" dbms="MYSQL" exact-version="5.7.24" exact-driver-version="5.1">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
@@ -19,6 +19,15 @@
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>kafka</user-name>
+      <introspection-schemas>*:@</introspection-schemas>
+    </data-source>
+    <data-source name="clickhouse@localhost" uuid="4bc6f2bd-2c05-4aac-b90d-35b2bd538f06">
+      <database-info product="ClickHouse" version="0.42" jdbc-version="0.1" driver-name="ru.yandex.clickhouse-jdbc" driver-version="0.1" dbms="CLICKHOUSE" exact-version="18.16.1" exact-driver-version="0.1">
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>default</user-name>
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
   </component>

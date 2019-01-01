@@ -116,17 +116,7 @@ class RedisStorage:
             logger.warning('load-df key:%s', key)
             item = pickle.loads(zlib.decompress(self.conn.get(key)))
 
-            '''
-            # if item is dataframe filter using start date and end date
-            if item_type == 'dataframe':
-                # convert dates to datetime
-                start_date = self.ms_to_date(start_date)
-                end_date = self.ms_to_date(end_date)
 
-                logger.warning('LOAD: loaded from redis:%s', key_params)
-                item = item[(item.block_date >= start_date)
-                       & (item.block_date <= end_date)]
-            '''
             return item
         except Exception:
             logger.error('load item', exc_info=True)

@@ -2156,3 +2156,888 @@
 2018-12-28 21:59:34,044 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': False, 'end': True, 'max_date': Timestamp('2018-12-20 00:00:00'), 'min_date': Timestamp('2018-08-01 00:00:00'), 'in_memory': False}
 2018-12-28 21:59:58,271 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
 2018-12-28 21:59:58,274 - logs/myutils.logs:189 - WARNING - in set_params_to_load:{'start': True, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 16:24:23,587 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 16:24:25,848 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2019-01-01 16:24:25,851 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2019-01-01 16:24:25,861 - logs/myutils.logs:233 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'redis_key_start': None}
+2019-01-01 16:24:25,861 - logs/myutils.logs:235 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'redis_key_start': None}
+2019-01-01 16:24:25,862 - logs/myutils.logs:335 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 250, in construct_df_upon_load
+    df = ch.load_data(table,cols,sdate,edate)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonClickhouse.py", line 104, in load_data
+    sql = self.construct_read_query(table, cols, start_date, end_date)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonClickhouse.py", line 80, in construct_read_query
+    for pos, col in enumerate(cols[table]):
+TypeError: list indices must be integers or slices, not str
+2019-01-01 16:24:25,895 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2019-01-01 16:24:25,898 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2019-01-01 16:24:25,907 - logs/myutils.logs:233 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'redis_key_start': None}
+2019-01-01 16:24:25,907 - logs/myutils.logs:235 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'redis_key_start': None}
+2019-01-01 16:24:25,908 - logs/myutils.logs:335 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 250, in construct_df_upon_load
+    df = ch.load_data(table,cols,sdate,edate)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonClickhouse.py", line 104, in load_data
+    sql = self.construct_read_query(table, cols, start_date, end_date)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonClickhouse.py", line 80, in construct_read_query
+    for pos, col in enumerate(cols[table]):
+TypeError: list indices must be integers or slices, not str
+2019-01-01 16:24:25,910 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2019-01-01 16:24:25,914 - logs/myutils.logs:233 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'redis_key_start': None}
+2019-01-01 16:24:25,914 - logs/myutils.logs:235 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'redis_key_start': None}
+2019-01-01 16:24:25,915 - logs/myutils.logs:335 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 250, in construct_df_upon_load
+    df = ch.load_data(table,cols,sdate,edate)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonClickhouse.py", line 104, in load_data
+    sql = self.construct_read_query(table, cols, start_date, end_date)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonClickhouse.py", line 80, in construct_read_query
+    for pos, col in enumerate(cols[table]):
+TypeError: list indices must be integers or slices, not str
+2019-01-01 16:24:25,917 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2019-01-01 16:24:25,984 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2019-01-01 16:24:25,987 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2019-01-01 16:24:25,994 - logs/myutils.logs:233 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'redis_key_start': None}
+2019-01-01 16:24:25,994 - logs/myutils.logs:235 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'redis_key_start': None}
+2019-01-01 16:24:25,994 - logs/myutils.logs:335 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 250, in construct_df_upon_load
+    df = ch.load_data(table,cols,sdate,edate)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonClickhouse.py", line 104, in load_data
+    sql = self.construct_read_query(table, cols, start_date, end_date)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonClickhouse.py", line 80, in construct_read_query
+    for pos, col in enumerate(cols[table]):
+TypeError: list indices must be integers or slices, not str
+2019-01-01 16:24:25,996 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2019-01-01 16:24:26,001 - logs/myutils.logs:233 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'redis_key_start': None}
+2019-01-01 16:24:26,001 - logs/myutils.logs:235 - WARNING - construct df, params:{'redis_key_end': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'redis_key_start': None}
+2019-01-01 16:24:26,001 - logs/myutils.logs:335 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 250, in construct_df_upon_load
+    df = ch.load_data(table,cols,sdate,edate)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonClickhouse.py", line 104, in load_data
+    sql = self.construct_read_query(table, cols, start_date, end_date)
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/pythonClickhouse.py", line 80, in construct_read_query
+    for pos, col in enumerate(cols[table]):
+TypeError: list indices must be integers or slices, not str
+2019-01-01 16:24:26,004 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True}
+2019-01-01 16:25:42,133 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 16:25:43,943 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2019-01-01 16:25:43,946 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2019-01-01 16:25:43,956 - logs/myutils.logs:233 - WARNING - params before hashrate error:{'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_key_start': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_end': None, 'redis_end_range': None}
+2019-01-01 16:25:43,956 - logs/myutils.logs:235 - WARNING - construct df, params:{'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_key_start': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_end': None, 'redis_end_range': None}
+2019-01-01 16:25:44,017 - logs/myutils.logs:335 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 327, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:25:44,044 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2019-01-01 16:25:44,048 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2019-01-01 16:25:44,052 - logs/myutils.logs:233 - WARNING - params before hashrate error:{'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_key_start': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_end': None, 'redis_end_range': None}
+2019-01-01 16:25:44,052 - logs/myutils.logs:235 - WARNING - construct df, params:{'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_key_start': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_end': None, 'redis_end_range': None}
+2019-01-01 16:25:44,055 - logs/myutils.logs:335 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 327, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:25:44,057 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2019-01-01 16:25:44,061 - logs/myutils.logs:233 - WARNING - params before hashrate error:{'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_key_start': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_end': None, 'redis_end_range': None}
+2019-01-01 16:25:44,061 - logs/myutils.logs:235 - WARNING - construct df, params:{'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_key_start': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_end': None, 'redis_end_range': None}
+2019-01-01 16:25:44,064 - logs/myutils.logs:335 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 327, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:25:44,068 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2019-01-01 16:25:44,118 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2019-01-01 16:25:44,121 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2019-01-01 16:25:44,126 - logs/myutils.logs:233 - WARNING - params before hashrate error:{'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'load_type': 2, 'redis_key_start': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_end': None, 'redis_end_range': None}
+2019-01-01 16:25:44,126 - logs/myutils.logs:235 - WARNING - construct df, params:{'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'load_type': 2, 'redis_key_start': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_end': None, 'redis_end_range': None}
+2019-01-01 16:25:44,128 - logs/myutils.logs:335 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 327, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:25:44,131 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2019-01-01 16:25:44,135 - logs/myutils.logs:233 - WARNING - params before hashrate error:{'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'load_type': 2, 'redis_key_start': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_end': None, 'redis_end_range': None}
+2019-01-01 16:25:44,135 - logs/myutils.logs:235 - WARNING - construct df, params:{'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'load_type': 2, 'redis_key_start': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_end': None, 'redis_end_range': None}
+2019-01-01 16:25:44,137 - logs/myutils.logs:335 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 327, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:25:44,139 - logs/myutils.logs:190 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'end': True}
+2019-01-01 16:39:21,554 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 16:40:09,305 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 16:40:11,107 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 16:40:11,112 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 16:40:11,116 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_start': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_key_end': None, 'redis_key_full': None}
+2019-01-01 16:40:11,116 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_start': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_key_end': None, 'redis_key_full': None}
+2019-01-01 16:40:11,125 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:40:11,155 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 16:40:11,160 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 16:40:11,165 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_start': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_key_end': None, 'redis_key_full': None}
+2019-01-01 16:40:11,165 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_start': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_key_end': None, 'redis_key_full': None}
+2019-01-01 16:40:11,168 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:40:11,170 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 16:40:11,174 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_start': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_key_end': None, 'redis_key_full': None}
+2019-01-01 16:40:11,175 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_start': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_key_end': None, 'redis_key_full': None}
+2019-01-01 16:40:11,181 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:40:11,186 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 16:44:03,274 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 16:44:05,131 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:44:05,133 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:44:05,137 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_keys_to_delete': [], 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None}
+2019-01-01 16:44:05,137 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_keys_to_delete': [], 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None}
+2019-01-01 16:44:05,144 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:44:05,167 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:44:05,171 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:44:05,175 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_keys_to_delete': [], 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None}
+2019-01-01 16:44:05,175 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_keys_to_delete': [], 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None}
+2019-01-01 16:44:05,177 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:44:05,179 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:44:05,182 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_keys_to_delete': [], 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None}
+2019-01-01 16:44:05,182 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_keys_to_delete': [], 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'load_type': 2, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None}
+2019-01-01 16:44:05,184 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:44:05,187 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:44:05,234 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:44:05,239 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:44:05,244 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_keys_to_delete': [], 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'load_type': 2, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None}
+2019-01-01 16:44:05,244 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_keys_to_delete': [], 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'load_type': 2, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None}
+2019-01-01 16:44:05,246 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:44:05,249 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:44:05,253 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_keys_to_delete': [], 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'load_type': 2, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None}
+2019-01-01 16:44:05,253 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_keys_to_delete': [], 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'load_type': 2, 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'disk_storage_key_full': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None}
+2019-01-01 16:44:05,256 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:44:05,259 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:51:00,954 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 16:51:03,497 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:51:03,504 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:51:03,515 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_start_range': None, 'redis_start_range': None, 'disk_storage_end_range': None, 'redis_end_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None}
+2019-01-01 16:51:03,515 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_start_range': None, 'redis_start_range': None, 'disk_storage_end_range': None, 'redis_end_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None}
+2019-01-01 16:51:03,552 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:51:03,615 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:51:03,620 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:51:03,626 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_start_range': None, 'redis_start_range': None, 'disk_storage_end_range': None, 'redis_end_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None}
+2019-01-01 16:51:03,626 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_start_range': None, 'redis_start_range': None, 'disk_storage_end_range': None, 'redis_end_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None}
+2019-01-01 16:51:03,633 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:51:03,636 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:51:03,644 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_start_range': None, 'redis_start_range': None, 'disk_storage_end_range': None, 'redis_end_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None}
+2019-01-01 16:51:03,644 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_start_range': None, 'redis_start_range': None, 'disk_storage_end_range': None, 'redis_end_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None}
+2019-01-01 16:51:03,648 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:51:03,653 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:51:03,732 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:51:03,736 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:51:03,740 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_start_range': None, 'redis_start_range': None, 'disk_storage_end_range': None, 'redis_end_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None}
+2019-01-01 16:51:03,740 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_start_range': None, 'redis_start_range': None, 'disk_storage_end_range': None, 'redis_end_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None}
+2019-01-01 16:51:03,744 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:51:03,747 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:51:03,752 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_start_range': None, 'redis_start_range': None, 'disk_storage_end_range': None, 'redis_end_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None}
+2019-01-01 16:51:03,752 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'redis_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_start_range': None, 'redis_start_range': None, 'disk_storage_end_range': None, 'redis_end_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None}
+2019-01-01 16:51:03,756 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:51:03,760 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:53:09,695 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 16:53:12,149 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:53:12,160 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:53:12,171 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'redis_key_start': None, 'disk_storage_start_range': None, 'redis_key_end': None}
+2019-01-01 16:53:12,172 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'redis_key_start': None, 'disk_storage_start_range': None, 'redis_key_end': None}
+2019-01-01 16:53:12,196 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:53:12,254 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:53:12,260 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:53:12,267 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'redis_key_start': None, 'disk_storage_start_range': None, 'redis_key_end': None}
+2019-01-01 16:53:12,268 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'redis_key_start': None, 'disk_storage_start_range': None, 'redis_key_end': None}
+2019-01-01 16:53:12,273 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:53:12,277 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:53:12,284 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'redis_key_start': None, 'disk_storage_start_range': None, 'redis_key_end': None}
+2019-01-01 16:53:12,284 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'redis_key_start': None, 'disk_storage_start_range': None, 'redis_key_end': None}
+2019-01-01 16:53:12,289 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:53:12,293 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:53:12,364 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:53:12,368 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:53:12,373 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'redis_key_start': None, 'disk_storage_start_range': None, 'redis_key_end': None}
+2019-01-01 16:53:12,373 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'redis_key_start': None, 'disk_storage_start_range': None, 'redis_key_end': None}
+2019-01-01 16:53:12,378 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:53:12,381 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 16:53:12,386 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'redis_key_start': None, 'disk_storage_start_range': None, 'redis_key_end': None}
+2019-01-01 16:53:12,386 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_end_range': None, 'redis_start_range': None, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_key_full': None, 'redis_key_start': None, 'disk_storage_start_range': None, 'redis_key_end': None}
+2019-01-01 16:53:12,389 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 16:53:12,391 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'end': True, 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:01:15,868 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 17:01:18,322 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:01:18,327 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:01:18,333 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_key_full': None, 'load_type': 2, 'redis_end_range': None}
+2019-01-01 17:01:18,333 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_key_full': None, 'load_type': 2, 'redis_end_range': None}
+2019-01-01 17:01:18,352 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:01:18,400 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:01:18,404 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:01:18,409 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_key_full': None, 'load_type': 2, 'redis_end_range': None}
+2019-01-01 17:01:18,409 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_key_full': None, 'load_type': 2, 'redis_end_range': None}
+2019-01-01 17:01:18,412 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:01:18,415 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:01:18,422 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_key_full': None, 'load_type': 2, 'redis_end_range': None}
+2019-01-01 17:01:18,422 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_key_full': None, 'load_type': 2, 'redis_end_range': None}
+2019-01-01 17:01:18,427 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:01:18,432 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:01:18,587 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:01:18,597 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:01:18,610 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_key_full': None, 'load_type': 2, 'redis_end_range': None}
+2019-01-01 17:01:18,611 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_key_full': None, 'load_type': 2, 'redis_end_range': None}
+2019-01-01 17:01:18,617 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:01:18,624 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:01:18,632 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_key_full': None, 'load_type': 2, 'redis_end_range': None}
+2019-01-01 17:01:18,632 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_key_full': None, 'load_type': 2, 'redis_end_range': None}
+2019-01-01 17:01:18,638 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:01:18,642 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:04:52,805 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 17:04:55,295 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 17:04:55,302 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 17:04:55,310 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_key_full': None}
+2019-01-01 17:04:55,311 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_key_full': None}
+2019-01-01 17:04:55,338 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:04:55,383 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 17:04:55,388 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 17:04:55,394 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_key_full': None}
+2019-01-01 17:04:55,394 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_key_full': None}
+2019-01-01 17:04:55,400 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:04:55,403 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 17:04:55,409 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_key_full': None}
+2019-01-01 17:04:55,410 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_key_full': None}
+2019-01-01 17:04:55,413 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:04:55,417 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 17:04:55,488 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 17:04:55,493 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 17:04:55,500 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_end_range': None, 'redis_key_full': None}
+2019-01-01 17:04:55,500 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_end_range': None, 'redis_key_full': None}
+2019-01-01 17:04:55,506 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:04:55,510 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 17:04:55,515 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_end_range': None, 'redis_key_full': None}
+2019-01-01 17:04:55,516 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'redis_keys_to_delete': [], 'redis_key_end': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_end_range': None, 'redis_key_full': None}
+2019-01-01 17:04:55,521 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:04:55,525 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True}
+2019-01-01 17:14:34,020 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 17:14:36,688 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 17:14:36,697 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 17:14:36,705 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None}
+2019-01-01 17:14:36,705 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None}
+2019-01-01 17:14:44,667 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:14:44,697 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 17:14:44,701 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 17:14:44,705 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None}
+2019-01-01 17:14:44,705 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None}
+2019-01-01 17:14:47,591 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:14:47,594 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 17:14:47,598 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None}
+2019-01-01 17:14:47,598 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None}
+2019-01-01 17:14:50,881 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:14:50,884 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 17:14:51,002 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 17:14:51,020 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 17:14:51,029 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None}
+2019-01-01 17:14:51,029 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None}
+2019-01-01 17:14:51,149 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:14:51,152 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 17:14:51,156 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None}
+2019-01-01 17:14:51,157 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_key_start': None, 'redis_key_end': None, 'redis_start_range': None}
+2019-01-01 17:14:59,422 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:14:59,425 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False}
+2019-01-01 17:30:04,336 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 17:30:06,520 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:30:06,532 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:30:06,539 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'redis_key_end': None, 'disk_storage_end_range': None, 'redis_key_full': None}
+2019-01-01 17:30:06,540 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'redis_key_end': None, 'disk_storage_end_range': None, 'redis_key_full': None}
+2019-01-01 17:30:15,002 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:30:15,076 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:30:15,083 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:30:15,093 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'redis_key_end': None, 'disk_storage_end_range': None, 'redis_key_full': None}
+2019-01-01 17:30:15,093 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'redis_key_end': None, 'disk_storage_end_range': None, 'redis_key_full': None}
+2019-01-01 17:30:22,829 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:30:22,832 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:30:22,836 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'redis_key_end': None, 'disk_storage_end_range': None, 'redis_key_full': None}
+2019-01-01 17:30:22,836 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'redis_key_end': None, 'disk_storage_end_range': None, 'redis_key_full': None}
+2019-01-01 17:30:29,338 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:30:29,340 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:30:29,398 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:30:29,403 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:30:29,411 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'redis_key_end': None, 'disk_storage_end_range': None, 'redis_key_full': None}
+2019-01-01 17:30:29,411 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'redis_key_end': None, 'disk_storage_end_range': None, 'redis_key_full': None}
+2019-01-01 17:30:29,415 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:30:29,418 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:30:29,424 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'redis_key_end': None, 'disk_storage_end_range': None, 'redis_key_full': None}
+2019-01-01 17:30:29,424 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'load_type': 2, 'disk_storage_start_range': None, 'redis_key_end': None, 'disk_storage_end_range': None, 'redis_key_full': None}
+2019-01-01 17:30:36,875 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:30:36,878 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'end': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:42:06,728 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 17:42:09,064 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:42:09,072 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:42:09,078 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_full': None, 'redis_end_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'load_type': 2, 'redis_key_end': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)]}
+2019-01-01 17:42:09,079 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_full': None, 'redis_end_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'load_type': 2, 'redis_key_end': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)]}
+2019-01-01 17:42:17,418 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394698       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+394699       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+394700       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+394701       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+394702       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-01 17:42:26,925 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:42:26,928 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:42:26,932 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_full': None, 'redis_end_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'load_type': 2, 'redis_key_end': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)]}
+2019-01-01 17:42:26,932 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_full': None, 'redis_end_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'load_type': 2, 'redis_key_end': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)]}
+2019-01-01 17:42:29,512 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:42:29,516 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:42:29,520 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_full': None, 'redis_end_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'load_type': 2, 'redis_key_end': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)]}
+2019-01-01 17:42:29,520 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_full': None, 'redis_end_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'load_type': 2, 'redis_key_end': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)]}
+2019-01-01 17:42:29,736 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:42:29,740 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0)}
+2019-01-01 17:42:29,744 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_full': None, 'redis_end_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'load_type': 2, 'redis_key_end': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)]}
+2019-01-01 17:42:29,744 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_full': None, 'redis_end_range': None, 'redis_keys_to_delete': [], 'disk_storage_start_range': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'redis_start_range': None, 'load_type': 2, 'redis_key_end': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)]}
+2019-01-01 17:43:34,199 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 17:43:36,320 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:43:36,327 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:43:36,335 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_key_full': None}
+2019-01-01 17:43:36,335 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_key_full': None}
+2019-01-01 17:43:43,767 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394698       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+394699       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+394700       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+394701       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+394702       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-01 17:44:02,246 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:44:02,250 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:44:02,254 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_key_full': None}
+2019-01-01 17:44:02,254 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_key_full': None}
+2019-01-01 17:44:08,980 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:                                       transaction_hashes           block_date     block_timestamp                                      miner_address  block_number
+394698                                                 []  2018-12-20 00:00:00 2018-12-20 16:44:43  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b...       1977113
+394699  [34644f815e4d0ca32f47ac31e170d57d523feaa673729...  2018-12-20 00:00:00 2018-12-20 16:45:34  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977114
+394700                                                 []  2018-12-20 00:00:00 2018-12-20 16:45:44  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b...       1977115
+394701                                                 []  2018-12-20 00:00:00 2018-12-20 16:45:45  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977116
+394702                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:10  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1977117
+394703                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:23  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2...       1977118
+394704                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:29  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977119
+394705                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:39  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977120
+394706                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:48  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1977121
+394707                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:50  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1977122
+2019-01-01 17:44:09,105 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:44:09,111 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_key_full': None}
+2019-01-01 17:44:09,112 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_key_full': None}
+2019-01-01 17:44:15,567 - logs/myutils.logs:313 - WARNING - TRANSACTION saved to redis:                 block_date     block_timestamp     ...                                                 to_addr approx_value
+337006  2018-12-20 00:00:00 2018-12-20 16:43:34     ...       a068c3f2a0fe932c0adbc8a6904e777ac481d48aa6d571...          0.0
+337007  2018-12-20 00:00:00 2018-12-20 16:43:51     ...       a022721312043d4ebc6b4400b6546fbe3a94260ec1186f...          0.0
+337008  2018-12-20 00:00:00 2018-12-20 16:43:51     ...       a062cb08fedc61f879996f2ad337c144cc3f46e491e9e1...          0.0
+337009  2018-12-20 00:00:00 2018-12-20 16:43:51     ...       a0476a1145f077b6e2e0d933ec8da8ea0c67c2277a33c0...          0.0
+337010  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a0087f6afb456a5d69855594606594e6bc5309cd0b8ad2...          0.0
+337011  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a0d1aa933e4bc95cd04d27a9c6a405b3a79dd3ef31ff3e...          0.0
+337012  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a082735c42ec62f78621a8bc7f390e052101dfbf69a142...          0.0
+337013  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a009aa88a728e549023ba526151feaaa2614186d37b009...          0.0
+337014  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a031949a9a11d739f82385778cd01395839b362d8f19ec...          0.0
+337015  2018-12-20 00:00:00 2018-12-20 16:45:34     ...       a01c0050b8ab22f64bc89f4320f600ac357012731a6943...          0.0
+
+[10 rows x 6 columns]
+2019-01-01 17:44:15,687 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:44:23,378 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:44:23,383 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:44:23,389 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_key_full': None}
+2019-01-01 17:44:23,389 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_key_full': None}
+2019-01-01 17:44:23,394 - logs/myutils.logs:321 - ERROR - construct df from load
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/myutils.py", line 313, in construct_df_upon_load
+    logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+AttributeError: 'NoneType' object has no attribute 'tail'
+2019-01-01 17:44:23,397 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 17:44:23,402 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_key_full': None}
+2019-01-01 17:44:23,402 - logs/myutils.logs:221 - WARNING - construct df, params:{'load_type': 2, 'disk_storage_start_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_end': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'disk_storage_key_full': None}
+2019-01-01 17:44:31,260 - logs/myutils.logs:313 - WARNING - TRANSACTION saved to redis:                 block_date     block_timestamp     ...                                                 to_addr approx_value
+407198  2018-11-30 00:00:00 2018-11-30 23:57:48     ...       a0abd6c6e5af7fdc694401607f4439d23190798e6ff7e6...      1.00137
+407199  2018-11-30 00:00:00 2018-11-30 23:57:48     ...       a0b218f959c66375f1764ec27779449fcf9ef9a1ea12e6...      1.00622
+407200  2018-11-30 00:00:00 2018-11-30 23:57:52     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407201  2018-11-30 00:00:00 2018-11-30 23:58:34     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407202  2018-11-30 00:00:00 2018-11-30 23:59:05     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.03739
+407203  2018-11-30 00:00:00 2018-11-30 23:59:05     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.19697
+407204  2018-11-30 00:00:00 2018-11-30 23:59:05     ...       a0c078cd4a168372f1c5fdaf9f128a673e7d513c94aca0...      1.00006
+407205  2018-11-30 00:00:00 2018-11-30 23:59:24     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407206  2018-11-30 00:00:00 2018-11-30 23:59:44     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407207  2018-11-30 00:00:00 2018-11-30 23:59:58     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+
+[10 rows x 6 columns]
+2019-01-01 17:44:31,435 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'in_memory': False, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0)}
+2019-01-01 18:00:28,532 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 18:00:31,024 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2019-01-01 18:00:31,028 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2019-01-01 18:00:31,033 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'load_type': 2, 'disk_storage_key_full': None}
+2019-01-01 18:00:31,033 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'load_type': 2, 'disk_storage_key_full': None}
+2019-01-01 18:00:39,421 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394698       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+394699       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+394700       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+394701       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+394702       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-01 18:00:59,332 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2019-01-01 18:00:59,337 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2019-01-01 18:00:59,342 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'load_type': 2, 'disk_storage_key_full': None}
+2019-01-01 18:00:59,342 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'load_type': 2, 'disk_storage_key_full': None}
+2019-01-01 18:01:07,137 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:                                       transaction_hashes           block_date     block_timestamp                                      miner_address  block_number
+394698                                                 []  2018-12-20 00:00:00 2018-12-20 16:44:43  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b...       1977113
+394699  [34644f815e4d0ca32f47ac31e170d57d523feaa673729...  2018-12-20 00:00:00 2018-12-20 16:45:34  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977114
+394700                                                 []  2018-12-20 00:00:00 2018-12-20 16:45:44  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b...       1977115
+394701                                                 []  2018-12-20 00:00:00 2018-12-20 16:45:45  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977116
+394702                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:10  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1977117
+394703                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:23  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2...       1977118
+394704                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:29  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977119
+394705                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:39  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977120
+394706                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:48  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1977121
+394707                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:50  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1977122
+2019-01-01 18:01:07,264 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2019-01-01 18:01:07,272 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'load_type': 2, 'disk_storage_key_full': None}
+2019-01-01 18:01:07,272 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'load_type': 2, 'disk_storage_key_full': None}
+2019-01-01 18:01:14,902 - logs/myutils.logs:313 - WARNING - TRANSACTION saved to redis:                 block_date     block_timestamp     ...                                                 to_addr approx_value
+337006  2018-12-20 00:00:00 2018-12-20 16:43:34     ...       a068c3f2a0fe932c0adbc8a6904e777ac481d48aa6d571...          0.0
+337007  2018-12-20 00:00:00 2018-12-20 16:43:51     ...       a022721312043d4ebc6b4400b6546fbe3a94260ec1186f...          0.0
+337008  2018-12-20 00:00:00 2018-12-20 16:43:51     ...       a062cb08fedc61f879996f2ad337c144cc3f46e491e9e1...          0.0
+337009  2018-12-20 00:00:00 2018-12-20 16:43:51     ...       a0476a1145f077b6e2e0d933ec8da8ea0c67c2277a33c0...          0.0
+337010  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a0087f6afb456a5d69855594606594e6bc5309cd0b8ad2...          0.0
+337011  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a0d1aa933e4bc95cd04d27a9c6a405b3a79dd3ef31ff3e...          0.0
+337012  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a082735c42ec62f78621a8bc7f390e052101dfbf69a142...          0.0
+337013  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a009aa88a728e549023ba526151feaaa2614186d37b009...          0.0
+337014  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a031949a9a11d739f82385778cd01395839b362d8f19ec...          0.0
+337015  2018-12-20 00:00:00 2018-12-20 16:45:34     ...       a01c0050b8ab22f64bc89f4320f600ac357012731a6943...          0.0
+
+[10 rows x 6 columns]
+2019-01-01 18:01:15,031 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2019-01-01 18:01:24,556 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2019-01-01 18:01:24,560 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2019-01-01 18:01:24,567 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'load_type': 2, 'disk_storage_key_full': None}
+2019-01-01 18:01:24,567 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'load_type': 2, 'disk_storage_key_full': None}
+2019-01-01 18:01:34,166 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:                                       transaction_hashes           block_date     block_timestamp                                      miner_address  block_number
+480127                                                 []  2018-11-30 00:00:00 2018-11-30 23:57:58  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815524
+480128  [8f4cdeda624e2e127b936aff8e7774f8a86f9c821b450...  2018-11-30 00:00:00 2018-11-30 23:58:34  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815525
+480129                                                 []  2018-11-30 00:00:00 2018-11-30 23:58:44  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1815526
+480130  [45dfd7d5af391780f98f966cc0a02566d007ce8fde747...  2018-11-30 00:00:00 2018-11-30 23:59:05  a0c373f6e0cbb3f2bc6ded622f9bcff31944b512c5ee52...       1815527
+480131                                                 []  2018-11-30 00:00:00 2018-11-30 23:59:08  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1815528
+480132  [5a91aeffa85191e424cef4d5f396ca698966dd2538a9e...  2018-11-30 00:00:00 2018-11-30 23:59:24  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815529
+480133                                                 []  2018-11-30 00:00:00 2018-11-30 23:59:28  a0be94dde51e70034658465f6f3782472d9335e3d68c0e...       1815530
+480134  [7982936734a925ca9adc75d376bd538b2a5390328bf29...  2018-11-30 00:00:00 2018-11-30 23:59:44  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815531
+480135                                                 []  2018-11-30 00:00:00 2018-11-30 23:59:57  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815532
+480136  [0edab7b50a6a4eecc800c7f6c8185c16732a0efacdc3f...  2018-11-30 00:00:00 2018-11-30 23:59:58  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1815533
+2019-01-01 18:01:34,350 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2019-01-01 18:01:34,354 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'load_type': 2, 'disk_storage_key_full': None}
+2019-01-01 18:01:34,354 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_end': None, 'redis_keys_to_delete': [], 'disk_storage_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'load_type': 2, 'disk_storage_key_full': None}
+2019-01-01 18:01:42,521 - logs/myutils.logs:313 - WARNING - TRANSACTION saved to redis:                 block_date     block_timestamp     ...                                                 to_addr approx_value
+407198  2018-11-30 00:00:00 2018-11-30 23:57:48     ...       a0abd6c6e5af7fdc694401607f4439d23190798e6ff7e6...      1.00137
+407199  2018-11-30 00:00:00 2018-11-30 23:57:48     ...       a0b218f959c66375f1764ec27779449fcf9ef9a1ea12e6...      1.00622
+407200  2018-11-30 00:00:00 2018-11-30 23:57:52     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407201  2018-11-30 00:00:00 2018-11-30 23:58:34     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407202  2018-11-30 00:00:00 2018-11-30 23:59:05     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.03739
+407203  2018-11-30 00:00:00 2018-11-30 23:59:05     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.19697
+407204  2018-11-30 00:00:00 2018-11-30 23:59:05     ...       a0c078cd4a168372f1c5fdaf9f128a673e7d513c94aca0...      1.00006
+407205  2018-11-30 00:00:00 2018-11-30 23:59:24     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407206  2018-11-30 00:00:00 2018-11-30 23:59:44     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407207  2018-11-30 00:00:00 2018-11-30 23:59:58     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+
+[10 rows x 6 columns]
+2019-01-01 18:01:42,639 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'in_memory': False, 'end': True, 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True}
+2019-01-01 18:05:50,384 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 18:05:52,483 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
+2019-01-01 18:05:52,487 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
+2019-01-01 18:05:52,495 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:05:52,495 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:06:00,667 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394698       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+394699       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+394700       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+394701       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+394702       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-01 18:06:16,504 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
+2019-01-01 18:06:16,510 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
+2019-01-01 18:06:16,517 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:06:16,518 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:06:16,744 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
+2019-01-01 18:06:16,752 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
+2019-01-01 18:06:16,761 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:06:16,761 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:06:16,878 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
+2019-01-01 18:06:16,888 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
+2019-01-01 18:06:16,895 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:06:16,896 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:06:17,009 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
+2019-01-01 18:06:17,014 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'in_memory': False, 'start': True, 'end': True}
+2019-01-01 18:06:17,019 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_start': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:06:17,019 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_start': None, 'redis_key_full': None, 'redis_end_range': None, 'redis_start_range': None, 'disk_storage_start_range': None, 'disk_storage_end_range': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'disk_storage_key_full': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:06:50,050 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 18:06:52,290 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:06:52,298 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:06:52,305 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_start_range': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_key_full': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'redis_start_range': None}
+2019-01-01 18:06:52,305 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_start_range': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_key_full': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'redis_start_range': None}
+2019-01-01 18:07:00,527 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394698       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+394699       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+394700       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+394701       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+394702       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-01 18:07:17,890 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:07:17,894 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:07:17,899 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_start_range': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_key_full': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'redis_start_range': None}
+2019-01-01 18:07:17,900 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_start_range': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_key_full': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'redis_start_range': None}
+2019-01-01 18:07:23,512 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:                                       transaction_hashes           block_date     block_timestamp                                      miner_address  block_number
+394698                                                 []  2018-12-20 00:00:00 2018-12-20 16:44:43  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b...       1977113
+394699  [34644f815e4d0ca32f47ac31e170d57d523feaa673729...  2018-12-20 00:00:00 2018-12-20 16:45:34  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977114
+394700                                                 []  2018-12-20 00:00:00 2018-12-20 16:45:44  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b...       1977115
+394701                                                 []  2018-12-20 00:00:00 2018-12-20 16:45:45  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977116
+394702                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:10  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1977117
+394703                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:23  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2...       1977118
+394704                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:29  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977119
+394705                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:39  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1977120
+394706                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:48  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1977121
+394707                                                 []  2018-12-20 00:00:00 2018-12-20 16:46:50  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1977122
+2019-01-01 18:07:23,616 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:07:23,620 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_start_range': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_key_full': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'redis_start_range': None}
+2019-01-01 18:07:23,621 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_start_range': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_key_full': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'redis_start_range': None}
+2019-01-01 18:07:29,867 - logs/myutils.logs:313 - WARNING - TRANSACTION saved to redis:                 block_date     block_timestamp     ...                                                 to_addr approx_value
+337006  2018-12-20 00:00:00 2018-12-20 16:43:34     ...       a068c3f2a0fe932c0adbc8a6904e777ac481d48aa6d571...          0.0
+337007  2018-12-20 00:00:00 2018-12-20 16:43:51     ...       a022721312043d4ebc6b4400b6546fbe3a94260ec1186f...          0.0
+337008  2018-12-20 00:00:00 2018-12-20 16:43:51     ...       a062cb08fedc61f879996f2ad337c144cc3f46e491e9e1...          0.0
+337009  2018-12-20 00:00:00 2018-12-20 16:43:51     ...       a0476a1145f077b6e2e0d933ec8da8ea0c67c2277a33c0...          0.0
+337010  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a0087f6afb456a5d69855594606594e6bc5309cd0b8ad2...          0.0
+337011  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a0d1aa933e4bc95cd04d27a9c6a405b3a79dd3ef31ff3e...          0.0
+337012  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a082735c42ec62f78621a8bc7f390e052101dfbf69a142...          0.0
+337013  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a009aa88a728e549023ba526151feaaa2614186d37b009...          0.0
+337014  2018-12-20 00:00:00 2018-12-20 16:44:15     ...       a031949a9a11d739f82385778cd01395839b362d8f19ec...          0.0
+337015  2018-12-20 00:00:00 2018-12-20 16:45:34     ...       a01c0050b8ab22f64bc89f4320f600ac357012731a6943...          0.0
+
+[10 rows x 6 columns]
+2019-01-01 18:07:29,991 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:08:21,144 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:08:21,145 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:08:21,145 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:08:21,145 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:08:39,726 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:08:39,726 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:08:39,726 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:08:39,726 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:10:06,217 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:10:06,222 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:10:06,227 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_start_range': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_key_full': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'redis_start_range': None}
+2019-01-01 18:10:06,227 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_start_range': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_key_full': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'redis_start_range': None}
+2019-01-01 18:10:16,126 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:                                       transaction_hashes           block_date     block_timestamp                                      miner_address  block_number
+480127                                                 []  2018-11-30 00:00:00 2018-11-30 23:57:58  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815524
+480128  [8f4cdeda624e2e127b936aff8e7774f8a86f9c821b450...  2018-11-30 00:00:00 2018-11-30 23:58:34  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815525
+480129                                                 []  2018-11-30 00:00:00 2018-11-30 23:58:44  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1815526
+480130  [45dfd7d5af391780f98f966cc0a02566d007ce8fde747...  2018-11-30 00:00:00 2018-11-30 23:59:05  a0c373f6e0cbb3f2bc6ded622f9bcff31944b512c5ee52...       1815527
+480131                                                 []  2018-11-30 00:00:00 2018-11-30 23:59:08  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1815528
+480132  [5a91aeffa85191e424cef4d5f396ca698966dd2538a9e...  2018-11-30 00:00:00 2018-11-30 23:59:24  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815529
+480133                                                 []  2018-11-30 00:00:00 2018-11-30 23:59:28  a0be94dde51e70034658465f6f3782472d9335e3d68c0e...       1815530
+480134  [7982936734a925ca9adc75d376bd538b2a5390328bf29...  2018-11-30 00:00:00 2018-11-30 23:59:44  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815531
+480135                                                 []  2018-11-30 00:00:00 2018-11-30 23:59:57  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815532
+480136  [0edab7b50a6a4eecc800c7f6c8185c16732a0efacdc3f...  2018-11-30 00:00:00 2018-11-30 23:59:58  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1815533
+2019-01-01 18:10:16,282 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:10:16,288 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_start_range': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_key_full': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'redis_start_range': None}
+2019-01-01 18:10:16,288 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_start_range': None, 'redis_key_start': None, 'redis_keys_to_delete': [], 'redis_key_full': None, 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'load_type': 2, 'disk_storage_full_range': [datetime.datetime(2018, 10, 1, 0, 0), datetime.datetime(2018, 11, 30, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'redis_start_range': None}
+2019-01-01 18:10:25,152 - logs/myutils.logs:313 - WARNING - TRANSACTION saved to redis:                 block_date     block_timestamp     ...                                                 to_addr approx_value
+407198  2018-11-30 00:00:00 2018-11-30 23:57:48     ...       a0abd6c6e5af7fdc694401607f4439d23190798e6ff7e6...      1.00137
+407199  2018-11-30 00:00:00 2018-11-30 23:57:48     ...       a0b218f959c66375f1764ec27779449fcf9ef9a1ea12e6...      1.00622
+407200  2018-11-30 00:00:00 2018-11-30 23:57:52     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407201  2018-11-30 00:00:00 2018-11-30 23:58:34     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407202  2018-11-30 00:00:00 2018-11-30 23:59:05     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.03739
+407203  2018-11-30 00:00:00 2018-11-30 23:59:05     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.19697
+407204  2018-11-30 00:00:00 2018-11-30 23:59:05     ...       a0c078cd4a168372f1c5fdaf9f128a673e7d513c94aca0...      1.00006
+407205  2018-11-30 00:00:00 2018-11-30 23:59:24     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407206  2018-11-30 00:00:00 2018-11-30 23:59:44     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+407207  2018-11-30 00:00:00 2018-11-30 23:59:58     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
+
+[10 rows x 6 columns]
+2019-01-01 18:10:25,289 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:10:59,085 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:10:59,090 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:11:33,171 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:11:33,171 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:11:33,171 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:11:33,171 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:11:50,787 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:11:50,787 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:11:50,788 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:11:50,788 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'start': True, 'in_memory': False}
+2019-01-01 18:12:25,106 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-10-01 00:00:18
+2019-01-01 18:12:25,107 - logs/myutils.logs:162 - WARNING - start from slider:2018-10-01 00:00:00
+2019-01-01 18:12:25,107 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-10-01 00:00:18'), 'max_date': Timestamp('2018-11-30 23:59:58'), 'end': False, 'start': True, 'in_memory': False}
+2019-01-01 18:12:25,107 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': Timestamp('2018-10-01 00:00:18'), 'max_date': Timestamp('2018-11-30 23:59:58'), 'end': False, 'start': True, 'in_memory': False}
+2019-01-01 18:12:45,672 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-10-01 00:00:18
+2019-01-01 18:12:45,672 - logs/myutils.logs:162 - WARNING - start from slider:2018-10-01 00:00:00
+2019-01-01 18:12:45,672 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'min_date': Timestamp('2018-10-01 00:00:18'), 'max_date': Timestamp('2018-11-30 23:59:58'), 'end': False, 'start': True, 'in_memory': False}
+2019-01-01 18:12:45,673 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'min_date': Timestamp('2018-10-01 00:00:18'), 'max_date': Timestamp('2018-11-30 23:59:58'), 'end': False, 'start': True, 'in_memory': False}
+2019-01-01 18:27:53,828 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 18:27:56,114 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True}
+2019-01-01 18:27:56,119 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True}
+2019-01-01 18:27:56,123 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_key_end': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_end_range': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:27:56,124 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_key_end': None, 'redis_key_full': None, 'disk_storage_start_range': None, 'redis_key_start': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'disk_storage_key_full': None, 'disk_storage_end_range': None, 'redis_start_range': None, 'redis_end_range': None, 'load_type': 2, 'redis_keys_to_delete': []}
+2019-01-01 18:28:04,605 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394698       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+394699       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+394700       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+394701       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+394702       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-01 18:28:24,841 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True}
+2019-01-01 18:28:24,845 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'in_memory': False, 'end': True}
+2019-01-01 18:29:26,284 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:29:26,286 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:29:26,286 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'in_memory': False, 'end': True}
+2019-01-01 18:29:26,286 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'in_memory': False, 'end': True}
+2019-01-01 18:29:45,647 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:29:45,648 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:29:45,648 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'in_memory': False, 'end': True}
+2019-01-01 18:29:45,648 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'in_memory': False, 'end': True}
+2019-01-01 18:49:07,028 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 18:49:08,631 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:49:08,633 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:49:08,637 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'disk_storage_start_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'redis_key_full': None, 'load_type': 2}
+2019-01-01 18:49:08,637 - logs/myutils.logs:221 - WARNING - construct df, params:{'disk_storage_start_range': None, 'redis_keys_to_delete': [], 'redis_end_range': None, 'redis_start_range': None, 'redis_key_start': None, 'disk_storage_end_range': None, 'disk_storage_key_full': None, 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'redis_key_full': None, 'load_type': 2}
+2019-01-01 18:49:15,742 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394698       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+394699       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+394700       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+394701       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+394702       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-01 18:49:39,062 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:49:39,069 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:50:46,563 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:50:46,564 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:50:46,564 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'min_date': Timestamp('2018-11-01 00:00:30'), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:50:46,564 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'min_date': Timestamp('2018-11-01 00:00:30'), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:51:04,415 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:51:04,416 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:51:04,416 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'min_date': Timestamp('2018-11-01 00:00:30'), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:51:04,416 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'min_date': Timestamp('2018-11-01 00:00:30'), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:51:06,219 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:51:06,224 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:51:38,360 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:51:38,360 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:51:38,361 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'min_date': Timestamp('2018-11-01 00:00:30'), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:51:38,361 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'min_date': Timestamp('2018-11-01 00:00:30'), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:52:01,605 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:52:01,605 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:52:01,605 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'min_date': Timestamp('2018-11-01 00:00:30'), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:52:01,606 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': Timestamp('2018-12-20 16:45:34'), 'min_date': Timestamp('2018-11-01 00:00:30'), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:52:16,042 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:52:16,046 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'start': True, 'in_memory': False, 'end': True}
+2019-01-01 18:54:36,599 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-01 18:54:38,178 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2019-01-01 18:54:38,181 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2019-01-01 18:54:38,184 - logs/myutils.logs:219 - WARNING - params before hashrate error:{'redis_start_range': None, 'load_type': 2, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_start': None}
+2019-01-01 18:54:38,184 - logs/myutils.logs:221 - WARNING - construct df, params:{'redis_start_range': None, 'load_type': 2, 'disk_storage_key_full': None, 'redis_keys_to_delete': [], 'disk_storage_full_range': [datetime.datetime(2018, 11, 1, 0, 0), datetime.datetime(2019, 1, 1, 0, 0)], 'redis_key_end': None, 'redis_end_range': None, 'disk_storage_start_range': None, 'redis_key_full': None, 'disk_storage_end_range': None, 'redis_key_start': None}
+2019-01-01 18:54:45,684 - logs/myutils.logs:313 - WARNING - BLOCK saved to redis:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394698       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+394699       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+394700       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+394701       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+394702       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-01 18:55:03,220 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2019-01-01 18:55:03,224 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2019-01-01 18:55:51,553 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:55:51,554 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:55:51,554 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'in_memory': False}
+2019-01-01 18:55:51,554 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'in_memory': False}
+2019-01-01 18:56:08,789 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:56:08,790 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:56:08,790 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'in_memory': False}
+2019-01-01 18:56:08,790 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'in_memory': False}
+2019-01-01 18:56:10,442 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2019-01-01 18:56:10,446 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2019-01-01 18:56:41,384 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:56:41,384 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:56:41,384 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'in_memory': False}
+2019-01-01 18:56:41,385 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'in_memory': False}
+2019-01-01 18:56:58,514 - logs/myutils.logs:161 - WARNING - start_date from compute:2018-11-01 00:00:30
+2019-01-01 18:56:58,514 - logs/myutils.logs:162 - WARNING - start from slider:2018-11-01 00:00:00
+2019-01-01 18:56:58,514 - logs/myutils.logs:171 - WARNING - set_params_to_load:{'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'in_memory': False}
+2019-01-01 18:56:58,515 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': Timestamp('2018-11-01 00:00:30'), 'max_date': Timestamp('2018-12-20 16:45:34'), 'end': True, 'in_memory': False}
+2019-01-01 18:57:08,776 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}
+2019-01-01 18:57:08,780 - logs/myutils.logs:176 - WARNING - in set_params_to_load:{'start': True, 'min_date': datetime.datetime(2010, 1, 1, 0, 0), 'max_date': datetime.datetime(2010, 1, 2, 0, 0), 'end': True, 'in_memory': False}

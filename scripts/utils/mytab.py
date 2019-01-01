@@ -16,7 +16,7 @@ from bokeh.models.widgets import Div, Paragraph
 
 r = RedisStorage()
 logger = mylogger(__file__)
-table = 'block'
+
 
 class DataLocation(Enum):
     IN_MEMORY = 1
@@ -34,8 +34,8 @@ class Mytab:
         self.load_params = dict()
         self.cols=cols
         self.locals = dict() # stuff local to each tab
-        streaming_dataframe = SD(table, cols, dedup_cols)
-        self.df = streaming_dataframe.get_df()
+        self.streaming_dataframe = SD(table, cols, dedup_cols)
+        self.df = self.streaming_dataframe.get_df()
         self.df1 = None
         self.dedup_cols = dedup_cols
         self.params = None
@@ -116,8 +116,8 @@ class Mytab:
         end_date = ms_to_date(end_date)
 
         # set df1 while outputting bar graph
-        self.df1 = self.df[(self.df.block_date >= start_date) &
-                           (self.df.block_date <= end_date)]
+        self.df1 = self.df[(self.df.block_timestamp >= start_date) &
+                           (self.df.block_timestamp <= end_date)]
 
         # slice to retain cols
         logger.warning("in filter_df:%s",self.df1.columns.tolist())

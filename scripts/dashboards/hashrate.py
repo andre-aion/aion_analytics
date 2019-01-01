@@ -1,6 +1,6 @@
 from scripts.utils.mylogger import mylogger
 from scripts.utils.hashrate import calc_hashrate
-from scripts.utils.myutils import get_initial_blocks, tab_error_flag
+from scripts.utils.myutils import tab_error_flag
 from scripts.utils.mytab import Mytab, DataLocation
 from config import dedup_cols, columns as cols
 from tornado import gen
@@ -50,6 +50,7 @@ def hashrate_tab():
         def __init__(self, table, cols, dedup_cols):
             Mytab.__init__(self, table, cols, dedup_cols)
             self.tab = 'hashrate'
+            self.key_tab = 'hashrate'
 
         def load_this_data(self, start_date, end_date, bcount=10):
             self.locals['blockcount'] = bcount
@@ -100,7 +101,7 @@ def hashrate_tab():
         stream_end_date.event(end_date=new)
 
     try:
-        cols=['block_time','difficulty','block_date','block_number']
+        cols=['block_time','block_timestamp','difficulty','block_date','block_number']
         thistab = Thistab('block', cols, dedup_cols)
         thistab.locals['blockcount'] = 10
 

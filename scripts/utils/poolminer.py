@@ -76,13 +76,12 @@ def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
     logger.warning("df_tx columns in make_poolminer_warehose:%s",df_tx.columns.tolist())
     logger.warning("df_block columns in make_poolminer_warehose:%s",df_block.columns.tolist())
 
-    df_tx = df_tx[['transaction_hash','from_addr','to_addr','approx_value']]
-    df_block = df_block[['miner_address','block_number','transaction_hashes',
-                                 'block_date']]
+    df_tx = df_tx[['block_date','block_timestamp','transaction_hash','from_addr','to_addr','approx_value']]
+    df_block = df_block[['miner_address','block_number','transaction_hashes']]
     try:
         key_params = ['block_tx_warehouse']
         meta = make_meta({
-                          'block_date': 'M8', 'block_number': 'i8',
+                          'block_date': 'object','block_timestamp':'M8', 'block_number': 'i8',
                           'miner_address': 'object', 'transaction_hashes': 'object'})
         df_block = df_block.map_partitions(explode_transaction_hashes)
         logger.warning('COLUMNS %s:',df_block.columns.tolist())

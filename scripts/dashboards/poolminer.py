@@ -67,15 +67,16 @@ def poolminer_tab():
         approx_value=[]))
 
     class Thistab(Mytab):
-        cols = ['transaction_hashes','block_date','miner_address','block_number']
+        cols = ['transaction_hashes','block_date','block_timestamp','miner_address','block_number']
         block_tab = Mytab('block', cols, dedup_cols)
-        cols = ['block_date',
+        cols = ['block_date','block_timestamp',
                 'transaction_hash', 'from_addr',
                 'to_addr', 'approx_value']
         transaction_tab = Mytab('transaction',cols, dedup_cols)
 
+        tier1_miners_activated = False
 
-        def __init__(self, table, cols=[], dedup_cols=[]):
+        def __init__(self, table, key_tab='',cols=[], dedup_cols=[]):
             Mytab.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.tier1_df = self.df
@@ -85,8 +86,7 @@ def poolminer_tab():
             self.threshold_blocks_mined = 1
             self.tier2_miners_list = []
             self.tier1_miners_list = []
-            self.tier1_miners_activated = False
-            self.key_tab = 'poolminer'
+            self.key_tab = key_tab
 
         def df_loaded_check(self,start_date, end_date):
             # check to see if block_tx_warehouse is loaded
@@ -221,8 +221,10 @@ def poolminer_tab():
                                                        threshold_blocks_mined)
                 # generate the list if necessary
                 if tier2_miners_list is None:
-                    # get tier 1 miners list
-                    tier_1_miners_list = self.tier_1_loaded_check(start_date,end_date)
+                    if not self.tier1_miners_activated:
+                        # get tier 1 miners list
+                        tier_1_miners_list = self.tier_1_loaded_check(start_date,end_date)
+                        self.df = self.df_loaded_check(start_date,end_date)
 
                     tier2_miners_list = \
                         make_tier2_list(self.df, start_date, end_date,
@@ -230,6 +232,8 @@ def poolminer_tab():
                                         threshold_tier2_received=threshold_tier2_received,
                                         threshold_tx_paid_out=threshold_tx_paid_out,
                                         threshold_blocks_mined_per_day=threshold_blocks_mined)
+
+                    self.tier1_miners_activated = False
 
                 # load the dataframe
                 self.df1['to_addr'] = self.df1['to_addr'].astype(str)
@@ -245,7 +249,7 @@ def poolminer_tab():
                 tier2_df = self.tier2_df.compute()
                 new_data={}
                 for x in ['to_addr','approx_value']:
-                    if x == 'block_date':
+                    if x == 'block_timestamp':
                         tier2_df[x] = tier2_df[x].dt.strftime('%Y-%m-%d')
                     new_data[x] = tier2_df[x].tolist()
 
@@ -293,9 +297,9 @@ def poolminer_tab():
 
 
     try:
-        cols=['block_date','block_number','to_addr',
+        cols=['block_date','block_timestamp','block_number','to_addr',
                     'from_addr','miner_address','approx_value','transaction_hash']
-        thistab = Thistab('block_tx_warehouse',cols=cols)
+        thistab = Thistab('block_tx_warehouse',cols=cols,key_tab='poolminer')
 
         # STATIC DATES
         # format dates

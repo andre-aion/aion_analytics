@@ -268,3 +268,5 @@ bin/kafka-consumer-groups.sh --list --zookeeper localhost:2181
 # get information about offsets of consumer groups
 bin/kafka-consumer-groups.sh --describe  --bootstrap-server localhost:9092
  --offsets --group aion-analytics-connect-cluster
+
+

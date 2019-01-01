@@ -160,7 +160,7 @@ def blockminer_tab():
 
     try:
         # create class and get date range
-        cols = ['block_number', 'miner_address', 'miner_addr', 'block_date', 'block_time']
+        cols = ['block_number', 'miner_address','block_timestamp', 'miner_addr', 'block_date', 'block_time']
         pm = Thistab('block',cols,dedup_cols)
 
         #STATIC DATES

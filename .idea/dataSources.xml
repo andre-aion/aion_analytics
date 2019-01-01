@@ -29,5 +29,11 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="clickhouse@localhost" uuid="4bc6f2bd-2c05-4aac-b90d-35b2bd538f06">
+      <driver-ref>clickhouse</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>ru.yandex.clickhouse.ClickHouseDriver</jdbc-driver>
+      <jdbc-url>jdbc:clickhouse://localhost:8123/aion</jdbc-url>
+    </data-source>
   </component>
 </project>
