@@ -4,6 +4,7 @@ from scripts.utils.mylogger import mylogger
 from scripts.utils.pythonRedis import LoadType, RedisStorage
 from scripts.utils.pythonCassandra import PythonCassandra
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
+from scripts.utils.pythonClickhouse import PythonClickhouse
 
 import pandas as pd
 from os.path import join, dirname
@@ -211,11 +212,14 @@ def get_relative_day(day,delta):
 
 
 # get the data differential from the required start range
-def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
-                           req_end_date, load_params):
-    pc = PythonCassandra()
-    pc.createsession()
-    pc.createkeyspace('aion')
+def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
+                           req_end_date, load_params, cass_or_ch):
+    if cass_or_ch == 'cass':
+        pc = PythonCassandra()
+        pc.createsession()
+        pc.createkeyspace('aion')
+    else:
+        ch = PythonClickhouse('aion')
 
     if df is not None:
         if len(df) > 0:
@@ -235,11 +239,15 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
             edate = date_to_ms(lst[2])
             df = redis.load(table, sdate, edate,params['redis_key_full'],'dataframe')
         # load all from cassandra
-        elif params['load_type'] & LoadType.CASS_FULL.value == LoadType.CASS_FULL.value:
-            sdate = pc.date_to_cass_ts(req_start_date)
-            edate = pc.date_to_cass_ts(req_end_date)
-            logger.warning('construct_df, in cass load, sdate:%s',sdate)
-            df = pc.load_from_daterange(table, cols, sdate, edate)
+        elif params['load_type'] & LoadType.DISK_STORAGE_FULL.value == LoadType.DISK_STORAGE_FULL.value:
+            if cass_or_ch == 'cass':
+                sdate = pc.date_to_disk_storage_ts(req_start_date)
+                edate = pc.date_to_disk_storage_ts(req_end_date)
+                df = pc.load_from_daterange(table, cols, sdate, edate)
+            else:
+                sdate = req_start_date
+                edate = req_end_date
+                df = ch.load_data(table,cols,sdate,edate)
 
         # load from both cassandra and redis
         else:
@@ -250,19 +258,21 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
             df_temp = None
 
             # add cass if needed, then add redis if needed
-            if params['load_type'] & LoadType.START_CASS.value == LoadType.START_CASS.value:
-                lst = params['cass_start_range']
+            if params['load_type'] & LoadType.START_DISK_STORAGE.value == LoadType.START_DISK_STORAGE.value:
+                lst = params['disk_storage_start_range']
                 sdate = date_to_ms(lst[0])
                 edate = date_to_ms(lst[1])
-
-                df_temp = pc.load_from_daterange(table, cols, sdate, edate)
+                if cass_or_ch == 'cass':
+                    df_temp = pc.load_from_daterange(table, cols, sdate, edate)
+                else:
+                    df_temp = ch.load_data(table, cols, sdate, edate)
                 df_start = df_start.append(df_temp)
 
             if params['load_type'] & LoadType.REDIS_START.value == LoadType.REDIS_START.value:
                 lst = params['redis_start_range']
                 sdate = date_to_ms(lst[0])
                 edate = date_to_ms(lst[1])
-                df_temp = redis.load( table, sdate, edate,params['redis_key_start'],'dataframe')
+                df_temp = redis.load(table, sdate, edate,params['redis_key_start'],'dataframe')
                 df_start = df_start.append(df_temp)
 
 
@@ -274,11 +284,14 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
                 df_temp = redis.load(table, sdate, edate,params['redis_key_end'],'dataframe')
                 df_end = df_end.append(df_temp)
 
-            if params['load_type'] & LoadType.CASS_END.value == LoadType.CASS_END.value:
-                lst = params['cass_end_range']
+            if params['load_type'] & LoadType.DISK_STORAGE_END.value == LoadType.DISK_STORAGE_END.value:
+                lst = params['disk_storage_end_range']
                 sdate = date_to_ms(lst[0])
                 edate = date_to_ms(lst[1])
-                df_temp = pc.load_from_daterange(table, cols, sdate, edate)
+                if cass_or_ch == 'cass':
+                    df_temp = pc.load_from_daterange(table, cols, sdate, edate)
+                else:
+                    df_temp = ch.load_data(table, cols, sdate, edate)
                 df_end = df_end.append(df_temp)
 
             # concatenate end and start to original df
@@ -314,8 +327,9 @@ def construct_df_upon_load(df, table, cols, dedup_cols, req_start_date,
             logger.warning('%s in construct df on load %s',table,df.head())
         # do not save if entire table loaded from redis
         if params['load_type'] & LoadType.REDIS_FULL.value != LoadType.REDIS_FULL.value:
-            logger.warning("%s saved to reddis:%s",table.upper(),df.tail(10))
-            redis.save(df, table, req_start_date, req_end_date)
+            logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
+            key_params = [table,key_tab]
+            redis.save(df, table,key_params,req_start_date, req_end_date)
 
         gc.collect()
         return df

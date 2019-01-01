@@ -96,7 +96,7 @@ class PythonCassandra:
     def construct_read_query(self, table, cols, startdate, enddate):
         qry = 'select '
         if len(cols) >= 1:
-            for pos, col in enumerate(cols[table]):
+            for pos, col in enumerate(cols):
                 if pos > 0:
                     qry += ','
                 qry += col

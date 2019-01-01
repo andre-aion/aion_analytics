@@ -80,7 +80,7 @@ def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
     df_block = df_block[['miner_address','block_number','transaction_hashes',
                                  'block_date']]
     try:
-        key_params = 'block_tx_warehouse'
+        key_params = ['block_tx_warehouse']
         meta = make_meta({
                           'block_date': 'M8', 'block_number': 'i8',
                           'miner_address': 'object', 'transaction_hashes': 'object'})

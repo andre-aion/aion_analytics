@@ -14,7 +14,7 @@ class StreamingDataframe:
             self.table_name = table_name
 
             if len(columns) > 0 :
-                self.columns = columns[table_name]
+                self.columns = columns
             else:
                 self.columns = []
 

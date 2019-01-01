@@ -29,7 +29,7 @@ class Mytab:
     pc.createsession()
     pc.createkeyspace('aion')
 
-    def __init__(self,table,cols,dedup_cols, query_cols=[]):
+    def __init__(self,table,cols,dedup_cols):
         self.table = table
         self.load_params = dict()
         self.cols=cols
@@ -37,11 +37,11 @@ class Mytab:
         streaming_dataframe = SD(table, cols, dedup_cols)
         self.df = streaming_dataframe.get_df()
         self.df1 = None
-        self.query_cols = query_cols
         self.dedup_cols = dedup_cols
         self.params = None
         self.load_params = None
         self.poolname_dict = self.get_poolname_dict()
+        self.key_tab = ''  # for key composition in redis
 
 
     def is_data_in_memory(self,start_date,end_date):
@@ -85,10 +85,12 @@ class Mytab:
                     # load from redis, cassandra if necessary
                     self.df = construct_df_upon_load(self.df,
                                                      self.table,
+                                                     self.key_tab,
                                                      self.cols,
                                                      self.dedup_cols,
                                                      start_date,
-                                                     end_date, self.load_params)
+                                                     end_date, self.load_params,
+                                                     cass_or_ch='clickhouse')
                 else: # if table is block_tx_warehouse
                     # LOAD ALL FROM REDIS
                     if self.params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:
@@ -119,9 +121,7 @@ class Mytab:
 
         # slice to retain cols
         logger.warning("in filter_df:%s",self.df1.columns.tolist())
-        #if self.query_cols is not None:
-            #if len(self.query_cols) > 0:
-                #self.df1 = self.df1[self.query_cols]
+
         #self.df1 = self.df1.reset_index()
         #self.df1 = self.df1.fillna(0)
 

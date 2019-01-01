@@ -62,20 +62,18 @@ def churn_tab():
 
     class Thistab(Mytab):
         block_tab = Mytab('block', cols, dedup_cols)
-        transaction_tab = Mytab('transaction', cols, dedup_cols,
-                                query_cols=['block_date',
-                                            'transaction_hash', 'from_addr',
-                                            'to_addr', 'approx_value'])
-
-        ref_transaction_tab = Mytab('transaction', cols, dedup_cols,
-                                    query_cols=['block_date',
-                                                'transaction_hash', 'from_addr',
-                                                'to_addr', 'approx_value'])
+        cols = ['block_date',
+                'transaction_hash', 'from_addr',
+                'to_addr', 'approx_value']
+        transaction_tab = Mytab('transaction', cols, dedup_cols)
+        cols = ['block_date', 'transaction_hash', 'from_addr',
+                'to_addr', 'approx_value']
+        ref_transaction_tab = Mytab('transaction', cols, dedup_cols)
         ref_block_tab = Mytab('block', cols, dedup_cols)
         ref_block_tx_warehouse_tab = Mytab('block_tx_warehouse', cols, [])
 
-        def __init__(self, table, cols=[], dedup_cols=[], query_cols=[]):
-            Mytab.__init__(self, table, cols, dedup_cols, query_cols)
+        def __init__(self, table, cols=[], dedup_cols=[]):
+            Mytab.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.tier1_df = self.df
             self.tier2_df = self.df
@@ -84,6 +82,7 @@ def churn_tab():
             self.threshold_blocks_mined = 1
             self.tier2_miners_list = []
             self.tier1_miners_list = []
+            self.key_tab = ''
 
         def df_loaded_check(self, start_date, end_date):
             # check to see if block_tx_warehouse is loaded
@@ -336,9 +335,9 @@ def churn_tab():
 
 
     try:
-        query_cols = ['block_date', 'block_number', 'to_addr',
+        cols = ['block_date', 'block_number', 'to_addr',
                       'from_addr', 'miner_address', 'approx_value', 'transaction_hash']
-        thistab = Thistab('block_tx_warehouse', cols, query_cols=query_cols)
+        thistab = Thistab('block_tx_warehouse', cols)
 
         # STATIC DATES
         # format dates

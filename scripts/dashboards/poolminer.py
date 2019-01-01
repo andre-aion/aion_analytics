@@ -67,14 +67,16 @@ def poolminer_tab():
         approx_value=[]))
 
     class Thistab(Mytab):
+        cols = ['transaction_hashes','block_date','miner_address','block_number']
         block_tab = Mytab('block', cols, dedup_cols)
-        transaction_tab = Mytab('transaction',cols, dedup_cols,
-                                query_cols=['block_date',
-                                            'transaction_hash','from_addr',
-                                            'to_addr','approx_value'])
+        cols = ['block_date',
+                'transaction_hash', 'from_addr',
+                'to_addr', 'approx_value']
+        transaction_tab = Mytab('transaction',cols, dedup_cols)
 
-        def __init__(self, table, cols=[], dedup_cols=[], query_cols=[]):
-            Mytab.__init__(self, table, cols, dedup_cols, query_cols)
+
+        def __init__(self, table, cols=[], dedup_cols=[]):
+            Mytab.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.tier1_df = self.df
             self.tier2_df = self.df
@@ -84,6 +86,7 @@ def poolminer_tab():
             self.tier2_miners_list = []
             self.tier1_miners_list = []
             self.tier1_miners_activated = False
+            self.key_tab = 'poolminer'
 
         def df_loaded_check(self,start_date, end_date):
             # check to see if block_tx_warehouse is loaded
@@ -290,9 +293,9 @@ def poolminer_tab():
 
 
     try:
-        query_cols=['block_date','block_number','to_addr',
+        cols=['block_date','block_number','to_addr',
                     'from_addr','miner_address','approx_value','transaction_hash']
-        thistab = Thistab('block_tx_warehouse',query_cols=query_cols)
+        thistab = Thistab('block_tx_warehouse',cols=cols)
 
         # STATIC DATES
         # format dates

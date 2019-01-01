@@ -19,11 +19,11 @@ EXPIRATION_SECONDS = 86400*4 #retain for 4 days in redis
 
 class LoadType(Enum):
     REDIS_FULL = 1
-    CASS_FULL = 2
+    DISK_STORAGE_FULL = 2
     REDIS_START = 4
-    START_CASS = 8
+    START_DISK_STORAGE = 8
     REDIS_END = 16
-    CASS_END = 32
+    DISK_STORAGE_END = 32
     REDIS_END_ONLY = 64
     REDIS_START_ONLY = 128
 
@@ -165,13 +165,13 @@ class RedisStorage:
             params = dict()
             params['load_type'] = 0
             params['redis_key_full'] = None
-            params['cass_key_full'] = None
+            params['disk_storage_key_full'] = None
             params['redis_key_start'] = None
             params['redis_key_end'] = None
             params['redis_start_range'] = None
-            params['cass_start_range'] = None
+            params['disk_storage_start_range'] = None
             params['redis_end_range'] = None
-            params['cass_end_range'] = None
+            params['disk_storage_end_range'] = None
             params['redis_keys_to_delete'] = []
 
             if matches:
@@ -218,9 +218,9 @@ class RedisStorage:
                         params['load_type'] = self.clear_bit(params['load_type'], 63)
                         params['load_type'] = self.clear_bit(params['load_type'], 127)
 
-                        params['cass_full_range'] = None
-                        params['cass_start_range'] = None
-                        params['cass_end_range'] = None
+                        params['disk_storage_full_range'] = None
+                        params['disk_storage_start_range'] = None
+                        params['disk_storage_end_range'] = None
                         params['redis_start_range'] = None
                         params['redis_end_range'] = None
                         params['redis_key_end'] = None
@@ -238,8 +238,8 @@ class RedisStorage:
     
                         """
                         logger.warning("no overlay, retrieve ENTIRE df from casssandra")
-                        params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)
-                        params['cass_key_full'] = [str_req_start_date, str_req_end_date]
+                        params['load_type'] = xor(params['load_type'], LoadType.DISK_STORAGE_FULL.value)
+                        params['disk_storage_key_full'] = [str_req_start_date, str_req_end_date]
                         # turn off all other bits
                         params['load_type'] = self.clear_bit(params['load_type'], 0)
                         params['load_type'] = self.clear_bit(params['load_type'], 3)
@@ -271,7 +271,7 @@ class RedisStorage:
 
                                         # turn off cass values
                                         params['load_type'] = self.clear_bit(params['load_type'], 7) # clear start cass
-                                        params['cass_start_range'] = None
+                                        params['disk_storage_start_range'] = None
 
                                     else:
 
@@ -294,8 +294,8 @@ class RedisStorage:
                                                 != LoadType.REDIS_START.value:
 
                                             #set params OPTION 1
-                                            params['load_type'] = xor(params['load_type'], LoadType.START_CASS.value)
-                                            params['cass_start_range'] = [str_req_start_date,loaded_day_before]
+                                            params['load_type'] = xor(params['load_type'], LoadType.START_DISK_STORAGE.value)
+                                            params['disk_storage_start_range'] = [str_req_start_date,loaded_day_before]
                                             # turn off redis start if its on
                                             #params['load_type'] = self.clear_bit(params['load_type'], 3)
 
@@ -315,7 +315,7 @@ class RedisStorage:
                                                 params['redis_start_range'] = [redis_key_list[1], loaded_day_before]
                                                 # set/adjust parameters for grabbing redis and cass data
                                                 key_day_before = self.get_relative_day(redis_key_list[1], -1)
-                                                params['cass_start_range'] = [str_req_start_date, key_day_before]
+                                                params['disk_storage_start_range'] = [str_req_start_date, key_day_before]
 
 
                             # if the required load date is more than the required start date
@@ -336,7 +336,7 @@ class RedisStorage:
 
                                         # turn off cass values
                                         params['load_type'] = self.clear_bit(params['load_type'], 31)
-                                        params['cass_start_range'] = None
+                                        params['disk_storage_start_range'] = None
 
 
                                     else:
@@ -360,9 +360,9 @@ class RedisStorage:
                                                 != LoadType.REDIS_START.value:
 
                                             # set params OPTION 1
-                                            params['load_type'] = xor(params['load_type'], LoadType.CASS_END.value)
+                                            params['load_type'] = xor(params['load_type'], LoadType.DISK_STORAGE_END.value)
                                             str_req_end_date = datetime.strftime(req_end_date, '%Y-%m-%d')
-                                            params['cass_end_range'] = [loaded_day_after, str_req_end_date]
+                                            params['disk_storage_end_range'] = [loaded_day_after, str_req_end_date]
                                             if load_params['max_date'] < key_end_date:
                                                 """
                                                 required         -----------------------------|||
@@ -375,13 +375,13 @@ class RedisStorage:
                                                 params['redis_end_range'] = [loaded_day_after, redis_key_list[2]]
                                                 # set/adjust parameters for grabbing redis and cass data
                                                 key_day_after = self.get_relative_day(redis_key_list[2], 1)
-                                                params['cass_end_range'] = [key_day_after, str_req_end_date]
+                                                params['disk_storage_end_range'] = [key_day_after, str_req_end_date]
 
                 # if no redis_key extant pull all from cassandra
                 if params['load_type'] == 0:
                     # set params for cass full range
-                    params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)
-                    params['cass_full_range'] = [req_start_date, req_end_date]
+                    params['load_type'] = xor(params['load_type'], LoadType.DISK_STORAGE_FULL.value)
+                    params['disk_storage_full_range'] = [req_start_date, req_end_date]
 
 
                     # turn off all other bits
@@ -396,8 +396,8 @@ class RedisStorage:
 
             else:
                 # set params for cass full range
-                params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)
-                params['cass_full_range'] = [req_start_date, req_end_date]
+                params['load_type'] = xor(params['load_type'], LoadType.DISK_STORAGE_FULL.value)
+                params['disk_storage_full_range'] = [req_start_date, req_end_date]
 
                 # if no matches fallback is to pull all from cassandra
                 params['load_type'] = self.clear_bit(params['load_type'], 0)
@@ -408,8 +408,8 @@ class RedisStorage:
                 params['load_type'] = self.clear_bit(params['load_type'], 63)
                 params['load_type'] = self.clear_bit(params['load_type'], 127)
 
-                params['cass_start_range'] = None
-                params['cass_end_range'] = None
+                params['disk_storage_start_range'] = None
+                params['disk_storage_end_range'] = None
                 params['redis_start_range'] = None
                 params['redis_end_range'] = None
                 params['redis_key_end'] = None
@@ -420,8 +420,8 @@ class RedisStorage:
             return params
         except Exception:
             logger.error('set load params:%s', exc_info=True)
-            params['load_type'] = xor(params['load_type'], LoadType.CASS_FULL.value)
-            params['cass_key_full'] = [str_req_start_date, str_req_end_date]
+            params['load_type'] = xor(params['load_type'], LoadType.DISK_STORAGE_FULL.value)
+            params['disk_storage_key_full'] = [str_req_start_date, str_req_end_date]
             # turn off all other bits
             params['load_type'] = self.clear_bit(params['load_type'], 0)
             params['load_type'] = self.clear_bit(params['load_type'], 3)
@@ -431,8 +431,8 @@ class RedisStorage:
             params['load_type'] = self.clear_bit(params['load_type'], 63)
             params['load_type'] = self.clear_bit(params['load_type'], 127)
 
-            params['cass_start_range'] = None
-            params['cass_end_range'] = None
+            params['disk_storage_start_range'] = None
+            params['disk_storage_end_range'] = None
             params['redis_start_range'] = None
             params['redis_end_range'] = None
             params['redis_key_end'] = None

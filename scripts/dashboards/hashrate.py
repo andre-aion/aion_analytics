@@ -47,8 +47,9 @@ table = 'block'
 def hashrate_tab():
 
     class Thistab(Mytab):
-        def __init__(self, table, cols, dedup_cols, query_cols):
-            Mytab.__init__(self, table, cols, dedup_cols, query_cols)
+        def __init__(self, table, cols, dedup_cols):
+            Mytab.__init__(self, table, cols, dedup_cols)
+            self.tab = 'hashrate'
 
         def load_this_data(self, start_date, end_date, bcount=10):
             self.locals['blockcount'] = bcount
@@ -99,9 +100,8 @@ def hashrate_tab():
         stream_end_date.event(end_date=new)
 
     try:
-        table='block'
-        query_cols=['block_time','difficulty','block_date','block_number']
-        thistab = Thistab(table, cols, dedup_cols, query_cols)
+        cols=['block_time','difficulty','block_date','block_number']
+        thistab = Thistab('block', cols, dedup_cols)
         thistab.locals['blockcount'] = 10
 
         # STATIC DATES

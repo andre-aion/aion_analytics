@@ -3,11 +3,10 @@ from os.path import join, dirname
 
 from scripts.utils.mytab import DataLocation, Mytab
 from scripts.utils.myutils import tab_error_flag, \
-    ms_to_date, ns_to_date, set_params_to_load, \
-    construct_df_upon_load
+    ms_to_date, ns_to_date, set_params_to_load
 from scripts.utils.mylogger import mylogger
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
-from config import dedup_cols, columns as cols
+from config import dedup_cols
 
 import datashader as ds
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
@@ -47,11 +46,12 @@ def blockminer_tab():
                                      block_number=[]))
 
     class Thistab(Mytab):
-        def __init__(self,table,cols,dedup_cols,query_cols=[]):
-            Mytab.__init__(self, table, cols, dedup_cols, query_cols)
+        def __init__(self,table,cols,dedup_cols):
+            Mytab.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.n = 20
             self.df2 = None
+            self.key_tab = 'blockminer'
 
         def df_loaded_check(self, start_date, end_date):
             # check to see if block_tx_warehouse is loaded
@@ -160,7 +160,7 @@ def blockminer_tab():
 
     try:
         # create class and get date range
-        query_cols = ['block_number', 'miner_address', 'miner_addr', 'block_date', 'block_time']
+        cols = ['block_number', 'miner_address', 'miner_addr', 'block_date', 'block_time']
         pm = Thistab('block',cols,dedup_cols)
 
         #STATIC DATES
