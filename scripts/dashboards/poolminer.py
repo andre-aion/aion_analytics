@@ -66,6 +66,7 @@ def poolminer_tab():
         block_number=[],
         approx_value=[]))
 
+
     class Thistab(Mytab):
         cols = ['transaction_hashes','block_date','block_timestamp','miner_address','block_number']
         block_tab = Mytab('block', cols, dedup_cols)
@@ -102,14 +103,15 @@ def poolminer_tab():
                 self.transaction_tab.load_data(start_date, end_date)
                 self.load_data(start_date, end_date, df_tx=self.transaction_tab.df,
                                df_block=self.block_tab.df)
+                self.filter_df(start_date, end_date)
 
         def tier_1_loaded_check(self,start_date,end_date):
             # TIER 1 MINERS
-            tier_1_miners_list = is_tier1_in_memory(start_date, end_date,
+            self.tier1_miners_list = is_tier1_in_memory(start_date, end_date,
                                                    self.threshold_tx_paid_out,
                                                    self.threshold_blocks_mined)
             # generate the list if necessary
-            if tier_1_miners_list is None:
+            if self.tier1_miners_list is None:
                 self.df_loaded_check(start_date, end_date)
 
                 self.filter_df(start_date, end_date)
@@ -117,10 +119,9 @@ def poolminer_tab():
                           'from_addr': 'unknown', 'block_number': 0}
                 self.df1 = self.df1.fillna(values)
                 # with data in hand, make the list
-                tier_1_miners_list = make_tier1_list(self.df1, start_date, end_date,
-                                                     self.threshold_tx_paid_out,
-                                                     self.threshold_blocks_mined)
-            return tier_1_miners_list
+                self.tier1_miners_list = make_tier1_list(self.df1, start_date, end_date,
+                                                         self.threshold_tx_paid_out,
+                                                         self.threshold_blocks_mined)
 
         def load_this_data(self, start_date, end_date,threshold_tx_paid_out,
                            threshold_blocks_mined):
@@ -134,9 +135,9 @@ def poolminer_tab():
             end_date = datetime.combine(end_date, datetime.min.time())
             start_date = datetime.combine(start_date, datetime.min.time())
 
-            tier_1_miners_list = self.tier_1_loaded_check(start_date,end_date)
+            self.tier_1_loaded_check(start_date,end_date)
 
-            return self.make_tier1_table(tier_1_miners_list,start_date,end_date)
+            return self.make_tier1_table(self.tier1_miners_list,start_date,end_date)
 
         def make_tier1_table(self,tier1_miners_list,start_date,end_date):
             try:
@@ -218,18 +219,20 @@ def poolminer_tab():
                 self.threshold_tier2_received = threshold_tier2_received
 
                 tier2_miners_list = is_tier2_in_memory(start_date, end_date,
+                                                       threshold_tier2_received,
                                                        threshold_tx_paid_out,
-                                                       threshold_blocks_mined)
+                                                       threshold_blocks_mined,
+                                                       )
                 # generate the list if necessary
                 if tier2_miners_list is None:
                     if not self.tier1_miners_activated:
                         # get tier 1 miners list
-                        tier_1_miners_list = self.tier_1_loaded_check(start_date,end_date)
+                        self.tier_1_loaded_check(start_date,end_date)
                         self.df_loaded_check(start_date,end_date)
 
                     tier2_miners_list = \
-                        make_tier2_list(self.df, start_date, end_date,
-                                        tier_1_miners_list,
+                        make_tier2_list(self.df1, start_date, end_date,
+                                        self.tier1_miners_list,
                                         threshold_tier2_received=threshold_tier2_received,
                                         threshold_tx_paid_out=threshold_tx_paid_out,
                                         threshold_blocks_mined_per_day=threshold_blocks_mined)

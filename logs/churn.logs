@@ -1,18 +1,36 @@
-2019-01-01 19:00:39,219 - logs/churn.logs:15 - WARNING - logs/churn.logs
-2019-01-01 19:02:29,340 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
-2019-01-01 19:02:29,343 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
-2019-01-01 19:02:31,196 - logs/churn.logs:264 - WARNING - tier 1 churn completed
-2019-01-01 19:02:31,196 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
-2019-01-01 19:02:31,196 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
-2019-01-01 19:03:27,748 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
-2019-01-01 19:03:27,748 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
-2019-01-01 19:03:42,035 - logs/churn.logs:319 - WARNING - tier 2 churn completed
-2019-01-01 19:14:54,932 - logs/churn.logs:15 - WARNING - logs/churn.logs
-2019-01-01 19:16:47,020 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
-2019-01-01 19:16:47,021 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
-2019-01-01 19:16:48,779 - logs/churn.logs:264 - WARNING - tier 1 churn completed
-2019-01-01 19:16:48,779 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
-2019-01-01 19:16:48,780 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
-2019-01-01 19:17:43,615 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
-2019-01-01 19:17:43,615 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
-2019-01-01 19:17:55,536 - logs/churn.logs:319 - WARNING - tier 2 churn completed
+2019-01-01 19:34:02,946 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-01 19:34:28,844 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 19:34:28,845 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 19:34:30,627 - logs/churn.logs:264 - WARNING - tier 1 churn completed
+2019-01-01 19:34:30,628 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
+2019-01-01 19:34:30,628 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 19:35:31,896 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
+2019-01-01 19:35:31,897 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 19:35:45,008 - logs/churn.logs:319 - WARNING - tier 2 churn completed
+2019-01-01 19:40:32,379 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-01 19:42:18,808 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 19:42:18,810 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 19:42:20,350 - logs/churn.logs:264 - WARNING - tier 1 churn completed
+2019-01-01 19:42:20,350 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
+2019-01-01 19:42:20,351 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 19:43:14,985 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
+2019-01-01 19:43:14,986 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 19:43:27,101 - logs/churn.logs:319 - WARNING - tier 2 churn completed
+2019-01-01 19:59:26,516 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-01 20:01:25,466 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 20:01:25,468 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 20:01:27,343 - logs/churn.logs:264 - WARNING - tier 1 churn completed
+2019-01-01 20:01:27,344 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
+2019-01-01 20:01:27,345 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 20:02:26,710 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
+2019-01-01 20:02:26,711 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 20:02:39,469 - logs/churn.logs:319 - WARNING - tier 2 churn completed
+2019-01-01 20:14:22,362 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-01 20:16:21,528 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 20:16:21,530 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 20:16:23,205 - logs/churn.logs:264 - WARNING - tier 1 churn completed
+2019-01-01 20:16:23,206 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
+2019-01-01 20:16:23,207 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 20:17:32,377 - logs/churn.logs:197 - WARNING - tier 2 triggered:0.5
+2019-01-01 20:17:32,379 - logs/churn.logs:174 - WARNING - tier 1 triggered:%s
+2019-01-01 20:17:48,278 - logs/churn.logs:319 - WARNING - tier 2 churn completed
