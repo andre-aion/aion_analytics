@@ -1,1 +1,1 @@
-from . import blockminer, hashrate, poolminer, churn
+from . import hashrate, poolminer, churn, blockminer

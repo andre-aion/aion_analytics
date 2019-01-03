@@ -112,7 +112,7 @@ class PythonClickhouse:
             df = dd.dataframe.from_pandas(df, npartitions=15)
             #sd = SD(table,cols,[])
             #sd.df = dd.
-            logger.warning("query result:%s",df.tail(5))
+            #logger.warning("query result:%s",df.tail(5))
             return df
 
         except Exception:

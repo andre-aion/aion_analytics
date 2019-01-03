@@ -91,7 +91,7 @@ def tab_error_flag(tabname):
 # convert dates from timestamp[ms] to datetime[ns]
 def ms_to_date(ts):
     try:
-        if isinstance(ts, int) == True:
+        if isinstance(ts, int):
             # change milli to seconds
             if ts > 16307632000:
                 ts = ts // 1000
@@ -101,6 +101,8 @@ def ms_to_date(ts):
             ts = pd.Timestamp(datetime.date(ts))
 
             logger.warning('from ms_to_date: %s',ts)
+        elif isinstance(ts,str):
+            ts = datetime.strptime(ts, '%Y-%m-%d %H:%M:%S')
         return ts
     except Exception:
         logger.error('ms_to_date', exc_info=True)
@@ -161,7 +163,6 @@ def set_params_to_load(df, req_start_date, req_end_date):
             logger.warning('start_date from compute:%s', params['min_date'])
             logger.warning('start from slider:%s', req_start_date)
 
-
             # set flag to true if data has to be fetched
             if req_start_date >= params['min_date']:
                     params['start'] = False
@@ -197,6 +198,12 @@ def get_relative_day(day,delta):
     return day
 
 
+def str_to_date(x):
+    if isinstance(x, str):
+        logger.warning("STR TO DATETIME CONVERSION:%s", x)
+        return datetime.strptime(x, "%Y-%m-%d %H:%M:%S")
+    return x
+
 # get the data differential from the required start range
 def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
                            req_end_date, load_params, cass_or_ch):
@@ -212,20 +219,26 @@ def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
             logger.warning("df original, TAIL:%s", df.tail())
 
     try:
+        meta = ('block_timestamp','datetime64[ns]')
         redis = RedisStorage()
         # get the data parameters to determine from whence to load
-        params = redis.set_load_params(table, req_start_date,
-                                       req_end_date, load_params)
-        logger.warning("params before hashrate error:%s",params)
+        construct_params = redis.set_construct_params(table, req_start_date,
+                                            req_end_date, load_params)
+        logger.warning("params before hashrate error:%s",construct_params)
         # load all from redis
-        logger.warning('construct df, params:%s', params)
-        if params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:
-            lst = params['redis_key_full'].split(':')
-            sdate = date_to_ms(lst[1])
-            edate = date_to_ms(lst[2])
-            df = redis.load(table, sdate, edate,params['redis_key_full'],'dataframe')
-        # load all from cassandra
-        elif params['load_type'] & LoadType.DISK_STORAGE_FULL.value == LoadType.DISK_STORAGE_FULL.value:
+        logger.warning('construct df, params:%s', construct_params)
+        if construct_params['load_type'] & LoadType.REDIS_FULL.value == LoadType.REDIS_FULL.value:
+            lst = construct_params['redis_key_full'].split(':')
+            sdate = date_to_ms(lst[-2])
+            edate = date_to_ms(lst[-1])
+            df = redis.load(table, sdate, edate,construct_params['redis_key_full'],'dataframe')
+
+            # convert redis datetime from string to date
+            logger.warning("LOAD FROM REDIS, TAIL:%s", df.tail())
+
+
+        # load all from disk
+        elif construct_params['load_type'] & LoadType.DISK_STORAGE_FULL.value == LoadType.DISK_STORAGE_FULL.value:
             if cass_or_ch == 'cass':
                 sdate = pc.date_to_cass_ts(req_start_date)
                 edate = pc.date_to_cass_ts(req_end_date)
@@ -234,6 +247,7 @@ def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
                 sdate = req_start_date
                 edate = req_end_date
                 df = ch.load_data(table,cols,sdate,edate)
+            logger.warning("LOAD  FROM DISK, TAIL:%s", df.tail())
 
         # load from both cassandra and redis
         else:
@@ -243,35 +257,47 @@ def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
             df_end = streaming_dataframe.get_df()
             df_temp = None
 
-            # add cass if needed, then add redis if needed
-            if params['load_type'] & LoadType.START_DISK_STORAGE.value == LoadType.START_DISK_STORAGE.value:
-                lst = params['disk_storage_start_range']
-                sdate = date_to_ms(lst[0])
-                edate = date_to_ms(lst[1])
+            # add dsk if needed, then add redis if needed
+            if construct_params['load_type'] & LoadType.START_DISK_STORAGE.value == LoadType.START_DISK_STORAGE.value:
+                lst = construct_params['disk_storage_start_range']
+                sdate = date_to_ms(lst[-2])
+                edate = date_to_ms(lst[-1])
                 if cass_or_ch == 'cass':
                     df_temp = pc.load_from_daterange(table, cols, sdate, edate)
                 else:
                     df_temp = ch.load_data(table, cols, sdate, edate)
                 df_start = df_start.append(df_temp)
 
-            if params['load_type'] & LoadType.REDIS_START.value == LoadType.REDIS_START.value:
-                lst = params['redis_start_range']
-                sdate = date_to_ms(lst[0])
-                edate = date_to_ms(lst[1])
-                df_temp = redis.load(table, sdate, edate,params['redis_key_start'],'dataframe')
+            if construct_params['load_type'] & LoadType.REDIS_START.value == LoadType.REDIS_START.value:
+                lst = construct_params['redis_start_range']
+                sdate = date_to_ms(lst[-2])
+                edate = date_to_ms(lst[-1])
+                df_temp = redis.load(table, sdate, edate,construct_params['redis_key_start'],'dataframe')
+
+                logger.warning("LOAD START FROM REDIS, TAIL:%s", df_temp.tail())
+
                 df_start = df_start.append(df_temp)
 
 
             # load end, add redis df, then cass df if needed
-            if params['load_type'] & LoadType.REDIS_END.value == LoadType.REDIS_END.value:
-                lst = params['redis_end_range']
-                sdate = date_to_ms(lst[0])
-                edate = date_to_ms(lst[1])
-                df_temp = redis.load(table, sdate, edate,params['redis_key_end'],'dataframe')
+            if construct_params['load_type'] & LoadType.REDIS_END.value == LoadType.REDIS_END.value:
+                lst = construct_params['redis_end_range']
+                sdate = date_to_ms(lst[-2])
+                edate = date_to_ms(lst[-1])
+                df_temp = redis.load(table, sdate, edate,construct_params['redis_key_end'],'dataframe')
+
+                logger.warning("LOAD END FROM REDIS, TAIL:%s", df_temp.tail())
+
+                '''
+                df_temp['block_timestamp'] = df_temp['block_timestamp']. \
+                    map(lambda x: str_to_date(x),meta=meta)
+                '''
+
                 df_end = df_end.append(df_temp)
 
-            if params['load_type'] & LoadType.DISK_STORAGE_END.value == LoadType.DISK_STORAGE_END.value:
-                lst = params['disk_storage_end_range']
+
+            if construct_params['load_type'] & LoadType.DISK_STORAGE_END.value == LoadType.DISK_STORAGE_END.value:
+                lst = construct_params['disk_storage_end_range']
                 sdate = date_to_ms(lst[0])
                 edate = date_to_ms(lst[1])
                 if cass_or_ch == 'cass':
@@ -280,11 +306,31 @@ def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
                     df_temp = ch.load_data(table, cols, sdate, edate)
                 df_end = df_end.append(df_temp)
 
+
+            logger.warning("CONSTRUCT DF before APPENDS, TAIL:%s", df.tail(10))
             # concatenate end and start to original df
-            if len(df_start>0):
-                df = df_start.append(df).reset_index()
-            if len(df_end>0):
-                df = df.append(df_end).reset_index()
+            if len(df_start)>0:
+                df_start = df_start.reset_index()
+                df_start=df_start.drop('index',axis=1)
+                logger.warning("DF START, TAIL:%s", df_start.tail(5))
+                df = df_start.append(df)
+            if len(df_end)>0:
+                df_end = df_end.reset_index()
+                df_end=df_end.drop('index',axis=1)
+                logger.warning("DF END, TAIL:%s", df_end.tail(5))
+                df = df.append(df_end)
+
+
+            # CLEAN UP
+            check_to_drop = ['level_0']
+            to_drop = []
+            for value in check_to_drop:
+                if value in df.columns.tolist():
+                    to_drop.append(value)
+            if len(to_drop) > 0:
+                df = df.drop(to_drop,axis=1)
+
+            logger.warning("END OF CONSTRUCTION, TAIL:%s", df.tail())
 
             del df_temp
             del df_start
@@ -293,7 +339,6 @@ def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
             gc.collect()
 
         #logger.warning("df constructed, HEAD:%s", df.head())
-        #logger.warning("df constructed, TAIL:%s", df.tail())
 
         # save df to  redis
         # clean up by deleting any dfs in redis smaller than the one we just saved
@@ -302,19 +347,20 @@ def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
         required  |---------------------------- |
 
         """
-        for key in params['redis_keys_to_delete']:
-            redis.conn.delete(key)
-            logger.warning('bigger df added so deleted key:%s',
-                           str(key, 'utf-8'))
 
         # save (including overwrite to redis)
         # do not save if entire table loaded from redis
-        if params['load_type'] & LoadType.REDIS_FULL.value != LoadType.REDIS_FULL.value:
-            logger.warning("%s saved to redis:%s",table.upper(),df.tail(10))
-            key_params = [table,key_tab]
-            redis.save(df, table,key_params,req_start_date, req_end_date)
+        if construct_params['load_type'] & LoadType.REDIS_FULL.value != LoadType.REDIS_FULL.value:
+            for key in construct_params['redis_keys_to_delete']:
+                redis.conn.delete(key)
+                logger.warning('bigger df added so deleted redis key:%s',
+                               str(key, 'utf-8'))
 
-        gc.collect()
+            logger.warning("%s sent to redis for saving:%s",table.upper(),df.tail(10))
+            key_params = [table,key_tab]
+            if key_tab != 'blockminer':
+                redis.save(df, key_params,req_start_date, req_end_date)
+
         return df
 
     except Exception:

@@ -70,10 +70,12 @@ def poolminer_tab():
     class Thistab(Mytab):
         cols = ['transaction_hashes','block_date','block_timestamp','miner_address','block_number']
         block_tab = Mytab('block', cols, dedup_cols)
+        block_tab.key_tab = 'poolminer'
         cols = ['block_date','block_timestamp',
                 'transaction_hash', 'from_addr',
                 'to_addr', 'approx_value']
         transaction_tab = Mytab('transaction',cols, dedup_cols)
+        transaction_tab.key_tab = 'poolminer'
 
         tier1_miners_activated = False
 
@@ -93,7 +95,6 @@ def poolminer_tab():
             # check to see if block_tx_warehouse is loaded
             data_location = self.is_data_in_memory(start_date, end_date)
             if data_location == DataLocation.IN_MEMORY:
-                #logger.warning('warehouse already loaded:%s', self.df.tail(40))
                 pass
             elif data_location == DataLocation.IN_REDIS:
                 self.load_data(start_date, end_date)
@@ -253,8 +254,6 @@ def poolminer_tab():
                 tier2_df = self.tier2_df.compute()
                 new_data={}
                 for x in ['to_addr','approx_value']:
-                    if x == 'block_timestamp':
-                        tier2_df[x] = tier2_df[x].dt.strftime('%Y-%m-%d')
                     new_data[x] = tier2_df[x].tolist()
 
                 logger.warning("TIER 2 Calculations finished:%s", len(tier2_df.index))
@@ -262,7 +261,6 @@ def poolminer_tab():
                 columns = [
                     TableColumn(field="to_addr", title="Address"),
                     TableColumn(field="approx_value", title="Value"),
-
                 ]
                 del new_data
                 del tier2_df

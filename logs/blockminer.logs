@@ -1,404 +1,181 @@
-2019-01-01 17:42:08,296 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 17:42:09,052 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 17:42:09,054 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 17:42:17,575 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 17:42:26,922 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 17:42:26,922 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 17:42:29,509 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 17:42:29,509 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 17:42:29,733 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 17:42:29,733 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 17:43:35,611 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 17:43:36,308 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 17:43:36,311 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 17:43:43,904 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 17:43:54,082 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 17:43:54,082 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 17:43:54,694 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 18:00:30,216 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 18:00:30,981 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:00:30,983 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:00:39,570 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 18:00:50,651 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 18:00:50,651 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 18:00:51,323 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 18:05:51,798 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 18:05:52,473 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:05:52,476 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:06:00,798 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 18:06:12,370 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 18:06:12,370 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 18:06:13,499 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 18:06:16,306 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:06:16,306 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:06:16,499 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:06:16,500 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:06:16,739 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:06:16,739 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:06:16,873 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:06:16,874 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:06:17,005 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:06:17,005 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:06:51,488 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 18:06:52,278 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:06:52,280 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:07:00,658 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 18:07:10,564 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 18:07:10,564 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 18:07:11,092 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 18:27:55,400 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 18:27:56,106 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:27:56,107 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:28:04,789 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 18:28:17,230 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 18:28:17,230 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 18:28:17,776 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 18:49:08,100 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 18:49:08,616 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:49:08,617 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:49:15,880 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 18:49:27,264 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 18:49:27,264 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 18:49:28,133 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 18:53:13,205 - logs/blockminer.logs:155 - WARNING - topN selected value:75
-2019-01-01 18:53:13,205 - logs/blockminer.logs:105 - WARNING - top n called:75
-2019-01-01 18:53:13,606 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-32            a0e342ff44
-30            a0da976c4d
-17            a06cac75d9
-31            a0dc8135d8
-21            a07b3bb1d2
-27            a0b35c22da
-9             a00fbc6f9b
-16            a04c6a6b02
-35            a066f84523
-19            a0785d887b
-Name: miner_address, dtype: object
-2019-01-01 18:54:37,669 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 18:54:38,166 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 18:54:38,167 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 18:54:45,822 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 18:54:55,841 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 18:54:55,842 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 18:54:56,376 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 19:00:38,886 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 19:00:39,378 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 19:00:39,379 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 19:00:44,847 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 19:00:57,033 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 19:00:57,033 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 19:00:57,989 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 19:14:54,590 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 19:14:55,114 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 19:14:55,115 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 19:15:00,567 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 19:15:10,526 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 19:15:10,526 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 19:15:11,074 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 19:34:02,517 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 19:34:03,199 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 19:34:03,200 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 19:34:08,309 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 19:34:19,830 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 19:34:19,830 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 19:34:20,622 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 19:40:32,016 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 19:40:32,559 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 19:40:32,560 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 19:40:37,625 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 19:40:49,181 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 19:40:49,182 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 19:40:49,715 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 19:59:26,164 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 19:59:26,692 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 19:59:26,693 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 19:59:31,391 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 19:59:42,170 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 19:59:42,170 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 19:59:42,766 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
-2019-01-01 20:14:21,747 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-01 20:14:22,646 - logs/blockminer.logs:73 - WARNING - load_data start date:2018-11-01 00:00:00
-2019-01-01 20:14:22,647 - logs/blockminer.logs:74 - WARNING - load_data end date:2019-01-01 00:00:00
-2019-01-01 20:14:30,786 - logs/blockminer.logs:87 - WARNING - prep dataset start date:2018-11-01 00:00:00
-2019-01-01 20:14:41,497 - logs/blockminer.logs:94 - WARNING - topN column:['block_number', 'percentage']
-2019-01-01 20:14:41,498 - logs/blockminer.logs:105 - WARNING - top n called:20
-2019-01-01 20:14:42,105 - logs/blockminer.logs:112 - WARNING - miner addr:6                  Luxor
-0          AionPool.Tech
-1           AionPool.org
-3                Centrys
-2     BlockwareSolutions
-33            a0fde4c8c5
-5              GloryPool
-8             a0061525a5
-24            a09b74d135
-22            a08fbc834b
-15            a04b19c1e9
-12            a04055a0fa
-4                 F2Pool
-11            a023fae1b6
-13            a0437f899d
-29            a0c373f6e0
-7            WhibbitPool
-28            a0be94dde5
-26            a0afea235b
-10            a01252aa9f
-Name: miner_address, dtype: object
+2019-01-02 22:48:49,044 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2019-01-02 22:49:15,586 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2019-01-02 22:49:16,388 - logs/blockminer.logs:81 - WARNING - load_data start date:2018-11-01 00:00:00
+2019-01-02 22:49:16,395 - logs/blockminer.logs:82 - WARNING - load_data end date:2019-01-02 00:00:00
+2019-01-02 22:49:42,021 - logs/blockminer.logs:74 - WARNING - DF LOADED CHECK, WAREHOUSE FROM CONSTRUCTION:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394698       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+394699       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+394700       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+394701       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+394702       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-02 22:49:42,297 - logs/blockminer.logs:91 - WARNING - prep dataset start date:2018-11-01 00:00:00
+2019-01-02 22:50:09,233 - logs/blockminer.logs:99 - WARNING - topN column:['miner_address', 'block_number', 'percentage']
+2019-01-02 22:50:11,429 - logs/blockminer.logs:100 - WARNING - END prep dataset DF1:        miner_address  block_number  percentage
+0       AionPool.Tech         57718   14.622962
+1        AionPool.org         55236   13.994143
+2  BlockwareSolutions         25853    6.549905
+3             Centrys         34721    8.796629
+4              F2Pool          4388    1.111708
+2019-01-02 22:50:29,766 - logs/blockminer.logs:110 - WARNING - top n called:20
+2019-01-02 22:50:29,766 - logs/blockminer.logs:115 - WARNING - top N:20
+2019-01-02 22:50:31,289 - logs/blockminer.logs:118 - WARNING - in view top n :         miner_address  block_number  percentage
+6                Luxor        133411   33.799923
+0        AionPool.Tech         57718   14.622962
+1         AionPool.org         55236   13.994143
+3              Centrys         34721    8.796629
+2   BlockwareSolutions         25853    6.549905
+33          a0fde4c8c5         20687    5.241090
+5            GloryPool         15172    3.843854
+8           a0061525a5          8323    2.108647
+24          a09b74d135          8081    2.047336
+22          a08fbc834b          7232    1.832241
+2019-01-02 22:53:30,782 - logs/blockminer.logs:163 - WARNING - topN selected value:15
+2019-01-02 22:53:30,783 - logs/blockminer.logs:110 - WARNING - top n called:15
+2019-01-02 22:53:30,784 - logs/blockminer.logs:115 - WARNING - top N:15
+2019-01-02 22:53:32,270 - logs/blockminer.logs:118 - WARNING - in view top n :         miner_address  block_number  percentage
+6                Luxor        133411   33.799923
+0        AionPool.Tech         57718   14.622962
+1         AionPool.org         55236   13.994143
+3              Centrys         34721    8.796629
+2   BlockwareSolutions         25853    6.549905
+33          a0fde4c8c5         20687    5.241090
+5            GloryPool         15172    3.843854
+8           a0061525a5          8323    2.108647
+24          a09b74d135          8081    2.047336
+22          a08fbc834b          7232    1.832241
+2019-01-02 22:53:52,497 - logs/blockminer.logs:163 - WARNING - topN selected value:75
+2019-01-02 22:53:52,498 - logs/blockminer.logs:110 - WARNING - top n called:75
+2019-01-02 22:53:52,498 - logs/blockminer.logs:115 - WARNING - top N:75
+2019-01-02 22:53:53,892 - logs/blockminer.logs:118 - WARNING - in view top n :         miner_address  block_number  percentage
+6                Luxor        133411   33.799923
+0        AionPool.Tech         57718   14.622962
+1         AionPool.org         55236   13.994143
+3              Centrys         34721    8.796629
+2   BlockwareSolutions         25853    6.549905
+33          a0fde4c8c5         20687    5.241090
+5            GloryPool         15172    3.843854
+8           a0061525a5          8323    2.108647
+24          a09b74d135          8081    2.047336
+22          a08fbc834b          7232    1.832241
+2019-01-02 22:56:11,253 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2019-01-02 22:56:11,700 - logs/blockminer.logs:78 - WARNING - load_data start date:2018-11-01 00:00:00
+2019-01-02 22:56:11,702 - logs/blockminer.logs:79 - WARNING - load_data end date:2019-01-02 00:00:00
+2019-01-02 22:56:29,721 - logs/blockminer.logs:71 - WARNING - DF LOADED CHECK, WAREHOUSE FROM CONSTRUCTION:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+394698       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+394699       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+394700       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+394701       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+394702       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+394703       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+394704       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+394705       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+394706       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+394707       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-02 22:56:29,933 - logs/blockminer.logs:88 - WARNING - prep dataset start date:2018-11-01 00:00:00
+2019-01-02 22:56:53,365 - logs/blockminer.logs:96 - WARNING - topN column:['miner_address', 'block_number', 'percentage']
+2019-01-02 22:56:54,833 - logs/blockminer.logs:97 - WARNING - END prep dataset DF1:        miner_address  block_number  percentage
+0       AionPool.Tech         57718   14.622962
+1        AionPool.org         55236   13.994143
+2  BlockwareSolutions         25853    6.549905
+3             Centrys         34721    8.796629
+4              F2Pool          4388    1.111708
+2019-01-02 22:57:11,463 - logs/blockminer.logs:107 - WARNING - top n called:20
+2019-01-02 22:57:11,464 - logs/blockminer.logs:112 - WARNING - top N:20
+2019-01-02 22:57:12,539 - logs/blockminer.logs:115 - WARNING - in view top n :         miner_address  block_number  percentage
+6                Luxor        133411   33.799923
+0        AionPool.Tech         57718   14.622962
+1         AionPool.org         55236   13.994143
+3              Centrys         34721    8.796629
+2   BlockwareSolutions         25853    6.549905
+33          a0fde4c8c5         20687    5.241090
+5            GloryPool         15172    3.843854
+8           a0061525a5          8323    2.108647
+24          a09b74d135          8081    2.047336
+22          a08fbc834b          7232    1.832241
+2019-01-02 22:57:28,984 - logs/blockminer.logs:160 - WARNING - topN selected value:30
+2019-01-02 22:57:28,985 - logs/blockminer.logs:107 - WARNING - top n called:30
+2019-01-02 22:57:28,985 - logs/blockminer.logs:112 - WARNING - top N:30
+2019-01-02 22:57:29,748 - logs/blockminer.logs:115 - WARNING - in view top n :         miner_address  block_number  percentage
+6                Luxor        133411   33.799923
+0        AionPool.Tech         57718   14.622962
+1         AionPool.org         55236   13.994143
+3              Centrys         34721    8.796629
+2   BlockwareSolutions         25853    6.549905
+33          a0fde4c8c5         20687    5.241090
+5            GloryPool         15172    3.843854
+8           a0061525a5          8323    2.108647
+24          a09b74d135          8081    2.047336
+22          a08fbc834b          7232    1.832241
+2019-01-02 22:57:36,664 - logs/blockminer.logs:78 - WARNING - load_data start date:2018-10-01 00:00:00
+2019-01-02 22:57:36,665 - logs/blockminer.logs:79 - WARNING - load_data end date:2019-01-02 00:00:00
+2019-01-02 22:57:54,304 - logs/blockminer.logs:71 - WARNING - DF LOADED CHECK, WAREHOUSE FROM CONSTRUCTION:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+634576       1977113  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:44:43  a0fde4c8c5  2018-12-20 00:00:00           8
+634577       1977114  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:34  a00983f07c  2018-12-20 00:00:00          51
+634578       1977115  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2018-12-20 16:45:44  a0fde4c8c5  2018-12-20 00:00:00          10
+634579       1977116  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:45:45  a00983f07c  2018-12-20 00:00:00           1
+634580       1977117  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:10  a0a1e55cbb  2018-12-20 00:00:00          25
+634581       1977118  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-20 16:46:23  a022a68ef2  2018-12-20 00:00:00          13
+634582       1977119  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:29  a00983f07c  2018-12-20 00:00:00           6
+634583       1977120  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-20 16:46:39  a00983f07c  2018-12-20 00:00:00          10
+634584       1977121  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d... 2018-12-20 16:46:48  a0a1e55cbb  2018-12-20 00:00:00           9
+634585       1977122  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-20 16:46:50  a08091ab03  2018-12-20 00:00:00           2
+2019-01-02 22:57:54,427 - logs/blockminer.logs:88 - WARNING - prep dataset start date:2018-10-01 00:00:00
+2019-01-02 22:57:55,718 - logs/blockminer.logs:96 - WARNING - topN column:['miner_address', 'block_number', 'percentage']
+2019-01-02 22:57:57,636 - logs/blockminer.logs:97 - WARNING - END prep dataset DF1:        miner_address  block_number  percentage
+0       AionPool.Tech         65872   10.380311
+1        AionPool.org         98298   15.490099
+2  BlockwareSolutions         36950    5.822694
+3             Centrys         53757    8.471192
+4              F2Pool          7810    1.230724
+2019-01-02 22:58:26,204 - logs/blockminer.logs:107 - WARNING - top n called:30
+2019-01-02 22:58:26,205 - logs/blockminer.logs:112 - WARNING - top N:30
+2019-01-02 22:58:27,879 - logs/blockminer.logs:115 - WARNING - in view top n :         miner_address  block_number  percentage
+7                Luxor        223437   35.209885
+1         AionPool.org         98298   15.490099
+0        AionPool.Tech         65872   10.380311
+3              Centrys         53757    8.471192
+2   BlockwareSolutions         36950    5.822694
+48          a0fde4c8c5         29129    4.590237
+6            GloryPool         25381    3.999615
+11          a0061525a5         18844    2.969495
+28          a08fbc834b         15950    2.513450
+30          a09b74d135         11487    1.810157
+2019-01-02 22:58:57,478 - logs/blockminer.logs:78 - WARNING - load_data start date:2018-10-01 00:00:00
+2019-01-02 22:58:57,478 - logs/blockminer.logs:79 - WARNING - load_data end date:2018-12-01 00:00:00
+2019-01-02 22:59:14,109 - logs/blockminer.logs:71 - WARNING - DF LOADED CHECK, WAREHOUSE FROM CONSTRUCTION:        block_number                                      miner_address     block_timestamp  miner_addr           block_date  block_time
+488089       1823736  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-01 23:56:59  a08091ab03  2018-12-01 00:00:00          16
+488090       1823737  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2... 2018-12-01 23:57:11  a022a68ef2  2018-12-01 00:00:00          12
+488091       1823738  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-01 23:57:57  a08091ab03  2018-12-01 00:00:00          46
+488092       1823739  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-01 23:58:12  a08091ab03  2018-12-01 00:00:00          15
+488093       1823740  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-01 23:58:52  a08091ab03  2018-12-01 00:00:00          40
+488094       1823741  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-01 23:58:58  a08091ab03  2018-12-01 00:00:00           6
+488095       1823742  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2018-12-01 23:59:08  a00983f07c  2018-12-01 00:00:00          10
+488096       1823743  a023fae1b60e6cd37a3e5ca11331549ba9e8029618fb63... 2018-12-01 23:59:29  a023fae1b6  2018-12-01 00:00:00          21
+488097       1823744  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-12-01 23:59:35  a08091ab03  2018-12-01 00:00:00           6
+488098       1823745  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b... 2018-12-01 23:59:52  a0f2daa8de  2018-12-01 00:00:00          17
+2019-01-02 22:59:14,219 - logs/blockminer.logs:88 - WARNING - prep dataset start date:2018-10-01 00:00:00
+2019-01-02 22:59:15,566 - logs/blockminer.logs:96 - WARNING - topN column:['miner_address', 'block_number', 'percentage']
+2019-01-02 22:59:16,961 - logs/blockminer.logs:97 - WARNING - END prep dataset DF1:        miner_address  block_number  percentage
+0       AionPool.Tech         33485    6.974051
+1        AionPool.org         74211   15.456214
+2  BlockwareSolutions         26506    5.520508
+3             Centrys         39877    8.305338
+4              F2Pool          6202    1.291715
+2019-01-02 22:59:30,836 - logs/blockminer.logs:107 - WARNING - top n called:30
+2019-01-02 22:59:30,836 - logs/blockminer.logs:112 - WARNING - top N:30
+2019-01-02 22:59:31,739 - logs/blockminer.logs:115 - WARNING - in view top n :         miner_address  block_number  percentage
+7                Luxor        178148   37.103577
+1         AionPool.org         74211   15.456214
+3              Centrys         39877    8.305338
+0        AionPool.Tech         33485    6.974051
+2   BlockwareSolutions         26506    5.520508
+47          a0fde4c8c5         19355    4.031141
+6            GloryPool         19178    3.994277
+11          a0061525a5         18838    3.923464
+28          a08fbc834b         15950    3.321969
+21          a04b19c1e9          9503    1.979227

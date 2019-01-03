@@ -48,15 +48,18 @@ class Mytab:
         end_date = datetime.combine(end_date, datetime.min.time())
         start_date = datetime.combine(start_date, datetime.min.time())
         # find the boundaries of the loaded data, redis_data
-        load_params = set_params_to_load(self.df, start_date,
+        self.load_params = set_params_to_load(self.df, start_date,
                                          end_date)
-        self.load_params = load_params
+
+        if self.table == 'block':
+            logger.warning('From block:%s',self.load_params)
+
         logger.warning('is_data_in_memory:%s', self.load_params)
 
         # if table not in live memory then go to redis and cassandra
-        if load_params['in_memory'] == False:
-            self.params = r.set_load_params(self.table, start_date, end_date,
-                                            self.load_params)
+        if self.load_params['in_memory'] == False:
+            self.params = r.set_construct_params(self.table, start_date, end_date,
+                                                 self.load_params)
             if self.table != 'block_tx_warehouse':
                 return DataLocation.IN_CONSTRUCTION
             else:  # if table is block_tx_warehouse
@@ -76,11 +79,12 @@ class Mytab:
             end_date = datetime.combine(end_date, datetime.min.time())
             start_date = datetime.combine(start_date, datetime.min.time())
             # if table not in live memory then go to redis and cassandra
-            load_params = set_params_to_load(self.df, start_date,end_date)
             logger.warning("TABLE:%s",self.table)
-            self.params = r.set_load_params(self.table, start_date, end_date,
-                                            load_params)
-            if load_params['in_memory'] == False:
+            self.load_params = set_params_to_load(self.df, start_date,
+                                                  end_date)
+            self.params = r.set_construct_params(self.table, start_date, end_date,
+                                                 self.load_params)
+            if self.load_params['in_memory'] == False:
                 if self.table != 'block_tx_warehouse':
                     # load from redis, cassandra if necessary
                     self.df = construct_df_upon_load(self.df,
@@ -107,20 +111,47 @@ class Mytab:
                             start_date,
                             end_date)
                         logger.warning("WAREHOUSE UPDATED WITH END DATE:%s",end_date)
+            else: #use self.df
+                pass
         except Exception:
             logger.error("load_data:",exc_info=True)
+
+    def str_to_date(self,x):
+        if isinstance(x, str):
+            logger.warning("STR TO DATETIME CONVERSION:%s", x)
+            return datetime.strptime(x, "%Y-%m-%d %H:%M:%S")
+        return x
 
     def filter_df(self, start_date, end_date):
         # change from milliseconds to seconds
         start_date = ms_to_date(start_date)
         end_date = ms_to_date(end_date)
 
-        # set df1 while outputting bar graph
+        '''
+        x = self.df['block_timestamp'].tail(5).iloc[0]
+        logger.warning("FIRST TIMESTAMP:%s", x)
+        if isinstance(x,str):
+            logger.warning("CHANGING STARTDATE TO STRING:%s",x)
+            start_date = datetime.strftime(start_date,"%Y-%m-%d %H:%M:%S")
+            end_date = datetime.strftime(end_date, "%Y-%m-%d %H:%M:%S")
+        '''
+
+        logger.warning("in filter_df, start date:%s",start_date)
+        logger.warning("in filter_df, end date:%s",end_date)
+
+
+        logger.warning("in filter_df:%s",self.df.tail(10))
+
+        meta = ('block_timestamp','datetime64[ns]')
+        '''
+        self.df['block_timestamp'] = self.df['block_timestamp']. \
+            map(lambda x: self.str_to_date(x), meta=meta)
+        '''
+
+
         self.df1 = self.df[(self.df.block_timestamp >= start_date) &
                            (self.df.block_timestamp <= end_date)]
 
-        # slice to retain cols
-        logger.warning("in filter_df:%s",self.df1.columns.tolist())
 
         #self.df1 = self.df1.reset_index()
         #self.df1 = self.df1.fillna(0)
