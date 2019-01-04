@@ -1,6 +1,8 @@
 import datetime
 from time import mktime
 
+from tornado.gen import coroutine
+
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from scripts.utils.mylogger import mylogger
 from config import insert_sql, create_table_sql, create_indexes
@@ -16,22 +18,19 @@ import numpy as np
 from datetime import datetime
 import gc
 from pdb import set_trace
+import sqlalchemy as sa
 
 executor = ThreadPoolExecutor(max_workers=20)
-
 logger = mylogger(__file__)
-
-
 
 import gc
 from pdb import set_trace
 
 logger = mylogger(__file__)
 
-
 class PythonClickhouse:
     # port = '9000'
-
+    ch = sa.create_engine('clickhouse://default:@127.0.0.1:8123/aion')
     def __init__(self,db):
         self.client = Clickhouse_Client('localhost')
         self.db = db
@@ -57,13 +56,11 @@ class PythonClickhouse:
                     ts = datetime.fromtimestamp(ts)
 
             elif isinstance(ts, datetime):
-                logger.warning("IS DATETIME")
                 return ts
             elif isinstance(ts,str):
-                logger.warning("IS STRING")
                 return datetime.strptime(ts,"%Y-%m-%d %H:%M:%S")
 
-            logger.warning('ts_to_date: %s', ts)
+            #logger.warning('ts_to_date: %s', ts)
             return ts
         except Exception:
             logger.error('ms_to_date', exc_info=True)
@@ -97,8 +94,8 @@ class PythonClickhouse:
     def load_data(self,table,cols,start_date,end_date):
         start_date = self.ts_to_date(start_date)
         end_date = self.ts_to_date(end_date)
-        logger.warning('load data start_date:%s', start_date)
-        logger.warning('load_data  to_date:%s', end_date)
+        #logger.warning('load data start_date:%s', start_date)
+        #logger.warning('load_data  to_date:%s', end_date)
 
         if start_date > end_date:
             logger.warning("END DATE IS GREATER THAN START DATE")
@@ -107,14 +104,80 @@ class PythonClickhouse:
         sql = self.construct_read_query(table, cols, start_date, end_date)
 
         try:
-            query_result = self.client.execute(sql, settings={'max_execution_time': 3600})
+            query_result = self.client.execute(sql,
+                                               settings={
+                                               'max_execution_time': 3600})
             df = pd.DataFrame(query_result, columns=cols)
             df = dd.dataframe.from_pandas(df, npartitions=15)
-            #sd = SD(table,cols,[])
-            #sd.df = dd.
             #logger.warning("query result:%s",df.tail(5))
             return df
 
         except Exception:
             logger.error(' load data :%s', exc_info=True)
+
+        # cols is a dict, key is colname, type is col type
+
+    def construct_create_query(self, table, table_dict, columns):
+        logger.warning('table_dict:%s', table_dict)
+
+        count = 0
+        try:
+            qry = 'CREATE TABLE IF NOT EXISTS ' + self.db + '.' + table + ' ('
+            if len(table_dict) >= 1:
+                for key in columns[table]:
+                    if count > 0:
+                        qry += ','
+                    if table == 'block':
+                        logger.warning('%s:%s', key, table_dict[table][key])
+                    qry += key + ' ' + table_dict[table][key]
+                    count += 1
+            qry += ") ENGINE = MergeTree() ORDER BY (block_timestamp)"
+
+            logger.warning('create table query:%s', qry)
+            return qry
+        except Exception:
+            logger.error("Construct table query")
+
+    def create_table(self, table, table_dict, columns):
+        try:
+            qry = self.construct_create_query(table, table_dict, columns)
+            self.client.execute(qry)
+            logger.warning('{} SUCCESSFULLY CREATED:%s', table)
+        except Exception:
+            logger.error("Create table error", exc_info=True)
+
+    def construct_insert_query(self, table, cols, messages):
+        # messages is list of tuples similar to cassandra
+        qry = 'INSERT INTO ' + self.db + '.' + self.table + ' ' + cols[table] + ' VALUES '
+        for idx, message in enumerate(messages):
+            if idx > 0:
+                qry += ','
+            qry += message
+        qry += "'"
+        logger.warning('data insert query:%s', qry)
+        return qry
+
+    def insert(self, table, cols, messages):
+        qry = self.construct_insert_query(table, cols, messages)
+        try:
+            self.client.execute(qry)
+            logger.warning('DATA SUCCESSFULLY INSERTED TO {}:%s', qry, table)
+        except Exception:
+            logger.error("Create table error", exc_info=True)
+
+    def delete(self, item, type="table"):
+        if type == 'table':
+            self.client.execute("DROP TABLE IF EXISTS {}".format(item))
+        logger.warning("%s deleted from clickhouse", item)
+
+    def save_pandas_df(self,df,table='block_tx_warehouse'):
+        df.to_sql(table,self.ch,if_exists='append',index=False)
+        logger.warning("%s inserted to clickhouse",table.upper())
+
+    def get_min_max(self,table,col):
+        qry = "SELECT min({}), max({}) FROM aion.{}".format(col,col,table)
+
+    @coroutine
+    def save_df(self,df_to_save):
+        df_to_save.map_partitions(lambda df: self.save_pandas_df)
 

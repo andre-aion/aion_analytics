@@ -4,7 +4,8 @@ insert_sql = {}
 dedup_cols = {}
 create_table_sql = {}
 create_indexes= {}
-
+table_dict = {}
+columns_ch = {}
 
 columns['block'] = ["block_number", "miner_address", "miner_addr",
                "nonce", "difficulty",
@@ -30,5 +31,17 @@ columns['transaction'] = ['transaction_hash','transaction_index','block_number',
 #                             block tx warehouse
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-columns['block_tx_warehouse'] = ['miner_address', 'block_number', 'block_date',
+columns['block_tx_warehouse'] = ['miner_address', 'block_number','block_timestamp','block_date',
                                  'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+dedup_cols['block_tx_warehouse'] = []
+
+table_dict['block_tx_warehouse'] = {
+                                'miner_address':'String',
+                                'block_number' : 'UInt64',
+                                'block_timestamp' : 'Datetime',
+                                'block_date' : 'Date',
+                                'transaction_hash': 'String',
+                                'from_addr' : 'String',
+                                'to_addr' : 'String',
+                                'approx_value': 'Float64',
+                            }

@@ -1,7 +1,7 @@
 from scripts.utils.mylogger import mylogger
 from scripts.utils.hashrate import calc_hashrate
 from scripts.utils.myutils import tab_error_flag
-from scripts.utils.mytab import Mytab, DataLocation
+from scripts.utils.mytab_old import Mytab, DataLocation
 from config import dedup_cols, columns as cols
 from tornado import gen
 from concurrent.futures import ThreadPoolExecutor
