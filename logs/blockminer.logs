@@ -1,58 +1,61 @@
-2019-01-04 09:45:11,080 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 09:48:54,341 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 10:01:21,206 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 10:36:41,534 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 10:48:30,542 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 11:00:12,093 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 11:16:20,046 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 11:45:24,176 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 11:48:47,986 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 11:49:09,112 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:04:18,024 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:07:51,011 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:13:22,974 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:15:24,480 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:16:23,066 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:23:07,674 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:24:03,629 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:34:43,269 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:36:25,769 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:40:58,064 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:47:59,247 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:51:54,644 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 12:58:15,823 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 13:30:55,024 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 13:57:17,537 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 13:59:39,359 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 14:03:59,282 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 14:15:09,273 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 14:25:44,219 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 14:27:49,506 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 14:34:04,932 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 14:43:12,356 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 15:00:12,265 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 15:02:54,636 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 15:03:51,220 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 15:11:00,493 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 15:14:38,760 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 15:19:33,574 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 15:23:59,582 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 15:29:12,328 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 15:34:41,904 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 15:41:33,762 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 16:00:22,778 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 16:08:10,522 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 16:13:00,629 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 16:19:28,336 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 18:28:34,290 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 18:29:03,444 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 18:35:55,688 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 18:41:04,000 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 18:42:25,513 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 18:47:13,912 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 19:03:05,099 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 19:05:32,486 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 19:09:35,326 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 19:11:54,815 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 19:25:26,401 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
-2019-01-04 19:30:50,517 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2019-01-04 19:46:36,447 - logs/blockminer.logs:15 - WARNING - logs/blockminer.logs
+2019-01-04 19:46:36,757 - logs/blockminer.logs:63 - WARNING - load_data start date:2018-11-01 00:00:00
+2019-01-04 19:46:36,760 - logs/blockminer.logs:64 - WARNING - load_data end date:2019-01-04 00:00:00
+2019-01-04 19:46:44,545 - logs/blockminer.logs:73 - WARNING - prep dataset start date:2018-11-01 00:00:00
+2019-01-04 19:46:54,090 - logs/blockminer.logs:81 - WARNING - topN column:['miner_address', 'block_number', 'percentage']
+2019-01-04 19:46:54,617 - logs/blockminer.logs:82 - WARNING - END prep dataset DF1:        miner_address  block_number  percentage
+0       AionPool.Tech         57718   14.622962
+1        AionPool.org         55236   13.994143
+2  BlockwareSolutions         25853    6.549905
+3             Centrys         34721    8.796629
+4              F2Pool          4388    1.111708
+2019-01-04 19:47:00,168 - logs/blockminer.logs:92 - WARNING - top n called:20
+2019-01-04 19:47:00,169 - logs/blockminer.logs:97 - WARNING - top N:20
+2019-01-04 19:47:00,697 - logs/blockminer.logs:100 - WARNING - in view top n :         miner_address  block_number  percentage
+6                Luxor        133411   33.799923
+0        AionPool.Tech         57718   14.622962
+1         AionPool.org         55236   13.994143
+3              Centrys         34721    8.796629
+2   BlockwareSolutions         25853    6.549905
+33          a0fde4c8c5         20687    5.241090
+5            GloryPool         15172    3.843854
+8           a0061525a5          8323    2.108647
+24          a09b74d135          8081    2.047336
+22          a08fbc834b          7232    1.832241
+2019-01-04 19:47:09,869 - logs/blockminer.logs:63 - WARNING - load_data start date:2018-10-01 00:00:00
+2019-01-04 19:47:09,869 - logs/blockminer.logs:64 - WARNING - load_data end date:2019-01-04 00:00:00
+2019-01-04 19:47:21,312 - logs/blockminer.logs:73 - WARNING - prep dataset start date:2018-10-01 00:00:00
+2019-01-04 19:47:21,325 - logs/blockminer.logs:81 - WARNING - topN column:['miner_address', 'block_number', 'percentage']
+2019-01-04 19:47:22,458 - logs/blockminer.logs:82 - WARNING - END prep dataset DF1:        miner_address  block_number  percentage
+0       AionPool.Tech         65872   10.380311
+1        AionPool.org         98298   15.490099
+2  BlockwareSolutions         36950    5.822694
+3             Centrys         53757    8.471192
+4              F2Pool          7810    1.230724
+2019-01-04 19:47:35,166 - logs/blockminer.logs:92 - WARNING - top n called:20
+2019-01-04 19:47:35,166 - logs/blockminer.logs:97 - WARNING - top N:20
+2019-01-04 19:47:36,063 - logs/blockminer.logs:100 - WARNING - in view top n :         miner_address  block_number  percentage
+7                Luxor        223437   35.209885
+1         AionPool.org         98298   15.490099
+0        AionPool.Tech         65872   10.380311
+3              Centrys         53757    8.471192
+2   BlockwareSolutions         36950    5.822694
+48          a0fde4c8c5         29129    4.590237
+6            GloryPool         25381    3.999615
+11          a0061525a5         18844    2.969495
+28          a08fbc834b         15950    2.513450
+30          a09b74d135         11487    1.810157
+2019-01-04 19:48:00,291 - logs/blockminer.logs:145 - WARNING - topN selected value:60
+2019-01-04 19:48:00,291 - logs/blockminer.logs:92 - WARNING - top n called:60
+2019-01-04 19:48:00,292 - logs/blockminer.logs:97 - WARNING - top N:60
+2019-01-04 19:48:00,910 - logs/blockminer.logs:100 - WARNING - in view top n :         miner_address  block_number  percentage
+7                Luxor        223437   35.209885
+1         AionPool.org         98298   15.490099
+0        AionPool.Tech         65872   10.380311
+3              Centrys         53757    8.471192
+2   BlockwareSolutions         36950    5.822694
+48          a0fde4c8c5         29129    4.590237
+6            GloryPool         25381    3.999615
+11          a0061525a5         18844    2.969495
+28          a08fbc834b         15950    2.513450
+30          a09b74d135         11487    1.810157

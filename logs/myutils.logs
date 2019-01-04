@@ -4114,3 +4114,8 @@ Index: []
 2019-01-04 19:29:12,894 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-11-01
 2019-01-04 19:30:02,097 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-09-01
 2019-01-04 19:30:48,128 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-04 19:34:54,636 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-04 19:38:12,631 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-10-01
+2019-01-04 19:39:58,893 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-10-01
+2019-01-04 19:41:38,149 - logs/myutils.logs:15 - WARNING - logs/myutils.logs
+2019-01-04 19:46:34,068 - logs/myutils.logs:15 - WARNING - logs/myutils.logs

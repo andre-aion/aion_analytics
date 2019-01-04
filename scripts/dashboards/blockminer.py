@@ -56,21 +56,6 @@ def blockminer_tab():
             self.key_tab = 'blockminer'
             self.n = 20
 
-        def df_loaded_check(self, start_date, end_date):
-            # check to see if block_tx_warehouse is loaded
-            data_location = self.is_data_in_memory(start_date, end_date)
-            if data_location == DataLocation.IN_MEMORY:
-                logger.warning('DF LOADED CHECK, WAREHOUSE '
-                               'ALREADY LOADED:%s', self.df.tail(10))
-                pass
-            elif data_location == DataLocation.IN_REDIS:
-                self.load_data(start_date, end_date)
-            else:
-                self.load_data(start_date, end_date)
-                logger.warning('DF LOADED CHECK, WAREHOUSE '
-                               'FROM CONSTRUCTION:%s', self.df.tail(10))
-            self.filter_df(start_date, end_date)
-
         def load_this_data(self, start_date, end_date):
             end_date = datetime.combine(end_date, datetime.min.time())
             start_date = datetime.combine(start_date, datetime.min.time())
@@ -78,7 +63,7 @@ def blockminer_tab():
             logger.warning('load_data start date:%s', start_date)
             logger.warning('load_data end date:%s', end_date)
 
-            self.df_loaded_check(start_date, end_date)
+            self.df_load(start_date, end_date)
 
             return self.prep_dataset(start_date, end_date)
 
