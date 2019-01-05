@@ -79,7 +79,7 @@ def blockminer_tab():
                                          /self.df1['block_number'].sum()
                 self.df1 = self.df1.reset_index()
                 logger.warning("topN column:%s",self.df1.columns.tolist())
-                logger.warning('END prep dataset DF1:%s', self.df1.head())
+                #logger.warning('END prep dataset DF1:%s', self.df1.head())
 
                 return self.df1.hvplot.bar('miner_address', 'block_number', rot=90,
                                            height= 600, width=1500, title='block_number by miner address',
@@ -153,7 +153,6 @@ def blockminer_tab():
         this_tab = This_tab('block',cols, dedup_cols)
 
         #STATIC DATES
-        #format dates
         first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()

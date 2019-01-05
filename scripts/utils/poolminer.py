@@ -88,14 +88,10 @@ def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
                                       left_on='transaction_hashes',
                                       right_on='transaction_hash')  # do the merge\
         df = df.drop(['transaction_hashes'],axis=1)
-        #df = df.reset_index()
-        #df = df.drop[['index'],axis=1]
         values = {'transaction_hash': 'unknown','approx_value':0,
                   'from_addr':'unknown','to_addr':'unknown','block_number':0}
         df = df.fillna(value=values)
         logger.warning(("merged columns",df.columns.tolist()))
-        # save to redis
-        #r.save(df, key_params, start_date, end_date)
         return df
     except Exception:
         logger.error("make poolminer warehouse",exc_info=True)
@@ -175,8 +171,10 @@ def is_tier1_in_memory(start_date, end_date, threshold_tx_paid_out=5,
 
         # load data from redis if saved, else compose miner list
         if redis_key is not None:
+            logger.warning("TIER 1 LIST LOADED FROM REDIS")
             return r.load(key_params, start_date, end_date,
                                       key=redis_key, item_type='list')
+
         else:
             return None
     except Exception:
@@ -186,7 +184,7 @@ def is_tier1_in_memory(start_date, end_date, threshold_tx_paid_out=5,
 def make_tier1_list(df, start_date, end_date, threshold_tx_paid_out=5,
                     threshold_blocks_mined_per_day=0.5):
     try:
-        logger.warning("make tier 1 list:%s",df.head())
+        #logger.warning("make tier 1 list:%s",df.head())
         # Count transactions paid out per day: group transactions by date and miner
         # find min day find max day
         key_params = ['tier1_miners_list', threshold_tx_paid_out,
@@ -237,6 +235,8 @@ def is_tier2_in_memory(start_date, end_date,
 
         # load data from redis if saved, else compose miner list
         if redis_key is not None:
+            logger.warning("TIER 2 LIST LOADED FROM REDIS")
+
             return r.load(key_params, start_date, end_date,
                           key=redis_key, item_type='list')
         else:
@@ -272,15 +272,15 @@ def make_tier2_list(df, start_date, end_date,
                        len(tier1_miners_list))
         df_temp = df[df.from_addr.isin(tier1_miners_list)]
         df_temp = df_temp.groupby('to_addr')['from_addr'].count()
-
         df_temp = df_temp.reset_index()
-        logger.warning("df post groupby in  columns:%s",df_temp.head())
 
         threshold = threshold_tier2_received * delta_days
         df_temp = df_temp[df_temp.from_addr >= threshold]
-        logger.warning("post_threshold filter:%s",df_temp.head())
+        #logger.warning("post_threshold filter:%s",df_temp.head())
 
-        tier2_miners_list = df_temp.to_addr.unique().compute()
+        lst = df_temp.to_addr.unique().compute()
+        tier2_miners_list = [str(x) for x in lst]
+
         logger.warning("tier2_miners_list:%s",len(tier2_miners_list))
 
         del df_temp

@@ -3,6 +3,7 @@ from enum import Enum
 from os.path import join, dirname
 import pandas as pd
 import dask as dd
+import dask.array as da
 
 from scripts.utils.mylogger import mylogger
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
@@ -45,6 +46,8 @@ class Mytab:
         self.tier2_miners_list = []
         self.pq = PythonParquet()
         self.ch = PythonClickhouse('aion')
+        self.redis = RedisStorage()
+        self.conn = self.redis.conn
 
         # create warehouse is needed
         if 'warehouse' in self.table:
@@ -85,28 +88,36 @@ class Mytab:
             if params['start'] and params['end']:
                 self.filter_df(req_start_date, req_end_date)
                 logger.warning("DF LOADED FROM MEMORY:%s", self.table)
-
             else: # no part in memory, so construct/load from clickhouse
-                if 'warehouse' in self.table:
-                    # load the construction tables df_tx and df_block
-                    self.construction_tables['block'].df_load(req_start_date,
-                                                              req_end_date)
-                    self.construction_tables['transaction'].df_load(req_start_date,
-                                                                    req_end_date)
-                    # make the warehouse
-                    self.df = make_poolminer_warehouse(
-                        self.construction_tables['transaction'].df,
-                        self.construction_tables['block'].df,
-                        req_start_date,
-                        req_end_date)
 
-                    #save to parquet
-                    #self.pq.save(self.df, key_params, req_start_date, req_end_date)
-                    logger.warning("WAREHOUSE CONSTRUCTED FROM CLICKHOUSE:%s", self.table)
-                    self.df = self.df.dropna(subset=['block_date', 'block_timestamp'])
+                if 'warehouse' in self.table:
+                    # check memory
+                    memory_params = self.is_in_memory(self.table, req_start_date, req_end_date)
+                    if memory_params['in_memory']:
+                        #load from redis
+                        self.df = self.redis.load(key_params,req_start_date,req_end_date)
+                        logger.warning("WAREHOUSE LOADED FROM REDIS:%s", self.df.tail(10))
+                    else:
+                        # load the construction tables df_tx and df_block
+                        self.construction_tables['block'].df_load(req_start_date,
+                                                                  req_end_date)
+                        self.construction_tables['transaction'].df_load(req_start_date,
+                                                                        req_end_date)
+                        # make the warehouse
+                        self.df = make_poolminer_warehouse(
+                            self.construction_tables['transaction'].df,
+                            self.construction_tables['block'].df,
+                            req_start_date,
+                            req_end_date)
+
+                        #save to parquet
+                        #self.pq.save(self.df, key_params, req_start_date, req_end_date)
+                        #logger.warning("WAREHOUSE TO SAVE TO REDIS:%s", self.df.head())
+                        self.redis.save(self.df, key_params, req_start_date, req_end_date)
+
                 else:  # Non warehouse
                     self.df = self.ch.load_data(self.table,self.cols,req_start_date, req_end_date)
-                self.filter_df(req_start_date, req_end_date)
+            self.filter_df(req_start_date, req_end_date)
             logger.warning("%s LOADED: %s:%s",self.table,req_start_date,req_end_date)
 
         except Exception:
@@ -119,39 +130,22 @@ class Mytab:
         return x
 
     def filter_df(self, start_date, end_date):
-        self.df1 = self.df
-        logger.warning("post filter:%s", self.df1.tail(10))
 
-        '''
-        # change from milliseconds to seconds
-        start_date = ms_to_date(start_date)
-        end_date = ms_to_date(end_date)
-
-        cols_to_drop = ['index']
-        self.df = drop_cols(self.df, cols_to_drop)
-
-        self.df = self.df.dropna(subset=['block_date', 'block_timestamp'])
-
-        logger.warning("in filter_df block_date:%s", self.df['block_date'].tail(5))
-
-        # convert date to and filter on block_date
-        self.df1 = self.df
-        logger.warning("TABLE BEING FILTERED:%s", self.table.upper())
+        self.df1 = self.df.dropna(subset=['block_timestamp'])
 
         logger.warning("FILTER start date:%s", start_date)
         logger.warning("FILTER end date:%s", end_date)
 
-        meta = ('block_date', 'datetime64[ns]')
-        self.df1['block_date'] = self.df1['block_date'].map_partitions(
+        meta = ('block_timestamp', 'datetime64[ns]')
+        self.df1['block_timestamp'] = self.df['block_timestamp'].map_partitions(
             pd.to_datetime, format='%Y-%m-%d %H:%M:%S', meta=meta)
 
-        logger.warning("in filter_df block_date, after conversion to datetime:%s",
-                       self.df1['block_date'].tail(5))
 
-        self.df1 = self.df1[(self.df1.block_date >= start_date) &
-                            (self.df1.block_date <= end_date)]
+        self.df1 = self.df1[(self.df1.block_timestamp >= start_date) &
+                            (self.df1.block_timestamp <= end_date)]
+        #logger.warning("post filter_df:%s", self.df1['block_timestamp'].tail(5))
 
-        '''
+
 
     def spacing_div(self, width=20, height=100):
         return Div(text='', width=width, height=height)
@@ -184,6 +178,50 @@ class Mytab:
     def notification_updater(self, text):
         return '<h3  style="color:red">{}</h3>'.format(text)
 
+
+    def is_in_memory(self,table,req_start_date,req_end_date):
+        str_req_start_date = datetime.strftime(req_start_date, '%Y-%m-%d')
+        str_req_end_date = datetime.strftime(req_end_date, '%Y-%m-%d')
+        logger.warning('set_load_params-req_start_date:%s', str_req_start_date)
+        logger.warning('set_load_params-req_end_date:%s', str_req_end_date)
+        params = dict()
+        params['in_memory'] = False
+        params['key'] = None
+
+        try:
+            # get keys
+            str_to_match = '*' + table + ':*'
+            matches = self.conn.scan_iter(match=str_to_match)
+
+            if matches:
+                for redis_key in matches:
+                    redis_key_encoded = redis_key
+                    redis_key = str(redis_key, 'utf-8')
+                    logger.warning('redis_key:%s', redis_key)
+
+                    redis_key_list = redis_key.split(':')
+                    logger.warning('matching keys :%s', redis_key_list)
+                    # convert start date in key to datetime
+                    key_start_date = datetime.strptime(redis_key_list[1], '%Y-%m-%d')
+                    key_end_date = datetime.strptime(redis_key_list[2], '%Y-%m-%d')
+
+                    # check to see if there is all data to be retrieved from reddis
+                    logger.warning('req_start_date:%s', req_start_date)
+                    logger.warning('key_start_date:%s', key_start_date)
+
+                    # matches to delete: make a list
+                    if req_start_date >= key_start_date and req_end_date <= key_end_date:
+                        """
+                        required_df      || ---------------- ||
+                        redis_df  | -------------------------------|
+                        """
+                        params['in_memory'] = True
+                        params['key'] = redis_key_encoded
+                        break
+            return params
+        except Exception:
+            logger.error("is_in_memory",exc_info=True)
+            return params
 
 
 

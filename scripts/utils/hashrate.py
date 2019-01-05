@@ -17,7 +17,7 @@ def str_to_hex(x):
         return 0
 
 def calc_hashrate(df,blockcount):
-    #logger.warning('columns in calc hashrate:%s',df.columns.values)
+    logger.warning('STARTING HASHRATE CALCULATIONS')
     df['rolling_mean'] = df.block_time.rolling(blockcount).mean()
     df.compute()
     df = df.dropna()

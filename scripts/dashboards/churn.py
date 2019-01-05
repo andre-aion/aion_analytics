@@ -11,10 +11,10 @@ from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
 from bokeh.layouts import layout, column, row, gridplot, WidgetBox
-from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d, CustomJS
+from bokeh.models import ColumnDataSource, HoverTool, Panel
 import gc
-from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, \
-    DatePicker, TableColumn, DataTable, Button, Select, Paragraph
+from bokeh.models.widgets import  Div, \
+    DatePicker, TableColumn, DataTable, Button, Select
 from holoviews import streams
 from pdb import set_trace
 import hvplot.dask
@@ -44,7 +44,6 @@ tables['transaction'] = 'transaction'
 
 menu = [str(x * 0.5) for x in range(0, 80)]
 menu_blocks_mined = [str(x) if x > 0 else '' for x in range(0, 50)]
-
 
 @coroutine
 def churn_tab():
@@ -209,10 +208,10 @@ def churn_tab():
                 text = """ <h3>{} STATS:</h3> <br /> 
                           Total miners in reference period: {} <br /> 
                           Total miners in churn review period: {}  <br /> 
-                          Number churned: {} <br /> 
-                          Percentage churned: {}% <br /> 
+                          Number of miners departed: {} <br /> 
+                          Percentage departed: {}% <br /> 
                           New miners:{} <br /> 
-                          Percentage new miners:{}%
+                          Percentage that are new miners:{}%
                         """.format(tier,
                                    len(ref_list),
                                    len(period_list),

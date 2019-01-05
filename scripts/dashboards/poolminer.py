@@ -115,6 +115,7 @@ def poolminer_tab():
                 logger.error("get_tier1_list",exc_info=True)
 
         def load_this_data(self, start_date, end_date):
+            self.tier1_miners_activated = True
             end_date = datetime.combine(end_date, datetime.min.time())
             start_date = datetime.combine(start_date, datetime.min.time())
 

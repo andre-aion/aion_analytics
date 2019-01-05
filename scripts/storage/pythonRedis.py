@@ -64,7 +64,7 @@ class RedisStorage:
         if isinstance(ts,str) == False:
             # convert to datetime if necessary
             ts = self.ms_to_date(ts)
-        ts = datetime.strftime(ts, '%Y-%m-%d')
+            ts = datetime.strftime(ts, '%Y-%m-%d')
         return ts
 
     # key_params: list of parameters to put in key
@@ -104,7 +104,7 @@ class RedisStorage:
 
                 key = self.compose_key(key_params,start_date,end_date)
 
-            #logger.warning('load-df key:%s', key)
+            logger.warning('load-df key:%s', key)
             item = pickle.loads(zlib.decompress(self.conn.get(key)))
             #logger.warning("from redis load:%s",item)
 
