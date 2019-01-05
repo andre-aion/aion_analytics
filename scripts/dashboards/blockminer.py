@@ -128,7 +128,6 @@ def blockminer_tab():
                     logger.error('set_n', exc_info=True)
 
 
-
     def update(attrname, old, new):
         notification_div.text = this_tab.notification_updater("Calculations underway."
                                                               " Please be patient")

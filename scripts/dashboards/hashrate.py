@@ -46,23 +46,28 @@ table = 'block'
 @coroutine
 def hashrate_tab():
 
-    class Thistab(Mytab):
-        def __init__(self, table, cols, dedup_cols):
-            Mytab.__init__(self, table, cols, dedup_cols)
-            self.tab = 'hashrate'
+    class _Thistab(Mytab):
+        def __init__(self, table, hashrate_cols, dedup_cols):
+            Mytab.__init__(self, table, hashrate_cols, dedup_cols)
+            self.table = table
             self.key_tab = 'hashrate'
+            self.blockcount = 10
+
+        def notification_updater(self, text):
+            return '<h3  style="color:red">{}</h3>'.format(text)
 
         def load_this_data(self, start_date, end_date, bcount=10):
-            self.locals['blockcount'] = bcount
-            data_in_memory = self.is_data_in_memory(start_date,end_date)
-            if data_in_memory != DataLocation.IN_MEMORY:
-                self.load_data(start_date, end_date)
-            self.difficulty_plot()
-            return self.hashrate_plot(bcount)
+            end_date = datetime.combine(end_date, datetime.min.time())
+            start_date = datetime.combine(start_date, datetime.min.time())
+            self.blockcount = bcount
+            self.df_load(start_date,end_date)
+            return self.hashrate_plot()
 
-        def hashrate_plot(self,bcount):
+        def hashrate_plot(self):
             try:
-                df1 = calc_hashrate(self.df, bcount)
+                logger.warning("pre hashrate calc: %s",self.df1.tail(10))
+                df1 = calc_hashrate(self.df, self.blockcount)
+                logger.warning("post hashrate calc: %s",self.df1.tail(10))
                 #curve = hv.Curve(df, kdims=['block_number'], vdims=['hashrate'])\
                     #.options(width=1000,height=600)
                 curve = df1.hvplot.line('block_number', 'hashrate',
@@ -79,61 +84,60 @@ def hashrate_tab():
 
             return div
 
-        def difficulty_plot(self):
+        def difficulty_plot(self, start_date, end_date):
             try:
-                #logger.warning("DF in difficulty: %s",self.df)
+
+                logger.warning("DF in difficulty: %s",self.df.tail(10))
                 p = self.df.hvplot.line(x='block_number', y='difficulty',
                                         title='Difficulty')
                 return p
             except Exception:
                 logger.error('plot error:', exc_info=True)
 
-    def update_slider(attrname, old, new):
+    def update(attrname, old, new):
         # notify the holoviews stream of the slider update
-        thistab.locals['blockcount']=new
-        stream_blockcount.event(bcount=new)
+        notification_div.text = thistab.notification_updater("Calculations underway."
+                                                              " Please be patient")
+        stream_start_date.event(start_date=datepicker_start.value)
+        stream_end_date.event(end_date=datepicker_end.value)
+        thistab.blockcount(bcount=stream_blockcount.value)
+        notification_div.text = thistab.notification_updater("")
 
-    # notify the holoviews stream of the slider updates
-    def update_start_date(attrname, old, new):
-        stream_start_date.event(start_date=new)
-
-    def update_end_date(attrname, old, new):
-        stream_end_date.event(end_date=new)
 
     try:
-        cols=['block_time','block_timestamp','difficulty','block_date','block_number']
-        thistab = Thistab('block', cols, dedup_cols)
-        thistab.locals['blockcount'] = 10
+        hashrate_cols=['block_time','block_timestamp','difficulty','block_date','block_number']
+        thistab = _Thistab('block', hashrate_cols, dedup_cols)
+        thistab.blockcount = 10
 
         # STATIC DATES
         # format dates
         first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        last_date = "2018-05-23 00:00:00"
-        last_date = datetime.strptime(last_date, "%Y-%m-%d %H:%M:%S")
+        first_date = datetime.strptime("2018-11-01", '%Y-%m-%d')
+        last_date = datetime.now().date()
 
-        thistab.load_this_data(first_date_range, last_date,)
-
+        notification_text = thistab.notification_updater("")
+        #thistab.difficulty_plot()
 
         # MANAGE STREAM
         # date comes out stream in milliseconds
         stream_start_date = streams.Stream.define('Start_date',
-                                                  start_date=first_date_range)()
+                                                  start_date=first_date)()
         stream_end_date = streams.Stream.define('End_date', end_date=last_date)()
 
         stream_blockcount = streams.Stream.define('Blockcount', bcount=10)()
 
+        notification_div = Div(text=notification_text, width=500, height=50)
 
         # CREATE WIDGETS
         # create a slider widget
 
-        initial_blockcount = 10
-        blockcount_slider = Slider(start=0, end=1000, value=initial_blockcount,
-                                   step=50, title='Blockcount',
-                                   callback_policy="mouseup")
+        initial_blockcount = 100
+        blockcount_slider = Slider(start=0, end=1100, value=initial_blockcount,
+                                   step=200, title='Blockcount')
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
-                                      max_date=last_date_range, value=first_date_range)
+                                      max_date=last_date_range, value=first_date)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
 
@@ -146,15 +150,18 @@ def hashrate_tab():
             .opts(plot=dict(width=1000, height=400))
 
         dmap_diff = hv.DynamicMap(
-            thistab.difficulty_plot(),datashade=True)\
+            thistab.difficulty_plot,
+            streams=[stream_start_date,
+                     stream_end_date],
+            datashade=True)\
             .opts(plot=dict(width=1000, height=400))
 
         text_div = thistab.difficulty_text()
 
         # handle callbacks
-        datepicker_start.on_change('value', update_start_date)
-        datepicker_end.on_change('value', update_end_date)
-        blockcount_slider.on_change("value", update_slider)
+        datepicker_start.on_change('value', update)
+        datepicker_end.on_change('value', update)
+        blockcount_slider.on_change("value", update)
 
 
         # Render layout to bokeh server Document and attach callback
@@ -170,8 +177,11 @@ def hashrate_tab():
 
 
         # create the dashboard
-        grid = gridplot([[controls],[hash_plot.state],
-                         [diff_plot.state]])
+        grid = gridplot([
+            [notification_div],
+            [controls],
+            [hash_plot.state],
+            [diff_plot.state]])
 
         # Make a tab with the layout
         tab = Panel(child=grid, title='Hashrate')

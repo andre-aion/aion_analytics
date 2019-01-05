@@ -43,7 +43,7 @@ class Mytab:
         self.tier1_miners_list = []
         self.tier2_miners_list = []
         self.pq = PythonParquet()
-        self.ch = PythonClickhouse()
+        self.ch = PythonClickhouse('aion')
 
         # create warehouse is needed
         if 'warehouse' in self.table:

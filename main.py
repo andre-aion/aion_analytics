@@ -22,11 +22,11 @@ def aion_analytics(doc):
 
     # SETUP BOKEH OBJECTS
     try:
-        bm = yield blockminer_tab()
-        #hr = yield hashrate_tab()
+        #bm = yield blockminer_tab()
+        hr = yield hashrate_tab()
         #pm = yield poolminer_tab()
         #ch = yield churn_tab()
-        tabs = Tabs(tabs=[bm])
+        tabs = Tabs(tabs=[hr])
         doc.add_root(tabs)
 
     except Exception:
