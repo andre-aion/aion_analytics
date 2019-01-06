@@ -1,0 +1,642 @@
+2019-01-05 13:27:21,309 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:27:21,309 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:27:21,309 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:27:24,533 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:27:24,533 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:27:43,351 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:27:43,351 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:27:51,926 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'from_addr': 'String', 'transaction_hash': 'String', 'approx_value': 'Float64', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-05 13:27:51,926 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'from_addr': 'String', 'transaction_hash': 'String', 'approx_value': 'Float64', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-05 13:27:51,926 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:27:51,926 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:27:51,928 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:27:51,928 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:28:59,508 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:28:59,508 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:28:59,508 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:29:02,724 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:29:02,724 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:29:20,723 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:29:20,723 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:29:28,905 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'to_addr': 'String', 'block_date': 'Date', 'approx_value': 'Float64', 'from_addr': 'String', 'block_number': 'UInt64', 'transaction_hash': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String'}}
+2019-01-05 13:29:28,905 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'to_addr': 'String', 'block_date': 'Date', 'approx_value': 'Float64', 'from_addr': 'String', 'block_number': 'UInt64', 'transaction_hash': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String'}}
+2019-01-05 13:29:28,905 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:29:28,905 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:29:28,914 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:29:28,914 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:29:28,954 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:29:28,954 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:29:36,374 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:29:36,374 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:31:05,173 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:31:05,173 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:31:05,173 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:31:07,807 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'to_addr': 'String', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-05 13:31:07,807 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'to_addr': 'String', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-05 13:31:07,809 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:31:07,809 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:31:07,823 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:31:07,823 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:31:07,836 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'to_addr': 'String', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-05 13:31:07,836 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'to_addr': 'String', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-05 13:31:07,837 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:31:07,837 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:31:07,839 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:31:07,839 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:31:07,933 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:31:07,933 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:31:17,373 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:31:17,373 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:31:51,549 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:31:51,549 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:31:57,517 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:31:57,517 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:34:16,675 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:34:16,675 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:34:40,838 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:34:40,838 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:34:47,457 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'to_addr': 'String', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-05 13:34:47,457 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'to_addr': 'String', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-05 13:34:47,457 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:34:47,457 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:34:47,458 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:34:47,458 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:36:33,149 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:36:33,149 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:36:33,149 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:36:34,674 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'from_addr': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'approx_value': 'Float64', 'block_date': 'Date', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String'}}
+2019-01-05 13:36:34,674 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'from_addr': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'approx_value': 'Float64', 'block_date': 'Date', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String'}}
+2019-01-05 13:36:34,675 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:36:34,675 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:36:34,684 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:36:34,684 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:36:34,692 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'from_addr': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'approx_value': 'Float64', 'block_date': 'Date', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String'}}
+2019-01-05 13:36:34,692 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'from_addr': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'approx_value': 'Float64', 'block_date': 'Date', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String'}}
+2019-01-05 13:36:34,692 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:36:34,692 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:36:34,702 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:36:34,702 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:36:34,767 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:36:34,767 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:36:40,912 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:36:40,912 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:37:15,040 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:37:15,040 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:37:20,977 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:37:20,977 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:39:41,050 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:39:41,050 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:40:03,606 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:40:03,606 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:40:10,378 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'from_addr': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'approx_value': 'Float64', 'block_date': 'Date', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String'}}
+2019-01-05 13:40:10,378 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'from_addr': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'approx_value': 'Float64', 'block_date': 'Date', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String'}}
+2019-01-05 13:40:10,378 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:40:10,378 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:40:10,380 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:40:10,380 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:42:38,738 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:42:38,738 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:42:38,738 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:42:40,250 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'approx_value': 'Float64', 'miner_address': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_date': 'Date'}}
+2019-01-05 13:42:40,250 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'approx_value': 'Float64', 'miner_address': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_date': 'Date'}}
+2019-01-05 13:42:40,250 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:42:40,250 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:42:40,260 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:42:40,260 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:42:40,269 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'approx_value': 'Float64', 'miner_address': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_date': 'Date'}}
+2019-01-05 13:42:40,269 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'approx_value': 'Float64', 'miner_address': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_date': 'Date'}}
+2019-01-05 13:42:40,269 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:42:40,269 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:42:40,271 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:42:40,271 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:42:40,313 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:42:40,313 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:42:45,906 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:42:45,906 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:43:20,996 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:43:20,996 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:43:26,965 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:43:26,965 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:45:42,665 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:45:42,665 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:45:56,898 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:45:56,898 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:46:03,535 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'approx_value': 'Float64', 'miner_address': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_date': 'Date'}}
+2019-01-05 13:46:03,535 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'approx_value': 'Float64', 'miner_address': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_date': 'Date'}}
+2019-01-05 13:46:03,535 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:46:03,535 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:46:03,536 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:46:03,536 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:49:01,164 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:49:01,164 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:49:01,164 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-05 13:49:03,043 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:49:03,043 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:49:03,043 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:49:03,043 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:49:03,050 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:49:03,050 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:49:03,056 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:49:03,056 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:49:03,056 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:49:03,056 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:49:03,057 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:49:03,057 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:49:03,098 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:49:03,098 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:49:09,287 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:49:09,287 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:49:42,798 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:49:42,798 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:49:49,299 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:49:49,299 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:52:10,454 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:52:10,454 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:52:33,090 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:52:33,090 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:52:40,003 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:52:40,003 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:52:40,003 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:52:40,003 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:52:40,004 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:52:40,004 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:53:47,761 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:53:47,761 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:53:47,762 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:53:47,762 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:53:47,763 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:53:47,763 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:53:47,773 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:53:47,773 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:53:47,773 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:53:47,773 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:53:47,775 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:53:47,775 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:54:03,831 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:54:03,831 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:54:27,506 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:54:27,506 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_date,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:54:34,435 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:54:34,435 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'miner_address': 'String', 'block_date': 'Date', 'to_addr': 'String', 'transaction_hash': 'String'}}
+2019-01-05 13:54:34,435 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:54:34,435 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-05 13:54:34,436 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:54:34,436 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-05 13:58:19,473 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-09-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:58:19,473 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_date,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-09-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:58:29,279 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-09-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 13:58:29,279 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_date,block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-09-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-05 14:03:10,382 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-05 14:03:10,382 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,miner_addr,block_date,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-05 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:09:30,521 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:09:30,522 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:09:30,522 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:09:35,320 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'block_date': 'Date', 'to_addr': 'String', 'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String'}}
+2019-01-06 15:09:35,320 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'block_date': 'Date', 'to_addr': 'String', 'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String'}}
+2019-01-06 15:09:35,322 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:09:35,322 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:09:35,370 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:09:35,370 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:09:35,398 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'block_date': 'Date', 'to_addr': 'String', 'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String'}}
+2019-01-06 15:09:35,398 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'block_date': 'Date', 'to_addr': 'String', 'block_number': 'UInt64', 'approx_value': 'Float64', 'from_addr': 'String'}}
+2019-01-06 15:09:35,400 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:09:35,400 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:09:35,408 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:09:35,408 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:09:42,301 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:09:42,301 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:09:55,303 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:09:55,303 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:11:55,214 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:11:55,214 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:11:55,214 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:12:02,369 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:12:02,369 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:12:02,370 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:12:02,370 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:12:02,398 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:12:02,398 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:12:02,424 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:12:02,424 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:12:02,425 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:12:02,425 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:12:02,430 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:12:02,430 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:12:02,583 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:12:02,583 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:12:16,356 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:12:16,356 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:13:11,223 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:13:11,223 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:13:23,730 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:13:23,730 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:13:35,478 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:35,478 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:35,479 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:35,479 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:35,486 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:35,486 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:35,520 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:35,520 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:35,521 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:35,521 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:35,527 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:35,527 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:35,824 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:35,824 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:35,825 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:35,825 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:35,832 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:35,832 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:35,935 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:35,935 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:35,939 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:35,939 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:35,951 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:35,951 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:35,989 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:35,989 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:35,991 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:35,991 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:35,996 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:35,996 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:36,065 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:36,065 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:36,066 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:36,066 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:36,069 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:36,069 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:36,164 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:36,164 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:36,165 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:36,165 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:36,176 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:36,176 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:36,223 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:36,223 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'to_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'block_number': 'UInt64'}}
+2019-01-06 15:13:36,224 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:36,224 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:13:36,231 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:36,231 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:13:36,798 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:13:36,798 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:15:54,516 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:15:54,517 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:15:54,517 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:16:01,697 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 15:16:01,697 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 15:16:01,698 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:16:01,698 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:16:01,735 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:16:01,735 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:16:01,765 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 15:16:01,765 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 15:16:01,765 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:16:01,765 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:16:01,776 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:16:01,776 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:16:01,924 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:16:01,924 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:16:24,147 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:16:24,147 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2018-11-30 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:17:16,399 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 15:17:16,399 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 15:17:16,399 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:17:16,399 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:17:16,416 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:17:16,416 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:17:16,668 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 15:17:16,668 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'miner_address': 'String', 'block_number': 'UInt64', 'from_addr': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 15:17:16,671 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:17:16,671 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:17:16,700 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:17:16,700 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:25:58,977 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:25:58,978 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:25:58,978 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:26:04,241 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'miner_address': 'String', 'to_addr': 'String'}}
+2019-01-06 15:26:04,241 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'block_date': 'Date', 'block_timestamp': 'Datetime', 'from_addr': 'String', 'approx_value': 'Float64', 'transaction_hash': 'String', 'miner_address': 'String', 'to_addr': 'String'}}
+2019-01-06 15:26:04,252 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:26:04,252 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:26:04,275 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:26:04,275 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:26:04,424 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:26:04,424 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:26:20,428 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:26:20,428 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:30:02,271 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:30:02,272 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:30:02,272 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:30:15,963 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:30:15,964 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:30:15,964 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:30:19,323 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'approx_value': 'Float64', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'to_addr': 'String', 'from_addr': 'String', 'transaction_hash': 'String', 'block_date': 'Date', 'miner_address': 'String'}}
+2019-01-06 15:30:19,323 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'approx_value': 'Float64', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'to_addr': 'String', 'from_addr': 'String', 'transaction_hash': 'String', 'block_date': 'Date', 'miner_address': 'String'}}
+2019-01-06 15:30:19,325 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:30:19,325 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:30:19,358 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:30:19,358 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:30:19,478 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:30:19,478 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:30:33,257 - logs/pythonClickhouse.logs:112 - WARNING - query result:                                       transaction_hashes     block_timestamp                                      miner_address  block_number
+545505  [d9a4502d75b3835e9d3b138fbe53021210f7395cc5498... 2019-01-06 14:49:23  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115578
+545506  [efaa17d91952f19af192358c1baf483b8d507667c0b7c... 2019-01-06 14:49:52  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115579
+545507                                                 [] 2019-01-06 14:50:32  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115580
+545508                                                 [] 2019-01-06 14:50:38  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       2115581
+545509                                                 [] 2019-01-06 14:50:59  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       2115582
+2019-01-06 15:30:33,257 - logs/pythonClickhouse.logs:112 - WARNING - query result:                                       transaction_hashes     block_timestamp                                      miner_address  block_number
+545505  [d9a4502d75b3835e9d3b138fbe53021210f7395cc5498... 2019-01-06 14:49:23  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115578
+545506  [efaa17d91952f19af192358c1baf483b8d507667c0b7c... 2019-01-06 14:49:52  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115579
+545507                                                 [] 2019-01-06 14:50:32  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115580
+545508                                                 [] 2019-01-06 14:50:38  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       2115581
+545509                                                 [] 2019-01-06 14:50:59  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       2115582
+2019-01-06 15:30:33,446 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:30:33,446 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:30:45,497 - logs/pythonClickhouse.logs:112 - WARNING - query result:           block_timestamp                                   transaction_hash     ...                                                 to_addr approx_value
+486247 2019-01-06 14:47:45  f3105bee6fceb6357785a96b9de604592677bb379008e5...     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.26989
+486248 2019-01-06 14:49:23  d9a4502d75b3835e9d3b138fbe53021210f7395cc54983...     ...       a014a40da4e87e538b127d3eb83a064408a21ced258a73...      1.62847
+486249 2019-01-06 14:49:23  c3c3bf0f866b4aa4c191dab7c5393db34e3faa37a29220...     ...       a0dabbf0d186794ae7f68546315c4416cc7a9e919bfeaa...      1.50257
+486250 2019-01-06 14:49:23  6bef138f7863ce568f53fa3f94c33908b724013c95a00a...     ...       a0b716521aa7d967e973215c45e1c4123907cc1b0036ce...      1.50421
+486251 2019-01-06 14:49:52  efaa17d91952f19af192358c1baf483b8d507667c0b7cf...     ...       a032786d95fcbefdad66c97dafefa4537c5e04e894c89a...      1.03356
+
+[5 rows x 5 columns]
+2019-01-06 15:30:45,497 - logs/pythonClickhouse.logs:112 - WARNING - query result:           block_timestamp                                   transaction_hash     ...                                                 to_addr approx_value
+486247 2019-01-06 14:47:45  f3105bee6fceb6357785a96b9de604592677bb379008e5...     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.26989
+486248 2019-01-06 14:49:23  d9a4502d75b3835e9d3b138fbe53021210f7395cc54983...     ...       a014a40da4e87e538b127d3eb83a064408a21ced258a73...      1.62847
+486249 2019-01-06 14:49:23  c3c3bf0f866b4aa4c191dab7c5393db34e3faa37a29220...     ...       a0dabbf0d186794ae7f68546315c4416cc7a9e919bfeaa...      1.50257
+486250 2019-01-06 14:49:23  6bef138f7863ce568f53fa3f94c33908b724013c95a00a...     ...       a0b716521aa7d967e973215c45e1c4123907cc1b0036ce...      1.50421
+486251 2019-01-06 14:49:52  efaa17d91952f19af192358c1baf483b8d507667c0b7cf...     ...       a032786d95fcbefdad66c97dafefa4537c5e04e894c89a...      1.03356
+
+[5 rows x 5 columns]
+2019-01-06 15:36:53,135 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:36:53,135 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:36:53,135 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:36:59,067 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'approx_value': 'Float64', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'to_addr': 'String', 'from_addr': 'String', 'miner_address': 'String', 'block_date': 'Date'}}
+2019-01-06 15:36:59,067 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'approx_value': 'Float64', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'to_addr': 'String', 'from_addr': 'String', 'miner_address': 'String', 'block_date': 'Date'}}
+2019-01-06 15:36:59,068 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:36:59,068 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:36:59,087 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:36:59,087 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:36:59,156 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:36:59,156 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:37:09,368 - logs/pythonClickhouse.logs:112 - WARNING - query result:                                       transaction_hashes     block_timestamp                                      miner_address  block_number
+545505  [d9a4502d75b3835e9d3b138fbe53021210f7395cc5498... 2019-01-06 14:49:23  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115578
+545506  [efaa17d91952f19af192358c1baf483b8d507667c0b7c... 2019-01-06 14:49:52  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115579
+545507                                                 [] 2019-01-06 14:50:32  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115580
+545508                                                 [] 2019-01-06 14:50:38  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       2115581
+545509                                                 [] 2019-01-06 14:50:59  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       2115582
+2019-01-06 15:37:09,368 - logs/pythonClickhouse.logs:112 - WARNING - query result:                                       transaction_hashes     block_timestamp                                      miner_address  block_number
+545505  [d9a4502d75b3835e9d3b138fbe53021210f7395cc5498... 2019-01-06 14:49:23  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115578
+545506  [efaa17d91952f19af192358c1baf483b8d507667c0b7c... 2019-01-06 14:49:52  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115579
+545507                                                 [] 2019-01-06 14:50:32  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115580
+545508                                                 [] 2019-01-06 14:50:38  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       2115581
+545509                                                 [] 2019-01-06 14:50:59  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       2115582
+2019-01-06 15:37:09,517 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:37:09,517 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-11-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:37:18,565 - logs/pythonClickhouse.logs:112 - WARNING - query result:           block_timestamp                                   transaction_hash     ...                                                 to_addr approx_value
+486247 2019-01-06 14:47:45  f3105bee6fceb6357785a96b9de604592677bb379008e5...     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.26989
+486248 2019-01-06 14:49:23  d9a4502d75b3835e9d3b138fbe53021210f7395cc54983...     ...       a014a40da4e87e538b127d3eb83a064408a21ced258a73...      1.62847
+486249 2019-01-06 14:49:23  c3c3bf0f866b4aa4c191dab7c5393db34e3faa37a29220...     ...       a0dabbf0d186794ae7f68546315c4416cc7a9e919bfeaa...      1.50257
+486250 2019-01-06 14:49:23  6bef138f7863ce568f53fa3f94c33908b724013c95a00a...     ...       a0b716521aa7d967e973215c45e1c4123907cc1b0036ce...      1.50421
+486251 2019-01-06 14:49:52  efaa17d91952f19af192358c1baf483b8d507667c0b7cf...     ...       a032786d95fcbefdad66c97dafefa4537c5e04e894c89a...      1.03356
+
+[5 rows x 5 columns]
+2019-01-06 15:37:18,565 - logs/pythonClickhouse.logs:112 - WARNING - query result:           block_timestamp                                   transaction_hash     ...                                                 to_addr approx_value
+486247 2019-01-06 14:47:45  f3105bee6fceb6357785a96b9de604592677bb379008e5...     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.26989
+486248 2019-01-06 14:49:23  d9a4502d75b3835e9d3b138fbe53021210f7395cc54983...     ...       a014a40da4e87e538b127d3eb83a064408a21ced258a73...      1.62847
+486249 2019-01-06 14:49:23  c3c3bf0f866b4aa4c191dab7c5393db34e3faa37a29220...     ...       a0dabbf0d186794ae7f68546315c4416cc7a9e919bfeaa...      1.50257
+486250 2019-01-06 14:49:23  6bef138f7863ce568f53fa3f94c33908b724013c95a00a...     ...       a0b716521aa7d967e973215c45e1c4123907cc1b0036ce...      1.50421
+486251 2019-01-06 14:49:52  efaa17d91952f19af192358c1baf483b8d507667c0b7cf...     ...       a032786d95fcbefdad66c97dafefa4537c5e04e894c89a...      1.03356
+
+[5 rows x 5 columns]
+2019-01-06 15:40:26,209 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:40:26,209 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT transaction_hashes,block_timestamp,miner_address,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:40:44,186 - logs/pythonClickhouse.logs:112 - WARNING - query result:                                       transaction_hashes     block_timestamp                                      miner_address  block_number
+799883  [d9a4502d75b3835e9d3b138fbe53021210f7395cc5498... 2019-01-06 14:49:23  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115578
+799884  [efaa17d91952f19af192358c1baf483b8d507667c0b7c... 2019-01-06 14:49:52  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115579
+799885                                                 [] 2019-01-06 14:50:32  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115580
+799886                                                 [] 2019-01-06 14:50:38  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       2115581
+799887                                                 [] 2019-01-06 14:50:59  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       2115582
+2019-01-06 15:40:44,186 - logs/pythonClickhouse.logs:112 - WARNING - query result:                                       transaction_hashes     block_timestamp                                      miner_address  block_number
+799883  [d9a4502d75b3835e9d3b138fbe53021210f7395cc5498... 2019-01-06 14:49:23  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115578
+799884  [efaa17d91952f19af192358c1baf483b8d507667c0b7c... 2019-01-06 14:49:52  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115579
+799885                                                 [] 2019-01-06 14:50:32  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       2115580
+799886                                                 [] 2019-01-06 14:50:38  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       2115581
+799887                                                 [] 2019-01-06 14:50:59  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       2115582
+2019-01-06 15:40:44,490 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:40:44,490 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_timestamp,transaction_hash,from_addr,to_addr,approx_value FROM aion.transaction WHERE toDate(block_timestamp) >= toDate('2018-10-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 15:41:00,167 - logs/pythonClickhouse.logs:112 - WARNING - query result:           block_timestamp                                   transaction_hash     ...                                                 to_addr approx_value
+702603 2019-01-06 14:47:45  f3105bee6fceb6357785a96b9de604592677bb379008e5...     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.26989
+702604 2019-01-06 14:49:23  d9a4502d75b3835e9d3b138fbe53021210f7395cc54983...     ...       a014a40da4e87e538b127d3eb83a064408a21ced258a73...      1.62847
+702605 2019-01-06 14:49:23  c3c3bf0f866b4aa4c191dab7c5393db34e3faa37a29220...     ...       a0dabbf0d186794ae7f68546315c4416cc7a9e919bfeaa...      1.50257
+702606 2019-01-06 14:49:23  6bef138f7863ce568f53fa3f94c33908b724013c95a00a...     ...       a0b716521aa7d967e973215c45e1c4123907cc1b0036ce...      1.50421
+702607 2019-01-06 14:49:52  efaa17d91952f19af192358c1baf483b8d507667c0b7cf...     ...       a032786d95fcbefdad66c97dafefa4537c5e04e894c89a...      1.03356
+
+[5 rows x 5 columns]
+2019-01-06 15:41:00,167 - logs/pythonClickhouse.logs:112 - WARNING - query result:           block_timestamp                                   transaction_hash     ...                                                 to_addr approx_value
+702603 2019-01-06 14:47:45  f3105bee6fceb6357785a96b9de604592677bb379008e5...     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.26989
+702604 2019-01-06 14:49:23  d9a4502d75b3835e9d3b138fbe53021210f7395cc54983...     ...       a014a40da4e87e538b127d3eb83a064408a21ced258a73...      1.62847
+702605 2019-01-06 14:49:23  c3c3bf0f866b4aa4c191dab7c5393db34e3faa37a29220...     ...       a0dabbf0d186794ae7f68546315c4416cc7a9e919bfeaa...      1.50257
+702606 2019-01-06 14:49:23  6bef138f7863ce568f53fa3f94c33908b724013c95a00a...     ...       a0b716521aa7d967e973215c45e1c4123907cc1b0036ce...      1.50421
+702607 2019-01-06 14:49:52  efaa17d91952f19af192358c1baf483b8d507667c0b7cf...     ...       a032786d95fcbefdad66c97dafefa4537c5e04e894c89a...      1.03356
+
+[5 rows x 5 columns]
+2019-01-06 15:49:48,988 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:49:48,988 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:49:48,988 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:49:52,110 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'block_number': 'UInt64', 'from_addr': 'String', 'to_addr': 'String', 'miner_address': 'String', 'block_date': 'Date'}}
+2019-01-06 15:49:52,110 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'block_timestamp': 'Datetime', 'approx_value': 'Float64', 'block_number': 'UInt64', 'from_addr': 'String', 'to_addr': 'String', 'miner_address': 'String', 'block_date': 'Date'}}
+2019-01-06 15:49:52,111 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:49:52,111 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:49:52,136 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:49:52,136 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:59:08,092 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:59:08,093 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:59:08,093 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 15:59:11,375 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_date': 'Date', 'block_number': 'UInt64', 'to_addr': 'String', 'miner_address': 'String', 'approx_value': 'Float64', 'from_addr': 'String', 'transaction_hash': 'String', 'block_timestamp': 'Datetime'}}
+2019-01-06 15:59:11,375 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_date': 'Date', 'block_number': 'UInt64', 'to_addr': 'String', 'miner_address': 'String', 'approx_value': 'Float64', 'from_addr': 'String', 'transaction_hash': 'String', 'block_timestamp': 'Datetime'}}
+2019-01-06 15:59:11,376 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:59:11,376 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 15:59:11,395 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 15:59:11,395 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:07:14,943 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 16:07:14,943 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 16:07:14,943 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 16:07:18,585 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:07:18,585 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:07:18,586 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:07:18,586 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:07:18,607 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:07:18,607 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:08:46,899 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:08:46,899 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:08:46,901 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:08:46,901 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:08:46,920 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:08:46,920 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:08:47,227 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:08:47,227 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:08:47,228 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:08:47,228 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:08:47,231 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:08:47,231 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:08:47,322 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:08:47,322 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:08:47,323 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:08:47,323 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:08:47,327 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:08:47,327 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:08:47,477 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:08:47,477 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:08:47,478 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:08:47,478 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:08:47,482 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:08:47,482 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:08:47,618 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:08:47,618 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'miner_address': 'String', 'from_addr': 'String', 'block_number': 'UInt64', 'block_timestamp': 'Datetime', 'transaction_hash': 'String', 'approx_value': 'Float64', 'to_addr': 'String', 'block_date': 'Date'}}
+2019-01-06 16:08:47,619 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:08:47,619 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:08:47,623 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:08:47,623 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:09:06,840 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 16:09:06,841 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 16:09:06,841 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 16:09:11,371 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'from_addr': 'String', 'approx_value': 'Float64', 'block_date': 'Date', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'block_number': 'UInt64', 'to_addr': 'String'}}
+2019-01-06 16:09:11,371 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'transaction_hash': 'String', 'from_addr': 'String', 'approx_value': 'Float64', 'block_date': 'Date', 'miner_address': 'String', 'block_timestamp': 'Datetime', 'block_number': 'UInt64', 'to_addr': 'String'}}
+2019-01-06 16:09:11,372 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:09:11,372 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:09:11,392 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:09:11,392 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:17:15,884 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 16:17:15,884 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 16:17:15,884 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-06 16:17:20,777 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'miner_address': 'String', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime'}}
+2019-01-06 16:17:20,777 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'miner_address': 'String', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime'}}
+2019-01-06 16:17:20,778 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:17:20,778 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:17:20,804 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:17:20,804 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:17:20,820 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'miner_address': 'String', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime'}}
+2019-01-06 16:17:20,820 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'miner_address': 'String', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime'}}
+2019-01-06 16:17:20,821 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:17:20,821 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:17:20,825 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:17:20,825 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:21:21,386 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 16:21:21,386 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 16:21:40,304 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 16:21:40,304 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_time,block_timestamp,difficulty,block_number FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-06 00:00:00') ORDER BY block_timestamp
+2019-01-06 16:21:44,557 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'miner_address': 'String', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime'}}
+2019-01-06 16:21:44,557 - logs/pythonClickhouse.logs:121 - WARNING - table_dict:{'block_tx_warehouse': {'block_number': 'UInt64', 'miner_address': 'String', 'approx_value': 'Float64', 'block_date': 'Date', 'from_addr': 'String', 'transaction_hash': 'String', 'to_addr': 'String', 'block_timestamp': 'Datetime'}}
+2019-01-06 16:21:44,557 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:21:44,557 - logs/pythonClickhouse.logs:136 - WARNING - create table query:CREATE TABLE IF NOT EXISTS aion.block_tx_warehouse (miner_address String,block_number UInt64,block_timestamp Datetime,block_date Date,transaction_hash String,from_addr String,to_addr String,approx_value Float64) ENGINE = MergeTree() ORDER BY (block_timestamp)
+2019-01-06 16:21:44,559 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse
+2019-01-06 16:21:44,559 - logs/pythonClickhouse.logs:145 - WARNING - {} SUCCESSFULLY CREATED:block_tx_warehouse

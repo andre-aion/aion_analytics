@@ -92,7 +92,7 @@ def blockminer_tab():
             logger.warning("top n called:%s",self.n)
             # change n from string to int
             try:
-                #table_n = df1.hvplot.table(columns=['miner_addr','percentage'],
+                #table_n = df1.hvplot.table(columns=['miner_address','percentage'],
                                           #title=title, width=400)
                 logger.warning('top N:%s',self.n)
                 df2 = self.df1.nlargest(self.n,'percentage')
@@ -149,14 +149,14 @@ def blockminer_tab():
 
     try:
         # create class and get date range
-        cols = ['block_number', 'miner_address','block_timestamp', 'miner_addr', 'block_date', 'block_time']
+        cols = ['block_number', 'miner_address','block_timestamp', 'block_time']
         this_tab = This_tab('block',cols, dedup_cols)
 
         #STATIC DATES
         first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        first_date = datetime.strptime("2018-11-01",'%Y-%m-%d')
+        first_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
         last_date = datetime.now().date()
 
         notification_text = this_tab.notification_updater("")

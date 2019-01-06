@@ -1,0 +1,89 @@
+2019-01-05 13:27:23,437 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-05 13:29:01,636 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-05 13:31:06,921 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-05 13:31:07,894 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-05 13:31:51,542 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:109
+2019-01-05 13:32:26,413 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:103
+2019-01-05 13:32:26,414 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-05 13:32:26,414 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-05 13:33:17,909 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:808
+2019-01-05 13:34:16,654 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:934
+2019-01-05 13:34:16,654 - logs/churn.logs:240 - WARNING - tier 2 churn completed
+2019-01-05 13:36:34,518 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-05 13:36:34,726 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-05 13:37:15,033 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:109
+2019-01-05 13:37:50,333 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:103
+2019-01-05 13:37:50,333 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-05 13:37:50,333 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-05 13:38:42,291 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:808
+2019-01-05 13:39:41,028 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:934
+2019-01-05 13:39:41,028 - logs/churn.logs:240 - WARNING - tier 2 churn completed
+2019-01-05 13:42:40,108 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-05 13:42:40,301 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-05 13:43:20,989 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:109
+2019-01-05 13:43:55,921 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:103
+2019-01-05 13:43:55,921 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-05 13:43:55,921 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-05 13:44:46,205 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:808
+2019-01-05 13:45:42,646 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:934
+2019-01-05 13:45:42,646 - logs/churn.logs:240 - WARNING - tier 2 churn completed
+2019-01-05 13:49:02,520 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-05 13:49:03,085 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-05 13:49:42,791 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:109
+2019-01-05 13:50:20,700 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:103
+2019-01-05 13:50:20,701 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-05 13:50:20,701 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-05 13:51:11,518 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:808
+2019-01-05 13:52:10,433 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:934
+2019-01-05 13:52:10,433 - logs/churn.logs:240 - WARNING - tier 2 churn completed
+2019-01-05 13:53:47,817 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-05 13:53:56,835 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:109
+2019-01-05 13:54:03,813 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:103
+2019-01-05 13:54:03,813 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-05 13:54:03,813 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-05 13:54:03,815 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:808
+2019-01-05 13:54:03,816 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:934
+2019-01-05 13:54:03,816 - logs/churn.logs:240 - WARNING - tier 2 churn completed
+2019-01-05 13:58:05,333 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-05 13:59:19,141 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:144
+2019-01-05 13:59:59,251 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:103
+2019-01-05 13:59:59,251 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-05 13:59:59,253 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-05 14:00:13,509 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:808
+2019-01-05 14:00:33,803 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:1073
+2019-01-05 14:00:33,803 - logs/churn.logs:240 - WARNING - tier 2 churn completed
+2019-01-06 15:09:34,632 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 15:09:35,517 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-06 15:09:42,284 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:109
+2019-01-06 15:12:01,224 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 15:12:02,527 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-06 15:13:11,163 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:0
+2019-01-06 15:13:35,667 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-06 15:13:36,353 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-06 15:16:00,692 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 15:16:01,875 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-06 15:17:16,805 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-06 15:26:03,772 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 15:30:18,977 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 15:36:58,701 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 15:49:51,725 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 15:59:11,046 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 16:07:18,254 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 16:09:10,548 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 16:17:20,360 - logs/churn.logs:15 - WARNING - logs/churn.logs
+2019-01-06 16:17:20,919 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-06 16:18:22,054 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:85
+2019-01-06 16:18:40,643 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:64
+2019-01-06 16:18:40,643 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-06 16:18:40,644 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-06 16:18:40,648 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:767
+2019-01-06 16:21:21,340 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-06 16:21:21,341 - logs/churn.logs:240 - WARNING - tier 2 churn completed
+2019-01-06 16:23:48,499 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-06 16:25:01,629 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:84
+2019-01-06 16:26:43,449 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:63
+2019-01-06 16:26:43,449 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-06 16:26:43,452 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-06 16:27:15,632 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:767
+2019-01-06 16:27:50,455 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-06 16:27:50,455 - logs/churn.logs:240 - WARNING - tier 2 churn completed

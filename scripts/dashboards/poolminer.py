@@ -66,11 +66,11 @@ def poolminer_tab():
         block_number=[],
         approx_value=[]))
 
-    block_cols = ['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-    transaction_cols = ['block_date', 'block_timestamp',
+    block_cols = ['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
+    transaction_cols = ['block_timestamp',
                         'transaction_hash', 'from_addr',
                         'to_addr', 'approx_value']
-    warehouse_cols = ['block_date', 'block_timestamp', 'block_number', 'to_addr',
+    warehouse_cols = ['block_timestamp', 'block_number', 'to_addr',
                       'from_addr', 'miner_address', 'approx_value', 'transaction_hash']
 
 
@@ -111,6 +111,7 @@ def poolminer_tab():
                     self.tier1_miners_list = make_tier1_list(self.df1, start_date, end_date,
                                                              self.threshold_tx_paid_out,
                                                              self.threshold_blocks_mined)
+
             except Exception:
                 logger.error("get_tier1_list",exc_info=True)
 
@@ -151,7 +152,7 @@ def poolminer_tab():
                 tier1_df = self.tier1_df.compute()
 
                 for x in ['from_addr', 'approx_value', 'block_number']:
-                    if x == 'block_date':
+                    if x == 'block_timestamp':
                         tier1_df[x] = tier1_df[x].dt.strftime('%Y-%m-%d')
                     new_data[x] = tier1_df[x].tolist()
 
@@ -164,7 +165,7 @@ def poolminer_tab():
                 ]
                 return DataTable(source=tier1_src,columns=columns,width=600,height=1400)
                 '''
-                return tier1_df.hvplot.table(columns=['miner_address', 'block_date',
+                return tier1_df.hvplot.table(columns=['miner_address', 'block_timestamp',
                                                   'block_number', 'approx_value'], width=800)
                 '''
                 del new_data
@@ -278,7 +279,7 @@ def poolminer_tab():
         first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        first_date = datetime.strptime("2018-11-01",'%Y-%m-%d')
+        first_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
         last_date = datetime.now().date()
 
         thistab.load_this_data(first_date,last_date)

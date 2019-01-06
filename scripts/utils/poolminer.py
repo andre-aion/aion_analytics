@@ -72,12 +72,12 @@ def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
     logger.warning("df_tx columns in make_poolminer_warehose:%s",df_tx.columns.tolist())
     logger.warning("df_block columns in make_poolminer_warehose:%s",df_block.columns.tolist())
 
-    df_tx = df_tx[['block_date','block_timestamp','transaction_hash','from_addr','to_addr','approx_value']]
+    df_tx = df_tx[['block_timestamp','transaction_hash','from_addr','to_addr','approx_value']]
     df_block = df_block[['miner_address','block_number','transaction_hashes']]
     try:
         key_params = ['block_tx_warehouse']
         meta = make_meta({
-                          'block_date': 'object','block_timestamp':'M8', 'block_number': 'i8',
+                          'block_timestamp':'M8', 'block_number': 'i8',
                           'miner_address': 'object', 'transaction_hashes': 'object'})
         df_block = df_block.map_partitions(explode_transaction_hashes)
         logger.warning('COLUMNS %s:',df_block.columns.tolist())
@@ -98,7 +98,7 @@ def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
 
 
 def daily_percent(df,x):
-    df_perc = df[(df.block_date== x)]
+    df_perc = df[(df.block_timestamp== x)]
     total = df.block_number.sum()
     return 100*x.block_number/total
 
@@ -212,6 +212,7 @@ def make_tier1_list(df, start_date, end_date, threshold_tx_paid_out=5,
 
 
         # save tier1 miner list to redis
+        logger.warning("tier 1 miners list generated, before redis save:%s",len(tier1_miners_list))
         r.save(tier1_miners_list,key_params,start_date, end_date)
 
         del lst_a, lst_b
@@ -287,6 +288,7 @@ def make_tier2_list(df, start_date, end_date,
         gc.collect()
         if len(tier2_miners_list) > 0:
             # save list to redis
+            logger.warning("tier 2 miners list generated, before redis save:%s", len(tier2_miners_list))
             r.save(tier2_miners_list, key_params, start_date, end_date)
 
             return tier2_miners_list

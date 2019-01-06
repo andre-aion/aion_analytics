@@ -126,7 +126,7 @@ def hashrate_tab():
         thistab.triggered_by_bcount = False
 
     try:
-        hashrate_cols=['block_time','block_timestamp','difficulty','block_date','block_number']
+        hashrate_cols=['block_time','block_timestamp','difficulty','block_number']
         thistab = _Thistab('block', hashrate_cols, dedup_cols)
         thistab.blockcount = 10
 
@@ -135,7 +135,7 @@ def hashrate_tab():
         first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        first_date = datetime.strptime("2018-11-01", '%Y-%m-%d')
+        first_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
         last_date = datetime.now().date()
 
         #thistab.load_this_data(first_date,last_date)

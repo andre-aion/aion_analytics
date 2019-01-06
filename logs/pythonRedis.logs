@@ -1,0 +1,93 @@
+2019-01-05 13:27:21,537 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-05 13:27:51,962 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:27:51,976 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:28:59,742 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-05 13:31:05,368 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-05 13:32:57,284 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:33:53,257 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-10-01:2018-11-30
+2019-01-05 13:34:47,472 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:34:47,476 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:35:02,922 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:35:17,919 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:35:24,810 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
+2019-01-05 13:36:33,316 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-05 13:38:21,102 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:39:17,800 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-10-01:2018-11-30
+2019-01-05 13:40:10,393 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:40:10,398 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:40:43,775 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:40:58,974 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:41:05,836 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
+2019-01-05 13:42:38,905 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-05 13:44:25,867 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:45:20,013 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-10-01:2018-11-30
+2019-01-05 13:46:03,548 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:46:03,552 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:46:34,845 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:46:49,785 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:46:56,603 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
+2019-01-05 13:49:01,330 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-05 13:50:51,042 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:51:47,297 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-10-01:2018-11-30
+2019-01-05 13:52:40,018 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:52:40,021 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:52:55,451 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:53:12,415 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:53:22,247 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
+2019-01-05 13:53:47,818 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2019-01-05 13:53:47,823 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-10-01:2018-11-30
+2019-01-05 13:53:56,835 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:53:56,838 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:54:03,814 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
+2019-01-05 13:54:03,815 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier2_miners_list:0.5:1:1:2018-10-01:2018-11-30
+2019-01-05 13:54:34,449 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:54:34,453 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:54:50,020 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-05
+2019-01-05 13:55:05,883 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-05 13:55:12,972 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
+2019-01-05 13:59:34,980 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-05
+2019-01-06 15:09:30,917 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 15:09:35,523 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2019-01-06 15:09:35,640 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-10-01:2018-11-30
+2019-01-06 15:11:55,870 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 15:13:35,670 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-10-01:2018-11-30
+2019-01-06 15:13:35,682 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-10-01:2018-11-30
+2019-01-06 15:15:55,169 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 15:17:16,817 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-10-01:2018-11-30
+2019-01-06 15:25:59,402 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 15:30:02,666 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 15:30:16,344 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 15:36:53,685 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 15:38:14,848 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-11-01:2019-01-06
+2019-01-06 15:38:34,725 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-11-01:2019-01-06
+2019-01-06 15:42:49,317 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1.0:1.0:2018-10-01:2019-01-06
+2019-01-06 15:43:23,631 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-10-01:2019-01-06
+2019-01-06 15:49:49,302 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 15:49:52,241 - logs/pythonRedis.logs:107 - WARNING - load-df key:block_tx_warehouse:2018-12-15:2019-01-06
+2019-01-06 15:49:52,242 - logs/pythonRedis.logs:113 - ERROR - load item
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/storage/pythonRedis.py", line 108, in load
+    item = pickle.loads(zlib.decompress(self.conn.get(key)))
+TypeError: a bytes-like object is required, not 'NoneType'
+2019-01-06 15:59:08,439 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 15:59:11,433 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-12-15:2019-01-06
+2019-01-06 15:59:11,513 - logs/pythonRedis.logs:107 - WARNING - load-df key:b'block_tx_warehouse:2018-11-01:2019-01-06'
+2019-01-06 16:00:09,863 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-12-15:2019-01-06
+2019-01-06 16:07:15,312 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 16:07:18,704 - logs/pythonRedis.logs:107 - WARNING - load-df key:b'block_tx_warehouse:2018-11-01:2019-01-06'
+2019-01-06 16:08:47,010 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-12-15:2019-01-06
+2019-01-06 16:08:47,051 - logs/pythonRedis.logs:107 - WARNING - load-df key:b'block_tx_warehouse:2018-11-01:2019-01-06'
+2019-01-06 16:09:07,246 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 16:09:11,435 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-12-15:2019-01-06
+2019-01-06 16:09:11,455 - logs/pythonRedis.logs:107 - WARNING - load-df key:b'block_tx_warehouse:2018-11-01:2019-01-06'
+2019-01-06 16:09:44,059 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-12-15:2019-01-06
+2019-01-06 16:14:20,463 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1.0:1.0:2018-12-01:2019-01-06
+2019-01-06 16:17:16,314 - logs/pythonRedis.logs:15 - WARNING - logs/pythonRedis.logs
+2019-01-06 16:17:20,953 - logs/pythonRedis.logs:107 - WARNING - load-df key:b'block_tx_warehouse:2018-11-01:2019-01-06'
+2019-01-06 16:18:22,056 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-12-15:2019-01-06
+2019-01-06 16:18:22,063 - logs/pythonRedis.logs:107 - WARNING - load-df key:b'block_tx_warehouse:2018-11-01:2019-01-06'
+2019-01-06 16:18:40,646 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-06
+2019-01-06 16:21:44,575 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-12-15:2019-01-06
+2019-01-06 16:21:44,579 - logs/pythonRedis.logs:107 - WARNING - load-df key:b'block_tx_warehouse:2018-11-01:2019-01-06'
+2019-01-06 16:22:35,137 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier1_miners_list:1:1:2018-12-15:2019-01-06
+2019-01-06 16:23:16,915 - logs/pythonRedis.logs:107 - WARNING - load-df key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-06

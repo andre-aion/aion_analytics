@@ -50,20 +50,20 @@ def churn_tab():
     # source for top N table
     tier2_src = ColumnDataSource(data=dict(
         to_addr=[],
-        block_date=[],
+        block_timestamp=[],
         approx_value=[]))
 
     tier1_src = ColumnDataSource(data=dict(
         from_addr=[],
-        block_date=[],
+        block_timestamp=[],
         block_number=[],
         approx_value=[]))
 
-    block_cols = ['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-    transaction_cols = ['block_date', 'block_timestamp',
+    block_cols = ['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
+    transaction_cols = ['block_timestamp',
                         'transaction_hash', 'from_addr',
                         'to_addr', 'approx_value']
-    warehouse_cols = ['block_date','block_timestamp', 'block_number', 'to_addr',
+    warehouse_cols = ['block_timestamp', 'block_number', 'to_addr',
                       'from_addr', 'miner_address', 'approx_value', 'transaction_hash']
 
 
@@ -302,9 +302,9 @@ def churn_tab():
         first_date_range = datetime.strptime("2018-04-23 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
 
-        ref_first_date = datetime.strptime("2018-10-01","%Y-%m-%d")
-        ref_last_date = datetime.strptime("2018-11-30","%Y-%m-%d")
-        period_first_date = datetime.strptime("2018-11-01","%Y-%m-%d")
+        ref_first_date = datetime.strptime("2018-12-01 00:00:00",'%Y-%m-%d %H:%M:%S')
+        ref_last_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
+        period_first_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
         period_last_date = last_date_range
 
         tier1_text = thistab.tier1_churn(period_first_date, period_last_date,

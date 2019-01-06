@@ -95,8 +95,8 @@ class Mytab:
                     memory_params = self.is_in_memory(self.table, req_start_date, req_end_date)
                     if memory_params['in_memory']:
                         #load from redis
-                        self.df = self.redis.load(key_params,req_start_date,req_end_date)
-                        logger.warning("WAREHOUSE LOADED FROM REDIS:%s", self.df.tail(10))
+                        self.df = self.redis.load(key_params,req_start_date,req_end_date,memory_params['key'])
+                        logger.warning("WAREHOUSE LOADED FROM REDIS:%s")
                     else:
                         # load the construction tables df_tx and df_block
                         self.construction_tables['block'].df_load(req_start_date,
@@ -111,7 +111,6 @@ class Mytab:
                             req_end_date)
 
                         #save to parquet
-                        #self.pq.save(self.df, key_params, req_start_date, req_end_date)
                         #logger.warning("WAREHOUSE TO SAVE TO REDIS:%s", self.df.head())
                         self.redis.save(self.df, key_params, req_start_date, req_end_date)
 
@@ -135,10 +134,17 @@ class Mytab:
 
         logger.warning("FILTER start date:%s", start_date)
         logger.warning("FILTER end date:%s", end_date)
+        #logger.warning("filter before conversion: b:%s", self.df1.tail(5))
 
-        meta = ('block_timestamp', 'datetime64[ns]')
-        self.df1['block_timestamp'] = self.df['block_timestamp'].map_partitions(
-            pd.to_datetime, format='%Y-%m-%d %H:%M:%S', meta=meta)
+        # convert block_timestamp from str to timestamp if needed
+        df = self.df1.head()
+        #x = self.df1.ix[1,'block_timestamp']
+        x = df['block_timestamp'].values[0]
+        if isinstance(x,str):
+            logger.warning("CONVERTTING BLOCK TIMESTAMP FROM STRING TO DATETIME")
+            meta = ('block_timestamp', 'datetime64[ns]')
+            self.df1['block_timestamp'] = self.df['block_timestamp'].map_partitions(
+                pd.to_datetime, format='%Y-%m-%d %H:%M:%S', meta=meta)
 
 
         self.df1 = self.df1[(self.df1.block_timestamp >= start_date) &
@@ -202,8 +208,8 @@ class Mytab:
                     redis_key_list = redis_key.split(':')
                     logger.warning('matching keys :%s', redis_key_list)
                     # convert start date in key to datetime
-                    key_start_date = datetime.strptime(redis_key_list[1], '%Y-%m-%d')
-                    key_end_date = datetime.strptime(redis_key_list[2], '%Y-%m-%d')
+                    key_start_date = datetime.strptime(redis_key_list[-2], '%Y-%m-%d')
+                    key_end_date = datetime.strptime(redis_key_list[-1], '%Y-%m-%d')
 
                     # check to see if there is all data to be retrieved from reddis
                     logger.warning('req_start_date:%s', req_start_date)
