@@ -1,1234 +1,328 @@
-2019-01-05 13:27:21,538 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:27:23,435 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:27:23,435 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:27:51,962 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:27:51,962 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:27:51,962 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:27:51,962 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:27:59,495 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:27:59,495 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:28:59,744 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:29:01,635 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:29:01,635 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:29:42,975 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:29:42,975 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:29:42,975 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:29:42,975 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:29:42,989 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:29:42,989 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:29:43,043 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:29:43,043 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:31:05,369 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:31:06,920 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:31:06,920 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:31:24,639 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:31:24,639 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:31:24,639 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:31:24,639 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:31:24,652 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:31:24,652 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:31:24,704 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:31:24,704 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:31:34,229 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:31:34,229 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:31:42,275 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:31:42,275 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:31:42,385 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:31:42,385 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:31:51,369 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:31:51,369 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:32:03,182 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:32:03,182 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:32:03,182 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:32:03,182 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:32:03,194 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:32:03,194 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:32:03,237 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:32:03,237 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:32:09,745 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:32:09,745 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:32:18,032 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:32:18,032 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:32:18,126 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:32:18,126 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:32:26,244 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:32:26,244 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:32:26,421 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:32:26,421 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:32:34,791 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:32:34,791 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:32:34,884 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:32:34,884 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:32:42,785 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:32:42,785 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:33:09,544 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1569867     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      5.07397
-1  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1569878     ...       a09a52b1ad5295d73a9896372d9894b9ada3b607e29988...      1.00460
-2  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1569925     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...      1.48301
-3  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...       1569957     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...      1.48301
-4  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2...       1569977     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...      1.48301
-
-[5 rows x 8 columns]
-2019-01-05 13:33:09,544 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1569867     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      5.07397
-1  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1569878     ...       a09a52b1ad5295d73a9896372d9894b9ada3b607e29988...      1.00460
-2  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1569925     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...      1.48301
-3  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...       1569957     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...      1.48301
-4  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2...       1569977     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...      1.48301
-
-[5 rows x 8 columns]
-2019-01-05 13:33:09,580 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:103
-2019-01-05 13:33:09,580 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:103
-2019-01-05 13:33:17,812 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:808
-2019-01-05 13:33:17,812 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:808
-2019-01-05 13:33:17,916 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:33:17,916 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:33:27,274 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:33:27,274 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:33:27,367 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:33:27,367 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:33:36,549 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:33:36,549 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:34:07,111 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a05801fb2de5b76568a9c13f86766ebe3e6c438272e9fc...       1451043     ...       0000000000000000000000000000000000000000000000...     0.000000
-1  a0437f899d7830777661b23ebaa7b5edac2d6eeaa4a87b...       1451068     ...       a03910d0d891579f5f9725d884097fb7dbfa3a4fc8d051...     1.503490
-2  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1451138     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...     4.446430
-3  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1451138     ...       a0f6a974aa810499aa09a57c64055b77bc0c7a7e7487d5...     0.172523
-4  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1451159     ...       a04aa36862cded973411c5dc23471aa151690f4fc74a71...     1.388490
-
-[5 rows x 8 columns]
-2019-01-05 13:34:07,111 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a05801fb2de5b76568a9c13f86766ebe3e6c438272e9fc...       1451043     ...       0000000000000000000000000000000000000000000000...     0.000000
-1  a0437f899d7830777661b23ebaa7b5edac2d6eeaa4a87b...       1451068     ...       a03910d0d891579f5f9725d884097fb7dbfa3a4fc8d051...     1.503490
-2  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1451138     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...     4.446430
-3  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1451138     ...       a0f6a974aa810499aa09a57c64055b77bc0c7a7e7487d5...     0.172523
-4  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1451159     ...       a04aa36862cded973411c5dc23471aa151690f4fc74a71...     1.388490
-
-[5 rows x 8 columns]
-2019-01-05 13:34:07,148 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:109
-2019-01-05 13:34:07,148 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:109
-2019-01-05 13:34:16,557 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:934
-2019-01-05 13:34:16,557 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:934
-2019-01-05 13:34:47,472 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:34:47,472 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:34:47,472 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:34:47,472 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:34:54,240 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:34:54,240 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:35:02,921 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:102
-2019-01-05 13:35:02,921 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:102
-2019-01-05 13:35:02,922 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:35:02,922 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:35:02,922 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:35:02,922 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:35:24,810 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:35:24,810 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:35:24,810 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:35:24,810 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:35:33,843 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:808
-2019-01-05 13:35:33,843 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:808
-2019-01-05 13:36:33,317 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:36:34,517 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:36:34,517 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:36:47,903 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:36:47,903 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:36:47,903 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:36:47,903 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:36:47,916 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:36:47,916 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:36:47,962 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:36:47,962 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:36:56,105 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:36:56,105 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:37:05,432 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:37:05,432 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:37:05,544 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:37:05,544 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:37:14,864 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:37:14,864 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:37:26,601 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:37:26,601 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:37:26,601 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:37:26,601 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:37:26,612 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:37:26,612 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:37:26,657 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:37:26,657 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:37:33,117 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:37:33,117 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:37:41,367 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:37:41,367 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:37:41,459 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:37:41,459 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:37:50,150 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:37:50,150 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:37:50,341 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:37:50,341 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:37:58,264 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:37:58,264 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:37:58,359 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:37:58,359 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:38:06,760 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:38:06,760 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:38:33,391 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a01252aa9f4bd395324f5896002f0525a7470193c3416f...       1651047     ...       a0c7ab821f819439e985742ddf17d36e38f94a7a75ae06...      1.00702
-1  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1651074     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.79805
-2  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1651145     ...       a0b017c28ad66e3a94a2618475b26b30b5fb02bb4e1ca0...      1.19900
-3  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1651159     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.82112
-4  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1651160     ...       a0a774e22a2293f84c98df3d3c91dc7fe81ce80ddc3ef8...      2.04776
-
-[5 rows x 8 columns]
-2019-01-05 13:38:33,391 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a01252aa9f4bd395324f5896002f0525a7470193c3416f...       1651047     ...       a0c7ab821f819439e985742ddf17d36e38f94a7a75ae06...      1.00702
-1  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1651074     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.79805
-2  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1651145     ...       a0b017c28ad66e3a94a2618475b26b30b5fb02bb4e1ca0...      1.19900
-3  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1651159     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.82112
-4  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1651160     ...       a0a774e22a2293f84c98df3d3c91dc7fe81ce80ddc3ef8...      2.04776
-
-[5 rows x 8 columns]
-2019-01-05 13:38:33,428 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:103
-2019-01-05 13:38:33,428 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:103
-2019-01-05 13:38:42,195 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:808
-2019-01-05 13:38:42,195 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:808
-2019-01-05 13:38:42,297 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:38:42,297 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:38:51,671 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:38:51,671 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:38:51,767 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:38:51,767 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:39:01,015 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:39:01,015 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:39:31,585 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315567     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...      1.48301
-1  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315598     ...       a006c8fce45da3ee0ebd78897602cc902b5d441210552b...      1.34377
-2  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315608     ...       a0cf91c3642bb665d000e7c4e2c5d8123084d6f5dc5ea5...      1.16321
-3  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1315610     ...       a08752a663d75ec754feda02670d105ac84465d8da5bf5...      4.69458
-4  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1315612     ...       a0d72fd85a54058a455425658e45dc269a0109db92fa1b...      1.66209
-
-[5 rows x 8 columns]
-2019-01-05 13:39:31,585 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315567     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...      1.48301
-1  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315598     ...       a006c8fce45da3ee0ebd78897602cc902b5d441210552b...      1.34377
-2  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315608     ...       a0cf91c3642bb665d000e7c4e2c5d8123084d6f5dc5ea5...      1.16321
-3  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1315610     ...       a08752a663d75ec754feda02670d105ac84465d8da5bf5...      4.69458
-4  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1315612     ...       a0d72fd85a54058a455425658e45dc269a0109db92fa1b...      1.66209
-
-[5 rows x 8 columns]
-2019-01-05 13:39:31,621 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:109
-2019-01-05 13:39:31,621 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:109
-2019-01-05 13:39:40,932 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:934
-2019-01-05 13:39:40,932 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:934
-2019-01-05 13:40:10,393 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:40:10,393 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:40:10,393 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:40:10,393 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:40:17,903 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:40:17,903 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:40:43,774 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:102
-2019-01-05 13:40:43,774 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:102
-2019-01-05 13:40:43,775 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:40:43,775 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:40:43,775 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:40:43,775 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:41:05,836 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:41:05,836 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:41:05,836 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:41:05,836 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:41:14,940 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:808
-2019-01-05 13:41:14,940 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:808
-2019-01-05 13:42:38,906 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:42:40,108 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:42:40,108 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:42:53,174 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:42:53,174 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:42:53,174 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:42:53,174 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:42:53,188 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:42:53,188 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:42:53,238 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:42:53,238 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:43:02,090 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:43:02,090 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:43:11,510 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:43:11,510 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:43:11,616 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:43:11,616 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:43:20,815 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:43:20,815 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:43:32,594 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:43:32,594 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:43:32,594 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:43:32,594 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:43:32,606 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:43:32,606 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:43:32,650 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:43:32,650 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:43:39,353 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:43:39,353 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:43:47,478 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:43:47,478 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:43:47,569 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:43:47,569 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:43:55,747 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:43:55,747 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:43:55,929 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:43:55,929 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:44:03,623 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:44:03,623 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:44:03,713 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:44:03,713 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:44:11,769 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:44:11,769 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:44:37,880 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...       1624507     ...       a09d412121536306158aaebac0592776cea36cff61ac1a...     10.02030
-2  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2...       1624560     ...       a0c801e939167e2721e77542f397ea258981a554c1760e...      1.53395
-3  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1624566     ...       a01b830d931d91a069812b33b20320dce0730fad85b489...      7.04044
-4  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1624585     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.92208
-5  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1624593     ...       a02e4993f7efffc7b1d64dc9090345d6c4b9e3222fc92a...      1.14692
-
-[5 rows x 8 columns]
-2019-01-05 13:44:37,880 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...       1624507     ...       a09d412121536306158aaebac0592776cea36cff61ac1a...     10.02030
-2  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2...       1624560     ...       a0c801e939167e2721e77542f397ea258981a554c1760e...      1.53395
-3  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1624566     ...       a01b830d931d91a069812b33b20320dce0730fad85b489...      7.04044
-4  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1624585     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.92208
-5  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1624593     ...       a02e4993f7efffc7b1d64dc9090345d6c4b9e3222fc92a...      1.14692
-
-[5 rows x 8 columns]
-2019-01-05 13:44:37,914 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:103
-2019-01-05 13:44:37,914 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:103
-2019-01-05 13:44:46,113 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:808
-2019-01-05 13:44:46,113 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:808
-2019-01-05 13:44:46,209 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:44:46,209 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:44:55,193 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:44:55,193 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:44:55,283 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:44:55,283 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:45:03,964 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:45:03,964 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:45:33,256 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1485051     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      2.32934
-1  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1485057     ...       a0087a80a36939ab9fa165b1618ba6f5372a9a120adff8...      0.90000
-2  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1485112     ...       a0bcf7a56a0065113e4b0891d60f087ec461b327768225...      1.01558
-3  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1485118     ...       a05f0c983b1b12d362ce2a038995319e5079284d576303...      1.06093
-4  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1485120     ...       a073d0ab5e39c9a7a5fe9a646b22905fecd83b217fde75...      1.62924
-
-[5 rows x 8 columns]
-2019-01-05 13:45:33,256 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1485051     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      2.32934
-1  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1485057     ...       a0087a80a36939ab9fa165b1618ba6f5372a9a120adff8...      0.90000
-2  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1485112     ...       a0bcf7a56a0065113e4b0891d60f087ec461b327768225...      1.01558
-3  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1485118     ...       a05f0c983b1b12d362ce2a038995319e5079284d576303...      1.06093
-4  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1485120     ...       a073d0ab5e39c9a7a5fe9a646b22905fecd83b217fde75...      1.62924
-
-[5 rows x 8 columns]
-2019-01-05 13:45:33,293 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:109
-2019-01-05 13:45:33,293 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:109
-2019-01-05 13:45:42,557 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:934
-2019-01-05 13:45:42,557 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:934
-2019-01-05 13:46:03,548 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:46:03,548 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:46:03,548 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:46:03,548 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:46:10,126 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:46:10,126 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:46:34,843 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:102
-2019-01-05 13:46:34,843 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:102
-2019-01-05 13:46:34,845 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:46:34,845 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:46:34,845 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:46:34,845 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:46:56,602 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:46:56,602 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:46:56,603 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:46:56,603 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:47:04,771 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:808
-2019-01-05 13:47:04,771 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:808
-2019-01-05 13:49:01,331 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:49:02,519 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:49:02,519 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-05 13:49:16,342 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:49:16,342 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:49:16,343 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:49:16,343 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:49:16,355 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:49:16,355 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:49:16,402 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:49:16,402 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:49:24,493 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:49:24,493 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:49:33,236 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:49:33,236 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:49:33,348 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:49:33,348 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:49:42,619 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:49:42,619 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:49:55,676 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:49:55,676 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:49:55,676 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:49:55,676 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:49:55,690 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:49:55,690 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:49:55,738 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:49:55,738 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:50:02,275 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:50:02,275 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:50:11,939 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:50:11,939 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:50:12,032 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:50:12,032 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:50:20,538 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:50:20,538 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:50:20,708 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:50:20,708 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:50:28,489 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:50:28,489 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:50:28,579 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:50:28,579 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:50:36,555 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:50:36,555 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:51:03,161 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...       1624507     ...       a09d412121536306158aaebac0592776cea36cff61ac1a...     10.02030
-2  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2...       1624560     ...       a0c801e939167e2721e77542f397ea258981a554c1760e...      1.53395
-3  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1624566     ...       a01b830d931d91a069812b33b20320dce0730fad85b489...      7.04044
-4  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1624585     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.92208
-5  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1624593     ...       a02e4993f7efffc7b1d64dc9090345d6c4b9e3222fc92a...      1.14692
-
-[5 rows x 8 columns]
-2019-01-05 13:51:03,161 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...       1624507     ...       a09d412121536306158aaebac0592776cea36cff61ac1a...     10.02030
-2  a022a68ef27e5febe4570edb2ce5586974cb326f24fce2...       1624560     ...       a0c801e939167e2721e77542f397ea258981a554c1760e...      1.53395
-3  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1624566     ...       a01b830d931d91a069812b33b20320dce0730fad85b489...      7.04044
-4  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1624585     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.92208
-5  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1624593     ...       a02e4993f7efffc7b1d64dc9090345d6c4b9e3222fc92a...      1.14692
-
-[5 rows x 8 columns]
-2019-01-05 13:51:03,197 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:103
-2019-01-05 13:51:03,197 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:103
-2019-01-05 13:51:11,421 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:808
-2019-01-05 13:51:11,421 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:808
-2019-01-05 13:51:11,522 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:51:11,522 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-05 13:51:20,895 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:51:20,895 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 108
-2019-01-05 13:51:20,991 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:51:20,991 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-05 13:51:30,397 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:51:30,397 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-05 13:52:00,672 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1485051     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      2.32934
-1  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1485057     ...       a0087a80a36939ab9fa165b1618ba6f5372a9a120adff8...      0.90000
-2  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1485112     ...       a0bcf7a56a0065113e4b0891d60f087ec461b327768225...      1.01558
-3  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1485118     ...       a05f0c983b1b12d362ce2a038995319e5079284d576303...      1.06093
-4  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1485120     ...       a073d0ab5e39c9a7a5fe9a646b22905fecd83b217fde75...      1.62924
-
-[5 rows x 8 columns]
-2019-01-05 13:52:00,672 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1485051     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      2.32934
-1  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1485057     ...       a0087a80a36939ab9fa165b1618ba6f5372a9a120adff8...      0.90000
-2  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1485112     ...       a0bcf7a56a0065113e4b0891d60f087ec461b327768225...      1.01558
-3  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1485118     ...       a05f0c983b1b12d362ce2a038995319e5079284d576303...      1.06093
-4  a04b19c1e9c60ad9cfaf821c0fc8cc2df19edb7f34d092...       1485120     ...       a073d0ab5e39c9a7a5fe9a646b22905fecd83b217fde75...      1.62924
-
-[5 rows x 8 columns]
-2019-01-05 13:52:00,713 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:109
-2019-01-05 13:52:00,713 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:109
-2019-01-05 13:52:10,335 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:934
-2019-01-05 13:52:10,335 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:934
-2019-01-05 13:52:40,017 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:52:40,017 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:52:40,018 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:52:40,018 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:52:46,783 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:52:46,783 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:52:55,449 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:102
-2019-01-05 13:52:55,449 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:102
-2019-01-05 13:52:55,451 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:52:55,451 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:52:55,451 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:52:55,451 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:53:22,247 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:53:22,247 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:53:22,247 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:53:22,247 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:53:33,173 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:808
-2019-01-05 13:53:33,173 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:808
-2019-01-05 13:53:47,817 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
-2019-01-05 13:53:47,817 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
-2019-01-05 13:53:47,818 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:53:47,818 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:53:56,835 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:53:56,835 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:53:56,835 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:53:56,835 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:54:03,813 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:54:03,813 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:54:03,814 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:54:03,814 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:54:03,815 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-10-01:2018-11-30
-2019-01-05 13:54:03,815 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-10-01:2018-11-30
-2019-01-05 13:54:03,815 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:54:03,815 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:54:34,449 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:54:34,449 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:54:34,449 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:54:34,449 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:54:41,579 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:54:41,579 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:54:50,018 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:102
-2019-01-05 13:54:50,018 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:102
-2019-01-05 13:54:50,019 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:54:50,019 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-05
-2019-01-05 13:54:50,020 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:54:50,020 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-05 13:55:12,971 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:55:12,971 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-11-01:2019-01-05
-2019-01-05 13:55:12,972 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:55:12,972 - logs/poolminer.logs:238 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-05 13:55:21,749 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:808
-2019-01-05 13:55:21,749 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:808
-2019-01-05 13:58:40,501 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:58:40,501 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-05 13:58:40,501 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:58:40,501 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_date', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-05 13:58:40,513 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:58:40,513 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-05 13:58:40,563 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:58:40,563 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_date', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-05 13:58:52,828 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-05 13:58:52,828 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-05 13:59:05,693 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 142
-2019-01-05 13:59:05,693 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 142
-2019-01-05 13:59:05,796 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:7776.0
-2019-01-05 13:59:05,796 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:7776.0
-2019-01-05 13:59:18,956 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 14
-2019-01-05 13:59:18,956 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 14
-2019-01-05 13:59:42,019 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-05 13:59:42,019 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-05 13:59:50,196 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:59:50,196 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 102
-2019-01-05 13:59:50,304 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:59:50,304 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5616.0
-2019-01-05 13:59:59,070 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 13:59:59,070 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 10
-2019-01-05 14:00:04,718 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1597678     ...       a073e9905e0574f8e07221f883fecc91e69730ae86a218...     1.510300
-2  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1597731     ...       a0735f087709966dedc35558a741749493d86fe5b17c19...     1.004170
-3  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1597731     ...       a0184d22ce1bf85b02db254d87e6d1355085b2e02fb17c...     1.746610
-4  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1597744     ...       a0c3aa81098c35cbe5f2fe222f27f3f56ac85cafe4ea63...     0.120913
-5  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1597756     ...       a0d0571f39822191febbd3c0761c53fb578b2beecaedc6...     1.044170
-
-[5 rows x 8 columns]
-2019-01-05 14:00:04,718 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1597678     ...       a073e9905e0574f8e07221f883fecc91e69730ae86a218...     1.510300
-2  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1597731     ...       a0735f087709966dedc35558a741749493d86fe5b17c19...     1.004170
-3  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1597731     ...       a0184d22ce1bf85b02db254d87e6d1355085b2e02fb17c...     1.746610
-4  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1597744     ...       a0c3aa81098c35cbe5f2fe222f27f3f56ac85cafe4ea63...     0.120913
-5  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1597756     ...       a0d0571f39822191febbd3c0761c53fb578b2beecaedc6...     1.044170
-
-[5 rows x 8 columns]
-2019-01-05 14:00:04,753 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:103
-2019-01-05 14:00:04,753 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:103
-2019-01-05 14:00:13,410 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:808
-2019-01-05 14:00:13,410 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:808
-2019-01-05 14:00:20,459 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b...       1368797     ...       a0e261cada30e67f48cdee9db9fae5d205f4bc3b63ec7c...      1.04630
-1  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1368824     ...       a0e37f306a356e0e2217db55578d1ee2f2fab0175c8f83...      1.00128
-2  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...       1368833     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.72423
-3  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1368904     ...       a0087f6afb456a5d69855594606594e6bc5309cd0b8ad2...      1.39964
-4  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1368913     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.01910
-
-[5 rows x 8 columns]
-2019-01-05 14:00:20,459 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b...       1368797     ...       a0e261cada30e67f48cdee9db9fae5d205f4bc3b63ec7c...      1.04630
-1  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1368824     ...       a0e37f306a356e0e2217db55578d1ee2f2fab0175c8f83...      1.00128
-2  a08fbc834b450044e750b90b2a43fec15ba03fd0c20fd5...       1368833     ...       a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2...      1.72423
-3  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1368904     ...       a0087f6afb456a5d69855594606594e6bc5309cd0b8ad2...      1.39964
-4  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1368913     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.01910
-
-[5 rows x 8 columns]
-2019-01-05 14:00:20,509 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:144
-2019-01-05 14:00:20,509 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:144
-2019-01-05 14:00:33,694 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:1073
-2019-01-05 14:00:33,694 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:1073
-2019-01-06 15:09:30,926 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:09:34,622 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:09:34,622 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:09:35,520 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
-2019-01-06 15:09:35,520 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
-2019-01-06 15:09:35,522 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 15:09:35,522 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 15:10:09,620 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:10:09,620 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:10:09,620 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:10:09,620 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:10:09,645 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:10:09,645 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:10:09,749 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:10:09,749 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:11:55,875 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:12:01,221 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:12:01,221 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:12:27,204 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:12:27,204 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:12:27,205 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:12:27,205 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:12:27,231 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:12:27,231 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:12:27,322 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:12:27,322 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:12:39,793 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:12:39,793 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:12:51,354 - logs/poolminer.logs:125 - ERROR - tx paid out
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 116, in list_by_tx_paid_out
-    lst1 = df_temp['from_addr'].unique().compute()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
-    (result,) = compute(self, traverse=False, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
-    results = schedule(dsk, keys, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
-    pack_exception=pack_exception, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 501, in get_async
-    raise_exception(exc, tb)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/compatibility.py", line 112, in reraise
-    raise exc
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 272, in execute_task
-    result = _execute_task(task, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 253, in _execute_task
-    return func(*args2)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3660, in apply_and_enforce
-    df = func(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 454, in to_datetime
-    result = _assemble_from_unit_mappings(arg, errors=errors)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 520, in _assemble_from_unit_mappings
-    raise ValueError("cannot assemble with duplicate keys")
-ValueError: cannot assemble with duplicate keys
-2019-01-06 15:12:51,354 - logs/poolminer.logs:125 - ERROR - tx paid out
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 116, in list_by_tx_paid_out
-    lst1 = df_temp['from_addr'].unique().compute()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
-    (result,) = compute(self, traverse=False, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
-    results = schedule(dsk, keys, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
-    pack_exception=pack_exception, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 501, in get_async
-    raise_exception(exc, tb)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/compatibility.py", line 112, in reraise
-    raise exc
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 272, in execute_task
-    result = _execute_task(task, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 253, in _execute_task
-    return func(*args2)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3660, in apply_and_enforce
-    df = func(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 454, in to_datetime
-    result = _assemble_from_unit_mappings(arg, errors=errors)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 520, in _assemble_from_unit_mappings
-    raise ValueError("cannot assemble with duplicate keys")
-ValueError: cannot assemble with duplicate keys
-2019-01-06 15:12:51,688 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-06 15:12:51,688 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-06 15:13:10,993 - logs/poolminer.logs:148 - ERROR - block mined daily
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 140, in list_from_blocks_mined_daily
-    lst1 = df_temp['miner_address'].unique().compute()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
-    (result,) = compute(self, traverse=False, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
-    results = schedule(dsk, keys, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
-    pack_exception=pack_exception, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 501, in get_async
-    raise_exception(exc, tb)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/compatibility.py", line 112, in reraise
-    raise exc
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 272, in execute_task
-    result = _execute_task(task, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 253, in _execute_task
-    return func(*args2)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3660, in apply_and_enforce
-    df = func(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 454, in to_datetime
-    result = _assemble_from_unit_mappings(arg, errors=errors)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 520, in _assemble_from_unit_mappings
-    raise ValueError("cannot assemble with duplicate keys")
-ValueError: cannot assemble with duplicate keys
-2019-01-06 15:13:10,993 - logs/poolminer.logs:148 - ERROR - block mined daily
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 140, in list_from_blocks_mined_daily
-    lst1 = df_temp['miner_address'].unique().compute()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
-    (result,) = compute(self, traverse=False, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
-    results = schedule(dsk, keys, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
-    pack_exception=pack_exception, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 501, in get_async
-    raise_exception(exc, tb)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/compatibility.py", line 112, in reraise
-    raise exc
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 272, in execute_task
-    result = _execute_task(task, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 253, in _execute_task
-    return func(*args2)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3660, in apply_and_enforce
-    df = func(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 454, in to_datetime
-    result = _assemble_from_unit_mappings(arg, errors=errors)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 520, in _assemble_from_unit_mappings
-    raise ValueError("cannot assemble with duplicate keys")
-ValueError: cannot assemble with duplicate keys
-2019-01-06 15:13:35,668 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
-2019-01-06 15:13:35,668 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-10-01:2018-11-30
-2019-01-06 15:13:35,669 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 15:13:35,669 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 15:13:36,753 - logs/poolminer.logs:181 - ERROR - is_tier1_in_memory:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 170, in is_tier1_in_memory
-    redis_key = get_key_in_redis(key_params, start_date, end_date)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 156, in get_key_in_redis
-    for redis_key in matches:
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/redis/client.py", line 1710, in scan_iter
-    cursor, data = self.scan(cursor=cursor, match=match, count=count)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/redis/client.py", line 1697, in scan
-    return self.execute_command('SCAN', *pieces)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/redis/client.py", line 755, in execute_command
-    return self.parse_response(connection, command_name, **options)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/redis/client.py", line 774, in parse_response
-    return self.response_callbacks[command_name](response, **options)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/redis/client.py", line 325, in parse_scan
-    cursor, r = response
-ValueError: too many values to unpack (expected 2)
-2019-01-06 15:13:36,753 - logs/poolminer.logs:181 - ERROR - is_tier1_in_memory:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 170, in is_tier1_in_memory
-    redis_key = get_key_in_redis(key_params, start_date, end_date)
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 156, in get_key_in_redis
-    for redis_key in matches:
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/redis/client.py", line 1710, in scan_iter
-    cursor, data = self.scan(cursor=cursor, match=match, count=count)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/redis/client.py", line 1697, in scan
-    return self.execute_command('SCAN', *pieces)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/redis/client.py", line 755, in execute_command
-    return self.parse_response(connection, command_name, **options)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/redis/client.py", line 774, in parse_response
-    return self.response_callbacks[command_name](response, **options)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/redis/client.py", line 325, in parse_scan
-    cursor, r = response
-ValueError: too many values to unpack (expected 2)
-2019-01-06 15:15:55,180 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:16:00,690 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:16:00,690 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:16:42,445 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:16:42,445 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:16:42,445 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:16:42,445 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:16:42,485 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:16:42,485 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:16:42,626 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:16:42,626 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:17:01,803 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:17:01,803 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:17:22,475 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:17:22,475 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:17:44,066 - logs/poolminer.logs:125 - ERROR - tx paid out
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 116, in list_by_tx_paid_out
-    lst1 = df_temp['from_addr'].unique().compute()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
-    (result,) = compute(self, traverse=False, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
-    results = schedule(dsk, keys, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
-    pack_exception=pack_exception, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 501, in get_async
-    raise_exception(exc, tb)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/compatibility.py", line 112, in reraise
-    raise exc
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 272, in execute_task
-    result = _execute_task(task, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 253, in _execute_task
-    return func(*args2)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3660, in apply_and_enforce
-    df = func(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 454, in to_datetime
-    result = _assemble_from_unit_mappings(arg, errors=errors)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 520, in _assemble_from_unit_mappings
-    raise ValueError("cannot assemble with duplicate keys")
-ValueError: cannot assemble with duplicate keys
-2019-01-06 15:17:44,066 - logs/poolminer.logs:125 - ERROR - tx paid out
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/utils/poolminer.py", line 116, in list_by_tx_paid_out
-    lst1 = df_temp['from_addr'].unique().compute()
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 156, in compute
-    (result,) = compute(self, traverse=False, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/base.py", line 395, in compute
-    results = schedule(dsk, keys, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/threaded.py", line 75, in get
-    pack_exception=pack_exception, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 501, in get_async
-    raise_exception(exc, tb)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/compatibility.py", line 112, in reraise
-    raise exc
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 272, in execute_task
-    result = _execute_task(task, data)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/local.py", line 253, in _execute_task
-    return func(*args2)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/dask/dataframe/core.py", line 3660, in apply_and_enforce
-    df = func(*args, **kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 454, in to_datetime
-    result = _assemble_from_unit_mappings(arg, errors=errors)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/tools/datetimes.py", line 520, in _assemble_from_unit_mappings
-    raise ValueError("cannot assemble with duplicate keys")
-ValueError: cannot assemble with duplicate keys
-2019-01-06 15:17:44,239 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-06 15:17:44,239 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5184.0
-2019-01-06 15:25:59,411 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:26:03,769 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:26:03,769 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:26:37,391 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:26:37,391 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:26:37,391 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:26:37,391 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:26:37,413 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:26:37,413 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:26:37,503 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:26:37,503 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:27:08,866 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:27:08,866 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:30:02,673 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:30:16,346 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:30:18,976 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:30:18,976 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:30:45,693 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:30:45,693 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:30:45,694 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:30:45,694 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:30:45,714 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:30:45,714 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:30:45,795 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:30:45,795 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:31:24,982 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:31:24,982 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:36:53,697 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:36:58,700 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:36:58,700 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:37:18,732 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:37:18,732 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:37:18,732 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:37:18,732 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:37:18,748 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:37:18,748 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:37:18,815 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:37:18,815 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:37:41,286 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:37:41,286 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:37:52,322 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 109
-2019-01-06 15:37:52,322 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 109
-2019-01-06 15:37:52,443 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5702.4
-2019-01-06 15:37:52,443 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5702.4
-2019-01-06 15:38:03,294 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-06 15:38:03,294 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-06 15:38:03,481 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:38:03,481 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:38:14,846 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:110
-2019-01-06 15:38:14,846 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:110
-2019-01-06 15:38:14,848 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-06
-2019-01-06 15:38:14,848 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-11-01:2019-01-06
-2019-01-06 15:38:14,848 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 15:38:14,848 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 15:39:02,704 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1606237     ...       a066367cc918f97ac8cde5f9e52c405ccd9a519a3d5813...      1.01875
-1  a0afea235b391cc31bf4a26d6bb5513639c718941a4741...       1606262     ...       a09c1d3b530703a66df23870ab45820932cce13d9b3c2f...      1.11693
-2  a0afea235b391cc31bf4a26d6bb5513639c718941a4741...       1606282     ...       a0c7cb2de404ad686f30a5854d1c56436a4d7a53cea234...    374.02870
-3  a0061525a5e19470069c176cdeb7f578d537debdfce2fd...       1606340     ...       a01e524f8dcca15ef6ed02d5df7336fa6d274e8cdae63b...    640.03810
-4  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1606342     ...       a0672b503de6f3a9b705443baa0f896dc43e8a1d0e9856...      1.27038
-
-[5 rows x 7 columns]
-2019-01-06 15:39:02,704 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1606237     ...       a066367cc918f97ac8cde5f9e52c405ccd9a519a3d5813...      1.01875
-1  a0afea235b391cc31bf4a26d6bb5513639c718941a4741...       1606262     ...       a09c1d3b530703a66df23870ab45820932cce13d9b3c2f...      1.11693
-2  a0afea235b391cc31bf4a26d6bb5513639c718941a4741...       1606282     ...       a0c7cb2de404ad686f30a5854d1c56436a4d7a53cea234...    374.02870
-3  a0061525a5e19470069c176cdeb7f578d537debdfce2fd...       1606340     ...       a01e524f8dcca15ef6ed02d5df7336fa6d274e8cdae63b...    640.03810
-4  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1606342     ...       a0672b503de6f3a9b705443baa0f896dc43e8a1d0e9856...      1.27038
-
-[5 rows x 7 columns]
-2019-01-06 15:39:02,836 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:111
-2019-01-06 15:39:02,836 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:111
-2019-01-06 15:39:24,021 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:971
-2019-01-06 15:39:24,021 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:971
-2019-01-06 15:39:43,251 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:971
-2019-01-06 15:39:43,251 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:971
-2019-01-06 15:41:00,405 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:41:00,405 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:41:00,405 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:41:00,405 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:41:00,427 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:41:00,427 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:41:00,499 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:41:00,499 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:41:45,290 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-06 15:41:45,290 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-06 15:42:12,606 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 120
-2019-01-06 15:42:12,606 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 120
-2019-01-06 15:42:12,730 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:8380.8
-2019-01-06 15:42:12,730 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:8380.8
-2019-01-06 15:42:30,938 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-06 15:42:30,938 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 11
-2019-01-06 15:42:31,156 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:42:31,156 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:42:49,313 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:120
-2019-01-06 15:42:49,313 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:120
-2019-01-06 15:42:49,316 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1.0:1.0:2018-10-01:2019-01-06
-2019-01-06 15:42:49,316 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1.0:1.0:2018-10-01:2019-01-06
-2019-01-06 15:42:49,317 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 15:42:49,317 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 15:44:07,750 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315567     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...      1.48301
-1  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315598     ...       a006c8fce45da3ee0ebd78897602cc902b5d441210552b...      1.34377
-2  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315608     ...       a0cf91c3642bb665d000e7c4e2c5d8123084d6f5dc5ea5...      1.16321
-3  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1315610     ...       a08752a663d75ec754feda02670d105ac84465d8da5bf5...      4.69459
-4  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1315612     ...       a0d72fd85a54058a455425658e45dc269a0109db92fa1b...      1.66209
-
-[5 rows x 7 columns]
-2019-01-06 15:44:07,750 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                       miner_address  block_number     ...                                                 to_addr approx_value
-0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315567     ...       a0a1dfe30b0c12e0aceb5582c879efcf9502b9bbc28e44...      1.48301
-1  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315598     ...       a006c8fce45da3ee0ebd78897602cc902b5d441210552b...      1.34377
-2  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1315608     ...       a0cf91c3642bb665d000e7c4e2c5d8123084d6f5dc5ea5...      1.16321
-3  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1315610     ...       a08752a663d75ec754feda02670d105ac84465d8da5bf5...      4.69459
-4  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1315612     ...       a0d72fd85a54058a455425658e45dc269a0109db92fa1b...      1.66209
-
-[5 rows x 7 columns]
-2019-01-06 15:44:07,885 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:121
-2019-01-06 15:44:07,885 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:121
-2019-01-06 15:44:30,902 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:1088
-2019-01-06 15:44:30,902 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:1088
-2019-01-06 15:44:50,757 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:1088
-2019-01-06 15:44:50,757 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:1088
-2019-01-06 15:49:49,307 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:49:51,719 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:49:51,719 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:49:52,244 - logs/poolminer.logs:115 - ERROR - get_tier1_list
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 106, in get_tier1_list
-    self.df1 = self.df1.fillna(values)
-AttributeError: 'NoneType' object has no attribute 'fillna'
-2019-01-06 15:49:52,244 - logs/poolminer.logs:115 - ERROR - get_tier1_list
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 106, in get_tier1_list
-    self.df1 = self.df1.fillna(values)
-AttributeError: 'NoneType' object has no attribute 'fillna'
-2019-01-06 15:49:52,245 - logs/poolminer.logs:173 - ERROR - make tier 1 table
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 130, in make_tier1_table
-    logger.warning("merged column in make tier1:%s",self.df1.columns.tolist())
-AttributeError: 'NoneType' object has no attribute 'columns'
-2019-01-06 15:49:52,245 - logs/poolminer.logs:173 - ERROR - make tier 1 table
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion_analytics/scripts/dashboards/poolminer.py", line 130, in make_tier1_table
-    logger.warning("merged column in make tier1:%s",self.df1.columns.tolist())
-AttributeError: 'NoneType' object has no attribute 'columns'
-2019-01-06 15:49:52,497 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:49:52,497 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:49:52,498 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:49:52,498 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
-2019-01-06 15:49:52,552 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:49:52,552 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
-2019-01-06 15:49:52,644 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:49:52,644 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
-2019-01-06 15:49:52,837 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:49:52,837 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 15:49:53,003 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 0
-2019-01-06 15:49:53,003 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 0
-2019-01-06 15:49:53,241 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:1900.8
-2019-01-06 15:49:53,241 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:1900.8
-2019-01-06 15:49:53,356 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 0
-2019-01-06 15:49:53,356 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 0
-2019-01-06 15:49:53,807 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:Empty DataFrame
-Columns: [miner_address, block_number, block_timestamp, transaction_hash, from_addr, to_addr, approx_value]
-Index: []
-2019-01-06 15:49:53,807 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:Empty DataFrame
-Columns: [miner_address, block_number, block_timestamp, transaction_hash, from_addr, to_addr, approx_value]
-Index: []
-2019-01-06 15:49:53,823 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:0
-2019-01-06 15:49:53,823 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:0
-2019-01-06 15:49:53,985 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:0
-2019-01-06 15:49:53,985 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:0
-2019-01-06 15:49:54,392 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:0
-2019-01-06 15:49:54,392 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:0
-2019-01-06 15:59:08,444 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:59:11,045 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:59:11,045 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 15:59:11,433 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 15:59:11,433 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 15:59:11,433 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 15:59:11,433 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 15:59:25,424 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 15:59:25,424 - logs/poolminer.logs:130 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 16:00:09,859 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:0
-2019-01-06 16:00:09,859 - logs/poolminer.logs:159 - WARNING - TIER 1 Calculations finished:0
-2019-01-06 16:00:09,863 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:00:09,863 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:00:09,863 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:00:09,863 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:01:14,666 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                           miner_address  block_number     ...                                                 to_addr approx_value
-21081  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1930415     ...       a084fb9ebbc64b96068092f1185ec51d2c80855106bf2a...      1.05557
-21082  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1930435     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...     26.89410
-21083  a05801fb2de5b76568a9c13f86766ebe3e6c438272e9fc...       1930478     ...       a08187ecdc4d0b59b6f59c05ba67999e9368b26bdba1f7...      1.02589
-21084  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1930494     ...       a01f756aefa4bfbdd250073a32748122b4cecd7fa2b948...      1.96765
-21085  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1930514     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.08740
-
-[5 rows x 7 columns]
-2019-01-06 16:01:14,666 - logs/poolminer.logs:270 - WARNING - df in make tier 2 columns:                                           miner_address  block_number     ...                                                 to_addr approx_value
-21081  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1930415     ...       a084fb9ebbc64b96068092f1185ec51d2c80855106bf2a...      1.05557
-21082  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1930435     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...     26.89410
-21083  a05801fb2de5b76568a9c13f86766ebe3e6c438272e9fc...       1930478     ...       a08187ecdc4d0b59b6f59c05ba67999e9368b26bdba1f7...      1.02589
-21084  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1930494     ...       a01f756aefa4bfbdd250073a32748122b4cecd7fa2b948...      1.96765
-21085  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1930514     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.08740
-
-[5 rows x 7 columns]
-2019-01-06 16:01:14,730 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:0
-2019-01-06 16:01:14,730 - logs/poolminer.logs:272 - WARNING - length tier1 miners, in make tier 2 columns:0
-2019-01-06 16:01:29,751 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:0
-2019-01-06 16:01:29,751 - logs/poolminer.logs:284 - WARNING - tier2_miners_list:0
-2019-01-06 16:01:45,030 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:0
-2019-01-06 16:01:45,030 - logs/poolminer.logs:225 - WARNING - TIER 2 Calculations finished:0
-2019-01-06 16:07:15,320 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 16:07:18,252 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 16:07:18,252 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 16:07:32,581 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 16:07:32,581 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 16:07:47,350 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 63
-2019-01-06 16:07:47,350 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 63
-2019-01-06 16:07:47,491 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:1900.8
-2019-01-06 16:07:47,491 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:1900.8
-2019-01-06 16:08:02,229 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
-2019-01-06 16:08:02,229 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
-2019-01-06 16:08:02,337 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:64
-2019-01-06 16:08:02,337 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:64
-2019-01-06 16:08:02,446 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 16:08:02,446 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 16:08:47,008 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:08:47,008 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:08:47,009 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:08:47,009 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:09:07,253 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 16:09:10,546 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 16:09:10,546 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 16:09:11,434 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:09:11,434 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:09:11,434 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:09:11,434 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:09:27,864 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 16:09:27,864 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 16:09:44,053 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:64
-2019-01-06 16:09:44,053 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:64
-2019-01-06 16:09:44,057 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:09:44,057 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:09:44,058 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:09:44,058 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:10:48,765 - logs/poolminer.logs:271 - WARNING - df in make tier 2 columns:                                           miner_address  block_number     ...                                                 to_addr approx_value
-21081  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1930415     ...       a084fb9ebbc64b96068092f1185ec51d2c80855106bf2a...      1.05557
-21082  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1930435     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...     26.89410
-21083  a05801fb2de5b76568a9c13f86766ebe3e6c438272e9fc...       1930478     ...       a08187ecdc4d0b59b6f59c05ba67999e9368b26bdba1f7...      1.02589
-21084  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1930494     ...       a01f756aefa4bfbdd250073a32748122b4cecd7fa2b948...      1.96765
-21085  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1930514     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.08740
-
-[5 rows x 7 columns]
-2019-01-06 16:10:48,765 - logs/poolminer.logs:271 - WARNING - df in make tier 2 columns:                                           miner_address  block_number     ...                                                 to_addr approx_value
-21081  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1930415     ...       a084fb9ebbc64b96068092f1185ec51d2c80855106bf2a...      1.05557
-21082  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1930435     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...     26.89410
-21083  a05801fb2de5b76568a9c13f86766ebe3e6c438272e9fc...       1930478     ...       a08187ecdc4d0b59b6f59c05ba67999e9368b26bdba1f7...      1.02589
-21084  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1930494     ...       a01f756aefa4bfbdd250073a32748122b4cecd7fa2b948...      1.96765
-21085  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1930514     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.08740
-
-[5 rows x 7 columns]
-2019-01-06 16:10:48,841 - logs/poolminer.logs:273 - WARNING - length tier1 miners, in make tier 2 columns:64
-2019-01-06 16:10:48,841 - logs/poolminer.logs:273 - WARNING - length tier1 miners, in make tier 2 columns:64
-2019-01-06 16:11:06,985 - logs/poolminer.logs:285 - WARNING - tier2_miners_list:767
-2019-01-06 16:11:06,985 - logs/poolminer.logs:285 - WARNING - tier2_miners_list:767
-2019-01-06 16:11:07,132 - logs/poolminer.logs:291 - WARNING - tier 2 miners list generated, before redis save:767
-2019-01-06 16:11:07,132 - logs/poolminer.logs:291 - WARNING - tier 2 miners list generated, before redis save:767
-2019-01-06 16:11:27,967 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:767
-2019-01-06 16:11:27,967 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:767
-2019-01-06 16:13:29,260 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-06 16:13:29,260 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-06 16:13:44,161 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 81
-2019-01-06 16:13:44,161 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 81
-2019-01-06 16:13:44,294 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:3110.4
-2019-01-06 16:13:44,294 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:3110.4
-2019-01-06 16:13:59,448 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
-2019-01-06 16:13:59,448 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
-2019-01-06 16:13:59,574 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:82
-2019-01-06 16:13:59,574 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:82
-2019-01-06 16:13:59,688 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 16:13:59,688 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 16:14:20,460 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:82
-2019-01-06 16:14:20,460 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:82
-2019-01-06 16:14:20,462 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1.0:1.0:2018-12-01:2019-01-06
-2019-01-06 16:14:20,462 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1.0:1.0:2018-12-01:2019-01-06
-2019-01-06 16:14:20,463 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:14:20,463 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:15:36,511 - logs/poolminer.logs:271 - WARNING - df in make tier 2 columns:                                          miner_address  block_number     ...                                                 to_addr approx_value
-1729  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815545     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      5.12063
-1730  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815559     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      3.74374
-1731  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815576     ...       a01a0b74f0069a134661bf7d29fe8dcd767ef7b6e57de6...      1.68576
-1732  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815584     ...       a08bf6584b6312dd2e2c03bf40e8eb142e6477ae695a4b...      1.06444
-1733  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815612     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
-
-[5 rows x 7 columns]
-2019-01-06 16:15:36,511 - logs/poolminer.logs:271 - WARNING - df in make tier 2 columns:                                          miner_address  block_number     ...                                                 to_addr approx_value
-1729  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815545     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      5.12063
-1730  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815559     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      3.74374
-1731  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815576     ...       a01a0b74f0069a134661bf7d29fe8dcd767ef7b6e57de6...      1.68576
-1732  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815584     ...       a08bf6584b6312dd2e2c03bf40e8eb142e6477ae695a4b...      1.06444
-1733  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815612     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
-
-[5 rows x 7 columns]
-2019-01-06 16:15:36,601 - logs/poolminer.logs:273 - WARNING - length tier1 miners, in make tier 2 columns:82
-2019-01-06 16:15:36,601 - logs/poolminer.logs:273 - WARNING - length tier1 miners, in make tier 2 columns:82
-2019-01-06 16:15:59,894 - logs/poolminer.logs:285 - WARNING - tier2_miners_list:811
-2019-01-06 16:15:59,894 - logs/poolminer.logs:285 - WARNING - tier2_miners_list:811
-2019-01-06 16:16:00,095 - logs/poolminer.logs:291 - WARNING - tier 2 miners list generated, before redis save:811
-2019-01-06 16:16:00,095 - logs/poolminer.logs:291 - WARNING - tier 2 miners list generated, before redis save:811
-2019-01-06 16:16:21,200 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:811
-2019-01-06 16:16:21,200 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:811
-2019-01-06 16:17:16,316 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 16:17:20,357 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 16:17:20,357 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
-2019-01-06 16:17:38,913 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 16:17:38,913 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 16:18:01,750 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 84
-2019-01-06 16:18:01,750 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 84
-2019-01-06 16:18:01,930 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:1209.6
-2019-01-06 16:18:01,930 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:1209.6
-2019-01-06 16:18:21,717 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
-2019-01-06 16:18:21,717 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
-2019-01-06 16:18:21,881 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:85
-2019-01-06 16:18:21,881 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:85
-2019-01-06 16:18:22,055 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:18:22,055 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:18:22,055 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:18:22,055 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:18:40,645 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-06
-2019-01-06 16:18:40,645 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-06
-2019-01-06 16:18:40,645 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-06 16:18:40,645 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-06 16:18:40,662 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 16:18:40,662 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
-2019-01-06 16:19:05,545 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 84
-2019-01-06 16:19:05,545 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 84
-2019-01-06 16:19:05,746 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:1209.6
-2019-01-06 16:19:05,746 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:1209.6
-2019-01-06 16:19:29,183 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
-2019-01-06 16:19:29,183 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
-2019-01-06 16:19:29,348 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:85
-2019-01-06 16:19:29,348 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:85
-2019-01-06 16:20:58,376 - logs/poolminer.logs:271 - WARNING - df in make tier 2 columns:                                          miner_address  block_number     ...                                                 to_addr approx_value
-3882  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815545     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      5.12063
-3883  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815559     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      3.74374
-3884  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815576     ...       a01a0b74f0069a134661bf7d29fe8dcd767ef7b6e57de6...      1.68576
-3885  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815584     ...       a08bf6584b6312dd2e2c03bf40e8eb142e6477ae695a4b...      1.06444
-3886  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815612     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
-
-[5 rows x 7 columns]
-2019-01-06 16:20:58,376 - logs/poolminer.logs:271 - WARNING - df in make tier 2 columns:                                          miner_address  block_number     ...                                                 to_addr approx_value
-3882  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815545     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      5.12063
-3883  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815559     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      3.74374
-3884  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815576     ...       a01a0b74f0069a134661bf7d29fe8dcd767ef7b6e57de6...      1.68576
-3885  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815584     ...       a08bf6584b6312dd2e2c03bf40e8eb142e6477ae695a4b...      1.06444
-3886  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815612     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
-
-[5 rows x 7 columns]
-2019-01-06 16:20:58,443 - logs/poolminer.logs:273 - WARNING - length tier1 miners, in make tier 2 columns:85
-2019-01-06 16:20:58,443 - logs/poolminer.logs:273 - WARNING - length tier1 miners, in make tier 2 columns:85
-2019-01-06 16:21:21,198 - logs/poolminer.logs:285 - WARNING - tier2_miners_list:650
-2019-01-06 16:21:21,198 - logs/poolminer.logs:285 - WARNING - tier2_miners_list:650
-2019-01-06 16:21:21,334 - logs/poolminer.logs:291 - WARNING - tier 2 miners list generated, before redis save:650
-2019-01-06 16:21:21,334 - logs/poolminer.logs:291 - WARNING - tier 2 miners list generated, before redis save:650
-2019-01-06 16:21:44,575 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:21:44,575 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:21:44,575 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:21:44,575 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:21:55,781 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 16:21:55,781 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
-2019-01-06 16:22:35,135 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:64
-2019-01-06 16:22:35,135 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:64
-2019-01-06 16:22:35,137 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:22:35,137 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-06
-2019-01-06 16:22:35,137 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:22:35,137 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
-2019-01-06 16:23:16,915 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-06
-2019-01-06 16:23:16,915 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-06
-2019-01-06 16:23:16,915 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-06 16:23:16,915 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
-2019-01-06 16:23:30,851 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:767
-2019-01-06 16:23:30,851 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:767
-2019-01-06 16:24:33,089 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-06 16:24:33,089 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-06 16:24:45,809 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 84
-2019-01-06 16:24:45,809 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 84
-2019-01-06 16:24:45,933 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:3628.8
-2019-01-06 16:24:45,933 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:3628.8
-2019-01-06 16:25:01,326 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 7
-2019-01-06 16:25:01,326 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 7
-2019-01-06 16:25:01,481 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:84
-2019-01-06 16:25:01,481 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:84
-2019-01-06 16:26:00,965 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-06 16:26:00,965 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1.0
-2019-01-06 16:26:22,924 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 63
-2019-01-06 16:26:22,924 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 63
-2019-01-06 16:26:23,115 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5702.4
-2019-01-06 16:26:23,115 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:5702.4
-2019-01-06 16:26:43,132 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 7
-2019-01-06 16:26:43,132 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 7
-2019-01-06 16:26:43,302 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:63
-2019-01-06 16:26:43,302 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:63
-2019-01-06 16:26:56,295 - logs/poolminer.logs:271 - WARNING - df in make tier 2 columns:                                           miner_address  block_number     ...                                                 to_addr approx_value
-21081  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1930415     ...       a084fb9ebbc64b96068092f1185ec51d2c80855106bf2a...      1.05557
-21082  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1930435     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...     26.89410
-21083  a05801fb2de5b76568a9c13f86766ebe3e6c438272e9fc...       1930478     ...       a08187ecdc4d0b59b6f59c05ba67999e9368b26bdba1f7...      1.02589
-21084  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1930494     ...       a01f756aefa4bfbdd250073a32748122b4cecd7fa2b948...      1.96765
-21085  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1930514     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.08740
-
-[5 rows x 7 columns]
-2019-01-06 16:26:56,295 - logs/poolminer.logs:271 - WARNING - df in make tier 2 columns:                                           miner_address  block_number     ...                                                 to_addr approx_value
-21081  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1930415     ...       a084fb9ebbc64b96068092f1185ec51d2c80855106bf2a...      1.05557
-21082  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1930435     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...     26.89410
-21083  a05801fb2de5b76568a9c13f86766ebe3e6c438272e9fc...       1930478     ...       a08187ecdc4d0b59b6f59c05ba67999e9368b26bdba1f7...      1.02589
-21084  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b...       1930494     ...       a01f756aefa4bfbdd250073a32748122b4cecd7fa2b948...      1.96765
-21085  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25...       1930514     ...       a067c6e7143b9eb37ec7737dd00962b3faab0cc693f3cf...      1.08740
-
-[5 rows x 7 columns]
-2019-01-06 16:26:56,406 - logs/poolminer.logs:273 - WARNING - length tier1 miners, in make tier 2 columns:63
-2019-01-06 16:26:56,406 - logs/poolminer.logs:273 - WARNING - length tier1 miners, in make tier 2 columns:63
-2019-01-06 16:27:15,458 - logs/poolminer.logs:285 - WARNING - tier2_miners_list:767
-2019-01-06 16:27:15,458 - logs/poolminer.logs:285 - WARNING - tier2_miners_list:767
-2019-01-06 16:27:15,623 - logs/poolminer.logs:291 - WARNING - tier 2 miners list generated, before redis save:767
-2019-01-06 16:27:15,623 - logs/poolminer.logs:291 - WARNING - tier 2 miners list generated, before redis save:767
-2019-01-06 16:27:29,540 - logs/poolminer.logs:271 - WARNING - df in make tier 2 columns:                                          miner_address  block_number     ...                                                 to_addr approx_value
-6017  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815545     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      5.12063
-6018  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815559     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      3.74374
-6019  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815576     ...       a01a0b74f0069a134661bf7d29fe8dcd767ef7b6e57de6...      1.68576
-6020  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815584     ...       a08bf6584b6312dd2e2c03bf40e8eb142e6477ae695a4b...      1.06444
-6021  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815612     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
-
-[5 rows x 7 columns]
-2019-01-06 16:27:29,540 - logs/poolminer.logs:271 - WARNING - df in make tier 2 columns:                                          miner_address  block_number     ...                                                 to_addr approx_value
-6017  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815545     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      5.12063
-6018  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815559     ...       a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3...      3.74374
-6019  a08091ab0325e384ac45e560d2f85e4b741363aa98881d...       1815576     ...       a01a0b74f0069a134661bf7d29fe8dcd767ef7b6e57de6...      1.68576
-6020  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815584     ...       a08bf6584b6312dd2e2c03bf40e8eb142e6477ae695a4b...      1.06444
-6021  a0a1e55cbbffc99d9dcaf56e5350847267471cd6d69d4d...       1815612     ...       a08fd235db5de8023721b5f9b6e29c0ee5253982ccdd42...      0.00000
-
-[5 rows x 7 columns]
-2019-01-06 16:27:29,646 - logs/poolminer.logs:273 - WARNING - length tier1 miners, in make tier 2 columns:84
-2019-01-06 16:27:29,646 - logs/poolminer.logs:273 - WARNING - length tier1 miners, in make tier 2 columns:84
-2019-01-06 16:27:50,270 - logs/poolminer.logs:285 - WARNING - tier2_miners_list:650
-2019-01-06 16:27:50,270 - logs/poolminer.logs:285 - WARNING - tier2_miners_list:650
-2019-01-06 16:27:50,446 - logs/poolminer.logs:291 - WARNING - tier 2 miners list generated, before redis save:650
-2019-01-06 16:27:50,446 - logs/poolminer.logs:291 - WARNING - tier 2 miners list generated, before redis save:650
+2019-01-08 10:40:48,462 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:40:50,509 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:40:50,509 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:40:50,795 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:40:50,795 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:40:50,795 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:40:50,795 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:41:00,337 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:41:00,337 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:41:15,773 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:0
+2019-01-08 10:41:15,773 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:0
+2019-01-08 10:41:15,775 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:41:15,775 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:41:15,775 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:41:15,775 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:41:34,335 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:41:34,335 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:41:34,335 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:41:34,335 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:41:40,555 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:41:40,555 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:43:33,629 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:43:36,064 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:43:36,064 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:43:43,651 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
+2019-01-08 10:43:43,651 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
+2019-01-08 10:43:50,432 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 61
+2019-01-08 10:43:50,432 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 61
+2019-01-08 10:43:50,544 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:2073.6
+2019-01-08 10:43:50,544 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:2073.6
+2019-01-08 10:43:56,572 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
+2019-01-08 10:43:56,572 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
+2019-01-08 10:43:56,655 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:62
+2019-01-08 10:43:56,655 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:62
+2019-01-08 10:43:56,742 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:43:56,742 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:44:11,165 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 10:44:11,165 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 10:44:11,168 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:44:11,168 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:44:11,168 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:44:11,168 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:44:29,041 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:44:29,041 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:44:29,041 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:44:29,041 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:44:35,031 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:44:35,031 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:44:48,916 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:44:51,244 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:44:51,244 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:44:51,544 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:44:51,544 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:44:51,544 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:44:51,544 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:45:00,928 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:45:00,928 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:45:09,100 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 10:45:09,100 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 10:45:09,102 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:45:09,102 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:45:09,102 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:45:09,102 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:45:28,365 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:45:28,365 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:45:28,365 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:45:28,365 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:45:38,043 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:45:38,043 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:46:48,488 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:46:51,520 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:46:51,520 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 10:46:51,848 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-08 10:46:51,848 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-08 10:46:51,849 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:46:51,849 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:47:02,105 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:47:02,105 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:47:02,106 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:47:02,106 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:47:07,498 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:47:07,498 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:47:07,499 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:47:07,499 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:47:07,500 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-08 10:47:07,500 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-08 10:47:07,500 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:47:07,500 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:47:21,413 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:47:21,413 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:47:21,413 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:47:21,413 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:47:26,886 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:47:26,886 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:47:39,989 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 10:47:39,989 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 10:47:39,991 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:47:39,991 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:47:39,991 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:47:39,991 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:47:56,279 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:47:56,279 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:47:56,279 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:47:56,279 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:48:02,134 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:48:02,134 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:49:03,890 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-08 10:49:03,890 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-08 10:49:03,890 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:49:03,890 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:49:14,746 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:49:14,746 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:49:14,747 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:49:14,747 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:49:23,563 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:49:23,563 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:49:23,563 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:49:23,563 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:49:23,565 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-08 10:49:23,565 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-08 10:49:23,565 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:49:23,565 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:49:38,107 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:49:38,107 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:49:38,107 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:49:38,107 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:49:43,472 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:49:43,472 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:49:59,534 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 10:49:59,534 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 10:49:59,536 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:49:59,536 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:49:59,536 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:49:59,536 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:50:20,854 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:50:20,854 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:50:20,854 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:50:20,854 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:50:26,697 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:50:26,697 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:58:33,446 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-08 10:58:33,446 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-08 10:58:33,447 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:58:33,447 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:58:40,695 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:58:40,695 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:58:40,695 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:58:40,695 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:58:47,320 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:58:47,320 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:58:47,321 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:58:47,321 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:58:47,325 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-08 10:58:47,325 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-08 10:58:47,325 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:58:47,325 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:59:10,548 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:59:10,548 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:59:10,548 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:59:10,548 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:59:16,579 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:59:16,579 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 10:59:34,719 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 10:59:34,719 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 10:59:34,721 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:59:34,721 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 10:59:34,722 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:59:34,722 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 10:59:52,334 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:59:52,334 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 10:59:52,334 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:59:52,334 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 10:59:58,488 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 10:59:58,488 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 11:49:21,486 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-08 11:49:21,486 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-08 11:49:21,486 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 11:49:21,486 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 11:49:30,826 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 11:49:30,826 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 11:49:30,826 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 11:49:30,826 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 11:49:36,600 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 11:49:36,600 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 11:49:36,600 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 11:49:36,600 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 11:49:36,602 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-08 11:49:36,602 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-08 11:49:36,602 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 11:49:36,602 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 11:49:51,113 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 11:49:51,113 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 11:49:51,113 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 11:49:51,113 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 11:49:56,884 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 11:49:56,884 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 11:50:11,663 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 11:50:11,663 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 11:50:11,665 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 11:50:11,665 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 11:50:11,665 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 11:50:11,665 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 11:50:30,490 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 11:50:30,490 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 11:50:30,490 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 11:50:30,490 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 11:50:37,198 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 11:50:37,198 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 12:02:48,402 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-08 12:02:48,402 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-08 12:02:48,403 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 12:02:48,403 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 12:02:58,009 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 12:02:58,009 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 12:02:58,010 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 12:02:58,010 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 12:03:03,760 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 12:03:03,760 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 12:03:03,760 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 12:03:03,760 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 12:03:03,762 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-08 12:03:03,762 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-08 12:03:03,762 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 12:03:03,762 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 12:03:17,801 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 12:03:17,801 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 12:03:17,801 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 12:03:17,801 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 12:03:23,258 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 12:03:23,258 - logs/poolminer.logs:131 - WARNING - merged column in make tier1:['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 12:03:37,107 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 12:03:37,107 - logs/poolminer.logs:160 - WARNING - TIER 1 Calculations finished:62
+2019-01-08 12:03:37,110 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 12:03:37,110 - logs/poolminer.logs:159 - WARNING - redis_key:tier1_miners_list:1:1:2018-12-15:2019-01-08
+2019-01-08 12:03:37,110 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 12:03:37,110 - logs/poolminer.logs:174 - WARNING - TIER 1 LIST LOADED FROM REDIS
+2019-01-08 12:03:54,997 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 12:03:54,997 - logs/poolminer.logs:159 - WARNING - redis_key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-08
+2019-01-08 12:03:54,997 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 12:03:54,997 - logs/poolminer.logs:239 - WARNING - TIER 2 LIST LOADED FROM REDIS
+2019-01-08 12:04:01,805 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 12:04:01,805 - logs/poolminer.logs:226 - WARNING - TIER 2 Calculations finished:786
+2019-01-08 15:38:18,173 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 15:38:19,375 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 15:38:19,375 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 15:38:22,031 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 15:38:22,031 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 15:38:22,031 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
+2019-01-08 15:38:22,031 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
+2019-01-08 15:38:22,039 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
+2019-01-08 15:38:22,039 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
+2019-01-08 15:38:22,066 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
+2019-01-08 15:38:22,066 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
+2019-01-08 15:38:24,994 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
+2019-01-08 15:38:24,994 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
+2019-01-08 15:38:29,352 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 84
+2019-01-08 15:38:29,352 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 84
+2019-01-08 15:38:29,476 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:1209.6
+2019-01-08 15:38:29,476 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:1209.6
+2019-01-08 15:38:34,779 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
+2019-01-08 15:38:34,779 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
+2019-01-08 15:38:34,887 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:85
+2019-01-08 15:38:34,887 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:85
+2019-01-08 15:38:41,245 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 15:38:41,245 - logs/poolminer.logs:72 - WARNING - df_tx columns in make_poolminer_warehose:['block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value']
+2019-01-08 15:38:41,245 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
+2019-01-08 15:38:41,245 - logs/poolminer.logs:73 - WARNING - df_block columns in make_poolminer_warehose:['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
+2019-01-08 15:38:41,257 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
+2019-01-08 15:38:41,257 - logs/poolminer.logs:83 - WARNING - COLUMNS ['miner_address', 'block_number', 'transaction_hashes']:
+2019-01-08 15:38:41,298 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
+2019-01-08 15:38:41,298 - logs/poolminer.logs:94 - WARNING - ('merged columns', ['miner_address', 'block_number', 'block_timestamp', 'transaction_hash', 'from_addr', 'to_addr', 'approx_value'])
+2019-01-08 15:38:47,961 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
+2019-01-08 15:38:47,961 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
+2019-01-08 15:38:55,097 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 61
+2019-01-08 15:38:55,097 - logs/poolminer.logs:119 - WARNING - miners found by paid out: 61
+2019-01-08 15:38:55,246 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:2073.6
+2019-01-08 15:38:55,246 - logs/poolminer.logs:135 - WARNING - blocks mined daily threshold:2073.6
+2019-01-08 15:39:03,398 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
+2019-01-08 15:39:03,398 - logs/poolminer.logs:142 - WARNING - miners found by blocks mined: 9
+2019-01-08 15:39:03,522 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:62
+2019-01-08 15:39:03,522 - logs/poolminer.logs:215 - WARNING - tier 1 miners list generated, before redis save:62
+2019-01-08 15:39:03,657 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
+2019-01-08 15:39:03,657 - logs/poolminer.logs:112 - WARNING - tx paid out threshold:1
+2019-01-08 15:39:19,956 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 15:39:21,787 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 15:39:21,787 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 16:10:14,520 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 16:10:16,046 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 16:10:16,046 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 16:52:47,088 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 16:52:48,258 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 16:52:48,258 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 18:54:04,308 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 18:54:05,526 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 18:54:05,526 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 18:59:57,048 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 18:59:58,465 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 18:59:58,465 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:02:11,481 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:02:14,247 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:02:14,247 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:10:03,670 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:10:04,862 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:10:04,862 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:10:40,360 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:10:41,951 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:10:41,951 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:11:05,810 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:11:08,497 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:11:08,497 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:11:32,525 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:11:34,402 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 19:11:34,402 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 21:25:16,337 - aion-analytics/logs/poolminer.logs:15 - WARNING - aion-analytics/logs/poolminer.logs
+2019-01-08 21:25:17,697 - aion-analytics/logs/poolminer.logs:15 - WARNING - aion-analytics/logs/poolminer.logs
+2019-01-08 21:25:17,697 - aion-analytics/logs/poolminer.logs:15 - WARNING - aion-analytics/logs/poolminer.logs
+2019-01-08 21:31:34,936 - aion-analytics/logs/poolminer.logs:15 - WARNING - aion-analytics/logs/poolminer.logs
+2019-01-08 21:31:36,261 - aion-analytics/logs/poolminer.logs:15 - WARNING - aion-analytics/logs/poolminer.logs
+2019-01-08 21:31:36,261 - aion-analytics/logs/poolminer.logs:15 - WARNING - aion-analytics/logs/poolminer.logs
+2019-01-08 21:32:49,356 - aion-analytics/logs/poolminer.logs:15 - WARNING - aion-analytics/logs/poolminer.logs
+2019-01-08 21:32:50,650 - aion-analytics/logs/poolminer.logs:15 - WARNING - aion-analytics/logs/poolminer.logs
+2019-01-08 21:32:50,650 - aion-analytics/logs/poolminer.logs:15 - WARNING - aion-analytics/logs/poolminer.logs
+2019-01-08 21:36:33,267 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 21:36:34,771 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 21:36:34,771 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 21:46:07,003 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 21:46:08,377 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs
+2019-01-08 21:46:08,377 - logs/poolminer.logs:15 - WARNING - logs/poolminer.logs

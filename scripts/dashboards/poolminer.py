@@ -335,11 +335,11 @@ def poolminer_tab():
 
         download_button_1.callback = CustomJS(args=dict(source=tier1_src),
                                               code=open(join(dirname(__file__),
-                                                             "../../assets/js/tier1_miners_download.js")).read())
+                                                             "../../static/js/tier1_miners_download.js")).read())
 
         download_button_2.callback = CustomJS(args=dict(source=tier2_src),
                                               code=open(join(dirname(__file__),
-                                                             "../../assets/js/tier2_miners_download.js")).read())
+                                                             "../../static/js/tier2_miners_download.js")).read())
 
         # COMPOSE LAYOUT
         # put the controls in a single element

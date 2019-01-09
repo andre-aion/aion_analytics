@@ -270,3 +270,6 @@ bin/kafka-consumer-groups.sh --describe  --bootstrap-server localhost:9092
  --offsets --group aion-analytics-connect-cluster
 
 
+
+
+python -m bokeh serve --port 5006 --host localhost:80 --host localhost:5006 main.py
