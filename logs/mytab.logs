@@ -567,3 +567,241 @@
 2019-01-09 05:41:51,769 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
 2019-01-09 05:41:51,770 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
 2019-01-09 05:41:51,777 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:36:38,029 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 21:39:37,159 - aion-analytics/logs/mytab.logs:15 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-09 21:40:21,271 - aion-analytics/logs/mytab.logs:15 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-09 21:42:03,990 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 21:42:46,636 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 21:43:45,016 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 21:44:04,693 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 21:44:09,530 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:44:09,530 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:44:09,552 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:44:58,467 - aion-analytics/logs/mytab.logs:15 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-09 21:45:03,409 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:45:03,409 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:45:03,429 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:45:16,340 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:45:16,340 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:45:16,358 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:46:44,364 - aion-analytics/logs/mytab.logs:15 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-09 21:46:48,646 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:46:48,646 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:46:48,664 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:47:49,084 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:47:49,084 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:47:49,099 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:47:59,782 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:47:59,782 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:47:59,794 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:48:21,464 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:48:21,465 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:48:21,478 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:52:07,065 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:52:07,066 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:52:07,074 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:56:11,186 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:56:11,186 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:56:11,195 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:57:24,626 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:57:24,626 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:57:24,649 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 21:57:36,771 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 21:57:36,771 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 21:57:36,785 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 22:01:17,465 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 22:01:17,465 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 22:01:17,474 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 22:01:42,219 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 22:01:42,219 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 22:01:42,231 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 22:04:49,438 - aion-analytics/logs/mytab.logs:15 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-09 22:07:47,805 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:11:48,389 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:14:42,352 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:16:24,782 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:18:55,784 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:21:44,240 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:22:37,742 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:22:41,121 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 22:22:41,121 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 22:22:41,137 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 22:24:21,506 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:24:36,641 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:24:42,827 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 22:24:42,827 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 22:24:42,846 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 22:26:20,608 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:26:24,275 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 22:26:24,276 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 22:26:24,295 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 22:29:38,056 - aion-analytics/logs/mytab.logs:18 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-09 22:32:19,249 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:33:05,941 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:33:46,048 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:34:34,318 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:36:12,606 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:36:15,726 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 22:36:15,726 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 22:36:15,738 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 22:36:55,473 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:37:01,662 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 22:37:01,663 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 22:37:01,682 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 22:42:20,985 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:42:24,116 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 22:42:24,117 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 22:42:24,129 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 22:47:14,875 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:50:00,589 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:50:44,041 - logs/mytab.logs:15 - WARNING - logs/mytab.logs
+2019-01-09 22:57:09,443 - aion-analytics/logs/mytab.logs:21 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-09 22:57:38,573 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:00:36,906 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:00:40,061 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:00:40,061 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:00:40,075 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:01:43,411 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:01:50,155 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:01:50,155 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:01:50,178 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:03:51,049 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:03:51,050 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:03:51,060 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:06:08,305 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:06:08,306 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:06:08,320 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:08:16,332 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:08:19,508 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:08:19,508 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:08:19,520 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:08:42,493 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:08:42,494 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:08:42,507 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:09:40,088 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:09:40,089 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:09:40,101 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:14:48,516 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:14:48,516 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:14:48,530 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:15:12,456 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:15:12,457 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:15:12,466 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:17:13,507 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:17:13,507 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:17:13,516 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:20:55,357 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:20:55,357 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:20:55,365 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:23:04,173 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:23:04,173 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:23:04,182 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:25:00,422 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:25:03,624 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:25:03,625 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:25:03,636 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:25:20,452 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:25:20,453 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:25:20,468 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:26:32,037 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:27:49,105 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:28:12,941 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:28:17,058 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:28:17,058 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:28:17,077 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:29:13,409 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:29:17,392 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:29:17,392 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:29:17,410 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:30:01,439 - aion-analytics/logs/mytab.logs:20 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-09 23:30:05,018 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:30:05,018 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:30:05,035 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:30:42,518 - aion-analytics/logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:30:42,518 - aion-analytics/logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:30:42,528 - aion-analytics/logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:32:21,779 - aion-analytics/logs/mytab.logs:20 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-09 23:32:50,968 - aion-analytics/logs/mytab.logs:20 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-09 23:33:21,104 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:33:43,337 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:33:48,440 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:33:48,441 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:33:48,465 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:36:07,438 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:36:07,439 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:36:07,447 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:36:27,630 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:36:27,630 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:36:27,638 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:39:34,319 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:39:34,319 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:39:34,328 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:50:24,077 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:50:27,211 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:50:27,211 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:50:27,223 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:51:07,811 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:51:41,487 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:52:36,611 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:52:40,331 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:52:40,331 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:52:40,352 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:56:21,055 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:56:36,829 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-09 23:56:41,271 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-09 23:56:41,271 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-09 00:00:00
+2019-01-09 23:56:41,292 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-09 00:00:00
+2019-01-09 23:57:54,300 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 00:02:14,330 - aion-analytics/logs/mytab.logs:20 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-10 00:07:31,022 - aion-analytics/logs/mytab.logs:20 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-10 00:14:54,910 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 00:14:58,078 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:14:58,078 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:14:58,090 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:15:44,035 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 00:16:11,551 - aion-analytics/logs/mytab.logs:20 - WARNING - aion-analytics/logs/mytab.logs
+2019-01-10 00:16:33,886 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 00:16:38,947 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:16:38,948 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:16:38,970 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:17:02,877 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:17:02,877 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:17:02,892 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:18:45,424 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:18:45,424 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:18:45,432 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:19:47,464 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:19:47,464 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:19:47,473 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:20:03,861 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:20:03,861 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:20:03,877 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:20:20,277 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:20:20,277 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:20:20,291 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:21:12,099 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:21:12,099 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:21:12,108 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:22:31,045 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:22:31,045 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:22:31,054 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:23:42,093 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:23:42,094 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:23:42,107 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:25:06,536 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:25:06,536 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:25:06,551 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:26:21,575 - logs/mytab.logs:73 - WARNING - start_date from compute:2018-12-15 00:00:41
+2019-01-10 00:26:21,576 - logs/mytab.logs:74 - WARNING - start from slider:2018-12-01 00:00:00
+2019-01-10 00:26:24,812 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 00:26:24,812 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:26:24,831 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-01 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:28:12,155 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:28:12,155 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:28:12,163 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:28:52,606 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:28:52,606 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:28:52,615 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 00:29:10,902 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 00:29:10,902 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 00:29:10,911 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00

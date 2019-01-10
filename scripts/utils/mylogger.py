@@ -4,8 +4,13 @@ import os
 
 
 def mylogger(__file__):
-    # create a custom logger handler
-    logfile = 'logs/' + os.path.splitext(os.path.basename(__file__))[0] + '.logs'
+    # create a custom logger
+    dir = os.getcwd().split(os.sep)[-1]
+    if dir == 'aion-analytics':
+        dir = ''
+    else:
+        dir='aion-analytics/'
+    logfile = dir+'logs/' + os.path.splitext(os.path.basename(__file__))[0] + '.logs'
     logger = logging.getLogger(logfile)
     handler = logging.FileHandler(logfile)
     handler.setLevel(logging.WARNING)

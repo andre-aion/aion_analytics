@@ -1403,3 +1403,480 @@
                toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
 2019-01-09 05:41:50,230 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
                toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:36:37,844 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:36:37,844 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:36:37,844 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:39:37,009 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:39:37,009 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:39:37,009 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:40:21,133 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:40:21,133 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:40:21,133 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:42:03,840 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:42:03,841 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:42:03,841 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:42:46,491 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:42:46,492 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:42:46,492 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:43:44,873 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:43:44,874 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:43:44,874 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:44:04,538 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:44:04,538 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:44:04,538 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 21:44:06,299 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:44:06,299 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:44:58,322 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:44:58,322 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:44:58,322 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:45:00,109 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:45:00,109 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:45:10,327 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:45:10,327 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:45:10,455 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:45:10,455 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:46:44,211 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:46:44,212 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:46:44,212 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 21:46:45,921 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:46:45,921 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:47:44,776 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:47:44,776 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:47:57,006 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:47:57,006 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:48:19,096 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:48:19,096 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:52:05,274 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:52:05,274 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:56:09,374 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:56:09,374 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:57:19,547 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:57:19,547 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:57:33,850 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 21:57:33,850 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:01:15,546 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:01:15,546 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:01:40,187 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:01:40,187 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:04:49,277 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 22:04:49,277 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 22:04:49,277 - aion-analytics/logs/pythonClickhouse.logs:15 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 22:07:47,656 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:07:47,657 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:07:47,657 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:11:48,231 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:11:48,231 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:11:48,231 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:14:42,180 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:14:42,180 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:14:42,180 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:16:24,627 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:16:24,627 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:16:24,627 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:18:55,625 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:18:55,626 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:18:55,626 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:21:44,120 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:21:44,120 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:21:44,120 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:22:37,623 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:22:37,623 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:22:37,623 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:22:39,151 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:39,151 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:42,017 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:42,017 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:45,266 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:45,266 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:45,585 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:45,585 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:45,804 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:45,804 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:45,935 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:22:45,935 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:24:21,390 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:24:21,390 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:24:21,390 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:24:22,859 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:24:22,859 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:24:24,599 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:24:24,599 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:24:24,743 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:24:24,743 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:24:24,907 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:24:24,907 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:24:36,486 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:24:36,486 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:24:36,486 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:24:38,711 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:24:38,711 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:26:20,478 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:26:20,479 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:26:20,479 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:26:22,150 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:26:22,150 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:29:37,902 - aion-analytics/logs/pythonClickhouse.logs:18 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 22:29:37,902 - aion-analytics/logs/pythonClickhouse.logs:18 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 22:29:37,902 - aion-analytics/logs/pythonClickhouse.logs:18 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 22:32:19,099 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:32:19,099 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:32:19,099 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:33:05,796 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:33:05,796 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:33:05,796 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:33:45,909 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:33:45,910 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:33:45,910 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:34:34,166 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:34:34,167 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:34:34,167 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:36:12,491 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:36:12,491 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:36:12,491 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:36:13,999 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:36:13,999 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:36:55,298 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:36:55,298 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:36:55,298 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:36:57,569 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:36:57,569 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:42:20,869 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:42:20,869 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:42:20,869 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:42:22,357 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:42:22,357 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 22:47:14,708 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:47:14,708 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:47:14,708 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:50:00,433 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:50:00,433 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:50:00,433 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:50:43,865 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:50:43,865 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:50:43,865 - logs/pythonClickhouse.logs:15 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:57:09,284 - aion-analytics/logs/pythonClickhouse.logs:21 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 22:57:09,284 - aion-analytics/logs/pythonClickhouse.logs:21 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 22:57:09,284 - aion-analytics/logs/pythonClickhouse.logs:21 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 22:57:38,426 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:57:38,426 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 22:57:38,426 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:00:36,789 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:00:36,789 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:00:36,789 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:00:38,269 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:00:38,269 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:01:43,197 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:01:43,198 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:01:43,198 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:01:45,873 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:01:45,873 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:03:49,050 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:03:49,050 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:06:05,553 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:06:05,553 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:08:16,215 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:08:16,215 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:08:16,215 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:08:17,731 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:08:17,731 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:08:38,677 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:08:38,677 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:09:37,881 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:09:37,881 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:14:45,510 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:14:45,510 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:15:10,840 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:15:10,840 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:17:11,890 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:17:11,890 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:20:53,736 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:20:53,736 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:23:02,528 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:23:02,528 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:25:00,303 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:25:00,303 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:25:00,303 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:25:01,831 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:25:01,831 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:25:17,242 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:25:17,242 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:26:31,874 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:26:31,875 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:26:31,875 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:27:48,949 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:27:48,949 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:27:48,949 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:28:12,794 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:28:12,794 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:28:12,794 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:28:14,340 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:28:14,340 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:29:13,236 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:29:13,237 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:29:13,237 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:29:14,842 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:29:14,842 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:30:01,291 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 23:30:01,292 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 23:30:01,292 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 23:30:02,811 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:30:02,811 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:30:40,910 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:30:40,910 - aion-analytics/logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:32:21,622 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 23:32:21,622 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 23:32:21,622 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 23:32:50,810 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 23:32:50,810 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 23:32:50,810 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-09 23:33:20,958 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:33:20,958 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:33:20,958 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:33:43,219 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:33:43,219 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:33:43,219 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:33:44,759 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:33:44,759 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:36:05,745 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:36:05,745 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:36:26,036 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:36:26,036 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:39:32,690 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:39:32,690 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:50:23,960 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:50:23,960 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:50:23,960 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:50:25,457 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:50:25,457 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:50:28,047 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:50:28,047 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:50:28,208 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:50:28,208 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:50:28,341 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:50:28,341 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:50:28,480 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:50:28,480 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:51:07,652 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:51:07,653 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:51:07,653 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:51:41,345 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:51:41,345 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:51:41,345 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:52:36,458 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:52:36,458 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:52:36,458 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:52:37,983 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:52:37,983 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:56:20,936 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:56:20,936 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:56:20,936 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:56:36,710 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:56:36,710 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:56:36,710 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:56:38,209 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:56:38,209 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-09 00:00:00') ORDER BY block_timestamp
+2019-01-09 23:57:54,156 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:57:54,156 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-09 23:57:54,156 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-10 00:02:14,182 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-10 00:02:14,182 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-10 00:02:14,182 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-10 00:07:30,885 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-10 00:07:30,885 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-10 00:07:30,885 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-10 00:14:54,791 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-10 00:14:54,792 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-10 00:14:54,792 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-10 00:14:56,299 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:14:56,299 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:15:43,916 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-10 00:15:43,916 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-10 00:15:43,916 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-10 00:15:45,764 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:15:45,764 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:15:48,032 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:15:48,032 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:16:11,405 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-10 00:16:11,406 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-10 00:16:11,406 - aion-analytics/logs/pythonClickhouse.logs:20 - WARNING - aion-analytics/logs/pythonClickhouse.logs
+2019-01-10 00:16:33,770 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-10 00:16:33,770 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-10 00:16:33,770 - logs/pythonClickhouse.logs:20 - WARNING - logs/pythonClickhouse.logs
+2019-01-10 00:16:35,273 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:16:35,273 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:17:00,182 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:17:00,182 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:18:43,771 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:18:43,771 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:19:45,907 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:19:45,907 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:20:01,336 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:20:01,336 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:20:17,514 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:20:17,514 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:21:10,496 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:21:10,496 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:22:29,442 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:22:29,442 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:23:39,335 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:23:39,335 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:25:03,655 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:25:03,655 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:26:21,576 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:26:21,576 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-01 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:28:10,280 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:28:10,280 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:28:50,992 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:28:50,992 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:29:09,323 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
+2019-01-10 00:29:09,323 - logs/pythonClickhouse.logs:91 - WARNING - query:SELECT block_number,miner_address,block_timestamp,block_time FROM aion.block WHERE toDate(block_timestamp) >= toDate('2018-12-15 00:00:00') AND 
+               toDate(block_timestamp) <= toDate('2019-01-10 00:00:00') ORDER BY block_timestamp
