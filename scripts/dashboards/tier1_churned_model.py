@@ -11,9 +11,13 @@ from bokeh.models.widgets import  Div, \
     DatePicker, Select
 
 from datetime import datetime
-
+from holoviews import streams
 import holoviews as hv
+import hvplot.pandas
+import hvplot.dask
 from tornado.gen import coroutine
+
+
 
 lock = Lock()
 executor = ThreadPoolExecutor()
@@ -28,16 +32,48 @@ def churned_model(tier=1):
         def __init__(self):
             ChurnedModelTab.__init__(self)
 
+        def difficulty_plot(self,launch_plots=False):
+            return self.df.hvplot.hist(
+                'difficulty', by='state', bins=20, bin_range=(-20, 100),
+                subplot=True, alpha=0.3, xaxis=False, yaxis=False)
+
+
+
+    def update(attr,old,new):
+        notification_div.text = thistab.notification_updater('calculations ongoing')
+        thistab.load_data()
+        thistab.label_churned_retained()
+        stream_launch_plots.event(launch_plots=True)
+        notification_div.text = thistab.notification_updater("")
     try:
         thistab = Thistab()
         notification_text = thistab.notification_updater("Hello")
         notification_div = Div(text=notification_text, width=500, height=50)
 
 
-        checkbox_group = thistab.make_checkboxes()
+        stream_launch_plots = streams.Stream.define('Start_date',
+                                                    launch_plots=True)()
 
-        grid = gridplot([[checkbox_group],
+        thistab.make_checkboxes()
+        launch_button = thistab.make_modelling_button()
+
+        hv_difficulty = hv.DynamicMap(thistab.difficulty_plot,
+                                    streams=[stream_launch_plots],
+                                    datashade=True)
+
+
+        renderer = hv.renderer('bokeh')
+        difficulty = renderer.get_plot(hv_difficulty)
+
+        # handle callbacks
+        launch_button.on_click(update)
+
+        controls = WidgetBox(
+            thistab.checkbox_group,launch_button)
+
+        grid = gridplot([[controls],
                          [notification_div],
+                         [difficulty.state]
                         ])
 
         tab = Panel(child=grid, title='Tier '+str(tier)+' pre churn model ')
