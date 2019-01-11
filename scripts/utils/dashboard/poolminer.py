@@ -1,13 +1,13 @@
 from dask.dataframe.utils import make_meta
 
 from scripts.utils.mylogger import mylogger
-from scripts.storage.pythonRedis import RedisStorage
+from scripts.storage.pythonRedis import PythonRedis
 import gc
 import re
 from datetime import datetime
 import pandas as pd
 
-r = RedisStorage()
+r = PythonRedis()
 logger = mylogger(__file__)
 
 def remove_char(row):

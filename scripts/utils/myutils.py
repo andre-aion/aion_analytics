@@ -3,7 +3,6 @@ from enum import Enum
 from operator import xor
 
 from scripts.utils.mylogger import mylogger
-from scripts.storage.pythonRedis import RedisStorage
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from scripts.storage.pythonClickhouse import PythonClickhouse
 from scripts.storage.pythonParquet import PythonParquet
@@ -220,6 +219,13 @@ def str_to_datetime(x):
         logger.warning("STR TO DATETIME CONVERSION:%s", x)
         return datetime.strptime(x, "%Y-%m-%d")
     return x
+
+def datetime_to_str(x):
+    if not isinstance(x, str):
+        logger.warning(" DATETIME TO CONVERSION:%s", x)
+        return datetime.strftime(x, "%Y-%m-%d")
+    return x
+
 
 # key_params: list of parameters to put in key
 def compose_key(key_params, start_date,end_date):
@@ -480,11 +486,9 @@ def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
             # concatenate end and start to original df
             if len(df_start)>0:
                 logger.warning("DF START, TAIL:%s", df_start.tail(5))
-                #df = dd.concat([df_start, df], axis=0, interleave_partitions=True)
                 df = concat_dfs(df_start,df)
             if len(df_end)>0:
                 logger.warning("DF END, TAIL:%s", df_end.start(5))
-                #df = dd.concat([df, df_end], axis=0, interleave_partitions=True)
                 df = concat_dfs(df, df_end)
 
 

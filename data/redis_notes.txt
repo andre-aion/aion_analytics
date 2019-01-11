@@ -1,0 +1,16 @@
+redis key for churn machine learning reference
+example:
+______________________________________________
+
+tier1_churned_dict:1:2:ref_startdate:ref_enddate =
+ churned_dict = {
+                    'key_params': [dct_name, lst_key_params[1], lst_key_params[2]],
+                    'reference_start_date': self.tab['reference'].start_date,
+                    'reference_end_date': self.tab['reference'].end_date,
+                    'period_start_date': self.tab['period'].start_date,
+                    'period_end_date': self.tab['period'].end_date,
+                    'warehouse': df_key_params,
+                    'churned_lst': churned_miners,
+                    'retained_lst': retained_miners
+                }
+

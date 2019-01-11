@@ -434,3 +434,161 @@ TypeError: a bytes-like object is required, not 'list'
 2019-01-10 00:15:44,032 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
 2019-01-10 00:16:11,548 - aion-analytics/logs/pythonRedis.logs:20 - WARNING - aion-analytics/logs/pythonRedis.logs
 2019-01-10 00:16:33,884 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 02:13:30,778 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 02:14:38,188 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 02:14:41,294 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-01:2018-12-15'
+2019-01-10 02:14:42,226 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:16:15,781 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-15:2019-01-10'
+2019-01-10 02:16:16,852 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:16:59,796 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-01:2018-12-15'
+2019-01-10 02:17:00,482 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:17:31,095 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 02:17:31,095 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:17:31,100 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-15:2019-01-10'
+2019-01-10 02:17:31,931 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:17:44,150 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 02:17:44,151 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:17:59,494 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-15:2019-01-10'
+2019-01-10 02:18:00,344 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:18:05,448 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 02:18:05,450 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:18:13,414 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-10 02:18:13,415 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:18:13,419 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-01:2018-12-15'
+2019-01-10 02:18:13,917 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:18:18,214 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 02:18:18,214 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:18:18,221 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-15:2019-01-10'
+2019-01-10 02:18:19,545 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:18:26,124 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 02:18:26,126 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:18:26,128 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-10 02:18:26,130 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:18:42,869 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 02:18:42,870 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:18:42,875 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-15:2019-01-10'
+2019-01-10 02:18:43,815 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:18:55,752 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 02:18:55,753 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:19:07,131 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-15:2019-01-10'
+2019-01-10 02:19:07,826 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:19:12,526 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 02:19:12,527 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:20:53,891 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-10 02:20:53,891 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:20:53,894 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-01:2018-12-15'
+2019-01-10 02:20:54,195 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:20:58,102 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 02:20:58,102 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:20:58,105 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-15:2019-01-10'
+2019-01-10 02:20:58,553 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:21:02,747 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 02:21:02,748 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:21:02,748 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-10 02:21:02,749 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:21:16,718 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 02:21:16,719 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:21:16,726 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-15:2019-01-10'
+2019-01-10 02:21:17,621 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:21:29,657 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 02:21:29,658 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:21:43,835 - logs/pythonRedis.logs:107 - WARNING - load-item key:b'block_tx_warehouse:2018-12-15:2019-01-10'
+2019-01-10 02:21:44,617 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 02:21:49,448 - logs/pythonRedis.logs:107 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 02:21:49,449 - logs/pythonRedis.logs:112 - WARNING - Key
+2019-01-10 07:57:20,629 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 22:34:48,762 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 22:37:43,959 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 22:37:46,192 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-10 22:37:46,193 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 22:37:55,703 - logs/pythonRedis.logs:86 - WARNING - SAVE: block_tx_warehouse:churn:2018-12-01:2018-12-15 saved to redis
+2019-01-10 22:37:59,239 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 22:37:59,240 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 22:38:10,422 - logs/pythonRedis.logs:86 - WARNING - SAVE: block_tx_warehouse:churn:2018-12-15:2019-01-10 saved to redis
+2019-01-10 22:38:13,896 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 22:38:13,897 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 22:38:13,898 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-10 22:38:13,899 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:10:19,726 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 23:10:22,197 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-10 23:10:22,198 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:10:22,223 - logs/pythonRedis.logs:99 - WARNING - load-item key:b'block_tx_warehouse:churn:2018-12-01:2018-12-15'
+2019-01-10 23:10:23,087 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:10:28,276 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 23:10:28,276 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:10:28,281 - logs/pythonRedis.logs:99 - WARNING - load-item key:b'block_tx_warehouse:churn:2018-12-15:2019-01-10'
+2019-01-10 23:10:29,125 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:10:33,830 - logs/pythonRedis.logs:122 - ERROR - save_dict
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/storage/pythonRedis.py", line 116, in save_dict
+    dct['start_date'],
+KeyError: 'start_date'
+2019-01-10 23:10:33,831 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 23:10:33,832 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:10:33,833 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-10 23:10:33,834 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:10:33,834 - logs/pythonRedis.logs:122 - ERROR - save_dict
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/storage/pythonRedis.py", line 116, in save_dict
+    dct['start_date'],
+KeyError: 'start_date'
+2019-01-10 23:16:33,132 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 23:16:34,296 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-10 23:16:34,297 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:16:34,303 - logs/pythonRedis.logs:99 - WARNING - load-item key:b'block_tx_warehouse:churn:2018-12-01:2018-12-15'
+2019-01-10 23:16:34,620 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:16:38,559 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 23:16:38,560 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:16:38,563 - logs/pythonRedis.logs:99 - WARNING - load-item key:b'block_tx_warehouse:churn:2018-12-15:2019-01-10'
+2019-01-10 23:16:39,050 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:16:43,205 - logs/pythonRedis.logs:86 - WARNING - SAVE: tier1_churned_dict:1:1:2018-12-01:2018-12-01 saved to redis
+2019-01-10 23:16:43,206 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 23:16:43,206 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:16:43,207 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-10 23:16:43,207 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:16:43,211 - logs/pythonRedis.logs:86 - WARNING - SAVE: tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01 saved to redis
+2019-01-10 23:30:05,542 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 23:30:06,916 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-10 23:30:06,917 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:06,924 - logs/pythonRedis.logs:99 - WARNING - load-item key:b'block_tx_warehouse:churn:2018-12-01:2018-12-15'
+2019-01-10 23:30:07,275 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:11,017 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 23:30:11,017 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:11,020 - logs/pythonRedis.logs:99 - WARNING - load-item key:b'block_tx_warehouse:churn:2018-12-15:2019-01-10'
+2019-01-10 23:30:11,497 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:15,621 - logs/pythonRedis.logs:86 - WARNING - SAVE: tier1_churned_dict:1:1:2018-12-01:2018-12-01 saved to redis
+2019-01-10 23:30:15,622 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 23:30:15,623 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:15,623 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-10 23:30:15,624 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:15,627 - logs/pythonRedis.logs:86 - WARNING - SAVE: tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01 saved to redis
+2019-01-10 23:30:39,616 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 23:30:40,776 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-10 23:30:40,776 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:40,784 - logs/pythonRedis.logs:99 - WARNING - load-item key:b'block_tx_warehouse:churn:2018-12-01:2018-12-15'
+2019-01-10 23:30:41,103 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:45,336 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 23:30:45,336 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:45,343 - logs/pythonRedis.logs:99 - WARNING - load-item key:b'block_tx_warehouse:churn:2018-12-15:2019-01-10'
+2019-01-10 23:30:46,429 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:51,755 - logs/pythonRedis.logs:86 - WARNING - SAVE: tier1_churned_dict:1:1:2018-12-01:2018-12-01 saved to redis
+2019-01-10 23:30:51,756 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 23:30:51,757 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:51,757 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-10 23:30:51,758 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:30:51,761 - logs/pythonRedis.logs:86 - WARNING - SAVE: tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01 saved to redis
+2019-01-10 23:33:11,862 - logs/pythonRedis.logs:20 - WARNING - logs/pythonRedis.logs
+2019-01-10 23:33:13,168 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-01:2018-12-15
+2019-01-10 23:33:13,168 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:33:13,184 - logs/pythonRedis.logs:99 - WARNING - load-item key:b'block_tx_warehouse:churn:2018-12-01:2018-12-15'
+2019-01-10 23:33:13,499 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:33:16,851 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier1_miners_list:1:1:2018-12-15:2019-01-10
+2019-01-10 23:33:16,852 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:33:16,856 - logs/pythonRedis.logs:99 - WARNING - load-item key:b'block_tx_warehouse:churn:2018-12-15:2019-01-10'
+2019-01-10 23:33:17,380 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:33:22,414 - logs/pythonRedis.logs:86 - WARNING - SAVE: tier1_churned_dict:1:1:2018-12-01:2018-12-01 saved to redis
+2019-01-10 23:33:22,415 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-15:2019-01-10
+2019-01-10 23:33:22,417 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:33:22,418 - logs/pythonRedis.logs:99 - WARNING - load-item key:tier2_miners_list:0.5:1:1:2018-12-01:2018-12-15
+2019-01-10 23:33:22,420 - logs/pythonRedis.logs:104 - WARNING - Key
+2019-01-10 23:33:22,428 - logs/pythonRedis.logs:86 - WARNING - SAVE: tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01 saved to redis

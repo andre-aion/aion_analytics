@@ -805,3 +805,377 @@
 2019-01-10 00:29:10,902 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
 2019-01-10 00:29:10,902 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
 2019-01-10 00:29:10,911 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:13:30,786 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 02:13:39,937 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:13:39,938 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:13:39,961 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:14:38,193 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 02:14:41,287 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-01
+2019-01-10 02:14:41,288 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2018-12-15
+2019-01-10 02:14:41,289 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:14:41,289 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:14:41,291 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-01 00:00:00
+2019-01-10 02:14:41,294 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:14:42,227 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:14:42,251 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 02:14:42,251 - logs/mytab.logs:136 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 02:14:48,365 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 02:15:02,608 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 02:15:02,608 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 02:15:02,609 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:15:02,609 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:15:02,609 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:15:02,610 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:15:06,982 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:15:06,982 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:15:06,997 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:15:12,810 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:15:12,810 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:15:12,835 - logs/mytab.logs:120 - WARNING - transaction LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:15:18,307 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:15:18,307 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:15:22,283 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:16:15,776 - logs/mytab.logs:73 - WARNING - start_date from compute:2018-12-15 00:00:41
+2019-01-10 02:16:15,778 - logs/mytab.logs:74 - WARNING - start from slider:2018-12-15 00:00:00
+2019-01-10 02:16:15,778 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 02:16:15,778 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 02:16:15,779 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:16:15,779 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:16:15,780 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:16:15,780 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:16:15,780 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-15:2019-01-10
+2019-01-10 02:16:15,780 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-15', '2019-01-10']
+2019-01-10 02:16:15,781 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:16:15,781 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 02:16:16,853 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:16:16,867 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:16:16,867 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:16:22,548 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:16:59,794 - logs/mytab.logs:73 - WARNING - start_date from compute:2018-12-01 00:00:10
+2019-01-10 02:16:59,794 - logs/mytab.logs:74 - WARNING - start from slider:2018-12-01 00:00:00
+2019-01-10 02:16:59,794 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-01
+2019-01-10 02:16:59,795 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2018-12-15
+2019-01-10 02:16:59,795 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:16:59,795 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:16:59,796 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-01 00:00:00
+2019-01-10 02:16:59,796 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:17:00,482 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:17:00,516 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 02:17:00,516 - logs/mytab.logs:136 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 02:17:05,366 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 02:17:19,092 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:17:19,093 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:17:19,113 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:17:29,523 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:17:29,523 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:17:29,545 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:17:31,098 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 02:17:31,098 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 02:17:31,099 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:17:31,099 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:17:31,099 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:17:31,099 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:17:31,100 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-15:2019-01-10
+2019-01-10 02:17:31,100 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-15', '2019-01-10']
+2019-01-10 02:17:31,100 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:17:31,100 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 02:17:31,931 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:17:31,941 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:17:31,941 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:17:36,781 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:17:59,491 - logs/mytab.logs:73 - WARNING - start_date from compute:2018-12-15 00:00:41
+2019-01-10 02:17:59,491 - logs/mytab.logs:74 - WARNING - start from slider:2018-12-15 00:00:00
+2019-01-10 02:17:59,491 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 02:17:59,491 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 02:17:59,492 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:17:59,492 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:17:59,492 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:17:59,493 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:17:59,493 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-15:2019-01-10
+2019-01-10 02:17:59,493 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-15', '2019-01-10']
+2019-01-10 02:17:59,493 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:17:59,493 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 02:18:00,344 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:18:00,354 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:18:00,355 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:18:05,440 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:18:13,417 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-01
+2019-01-10 02:18:13,418 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2018-12-15
+2019-01-10 02:18:13,418 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:18:13,418 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:18:13,418 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-01 00:00:00
+2019-01-10 02:18:13,418 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:18:13,917 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:18:13,926 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 02:18:13,926 - logs/mytab.logs:136 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 02:18:18,199 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 02:18:18,218 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 02:18:18,218 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 02:18:18,219 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:18:18,219 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:18:18,219 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:18:18,219 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:18:18,220 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-15:2019-01-10
+2019-01-10 02:18:18,220 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-15', '2019-01-10']
+2019-01-10 02:18:18,220 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:18:18,220 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 02:18:19,545 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:18:19,560 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:18:19,560 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:18:26,103 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:18:29,866 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:18:29,866 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:18:29,889 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:18:41,208 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:18:41,208 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:18:41,226 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:18:42,873 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 02:18:42,873 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 02:18:42,873 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:18:42,874 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:18:42,874 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:18:42,874 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:18:42,874 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-15:2019-01-10
+2019-01-10 02:18:42,874 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-15', '2019-01-10']
+2019-01-10 02:18:42,875 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:18:42,875 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 02:18:43,816 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:18:43,825 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:18:43,826 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:18:49,291 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:19:07,130 - logs/mytab.logs:73 - WARNING - start_date from compute:2018-12-15 00:00:41
+2019-01-10 02:19:07,130 - logs/mytab.logs:74 - WARNING - start from slider:2018-12-15 00:00:00
+2019-01-10 02:19:07,130 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 02:19:07,130 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 02:19:07,131 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:19:07,131 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:19:07,131 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:19:07,131 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:19:07,131 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-15:2019-01-10
+2019-01-10 02:19:07,131 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-15', '2019-01-10']
+2019-01-10 02:19:07,131 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:19:07,131 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 02:19:07,827 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:19:07,834 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:19:07,834 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:19:12,520 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:20:53,893 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-01
+2019-01-10 02:20:53,894 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2018-12-15
+2019-01-10 02:20:53,894 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:20:53,894 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:20:53,894 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-01 00:00:00
+2019-01-10 02:20:53,894 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:20:54,196 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:20:54,202 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 02:20:54,203 - logs/mytab.logs:136 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 02:20:58,096 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 02:20:58,104 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 02:20:58,104 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 02:20:58,104 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:20:58,104 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:20:58,104 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:20:58,105 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:20:58,105 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-15:2019-01-10
+2019-01-10 02:20:58,105 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-15', '2019-01-10']
+2019-01-10 02:20:58,105 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:20:58,105 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 02:20:58,554 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:20:58,561 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:20:58,561 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:21:02,741 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:21:05,228 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:21:05,228 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:21:05,242 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:21:15,054 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:21:15,054 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:21:15,069 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:21:16,723 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 02:21:16,723 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 02:21:16,724 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:21:16,724 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:21:16,725 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:21:16,725 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:21:16,725 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-15:2019-01-10
+2019-01-10 02:21:16,725 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-15', '2019-01-10']
+2019-01-10 02:21:16,726 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:21:16,726 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 02:21:17,622 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:21:17,631 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:21:17,631 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:21:22,514 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 02:21:43,832 - logs/mytab.logs:73 - WARNING - start_date from compute:2018-12-15 00:00:41
+2019-01-10 02:21:43,832 - logs/mytab.logs:74 - WARNING - start from slider:2018-12-15 00:00:00
+2019-01-10 02:21:43,833 - logs/mytab.logs:191 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 02:21:43,833 - logs/mytab.logs:192 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 02:21:43,833 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-01:2018-12-15
+2019-01-10 02:21:43,833 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-01', '2018-12-15']
+2019-01-10 02:21:43,834 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:21:43,834 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 02:21:43,834 - logs/mytab.logs:206 - WARNING - redis_key:block_tx_warehouse:2018-12-15:2019-01-10
+2019-01-10 02:21:43,834 - logs/mytab.logs:209 - WARNING - matching keys :['block_tx_warehouse', '2018-12-15', '2019-01-10']
+2019-01-10 02:21:43,834 - logs/mytab.logs:215 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 02:21:43,834 - logs/mytab.logs:216 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 02:21:44,617 - logs/mytab.logs:99 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 02:21:44,625 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 02:21:44,626 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 02:21:49,442 - logs/mytab.logs:120 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 07:57:20,636 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 07:57:27,808 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 07:57:27,808 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 07:57:27,831 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 08:04:33,288 - logs/mytab.logs:135 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 08:04:33,288 - logs/mytab.logs:136 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 08:04:33,307 - logs/mytab.logs:120 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 22:34:48,774 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 22:37:43,964 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 22:37:46,207 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-01
+2019-01-10 22:37:46,207 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2018-12-15
+2019-01-10 22:37:50,083 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 22:37:50,084 - logs/mytab.logs:129 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 22:37:50,123 - logs/mytab.logs:113 - WARNING - block LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 22:37:52,964 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 22:37:52,964 - logs/mytab.logs:129 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 22:37:52,981 - logs/mytab.logs:113 - WARNING - transaction LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 22:37:55,711 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 22:37:55,711 - logs/mytab.logs:129 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 22:37:59,219 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 22:37:59,247 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 22:37:59,247 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 22:37:59,248 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 22:37:59,248 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 22:37:59,251 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 22:37:59,251 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 22:38:03,177 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 22:38:03,178 - logs/mytab.logs:129 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 22:38:03,193 - logs/mytab.logs:113 - WARNING - block LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 22:38:06,449 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 22:38:06,449 - logs/mytab.logs:129 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 22:38:06,463 - logs/mytab.logs:113 - WARNING - transaction LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 22:38:10,430 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 22:38:10,430 - logs/mytab.logs:129 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 22:38:13,886 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 23:10:19,729 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 23:10:22,217 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-01
+2019-01-10 23:10:22,218 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2018-12-15
+2019-01-10 23:10:22,218 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 23:10:22,219 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 23:10:22,220 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-01 00:00:00
+2019-01-10 23:10:22,222 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 23:10:23,088 - logs/mytab.logs:92 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 23:10:23,103 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 23:10:23,103 - logs/mytab.logs:129 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 23:10:28,266 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 23:10:28,279 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 23:10:28,279 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 23:10:28,280 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 23:10:28,280 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 23:10:28,280 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 23:10:28,281 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 23:10:28,281 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-15:2019-01-10
+2019-01-10 23:10:28,281 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-15', '2019-01-10']
+2019-01-10 23:10:28,281 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 23:10:28,281 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 23:10:29,125 - logs/mytab.logs:92 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 23:10:29,132 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 23:10:29,133 - logs/mytab.logs:129 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 23:10:33,824 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 23:16:33,133 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 23:16:34,301 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-01
+2019-01-10 23:16:34,301 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2018-12-15
+2019-01-10 23:16:34,301 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 23:16:34,301 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 23:16:34,302 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-01 00:00:00
+2019-01-10 23:16:34,303 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 23:16:34,620 - logs/mytab.logs:92 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 23:16:34,627 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 23:16:34,627 - logs/mytab.logs:129 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 23:16:38,554 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 23:16:38,561 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 23:16:38,561 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 23:16:38,562 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 23:16:38,562 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 23:16:38,562 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 23:16:38,562 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 23:16:38,562 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-15:2019-01-10
+2019-01-10 23:16:38,562 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-15', '2019-01-10']
+2019-01-10 23:16:38,562 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 23:16:38,562 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 23:16:39,050 - logs/mytab.logs:92 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 23:16:39,057 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 23:16:39,057 - logs/mytab.logs:129 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 23:16:43,199 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 23:30:05,544 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 23:30:06,921 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-01
+2019-01-10 23:30:06,921 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2018-12-15
+2019-01-10 23:30:06,922 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 23:30:06,922 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 23:30:06,923 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-01 00:00:00
+2019-01-10 23:30:06,924 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 23:30:07,276 - logs/mytab.logs:92 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 23:30:07,284 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 23:30:07,284 - logs/mytab.logs:129 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 23:30:11,011 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 23:30:11,019 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 23:30:11,019 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 23:30:11,019 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 23:30:11,019 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 23:30:11,019 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 23:30:11,020 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 23:30:11,020 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-15:2019-01-10
+2019-01-10 23:30:11,020 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-15', '2019-01-10']
+2019-01-10 23:30:11,020 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 23:30:11,020 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 23:30:11,498 - logs/mytab.logs:92 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 23:30:11,504 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 23:30:11,504 - logs/mytab.logs:129 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 23:30:15,615 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 23:30:39,617 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 23:30:40,781 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-01
+2019-01-10 23:30:40,781 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2018-12-15
+2019-01-10 23:30:40,782 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 23:30:40,782 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 23:30:40,783 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-01 00:00:00
+2019-01-10 23:30:40,784 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 23:30:41,103 - logs/mytab.logs:92 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 23:30:41,110 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 23:30:41,110 - logs/mytab.logs:129 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 23:30:45,321 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 23:30:45,340 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 23:30:45,340 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 23:30:45,341 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 23:30:45,341 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 23:30:45,341 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 23:30:45,342 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 23:30:45,342 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-15:2019-01-10
+2019-01-10 23:30:45,342 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-15', '2019-01-10']
+2019-01-10 23:30:45,343 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 23:30:45,343 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 23:30:46,430 - logs/mytab.logs:92 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 23:30:46,441 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 23:30:46,441 - logs/mytab.logs:129 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 23:30:51,749 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00
+2019-01-10 23:33:11,864 - logs/mytab.logs:20 - WARNING - logs/mytab.logs
+2019-01-10 23:33:13,182 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-01
+2019-01-10 23:33:13,182 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2018-12-15
+2019-01-10 23:33:13,183 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 23:33:13,183 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 23:33:13,183 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-01 00:00:00
+2019-01-10 23:33:13,184 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 23:33:13,499 - logs/mytab.logs:92 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 23:33:13,507 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-01 00:00:00
+2019-01-10 23:33:13,507 - logs/mytab.logs:129 - WARNING - FILTER end date:2018-12-15 00:00:00
+2019-01-10 23:33:16,843 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-01 00:00:00:2018-12-15 00:00:00
+2019-01-10 23:33:16,854 - logs/mytab.logs:184 - WARNING - set_load_params-req_start_date:2018-12-15
+2019-01-10 23:33:16,854 - logs/mytab.logs:185 - WARNING - set_load_params-req_end_date:2019-01-10
+2019-01-10 23:33:16,855 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-01:2018-12-15
+2019-01-10 23:33:16,855 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-01', '2018-12-15']
+2019-01-10 23:33:16,855 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 23:33:16,855 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-01 00:00:00
+2019-01-10 23:33:16,855 - logs/mytab.logs:199 - WARNING - redis_key:block_tx_warehouse:churn:2018-12-15:2019-01-10
+2019-01-10 23:33:16,855 - logs/mytab.logs:202 - WARNING - matching keys :['block_tx_warehouse', 'churn', '2018-12-15', '2019-01-10']
+2019-01-10 23:33:16,856 - logs/mytab.logs:208 - WARNING - req_start_date:2018-12-15 00:00:00
+2019-01-10 23:33:16,856 - logs/mytab.logs:209 - WARNING - key_start_date:2018-12-15 00:00:00
+2019-01-10 23:33:17,380 - logs/mytab.logs:92 - WARNING - WAREHOUSE LOADED FROM REDIS:%s
+2019-01-10 23:33:17,386 - logs/mytab.logs:128 - WARNING - FILTER start date:2018-12-15 00:00:00
+2019-01-10 23:33:17,386 - logs/mytab.logs:129 - WARNING - FILTER end date:2019-01-10 00:00:00
+2019-01-10 23:33:22,402 - logs/mytab.logs:113 - WARNING - block_tx_warehouse LOADED: 2018-12-15 00:00:00:2019-01-10 00:00:00

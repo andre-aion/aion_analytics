@@ -200,3 +200,30 @@
 2019-01-10 00:15:44,033 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
 2019-01-10 00:16:11,548 - aion-analytics/logs/myutils.logs:20 - WARNING - aion-analytics/logs/myutils.logs
 2019-01-10 00:16:33,884 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 02:13:30,779 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 02:14:38,188 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 02:15:02,487 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 02:15:12,940 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-12-15
+2019-01-10 02:15:39,498 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-12-15
+2019-01-10 02:15:55,843 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-12-15
+2019-01-10 02:16:34,113 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-12-15
+2019-01-10 02:16:46,854 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 02:17:15,402 - logs/myutils.logs:230 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 07:57:20,630 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 22:34:48,762 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 22:37:43,960 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 22:37:53,106 - logs/myutils.logs:236 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 22:38:06,522 - logs/myutils.logs:236 - WARNING - start_date in compose key:2018-12-15
+2019-01-10 23:10:19,727 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 23:16:33,132 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 23:16:43,204 - logs/myutils.logs:236 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 23:16:43,208 - logs/myutils.logs:236 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 23:30:05,542 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 23:30:15,621 - logs/myutils.logs:236 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 23:30:15,625 - logs/myutils.logs:236 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 23:30:39,616 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 23:30:51,755 - logs/myutils.logs:236 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 23:30:51,759 - logs/myutils.logs:236 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 23:33:11,863 - logs/myutils.logs:20 - WARNING - logs/myutils.logs
+2019-01-10 23:33:22,413 - logs/myutils.logs:236 - WARNING - start_date in compose key:2018-12-01
+2019-01-10 23:33:22,421 - logs/myutils.logs:236 - WARNING - start_date in compose key:2018-12-01

@@ -1,0 +1,70 @@
+2019-01-10 22:34:50,686 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
+2019-01-10 22:37:45,692 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
+2019-01-10 23:10:21,757 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
+2019-01-10 23:16:34,113 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
+2019-01-10 23:16:43,217 - logs/churned_model_tab.logs:39 - ERROR - make checkboxes
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/utils/dashboard/churned_model_tab.py", line 36, in make_checkboxes
+    active=[1])
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/model.py", line 219, in __init__
+    super(Model, self).__init__(**kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 236, in __init__
+    setattr(self, name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 263, in __setattr__
+    super(HasProps, self).__setattr__(name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 503, in __set__
+    self._internal_set(obj, value, setter=setter)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 724, in _internal_set
+    value = self.property.prepare_value(obj, self.name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 285, in prepare_value
+    raise e
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 278, in prepare_value
+    self.validate(value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/properties.py", line 1222, in validate
+    raise ValueError(msg)
+ValueError: expected an element of List(String), got seq with invalid items [b'tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01', b'tier1_churned_dict:1:1:2018-12-01:2018-12-01']
+2019-01-10 23:30:06,713 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
+2019-01-10 23:30:15,634 - logs/churned_model_tab.logs:39 - ERROR - make checkboxes
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/utils/dashboard/churned_model_tab.py", line 36, in make_checkboxes
+    active=[1])
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/model.py", line 219, in __init__
+    super(Model, self).__init__(**kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 236, in __init__
+    setattr(self, name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 263, in __setattr__
+    super(HasProps, self).__setattr__(name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 503, in __set__
+    self._internal_set(obj, value, setter=setter)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 724, in _internal_set
+    value = self.property.prepare_value(obj, self.name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 285, in prepare_value
+    raise e
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 278, in prepare_value
+    self.validate(value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/properties.py", line 1222, in validate
+    raise ValueError(msg)
+ValueError: expected an element of List(String), got seq with invalid items [b'tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01', b'tier1_churned_dict:1:1:2018-12-01:2018-12-01']
+2019-01-10 23:30:40,597 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
+2019-01-10 23:30:51,768 - logs/churned_model_tab.logs:39 - ERROR - make checkboxes
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/utils/dashboard/churned_model_tab.py", line 36, in make_checkboxes
+    active=[1])
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/model.py", line 219, in __init__
+    super(Model, self).__init__(**kwargs)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 236, in __init__
+    setattr(self, name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 263, in __setattr__
+    super(HasProps, self).__setattr__(name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 503, in __set__
+    self._internal_set(obj, value, setter=setter)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 724, in _internal_set
+    value = self.property.prepare_value(obj, self.name, value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 285, in prepare_value
+    raise e
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 278, in prepare_value
+    self.validate(value)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/properties.py", line 1222, in validate
+    raise ValueError(msg)
+ValueError: expected an element of List(String), got seq with invalid items [b'tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01', b'tier1_churned_dict:1:1:2018-12-01:2018-12-01']
+2019-01-10 23:33:12,961 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs

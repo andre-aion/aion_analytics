@@ -1,30 +1,21 @@
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
-from bokeh.plotting import figure
-
-from scripts.utils.mytab import DataLocation, Mytab
-from scripts.utils.myutils import tab_error_flag, \
-    ms_to_date, ns_to_date, set_params_to_load
+from scripts.utils.dashboard.mytab import Mytab
+from scripts.utils.myutils import tab_error_flag
 from scripts.utils.mylogger import mylogger
-from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from config import dedup_cols
 
-import datashader as ds
-from bokeh.layouts import layout, column, row, gridplot, WidgetBox
-from bokeh.models import CustomJS, ColumnDataSource, HoverTool, Panel, Button
+from bokeh.layouts import gridplot, WidgetBox
+from bokeh.models import CustomJS, ColumnDataSource, Panel, Button
 
 
 import gc
-from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, Select, \
+from bokeh.models.widgets import Div, Select, \
     DatePicker, TableColumn, DataTable
 from holoviews import streams
-from holoviews.streams import Stream,RangeXY,RangeX,RangeY, Pipe
-from pdb import set_trace
-import hvplot.dask
-import hvplot.pandas
 
-from datetime import datetime, date, time
+from datetime import datetime
 
 from tornado.gen import coroutine
 executor = ThreadPoolExecutor(max_workers=5)

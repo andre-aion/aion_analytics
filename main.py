@@ -1,6 +1,5 @@
 from concurrent.futures import ThreadPoolExecutor
 
-from bokeh.io import curdoc
 from tornado import gen
 from bokeh.document import without_document_lock
 
@@ -15,9 +14,11 @@ from bokeh.application.handlers.function import FunctionHandler
 from tornado.ioloop import IOLoop
 
 from scripts.dashboards.blockminer import blockminer_tab
+from scripts.dashboards.poolminer import poolminer_tab
 from scripts.dashboards.churn import churn_tab
 from scripts.dashboards.hashrate import hashrate_tab
-from scripts.dashboards.poolminer import poolminer_tab
+from scripts.dashboards.tier1_churned_model import churned_model
+
 from scripts.utils.mylogger import mylogger
 
 logger = mylogger(__file__)
@@ -28,13 +29,14 @@ def aion_analytics(doc):
 
     # SETUP BOKEH OBJECTS
     try:
-        #ch = yield churn_tab()
-        bm = yield blockminer_tab()
+        ch = yield churn_tab()
+        #bm = yield blockminer_tab()
         #hr = yield hashrate_tab()
         #pm = yield poolminer_tab()
+        ch_m = yield churned_model(1)
 
-        tabs = Tabs(tabs=[bm])
-        #doc = curdoc()
+
+        tabs = Tabs(tabs=[ch,ch_m])
         doc.add_root(tabs)
 
     except Exception:
@@ -48,7 +50,8 @@ def launch_server():
     try:
         apps = {"/aion-analytics": Application(FunctionHandler(aion_analytics))}
         io_loop = IOLoop.current()
-        server = Server(apps,port=5006,allow_websocket_origin=["*"],io_loop=io_loop)
+        server = Server(apps,port=5006,allow_websocket_origin=["*"],io_loop=io_loop,
+                        session_ids='external signed')
         server.start()
         server.io_loop.add_callback(server.show, '/aion-analytics')
         server.io_loop.start()

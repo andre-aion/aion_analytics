@@ -556,3 +556,63 @@
 2019-01-10 00:16:33,379 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
 2019-01-10 00:16:35,106 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
 2019-01-10 00:16:35,106 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 02:13:29,469 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 02:13:33,576 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 02:13:33,576 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 02:14:37,083 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 02:14:40,803 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 02:14:40,803 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 02:17:29,545 - logs/hashrate.logs:73 - WARNING - Hashrate plot started
+2019-01-10 02:17:29,545 - logs/hashrate.logs:73 - WARNING - Hashrate plot started
+2019-01-10 02:17:29,546 - logs/hashrate.logs:20 - WARNING - STARTING HASHRATE CALCULATIONS
+2019-01-10 02:17:29,546 - logs/hashrate.logs:20 - WARNING - STARTING HASHRATE CALCULATIONS
+2019-01-10 02:17:29,888 - logs/hashrate.logs:77 - WARNING - HASHRATE CALCS COMPLETED
+2019-01-10 02:17:29,888 - logs/hashrate.logs:77 - WARNING - HASHRATE CALCS COMPLETED
+2019-01-10 02:17:29,899 - logs/hashrate.logs:82 - WARNING - HASHRATE GRAPH COMPLETED
+2019-01-10 02:17:29,899 - logs/hashrate.logs:82 - WARNING - HASHRATE GRAPH COMPLETED
+2019-01-10 02:17:30,204 - logs/hashrate.logs:92 - WARNING - Difficulty plot started
+2019-01-10 02:17:30,204 - logs/hashrate.logs:92 - WARNING - Difficulty plot started
+2019-01-10 02:18:41,226 - logs/hashrate.logs:73 - WARNING - Hashrate plot started
+2019-01-10 02:18:41,226 - logs/hashrate.logs:73 - WARNING - Hashrate plot started
+2019-01-10 02:18:41,227 - logs/hashrate.logs:20 - WARNING - STARTING HASHRATE CALCULATIONS
+2019-01-10 02:18:41,227 - logs/hashrate.logs:20 - WARNING - STARTING HASHRATE CALCULATIONS
+2019-01-10 02:18:41,617 - logs/hashrate.logs:77 - WARNING - HASHRATE CALCS COMPLETED
+2019-01-10 02:18:41,617 - logs/hashrate.logs:77 - WARNING - HASHRATE CALCS COMPLETED
+2019-01-10 02:18:41,630 - logs/hashrate.logs:82 - WARNING - HASHRATE GRAPH COMPLETED
+2019-01-10 02:18:41,630 - logs/hashrate.logs:82 - WARNING - HASHRATE GRAPH COMPLETED
+2019-01-10 02:18:41,958 - logs/hashrate.logs:92 - WARNING - Difficulty plot started
+2019-01-10 02:18:41,958 - logs/hashrate.logs:92 - WARNING - Difficulty plot started
+2019-01-10 02:21:15,069 - logs/hashrate.logs:73 - WARNING - Hashrate plot started
+2019-01-10 02:21:15,069 - logs/hashrate.logs:73 - WARNING - Hashrate plot started
+2019-01-10 02:21:15,069 - logs/hashrate.logs:20 - WARNING - STARTING HASHRATE CALCULATIONS
+2019-01-10 02:21:15,069 - logs/hashrate.logs:20 - WARNING - STARTING HASHRATE CALCULATIONS
+2019-01-10 02:21:15,389 - logs/hashrate.logs:77 - WARNING - HASHRATE CALCS COMPLETED
+2019-01-10 02:21:15,389 - logs/hashrate.logs:77 - WARNING - HASHRATE CALCS COMPLETED
+2019-01-10 02:21:15,401 - logs/hashrate.logs:82 - WARNING - HASHRATE GRAPH COMPLETED
+2019-01-10 02:21:15,401 - logs/hashrate.logs:82 - WARNING - HASHRATE GRAPH COMPLETED
+2019-01-10 02:21:15,694 - logs/hashrate.logs:92 - WARNING - Difficulty plot started
+2019-01-10 02:21:15,694 - logs/hashrate.logs:92 - WARNING - Difficulty plot started
+2019-01-10 07:57:19,543 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 07:57:23,124 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 07:57:23,124 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 22:34:48,771 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 22:34:50,325 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 22:34:50,325 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 22:37:43,961 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 22:37:45,347 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 22:37:45,347 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:10:19,729 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:10:21,383 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:10:21,383 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:16:33,133 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:16:33,942 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:16:33,942 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:30:05,543 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:30:06,527 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:30:06,527 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:30:39,617 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:30:40,426 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:30:40,426 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:33:11,864 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:33:12,764 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs
+2019-01-10 23:33:12,764 - logs/hashrate.logs:20 - WARNING - logs/hashrate.logs

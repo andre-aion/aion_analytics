@@ -3,21 +3,17 @@ from enum import Enum
 from os.path import join, dirname
 import pandas as pd
 import dask as dd
-import dask.array as da
 
 from scripts.utils.mylogger import mylogger
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
-from scripts.utils.myutils import set_params_to_load, construct_df_upon_load, \
-    ms_to_date, date_to_ms, set_construct_params, LoadType, construct_warehouse_from_parquet_and_df, drop_cols
-from scripts.storage.pythonRedis import RedisStorage
+from scripts.storage.pythonRedis import PythonRedis
 from scripts.storage.pythonParquet import PythonParquet
 from scripts.storage.pythonClickhouse import PythonClickhouse
-from scripts.utils.poolminer import make_poolminer_warehouse
+from scripts.utils.dashboard.poolminer import make_poolminer_warehouse
 from bokeh.models.widgets import Div, Paragraph
 from config import table_dict, columns
-import pandahouse
 
-r = RedisStorage()
+r = PythonRedis()
 logger = mylogger(__file__)
 
 
@@ -46,7 +42,7 @@ class Mytab:
         self.tier2_miners_list = []
         self.pq = PythonParquet()
         self.ch = PythonClickhouse('aion')
-        self.redis = RedisStorage()
+        self.redis = PythonRedis()
         self.conn = self.redis.conn
 
         # create warehouse is needed
@@ -80,10 +76,7 @@ class Mytab:
                         params['end'] = True
 
             # entire frame in memory
-            if 'warehouse' in self.table:
-                key_params = [self.table]
-            else:
-                key_params = [self.table, self.key_tab]
+            key_params = [self.table, self.key_tab]
 
             if params['start'] and params['end']:
                 self.filter_df(req_start_date, req_end_date)
@@ -160,7 +153,7 @@ class Mytab:
         return Paragraph(text='', width=width, height=height)
 
     def get_poolname_dict(self):
-        file = join(dirname(__file__), '../../data/poolinfo.csv')
+        file = join(dirname(__file__), '../../../data/poolinfo.csv')
         df = pd.read_csv(file)
         a = df['address'].tolist()
         b = df['poolname'].tolist()

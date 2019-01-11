@@ -1,30 +1,19 @@
 import datetime
-from time import mktime
 
 from tornado.gen import coroutine
 
-from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from scripts.utils.mylogger import mylogger
-from config import insert_sql, create_table_sql, create_indexes
 from concurrent.futures import ThreadPoolExecutor
 from clickhouse_driver import Client as Clickhouse_Client
 
-
-import logging
-from cassandra.cluster import Cluster, BatchStatement
 import pandas as pd
 import dask as dd
 import numpy as np
 from datetime import datetime
-import gc
-from pdb import set_trace
 import sqlalchemy as sa
 
 executor = ThreadPoolExecutor(max_workers=20)
 logger = mylogger(__file__)
-
-import gc
-from pdb import set_trace
 
 logger = mylogger(__file__)
 
@@ -109,7 +98,14 @@ class PythonClickhouse:
                                                'max_execution_time': 3600})
             df = pd.DataFrame(query_result, columns=cols)
             df = dd.dataframe.from_pandas(df, npartitions=15)
-            #logger.warning("query result:%s",df.tail(5))
+
+            # if transaction table change the name of nrg_consumed
+            if table in ['transaction','block']:
+                if table in df.columns.tolist():
+                    new_name = table+'_nrg_consumed'
+                    new_columns = [new_name if x=='nrg_consumed' else x for x in df.columns.tolist()]
+                    df = df.rename(columns=dict(zip(df.columns.tolist(), new_columns)))
+                    logger.warning("columns renamed:%s",df.columnms.tolist())
             return df
 
         except Exception:

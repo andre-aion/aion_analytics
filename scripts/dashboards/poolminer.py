@@ -1,44 +1,22 @@
-import csv
 from os.path import join, dirname
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.poolminer import make_tier1_list,\
+from scripts.utils.dashboard.poolminer import make_tier1_list,\
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag
-from scripts.utils.mytab import Mytab, DataLocation
-from config import dedup_cols, columns as cols
-from tornado import gen
+from scripts.utils.dashboard.mytab import Mytab
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
-
-import datashader as ds
-from bokeh.layouts import layout, column, row, gridplot, WidgetBox
-from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d, CustomJS
+from bokeh.layouts import gridplot, WidgetBox
+from bokeh.models import ColumnDataSource, Panel, CustomJS
 import gc
-from bokeh.io import curdoc
-from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, \
+from bokeh.models.widgets import Div, \
     DatePicker, TableColumn, DataTable, Button, Select
-from holoviews import streams
-from holoviews.streams import Stream, RangeXY, RangeX, RangeY, Pipe
-from pdb import set_trace
-import hvplot.dask
-import hvplot.pandas
 
-import holoviews as hv, param, dask.dataframe as dd
-from holoviews.operation.datashader import rasterize, shade, datashade
 from datetime import datetime
-import numpy as np
-import pandas as pd
-import dask as dd
-from pdb import set_trace
-from holoviews import streams
-
-from dask.distributed import Client
-from dask import visualize, delayed
 
 import holoviews as hv
-import time
 from tornado.gen import coroutine
 
 lock = Lock()
@@ -76,7 +54,7 @@ def poolminer_tab():
 
     class Thistab(Mytab):
         tier1_miners_activated = False
-        def __init__(self, table, key_tab='',cols=[], dedup_cols=[]):
+        def __init__(self, table, key_tab='poolminer',cols=[], dedup_cols=[]):
             Mytab.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.tier1_df = self.df

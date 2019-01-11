@@ -1,39 +1,19 @@
 from scripts.utils.mylogger import mylogger
-from scripts.utils.hashrate import calc_hashrate
+from scripts.utils.dashboard.hashrate import calc_hashrate
 from scripts.utils.myutils import tab_error_flag
-from scripts.utils.mytab import Mytab
-from config import dedup_cols, columns as cols
-from tornado import gen
+from scripts.utils.dashboard.mytab import Mytab
+from config import dedup_cols
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
+from bokeh.layouts import gridplot, WidgetBox
+from bokeh.models import Panel
+from bokeh.models.widgets import Div, DatePicker, Select
 
-import datashader as ds
-from bokeh.layouts import layout, column, row, gridplot, WidgetBox
-from bokeh.models import ColumnDataSource, HoverTool, Panel, Range1d
-import gc
-from bokeh.io import curdoc
-from bokeh.models.widgets import DateRangeSlider, TextInput, Slider, Div, DatePicker, Select
-from holoviews import streams
-from holoviews.streams import Stream, RangeXY, RangeX, RangeY, Pipe
-from pdb import set_trace
-import hvplot.dask
-import hvplot.pandas
-
-import holoviews as hv, param, dask.dataframe as dd
-from holoviews.operation.datashader import rasterize, shade, datashade
 from datetime import datetime
-import numpy as np
-import pandas as pd
-import dask as dd
-from pdb import set_trace
 from holoviews import streams
-
-from dask.distributed import Client
-from dask import visualize, delayed
 
 import holoviews as hv
-import time
 from tornado.gen import coroutine
 
 lock = Lock()

@@ -1,24 +1,16 @@
 from scripts.utils.mylogger import mylogger
-import redis
 import pickle
 import redis
 import zlib
 import pandas as pd
-import dask as dd
-import dask as dd
 from tornado.gen import coroutine
 from datetime import datetime, timedelta
-from enum import Enum
-from operator import xor
 import numpy as np
-import cloudpickle
-import msgpack
-
 
 logger = mylogger(__file__)
 EXPIRATION_SECONDS = 86400*4 #retain for 4 days in redis
 
-class RedisStorage:
+class PythonRedis:
     conn = redis.StrictRedis(
         host='localhost',
         port=6379)
@@ -91,7 +83,7 @@ class RedisStorage:
             key = compose_key(key_params, start_date, end_date)
             self.conn.setex(name=key, time=EXPIRATION_SECONDS,
                             value=zlib.compress(pickle.dumps(item)))
-            #logger.warning("SAVE: %s saved to redis",key)
+            logger.warning("SAVE: %s saved to redis",key)
         except Exception:
             logger.error('save to redis',exc_info=True)
 
@@ -115,6 +107,19 @@ class RedisStorage:
         except Exception:
             logger.error('load item', exc_info=True)
 
+    @coroutine
+    def save_dict(self,dct,type='churned'):
+        try:
+            if dct:
+                if type == 'churned':
+                    dct['warehouse'] = self.compose_key(dct['warehouse'],
+                                                        dct['reference_start_date'],
+                                                        dct['reference_end_date'])
+                    self.save(dct,dct['key_params'],dct['reference_start_date'],
+                              dct['reference_end_date'])
+
+        except Exception:
+            logger.error("save_dict", exc_info=True)
 
 
 

@@ -10,8 +10,6 @@ from cassandra.cluster import Cluster, BatchStatement
 import pandas as pd
 import dask as dd
 from datetime import datetime
-import gc
-from pdb import set_trace
 
 executor = ThreadPoolExecutor(max_workers=20)
 

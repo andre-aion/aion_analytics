@@ -1,5 +1,4 @@
 from datetime import datetime, date
-from enum import Enum
 from os.path import join, dirname
 
 import pandas as pd

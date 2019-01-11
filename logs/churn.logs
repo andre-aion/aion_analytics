@@ -368,3 +368,118 @@ TypeError: 'NoneType' object is not iterable
 2019-01-10 00:15:45,501 - logs/churn.logs:20 - WARNING - logs/churn.logs
 2019-01-10 00:16:12,915 - aion-analytics/logs/churn.logs:20 - WARNING - aion-analytics/logs/churn.logs
 2019-01-10 00:16:35,107 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 02:13:33,579 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 02:14:40,806 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 02:14:41,239 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-10 02:15:02,604 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:85
+2019-01-10 02:15:39,620 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:60
+2019-01-10 02:15:39,620 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-10 02:15:39,621 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-10 02:16:34,118 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:771
+2019-01-10 02:17:15,407 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-10 02:17:15,407 - logs/churn.logs:240 - WARNING - tier 2 churn completed
+2019-01-10 02:18:13,413 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-10 02:18:18,213 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:85
+2019-01-10 02:18:26,122 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:60
+2019-01-10 02:18:26,122 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-10 02:18:26,123 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-10 02:18:26,127 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:771
+2019-01-10 02:18:26,131 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-10 02:18:26,131 - logs/churn.logs:240 - WARNING - tier 2 churn completed
+2019-01-10 02:20:53,890 - logs/churn.logs:171 - WARNING - tier 1 churn started
+2019-01-10 02:20:58,101 - logs/churn.logs:123 - WARNING - REFERENCE tier 1 miners list length:85
+2019-01-10 02:21:02,746 - logs/churn.logs:123 - WARNING - PERIOD tier 1 miners list length:60
+2019-01-10 02:21:02,746 - logs/churn.logs:181 - WARNING - tier 1 churn completed
+2019-01-10 02:21:02,746 - logs/churn.logs:231 - WARNING - tier 2 churn started
+2019-01-10 02:21:02,748 - logs/churn.logs:162 - WARNING - PERIOD tier 2 miners list length:771
+2019-01-10 02:21:02,749 - logs/churn.logs:162 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-10 02:21:02,749 - logs/churn.logs:240 - WARNING - tier 2 churn completed
+2019-01-10 07:57:23,129 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 22:34:50,677 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 22:34:51,042 - logs/churn.logs:394 - ERROR - rendering err:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/dashboards/churn.py", line 311, in churn_tab
+    thistab = Thistab('churn')
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/dashboards/churn.py", line 55, in __init__
+    self.tab['reference'] = Mytab('block_tx_warehouse',warehouse_cols, dedup_cols)
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/utils/dashboard/mytab.py", line 38, in __init__
+    self.poolname_dict = self.get_poolname_dict()
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/utils/dashboard/mytab.py", line 157, in get_poolname_dict
+    df = pd.read_csv(file)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/io/parsers.py", line 678, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/io/parsers.py", line 440, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/io/parsers.py", line 787, in __init__
+    self._make_engine(self.engine)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/io/parsers.py", line 1014, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/io/parsers.py", line 1708, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 384, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 695, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: File b'/home/andre/aion/data_science/bokeh/aion-analytics/scripts/utils/dashboard/../../data/poolinfo.csv' does not exist
+2019-01-10 22:37:45,688 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 22:37:46,190 - logs/churn.logs:154 - WARNING - tier 1 churn started
+2019-01-10 22:37:59,237 - logs/churn.logs:106 - WARNING - REFERENCE tier 1 miners list length:85
+2019-01-10 22:38:13,894 - logs/churn.logs:106 - WARNING - PERIOD tier 1 miners list length:60
+2019-01-10 22:38:13,894 - logs/churn.logs:164 - WARNING - tier 1 churn completed
+2019-01-10 22:38:13,894 - logs/churn.logs:239 - ERROR - tier 2 churn
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/dashboards/churn.py", line 181, in stats
+    self.threshold_blocks_mined_per_day]
+AttributeError: 'Thistab' object has no attribute 'threshold_blocks_mined_per_day'
+2019-01-10 22:38:13,895 - logs/churn.logs:244 - WARNING - tier 2 churn started
+2019-01-10 22:38:13,897 - logs/churn.logs:145 - WARNING - PERIOD tier 2 miners list length:771
+2019-01-10 22:38:13,899 - logs/churn.logs:145 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-10 22:38:13,899 - logs/churn.logs:253 - WARNING - tier 2 churn completed
+2019-01-10 22:38:13,900 - logs/churn.logs:239 - ERROR - tier 2 churn
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/dashboards/churn.py", line 181, in stats
+    self.threshold_blocks_mined_per_day]
+AttributeError: 'Thistab' object has no attribute 'threshold_blocks_mined_per_day'
+2019-01-10 23:10:21,753 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 23:10:22,195 - logs/churn.logs:154 - WARNING - tier 1 churn started
+2019-01-10 23:10:28,275 - logs/churn.logs:106 - WARNING - REFERENCE tier 1 miners list length:85
+2019-01-10 23:10:33,830 - logs/churn.logs:106 - WARNING - PERIOD tier 1 miners list length:60
+2019-01-10 23:10:33,830 - logs/churn.logs:164 - WARNING - tier 1 churn completed
+2019-01-10 23:10:33,831 - logs/churn.logs:244 - WARNING - tier 2 churn started
+2019-01-10 23:10:33,832 - logs/churn.logs:145 - WARNING - PERIOD tier 2 miners list length:771
+2019-01-10 23:10:33,834 - logs/churn.logs:145 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-10 23:10:33,834 - logs/churn.logs:253 - WARNING - tier 2 churn completed
+2019-01-10 23:16:34,111 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 23:16:34,295 - logs/churn.logs:154 - WARNING - tier 1 churn started
+2019-01-10 23:16:38,559 - logs/churn.logs:106 - WARNING - REFERENCE tier 1 miners list length:85
+2019-01-10 23:16:43,204 - logs/churn.logs:106 - WARNING - PERIOD tier 1 miners list length:60
+2019-01-10 23:16:43,204 - logs/churn.logs:164 - WARNING - tier 1 churn completed
+2019-01-10 23:16:43,205 - logs/churn.logs:244 - WARNING - tier 2 churn started
+2019-01-10 23:16:43,206 - logs/churn.logs:145 - WARNING - PERIOD tier 2 miners list length:771
+2019-01-10 23:16:43,208 - logs/churn.logs:145 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-10 23:16:43,208 - logs/churn.logs:253 - WARNING - tier 2 churn completed
+2019-01-10 23:30:06,710 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 23:30:06,915 - logs/churn.logs:154 - WARNING - tier 1 churn started
+2019-01-10 23:30:11,016 - logs/churn.logs:106 - WARNING - REFERENCE tier 1 miners list length:85
+2019-01-10 23:30:15,620 - logs/churn.logs:106 - WARNING - PERIOD tier 1 miners list length:60
+2019-01-10 23:30:15,620 - logs/churn.logs:164 - WARNING - tier 1 churn completed
+2019-01-10 23:30:15,621 - logs/churn.logs:244 - WARNING - tier 2 churn started
+2019-01-10 23:30:15,623 - logs/churn.logs:145 - WARNING - PERIOD tier 2 miners list length:771
+2019-01-10 23:30:15,624 - logs/churn.logs:145 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-10 23:30:15,624 - logs/churn.logs:253 - WARNING - tier 2 churn completed
+2019-01-10 23:30:40,596 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 23:30:40,775 - logs/churn.logs:154 - WARNING - tier 1 churn started
+2019-01-10 23:30:45,334 - logs/churn.logs:106 - WARNING - REFERENCE tier 1 miners list length:85
+2019-01-10 23:30:51,754 - logs/churn.logs:106 - WARNING - PERIOD tier 1 miners list length:60
+2019-01-10 23:30:51,755 - logs/churn.logs:164 - WARNING - tier 1 churn completed
+2019-01-10 23:30:51,755 - logs/churn.logs:244 - WARNING - tier 2 churn started
+2019-01-10 23:30:51,757 - logs/churn.logs:145 - WARNING - PERIOD tier 2 miners list length:771
+2019-01-10 23:30:51,758 - logs/churn.logs:145 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-10 23:30:51,758 - logs/churn.logs:253 - WARNING - tier 2 churn completed
+2019-01-10 23:33:12,959 - logs/churn.logs:20 - WARNING - logs/churn.logs
+2019-01-10 23:33:13,167 - logs/churn.logs:154 - WARNING - tier 1 churn started
+2019-01-10 23:33:16,850 - logs/churn.logs:106 - WARNING - REFERENCE tier 1 miners list length:85
+2019-01-10 23:33:22,412 - logs/churn.logs:106 - WARNING - PERIOD tier 1 miners list length:60
+2019-01-10 23:33:22,413 - logs/churn.logs:164 - WARNING - tier 1 churn completed
+2019-01-10 23:33:22,414 - logs/churn.logs:244 - WARNING - tier 2 churn started
+2019-01-10 23:33:22,417 - logs/churn.logs:145 - WARNING - PERIOD tier 2 miners list length:771
+2019-01-10 23:33:22,420 - logs/churn.logs:145 - WARNING - REFERENCE tier 2 miners list length:650
+2019-01-10 23:33:22,420 - logs/churn.logs:253 - WARNING - tier 2 churn completed
