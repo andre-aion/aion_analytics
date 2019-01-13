@@ -20,9 +20,10 @@ from scripts.dashboards.hashrate import hashrate_tab
 from scripts.dashboards.tier1_churned_model import churned_model
 
 from scripts.utils.mylogger import mylogger
-
+import os
 logger = mylogger(__file__)
 executor = ThreadPoolExecutor(max_workers=10)
+
 
 @gen.coroutine
 def aion_analytics(doc):

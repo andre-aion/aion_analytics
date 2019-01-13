@@ -97,15 +97,16 @@ class PythonClickhouse:
                                                settings={
                                                'max_execution_time': 3600})
             df = pd.DataFrame(query_result, columns=cols)
+            # if transaction table change the name of nrg_consumed
+            if table in ['transaction', 'block']:
+                if 'nrg_consumed' in df.columns.tolist():
+                    new_name = table + '_nrg_consumed'
+                    df = df.rename(index=str, columns={"nrg_consumed": new_name})
+                    #new_columns = [new_name if x == 'nrg_consumed' else x for x in df.columns.tolist()]
+                    #df = df.rename(columns=dict(zip(df.columns.tolist(), new_columns)))
+                    logger.warning("columns renamed:%s", df.columns.tolist())
             df = dd.dataframe.from_pandas(df, npartitions=15)
 
-            # if transaction table change the name of nrg_consumed
-            if table in ['transaction','block']:
-                if table in df.columns.tolist():
-                    new_name = table+'_nrg_consumed'
-                    new_columns = [new_name if x=='nrg_consumed' else x for x in df.columns.tolist()]
-                    df = df.rename(columns=dict(zip(df.columns.tolist(), new_columns)))
-                    logger.warning("columns renamed:%s",df.columnms.tolist())
             return df
 
         except Exception:

@@ -9,40 +9,39 @@ redis = PythonRedis()
 
 
 # get list keys of churn dictionaries
-def find_in_redis(item='churned_dict'):
+def find_in_redis(item='tier1_churned_dict'):
     # get keys
     str_to_match = '*' + item + ':*'
     matches = redis.conn.scan_iter(match=str_to_match)
-    lst = ['select all']
+    lst = []
     try:
         if matches:
             for redis_key in matches:
-                redis_key_encoded = redis_key
                 redis_key = str(redis_key, 'utf-8')
                 logger.warning('churned_dict found:%s', redis_key)
                 lst.append(redis_key)
         else:
-            lst = []
+            lst = ['no data']
         return lst
 
     except Exception:
         logger.error("find in redis",exc_info=True)
 
 # get data from redis and join if necessary
-def construct_from_redis(key_lst,item_type ='list',table=None,df_cols=None,dedup_cols=None):
+def construct_from_redis(key_lst,item_type ='list',df=None,table=None,df_cols=None,dedup_cols=None):
     try:
         redis = PythonRedis()
         if not key_lst:
             return None
         else:
-            temp_item = [] if item_type == 'list' else SD(table,df_cols,dedup_cols).get_df()
+            temp_item = [] if item_type == 'list' else df
             for key in key_lst:
                 item_loaded = redis.load([],'','',key,item_type)
-                logger.warning('item loaded:%s', item_loaded)
                 if item_type == 'list':
                     temp_item.append(item_loaded)
                 elif item_type == 'dataframe':
                     temp_item = concat_dfs(temp_item,item_loaded)
+        #logger.warning("CONSTRUCT FROM REDIS :%s", temp_item['approx_value'].tail(30))
         return temp_item
 
     except Exception:
@@ -50,23 +49,23 @@ def construct_from_redis(key_lst,item_type ='list',table=None,df_cols=None,dedup
 
 
 # get the dictionaries, then extract the df and the lists
-def extract_data_from_dict(dct_lst, cols):
+def extract_data_from_dict(dct_lst, df):
     try:
         dataframe_list = []
         churned_miners_list = []
         retained_miners_list = []
-
         if dct_lst:
             for dct in dct_lst:
+                # load the  dictionary
+                dct = redis.load([],'','',key=dct)
                 # make dataframe list
                 dataframe_list.append(dct['warehouse'])
-                churned_miners_list.append(dct['churned_lst'])
-                retained_miners_list.append(dct['retained_lst'])
+                churned_miners_list = dct['churned_lst']
+                retained_miners_list = dct['retained_lst']
             # construct the data
-            df = construct_from_redis(dataframe_list,item_type='datafrane',
-                                      table='block_tx_warehouse',df_cols=cols,dedup_cols=[])
-            churned_miners_list = construct_from_redis(churned_miners_list,item_type='list')
-            retained_miners_list = construct_from_redis(retained_miners_list,item_type='list')
+            df = construct_from_redis(dataframe_list,item_type='dataframe',
+                                      table='block_tx_warehouse',df=df)
+
         return df, churned_miners_list, retained_miners_list
 
     except Exception:

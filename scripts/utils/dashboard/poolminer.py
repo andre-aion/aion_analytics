@@ -68,14 +68,16 @@ def explode_transaction_hashes(df):
 
 
 # make data warehouse only if tier1 and tier2 miner lists do not exits
-def make_poolminer_warehouse(df_tx, df_block, start_date, end_date):
+def make_poolminer_warehouse(df_tx, df_block, start_date, end_date,tab='poolminer'):
     logger.warning("df_tx columns in make_poolminer_warehose:%s",df_tx.columns.tolist())
     logger.warning("df_block columns in make_poolminer_warehose:%s",df_block.columns.tolist())
 
-    df_tx = df_tx[['block_timestamp','transaction_hash','from_addr','to_addr','approx_value']]
-    df_block = df_block[['miner_address','block_number','transaction_hashes']]
+    #df_tx = df_tx[['block_timestamp','transaction_hash','from_addr','to_addr','approx_value']]
+    #df_block = df_block[['miner_address','block_number','transaction_hashes']]
+    df_block = df_block.drop(['block_timestamp'],axis=1)
+
     try:
-        key_params = ['block_tx_warehouse']
+        key_params = ['block_tx_warehouse',tab]
         meta = make_meta({
                           'block_timestamp':'M8', 'block_number': 'i8',
                           'miner_address': 'object', 'transaction_hashes': 'object'})

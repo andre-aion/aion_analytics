@@ -1,15 +1,8 @@
-2019-01-10 22:34:50,686 - logs/churned.logs:20 - WARNING - logs/churned.logs
-2019-01-10 22:37:45,692 - logs/churned.logs:20 - WARNING - logs/churned.logs
-2019-01-10 23:10:21,756 - logs/churned.logs:20 - WARNING - logs/churned.logs
-2019-01-10 23:16:34,113 - logs/churned.logs:20 - WARNING - logs/churned.logs
-2019-01-10 23:16:43,217 - logs/churned.logs:19 - WARNING - churned_dict found:b'tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01'
-2019-01-10 23:16:43,217 - logs/churned.logs:19 - WARNING - churned_dict found:b'tier1_churned_dict:1:1:2018-12-01:2018-12-01'
-2019-01-10 23:30:06,712 - logs/churned.logs:20 - WARNING - logs/churned.logs
-2019-01-10 23:30:15,634 - logs/churned.logs:19 - WARNING - churned_dict found:tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01
-2019-01-10 23:30:15,634 - logs/churned.logs:19 - WARNING - churned_dict found:tier1_churned_dict:1:1:2018-12-01:2018-12-01
-2019-01-10 23:30:40,597 - logs/churned.logs:20 - WARNING - logs/churned.logs
-2019-01-10 23:30:51,768 - logs/churned.logs:19 - WARNING - churned_dict found:tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01
-2019-01-10 23:30:51,768 - logs/churned.logs:19 - WARNING - churned_dict found:tier1_churned_dict:1:1:2018-12-01:2018-12-01
-2019-01-10 23:33:12,961 - logs/churned.logs:20 - WARNING - logs/churned.logs
-2019-01-10 23:33:22,440 - logs/churned.logs:19 - WARNING - churned_dict found:tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01
-2019-01-10 23:33:22,440 - logs/churned.logs:19 - WARNING - churned_dict found:tier1_churned_dict:1:1:2018-12-01:2018-12-01
+2019-01-13 17:13:48,656 - logs/churned.logs:20 - WARNING - logs/churned.logs
+2019-01-13 17:14:14,334 - logs/churned.logs:21 - WARNING - churned_dict found:tier1_churned_dict:1:1:2018-12-01:2018-12-15
+2019-01-13 17:14:14,334 - logs/churned.logs:21 - WARNING - churned_dict found:tier1_churned_dict:1.0:1:2018-10-01:2018-12-15
+2019-01-13 17:14:14,334 - logs/churned.logs:21 - WARNING - churned_dict found:tier1_churned_dict:1.0:1:2018-11-11:2018-12-15
+2019-01-13 17:22:26,065 - logs/churned.logs:21 - WARNING - churned_dict found:tier1_churned_dict:1:1:2018-12-01:2018-12-15
+2019-01-13 17:22:26,065 - logs/churned.logs:21 - WARNING - churned_dict found:tier1_churned_dict:1.0:1:2018-10-15:2018-12-15
+2019-01-13 17:22:26,065 - logs/churned.logs:21 - WARNING - churned_dict found:tier1_churned_dict:1.0:1:2018-10-01:2018-12-15
+2019-01-13 17:22:26,066 - logs/churned.logs:21 - WARNING - churned_dict found:tier1_churned_dict:1.0:1:2018-11-11:2018-12-15

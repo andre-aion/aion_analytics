@@ -22,7 +22,7 @@
       <introspection-schemas>*:@</introspection-schemas>
     </data-source>
     <data-source name="clickhouse@localhost" uuid="4bc6f2bd-2c05-4aac-b90d-35b2bd538f06">
-      <database-info product="ClickHouse" version="0.42" jdbc-version="0.1" driver-name="ru.yandex.clickhouse-jdbc" driver-version="0.1" family="CLICKHOUSE" exact-version="0.42">
+      <database-info product="ClickHouse" version="0.42" jdbc-version="0.1" driver-name="ru.yandex.clickhouse-jdbc" driver-version="0.1" family="CLICKHOUSE" exact-version="18.16.1">
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />

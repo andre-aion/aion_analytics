@@ -4,7 +4,7 @@ from scripts.utils.dashboard.poolminer import make_tier1_list, \
 from scripts.utils.myutils import tab_error_flag, datetime_to_str
 from scripts.utils.dashboard.mytab import Mytab
 from scripts.storage.pythonRedis import PythonRedis
-from config import dedup_cols
+from config import dedup_cols, load_columns as cols
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
@@ -17,6 +17,7 @@ from datetime import datetime
 
 import holoviews as hv
 from tornado.gen import coroutine
+import os
 
 lock = Lock()
 executor = ThreadPoolExecutor()
@@ -31,17 +32,12 @@ menu = [str(x * 0.5) for x in range(0, 80)]
 menu_blocks_mined = [str(x) if x > 0 else '' for x in range(0, 50)]
 redis = PythonRedis()
 
+# delete logs on load
+list(map( os.unlink, (os.path.join('logs',f) for f in os.listdir('logs'))))
+
+
 @coroutine
 def churn_tab():
-    block_cols = ['transaction_hashes', 'block_timestamp', 'miner_address',
-                  'block_number','difficulty','nrg_consumed','nrg_limit',
-                  'block_size','approx_nrg_reward']
-    transaction_cols = ['block_timestamp',
-                        'transaction_hash', 'from_addr',
-                        'to_addr', 'approx_value', 'nrg_consumed',
-                        'nrg_price']
-    warehouse_cols = ['block_timestamp', 'block_number', 'to_addr',
-                      'from_addr', 'miner_address', 'approx_value', 'transaction_hash']
 
 
     class Thistab():
@@ -52,20 +48,22 @@ def churn_tab():
                 'period': False
             }
             self.tab = {}
-            self.tab['reference'] = Mytab('block_tx_warehouse',warehouse_cols, dedup_cols)
-            self.tab['period'] = Mytab('block_tx_warehouse',warehouse_cols, dedup_cols)
+            self.tab['reference'] = Mytab('block_tx_warehouse',cols['block_tx_warehouse'][key_tab], dedup_cols)
+            self.tab['period'] = Mytab('block_tx_warehouse',cols['block_tx_warehouse'][key_tab], dedup_cols)
             self.tab['period'].key_tab = key_tab
             self.tab['reference'].key_tab = key_tab
 
-            self.tab['reference'].construction_tables['block'] = Mytab('block',block_cols, dedup_cols)
-            self.tab['reference'].construction_tables['block'].key_tab = 'churn'
-            self.tab['reference'].construction_tables['transaction'] = Mytab('transaction',transaction_cols, dedup_cols)
-            self.tab['reference'].construction_tables['transaction'].key_tab = 'churn'
+            self.tab['reference'].construction_tables['block'] = Mytab('block',cols['block'][key_tab], dedup_cols)
+            self.tab['reference'].construction_tables['block'].key_tab = key_tab
+            self.tab['reference'].construction_tables['transaction'] = Mytab('transaction',cols['transaction'][key_tab],
+                                                                             dedup_cols)
+            self.tab['reference'].construction_tables['transaction'].key_tab = key_tab
 
-            self.tab['period'].construction_tables['block'] = Mytab('block', block_cols, dedup_cols)
-            self.tab['period'].construction_tables['block'].key_tab = 'churn'
-            self.tab['period'].construction_tables['transaction'] = Mytab('transaction', transaction_cols, dedup_cols)
-            self.tab['period'].construction_tables['transaction'].key_tab = 'churn'
+            self.tab['period'].construction_tables['block'] = Mytab('block', cols['block'][key_tab], dedup_cols)
+            self.tab['period'].construction_tables['block'].key_tab = key_tab
+            self.tab['period'].construction_tables['transaction'] = Mytab('transaction', cols['transaction']['churn'],
+                                                                          dedup_cols)
+            self.tab['period'].construction_tables['transaction'].key_tab = key_tab
 
             self.threshold_tx_received = .5
             self.threshold_tx_paid_out = 1
@@ -100,7 +98,7 @@ def churn_tab():
 
                 self.tab[when].tier1_miners_list = tier1_miners_list
                 self.tab[when].start_date = start_date
-                self.tab[when].end_date = start_date
+                self.tab[when].end_date = end_date
 
                 logger.warning("%s tier 1 miners list length:%s",when.upper(),
                                len(tier1_miners_list))
@@ -162,7 +160,7 @@ def churn_tab():
                                            period_start_date, period_end_date)
 
                 logger.warning("tier 1 churn completed")
-                return self.stats('TIER 1',tier1_ref_miners_list,tier1_period_miners_list)
+                return self.stats(1,tier1_ref_miners_list,tier1_period_miners_list)
             except Exception:
                 logger.error("tier 1 churn",exc_info=True)
 
@@ -181,7 +179,7 @@ def churn_tab():
                                   self.threshold_blocks_mined]
 
 
-                dct_name = 'tier'+tier[-1]+'_churned_dict'
+                dct_name = 'tier'+str(tier)+'_churned_dict'
                 churned_dict = {
                     'key_params': [dct_name, lst_key_params[1], lst_key_params[2]],
                     'reference_start_date': self.tab['reference'].start_date,
@@ -192,7 +190,7 @@ def churn_tab():
                     'churned_lst': churned_miners,
                     'retained_lst': retained_miners
                 }
-                if tier[-1] in ['2',2]:
+                if tier in ['2',2]:
                     churned_dict['key_params'] = [dct_name,
                                                   lst_key_params[0],
                                                   lst_key_params[1],
@@ -225,7 +223,7 @@ def churn_tab():
                           Percentage departed: {}% <br /> 
                           New miners:{} <br /> 
                           Percentage that are new miners:{}%
-                        """.format(tier,
+                        """.format("tier "+str(tier),
                                    len(ref_list),
                                    len(period_list),
                                    churn_count,
@@ -236,7 +234,7 @@ def churn_tab():
                 # print notifications
                 return text
             except Exception:
-                logger.error("tier 2 churn", exc_info=True)
+                logger.error("stats", exc_info=True)
 
 
         def tier2_churn(self, period_start_date, period_end_date,
@@ -252,7 +250,7 @@ def churn_tab():
 
                 logger.warning("tier 2 churn completed")
 
-                return self.stats('TIER 2',tier2_reference_miners_list,tier2_period_miners_list)
+                return self.stats(2,tier2_reference_miners_list,tier2_period_miners_list)
 
             except Exception:
                 logger.error("tier 2 churn", exc_info=True)

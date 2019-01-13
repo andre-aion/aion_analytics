@@ -1,70 +1,78 @@
-2019-01-10 22:34:50,686 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
-2019-01-10 22:37:45,692 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
-2019-01-10 23:10:21,757 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
-2019-01-10 23:16:34,113 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
-2019-01-10 23:16:43,217 - logs/churned_model_tab.logs:39 - ERROR - make checkboxes
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/utils/dashboard/churned_model_tab.py", line 36, in make_checkboxes
-    active=[1])
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/model.py", line 219, in __init__
-    super(Model, self).__init__(**kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 236, in __init__
-    setattr(self, name, value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 263, in __setattr__
-    super(HasProps, self).__setattr__(name, value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 503, in __set__
-    self._internal_set(obj, value, setter=setter)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 724, in _internal_set
-    value = self.property.prepare_value(obj, self.name, value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 285, in prepare_value
-    raise e
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 278, in prepare_value
-    self.validate(value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/properties.py", line 1222, in validate
-    raise ValueError(msg)
-ValueError: expected an element of List(String), got seq with invalid items [b'tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01', b'tier1_churned_dict:1:1:2018-12-01:2018-12-01']
-2019-01-10 23:30:06,713 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
-2019-01-10 23:30:15,634 - logs/churned_model_tab.logs:39 - ERROR - make checkboxes
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/utils/dashboard/churned_model_tab.py", line 36, in make_checkboxes
-    active=[1])
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/model.py", line 219, in __init__
-    super(Model, self).__init__(**kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 236, in __init__
-    setattr(self, name, value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 263, in __setattr__
-    super(HasProps, self).__setattr__(name, value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 503, in __set__
-    self._internal_set(obj, value, setter=setter)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 724, in _internal_set
-    value = self.property.prepare_value(obj, self.name, value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 285, in prepare_value
-    raise e
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 278, in prepare_value
-    self.validate(value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/properties.py", line 1222, in validate
-    raise ValueError(msg)
-ValueError: expected an element of List(String), got seq with invalid items [b'tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01', b'tier1_churned_dict:1:1:2018-12-01:2018-12-01']
-2019-01-10 23:30:40,597 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
-2019-01-10 23:30:51,768 - logs/churned_model_tab.logs:39 - ERROR - make checkboxes
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/utils/dashboard/churned_model_tab.py", line 36, in make_checkboxes
-    active=[1])
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/model.py", line 219, in __init__
-    super(Model, self).__init__(**kwargs)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 236, in __init__
-    setattr(self, name, value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/has_props.py", line 263, in __setattr__
-    super(HasProps, self).__setattr__(name, value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 503, in __set__
-    self._internal_set(obj, value, setter=setter)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/descriptors.py", line 724, in _internal_set
-    value = self.property.prepare_value(obj, self.name, value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 285, in prepare_value
-    raise e
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/property/bases.py", line 278, in prepare_value
-    self.validate(value)
-  File "/home/andre/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/core/properties.py", line 1222, in validate
-    raise ValueError(msg)
-ValueError: expected an element of List(String), got seq with invalid items [b'tier2_churned_dict:0.5:1:1:2018-12-01:2018-12-01', b'tier1_churned_dict:1:1:2018-12-01:2018-12-01']
-2019-01-10 23:33:12,961 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
+2019-01-13 17:13:48,945 - logs/churned_model_tab.logs:20 - WARNING - logs/churned_model_tab.logs
+2019-01-13 17:14:14,335 - logs/churned_model_tab.logs:65 - WARNING - CHECKBOX LIST:['tier1_churned_dict:1:1:2018-12-01:2018-12-15', 'tier1_churned_dict:1.0:1:2018-10-01:2018-12-15', 'tier1_churned_dict:1.0:1:2018-11-11:2018-12-15']
+2019-01-13 17:14:45,430 - logs/churned_model_tab.logs:105 - WARNING - casted block_time as float
+2019-01-13 17:14:45,434 - logs/churned_model_tab.logs:105 - WARNING - casted block_nrg_consumed as float
+2019-01-13 17:14:45,437 - logs/churned_model_tab.logs:105 - WARNING - casted block_number as int
+2019-01-13 17:14:45,441 - logs/churned_model_tab.logs:105 - WARNING - casted nrg_price as float
+2019-01-13 17:14:45,445 - logs/churned_model_tab.logs:105 - WARNING - casted difficulty as float
+2019-01-13 17:14:45,448 - logs/churned_model_tab.logs:105 - WARNING - casted nrg_limit as float
+2019-01-13 17:14:45,455 - logs/churned_model_tab.logs:105 - WARNING - casted block_size as float
+2019-01-13 17:14:45,461 - logs/churned_model_tab.logs:105 - WARNING - casted approx_nrg_reward as float
+2019-01-13 17:14:45,464 - logs/churned_model_tab.logs:105 - WARNING - casted transaction_nrg_consumed as float
+2019-01-13 17:14:45,468 - logs/churned_model_tab.logs:105 - WARNING - casted approx_value as float
+2019-01-13 17:16:31,448 - logs/churned_model_tab.logs:178 - WARNING - Finished churned retained
+2019-01-13 17:16:31,466 - logs/churned_model_tab.logs:187 - WARNING - Finished churned retained
+2019-01-13 17:16:31,473 - logs/churned_model_tab.logs:235 - WARNING - Finished split into churned and retained dataframes
+2019-01-13 17:16:31,474 - logs/churned_model_tab.logs:157 - WARNING - end of load data:                                              from_addr  block_time  block_nrg_consumed  block_number       ...         transaction_nrg_consumed  approx_value  churned  churned_verbose
+4173  a0ff5c62fe9a20eea09dfa8cfbb48b88c9255ce2df6279...   26.500000         21000.00000             2       ...                          21000.0    224.623790        0         retained
+4174  a0ff804989548edc151138d7924f532e668b79d071731e...   23.000000        399000.00000             1       ...                          21000.0    144.900000        0         retained
+4175  a0ffcdaeca7f3eb743308985e06a711917d4eed02c0d8e...   19.379747         79615.21519           316       ...                          21000.0      2.475277        0         retained
+4176  a0ffd7d449f0825cb343491e482e80b33c2b154f40f3b1...   10.000000        168000.00000             1       ...                          21000.0      9.000000        0         retained
+4177                                            unknown    8.703628             0.00000        430391       ...                              0.0      0.000000        0         retained
+
+[5 rows x 14 columns]
+2019-01-13 17:16:31,551 - logs/churned_model_tab.logs:91 - WARNING - APPROX_VALUE SELECTOR CREATED
+2019-01-13 17:16:31,555 - logs/churned_model_tab.logs:205 - WARNING - df in box plot:                                           from_addr  block_time  block_nrg_consumed  block_number       ...         transaction_nrg_consumed  approx_value  churned  churned_verbose
+0  a0000eddb247117d28ae2c0deec6df4f09e42cef082804...         6.0            126024.0             1       ...                          21004.0    1617.32779        0         retained
+1  a00012d4734ecb50dd5ec0fe7e8de6316266892dcc0fb6...        26.0            105004.0             1       ...                          21004.0       2.00000        0         retained
+2  a0001f0490d1ef1e876590a8c55bc9ec8411cd3015eea0...        30.0            441084.0             1       ...                          21004.0   10039.99979        0         retained
+3  a0002cbd6e5a3d3d37a58e84ff3806c66ee1dee0900b3b...        17.0            273052.0             1       ...                          21004.0     532.78979        0         retained
+4  a000330d1116f7b1b62b43d8ed66732fc34474f0d2aa41...        38.0             21004.0             1       ...                          21004.0      19.88669        0         retained
+5  a00038a6317dfaa459a00a7411eda082e8f51c6ad7c468...        17.0            294048.0             1       ...                          21004.0   16499.99979        0         retained
+6  a0003a017f3feab5533736804a3bd8c2d793f65351cbb9...        32.0            336064.0             1       ...                          21004.0      18.58127        0         retained
+7  a000615719c720ea35c5942c41ad537bef41d9128f69bf...        23.5             21004.0             2       ...                          21004.0  264280.99500        0         retained
+8  a0007e3e808101b851ceeb7bd58ecb3dce0d8b5b7f8cfa...        14.0             42004.0             1       ...                          21004.0      29.99979        0         retained
+9  a0009b7af0f0b0f6fec2d986e3ce36ce7048d82b1e2bef...        18.0            273052.0             1       ...                          21004.0     104.74779        0         retained
+
+[10 rows x 14 columns]
+2019-01-13 17:16:31,743 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting block_nrg_consumed churned to dask array
+2019-01-13 17:16:31,743 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting block_nrg_consumed retained to dask array
+2019-01-13 17:16:31,746 - logs/churned_model_tab.logs:298 - WARNING - block_nrg_consumed test completed
+2019-01-13 17:16:31,746 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting transaction_nrg_consumed churned to dask array
+2019-01-13 17:16:31,746 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting transaction_nrg_consumed retained to dask array
+2019-01-13 17:16:31,748 - logs/churned_model_tab.logs:298 - WARNING - transaction_nrg_consumed test completed
+2019-01-13 17:16:31,748 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting approx_value churned to dask array
+2019-01-13 17:16:31,749 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting approx_value retained to dask array
+2019-01-13 17:16:31,751 - logs/churned_model_tab.logs:298 - WARNING - approx_value test completed
+2019-01-13 17:16:31,751 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting difficulty churned to dask array
+2019-01-13 17:16:31,752 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting difficulty retained to dask array
+2019-01-13 17:16:31,754 - logs/churned_model_tab.logs:298 - WARNING - difficulty test completed
+2019-01-13 17:16:31,755 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting nrg_price churned to dask array
+2019-01-13 17:16:31,755 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting nrg_price retained to dask array
+2019-01-13 17:16:31,756 - logs/churned_model_tab.logs:298 - WARNING - nrg_price test completed
+2019-01-13 17:16:31,757 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting nrg_limit churned to dask array
+2019-01-13 17:16:31,757 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting nrg_limit retained to dask array
+2019-01-13 17:16:31,760 - logs/churned_model_tab.logs:298 - WARNING - nrg_limit test completed
+2019-01-13 17:16:31,760 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting block_size churned to dask array
+2019-01-13 17:16:31,761 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting block_size retained to dask array
+2019-01-13 17:16:31,763 - logs/churned_model_tab.logs:298 - WARNING - block_size test completed
+2019-01-13 17:16:31,763 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting approx_nrg_reward churned to dask array
+2019-01-13 17:16:31,764 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting approx_nrg_reward retained to dask array
+2019-01-13 17:16:31,766 - logs/churned_model_tab.logs:298 - WARNING - approx_nrg_reward test completed
+2019-01-13 17:16:31,766 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting block_number churned to dask array
+2019-01-13 17:16:31,767 - logs/churned_model_tab.logs:241 - WARNING - Finshed converting block_number retained to dask array
+2019-01-13 17:16:31,769 - logs/churned_model_tab.logs:298 - WARNING - block_number test completed
+2019-01-13 17:16:31,771 - logs/churned_model_tab.logs:307 - WARNING - end of hypothesis test
+2019-01-13 17:22:39,029 - logs/churned_model_tab.logs:205 - WARNING - df in box plot:                                           from_addr       ...         churned_verbose
+0  a0000eddb247117d28ae2c0deec6df4f09e42cef082804...       ...                retained
+1  a00012d4734ecb50dd5ec0fe7e8de6316266892dcc0fb6...       ...                retained
+2  a0001f0490d1ef1e876590a8c55bc9ec8411cd3015eea0...       ...                retained
+3  a0002cbd6e5a3d3d37a58e84ff3806c66ee1dee0900b3b...       ...                retained
+4  a000330d1116f7b1b62b43d8ed66732fc34474f0d2aa41...       ...                retained
+5  a00038a6317dfaa459a00a7411eda082e8f51c6ad7c468...       ...                retained
+6  a0003a017f3feab5533736804a3bd8c2d793f65351cbb9...       ...                retained
+7  a000615719c720ea35c5942c41ad537bef41d9128f69bf...       ...                retained
+8  a0007e3e808101b851ceeb7bd58ecb3dce0d8b5b7f8cfa...       ...                retained
+9  a0009b7af0f0b0f6fec2d986e3ce36ce7048d82b1e2bef...       ...                retained
+
+[10 rows x 14 columns]

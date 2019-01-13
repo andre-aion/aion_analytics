@@ -1,7 +1,10 @@
+import time
+
 from scripts.utils.mylogger import mylogger
 from scripts.utils.dashboard.churned_model_tab import ChurnedModelTab
 from scripts.utils.myutils import tab_error_flag
-from scripts.utils.dashboard.mytab import Mytab
+from scripts.streaming.streamingDataframe import StreamingDataframe as SD
+
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
@@ -16,7 +19,7 @@ import holoviews as hv
 import hvplot.pandas
 import hvplot.dask
 from tornado.gen import coroutine
-
+from config import load_columns
 
 
 lock = Lock()
@@ -29,51 +32,71 @@ hv.extension('bokeh', logo=False)
 def churned_model(tier=1):
     class Thistab(ChurnedModelTab):
 
-        def __init__(self):
-            ChurnedModelTab.__init__(self)
-
-        def difficulty_plot(self,launch_plots=False):
-            return self.df.hvplot.hist(
-                'difficulty', by='state', bins=20, bin_range=(-20, 100),
-                subplot=True, alpha=0.3, xaxis=False, yaxis=False)
+        def __init__(self,cols):
+            ChurnedModelTab.__init__(self,cols=cols)
+            self.cols = cols
 
 
 
-    def update(attr,old,new):
-        notification_div.text = thistab.notification_updater('calculations ongoing')
+    def update():
+        notification_div.text = thistab.notification_updater('please wait, calculations ongoing')
         thistab.load_data()
-        thistab.label_churned_retained()
-        stream_launch_plots.event(launch_plots=True)
+        stream_launch.event(launch=True)
+        stream_select_variable.event(variable=thistab.select_variable.value)
+        #hypothesis_div.text = thistab.hypothesis_test(thistab.select_variable.value)
         notification_div.text = thistab.notification_updater("")
+
+    def update_plots(attr,old,new):
+        notification_div.text = thistab.notification_updater('updating plot(s) calculations ongoing')
+        #hypothesis_div.text = thistab.hypothesis_test(thistab.select_variable.value)
+        stream_select_variable.event(variable=thistab.select_variable.value)
+        notification_div.text = thistab.notification_updater("")
+
     try:
-        thistab = Thistab()
-        notification_text = thistab.notification_updater("Hello")
+        # setup
+        thistab = Thistab(cols=load_columns['block_tx_warehouse']['churn'])
+        notification_text = thistab.notification_updater("")
         notification_div = Div(text=notification_text, width=500, height=50)
-
-
-        stream_launch_plots = streams.Stream.define('Start_date',
-                                                    launch_plots=True)()
-
         thistab.make_checkboxes()
-        launch_button = thistab.make_modelling_button()
+        thistab.load_data()
+        stream_launch = streams.Stream.define('Launch',launch=True)()
+        stream_select_variable = streams.Stream.define('Select_variable',
+                                                    variable='approx_value')()
 
-        hv_difficulty = hv.DynamicMap(thistab.difficulty_plot,
-                                    streams=[stream_launch_plots],
-                                    datashade=True)
+        launch_button = thistab.make_button('Launch model')
+        refresh_checkbox_button = thistab.make_button('Refresh checkboxes')
 
+        thistab.select_variable = thistab.make_selector('Choose variable','approx_value')
+        #hyp_text = thistab.hypothesis_test(thistab.select_variable.value)
+
+        # PLOTS
+        hv_plot1 = hv.DynamicMap(thistab.box_plot,
+                                 streams=[stream_select_variable,
+                                          stream_launch])
+
+        #hypothesis_div = thistab.results_div(text=hyp_text)
+        hv_hypothesis_table = hv.DynamicMap(thistab.hypothesis_table,
+                                            streams=[stream_launch])
 
         renderer = hv.renderer('bokeh')
-        difficulty = renderer.get_plot(hv_difficulty)
+        difficulty = renderer.get_plot(hv_plot1)
+        hypothesis_table = renderer.get_plot(hv_hypothesis_table)
 
         # handle callbacks
         launch_button.on_click(update)
+        refresh_checkbox_button.on_click(thistab.update_checkboxes)
+        thistab.select_variable.on_change('value',update_plots)
 
-        controls = WidgetBox(
-            thistab.checkbox_group,launch_button)
 
-        grid = gridplot([[controls],
-                         [notification_div],
-                         [difficulty.state]
+        # organize layout
+        controls = WidgetBox(thistab.checkbox_group,
+                             refresh_checkbox_button,
+                             thistab.select_variable,
+                             launch_button)
+
+        grid = gridplot([[controls, notification_div],
+                         [difficulty.state],
+                         [hypothesis_table.state]
                         ])
 
         tab = Panel(child=grid, title='Tier '+str(tier)+' pre churn model ')

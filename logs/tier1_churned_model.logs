@@ -1,17 +1,1 @@
-2019-01-10 22:34:50,687 - logs/tier1_churned_model.logs:20 - WARNING - logs/tier1_churned_model.logs
-2019-01-10 22:37:45,693 - logs/tier1_churned_model.logs:20 - WARNING - logs/tier1_churned_model.logs
-2019-01-10 22:38:13,911 - logs/tier1_churned_model.logs:48 - ERROR - rendering err:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/dashboards/tier1_churned_model.py", line 43, in churned_model
-    tab = Panel(child=grid, title='Tier '+tier+' pre churn model ')
-TypeError: Can't convert 'int' object to str implicitly
-2019-01-10 23:10:21,758 - logs/tier1_churned_model.logs:20 - WARNING - logs/tier1_churned_model.logs
-2019-01-10 23:10:33,843 - logs/tier1_churned_model.logs:48 - ERROR - rendering err:
-Traceback (most recent call last):
-  File "/home/andre/aion/data_science/bokeh/aion-analytics/scripts/dashboards/tier1_churned_model.py", line 43, in churned_model
-    tab = Panel(child=grid, title='Tier '+tier+' pre churn model ')
-TypeError: Can't convert 'int' object to str implicitly
-2019-01-10 23:16:34,113 - logs/tier1_churned_model.logs:20 - WARNING - logs/tier1_churned_model.logs
-2019-01-10 23:30:06,713 - logs/tier1_churned_model.logs:20 - WARNING - logs/tier1_churned_model.logs
-2019-01-10 23:30:40,598 - logs/tier1_churned_model.logs:20 - WARNING - logs/tier1_churned_model.logs
-2019-01-10 23:33:12,962 - logs/tier1_churned_model.logs:20 - WARNING - logs/tier1_churned_model.logs
+2019-01-13 17:13:48,948 - logs/tier1_churned_model.logs:20 - WARNING - logs/tier1_churned_model.logs

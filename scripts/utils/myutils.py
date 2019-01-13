@@ -139,8 +139,8 @@ def slider_ts_to_str(ts):
     # convert to datetime if necessary
     if isinstance(ts,int) == True:
         ts = ms_to_date(ts)
-
-    ts = datetime.strftime(ts,'%Y-%m-%d')
+    if isinstance(ts,datetime):
+        ts = datetime.strftime(ts,'%Y-%m-%d')
     return ts
 
 
@@ -270,12 +270,13 @@ def isKthBitSet(n, k):
 
 # append dask dataframes
 def concat_dfs(top, bottom):
-
     top = top.repartition(npartitions=100)
     top = top.reset_index(drop=True)
     bottom = bottom.repartition(npartitions=100)
     bottom = bottom.reset_index(drop=True)
     top = dd.dataframe.concat([top,bottom])
+    top = top.reset_index().set_index('index')
+    top = top.drop_duplicates(keep='last')
     return top
 
 
