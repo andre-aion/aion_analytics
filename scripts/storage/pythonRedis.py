@@ -106,6 +106,7 @@ class PythonRedis:
             return item
         except Exception:
             logger.error('load item', exc_info=True)
+            return None
 
     @coroutine
     def save_dict(self,dct,type='churned'):

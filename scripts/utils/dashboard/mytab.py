@@ -11,7 +11,7 @@ from scripts.storage.pythonParquet import PythonParquet
 from scripts.storage.pythonClickhouse import PythonClickhouse
 from scripts.utils.dashboard.poolminer import make_poolminer_warehouse
 from bokeh.models.widgets import Div, Paragraph
-from config import table_dict, columns
+from data.config import table_dict, columns
 
 r = PythonRedis()
 logger = mylogger(__file__)

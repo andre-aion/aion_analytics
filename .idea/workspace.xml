@@ -2,33 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e37c777-5f79-4b53-b24f-d13d04d36a0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4bc6f2bd-2c05-4aac-b90d-35b2bd538f06.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4bc6f2bd-2c05-4aac-b90d-35b2bd538f06.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/blockminer.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/churn.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/churned.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/churned_model_tab.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/hashrate.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/main.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/mytab.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/myutils.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/poolminer.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/pythonCassandra.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/pythonClickhouse.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/pythonParquet.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/pythonRedis.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/streamingDataframe.logs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/tier1_churned_model.logs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/blockminer.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/blockminer.logs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/churned.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/churned.logs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/churned_model_tab.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/churned_model_tab.logs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/main.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/main.logs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/tier1_churned_model.logs" beforeDir="false" afterPath="$PROJECT_DIR$/logs/tier1_churned_model.logs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/dashboards/blockminer.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/dashboards/blockminer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/dashboards/churn.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/dashboards/churn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/dashboards/hashrate.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/dashboards/hashrate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/dashboards/poolminer.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/dashboards/poolminer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/dashboards/tier1_churned_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/dashboards/tier1_churned_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/storage/pythonClickhouse.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/storage/pythonClickhouse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/storage/pythonCassandra.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/storage/pythonCassandra.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/storage/pythonRedis.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/storage/pythonRedis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/utils/dashboard/churned_model_tab.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/dashboard/churned_model_tab.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/utils/dashboard/mytab.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/dashboard/mytab.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/utils/dashboard/poolminer.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/dashboard/poolminer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/utils/modelling/churned.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/modelling/churned.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/utils/myutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/myutils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,39 +99,42 @@
     <session id="1441183915">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.42" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="block" value="1" />
-          <entry key="logs" value="11" />
-          <entry key="py" value="123" />
+          <entry key="logs" value="12" />
+          <entry key="py" value="152" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Database Element" value="1" />
-          <entry key="PLAIN_TEXT" value="12" />
-          <entry key="Python" value="123" />
+          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="Python" value="152" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="20" />
           <entry key="logs" value="8" />
-          <entry key="py" value="19083" />
+          <entry key="py" value="25410" />
           <entry key="txt" value="455" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="483" />
-          <entry key="Python" value="19083" />
+          <entry key="Python" value="25410" />
         </counts>
       </usages-collector>
     </session>
@@ -149,74 +143,52 @@
     <favorites_list name="aion_analytics" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scripts/dashboards/tier1_churned_model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <marker date="1547414010082" expanded="true" signature="831:3985" ph="..." />
-                <marker date="1547414010082" expanded="true" signature="1436:1772" ph="..." />
-                <marker date="1547414010082" expanded="true" signature="3851:3985" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/utils/dashboard/churned_model_tab.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <marker date="1547414010090" expanded="true" signature="3058:3064" ph="..." />
-                <marker date="1547414010090" expanded="true" signature="3139:3447" ph="..." />
-                <marker date="1547414010090" expanded="true" signature="3467:3476" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logs/churned_model_tab.logs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/utils/modelling/churned.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-                <marker date="1547413105375" expanded="true" signature="362:775" ph="..." />
-                <marker date="1547413105375" expanded="true" signature="990:991" ph="..." />
-                <marker date="1547413105375" expanded="true" signature="1850:1858" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scripts/utils/myutils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3033">
-              <caret line="278" column="42" lean-forward="true" selection-start-line="278" selection-start-column="42" selection-end-line="278" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.46188092">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/scripts/dashboards/tier1_churned_model.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="252">
+                  <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#0#43#0" expanded="true" />
+                    <marker date="1547497816102" expanded="true" signature="1202:1700" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/scripts/utils/dashboard/churned_model_tab.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="275">
+                  <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+                  <folding>
+                    <element signature="e#0#11#0" expanded="true" />
+                    <marker date="1547496894453" expanded="true" signature="4003:4009" ph="..." />
+                    <marker date="1547496894453" expanded="true" signature="4416:5530" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/data/config.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="288">
+                  <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -332,26 +304,26 @@
         <option value="$PROJECT_DIR$/scripts/dashboards/__init__.py" />
         <option value="$PROJECT_DIR$/scripts/modelling/churn.py" />
         <option value="$PROJECT_DIR$/scripts/utils/modelling/churn.py" />
-        <option value="$PROJECT_DIR$/scripts/dashboards/poolminer.py" />
-        <option value="$PROJECT_DIR$/scripts/dashboards/poolminer.py" />
         <option value="$PROJECT_DIR$/scripts/utils/dashboard/churn.py" />
         <option value="$PROJECT_DIR$/data/redis_notes.txt" />
         <option value="$PROJECT_DIR$/scripts/dashboards/churned_model.py" />
         <option value="$PROJECT_DIR$/scripts/utils/modelling/tier1_churned.py" />
-        <option value="$PROJECT_DIR$/scripts/storage/pythonRedis.py" />
-        <option value="$PROJECT_DIR$/scripts/storage/pythonRedis.py" />
         <option value="$PROJECT_DIR$/scripts/utils/dashboard/poolminer.py" />
         <option value="$PROJECT_DIR$/scripts/utils/dashboard/mytab.py" />
         <option value="$PROJECT_DIR$/logs/pythonClickhouse.logs" />
         <option value="$PROJECT_DIR$/scripts/storage/pythonClickhouse.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/scripts/dashboards/churn.py" />
         <option value="$PROJECT_DIR$/scripts/utils/myutils.py" />
+        <option value="$PROJECT_DIR$/scripts/storage/pythonRedis.py" />
+        <option value="$PROJECT_DIR$/scripts/storage/pythonRedis.py" />
+        <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/scripts/utils/modelling/churned.py" />
-        <option value="$PROJECT_DIR$/scripts/utils/dashboard/churned_model_tab.py" />
+        <option value="$PROJECT_DIR$/scripts/dashboards/churn.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/scripts/dashboards/tier1_churned_model.py" />
+        <option value="$PROJECT_DIR$/scripts/dashboards/poolminer.py" />
+        <option value="$PROJECT_DIR$/scripts/dashboards/poolminer.py" />
+        <option value="$PROJECT_DIR$/scripts/utils/dashboard/churned_model_tab.py" />
       </list>
     </option>
   </component>
@@ -361,10 +333,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="114" />
-    <option name="y" value="54" />
-    <option name="width" value="827" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="693" />
+    <option name="y" value="117" />
+    <option name="width" value="871" />
     <option name="height" value="1016" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -373,18 +345,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="aion-analytics" type="b2602c69:ProjectViewProjectNode" />
               <item name="aion-analytics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aion-analytics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aion-analytics" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="aion-analytics" type="b2602c69:ProjectViewProjectNode" />
@@ -401,12 +367,6 @@
               <item name="aion-analytics" type="b2602c69:ProjectViewProjectNode" />
               <item name="aion-analytics" type="462c0819:PsiDirectoryNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="aion-analytics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aion-analytics" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -416,17 +376,11 @@
               <item name="utils" type="462c0819:PsiDirectoryNode" />
               <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="aion-analytics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="aion-analytics" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="modelling" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -439,16 +393,16 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/notebooks" />
-      <recent name="$PROJECT_DIR$/scripts/dashboards/streaming" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$/scripts/utils" />
       <recent name="$PROJECT_DIR$/scripts/utils/dashboard" />
       <recent name="$PROJECT_DIR$/scripts/storage" />
       <recent name="$PROJECT_DIR$/scripts/dashboards" />
-      <recent name="$PROJECT_DIR$/scripts/streaming" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/notebooks" />
+      <recent name="$PROJECT_DIR$/scripts/dashboards/streaming" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -696,10 +650,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="114" y="54" width="827" height="1016" extended-state="0" />
+    <frame x="67" y="32" width="1853" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4943609" weight="0.27749228" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4943609" weight="0.17863105" />
       <window_info id="Structure" order="1" sideWeight="0.5056391" side_tool="true" weight="0.1668455" />
       <window_info id="Favorites" order="2" sideWeight="0.50447226" side_tool="true" weight="0.16148068" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="0" weight="0.3376206" />
@@ -715,8 +669,8 @@
       <window_info anchor="bottom" id="Database Changes" order="10" weight="0.3298122" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.31738624" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.44253492" />
-      <window_info active="true" anchor="bottom" x="1950" y="60" width="1034" height="992" id="Terminal" order="13" sideWeight="0.4946352" visible="true" weight="0.37687862" />
-      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50536484" side_tool="true" weight="0.49624866" />
+      <window_info anchor="bottom" x="1950" y="60" width="1034" height="992" id="Terminal" order="13" sideWeight="0.49304396" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50695604" side_tool="true" weight="0.36343366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -788,20 +742,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/indexes/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="4403" selection-start-line="4403" selection-end-line="4403" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/utils/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs/hashrate.logs" />
     <entry file="file://$PROJECT_DIR$/logs/churn.logs" />
     <entry file="file://$PROJECT_DIR$/scripts/utils/dashboard/hashrate.py">
@@ -846,19 +786,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/mytab.logs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/poolminer.logs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/logging/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="1042" selection-start-line="1042" selection-end-line="1042" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/mytab.logs" />
+    <entry file="file://$PROJECT_DIR$/logs/poolminer.logs" />
     <entry file="file://$PROJECT_DIR$/data/kafkacomands.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
@@ -880,18 +809,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/blockdetails.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/sentiment.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/blockdetails.py" />
+    <entry file="file://$PROJECT_DIR$/scripts/sentiment.py" />
     <entry file="file://$PROJECT_DIR$/scripts/utils/mylogger.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -919,30 +838,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/logs/pythonClickhouse.logs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1278">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://4bc6f2bd-2c05-4aac-b90d-35b2bd538f06/schema/aion/table/block">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/pythonClickhouse.logs" />
+    <entry file="das://4bc6f2bd-2c05-4aac-b90d-35b2bd538f06/schema/aion/table/block" />
     <entry file="file://$USER_HOME$/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/bokeh/model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -950,27 +847,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/dashboards/poolminer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="129" column="42" selection-start-line="129" selection-end-line="130" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs/main.logs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/logs/blockminer.logs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/tier1_churned_model.logs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
@@ -999,13 +879,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/dashboards/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1017,55 +891,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="23" column="62" lean-forward="true" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/storage/pythonClickhouse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="85" column="62" lean-forward="true" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/storage/pythonRedis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="99" selection-start-line="99" selection-end-line="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/dashboards/churn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2673">
-          <caret line="193" column="59" lean-forward="true" selection-start-line="193" selection-start-column="59" selection-end-line="193" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/utils/dashboard/churn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/utils/dashboard/poolminer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="967">
-          <caret line="83" column="31" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logs/churned_model_tab.logs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -1076,16 +905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/dashboards/blockminer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="74" column="57" selection-start-line="74" selection-start-column="14" selection-end-line="76" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/pandas/core/ops.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1093,61 +912,153 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/utils/dashboard/mytab.py">
+    <entry file="file://$PROJECT_DIR$/logs/churned_model_tab.logs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-963">
-          <caret line="107" column="88" selection-start-line="107" selection-start-column="88" selection-end-line="107" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/storage/pythonRedis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="108" column="23" selection-start-line="108" selection-start-column="23" selection-end-line="108" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/storage/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" selection-start-column="44" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/utils/myutils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3033">
-          <caret line="278" column="42" lean-forward="true" selection-start-line="278" selection-start-column="42" selection-end-line="278" selection-end-column="42" />
+        <state relative-caret-position="4698">
+          <caret line="278" column="42" selection-start-line="278" selection-start-column="42" selection-end-line="278" selection-end-column="42" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/logs/tier1_churned_model.logs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/utils/modelling/churned.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+        <state relative-caret-position="645">
+          <caret line="105" column="19" lean-forward="true" selection-start-line="105" selection-start-column="19" selection-end-line="105" selection-end-column="19" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
-            <marker date="1547413105375" expanded="true" signature="362:775" ph="..." />
-            <marker date="1547413105375" expanded="true" signature="990:991" ph="..." />
-            <marker date="1547413105375" expanded="true" signature="1850:1858" ph="..." />
+            <element signature="e#0#29#0" expanded="true" />
+            <marker date="1547497816062" expanded="true" signature="488:901" ph="..." />
+            <marker date="1547497816062" expanded="true" signature="1116:1117" ph="..." />
+            <marker date="1547497816062" expanded="true" signature="2715:2723" ph="..." />
+            <marker date="1547497816062" expanded="true" signature="3731:3736" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/logging/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="1286" column="8" selection-start-line="1286" selection-start-column="8" selection-end-line="1286" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/utils/dashboard/churn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/dashboards/churn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="329" column="23" lean-forward="true" selection-start-line="329" selection-start-column="23" selection-end-line="329" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/utils/dashboard/poolminer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-651">
+          <caret line="186" column="56" lean-forward="true" selection-start-line="185" selection-start-column="4" selection-end-line="186" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/dashboards/blockminer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="177" column="49" selection-start-line="176" selection-start-column="35" selection-end-line="177" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/bokeh_aion_analytics/lib/python3.5/site-packages/holoviews/plotting/bokeh/renderer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/dashboards/poolminer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="123" column="62" selection-start-line="123" selection-end-line="124" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/utils/dashboard/mytab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="37" column="50" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/utils/dashboard/churned_model_tab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="76" lean-forward="true" selection-start-line="76" selection-end-line="76" />
+        <state relative-caret-position="275">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1547414010090" expanded="true" signature="3058:3064" ph="..." />
-            <marker date="1547414010090" expanded="true" signature="3139:3447" ph="..." />
-            <marker date="1547414010090" expanded="true" signature="3467:3476" ph="..." />
+            <marker date="1547496894453" expanded="true" signature="4003:4009" ph="..." />
+            <marker date="1547496894453" expanded="true" signature="4416:5530" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="63" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/dashboards/tier1_churned_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+        <state relative-caret-position="252">
+          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1547414010082" expanded="true" signature="831:3985" ph="..." />
-            <marker date="1547414010082" expanded="true" signature="1436:1772" ph="..." />
-            <marker date="1547414010082" expanded="true" signature="3851:3985" ph="..." />
+            <element signature="e#0#43#0" expanded="true" />
+            <marker date="1547497816102" expanded="true" signature="1202:1700" ph="..." />
           </folding>
         </state>
       </provider>

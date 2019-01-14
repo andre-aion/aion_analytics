@@ -121,7 +121,6 @@ def poolminer_tab():
 
                 self.tier1_df = self.tier1_df.fillna(values)
 
-                #self.tier1_df['from_addr'] = self.tier1_df['from_addr'].map(lambda x: self.poolname_verbose(x))
                 self.tier1_df['from_addr'] = self.tier1_df['from_addr'].map(self.poolname_verbose)
                 #logger.warning('POOLNAMES IN from_addr:%s',self.tier1_df['from_addr'])
 

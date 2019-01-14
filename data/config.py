@@ -14,7 +14,7 @@ load_columns = {
 
 load_columns['block']['churn'] = ['transaction_hashes', 'block_timestamp', 'miner_address',
                   'block_number','difficulty','nrg_consumed','nrg_limit',
-                  'block_size','approx_nrg_reward','block_time']
+                  'block_size','block_time','approx_nrg_reward']
 
 
 columns['block'] = ["block_number", "miner_address", "miner_addr",
@@ -47,7 +47,7 @@ load_columns['transaction']['churn'] = ['block_timestamp',
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 load_columns['block_tx_warehouse']['churn'] = ['block_timestamp', 'block_number', 'to_addr',
                       'from_addr', 'miner_address', 'approx_value','transaction_hash',
-                      'block_nrg_consumed','transaction_nrg_consumed',
+                      'block_nrg_consumed','transaction_nrg_consumed','difficulty',
                       'nrg_price', 'nrg_limit','block_size','block_time', 'approx_nrg_reward']
 
 columns['block_tx_warehouse'] = ['miner_address', 'block_number','block_timestamp','block_date',
