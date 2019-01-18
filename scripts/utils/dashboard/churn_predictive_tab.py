@@ -2,7 +2,7 @@ import time
 from os.path import dirname, join
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.modelling.churned import find_in_redis,\
+from scripts.utils.modelling.churn_predictive import find_in_redis,\
     construct_from_redis, extract_data_from_dict, get_miner_list
 from scripts.utils.dashboard.mytab import Mytab
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
@@ -24,6 +24,8 @@ from bokeh.models.widgets import Div, Select, \
 from holoviews import streams
 
 import hvplot
+import hvplot.pandas
+import hvplot.dask
 import pandas as pd
 from scipy import stats
 import numpy as np
@@ -42,11 +44,11 @@ executor = ThreadPoolExecutor()
 logger = mylogger(__file__)
 
 hv.extension('bokeh', logo=False)
-hyp_variables = [ 'block_number','block_nrg_consumed', 'transaction_nrg_consumed', 'approx_value',
-                 'difficulty', 'nrg_price', 'nrg_limit', 'block_size', 'approx_nrg_reward'
+hyp_variables = ['block_nrg_consumed', 'transaction_nrg_consumed', 'approx_value',
+                 'difficulty','nrg_limit', 'block_size', 'approx_nrg_reward'
                 ]
 
-class ChurnedModelTab:
+class ChurnedPredictiveTab:
     def __init__(self,tier=1,cols=[]):
         self.tier = tier
         self.checkbox_group = None
@@ -56,44 +58,112 @@ class ChurnedModelTab:
         self.max = 10
         self.select_variable = None
         self.df1 = {}
+        self.day_diff = 1
         self.df_grouped = ''
-        self.interest_var = 'from_addr'
-        self.counting_var = 'to_addr'
         self.cols = cols
         self.notification_div = Div(text='')
         self.clf = None
         self.poolname_dict = self.get_poolname_dict()
+        # DIV CREATION
         self.metrics_div = Div(text='')
+
+        #load data
+        text = """
+                <div style='color:white;background-color:green'>
+                <h3>Checkboxlist Info:</h3>Use the checkbox 
+                list to the left to select <br/>
+                the reference period and parameters <br/>
+                for building the predictive model.<br/>
+                1) Select the desired parameter(s).<br/>
+                2) Click "update data" to update only the <br/>
+                   graphs and impact variables.<br/>
+                3) Choose the prediction date range.<br/>
+                4) Click "Make predictions"
+                </div>
+                """
+        self.desc_load_data_div=Div(text=text,width=300, height=200)
+        # hypothesis
+        text = """
+        <div style='color:white;background-color:green'>
+        <h3>Hypothesis test info:</h3>
+        <ul>
+        <li>
+        The table below shows which variables 
+        do/do not affect churn.
+        </li>
+        <li>
+        The ones that do not can be ignored.
+        </li>
+        <li> 
+        The figure (below left) shows the difference 
+        in behavior between those who left <br/>
+        vs those who remained.<br/>
+        </li>
+        <li>
+        Select the variable from the dropdown <br/>
+        list to change the graph.
+        </li></ul>
+        </div>
+        """
+        self.desc_hypothesis_div=Div(text=text,width=300, height=200)
+
+        # prediction
+        text = """
+        <div style='padding-left:70px;color:green;background-color:white'>
+        <h3>Prediction Info:</h3>
+        <ul><li>
+        The table below shows the miners <br/>
+        operating in the selected period,<br/>
+        and whether they are likely to churn.<br/>
+        <li>
+        Use the datepicker(s) to the left to select the period you wish to predict.
+        </li></ul>
+        </div> 
+        """
+        self.desc_prediction_div=Div(text=text, width=350, height=100)
+
+        # spacing div
+        self.spacing_div = Div(text='', width=50, height=200)
+
+
         self.predict_df = SD('predict_table',['address','likely...'], dedup_columns=[]).get_df()
         self.load_data_flag = True
-        self.threshold_blocks_mined = 0.5
-        self.threshold_tx_paid_out = 5
+        self.threshold_tx_received = 1
+        self.threshold_blocks_mined = 5
+        self.threshold_tx_paid_out = 1
         self.start_date = datetime.strptime("2018-12-15 00:00:00", '%Y-%m-%d %H:%M:%S')
         self.end_date = datetime.strptime("2018-12-31 00:00:00", '%Y-%m-%d %H:%M:%S')
 
         if tier == 2:
             self.interest_var = 'to_addr'
             self.counting_var = 'from_addr'
+        else:
+            self.interest_var = 'from_addr'
+            self.counting_var = 'to_addr'
 
     # show checkbox list of reference periods produced by the churn tab
-
     def make_checkboxes(self):
         try:
             # make list of
-            lst = find_in_redis()
-            logger.warning("CHECKBOX LIST:%s", lst)
-            if len(lst) < 1:
-                active = ''
-                lst=[1]
-            else:
-                active = 0
-                self.checkbox_group = CheckboxGroup(labels=lst,
+            active = 1
+            self.checkbox_group = CheckboxGroup(labels=[],
                                                 active=[active])
+            self.update_checkboxes()
         except Exception:
             logger.error('make checkboxes',exc_info=True)
 
     def update_checkboxes(self):
-        self.checkbox_group.labels = find_in_redis()
+        try:
+            if self.tier in [1,"1"]:
+                item = "tier1_churned_dict"
+            else:
+                item = "tier2_churned_dict"
+            lst = find_in_redis(item)
+            self.checkbox_group.labels = lst
+            logger.warning("CHECKBOX LIST:%s", lst)
+        except Exception:
+            logger.error('update checkboxes',exc_info=True)
+
 
     def set_load_data_flag(self, attr, old, new):
         self.load_data_flag = True
@@ -132,29 +202,27 @@ class ChurnedModelTab:
 
     def group_data(self, df):
         meta = {
-            'block_number': 'int',
+
             'approx_value': 'float',
-            'block_nrg_consumed': 'float',
-            'transaction_nrg_consumed': 'float',
-            'difficulty': 'float',
-            'nrg_price': 'float',
-            'nrg_limit': 'float',
-            'block_size': 'float',
-            'block_time': 'float',
+            'block_nrg_consumed': 'int',
+            'transaction_nrg_consumed': 'int',
+            'difficulty': 'int',
+            'nrg_limit': 'int',
+            'block_size': 'int',
+            'block_time': 'int',
             'approx_nrg_reward': 'float',
         }
 
         for key, value in meta.items():
             self.cast_col(key, value)
 
+        # normalize columns by number of days under consideration
+        df = self.normalize(df)
         df = df.groupby([self.interest_var]).agg({
-            'block_number': 'count',
-            self.counting_var: 'count',
             'approx_value': 'mean',
             'block_nrg_consumed': 'mean',
             'transaction_nrg_consumed': 'mean',
             'difficulty': 'mean',
-            'nrg_price': 'mean',
             'nrg_limit': 'mean',
             'block_size': 'mean',
             'block_time': 'mean',
@@ -163,9 +231,35 @@ class ChurnedModelTab:
 
         df = df.reset_index()
         if 'index' in df.columns.tolist():
-            df = self.df.drop('index',axis=1)
+            df = df.drop('index',axis=1)
+        df = df.fillna(0)
+        logger.warning('df after groupby:%s', self.df.head(10))
 
         return df
+
+    def divide_by_day_diff(self,x):
+        y = x/self.day_diff
+        logger.warning('Normalization:before:%s,after:%s',x,y)
+        return y
+
+    """  daily normalization by dividing each column by number of 
+      days spanned by a dataframe """
+    def normalize(self, df):
+        try:
+            min_date, max_date = dd.compute(df.block_timestamp.min(),
+                                            df.block_timestamp.max())
+            self.day_diff = abs((max_date - min_date).days)
+            logger.error("NORMALIZATION started for day-diff:%s day(s)",self.day_diff)
+            if self.day_diff > 0:
+                for col in df.columns:
+                    if isinstance(col,int) or isinstance(col,float):
+                        logger.warning("NORMALATION ONGOING FOR %s",col)
+                        df[col] = df[col].map(self.divide_by_day_diff)
+            logger.warning("NORMALIZATION ended for day-diff:%s days",self.day_diff)
+            return df
+        except Exception:
+            logger.error('nomalize:',exc_info=True)
+
 
     def load_data(self):
         try:
@@ -174,9 +268,10 @@ class ChurnedModelTab:
                 self.df = SD('block_tx_warehouse', self.cols, dedup_columns=[]).get_df()
                 dict_lst = [self.checkbox_group.labels[i] for i in self.checkbox_group.active]
                 self.df, self.churned_list, self.retained_list = extract_data_from_dict(
-                    dict_lst,self.df)
+                    dict_lst, self.df, tier=self.tier)
                 self.df = self.df.fillna(0)
                 self.df_grouped = self.group_data(self.df)
+
                 self.df_grouped = self.label_churned_retained(self.df_grouped)
                 self.df_grouped = self.label_churned_verbose(self.df_grouped)
                 self.split_df(self.df_grouped)
@@ -241,6 +336,8 @@ class ChurnedModelTab:
         div = Div(text=text,width=width,height=height)
         return div
 
+
+
     # PLOTS
     def box_plot(self,variable='approx_value',launch=False):
         try:
@@ -248,7 +345,6 @@ class ChurnedModelTab:
             #get max value of variable and multiply it by 1.1
             min,max = dd.compute(self.df_grouped[variable].min(),
                                  self.df_grouped[variable].max())
-            #logger.warning('df in box plot:%s',self.df_grouped.head(10))
             return self.df_grouped.hvplot.box(variable, by='churned_verbose',
                                               ylim=(.9*min,1.1*max))
         except Exception:
@@ -258,7 +354,7 @@ class ChurnedModelTab:
         try:
             # logger.warning("difficulty:%s", self.df.tail(30))
             # get max value of variable and multiply it by 1.1
-            return self.df1.hvplot.bar('miner_address', variable, rot=90,
+            return self.df.hvplot.bar('miner_address', variable, rot=90,
                                        height=400, width=300, title='block_number by miner address',
                                        hover_cols=['percentage'])
         except Exception:
@@ -339,22 +435,28 @@ class ChurnedModelTab:
         except Exception:
             logger.error("svc:", exc_info=True)
 
-    def rf_clf(self,launch=False):
+    def rf_clf(self):
         try:
             if self.load_data_flag:
                 logger.warning('DATA RELOADED TO MAKE PREDICTIONS')
                 self.load_data()
-            self.notification_updater("svc calculations underway")
-            X = self.df_grouped.drop(['churned', 'churned_verbose', self.interest_var], axis=1)
-            y = self.df_grouped['churned']
-            logger.warning('df in svc:%s', X)
 
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
-            self.clf=RandomForestClassifier(n_estimators=100, random_state=42)
-            self.clf.fit(X_train, y_train)
-            y_pred = self.clf.predict(X_test)
+            self.notification_updater("RF calculations underway")
+            X = self.df_grouped.drop(['churned','churned_verbose',
+                                      self.interest_var,], axis=1)
+
+            y = self.df_grouped['churned']
+
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+            clf=RandomForestClassifier(n_estimators=200, random_state=42,
+                                       class_weight="balanced")
+            logger.warning("LINE 359")
+
+            clf.fit(X_train, y_train)
+            y_pred = clf.predict(X_test)
 
             acc_text = """
+            <div style='padding-left:30px;background-color:CornflowerBlue;color:white;'>
             <h4>Predictive accuracy:</h4>{}""".format(metrics.accuracy_score(y_test, y_pred))
 
             self.metrics_div.text = acc_text
@@ -362,24 +464,22 @@ class ChurnedModelTab:
             print(confusion_matrix(y_test, y_pred))
             print('classification report:\n')
             print(classification_report(y_test, y_pred))
-            self.notification_updater("")
-
+            return clf
         except Exception:
-            logger.error("svc:", exc_info=True)
+            logger.error("RF:", exc_info=True)
 
     # the period for which the user wants a prediction
     def make_predictions(self):
         try:
             # make model
-            self.rf_clf()
+            clf = self.rf_clf()
             to_predict_tab = Mytab('block_tx_warehouse',cols=self.cols,dedup_cols=[])
             to_predict_tab.df = None
             to_predict_tab.key_tab = 'churn'
-
+            logger.warning('LOADING PREDICT WAREHOUSE %s : %s',self.start_date,self.end_date)
             to_predict_tab.df_load(self.start_date,self.end_date)
-            logger.warning('predict data before grouping:%s',to_predict_tab.df.head(20))
             df = self.group_data(to_predict_tab.df)
-
+            logger.warning('LINE 483')
             # filter df for only tier 1/2 miners
             tier_miner_lst = list(set(self.churned_list+self.retained_list))
             df = df[df[self.interest_var].isin(tier_miner_lst)]
@@ -392,7 +492,7 @@ class ChurnedModelTab:
             logger.warning("lengths of df:%s,lst:%s",len(df),len(interest_labels))
             logger.warning("df before prediction:%s",X.tail(10))
 
-            y_pred = self.clf.predict(X)
+            y_pred = clf.predict(X)
             y_pred_verbose = ['to leave' if x in ["1",1] else "to remain" for x in y_pred]
             # make table for display
             self.predict_df = pd.DataFrame({
@@ -401,18 +501,18 @@ class ChurnedModelTab:
             })
             perc_to_churn = round(100*sum(y_pred)/len(y_pred),1)
             text = self.metrics_div.text + """
-            <br/> <h3>Percentage likely to churn:</h3>{}%""".format(perc_to_churn)
+            <br/> <h3>Percentage likely to churn:</h3>{}%</div>""".format(perc_to_churn)
             self.metrics_div.text=text
+            self.notification_div.text=''
             logger.warning("end of predictions")
-
-
         except Exception:
             logger.error("prediction:", exc_info=True)
 
     def prediction_table(self,launch=False):
         try:
+            logger.warning("LOAD DATA FLAG in prediction table:%s",self.load_data_flag)
             self.make_predictions()
             return self.predict_df.hvplot.table(columns=['address', 'likely...'],
-                                width=800,height=1400)
+                                width=600,height=1200)
         except Exception:
             logger.error("prediction table:", exc_info=True)

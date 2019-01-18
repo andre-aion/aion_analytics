@@ -1,5 +1,5 @@
 from scripts.utils.mylogger import mylogger
-from scripts.utils.dashboard.churned_model_tab import ChurnedModelTab
+from scripts.utils.dashboard.churn_predictive_tab import ChurnedPredictiveTab
 from scripts.utils.myutils import tab_error_flag
 
 from concurrent.futures import ThreadPoolExecutor
@@ -7,14 +7,14 @@ from tornado.locks import Lock
 
 from bokeh.layouts import gridplot, WidgetBox
 from bokeh.models import Panel
-from bokeh.models.widgets import  Div, \
-    DatePicker
+from bokeh.models.widgets import Div, \
+    DatePicker, Button
 
 from datetime import datetime
 from holoviews import streams
 import holoviews as hv
 from tornado.gen import coroutine
-from data.config import load_columns
+from config.df_construct_config import load_columns
 
 
 lock = Lock()
@@ -24,18 +24,18 @@ logger = mylogger(__file__)
 hv.extension('bokeh', logo=False)
 
 @coroutine
-def churned_model(tier=1):
-    class Thistab(ChurnedModelTab):
+def churn_predictive_tab(tier):
+    class Thistab(ChurnedPredictiveTab):
 
-        def __init__(self,cols):
-            ChurnedModelTab.__init__(self,cols=cols)
+        def __init__(self,tier,cols):
+            ChurnedPredictiveTab.__init__(self,tier,cols=cols)
             self.cols = cols
 
     def update_model():
-        thistab.notification_updater('please wait, calculations ongoing')
+        thistab.notification_updater('data reload,hyp testing ongoing')
         thistab.load_data()
         thistab.load_data_flag = False
-        stream_update_data.event(launch=True)
+        stream_update_reference_data.event(launch=True)
         stream_select_variable.event(variable=thistab.select_variable.value)
         thistab.notification_updater("")
 
@@ -51,15 +51,24 @@ def churned_model(tier=1):
         stream_launch_prediction.event(launch=True)
         thistab.notification_updater("")
 
+    def update_start_date(attr,old,new):
+        thistab.notification_updater('updating start date')
+        thistab.start_date = datepicker_start.value
+        thistab.notification_updater("")
+
+    def update_end_date(attr,old,new):
+        thistab.notification_updater('updating end date')
+        thistab.end_date = datepicker_end.value
+        thistab.notification_updater("")
 
     try:
         # SETUP
-        thistab = Thistab(cols=load_columns['block_tx_warehouse']['churn'])
+        thistab = Thistab(tier,cols=load_columns['block_tx_warehouse']['churn'])
         thistab.notification_updater("")
-        thistab.notification_div = Div(text='Welcome, lets do some machine learning', width=400, height=50)
+        thistab.notification_div = Div(text='Welcome, lets do some machine learning',
+                                       width=400, height=50)
         thistab.make_checkboxes()
         thistab.load_data()
-        #thistab.make_predictions(datepicker_start.value,datepicker_end.value)
 
         # dates
         first_date_range = "2018-04-23 00:00:00"
@@ -69,36 +78,34 @@ def churned_model(tier=1):
         #last_date = datetime.now().date()
         last_date = datetime.strptime("2018-12-30 00:00:00", '%Y-%m-%d %H:%M:%S')
 
-        stream_update_data = streams.Stream.define('Launch',launch=True)()
+        stream_update_reference_data = streams.Stream.define('Launch',launch=True)()
         stream_select_variable = streams.Stream.define('Select_variable',
                                                     variable='approx_value')()
-        stream_launch_prediction = streams.Stream.define('Launch _predictions',
+        stream_launch_prediction = streams.Stream.define('Launch_predictions',
                                                          launch=True)()
 
         # CREATE WIDGETS
-        datepicker_start = DatePicker(title="Start", min_date=first_date_range,
+        datepicker_start = DatePicker(title="Prediction period start date", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date)
-        datepicker_end = DatePicker(title="End", min_date=first_date_range,
+        datepicker_end = DatePicker(title="Prediction period end date", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
 
-        #launch_button = thistab.make_button('Launch model')
         refresh_checkbox_button = thistab.make_button('Refresh checkboxes')
 
         thistab.select_variable = thistab.make_selector('Choose variable','approx_value')
         update_data_button = thistab.make_button('Update data')
-        launch_predict_button = thistab.make_button('Make predictions')
+        launch_predict_button = Button(label='Make predictions for ...',button_type="success")
 
 
         # PLOTS
         hv_plot1 = hv.DynamicMap(thistab.box_plot,
                                  streams=[stream_select_variable,
-                                          stream_update_data])
+                                          stream_update_reference_data])
 
-        #hypothesis_div = thistab.results_div(text=hyp_text)
         hv_hypothesis_table = hv.DynamicMap(thistab.hypothesis_table,
-                                            streams=[stream_update_data])
+                                            streams=[stream_update_reference_data])
         hv_prediction_table = hv.DynamicMap(thistab.prediction_table,
-                                          streams=[stream_launch_prediction])\
+                                            streams=[stream_launch_prediction])
 
         renderer = hv.renderer('bokeh')
         plot = renderer.get_plot(hv_plot1)
@@ -111,31 +118,36 @@ def churned_model(tier=1):
         thistab.select_variable.on_change('value', update_plots)
         launch_predict_button.on_click(update_prediction)
         thistab.checkbox_group.on_change('active',thistab.set_load_data_flag)
+        datepicker_start.on_change('value', update_start_date)
+        datepicker_end.on_change('value',update_end_date)
 
         # organize layout
         model_controls = WidgetBox(thistab.checkbox_group,
-                             refresh_checkbox_button,
-                             thistab.select_variable,
-                             update_data_button)
+                                   refresh_checkbox_button,
+                                   thistab.select_variable,
+                                   update_data_button)
 
         predict_controls = WidgetBox(
+            launch_predict_button,
             datepicker_start,
-            datepicker_end,
-            launch_predict_button)
+            datepicker_end
+            )
 
-        grid = gridplot([[model_controls,thistab.notification_div, ],
+        grid = gridplot([[thistab.notification_div],
+                         [model_controls, thistab.spacing_div, thistab.desc_load_data_div, thistab.desc_hypothesis_div],
                          [plot.state, hypothesis_table.state],
-                         [predict_controls],
-                         [prediction_table.state,thistab.metrics_div]
+                         [predict_controls, thistab.desc_prediction_div],
+                         [prediction_table.state, thistab.metrics_div]
                         ])
 
-        tab = Panel(child=grid, title='Tier '+str(tier)+' pre churn model ')
+        tab = Panel(child=grid, title='Tier '+str(tier)+' churn predictions ')
         return tab
 
 
     except Exception:
         logger.error('rendering err:',exc_info=True)
-        return tab_error_flag('tier1_churned_model')
+        text = 'Tier '+str(tier)+'_predictive_model'
+        return tab_error_flag(text)
 
 
 

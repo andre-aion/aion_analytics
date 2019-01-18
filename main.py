@@ -17,32 +17,39 @@ from scripts.dashboards.blockminer import blockminer_tab
 from scripts.dashboards.poolminer import poolminer_tab
 from scripts.dashboards.churn import churn_tab
 from scripts.dashboards.hashrate import hashrate_tab
-from scripts.dashboards.tier1_churned_model import churned_model
+from scripts.dashboards.churn_predictive import churn_predictive_tab
+from config.df_construct_config import columns,table_dict
 
+from scripts.ETL.etl import ETL
+from scripts.ETL.checkpoint import checkpoint_dict
 from scripts.utils.mylogger import mylogger
 import os
 logger = mylogger(__file__)
 executor = ThreadPoolExecutor(max_workers=10)
 
+# run ETL
+table = 'block_tx_warehouse'
+etl = ETL(table=table, checkpoint_dict=checkpoint_dict[table],
+          table_dict=table_dict, columns=columns,
+          checkpoint_column='block_timestamp')
 
 @gen.coroutine
 def aion_analytics(doc):
 
     # SETUP BOKEH OBJECTS
     try:
+        yield etl.run()
         #ch = yield churn_tab()
-        #bm = yield blockminer_tab()
+        bm = yield blockminer_tab()
         #hr = yield hashrate_tab()
         #pm = yield poolminer_tab()
-        ch_m = yield churned_model(1)
+        #ch_1 = yield churn_predictive_tab(1)
+        #ch_2 = yield churn_predictive_tab(2)
 
-
-        tabs = Tabs(tabs=[ch_m])
+        tabs = Tabs(tabs=[bm])
         doc.add_root(tabs)
-
     except Exception:
         logger.error("TABS:", exc_info=True)
-
 
 # configure and run bokeh server
 @gen.coroutine

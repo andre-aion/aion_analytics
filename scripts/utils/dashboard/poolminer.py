@@ -67,8 +67,8 @@ def explode_transaction_hashes(df):
         logger.error("explode transaction hashes", exc_info=True)
 
 
-# make data warehouse only if tier1 and tier2 miner lists do not exits
-def make_poolminer_warehouse(df_tx, df_block, start_date, end_date,tab='poolminer'):
+
+def make_warehouse(df_tx, df_block, start_date, end_date, tab='poolminer'):
     logger.warning("df_tx columns in make_poolminer_warehose:%s",df_tx.columns.tolist())
     logger.warning("df_block columns in make_poolminer_warehose:%s",df_block.columns.tolist())
 
@@ -90,6 +90,7 @@ def make_poolminer_warehouse(df_tx, df_block, start_date, end_date,tab='poolmine
                                       left_on='transaction_hashes',
                                       right_on='transaction_hash')  # do the merge\
         df = df.drop(['transaction_hashes'],axis=1)
+
         values = {'transaction_hash': 'unknown','approx_value':0,
                   'from_addr':'unknown','to_addr':'unknown','block_number':0}
         df = df.fillna(value=values)

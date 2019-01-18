@@ -1,1 +1,1 @@
-from . import hashrate, poolminer, churn, blockminer, tier1_churned_model
+from . import hashrate, poolminer, churn, blockminer, churn_predictive

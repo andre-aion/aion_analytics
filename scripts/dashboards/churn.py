@@ -4,7 +4,7 @@ from scripts.utils.dashboard.poolminer import make_tier1_list, \
 from scripts.utils.myutils import tab_error_flag
 from scripts.utils.dashboard.mytab import Mytab
 from scripts.storage.pythonRedis import PythonRedis
-from data.config import dedup_cols, load_columns as cols
+from config.df_construct_config import dedup_cols, load_columns as cols
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
@@ -313,7 +313,7 @@ def churn_tab():
         first_date_range = datetime.strptime("2018-04-23 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
 
-        ref_first_date = datetime.strptime("2018-08-01 00:00:00",'%Y-%m-%d %H:%M:%S')
+        ref_first_date = datetime.strptime("2018-12-01 00:00:00",'%Y-%m-%d %H:%M:%S')
         ref_last_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
         period_first_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
         period_last_date = last_date_range

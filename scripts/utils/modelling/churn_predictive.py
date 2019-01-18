@@ -4,9 +4,9 @@ from scripts.storage.pythonRedis import PythonRedis
 from scripts.utils.dashboard.mytab import Mytab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import concat_dfs
-from data.config import load_columns as cols
+from config.df_construct_config import load_columns as cols
 from scripts.utils.dashboard.poolminer import is_tier1_in_memory, \
-    make_tier1_list
+    make_tier1_list, is_tier2_in_memory, make_tier2_list
 logger = mylogger(__file__)
 redis = PythonRedis()
 
@@ -64,7 +64,7 @@ def construct_from_redis(key_lst,item_type ='list',df=None,table=None,df_cols=No
 
 
 # get the dictionaries, then extract the df and the lists
-def extract_data_from_dict(dct_lst, df):
+def extract_data_from_dict(dct_lst, df,tier=1):
     try:
         dataframe_list = []
         churned_miners_list = []
@@ -83,7 +83,10 @@ def extract_data_from_dict(dct_lst, df):
         # filter df by the miners
         lst = list(set(churned_miners_list + retained_miners_list))
         #logger.warning('miners list from churned:%s',lst)
-        df = df[df.from_addr.isin(lst)]
+        if tier == 1:
+            df = df[df.from_addr.isin(lst)]
+        else:
+            df = df[df.to_addr.isin(lst)]
         return df, churned_miners_list, retained_miners_list
 
     except Exception:
@@ -91,14 +94,33 @@ def extract_data_from_dict(dct_lst, df):
 
 
 def get_miner_list(df,start_date,end_date,threshold_tx_paid_out,
-             threshold_blocks_mined, tier=1):
+                   threshold_blocks_mined, tier=1):
     if tier in ["1",1]:
         lst = is_tier1_in_memory(start_date,end_date,threshold_tx_paid_out,
-                             threshold_blocks_mined)
+                                 threshold_blocks_mined)
+    else:
+        lst = is_tier2_in_memory(start_date, end_date,
+                                 start_date, end_date,
+                                 threshold_tier2_pay_in=1,
+                                 threshold_tx_paid_out=5,
+                                 threshold_blocks_mined_per_day=0.5
+                                 )
+
     if lst is None:
         if tier in ["1",1]:
             return make_tier1_list(df, start_date, end_date,
                                    threshold_tx_paid_out,
                                    threshold_blocks_mined)
+        else:
+            tier1_miners_list = get_miner_list(df,start_date,end_date,
+                                               threshold_tx_paid_out,
+                                               threshold_blocks_mined,
+                                               tier=1)
+
+            return make_tier2_list(df, start_date, end_date,
+                                   tier1_miners_list,
+                                   threshold_tier2_received=1,
+                                   threshold_tx_paid_out=5,
+                                   threshold_blocks_mined_per_day=0.5)
     else:
         return None

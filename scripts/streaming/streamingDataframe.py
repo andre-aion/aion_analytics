@@ -17,10 +17,10 @@ class StreamingDataframe:
             else:
                 self.columns = []
 
-            if len(dedup_columns) > 0:
+            if isinstance(dedup_columns,dict):
                 self.dedup_columns = dedup_columns[table_name]
             else:
-                self.dedup_columns = []
+                self.dedup_columns = dedup_columns
             # initialize as pandas
             df = pd.DataFrame(columns=self.columns)
             # convert to dask

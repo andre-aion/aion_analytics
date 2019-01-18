@@ -75,15 +75,20 @@ class PythonRedis:
         return key
 
     @coroutine
-    def save(self,item, key_params, start_date, end_date):
+    def save(self,item, key_params, start_date, end_date,type='checkpoint'):
         try:
             #convert dates to strings
 
             from scripts.utils.myutils import compose_key
-            key = compose_key(key_params, start_date, end_date)
-            self.conn.setex(name=key, time=EXPIRATION_SECONDS,
-                            value=zlib.compress(pickle.dumps(item)))
-            logger.warning("SAVE: %s saved to redis",key)
+            if type != 'checkpoint':
+                key = compose_key(key_params, start_date, end_date)
+                self.conn.setex(name=key, time=EXPIRATION_SECONDS,
+                                value=zlib.compress(pickle.dumps(item)))
+            elif type == 'checkpoint':
+                self.conn.hmset(key_params,item)
+                self.conn.expire(key_params,EXPIRATION_SECONDS*50)
+                logger.warning('CHECKPOINT UPDATED OR SAVED:%s', key_params)
+
         except Exception:
             logger.error('save to redis',exc_info=True)
 
@@ -97,11 +102,17 @@ class PythonRedis:
                 key = self.compose_key(key_params,start_date,end_date)
 
             logger.warning('load-item key:%s', key)
-            item = pickle.loads(zlib.decompress(self.conn.get(key)))
-            if item_type == "dataframe":
-                logger.warning("from redis load:%s",item.head(5))
-
-            logger.warning("Key")
+            if item_type != 'checkpoint':
+                item = pickle.loads(zlib.decompress(self.conn.get(key)))
+                if item_type == "dataframe":
+                    logger.warning("from redis load:%s",item.head(5))
+            else:
+                if self.conn.exists(key):
+                    item=self.conn. hgetall(key)
+                    item = item.decode('UTF-8')
+                    logger.warning("Checkpoint loaded from redis:%s",item)
+                else:
+                    item = None
 
             return item
         except Exception:
@@ -109,7 +120,7 @@ class PythonRedis:
             return None
 
     @coroutine
-    def save_dict(self,dct,type='churned'):
+    def save_dict(self,dct,key_params='block_tx_warehouse',type='churned'):
         try:
             if dct:
                 if type == 'churned':
@@ -118,7 +129,8 @@ class PythonRedis:
                                                         dct['reference_end_date'])
                     self.save(dct,dct['key_params'],dct['reference_start_date'],
                               dct['reference_end_date'])
-
+                elif type == 'checkpoint':
+                    self.save(dct,key_params,"", "",type=type)
         except Exception:
             logger.error("save_dict", exc_info=True)
 
