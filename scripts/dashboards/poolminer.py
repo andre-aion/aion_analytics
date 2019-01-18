@@ -1,10 +1,10 @@
 from os.path import join, dirname
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.dashboard.poolminer import make_tier1_list,\
+from scripts.utils.dashboards.poolminer import make_tier1_list,\
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag
-from scripts.utils.dashboard.mytab import Mytab
+from scripts.utils.dashboards.mytab import Mytab
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
@@ -65,11 +65,6 @@ def poolminer_tab():
             self.tier2_miners_list = []
             self.tier1_miners_list = []
             self.key_tab = key_tab
-            self.construction_tables['block'] = Mytab('block', block_cols, dedup_cols)
-            self.construction_tables['block'].key_tab = 'poolminer'
-            self.construction_tables['transaction'] = Mytab('transaction', transaction_cols, dedup_cols)
-            self.construction_tables['transaction'].key_tab = 'poolminer'
-
 
 
         def get_tier1_list(self,start_date,end_date):
@@ -331,7 +326,7 @@ def poolminer_tab():
             select_tx_received,
             download_button_2)
 
-        # create the dashboard
+        # create the dashboards
         spacing_div = thistab.spacing_div(width=200,height=400)
         grid = gridplot([[controls_left,controls_right],
                          [notification_div],

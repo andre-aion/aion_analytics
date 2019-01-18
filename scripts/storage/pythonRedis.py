@@ -75,12 +75,12 @@ class PythonRedis:
         return key
 
     @coroutine
-    def save(self,item, key_params, start_date, end_date,type='checkpoint'):
+    def save(self,item, key_params, start_date, end_date,type=""):
         try:
             #convert dates to strings
 
             from scripts.utils.myutils import compose_key
-            if type != 'checkpoint':
+            if type in ["list","dataframe",""]:
                 key = compose_key(key_params, start_date, end_date)
                 self.conn.setex(name=key, time=EXPIRATION_SECONDS,
                                 value=zlib.compress(pickle.dumps(item)))
@@ -104,9 +104,10 @@ class PythonRedis:
             logger.warning('load-item key:%s', key)
             if item_type != 'checkpoint':
                 item = pickle.loads(zlib.decompress(self.conn.get(key)))
+
                 if item_type == "dataframe":
                     logger.warning("from redis load:%s",item.head(5))
-            else:
+            elif item_type == 'checkpoint':
                 if self.conn.exists(key):
                     item=self.conn. hgetall(key)
                     item = item.decode('UTF-8')

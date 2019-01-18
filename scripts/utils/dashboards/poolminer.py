@@ -213,7 +213,6 @@ def make_tier1_list(df, start_date, end_date, threshold_tx_paid_out=5,
             else:
                 tier1_miners_list = []
 
-
         # save tier1 miner list to redis
         logger.warning("tier 1 miners list generated, before redis save:%s",len(tier1_miners_list))
         r.save(tier1_miners_list,key_params,start_date, end_date)

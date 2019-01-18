@@ -1,11 +1,11 @@
 from datetime import datetime
 
 from scripts.storage.pythonRedis import PythonRedis
-from scripts.utils.dashboard.mytab import Mytab
+from scripts.utils.dashboards.mytab import Mytab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import concat_dfs
 from config.df_construct_config import load_columns as cols
-from scripts.utils.dashboard.poolminer import is_tier1_in_memory, \
+from scripts.utils.dashboards.poolminer import is_tier1_in_memory, \
     make_tier1_list, is_tier2_in_memory, make_tier2_list
 logger = mylogger(__file__)
 redis = PythonRedis()
@@ -30,8 +30,10 @@ def find_in_redis(item='tier1_churned_dict'):
     except Exception:
         logger.error("find in redis",exc_info=True)
 
+
 # get data from redis and join if necessary
-def construct_from_redis(key_lst,item_type ='list',df=None,table=None,df_cols=None,dedup_cols=None):
+def construct_from_redis(key_lst,item_type ='list',df=None,
+                         table=None,df_cols=None,dedup_cols=None):
     try:
         redis = PythonRedis()
         if not key_lst:
@@ -41,27 +43,30 @@ def construct_from_redis(key_lst,item_type ='list',df=None,table=None,df_cols=No
             for key in key_lst:
                 # create df if necessary
                 logger.warning('key for churned load:%s',key)
-                item_loaded = redis.load([],'','',key,item_type)
-                logger.warning('item loaded in churned load:%s',item_loaded)
                 if item_type == 'list':
+                    item_loaded = redis.load([], '', '', key, item_type)
                     temp_item.append(item_loaded)
+                    return temp_item
                 else:
-                    if item_loaded is None:  # create database if it is not loaded
-                        # get key dates
-                        lst = key.split(':')
-                        req_start_date = datetime.strptime(lst[-2], '%Y-%m-%d')
-                        req_end_date = datetime.strptime(lst[-1], '%Y-%m-%d')
-                        tab = Mytab('block_tx_warehouse', cols['block_tx_warehouse']['churn'], [])
-                        tab.key_tab = 'churn'
-                        tab.df_load(req_start_date, req_end_date)
-                        item_loaded = tab.df1
-                    temp_item = concat_dfs(temp_item, item_loaded)
-        #logger.warning("CONSTRUCT FROM REDIS :%s", temp_item['approx_value'].tail(30))
-        return temp_item
-
+                    #make list of start and end dates from list
+                    start_list = []
+                    end_list = []
+                    # get key dates
+                    lst = key.split(':')
+                    req_start_date = datetime.strptime(lst[-2], '%Y-%m-%d')
+                    req_end_date = datetime.strptime(lst[-1], '%Y-%m-%d')
+                    start_list.append(req_start_date)
+                    end_list.append(req_end_date)
+            if item_type != 'list':
+                # if warehouse get minimum start date and maximum end data, and retrive from database
+                tab = Mytab('block_tx_warehouse', cols['block_tx_warehouse']['churn'], [])
+                tab.key_tab = 'churn'
+                req_start_date = min(start_list)
+                req_end_date = max(end_list)
+                tab.df_load(req_start_date, req_end_date)
+                return tab.df1
     except Exception:
-        logger.error("construct from redis",exc_info=True)
-
+        logger.error("construct from redis/clickhouse",exc_info=True)
 
 # get the dictionaries, then extract the df and the lists
 def extract_data_from_dict(dct_lst, df,tier=1):

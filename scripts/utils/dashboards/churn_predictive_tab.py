@@ -4,7 +4,7 @@ from os.path import dirname, join
 from scripts.utils.mylogger import mylogger
 from scripts.utils.modelling.churn_predictive import find_in_redis,\
     construct_from_redis, extract_data_from_dict, get_miner_list
-from scripts.utils.dashboard.mytab import Mytab
+from scripts.utils.dashboards.mytab import Mytab
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 
 import dask.dataframe as dd
@@ -54,7 +54,8 @@ class ChurnedPredictiveTab:
         self.checkbox_group = None
         self.churned_list = None
         self.retained_list = None
-        self.df = SD('block_tx_warehouse', cols, dedup_columns=[]).get_df()
+        self.tab = Mytab('block_tx_warehouse', cols,[])
+        self.df = self.tab.df
         self.max = 10
         self.select_variable = None
         self.df1 = {}
@@ -437,6 +438,8 @@ class ChurnedPredictiveTab:
 
     def rf_clf(self):
         try:
+            logger.warning("RANDOM FOREST LAUNCHED")
+
             if self.load_data_flag:
                 logger.warning('DATA RELOADED TO MAKE PREDICTIONS')
                 self.load_data()
@@ -471,6 +474,8 @@ class ChurnedPredictiveTab:
     # the period for which the user wants a prediction
     def make_predictions(self):
         try:
+            logger.warning("MAKE PREDICTIONS LAUNCHED")
+
             # make model
             clf = self.rf_clf()
             to_predict_tab = Mytab('block_tx_warehouse',cols=self.cols,dedup_cols=[])

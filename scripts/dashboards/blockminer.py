@@ -1,7 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
-from scripts.utils.dashboard.mytab import Mytab
+from scripts.utils.dashboards.mytab import Mytab
 from scripts.utils.myutils import tab_error_flag
 from scripts.utils.mylogger import mylogger
 from config.df_construct_config import dedup_cols
@@ -207,7 +207,7 @@ def blockminer_tab():
         controls = WidgetBox(datepicker_start, datepicker_end,
                              download_button, topN_select)
 
-        # create the dashboard
+        # create the dashboards
         grid = gridplot([[notification_div],
                          [controls, topN_table],
                          [bar_plot.state]])

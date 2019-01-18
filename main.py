@@ -28,25 +28,29 @@ logger = mylogger(__file__)
 executor = ThreadPoolExecutor(max_workers=10)
 
 # run ETL
+'''
 table = 'block_tx_warehouse'
 etl = ETL(table=table, checkpoint_dict=checkpoint_dict[table],
           table_dict=table_dict, columns=columns,
           checkpoint_column='block_timestamp')
-
+'''
+#etl.reset_offset('2019-01-07 22:12:10')
 @gen.coroutine
 def aion_analytics(doc):
 
     # SETUP BOKEH OBJECTS
     try:
-        yield etl.run()
-        #ch = yield churn_tab()
+        #yield etl.run()
+
+
+        ch = yield churn_tab()
         bm = yield blockminer_tab()
         #hr = yield hashrate_tab()
-        #pm = yield poolminer_tab()
+        pm = yield poolminer_tab()
         #ch_1 = yield churn_predictive_tab(1)
-        #ch_2 = yield churn_predictive_tab(2)
+        ch_2 = yield churn_predictive_tab(2)
 
-        tabs = Tabs(tabs=[bm])
+        tabs = Tabs(tabs=[bm,ch,pm,ch_2])
         doc.add_root(tabs)
     except Exception:
         logger.error("TABS:", exc_info=True)

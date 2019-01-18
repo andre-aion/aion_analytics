@@ -1,5 +1,6 @@
 import time
 from datetime import datetime, timedelta, date
+from statistics import mean
 
 from tornado import gen
 from tornado.gen import coroutine
@@ -9,7 +10,7 @@ from scripts.storage.pythonClickhouse import PythonClickhouse
 from scripts.storage.pythonRedis import PythonRedis
 from scripts.streaming.streamingDataframe import StreamingDataframe
 from scripts.utils.mylogger import mylogger
-from scripts.utils.dashboard.poolminer import explode_transaction_hashes
+from scripts.utils.dashboards.poolminer import explode_transaction_hashes
 import dask as dd
 import pandas as pd
 
@@ -22,7 +23,7 @@ class ETL:
         self.checkpoint_dict = checkpoint_dict
         self.cl = PythonClickhouse('aion')
         self.redis = PythonRedis()
-        self.window = 48 # hours
+        self.window = 72 # hours
         self.DATEFORMAT = "%Y-%m-%d %H:%M:%S"
         self.is_up_to_date_window = 3 # hours
         self.table = table
@@ -34,6 +35,12 @@ class ETL:
         self.df = ''
         self.dct = checkpoint_dict
         self.initial_date = "2018-04-23 20:00:00"
+        # manage size of warehouse
+        self.df_size_lst = []
+        self.df_size_threshold = {
+            'upper': 60000,
+            'lower': 40000
+        }
 
     def save_checkpoint(self):
         try:
@@ -76,12 +83,12 @@ class ETL:
         except Exception:
             logger.error("Create self.table in clickhosue",exc_info=True)
 
-    def reset_offset(self,reset_datetime):
+    def reset_offset(self,reset_value):
         try:
             self.checkpoint_dict = self.get_checkpoint_dict()
-            if isinstance(reset_datetime,datetime) or isinstance(reset_datetime,date):
-                reset_datetime = datetime.strftime(reset_datetime,self.DATEFORMAT)
-            self.checkpoint_dict['offset'] = reset_datetime
+            if isinstance(reset_value,datetime) or isinstance(reset_value,date):
+                reset_value = datetime.strftime(reset_value,self.DATEFORMAT)
+            self.checkpoint_dict['offset'] = reset_value
             self.checkpoint_dict['timestamp'] = datetime.now().strftime(self.DATEFORMAT)
             self.save_checkpoint()
             logger.warning("CHECKPOINT reset:%s",self.checkpoint_dict)
@@ -242,7 +249,9 @@ class ETL:
                     # make two dataframes to pandas
                     df_tx = StreamingDataframe(input_table2,cols[input_table2],dedup_cols=[]).df
                 df_warehouse = self.make_warehouse(df_tx, df_block)
-                logger.warning("WAREHOUSE length %s", len(df_warehouse))
+                self.df_size_lst.append(len(df_warehouse))
+                logger.warning("WAREHOUSE length %s", self.df_size_lst)
+                self.window_adjuster()
                 if len(df_warehouse) > 0:
                     # save warehouse to clickhouse
                     self.update_checkpoint_dict(end_datetime)
@@ -265,6 +274,17 @@ class ETL:
             return self.initial_date  #if block_tx_warehouse is empty
         except Exception:
             logger.error("update warehouse", exc_info=True)
+
+    def window_adjuster(self):
+        if len(self.df_size_lst) > 5:
+            if mean(self.df_size_lst) >= self.df__size_threshold['upper']:
+                self.window = round(self.window*.75)
+                logger.warning("WINDOW ADJUSTED DOWNWARDS TO %s",self.window)
+            elif mean(self.df_size_lst) <= self.df_size_threshold['loser']:
+                self.window = round(self.window*1.25)
+                logger.warning("WINDOW ADJUSTED UPWARDS TO %s",self.window)
+
+
 
     # check max date in a construction table
     def is_up_to_date(self,construct_table='block'):
@@ -290,7 +310,7 @@ class ETL:
         # create warehouse table in clickhouse if needed
         self.create_table_in_clickhouse()
         while True:
-            self.update_warehouse('block','transaction')
+            yield self.update_warehouse('block','transaction')
             if self.is_up_to_date(construct_table='block'):
                 gen.sleep(10800)
             else:

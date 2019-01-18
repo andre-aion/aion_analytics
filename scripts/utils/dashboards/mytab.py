@@ -9,7 +9,7 @@ from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from scripts.storage.pythonRedis import PythonRedis
 from scripts.storage.pythonParquet import PythonParquet
 from scripts.storage.pythonClickhouse import PythonClickhouse
-from scripts.utils.dashboard.poolminer import make_warehouse
+from scripts.utils.dashboards.poolminer import make_warehouse
 from bokeh.models.widgets import Div, Paragraph
 from config.df_construct_config import table_dict, columns
 
@@ -44,10 +44,6 @@ class Mytab:
         self.ch = PythonClickhouse('aion')
         self.redis = PythonRedis()
         self.conn = self.redis.conn
-
-        # create warehouse is needed
-        if 'warehouse' in self.table:
-            self.ch.create_table(self.table, table_dict, columns)
 
     # designed to work with premade warehouse table
     def df_load(self, req_start_date, req_end_date):
@@ -164,6 +160,8 @@ class Mytab:
         return x
 
     def filter_df(self, start_date, end_date):
+        self.df1 = self.df
+        '''
         if len(self.df)>0:
             self.df1 = self.df.dropna(subset=['block_timestamp'])
 
@@ -188,6 +186,7 @@ class Mytab:
 
         else:
             self.df1 = self.streaming_dataframe.df
+        '''
 
     def spacing_div(self, width=20, height=100):
         return Div(text='', width=width, height=height)

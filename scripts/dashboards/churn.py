@@ -1,8 +1,8 @@
 from scripts.utils.mylogger import mylogger
-from scripts.utils.dashboard.poolminer import make_tier1_list, \
+from scripts.utils.dashboards.poolminer import make_tier1_list, \
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag
-from scripts.utils.dashboard.mytab import Mytab
+from scripts.utils.dashboards.mytab import Mytab
 from scripts.storage.pythonRedis import PythonRedis
 from config.df_construct_config import dedup_cols, load_columns as cols
 from concurrent.futures import ThreadPoolExecutor
@@ -52,18 +52,6 @@ def churn_tab():
             self.tab['period'] = Mytab('block_tx_warehouse',cols['block_tx_warehouse'][key_tab], dedup_cols)
             self.tab['period'].key_tab = key_tab
             self.tab['reference'].key_tab = key_tab
-
-            self.tab['reference'].construction_tables['block'] = Mytab('block',cols['block'][key_tab], dedup_cols)
-            self.tab['reference'].construction_tables['block'].key_tab = key_tab
-            self.tab['reference'].construction_tables['transaction'] = Mytab('transaction',cols['transaction'][key_tab],
-                                                                             dedup_cols)
-            self.tab['reference'].construction_tables['transaction'].key_tab = key_tab
-
-            self.tab['period'].construction_tables['block'] = Mytab('block', cols['block'][key_tab], dedup_cols)
-            self.tab['period'].construction_tables['block'].key_tab = key_tab
-            self.tab['period'].construction_tables['transaction'] = Mytab('transaction', cols['transaction']['churn'],
-                                                                          dedup_cols)
-            self.tab['period'].construction_tables['transaction'].key_tab = key_tab
 
             self.threshold_tx_received = .5
             self.threshold_tx_paid_out = 1
@@ -379,7 +367,7 @@ def churn_tab():
             datepicker_churn_end,
             select_tx_received)
 
-        # create the dashboard
+        # create the dashboards
         grid = gridplot([[controls_left,controls_right],
                          [notification_div],
                 [tier1_stats,tier2_stats]])

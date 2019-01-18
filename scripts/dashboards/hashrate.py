@@ -1,7 +1,7 @@
 from scripts.utils.mylogger import mylogger
-from scripts.utils.dashboard.hashrate import calc_hashrate
+from scripts.utils.dashboards.hashrate import calc_hashrate
 from scripts.utils.myutils import tab_error_flag
-from scripts.utils.dashboard.mytab import Mytab
+from scripts.utils.dashboards.mytab import Mytab
 from config.df_construct_config import dedup_cols
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
@@ -149,8 +149,7 @@ def hashrate_tab():
             thistab.load_this_data, streams=[stream_start_date,
                                              stream_end_date,
                                              stream_blockcount],
-                                             datashade=True) \
-            .opts(plot=dict(width=1000, height=400))
+                                             datashade=True)
 
         dmap_diff = hv.DynamicMap(
             thistab.difficulty_plot,
@@ -177,7 +176,7 @@ def hashrate_tab():
             select_blockcount)
 
 
-        # create the dashboard
+        # create the dashboards
         grid = gridplot([
             [notification_div],
             [controls],

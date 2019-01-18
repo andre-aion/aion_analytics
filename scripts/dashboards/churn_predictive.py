@@ -1,5 +1,5 @@
 from scripts.utils.mylogger import mylogger
-from scripts.utils.dashboard.churn_predictive_tab import ChurnedPredictiveTab
+from scripts.utils.dashboards.churn_predictive_tab import ChurnedPredictiveTab
 from scripts.utils.myutils import tab_error_flag
 
 from concurrent.futures import ThreadPoolExecutor
