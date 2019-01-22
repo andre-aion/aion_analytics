@@ -1,5 +1,5 @@
 from scripts.utils.mylogger import mylogger
-from scripts.utils.dashboards.churn_predictive_tab import ChurnedPredictiveTab
+from scripts.utils.modeling.churn.miner_predictive_tab import MinerChurnedPredictiveTab
 from scripts.utils.myutils import tab_error_flag
 
 from concurrent.futures import ThreadPoolExecutor
@@ -24,12 +24,12 @@ logger = mylogger(__file__)
 hv.extension('bokeh', logo=False)
 
 @coroutine
-def churn_predictive_tab(tier):
-    class Thistab(ChurnedPredictiveTab):
-
+def miner_churn_predictive_tab(tier):
+    class Thistab(MinerChurnedPredictiveTab):
         def __init__(self,tier,cols):
-            ChurnedPredictiveTab.__init__(self,tier,cols=cols)
+            MinerChurnedPredictiveTab.__init__(self, tier, cols=cols)
             self.cols = cols
+            self.table = 'block_tx_warehouse'
 
     def update_model():
         thistab.notification_updater('data reload,hyp testing ongoing')
@@ -146,7 +146,7 @@ def churn_predictive_tab(tier):
 
     except Exception:
         logger.error('rendering err:',exc_info=True)
-        text = 'Tier '+str(tier)+'_predictive_model'
+        text = 'Tier '+str(tier)+'miner_predictive_model'
         return tab_error_flag(text)
 
 

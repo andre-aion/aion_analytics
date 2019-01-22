@@ -9,9 +9,7 @@ from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from scripts.storage.pythonRedis import PythonRedis
 from scripts.storage.pythonParquet import PythonParquet
 from scripts.storage.pythonClickhouse import PythonClickhouse
-from scripts.utils.dashboards.poolminer import make_warehouse
 from bokeh.models.widgets import Div, Paragraph
-from config.df_construct_config import table_dict, columns
 
 r = PythonRedis()
 logger = mylogger(__file__)
@@ -44,6 +42,7 @@ class Mytab:
         self.ch = PythonClickhouse('aion')
         self.redis = PythonRedis()
         self.conn = self.redis.conn
+        self.notification_div = Div(text='')
 
     # designed to work with premade warehouse table
     def df_load(self, req_start_date, req_end_date):
@@ -80,73 +79,6 @@ class Mytab:
                 logger.warning("DF LOADED FROM MEMORY:%s", self.table)
             # no part in memory, so construct/load from clickhouse
             self.df = self.ch.load_data(self.table,self.cols,req_start_date, req_end_date)
-            self.filter_df(req_start_date, req_end_date)
-            #logger.warning("%s LOADED: %s:%s",self.table,req_start_date,req_end_date)
-
-        except Exception:
-            logger.error("df_load:", exc_info=True)
-
-    def df_load_old(self, req_start_date, req_end_date):
-        params = {
-            'start': False,
-            'end': False
-        }
-
-        try:
-            if self.df is not None:
-                if len(self.df) > 0:
-                    # if in memory simply filter
-                    params['min_date'], params['max_date'] = \
-                        dd.compute(self.df.block_timestamp.min(), self.df.block_timestamp.max())
-
-                    req_start_date = pd.to_datetime(req_start_date)
-                    req_end_date = pd.to_datetime(req_end_date)
-
-                    # check start
-                    logger.warning('start_date from compute:%s', params['min_date'])
-                    logger.warning('start from slider:%s', req_start_date)
-
-                    # set flag to true if data is in memory
-                    if req_start_date >= params['min_date']:
-                        params['start'] = True
-                    if req_end_date <= params['max_date']:
-                        params['end'] = True
-
-            # entire frame in memory
-            key_params = [self.table, self.key_tab]
-
-            if params['start'] and params['end']:
-                self.filter_df(req_start_date, req_end_date)
-                logger.warning("DF LOADED FROM MEMORY:%s", self.table)
-            else: # no part in memory, so construct/load from clickhouse
-
-                if 'warehouse' in self.table:
-                    # check memory
-                    memory_params = self.is_in_memory(self.table, req_start_date, req_end_date)
-                    if memory_params['in_memory']:
-                        #load from redis
-                        self.df = self.redis.load(key_params,req_start_date,req_end_date,memory_params['key'])
-                        logger.warning("WAREHOUSE LOADED FROM REDIS:%s")
-                    else:
-                        # load the construction tables df_tx and df_block
-                        self.construction_tables['block'].df_load(req_start_date,
-                                                                  req_end_date)
-                        self.construction_tables['transaction'].df_load(req_start_date,
-                                                                        req_end_date)
-                        # make the warehouse
-                        self.df = make_warehouse(
-                            self.construction_tables['transaction'].df,
-                            self.construction_tables['block'].df,
-                            req_start_date,
-                            req_end_date,
-                            self.key_tab)
-
-                        #save to parquet
-                        logger.warning("WAREHOUSE CONSTRUCTED:%s", self.df.head())
-                        self.redis.save(self.df, key_params, req_start_date, req_end_date)
-
-                else:  # Non warehouse
-                    self.df = self.ch.load_data(self.table,self.cols,req_start_date, req_end_date)
             self.filter_df(req_start_date, req_end_date)
             #logger.warning("%s LOADED: %s:%s",self.table,req_start_date,req_end_date)
 
@@ -216,9 +148,24 @@ class Mytab:
                 return x[0:10]
         return x
 
+    # ####################################################
+    #              UTILITY DIVS
+
     def notification_updater(self, text):
         return '<h3  style="color:red">{}</h3>'.format(text)
 
+    def results_div(self, text, width=600, height=300):
+        div = Div(text=text, width=width, height=height)
+        return div
+
+    def title_div(self, text, width=700):
+        text = '<h2 style="color:green;">{}</h2>'.format(text)
+        return Div(text=text, width=width, height=15)
+
+    def notification_updater_2(self, text):
+        self.notification_div.text = '<h3  style="color:red">{}</h3>'.format(text)
+
+    # ######################################################
 
     def is_in_memory(self,table,req_start_date,req_end_date):
         str_req_start_date = datetime.strftime(req_start_date, '%Y-%m-%d')

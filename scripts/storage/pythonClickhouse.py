@@ -130,6 +130,7 @@ class PythonClickhouse:
                     #new_columns = [new_name if x == 'nrg_consumed' else x for x in df.columns.tolist()]
                     #logger.warning("columns renamed:%s", df.columns.tolist())
             df = dd.dataframe.from_pandas(df, npartitions=15)
+            #logger.warning("DATA LOADED:%s", df.head(10))
 
             return df
 
@@ -172,7 +173,7 @@ class PythonClickhouse:
                 qry += ','
             qry += message
         qry += "'"
-        logger.warning('data insert query:%s', qry)
+        #logger.warning('data insert query:%s', qry)
         return qry
 
     def insert(self, table, cols, messages):
@@ -208,8 +209,8 @@ class PythonClickhouse:
         except Exception:
             logger.error("Save df", exc_info=True)
 
-    def delete_data(self,start_range, end_range,db='aion',
-                    table='block_tx_warehouse',col='block_timestamp'):
+    def delete_data(self,start_range, end_range,
+                    table,db='aion',col='block_timestamp'):
         DATEFORMAT = "%Y-%m-%d %H:%M:%S"
         if not isinstance(start_range,str):
             start_range = datetime.strftime(start_range,DATEFORMAT)
@@ -233,7 +234,7 @@ class PythonClickhouse:
     def get_min_max(self,table,col):
         qry = "SELECT min({}), max({}) FROM aion.{}".format(col,col,table)
 
-    def insert_df(self,df,table='block_tx_warehouse'):
+    def insert_df(self,df,table):
         try:
             df = df[cols[table]]  # arrange order of columns for
             logger.warning("columns in df to insert:%s",df.columns.tolist())
@@ -253,8 +254,8 @@ class PythonClickhouse:
             """
             start_range = df[col].min()
             end_range = df[col].max()
-            self.delete_data(start_range,end_range)
-            self.insert_df(df)
+            self.delete_data(start_range,end_range,table)
+            self.insert_df(df,table)
         except Exception:
             logger.error("Upsert df", exc_info=True)
 

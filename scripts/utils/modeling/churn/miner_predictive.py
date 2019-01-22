@@ -3,7 +3,6 @@ from datetime import datetime
 from scripts.storage.pythonRedis import PythonRedis
 from scripts.utils.dashboards.mytab import Mytab
 from scripts.utils.mylogger import mylogger
-from scripts.utils.myutils import concat_dfs
 from config.df_construct_config import load_columns as cols
 from scripts.utils.dashboards.poolminer import is_tier1_in_memory, \
     make_tier1_list, is_tier2_in_memory, make_tier2_list
@@ -40,30 +39,41 @@ def construct_from_redis(key_lst,item_type ='list',df=None,
             return None
         else:
             temp_item = [] if item_type == 'list' else df
+            start_list = []
+            end_list = []
             for key in key_lst:
                 # create df if necessary
-                logger.warning('key for churned load:%s',key)
+                #logger.warning('key for churned load:%s',key)
                 if item_type == 'list':
                     item_loaded = redis.load([], '', '', key, item_type)
                     temp_item.append(item_loaded)
                     return temp_item
                 else:
                     #make list of start and end dates from list
-                    start_list = []
-                    end_list = []
+
                     # get key dates
                     lst = key.split(':')
-                    req_start_date = datetime.strptime(lst[-2], '%Y-%m-%d')
-                    req_end_date = datetime.strptime(lst[-1], '%Y-%m-%d')
+                    req_start_date = datetime.strptime(lst[-2]+' 00:00:00', '%Y-%m-%d %H:%M:%S')
+                    req_end_date = datetime.strptime(lst[-1]+' 00:00:00', '%Y-%m-%d %H:%M:%S')
+                    #req_start_date = datetime.combine(req_start_date, datetime.min.time())
+                    #req_end_date = datetime.combine(req_end_date, datetime.min.time())
+
+
                     start_list.append(req_start_date)
                     end_list.append(req_end_date)
-            if item_type != 'list':
-                # if warehouse get minimum start date and maximum end data, and retrive from database
-                tab = Mytab('block_tx_warehouse', cols['block_tx_warehouse']['churn'], [])
-                tab.key_tab = 'churn'
-                req_start_date = min(start_list)
-                req_end_date = max(end_list)
-                tab.df_load(req_start_date, req_end_date)
+
+            tab = Mytab('block_tx_warehouse', cols['block_tx_warehouse']['churn'], [])
+            if len(start_list) > 0:
+                if item_type != 'list':
+                    # if warehouse get minimum start date and maximum end data, and retrive from database
+                    tab.key_tab = 'churn'
+                    req_start_date = min(start_list)
+                    req_end_date = max(end_list)
+                    tab.df_load(req_start_date, req_end_date)
+                    logger.warning('TRACKER:%s', tab.df.tail(10))
+
+                    return tab.df1
+            else:
                 return tab.df1
     except Exception:
         logger.error("construct from redis/clickhouse",exc_info=True)
@@ -74,10 +84,11 @@ def extract_data_from_dict(dct_lst, df,tier=1):
         dataframe_list = []
         churned_miners_list = []
         retained_miners_list = []
-        if dct_lst:
+        if len(dct_lst)>0:
             for dct in dct_lst:
                 # load the  dictionary
                 dct = redis.load([],'','',key=dct)
+
                 # make dataframe list
                 dataframe_list.append(dct['warehouse'])
                 churned_miners_list = dct['churned_lst']
@@ -85,14 +96,16 @@ def extract_data_from_dict(dct_lst, df,tier=1):
             # construct the data
             df = construct_from_redis(dataframe_list,item_type='dataframe',
                                       table='block_tx_warehouse',df=df)
-        # filter df by the miners
-        lst = list(set(churned_miners_list + retained_miners_list))
-        #logger.warning('miners list from churned:%s',lst)
-        if tier == 1:
-            df = df[df.from_addr.isin(lst)]
-        else:
-            df = df[df.to_addr.isin(lst)]
+        if len(df) > 0:
+            # filter df by the miners
+            lst = list(set(churned_miners_list + retained_miners_list))
+            #logger.warning('miners list from churned:%s',lst)
+            if tier == 1:
+                df = df[df.from_addr.isin(lst)]
+            else:
+                df = df[df.to_addr.isin(lst)]
         return df, churned_miners_list, retained_miners_list
+
 
     except Exception:
         logger.error('extract data from dict', exc_info=True)

@@ -2,7 +2,7 @@ import time
 from os.path import dirname, join
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.modelling.churn_predictive import find_in_redis,\
+from scripts.utils.modeling.churn_predictive import find_in_redis,\
     construct_from_redis, extract_data_from_dict, get_miner_list
 from scripts.utils.dashboards.mytab import Mytab
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
@@ -175,7 +175,7 @@ class ChurnedPredictiveTab:
             button = Button(label=label, button_type="success")
             return button
         except Exception:
-            logger.error('make modelling button', exc_info=True)
+            logger.error('make modeling button', exc_info=True)
 
     def make_selector(self,title,initial_value):
         try:
@@ -521,3 +521,4 @@ class ChurnedPredictiveTab:
                                 width=600,height=1200)
         except Exception:
             logger.error("prediction table:", exc_info=True)
+
