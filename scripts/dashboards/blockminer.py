@@ -75,7 +75,7 @@ def blockminer_tab():
                 #logger.warning('END prep dataset DF1:%s', self.df1.head())
 
                 return self.df1.hvplot.bar('miner_address', 'block_number', rot=90,
-                                           height= 600, width=1000, title='# of blocks mined by miner address',
+                                           height= 600, width=1500, title='# of blocks mined by miner address',
                                            hover_cols=['percentage'])
 
             except Exception:

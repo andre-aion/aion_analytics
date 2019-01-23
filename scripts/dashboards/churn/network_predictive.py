@@ -65,6 +65,10 @@ def network_activity_predictive_tab():
             self.targets = ['tier1_retained_diff','tier2_retained_diff',
                            'tier1_churned_diff','tier2_churned_diff']
             self.pl = {}
+            self.div_style = """ style='width:300px; margin-left:25px;
+            border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+            """
+            self.header_style = """ style='color:blue;text-align:center;' """
 
         ###################################################
         #               I/O
@@ -147,9 +151,10 @@ def network_activity_predictive_tab():
             except Exception:
                 logger.error("RF:", exc_info=True)
 
-        def prediction_information_div(self, width=400, height=300):
+        def prediction_information_div(self, width=350, height=450):
             txt = """
-            <h4 style='color:green;padding-left:30px'>Info </h4>
+            <div {}>
+            <h4 {}>Info </h4>
             <ul style='margin-top:-10px;'>
             <li>
             The table shows the % predicted change.</br>
@@ -165,14 +170,16 @@ def network_activity_predictive_tab():
             Use the datepicker(s) to select dates for the period desired
             </li>
             </ul>
+            </div>
             
-            """
+            """.format(self.div_style,self.header_style)
             div = Div(text=txt,width=width,height=height)
             return div
 
         def stats_information_div(self, width=400, height=300):
             txt = """
-                   <h4 style='color:green;padding-left:30px'>Metadata Info </h4>
+            <div {}>
+                   <h4 {}>Metadata Info </h4>
                    <ul>
                    <li >
                    <h4 style='margin-bottom:-2px;'>Table left:</h4>
@@ -188,8 +195,7 @@ def network_activity_predictive_tab():
                    </br> ...which variable(s) have a greater impact on an outcome.
                    </li>
                    </ul>
-
-                   """
+            </div>""".format(self.div_style, self.header_style)
             div = Div(text=txt, width=width, height=height)
             return div
 
@@ -332,9 +338,9 @@ def network_activity_predictive_tab():
         def tree_div(self, width=1000, height=600, path='/static/images/small_tree.png'):
             self.make_tree()
             txt = """
-            <h3 style='color:green;'> A decision tree for tier1 churn: </h3>
+            <h3 {}> A decision tree for tier1 churn: </h3>
             <img src='../../../static/small_tree.png' />
-            """
+            """.format(self.header_style)
             return Div(text=txt,width=width,height=height)
 
     def update(attrname, old, new):
@@ -439,7 +445,8 @@ def network_activity_predictive_tab():
             [this_tab.title_div('Prediction stats for new,churned,miners models ',600)],
             [accuracy_table.state,this_tab.stats_information_div(),features_table.state],
             [this_tab.title_div('Select period below to obtain predictions:', 600)],
-            [date_controls, this_tab.prediction_information_div(), prediction_table.state]
+            [date_controls, this_tab.prediction_information_div(), prediction_table.state],
+            [this_tab.notification_div_bottom]
         ])
 
         tab = Panel(child=grid, title='Network activity predictions')

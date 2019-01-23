@@ -43,6 +43,8 @@ class MytabNetworkActivity:
         self.redis = PythonRedis()
         self.conn = self.redis.conn
         self.notification_div = Div(text='')
+        self.notification_div_bottom = Div(text='')
+        self.header_style = """ style='color:blue;text-align:center;' """
 
     # designed to work with premade warehouse table
     def df_load(self, req_start_date, req_end_date):
@@ -93,32 +95,7 @@ class MytabNetworkActivity:
 
     def filter_df(self, start_date, end_date):
         self.df1 = self.df
-        '''
-        if len(self.df)>0:
-            self.df1 = self.df.dropna(subset=['block_timestamp'])
 
-            logger.warning("FILTER start date:%s", start_date)
-            logger.warning("FILTER end date:%s", end_date)
-            #logger.warning("filter before conversion: b:%s", self.df1.tail(5))
-
-            # convert block_timestamp from str to timestamp if needed
-            df = self.df1.head()
-            #x = self.df1.ix[1,'block_timestamp']
-            x = df['block_timestamp'].values[0]
-            if isinstance(x,str):
-                logger.warning("CONVERTTING BLOCK TIMESTAMP FROM STRING TO DATETIME")
-                meta = ('block_timestamp', 'datetime64[ns]')
-                self.df1['block_timestamp'] = self.df['block_timestamp'].map_partitions(
-                    pd.to_datetime, format='%Y-%m-%d %H:%M:%S', meta=meta)
-
-
-            self.df1 = self.df1[(self.df1.block_timestamp >= start_date) &
-                                (self.df1.block_timestamp <= end_date)]
-            #logger.warning("post filter_df:%s", self.df1['block_timestamp'].tail(5))
-
-        else:
-            self.df1 = self.streaming_dataframe.df
-        '''
 
     def spacing_div(self, width=20, height=100):
         return Div(text='', width=width, height=height)
@@ -159,11 +136,14 @@ class MytabNetworkActivity:
         return div
 
     def title_div(self, text, width=700):
-        text = '<h2 style="color:green;">{}</h2>'.format(text)
+        text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
         return Div(text=text, width=width, height=15)
 
     def notification_updater_2(self, text):
-        self.notification_div.text = '<h3  style="color:red">{}</h3>'.format(text)
+        text = '<h3  style="color:red">{}</h3>'.format(text)
+        self.notification_div.text = text
+        self.notification_div_bottom = text
+
 
     # ######################################################
 

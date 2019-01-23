@@ -74,11 +74,17 @@ class MinerChurnedPredictiveTab1:
         self.metrics_div = Div(text='')
         self.feature_list = []
         self.info_color = 'mediumseagreen'
-
+        self.div_style = """ style='width:300px; margin-left:25px;
+                          border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+                          """
+        self.div_acc_style = """ style='color:LightSteelBlue;width:300px; margin-left:25px;
+                                 border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+                                 """
+        self.header_style = """ style='color:blue;text-align:center;' """
         #load data
         text = """
-                <div style='color:white;background-color:{}'>
-                <h3>Checkboxlist Info:</h3>Use the checkbox 
+                <div {}>
+                <h3 {}>Checkboxlist Info:</h3>Use the checkbox 
                 list to the left to select <br/>
                 the reference period and parameters <br/>
                 for building the predictive model.<br/>
@@ -88,12 +94,12 @@ class MinerChurnedPredictiveTab1:
                 3) Choose the prediction date range.<br/>
                 4) Click "Make predictions"
                 </div>
-                """.format(self.info_color)
+                """.format(self.div_style,self.header_style)
         self.desc_load_data_div=Div(text=text,width=300, height=200)
         # hypothesis
         text = """
-        <div style='color:white;background-color:{}'>
-        <h3>Hypothesis test info:</h3>
+        <div {}>
+        <h3 {}>Hypothesis test info:</h3>
         <ul>
         <li>
         The table below shows which variables 
@@ -112,13 +118,13 @@ class MinerChurnedPredictiveTab1:
         list to change the graph.
         </li></ul>
         </div>
-        """.format(self.info_color)
+        """.format(self.div_style, self.header_style)
         self.desc_hypothesis_div=Div(text=text,width=300, height=200)
 
         # prediction
         text = """
-        <div style='padding-left:70px;color:{};background-color:white'>
-        <h3>Prediction Info:</h3>
+        <div {}>
+        <h3 {}>Prediction Info:</h3>
         <ul><li>
         The table below shows the miners <br/>
         operating in the selected period,<br/>
@@ -127,7 +133,7 @@ class MinerChurnedPredictiveTab1:
         Use the datepicker(s) to the left to select the period you wish to predict.
         </li></ul>
         </div> 
-        """.format(self.info_color)
+        """.format(self.div_style,self.header_style)
         self.desc_prediction_div=Div(text=text, width=350, height=100)
 
         # spacing div
@@ -469,8 +475,9 @@ class MinerChurnedPredictiveTab1:
             y_pred = clf.predict(X_test)
 
             acc_text = """
-            <div style='padding-left:30px;background-color:CornflowerBlue;color:white;'>
-            <h4>Predictive accuracy:</h4>{}""".format(metrics.accuracy_score(y_test, y_pred))
+            <div{}>
+            <h4 {}>Predictive accuracy:</h4>{}""".format(self.div_acc_style, self.header_style,
+                                                      metrics.accuracy_score(y_test, y_pred))
 
 
             self.make_tree(clf)
@@ -541,7 +548,8 @@ class MinerChurnedPredictiveTab1:
             })
             perc_to_churn = round(100*sum(y_pred)/len(y_pred),1)
             text = self.metrics_div.text + """
-            <br/> <h3>Percentage likely to churn:</h3>{}%</div>""".format(perc_to_churn)
+            <br/> <h3{}>Percentage likely to churn:</h3>{}%</div>""".format(self.header_style,
+                                                                            perc_to_churn)
             self.metrics_div.text=text
             self.notification_div.text=''
             logger.warning("end of predictions")

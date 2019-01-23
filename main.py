@@ -43,6 +43,9 @@ class SelectionTab:
         self.selected_tabs = []
         self.tablist = []
         self.selected_tracker = [] # used to monitor if a tab has already been launched
+        self.div_style = """ style='width:300px; margin-left:25px;
+                   border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+                   """
 
     def get_selections(self,checkboxes):
         self.selected_tabs= [checkboxes.labels[i] for i in checkboxes.active]
@@ -115,7 +118,8 @@ def aion_analytics(doc):
             notification_div.text =""
 
         txt = """
-                    <h3 style='color:red;'>Info:</h3>
+                <div {}>
+                    <h3 style='color:blue;text-align:center'>Info:</h3>
                     <ul style='margin-top:-10px;'>
                     <li>
                     Select the tab(s) you want activated
@@ -124,7 +128,8 @@ def aion_analytics(doc):
                     The click the 'launch activity' button.
                     </li>
                     </ul>
-                """
+                </div>
+                """.format(selection_tab.div_style)
         information_div = Div(text=txt, width=400, height=400)
         notification_div = Div(text='',width=700,height=20)
         selection_checkboxes = CheckboxGroup(labels=labels, active=[0])
@@ -157,8 +162,8 @@ def launch_server():
     try:
         apps = {"/aion-analytics": Application(FunctionHandler(aion_analytics))}
         io_loop = IOLoop.current()
-        server = Server(apps,port=5006,allow_websocket_origin=["*"],io_loop=io_loop,
-                        session_ids='external-signed')
+        server = Server(apps,port=5006,allow_websocket_origin=["*:5006"],io_loop=io_loop,
+                        session_ids='external-signed', host="*")
         server.start()
         server.io_loop.add_callback(server.show, '/aion-analytics')
         server.io_loop.start()

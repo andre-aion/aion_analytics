@@ -93,32 +93,7 @@ class MytabMinerPredictive2:
 
     def filter_df(self, start_date, end_date):
         self.df1 = self.df
-        '''
-        if len(self.df)>0:
-            self.df1 = self.df.dropna(subset=['block_timestamp'])
 
-            logger.warning("FILTER start date:%s", start_date)
-            logger.warning("FILTER end date:%s", end_date)
-            #logger.warning("filter before conversion: b:%s", self.df1.tail(5))
-
-            # convert block_timestamp from str to timestamp if needed
-            df = self.df1.head()
-            #x = self.df1.ix[1,'block_timestamp']
-            x = df['block_timestamp'].values[0]
-            if isinstance(x,str):
-                logger.warning("CONVERTTING BLOCK TIMESTAMP FROM STRING TO DATETIME")
-                meta = ('block_timestamp', 'datetime64[ns]')
-                self.df1['block_timestamp'] = self.df['block_timestamp'].map_partitions(
-                    pd.to_datetime, format='%Y-%m-%d %H:%M:%S', meta=meta)
-
-
-            self.df1 = self.df1[(self.df1.block_timestamp >= start_date) &
-                                (self.df1.block_timestamp <= end_date)]
-            #logger.warning("post filter_df:%s", self.df1['block_timestamp'].tail(5))
-
-        else:
-            self.df1 = self.streaming_dataframe.df
-        '''
 
     def spacing_div(self, width=20, height=100):
         return Div(text='', width=width, height=height)
