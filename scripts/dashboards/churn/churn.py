@@ -1,7 +1,7 @@
 from scripts.utils.mylogger import mylogger
 from scripts.utils.dashboards.poolminer import make_tier1_list, \
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
-from scripts.utils.myutils import tab_error_flag
+from scripts.utils.myutils import tab_error_flag, datetime_to_date
 from scripts.utils.dashboards.mytab import Mytab
 from scripts.storage.pythonRedis import PythonRedis
 from config.df_construct_config import dedup_cols, load_columns as cols
@@ -13,7 +13,7 @@ from bokeh.models import Panel
 from bokeh.models.widgets import  Div, \
     DatePicker, Select
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import holoviews as hv
 from tornado.gen import coroutine
@@ -108,14 +108,13 @@ def churn_tab():
                     # get tier 1 miners list
                     activated = self.tier1_miners_activated[when]
                     if not activated:
+                        self.tab[when].df_load(start_date, end_date)
                         tier1_miners_list = make_tier1_list(self.tab[when].df1, start_date,
                                                             end_date,
                                                             self.threshold_tx_paid_out,
                                                             self.threshold_blocks_mined)
-                        self.tab[when].df_load(start_date, end_date)
                     else:
                         tier1_miners_list = self.tab[when].tier1_miners_list
-
 
                     tier2_miners_list = \
                         make_tier2_list(self.tab[when].df1, start_date, end_date,
@@ -124,7 +123,7 @@ def churn_tab():
                                         threshold_tx_paid_out=self.threshold_tx_paid_out,
                                         threshold_blocks_mined_per_day=self.threshold_blocks_mined)
 
-                    self.tab[when].tier1_miners_list = tier2_miners_list
+                    self.tab[when].tier2_miners_list = tier2_miners_list
                     self.tier1_miners_activated[when] = False
 
                 logger.warning("%s tier 2 miners list length:%s", when.upper(),
@@ -157,6 +156,10 @@ def churn_tab():
             try:
                 # STATS OF INTEREST
                 # percentage churned, churn count
+                if ref_list is None:
+                    ref_list = []
+                if period_list is None:
+                    period_list = []
                 churned_miners = list(set(ref_list).difference(period_list))
                 new_miners = list(set(period_list).difference(ref_list))
                 retained_miners = list(set(period_list).intersection(ref_list))
@@ -301,10 +304,13 @@ def churn_tab():
         first_date_range = datetime.strptime("2018-04-23 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
 
-        ref_first_date = datetime.strptime("2018-12-01 00:00:00",'%Y-%m-%d %H:%M:%S')
-        ref_last_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
-        period_first_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
-        period_last_date = last_date_range
+        # calculate date load ranges
+        range = 8
+        period_last_date = datetime.now()
+        period_first_date = datetime_to_date(period_last_date - timedelta(days=range))
+        ref_last_date = datetime_to_date(period_last_date - timedelta(days=range+1))
+        ref_first_date = datetime_to_date(period_last_date - timedelta(days=range*2))
+        period_last_date = datetime_to_date(period_last_date)
 
         tier1_text = thistab.tier1_churn(period_first_date, period_last_date,
                                          ref_first_date, ref_last_date)

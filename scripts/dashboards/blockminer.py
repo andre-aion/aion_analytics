@@ -1,8 +1,10 @@
+import inspect
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
+from scripts.dashboards.selection_tab import SelectionTab
 from scripts.utils.dashboards.mytab import Mytab
-from scripts.utils.myutils import tab_error_flag
+from scripts.utils.myutils import tab_error_flag,tab_disabled_flag, datetime_to_date
 from scripts.utils.mylogger import mylogger
 from config.df_construct_config import dedup_cols
 
@@ -15,7 +17,7 @@ from bokeh.models.widgets import Div, Select, \
     DatePicker, TableColumn, DataTable
 from holoviews import streams
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from tornado.gen import coroutine
 executor = ThreadPoolExecutor(max_workers=5)
@@ -30,9 +32,14 @@ for i in range(0, 400, 5):
     if i not in [0, 5]:
         menu.append(str(i))
 
-
 @coroutine
 def blockminer_tab():
+    '''
+    #selection_tab = SelectionTab()
+    if inspect.stack()[0][3] not in selection_tab.get_selections():
+        return tab_disabled_flag(inspect.stack()[0][3])
+    '''
+
     # source for top N table
     topN_src = ColumnDataSource(data=dict(percentage=[],
                                      miner_address=[],
@@ -147,8 +154,8 @@ def blockminer_tab():
         first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        first_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
-        last_date = datetime.now().date()
+        last_date = last_date_range
+        first_date = datetime_to_date(last_date - timedelta(days=8))
 
         notification_text = this_tab.notification_updater("")
 

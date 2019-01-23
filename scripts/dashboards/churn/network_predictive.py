@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from os.path import dirname, join
 from statistics import mean
 
@@ -18,6 +18,7 @@ from sklearn.pipeline import Pipeline
 from scripts.storage.pythonClickhouse import PythonClickhouse
 from scripts.utils.dashboards.mytab import Mytab
 from scripts.utils.mylogger import mylogger
+from scripts.utils.myutils import datetime_to_date
 from scripts.utils.modeling.churn.miner_predictive_tab import MinerChurnedPredictiveTab
 
 from tornado.gen import coroutine
@@ -50,7 +51,7 @@ hyp_variables = [
                 'approx_value', 'transaction_nrg_consumed']
 
 @coroutine
-def network_churn_predictive_tab():
+def network_activity_predictive_tab():
     class Thistab(Mytab):
         def __init__(self,table,cols,dedup_cols):
             Mytab.__init__(self,table,cols,dedup_cols)
@@ -142,16 +143,18 @@ def network_churn_predictive_tab():
                      'Mean (abs) error': error_lst,
                      })
                 logger.warning('%s',df.head(1))
-                return df.hvplot.table(columns=['variable','Mean (abs) error'],width=500,)
+                return df.hvplot.table(columns=['variable','Mean (abs) error'],width=250)
             except Exception:
                 logger.error("RF:", exc_info=True)
 
-        def information_div(self,width=400,height=300,text=''):
+        def prediction_information_div(self, width=400, height=300):
             txt = """
             <h4 style='color:green;padding-left:30px'>Info </h4>
-            <ul>
+            <ul style='margin-top:-10px;'>
             <li>
             The table shows the % predicted change.</br>
+            </li>
+            <li>
             For desirable outcomes:
             </br> ...a positive number is good!
             </br> ... the bigger the number the better.
@@ -165,6 +168,29 @@ def network_churn_predictive_tab():
             
             """
             div = Div(text=txt,width=width,height=height)
+            return div
+
+        def stats_information_div(self, width=400, height=300):
+            txt = """
+                   <h4 style='color:green;padding-left:30px'>Metadata Info </h4>
+                   <ul>
+                   <li >
+                   <h4 style='margin-bottom:-10px;'>Table left:</h4>
+                   - shows the outcome,</br>
+                     and the error (difference between prediction and reality)</br>
+                     <h5><i>Smaller is better!</i></h5>
+                   </li>
+                   <li>
+                   <h4 style='margin-bottom:-10px;'>Table right:</h4>
+                     - shows the desired outcome, the variables(things Aion controls)
+                   </br> and their importance to the particular outcome
+                   </br> Use the 'rank ...' to tell (smaller is better):
+                   </br> ...which variable(s) have a greater impact on an outcome.
+                   </li>
+                   </ul>
+
+                   """
+            div = Div(text=txt, width=width, height=height)
             return div
 
         def make_prediction(self,start_date,end_date):
@@ -222,9 +248,10 @@ def network_churn_predictive_tab():
                                 precision=1)
 
                 (graph,) = pydot.graph_from_dot_file('small_tree.dot')
-                filepath = self.make_filepath('../../../static/images/small_tree.png')
+                filepath = self.make_filepath('../../../static/images/small_tree.gif')
                 graph.write_png(filepath)
 
+                '''
                 # main.py file
                 x_range = (-20, -10)  # could be anything - e.g.(0,1)
                 y_range = (20, 30)
@@ -234,6 +261,7 @@ def network_churn_predictive_tab():
                 p.image_url(url=[img_path], x=x_range[0], y=y_range[1], w=x_range[1] - x_range[0],
                             h=y_range[1] - y_range[0])
                 return p
+                '''
 
             except Exception:
                 logger.error("make tree:", exc_info=True)
@@ -247,7 +275,7 @@ def network_churn_predictive_tab():
                     'outcome':[],
                     'feature' : [],
                     'importance':[],
-                    'rank within IV':[]
+                    'rank_within_outcome':[]
                 }
                 for target in self.targets:
                     logger.warning('make feature importances for :%s',target)
@@ -262,17 +290,23 @@ def network_churn_predictive_tab():
                     logger.warning('not_sorted:%s',feature_importances)
                     logger.warning('sorted:%s',sorted_importances)
 
-                    target_lst = [target for x in range(0,len(importances))]
                     logger.warning('importances :%s',importances)
+                    target_lst = [target] * len(importances)
+
+                    count = 1
+                    rank_lst = []
+                    for i in importances:
+                        rank_lst.append(str(count))
+                        count += 1
 
                     results_dct['outcome'] += target_lst
                     results_dct['feature'] += [i[0] for i in sorted_importances]
                     results_dct['importance'] += [i[1] for i in sorted_importances]
-                    results_dct['rank within IV'] += [str(i) for i in range(1,len(sorted_importances)+1)]
+                    results_dct['rank_within_outcome'] += rank_lst
 
                 df = pd.DataFrame.from_dict(results_dct)
                 logger.warning('MAKE FEATURE IMPORTANCES FINISHED')
-                return df.hvplot.table(columns=['outcome','feature','importance', 'rank within IV'],width=600)
+                return df.hvplot.table(columns=['outcome','feature','importance', 'rank_within_outcome'],width=600)
 
             except Exception:
                 logger.error("Feature importances:", exc_info=True)
@@ -304,6 +338,15 @@ def network_churn_predictive_tab():
             except Exception:
                 logger.error('dow', exc_info=True)
 
+
+        def tree_div(self, width=1000, height=600, path='/static/images/small_tree.png'):
+            self.make_tree()
+            txt = """
+            <h3 style='color:green;'> A decision tree for tier1 churn: </h3>
+            <img src='aion-analytics/static/images/small_tree.gif' />
+            """
+            return Div(text=txt,width=width,height=height)
+
     def update(attrname, old, new):
         this_tab.notification_updater_2("Calculations underway. Please be patient")
         stream_start_date.event(start_date=datepicker_start.value)
@@ -326,11 +369,9 @@ def network_churn_predictive_tab():
         # setup dates
         first_date_range = datetime.strptime("2018-04-23 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-
-        first_date = datetime.strptime("2018-10-01 00:00:00", '%Y-%m-%d %H:%M:%S')
+        range = 8
         last_date = last_date_range
-        last_date = datetime.strptime("2018-12-30 00:00:00", '%Y-%m-%d %H:%M:%S')
-
+        first_date = datetime_to_date(last_date - timedelta(days=range))
 
         # STREAMS Setup
         # date comes out stream in milliseconds
@@ -393,8 +434,8 @@ def network_churn_predictive_tab():
         datepicker_start.on_change('value', update)
         datepicker_end.on_change('value', update)
 
-        # image
-        p = this_tab.make_tree()
+        # decision tree png
+        p = this_tab.tree_div()
 
         # put the controls in a single element
         date_controls = WidgetBox(datepicker_start, datepicker_end)
@@ -408,16 +449,16 @@ def network_churn_predictive_tab():
             [this_tab.title_div('Distribution of churned and new miners by day of week')],
             [dow1.state,dow2.state,dow3.state,dow4.state],
             [this_tab.title_div('Prediction stats for new,churned,miners models ',600)],
-            [accuracy_table.state,features_table.state],
+            [accuracy_table.state,this_tab.stats_information_div(),features_table.state],
             [p],
             [this_tab.title_div('Select period below to obtain predictions:', 600)],
-            [date_controls,this_tab.information_div(),prediction_table.state]
+            [date_controls, this_tab.prediction_information_div(), prediction_table.state]
         ])
 
-        tab = Panel(child=grid, title='Network churn predictions')
+        tab = Panel(child=grid, title='Network activity predictions')
         return tab
 
     except Exception:
         logger.error('rendering err:', exc_info=True)
-        text = 'network churn predictions'
+        text = 'network activity predictions'
         return tab_error_flag(text)

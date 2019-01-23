@@ -7,6 +7,8 @@ import re
 from datetime import datetime
 import pandas as pd
 
+from scripts.utils.myutils import datetime_to_date
+
 r = PythonRedis()
 logger = mylogger(__file__)
 
@@ -192,7 +194,9 @@ def make_tier1_list(df, start_date, end_date, threshold_tx_paid_out=5,
         # find min day find max day
         key_params = ['tier1_miners_list', threshold_tx_paid_out,
                       threshold_blocks_mined_per_day]
-        end_date = pd.to_datetime(end_date)
+
+        end_date = datetime_to_date(end_date)
+        start_date = datetime_to_date(start_date)
         delta_days = (end_date - start_date).days
 
         if delta_days <= 0:
@@ -271,30 +275,33 @@ def make_tier2_list(df, start_date, end_date,
         # filter dataframe to retain only great than
         # threshold tx pay-ins from tier1 miner list
         logger.warning("df in make tier 2 columns:%s",df.head())
-        logger.warning("length tier1 miners, in make tier 2 columns:%s",
-                       len(tier1_miners_list))
-        df_temp = df[df.from_addr.isin(tier1_miners_list)]
-        df_temp = df_temp.groupby('to_addr')['from_addr'].count()
-        df_temp = df_temp.reset_index()
+        if len(tier1_miners_list)>0:
+            logger.warning("length tier1 miners, in make tier 2 columns:%s",
+                           len(tier1_miners_list))
+            df_temp = df[df.from_addr.isin(tier1_miners_list)]
+            df_temp = df_temp.groupby('to_addr')['from_addr'].count()
+            df_temp = df_temp.reset_index()
 
-        threshold = threshold_tier2_received * delta_days
-        df_temp = df_temp[df_temp.from_addr >= threshold]
-        #logger.warning("post_threshold filter:%s",df_temp.head())
+            threshold = threshold_tier2_received * delta_days
+            df_temp = df_temp[df_temp.from_addr >= threshold]
+            #logger.warning("post_threshold filter:%s",df_temp.head())
 
-        lst = df_temp.to_addr.unique().compute()
-        tier2_miners_list = [str(x) for x in lst]
+            lst = df_temp.to_addr.unique().compute()
+            tier2_miners_list = [str(x) for x in lst]
 
-        logger.warning("tier2_miners_list:%s",len(tier2_miners_list))
+            logger.warning("tier2_miners_list:%s",len(tier2_miners_list))
 
-        del df_temp
-        gc.collect()
-        if len(tier2_miners_list) > 0:
-            # save list to redis
-            logger.warning("tier 2 miners list generated, before redis save:%s", len(tier2_miners_list))
-            r.save(tier2_miners_list, key_params, start_date, end_date)
+            del df_temp
+            gc.collect()
+            if len(tier2_miners_list) > 0:
+                # save list to redis
+                logger.warning("tier 2 miners list generated, before redis save:%s", len(tier2_miners_list))
+                r.save(tier2_miners_list, key_params, start_date, end_date)
 
-            return tier2_miners_list
-        return []
+                return tier2_miners_list
+            return []
+        else:
+            return []
 
     except Exception:
         logger.error("tier 2 miner list", exc_info=True)

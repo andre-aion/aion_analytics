@@ -3,7 +3,7 @@ from os.path import join, dirname
 from scripts.utils.mylogger import mylogger
 from scripts.utils.dashboards.poolminer import make_tier1_list,\
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
-from scripts.utils.myutils import tab_error_flag
+from scripts.utils.myutils import tab_error_flag, datetime_to_date
 from scripts.utils.dashboards.mytab import Mytab
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
@@ -14,7 +14,7 @@ import gc
 from bokeh.models.widgets import Div, \
     DatePicker, TableColumn, DataTable, Button, Select
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import holoviews as hv
 from tornado.gen import coroutine
@@ -251,8 +251,9 @@ def poolminer_tab():
         first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        first_date = datetime.strptime("2018-12-15 00:00:00",'%Y-%m-%d %H:%M:%S')
         last_date = datetime.now().date()
+        first_date = datetime_to_date(last_date - timedelta(days=8))
+
 
         thistab.load_this_data(first_date,last_date)
 

@@ -62,8 +62,8 @@ class Mytab:
                     req_end_date = pd.to_datetime(req_end_date)
 
                     # check start
-                    logger.warning('start_date from compute:%s', params['min_date'])
-                    logger.warning('start from slider:%s', req_start_date)
+                    #logger.warning('start_date from compute:%s', params['min_date'])
+                    #logger.warning('start from slider:%s', req_start_date)
 
                     # set flag to true if data is in memory
                     if req_start_date >= params['min_date']:

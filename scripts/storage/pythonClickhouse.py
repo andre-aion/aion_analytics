@@ -102,7 +102,7 @@ class PythonClickhouse:
                toDate(block_timestamp) <= toDate('{}') ORDER BY block_timestamp""" \
             .format(self.db,table, startdate, enddate)
 
-        #logger.warning('query:%s', qry)
+        logger.warning('query:%s', qry)
         return qry
 
     def load_data(self,table,cols,start_date,end_date):
@@ -119,8 +119,7 @@ class PythonClickhouse:
 
         try:
             query_result = self.client.execute(sql,
-                                               settings={
-                                               'max_execution_time': 3600})
+                                               settings={'max_execution_time': 3600})
             df = pd.DataFrame(query_result, columns=cols)
             # if transaction table change the name of nrg_consumed
             if table in ['transaction', 'block']:
@@ -130,7 +129,7 @@ class PythonClickhouse:
                     #new_columns = [new_name if x == 'nrg_consumed' else x for x in df.columns.tolist()]
                     #logger.warning("columns renamed:%s", df.columns.tolist())
             df = dd.dataframe.from_pandas(df, npartitions=15)
-            #logger.warning("DATA LOADED:%s", df.head(10))
+            logger.warning("DATA LOADED:%s", df.head(10))
 
             return df
 

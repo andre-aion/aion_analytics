@@ -101,12 +101,10 @@ class PythonRedis:
 
                 key = self.compose_key(key_params,start_date,end_date)
 
-            logger.warning('load-item key:%s', key)
+            #logger.warning('load-item key:%s', key)
             if item_type != 'checkpoint':
                 item = pickle.loads(zlib.decompress(self.conn.get(key)))
 
-                if item_type == "dataframe":
-                    logger.warning("from redis load:%s",item.head(5))
             elif item_type == 'checkpoint':
                 if self.conn.exists(key):
                     item=self.conn. hgetall(key)

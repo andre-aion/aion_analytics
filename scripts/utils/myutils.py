@@ -90,7 +90,18 @@ def tab_error_flag(tabname):
     tab = Panel(child=div, title=tabname)
 
     return tab
+# when a tab does not work
+def tab_disabled_flag(tabname):
 
+    # Make a tab with the layout
+    text = """To launch the {} tab, go back to the selection tab, </br>
+    and enable it by selecting the <i>{}</i> checkbox.""".format(tabname.upper(),tabname)
+    div = Div(text=text,
+              width=600, height=100)
+
+    tab = Panel(child=div, title=tabname)
+
+    return tab
 
 # convert dates from timestamp[ms] to datetime[ns]
 def ms_to_date(ts):
@@ -515,3 +526,9 @@ def construct_df_upon_load(df, table,key_tab,cols, dedup_cols, req_start_date,
 
     except Exception:
         logger.error('construct df from load', exc_info=True)
+
+
+def datetime_to_date(x):
+    if isinstance(x, datetime):
+        x = x.date()
+    return x

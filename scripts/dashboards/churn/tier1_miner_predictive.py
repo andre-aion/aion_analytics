@@ -24,7 +24,7 @@ logger = mylogger(__file__)
 hv.extension('bokeh', logo=False)
 
 @coroutine
-def miner_churn_predictive_tab(tier):
+def tier1_miner_churn_predictive_tab():
     class Thistab(MinerChurnedPredictiveTab):
         def __init__(self,tier,cols):
             MinerChurnedPredictiveTab.__init__(self, tier, cols=cols)
@@ -63,7 +63,7 @@ def miner_churn_predictive_tab(tier):
 
     try:
         # SETUP
-        thistab = Thistab(tier,cols=load_columns['block_tx_warehouse']['churn'])
+        thistab = Thistab(tier=1,cols=load_columns['block_tx_warehouse']['churn'])
         thistab.notification_updater("")
         thistab.notification_div = Div(text='Welcome, lets do some machine learning',
                                        width=400, height=50)
@@ -140,13 +140,13 @@ def miner_churn_predictive_tab(tier):
                          [prediction_table.state, thistab.metrics_div]
                         ])
 
-        tab = Panel(child=grid, title='Tier '+str(tier)+' churn predictions ')
+        tab = Panel(child=grid, title='Tier '+str(1)+' churn predictions ')
         return tab
 
 
     except Exception:
         logger.error('rendering err:',exc_info=True)
-        text = 'Tier '+str(tier)+'miner_predictive_model'
+        text = 'Tier '+str(1)+'miner_predictive_model'
         return tab_error_flag(text)
 
 
