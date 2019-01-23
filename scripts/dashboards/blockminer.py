@@ -2,7 +2,6 @@ import inspect
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
-from scripts.dashboards.selection_tab import SelectionTab
 from scripts.utils.dashboards.mytab import Mytab
 from scripts.utils.myutils import tab_error_flag,tab_disabled_flag, datetime_to_date
 from scripts.utils.mylogger import mylogger
@@ -34,12 +33,6 @@ for i in range(0, 400, 5):
 
 @coroutine
 def blockminer_tab():
-    '''
-    #selection_tab = SelectionTab()
-    if inspect.stack()[0][3] not in selection_tab.get_selections():
-        return tab_disabled_flag(inspect.stack()[0][3])
-    '''
-
     # source for top N table
     topN_src = ColumnDataSource(data=dict(percentage=[],
                                      miner_address=[],

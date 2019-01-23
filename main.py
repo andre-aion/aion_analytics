@@ -1,15 +1,15 @@
 from concurrent.futures import ThreadPoolExecutor
 
+from bokeh.models import WidgetBox
 from tornado import gen
 from bokeh.document import without_document_lock
 
 # Bokeh basics
-from bokeh.models.widgets import Tabs, CheckboxGroup
+from bokeh.models.widgets import Tabs, CheckboxGroup, Button, Panel, Div
 from bokeh.server.server import Server
 from bokeh.application import Application
 from bokeh.application.handlers.function import FunctionHandler
-from bokeh.layouts import row
-
+from bokeh.layouts import row, gridplot
 
 # GET THE DASHBOARDS
 from tornado.ioloop import IOLoop
@@ -20,11 +20,34 @@ from scripts.dashboards.churn.churn import churn_tab
 from scripts.dashboards.churn.tier1_miner_predictive import tier1_miner_churn_predictive_tab
 from scripts.dashboards.churn.tier2_miner_predictive import tier2_miner_churn_predictive_tab
 from scripts.dashboards.churn.network_predictive import network_activity_predictive_tab
-from scripts.dashboards.selection_tab import SelectionTab
 from scripts.utils.mylogger import mylogger
 
 logger = mylogger(__file__)
 executor = ThreadPoolExecutor(max_workers=10)
+
+
+labels = [
+    'blockminer_tab',
+    'poolminer_tab',
+    'churn_tab',
+    'tier1_miner_churn_predictive_tab',
+    'tier2_miner_churn_predictive_tab',
+    'network_activity_predictive_tab']
+
+
+class SelectionTab:
+    def __init__(self):
+
+        self.selected_tabs = []
+        self.tablist = []
+        self.selected_tracker = [] # used to monitor if a tab has already been launched
+
+    def get_selections(self,checkboxes):
+        self.selected_tabs= [checkboxes.labels[i] for i in checkboxes.active]
+        return self.selected_tabs
+
+
+
 selection_tab = SelectionTab()
 
 @gen.coroutine
@@ -35,7 +58,7 @@ def aion_analytics(doc):
         TABS = Tabs(tabs=selection_tab.tablist)
         @gen.coroutine
         def load_callstack():
-            lst = selection_tab.get_selections()
+            lst = selection_tab.get_selections(selection_checkboxes)
             logger.warning('selections:%s',lst)
             '''
             if 'blockminer_tab' in lst:
@@ -84,14 +107,36 @@ def aion_analytics(doc):
 
         @gen.coroutine
         def select_tabs():
-            selection_tab.notification_updater("When this messages disappears, the tab(s) are available for use")
+            notification_div.text ="When this messages disappears, the tab(s) are available for use"
             yield load_callstack()
-            selection_tab.notification_updater(text="")
+            notification_div.text =""
 
-        # callback
-        selection_tab.run_button.on_click(select_tabs)
+        txt = """
+                    <h3 style='color:red;'>Info:</h3>
+                    <ul style='margin-top:-10px;'>
+                    <li>
+                    Select the tab(s) you want activated
+                    </li>
+                    <li>
+                    The click the 'launch activity' button.
+                    </li>
+                    </ul>
+                """
+        information_div = Div(text=txt, width=400, height=400)
+        notification_div = Div(text='',width=700,height=20)
+        selection_checkboxes = CheckboxGroup(labels=labels, active=[0])
+        run_button = Button(label='Launch tabs', button_type="success")
+        run_button.on_click(select_tabs)
 
-        mgmt = yield selection_tab.run_tab()
+        controls = WidgetBox(selection_checkboxes, run_button)
+
+        # create the dashboards
+        grid = gridplot([
+            [notification_div],
+            [controls, information_div],
+        ])
+        mgmt = Panel(child=grid, title='Tab Selection')
+
         pm = yield blockminer_tab()
         selection_tab.tablist.append(mgmt)
         selection_tab.tablist.append(pm)
@@ -110,7 +155,7 @@ def launch_server():
         apps = {"/aion-analytics": Application(FunctionHandler(aion_analytics))}
         io_loop = IOLoop.current()
         server = Server(apps,port=5006,allow_websocket_origin=["*"],io_loop=io_loop,
-                        session_ids='external signed')
+                        session_ids='external-signed')
         server.start()
         server.io_loop.add_callback(server.show, '/aion-analytics')
         server.io_loop.start()
