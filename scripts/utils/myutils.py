@@ -78,6 +78,9 @@ def timestamp_to_datetime(ts):
     return datetime.fromtimestamp(ts)
 
 
+def make_filepath(path):
+    return join(dirname(__file__), path)
+
 # when a tab does not work
 def tab_error_flag(tabname):
 

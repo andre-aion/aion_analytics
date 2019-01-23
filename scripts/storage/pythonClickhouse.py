@@ -129,7 +129,7 @@ class PythonClickhouse:
                     #new_columns = [new_name if x == 'nrg_consumed' else x for x in df.columns.tolist()]
                     #logger.warning("columns renamed:%s", df.columns.tolist())
             df = dd.dataframe.from_pandas(df, npartitions=15)
-            logger.warning("DATA LOADED:%s", df.head(10))
+            #logger.warning("DATA LOADED:%s", df.head(10))
 
             return df
 

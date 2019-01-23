@@ -1,6 +1,7 @@
 from concurrent.futures import ThreadPoolExecutor
 
 from bokeh.models import WidgetBox
+from bokeh.plotting import figure
 from tornado import gen
 from bokeh.document import without_document_lock
 
@@ -108,7 +109,8 @@ def aion_analytics(doc):
 
         @gen.coroutine
         def select_tabs():
-            notification_div.text ="When this messages disappears, the tab(s) are available for use"
+            notification_div.text ="""<h4 style='color:blue;'>When this messages disappears, 
+                the tab(s) are available for use</h4>"""
             yield load_callstack()
             notification_div.text =""
 

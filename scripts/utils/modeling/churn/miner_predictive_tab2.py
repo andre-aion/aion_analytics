@@ -70,7 +70,7 @@ class MinerChurnedPredictiveTab2:
 
         #load data
         text = """
-                <div style='color:white;background-color:green'>
+                <div style='color:white;background-color:lightgreen'>
                 <h3>Checkboxlist Info:</h3>Use the checkbox 
                 list to the left to select <br/>
                 the reference period and parameters <br/>

@@ -4,7 +4,7 @@ from statistics import mean
 
 import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox
+from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, CustomJS
 from bokeh.plotting import figure
 from scipy import stats
 from sklearn import metrics
@@ -175,13 +175,13 @@ def network_activity_predictive_tab():
                    <h4 style='color:green;padding-left:30px'>Metadata Info </h4>
                    <ul>
                    <li >
-                   <h4 style='margin-bottom:-10px;'>Table left:</h4>
+                   <h4 style='margin-bottom:-2px;'>Table left:</h4>
                    - shows the outcome,</br>
                      and the error (difference between prediction and reality)</br>
-                     <h5><i>Smaller is better!</i></h5>
+                     <strong><i>Smaller is better!</i></strong>
                    </li>
                    <li>
-                   <h4 style='margin-bottom:-10px;'>Table right:</h4>
+                   <h4 style='margin-bottom:-2px;'>Table right:</h4>
                      - shows the desired outcome, the variables(things Aion controls)
                    </br> and their importance to the particular outcome
                    </br> Use the 'rank ...' to tell (smaller is better):
@@ -248,20 +248,12 @@ def network_activity_predictive_tab():
                                 precision=1)
 
                 (graph,) = pydot.graph_from_dot_file('small_tree.dot')
-                filepath = self.make_filepath('../../../static/images/small_tree.gif')
+                #filepath = self.make_filepath('../../../static/images/small_tree.gif')
+                #.write_png(filepath)
+                filepath = self.make_filepath('/home/andre/Downloads/small_tree.png')
                 graph.write_png(filepath)
+                logger.warning("TREE SAVED")
 
-                '''
-                # main.py file
-                x_range = (-20, -10)  # could be anything - e.g.(0,1)
-                y_range = (20, 30)
-                p = figure(x_range=x_range, y_range=y_range)
-                # img_path = 'https://bokeh.pydata.org/en/latest/_static/images/logo.png'
-                img_path = 'aion-analytics/static/images/small_tree.png'
-                p.image_url(url=[img_path], x=x_range[0], y=y_range[1], w=x_range[1] - x_range[0],
-                            h=y_range[1] - y_range[0])
-                return p
-                '''
 
             except Exception:
                 logger.error("make tree:", exc_info=True)
@@ -287,10 +279,8 @@ def network_activity_predictive_tab():
                                            zip(self.feature_list[0:-1], importances)]
 
                     sorted_importances = sorted(feature_importances, key=itemgetter(1))
-                    logger.warning('not_sorted:%s',feature_importances)
-                    logger.warning('sorted:%s',sorted_importances)
 
-                    logger.warning('importances :%s',importances)
+                    #logger.warning('importances :%s',importances)
                     target_lst = [target] * len(importances)
 
                     count = 1
@@ -343,7 +333,7 @@ def network_activity_predictive_tab():
             self.make_tree()
             txt = """
             <h3 style='color:green;'> A decision tree for tier1 churn: </h3>
-            <img src='aion-analytics/static/images/small_tree.gif' />
+            <img src='../../../static/small_tree.png' />
             """
             return Div(text=txt,width=width,height=height)
 
@@ -430,12 +420,10 @@ def network_activity_predictive_tab():
         hv_dow4 = hv.DynamicMap(this_tab.dow(cols4,'tier2_new'))
         dow4 = renderer.get_plot(hv_dow4)
 
+
         # add callbacks
         datepicker_start.on_change('value', update)
         datepicker_end.on_change('value', update)
-
-        # decision tree png
-        p = this_tab.tree_div()
 
         # put the controls in a single element
         date_controls = WidgetBox(datepicker_start, datepicker_end)
@@ -450,7 +438,6 @@ def network_activity_predictive_tab():
             [dow1.state,dow2.state,dow3.state,dow4.state],
             [this_tab.title_div('Prediction stats for new,churned,miners models ',600)],
             [accuracy_table.state,this_tab.stats_information_div(),features_table.state],
-            [p],
             [this_tab.title_div('Select period below to obtain predictions:', 600)],
             [date_controls, this_tab.prediction_information_div(), prediction_table.state]
         ])

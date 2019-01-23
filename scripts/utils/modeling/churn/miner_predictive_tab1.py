@@ -1,6 +1,9 @@
 import time
 from os.path import dirname, join
 
+import pydot
+from sklearn.tree import export_graphviz
+
 from scripts.utils.mylogger import mylogger
 from scripts.utils.modeling.churn.miner_predictive import find_in_redis,\
     construct_from_redis, extract_data_from_dict, get_miner_list
@@ -38,6 +41,8 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
 
+from scripts.utils.myutils import make_filepath
+
 lock = Lock()
 
 executor = ThreadPoolExecutor()
@@ -67,10 +72,12 @@ class MinerChurnedPredictiveTab1:
         self.poolname_dict = self.get_poolname_dict()
         # DIV CREATION
         self.metrics_div = Div(text='')
+        self.feature_list = []
+        self.info_color = 'mediumseagreen'
 
         #load data
         text = """
-                <div style='color:white;background-color:green'>
+                <div style='color:white;background-color:{}'>
                 <h3>Checkboxlist Info:</h3>Use the checkbox 
                 list to the left to select <br/>
                 the reference period and parameters <br/>
@@ -81,11 +88,11 @@ class MinerChurnedPredictiveTab1:
                 3) Choose the prediction date range.<br/>
                 4) Click "Make predictions"
                 </div>
-                """
+                """.format(self.info_color)
         self.desc_load_data_div=Div(text=text,width=300, height=200)
         # hypothesis
         text = """
-        <div style='color:white;background-color:green'>
+        <div style='color:white;background-color:{}'>
         <h3>Hypothesis test info:</h3>
         <ul>
         <li>
@@ -105,12 +112,12 @@ class MinerChurnedPredictiveTab1:
         list to change the graph.
         </li></ul>
         </div>
-        """
+        """.format(self.info_color)
         self.desc_hypothesis_div=Div(text=text,width=300, height=200)
 
         # prediction
         text = """
-        <div style='padding-left:70px;color:green;background-color:white'>
+        <div style='padding-left:70px;color:{};background-color:white'>
         <h3>Prediction Info:</h3>
         <ul><li>
         The table below shows the miners <br/>
@@ -120,7 +127,7 @@ class MinerChurnedPredictiveTab1:
         Use the datepicker(s) to the left to select the period you wish to predict.
         </li></ul>
         </div> 
-        """
+        """.format(self.info_color)
         self.desc_prediction_div=Div(text=text, width=350, height=100)
 
         # spacing div
@@ -234,7 +241,7 @@ class MinerChurnedPredictiveTab1:
         if 'index' in df.columns.tolist():
             df = df.drop('index',axis=1)
         df = df.fillna(0)
-        logger.warning('df after groupby:%s', self.df.head(10))
+        #logger.warning('df after groupby:%s', self.df.head(10))
 
         return df
 
@@ -279,7 +286,7 @@ class MinerChurnedPredictiveTab1:
                 self.df_grouped = self.label_churned_verbose(self.df_grouped)
                 self.split_df(self.df_grouped)
                 self.load_data_flag = False
-                logger.warning('end of load data:%s', self.df_grouped.tail(5))
+                #logger.warning('end of load data:%s', self.df_grouped.tail(5))
 
             # clear notification message
         except Exception:
@@ -455,7 +462,8 @@ class MinerChurnedPredictiveTab1:
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
             clf=RandomForestClassifier(n_estimators=200, random_state=42,
                                        class_weight="balanced")
-            logger.warning("LINE 359")
+
+            self.feature_list = X_train.columns.tolist()
 
             clf.fit(X_train, y_train)
             y_pred = clf.predict(X_test)
@@ -463,6 +471,9 @@ class MinerChurnedPredictiveTab1:
             acc_text = """
             <div style='padding-left:30px;background-color:CornflowerBlue;color:white;'>
             <h4>Predictive accuracy:</h4>{}""".format(metrics.accuracy_score(y_test, y_pred))
+
+
+            self.make_tree(clf)
 
             self.metrics_div.text = acc_text
             print('confusion matrix:\n')
@@ -472,6 +483,28 @@ class MinerChurnedPredictiveTab1:
             return clf
         except Exception:
             logger.error("RF:", exc_info=True)
+
+    def make_tree(self,clf):
+        try:
+            logger.warning("INSIDE TREE SAVED")
+            # Limit depth of tree to 3 levels
+            # Extract the small tree
+            tree_small = clf.estimators_[5]
+            # Save the tree as a png image
+            export_graphviz(tree_small, out_file='small_tree.dot',
+                            feature_names=self.feature_list, rounded=True,
+                            precision=1)
+
+            (graph,) = pydot.graph_from_dot_file('small_tree.dot')
+            # filepath = self.make_filepath('../../../static/images/small_tree.gif')
+            # .write_png(filepath)
+            filepath = make_filepath(path='/home/andre/Downloads/tier1_tree.png')
+            graph.write_png(filepath)
+            logger.warning("TREE SAVED")
+
+
+        except Exception:
+            logger.error("make tree:", exc_info=True)
 
     # the period for which the user wants a prediction
     def make_predictions(self):
@@ -497,7 +530,7 @@ class MinerChurnedPredictiveTab1:
             X = df.drop([self.interest_var], axis=1)
             interest_labels = df[self.interest_var].tolist()
             logger.warning("lengths of df:%s,lst:%s",len(df),len(interest_labels))
-            logger.warning("df before prediction:%s",X.tail(10))
+            #logger.warning("df before prediction:%s",X.tail(10))
 
             y_pred = clf.predict(X)
             y_pred_verbose = ['to leave' if x in ["1",1] else "to remain" for x in y_pred]
