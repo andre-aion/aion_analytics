@@ -2,7 +2,11 @@ import inspect
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
+<<<<<<< HEAD
 from scripts.utils.dashboards.mytab_blockminer import MytabBlockminer
+=======
+from scripts.utils.dashboards.mytab import Mytab
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
 from scripts.utils.myutils import tab_error_flag,tab_disabled_flag, datetime_to_date
 from scripts.utils.mylogger import mylogger
 from config.df_construct_config import dedup_cols
@@ -33,7 +37,10 @@ for i in range(0, 400, 5):
 
 @coroutine
 def blockminer_tab():
+<<<<<<< HEAD
 
+=======
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
     # source for top N table
     topN_src = ColumnDataSource(data=dict(percentage=[],
                                      miner_address=[],

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 2019-01-23 00:10:28,136 - [logs/main.log:17]=> logs/main.log
 2019-01-23 00:10:54,303 - [logs/main.log:63]=> selections:['blockminer_tab', 'tier1_miner_churn_predictive_tab', 'tier2_miner_churn_predictive_tab']
 2019-01-23 00:11:50,990 - [logs/main.log:63]=> selections:['blockminer_tab', 'churn_tab', 'tier1_miner_churn_predictive_tab', 'tier2_miner_churn_predictive_tab']
 2019-01-23 00:12:37,027 - [logs/main.log:63]=> selections:['blockminer_tab', 'poolminer_tab', 'churn_tab', 'tier1_miner_churn_predictive_tab', 'tier2_miner_churn_predictive_tab', 'network_activity_predictive_tab']
+=======
+2019-01-22 23:28:45,811 - [logs/main.log:17]=> logs/main.log
+2019-01-22 23:29:08,147 - [logs/main.log:63]=> selections:['blockminer_tab', 'tier1_miner_churn_predictive_tab']
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7

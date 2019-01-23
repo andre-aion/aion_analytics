@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e37c777-5f79-4b53-b24f-d13d04d36a0c" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/scripts/utils/dashboards/mytab_churn.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/scripts/utils/dashboards/mytab_miner_predictive1.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/scripts/utils/dashboards/mytab_miner_predictive2.py" afterDir="false" />
@@ -28,6 +29,9 @@
       <change beforePath="$PROJECT_DIR$/scripts/utils/modeling/churn/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/utils/modeling/churn/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/small_tree.dot" beforeDir="false" afterPath="$PROJECT_DIR$/small_tree.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/images/small_tree.gif" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/small_tree.gif" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -212,6 +216,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="246">
               <caret line="157" column="65" selection-start-line="157" selection-start-column="65" selection-end-line="157" selection-end-column="65" />
               <folding>
@@ -226,6 +231,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1471">
               <caret line="558" selection-start-line="558" selection-end-line="558" />
+=======
+            <state relative-caret-position="390">
+              <caret line="166" column="19" lean-forward="true" selection-start-line="166" selection-start-column="19" selection-end-line="166" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
+              </folding>
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
             </state>
           </provider>
         </entry>
@@ -833,8 +845,23 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/scripts/ETL/checkpoint.py" />
     <entry file="file://$PROJECT_DIR$/scripts/ETL/warehouse.py" />
+=======
+    <entry file="file://$PROJECT_DIR$/scripts/utils/dashboards/churn.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/ETL/checkpoint.py" />
+    <entry file="file://$PROJECT_DIR$/scripts/ETL/warehouse.py" />
+    <entry file="file://$PROJECT_DIR$/scripts/dashboards/hashrate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1114">
+          <caret line="151" column="60" lean-forward="true" selection-start-line="151" selection-start-column="60" selection-end-line="151" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4bc6f2bd-2c05-4aac-b90d-35b2bd538f06/console_7.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -907,6 +934,16 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/scripts/utils/dashboards/mytab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="65" column="21" selection-start-line="65" selection-start-column="21" selection-end-line="65" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
     <entry file="file://$PROJECT_DIR$/scripts/storage/pythonRedis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1244">
@@ -966,6 +1003,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3546">
           <caret line="197" column="30" lean-forward="true" selection-start-line="197" selection-start-column="30" selection-end-line="197" selection-end-column="30" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -979,6 +1017,8 @@
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
+=======
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
         </state>
       </provider>
     </entry>
@@ -1002,11 +1042,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/dashboards/churn/churn.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="360">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="-809">
+          <caret line="329" column="42" lean-forward="true" selection-start-line="329" selection-start-column="42" selection-end-line="329" selection-end-column="42" />
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
         </state>
       </provider>
     </entry>
@@ -1032,6 +1077,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/dashboards/selection_tab.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="108">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
@@ -1043,6 +1089,18 @@
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
+=======
+        <state relative-caret-position="36">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/utils/modeling/churn/miner_predictive_tab2.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1051,12 +1109,17 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/scripts/utils/dashboards/mytab_blockminer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
         </state>
       </provider>
+=======
+    <entry file="file://$PROJECT_DIR$/scripts/utils/dashboards/blockminer.py">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/utils/dashboards/mytab_churn.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1074,8 +1137,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/utils/dashboards/mytab_network_activity.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="234">
           <caret line="30" column="45" lean-forward="true" selection-start-line="30" selection-start-column="45" selection-end-line="30" selection-end-column="45" />
+=======
+        <state relative-caret-position="2612">
+          <caret line="191" column="22" lean-forward="true" selection-start-line="191" selection-start-column="22" selection-end-line="191" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
         </state>
       </provider>
     </entry>
@@ -1098,13 +1169,18 @@
         <state relative-caret-position="18">
           <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#0#35#0" expanded="true" />
+=======
+            <element signature="e#0#33#0" expanded="true" />
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="246">
           <caret line="157" column="65" selection-start-line="157" selection-start-column="65" selection-end-line="157" selection-end-column="65" />
           <folding>
@@ -1119,6 +1195,12 @@
           <caret line="119" column="54" lean-forward="true" selection-start-line="119" selection-start-column="54" selection-end-line="119" selection-end-column="54" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
+=======
+        <state relative-caret-position="390">
+          <caret line="166" column="19" lean-forward="true" selection-start-line="166" selection-start-column="19" selection-end-line="166" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+>>>>>>> 33a833d6950c4a454d08eb9945159ff9da9f68a7
           </folding>
         </state>
       </provider>
