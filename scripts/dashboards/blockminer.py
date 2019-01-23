@@ -2,8 +2,7 @@ import inspect
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
-from scripts.dashboards.selection_tab import SelectionTab
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_blockminer import MytabBlockminer
 from scripts.utils.myutils import tab_error_flag,tab_disabled_flag, datetime_to_date
 from scripts.utils.mylogger import mylogger
 from config.df_construct_config import dedup_cols
@@ -34,11 +33,6 @@ for i in range(0, 400, 5):
 
 @coroutine
 def blockminer_tab():
-    '''
-    #selection_tab = SelectionTab()
-    if inspect.stack()[0][3] not in selection_tab.get_selections():
-        return tab_disabled_flag(inspect.stack()[0][3])
-    '''
 
     # source for top N table
     topN_src = ColumnDataSource(data=dict(percentage=[],
@@ -46,13 +40,14 @@ def blockminer_tab():
                                      block_number=[]))
 
 
-    class This_tab(Mytab):
+    class This_tab(MytabBlockminer):
         def __init__(self,table,cols,dedup_cols):
-            Mytab.__init__(self, table, cols, dedup_cols)
+            MytabBlockminer.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.df2 = None
             self.key_tab = 'blockminer'
             self.n = 20
+            self.notification_div = Div(text='',width=600,height=10)
 
         def load_this_data(self, start_date, end_date):
             end_date = datetime.combine(end_date, datetime.min.time())

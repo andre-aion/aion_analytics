@@ -2,7 +2,7 @@ from scripts.utils.mylogger import mylogger
 from scripts.utils.dashboards.poolminer import make_tier1_list, \
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_churn import MytabChurn
 from scripts.storage.pythonRedis import PythonRedis
 from config.df_construct_config import dedup_cols, load_columns as cols
 from concurrent.futures import ThreadPoolExecutor
@@ -48,8 +48,8 @@ def churn_tab():
                 'period': False
             }
             self.tab = {}
-            self.tab['reference'] = Mytab('block_tx_warehouse',cols['block_tx_warehouse'][key_tab], dedup_cols)
-            self.tab['period'] = Mytab('block_tx_warehouse',cols['block_tx_warehouse'][key_tab], dedup_cols)
+            self.tab['reference'] = MytabChurn('block_tx_warehouse', cols['block_tx_warehouse'][key_tab], dedup_cols)
+            self.tab['period'] = MytabChurn('block_tx_warehouse', cols['block_tx_warehouse'][key_tab], dedup_cols)
             self.tab['period'].key_tab = key_tab
             self.tab['reference'].key_tab = key_tab
 

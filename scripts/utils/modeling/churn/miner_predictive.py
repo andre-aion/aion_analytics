@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from scripts.storage.pythonRedis import PythonRedis
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_blockminer import MytabBlockminer
 from scripts.utils.mylogger import mylogger
 from config.df_construct_config import load_columns as cols
 from scripts.utils.dashboards.poolminer import is_tier1_in_memory, \
@@ -62,7 +62,7 @@ def construct_from_redis(key_lst,item_type ='list',df=None,
                     start_list.append(req_start_date)
                     end_list.append(req_end_date)
 
-            tab = Mytab('block_tx_warehouse', cols['block_tx_warehouse']['churn'], [])
+            tab = MytabBlockminer('block_tx_warehouse', cols['block_tx_warehouse']['churn'], [])
             if len(start_list) > 0:
                 if item_type != 'list':
                     # if warehouse get minimum start date and maximum end data, and retrive from database

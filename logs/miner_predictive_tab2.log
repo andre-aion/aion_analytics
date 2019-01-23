@@ -1,0 +1,85 @@
+2019-01-23 00:10:27,093 - [logs/miner_predictive_tab2.log:17]=> logs/miner_predictive_tab2.log
+2019-01-23 00:11:18,349 - [logs/miner_predictive_tab2.log:164]=> CHECKBOX LIST:['tier2_churned_dict:0.5:1.0:1:2018-12-01:2019-01-13', 'tier2_churned_dict:0.5:1.0:1:2018-12-18:2019-01-13', 'tier2_churned_dict:0.5:1:1:2019-01-07:2019-01-14', 'tier2_churned_dict:0.5:1:1:2019-01-06:2019-01-13']
+2019-01-23 00:11:27,639 - [logs/miner_predictive_tab2.log:253]=> NORMALIZATION started for day-diff:26 day(s)
+2019-01-23 00:11:27,640 - [logs/miner_predictive_tab2.log:259]=> NORMALIZATION ended for day-diff:26 days
+2019-01-23 00:11:29,331 - [logs/miner_predictive_tab2.log:237]=> df after groupby:      block_timestamp  block_number                                            to_addr        ...         block_size block_time  approx_nrg_reward
+0 2018-12-18 00:00:02       1954851                                            unknown        ...               1940          6            0.00000
+1 2018-12-18 00:00:51       1954852  a0c4f0b4176b09ea18f28d57b31ce369b2f1064d4fe52c...        ...               6025         49            0.00504
+2 2018-12-18 00:00:51       1954852  a0493bc0be1b237b6b6625cb090833ddf5b20f3d0fdac4...        ...               6025         49            0.00504
+3 2018-12-18 00:00:51       1954852  a0e2dff5e4e157a0f1cc5d4db2d246b11af01aa924d744...        ...               6025         49            0.00504
+4 2018-12-18 00:00:51       1954852  a05949debb0a8d0ced85ce03361b49615bd7ef2bcc8e89...        ...               6025         49            0.00504
+5 2018-12-18 00:00:51       1954852  a0501c08f75da8407b2a3fe92d949fa4b9c5866043d78f...        ...               6025         49            0.00504
+6 2018-12-18 00:00:51       1954852  a08e00557f20c8a6b31bef70546c0a08ecf8abfd434596...        ...               6025         49            0.00504
+7 2018-12-18 00:00:51       1954852  a031949a9a11d739f82385778cd01395839b362d8f19ec...        ...               6025         49            0.00504
+8 2018-12-18 00:00:51       1954852  a056d3e27a10f7790f4494ecc444369e07f7dec03df5d7...        ...               6025         49            0.00504
+9 2018-12-18 00:00:51       1954852  a0929bcbc3442871de75c12dd455afcaa7bacde59819e4...        ...               6025         49            0.00504
+
+[10 rows x 14 columns]
+2019-01-23 00:11:29,379 - [logs/miner_predictive_tab2.log:304]=> Finished churned retained
+2019-01-23 00:11:29,382 - [logs/miner_predictive_tab2.log:315]=> Finished churned retained
+2019-01-23 00:11:29,384 - [logs/miner_predictive_tab2.log:380]=> Finished split into churned and retained dataframes
+2019-01-23 00:11:29,385 - [logs/miner_predictive_tab2.log:282]=> end of load data:                                               to_addr  transaction_nrg_consumed  approx_nrg_reward   block_size       ...            nrg_limit  block_nrg_consumed  churned  churned_verbose
+837  a0fe510bcc11f614f5eff4356908e143dd2f871e85f7ba...                   21000.0           0.000741  2812.381818       ...         1.500042e+07       107290.981818        0         retained
+838  a0feba0a271d5167a5515e7b671c5bbdb9cc0952f3bf84...                   21000.0           0.000643  2544.163265       ...         1.500053e+07        74142.857143        0         retained
+839  a0ffcdaeca7f3eb743308985e06a711917d4eed02c0d8e...                   21000.0           0.001075  3108.273469       ...         1.499985e+07       143742.938776        0         retained
+840  a0ffe1aaf6f51d91e591afbafe07a636610c1fa63fa8e2...                   21000.0           0.001700  3652.666667       ...         1.499718e+07       211000.000000        1          churned
+841                                            unknown                       0.0           0.000000  1940.000000       ...         1.500002e+07            0.000000        0         retained
+
+[5 rows x 11 columns]
+2019-01-23 00:11:29,429 - [logs/miner_predictive_tab2.log:185]=> APPROX_VALUE SELECTOR CREATED
+2019-01-23 00:11:29,485 - [logs/miner_predictive_tab2.log:386]=> Finshed converting block_nrg_consumed churned to dask array
+2019-01-23 00:11:29,485 - [logs/miner_predictive_tab2.log:386]=> Finshed converting block_nrg_consumed retained to dask array
+2019-01-23 00:11:29,486 - [logs/miner_predictive_tab2.log:408]=> block_nrg_consumed test completed
+2019-01-23 00:11:29,487 - [logs/miner_predictive_tab2.log:386]=> Finshed converting transaction_nrg_consumed churned to dask array
+2019-01-23 00:11:29,487 - [logs/miner_predictive_tab2.log:386]=> Finshed converting transaction_nrg_consumed retained to dask array
+2019-01-23 00:11:29,488 - [logs/miner_predictive_tab2.log:408]=> transaction_nrg_consumed test completed
+2019-01-23 00:11:29,488 - [logs/miner_predictive_tab2.log:386]=> Finshed converting approx_value churned to dask array
+2019-01-23 00:11:29,488 - [logs/miner_predictive_tab2.log:386]=> Finshed converting approx_value retained to dask array
+2019-01-23 00:11:29,489 - [logs/miner_predictive_tab2.log:408]=> approx_value test completed
+2019-01-23 00:11:29,489 - [logs/miner_predictive_tab2.log:386]=> Finshed converting difficulty churned to dask array
+2019-01-23 00:11:29,490 - [logs/miner_predictive_tab2.log:386]=> Finshed converting difficulty retained to dask array
+2019-01-23 00:11:29,491 - [logs/miner_predictive_tab2.log:408]=> difficulty test completed
+2019-01-23 00:11:29,491 - [logs/miner_predictive_tab2.log:386]=> Finshed converting nrg_limit churned to dask array
+2019-01-23 00:11:29,491 - [logs/miner_predictive_tab2.log:386]=> Finshed converting nrg_limit retained to dask array
+2019-01-23 00:11:29,492 - [logs/miner_predictive_tab2.log:408]=> nrg_limit test completed
+2019-01-23 00:11:29,492 - [logs/miner_predictive_tab2.log:386]=> Finshed converting block_size churned to dask array
+2019-01-23 00:11:29,492 - [logs/miner_predictive_tab2.log:386]=> Finshed converting block_size retained to dask array
+2019-01-23 00:11:29,493 - [logs/miner_predictive_tab2.log:408]=> block_size test completed
+2019-01-23 00:11:29,494 - [logs/miner_predictive_tab2.log:386]=> Finshed converting approx_nrg_reward churned to dask array
+2019-01-23 00:11:29,494 - [logs/miner_predictive_tab2.log:386]=> Finshed converting approx_nrg_reward retained to dask array
+2019-01-23 00:11:29,495 - [logs/miner_predictive_tab2.log:408]=> approx_nrg_reward test completed
+2019-01-23 00:11:29,496 - [logs/miner_predictive_tab2.log:417]=> end of hypothesis test
+2019-01-23 00:11:29,504 - [logs/miner_predictive_tab2.log:520]=> LOAD DATA FLAG in prediction table:False
+2019-01-23 00:11:29,504 - [logs/miner_predictive_tab2.log:479]=> MAKE PREDICTIONS LAUNCHED
+2019-01-23 00:11:29,505 - [logs/miner_predictive_tab2.log:443]=> RANDOM FOREST LAUNCHED
+2019-01-23 00:11:29,508 - [logs/miner_predictive_tab2.log:458]=> LINE 359
+2019-01-23 00:11:29,815 - [logs/miner_predictive_tab2.log:486]=> LOADING PREDICT WAREHOUSE 2018-12-15 00:00:00 : 2018-12-31 00:00:00
+2019-01-23 00:11:36,174 - [logs/miner_predictive_tab2.log:253]=> NORMALIZATION started for day-diff:16 day(s)
+2019-01-23 00:11:36,174 - [logs/miner_predictive_tab2.log:259]=> NORMALIZATION ended for day-diff:16 days
+2019-01-23 00:11:36,700 - [logs/miner_predictive_tab2.log:237]=> df after groupby:      block_timestamp  block_number                                            to_addr        ...         block_size block_time  approx_nrg_reward
+0 2018-12-18 00:00:02       1954851                                            unknown        ...               1940          6            0.00000
+1 2018-12-18 00:00:51       1954852  a0c4f0b4176b09ea18f28d57b31ce369b2f1064d4fe52c...        ...               6025         49            0.00504
+2 2018-12-18 00:00:51       1954852  a0493bc0be1b237b6b6625cb090833ddf5b20f3d0fdac4...        ...               6025         49            0.00504
+3 2018-12-18 00:00:51       1954852  a0e2dff5e4e157a0f1cc5d4db2d246b11af01aa924d744...        ...               6025         49            0.00504
+4 2018-12-18 00:00:51       1954852  a05949debb0a8d0ced85ce03361b49615bd7ef2bcc8e89...        ...               6025         49            0.00504
+5 2018-12-18 00:00:51       1954852  a0501c08f75da8407b2a3fe92d949fa4b9c5866043d78f...        ...               6025         49            0.00504
+6 2018-12-18 00:00:51       1954852  a08e00557f20c8a6b31bef70546c0a08ecf8abfd434596...        ...               6025         49            0.00504
+7 2018-12-18 00:00:51       1954852  a031949a9a11d739f82385778cd01395839b362d8f19ec...        ...               6025         49            0.00504
+8 2018-12-18 00:00:51       1954852  a056d3e27a10f7790f4494ecc444369e07f7dec03df5d7...        ...               6025         49            0.00504
+9 2018-12-18 00:00:51       1954852  a0929bcbc3442871de75c12dd455afcaa7bacde59819e4...        ...               6025         49            0.00504
+
+[10 rows x 14 columns]
+2019-01-23 00:11:36,756 - [logs/miner_predictive_tab2.log:489]=> LINE 483
+2019-01-23 00:11:36,886 - [logs/miner_predictive_tab2.log:499]=> lengths of df:720,lst:720
+2019-01-23 00:11:36,887 - [logs/miner_predictive_tab2.log:500]=> df before prediction:      transaction_nrg_consumed  approx_nrg_reward   block_size  block_time  approx_value    difficulty     nrg_limit  block_nrg_consumed
+1952              21000.000000           0.000945  2911.437500   20.062500      1.015984  1.063076e+07  1.500131e+07       119437.625000
+1954              21000.145455           0.000519  2408.945455   17.490909     15.409460  1.032399e+07  1.500088e+07        57654.909091
+1956              21000.000000           0.001543  3356.826087   18.347826      1.827034  9.984071e+06  1.499982e+07       174847.913043
+1958              21000.000000           0.001667  3293.812500   17.250000     16.364340  1.047594e+07  1.499908e+07       166687.500000
+1959              21000.000000           0.000798  3849.000000   20.400000      1.014736  1.077408e+07  1.499973e+07       235200.000000
+1961              21000.000000           0.000835  2835.577778   20.511111      1.480525  1.035631e+07  1.500197e+07       110133.333333
+1965              21000.000000           0.000684  2566.962963   19.518519      1.003600  1.035188e+07  1.500427e+07        77000.000000
+1968              21000.000000           0.001173  3247.928962   19.273224      1.417052  1.040695e+07  1.499966e+07       161000.131148
+1969              21000.000000           0.001470  4041.000000   24.000000      1.043677  1.096981e+07  1.499868e+07       259000.000000
+1970                  0.000000           0.000000  1940.000000    9.029554      0.000000  1.037533e+07  1.500004e+07            0.000000
+2019-01-23 00:11:36,997 - [logs/miner_predictive_tab2.log:514]=> end of predictions

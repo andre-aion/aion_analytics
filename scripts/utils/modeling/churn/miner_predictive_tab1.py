@@ -4,7 +4,7 @@ from os.path import dirname, join
 from scripts.utils.mylogger import mylogger
 from scripts.utils.modeling.churn.miner_predictive import find_in_redis,\
     construct_from_redis, extract_data_from_dict, get_miner_list
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_miner_predictive1 import MytabMinerPredictive1
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 
 import dask.dataframe as dd
@@ -48,13 +48,13 @@ hyp_variables = ['block_nrg_consumed', 'transaction_nrg_consumed', 'approx_value
                  'difficulty','nrg_limit', 'block_size', 'approx_nrg_reward'
                 ]
 
-class MinerChurnedPredictiveTab:
+class MinerChurnedPredictiveTab1:
     def __init__(self,tier=1,cols=[]):
         self.tier = tier
         self.checkbox_group = None
         self.churned_list = None
         self.retained_list = None
-        self.tab = Mytab('block_tx_warehouse', cols,[])
+        self.tab = MytabMinerPredictive1('block_tx_warehouse', cols, [])
         self.df = self.tab.df
         self.max = 10
         self.select_variable = None
@@ -480,7 +480,7 @@ class MinerChurnedPredictiveTab:
 
             # make model
             clf = self.rf_clf()
-            to_predict_tab = Mytab('block_tx_warehouse',cols=self.cols,dedup_cols=[])
+            to_predict_tab = MytabMinerPredictive1('block_tx_warehouse', cols=self.cols, dedup_cols=[])
             to_predict_tab.df = None
             to_predict_tab.key_tab = 'churn'
             logger.warning('LOADING PREDICT WAREHOUSE %s : %s',self.start_date,self.end_date)

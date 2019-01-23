@@ -2,9 +2,9 @@ import time
 from os.path import dirname, join
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.modeling.churn_predictive import find_in_redis,\
+from scripts.utils.modeling.churn.miner_predictive import find_in_redis,\
     construct_from_redis, extract_data_from_dict, get_miner_list
-from scripts.utils.dashboards.mytab_blockminer import MytabPoolminer
+from scripts.utils.dashboards.mytab_miner_predictive2 import MytabMinerPredictive2
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 
 import dask.dataframe as dd
@@ -48,13 +48,13 @@ hyp_variables = ['block_nrg_consumed', 'transaction_nrg_consumed', 'approx_value
                  'difficulty','nrg_limit', 'block_size', 'approx_nrg_reward'
                 ]
 
-class ChurnedPredictiveTab:
+class MinerChurnedPredictiveTab2:
     def __init__(self,tier=1,cols=[]):
         self.tier = tier
         self.checkbox_group = None
         self.churned_list = None
         self.retained_list = None
-        self.tab = MytabPoolminer('block_tx_warehouse', cols, [])
+        self.tab = MytabMinerPredictive2('block_tx_warehouse', cols, [])
         self.df = self.tab.df
         self.max = 10
         self.select_variable = None
@@ -196,7 +196,7 @@ class ChurnedPredictiveTab:
                 self.df[column] = self.df[column].astype(float)
             elif type == 'int':
                 self.df[column] = self.df[column].astype(int)
-            logger.warning('casted %s as %s',column,type)
+            #logger.warning('casted %s as %s',column,type)
 
         except Exception:
             logger.error('convert string', exc_info=True)
@@ -268,8 +268,10 @@ class ChurnedPredictiveTab:
                 #reset dataframe to empty
                 self.df = SD('block_tx_warehouse', self.cols, dedup_columns=[]).get_df()
                 dict_lst = [self.checkbox_group.labels[i] for i in self.checkbox_group.active]
+
                 self.df, self.churned_list, self.retained_list = extract_data_from_dict(
                     dict_lst, self.df, tier=self.tier)
+
                 self.df = self.df.fillna(0)
                 self.df_grouped = self.group_data(self.df)
 
@@ -316,7 +318,7 @@ class ChurnedPredictiveTab:
             logger.error("label churned retained:",exc_info=True)
 
     def get_poolname_dict(self):
-        file = join(dirname(__file__), '../../../data/poolinfo.csv')
+        file = join(dirname(__file__), '../../../../data/poolinfo.csv')
         df = pd.read_csv(file)
         a = df['address'].tolist()
         b = df['poolname'].tolist()
@@ -478,7 +480,7 @@ class ChurnedPredictiveTab:
 
             # make model
             clf = self.rf_clf()
-            to_predict_tab = MytabPoolminer('block_tx_warehouse', cols=self.cols, dedup_cols=[])
+            to_predict_tab = MytabMinerPredictive2('block_tx_warehouse', cols=self.cols, dedup_cols=[])
             to_predict_tab.df = None
             to_predict_tab.key_tab = 'churn'
             logger.warning('LOADING PREDICT WAREHOUSE %s : %s',self.start_date,self.end_date)

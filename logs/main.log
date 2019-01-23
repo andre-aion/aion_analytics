@@ -1,4 +1,4 @@
-2019-01-22 21:26:57,153 - [logs/main.log:17]=> logs/main.log
-2019-01-22 21:27:06,930 - [logs/main.log:39]=> selections:['blockminer_tab', 'tier1_miner_churn_predictive_tab']
-2019-01-22 21:27:56,536 - [logs/main.log:39]=> selections:['blockminer_tab', 'tier1_miner_churn_predictive_tab']
-2019-01-22 21:28:01,252 - [logs/main.log:39]=> selections:['blockminer_tab', 'churn_tab', 'tier1_miner_churn_predictive_tab']
+2019-01-23 00:10:28,136 - [logs/main.log:17]=> logs/main.log
+2019-01-23 00:10:54,303 - [logs/main.log:63]=> selections:['blockminer_tab', 'tier1_miner_churn_predictive_tab', 'tier2_miner_churn_predictive_tab']
+2019-01-23 00:11:50,990 - [logs/main.log:63]=> selections:['blockminer_tab', 'churn_tab', 'tier1_miner_churn_predictive_tab', 'tier2_miner_churn_predictive_tab']
+2019-01-23 00:12:37,027 - [logs/main.log:63]=> selections:['blockminer_tab', 'poolminer_tab', 'churn_tab', 'tier1_miner_churn_predictive_tab', 'tier2_miner_churn_predictive_tab', 'network_activity_predictive_tab']

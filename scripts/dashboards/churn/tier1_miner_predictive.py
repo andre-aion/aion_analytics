@@ -1,5 +1,5 @@
 from scripts.utils.mylogger import mylogger
-from scripts.utils.modeling.churn.miner_predictive_tab import MinerChurnedPredictiveTab
+from scripts.utils.modeling.churn.miner_predictive_tab1 import MinerChurnedPredictiveTab1
 from scripts.utils.myutils import tab_error_flag
 
 from concurrent.futures import ThreadPoolExecutor
@@ -25,9 +25,9 @@ hv.extension('bokeh', logo=False)
 
 @coroutine
 def tier1_miner_churn_predictive_tab():
-    class Thistab(MinerChurnedPredictiveTab):
+    class Thistab(MinerChurnedPredictiveTab1):
         def __init__(self,tier,cols):
-            MinerChurnedPredictiveTab.__init__(self, tier, cols=cols)
+            MinerChurnedPredictiveTab1.__init__(self, tier, cols=cols)
             self.cols = cols
             self.table = 'block_tx_warehouse'
 

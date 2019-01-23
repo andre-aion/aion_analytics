@@ -4,7 +4,7 @@ from scripts.utils.mylogger import mylogger
 from scripts.utils.dashboards.poolminer import make_tier1_list,\
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_poolminer import MytabPoolminer
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
@@ -52,10 +52,10 @@ def poolminer_tab():
                       'from_addr', 'miner_address', 'approx_value', 'transaction_hash']
 
 
-    class Thistab(Mytab):
+    class Thistab(MytabPoolminer):
         tier1_miners_activated = False
         def __init__(self, table, key_tab='poolminer',cols=[], dedup_cols=[]):
-            Mytab.__init__(self, table, cols, dedup_cols)
+            MytabPoolminer.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.tier1_df = self.df
             self.tier2_df = self.df
@@ -65,6 +65,7 @@ def poolminer_tab():
             self.tier2_miners_list = []
             self.tier1_miners_list = []
             self.key_tab = key_tab
+
 
 
         def get_tier1_list(self,start_date,end_date):

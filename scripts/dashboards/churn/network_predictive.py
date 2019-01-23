@@ -16,10 +16,10 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
 from scripts.storage.pythonClickhouse import PythonClickhouse
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_network_activity import MytabNetworkActivity
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
-from scripts.utils.modeling.churn.miner_predictive_tab import MinerChurnedPredictiveTab
+from scripts.utils.modeling.churn.miner_predictive_tab1 import MinerChurnedPredictiveTab1
 
 from tornado.gen import coroutine
 from config.df_construct_config import load_columns as columns
@@ -52,9 +52,9 @@ hyp_variables = [
 
 @coroutine
 def network_activity_predictive_tab():
-    class Thistab(Mytab):
+    class Thistab(MytabNetworkActivity):
         def __init__(self,table,cols,dedup_cols):
-            Mytab.__init__(self,table,cols,dedup_cols)
+            MytabNetworkActivity.__init__(self, table, cols, dedup_cols)
             self.table = 'miner_activity'
             self.cols = cols[self.table]
             self.DATEFORMAT = "%Y-%m-%d"
