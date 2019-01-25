@@ -62,7 +62,6 @@ class MinerChurnedPredictiveTab2:
         self.day_diff = 1
         self.df_grouped = ''
         self.cols = cols
-        self.notification_div = Div(text='')
         self.clf = None
         self.poolname_dict = self.get_poolname_dict()
         # DIV CREATION
@@ -93,7 +92,7 @@ class MinerChurnedPredictiveTab2:
         # hypothesis
         text = """
         <div {}>
-        <h3>Hypothesis test info:</h3>
+        <h3 {}>Hypothesis test info:</h3>
         <ul>
         <li>
         The table below shows which variables 
@@ -112,7 +111,7 @@ class MinerChurnedPredictiveTab2:
         list to change the graph.
         </li></ul>
         </div>
-        """.format(self.div_style)
+        """.format(self.div_style,self.header_style)
         self.desc_hypothesis_div=Div(text=text,width=300, height=200)
 
         # prediction
@@ -123,6 +122,7 @@ class MinerChurnedPredictiveTab2:
         The table below shows the miners <br/>
         operating in the selected period,<br/>
         and whether they are likely to churn.<br/>
+        </li>
         <li>
         Use the datepicker(s) to the left to select the period you wish to predict.
         </li></ul>
@@ -288,7 +288,6 @@ class MinerChurnedPredictiveTab2:
                 self.load_data_flag = False
                 logger.warning('end of load data:%s', self.df_grouped.tail(5))
 
-            # clear notification message
         except Exception:
             logger.error('load data:', exc_info=True)
 
@@ -338,9 +337,6 @@ class MinerChurnedPredictiveTab2:
             return self.poolname_dict[x]
         return x
 
-    def notification_updater(self, text):
-        text = '<h3  style="color:red">{}</h3>'.format(text)
-        self.notification_div.text = text
 
     def results_div(self,text,width=600,height=300):
         div = Div(text=text,width=width,height=height)
@@ -430,7 +426,6 @@ class MinerChurnedPredictiveTab2:
 
     def svc(self,launch=False):
         try:
-            self.notification_updater("svc calculations underway")
             X = self.df_grouped.drop(['churned','churned_verbose',self.interest_var],axis=1)
             y = self.df_grouped['churned']
 
@@ -440,7 +435,6 @@ class MinerChurnedPredictiveTab2:
             y_pred = svclassifier.predict(X_test)
             print('confusion matrix:',confusion_matrix(y_test, y_pred))
             print('classification report:',classification_report(y_test, y_pred))
-            self.notification_updater("")
 
         except Exception:
             logger.error("svc:", exc_info=True)
@@ -453,7 +447,6 @@ class MinerChurnedPredictiveTab2:
                 logger.warning('DATA RELOADED TO MAKE PREDICTIONS')
                 self.load_data()
 
-            self.notification_updater("RF calculations underway")
             X = self.df_grouped.drop(['churned','churned_verbose',
                                       self.interest_var,], axis=1)
 
@@ -468,9 +461,10 @@ class MinerChurnedPredictiveTab2:
             y_pred = clf.predict(X_test)
 
             acc_text = """
-            <div {}'>
-            <h4 {}>Predictive accuracy:</h4>{}""".format(self.div_acc_style,self.header_style,
-                                                      metrics.accuracy_score(y_test, y_pred))
+            <div {}>
+            <h4 {}>Predictive accuracy:</h4><h6 style='color:black;'>{}</h6>""".\
+                format(self.div_acc_style,self.header_style,
+                metrics.accuracy_score(y_test, y_pred))
 
             self.metrics_div.text = acc_text
             print('confusion matrix:\n')
@@ -516,10 +510,10 @@ class MinerChurnedPredictiveTab2:
             })
             perc_to_churn = round(100*sum(y_pred)/len(y_pred),1)
             text = self.metrics_div.text + """
-            <br/> <h3 {}>Percentage likely to churn:</h3>{}%</div>""".format(self.header_style,
+            <br/> <h3 {}>Percentage likely to churn:</h3>
+            <h6 style='color:black;'>{}%</h6></div>""".format(self.header_style,
                                                                              perc_to_churn)
             self.metrics_div.text=text
-            self.notification_div.text=''
             logger.warning("end of predictions")
         except Exception:
             logger.error("prediction:", exc_info=True)

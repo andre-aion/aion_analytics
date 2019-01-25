@@ -47,7 +47,11 @@ def blockminer_tab():
             self.df2 = None
             self.key_tab = 'blockminer'
             self.n = 20
-            self.notification_div = Div(text='',width=600,height=10)
+            txt ="""<div style="text-align:center;background:black;width:100%;">
+                                                    <h1 style="color:#fff;">
+                                                    {}</h1></div>""".format('Welcome')
+            self.notification_div = Div(text=txt,width=1400,height=20)
+
 
         def load_this_data(self, start_date, end_date):
             end_date = datetime.combine(end_date, datetime.min.time())
@@ -120,24 +124,28 @@ def blockminer_tab():
                 except Exception:
                     logger.error('set_n', exc_info=True)
 
+        def notification_updater(self, text):
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                                    <h4 style="color:#fff;">
+                                                    {}</h4></div>""".format(text)
+            self.notification_div.text = txt
+
 
     def update(attrname, old, new):
-        notification_div.text = this_tab.notification_updater("Calculations underway."
-                                                              " Please be patient")
+        this_tab.notification_updater("Calculations underway. Please be patient")
         stream_start_date.event(start_date=datepicker_start.value)
         stream_end_date.event(end_date=datepicker_end.value)
         this_tab.set_n(topN_select.value)
         this_tab.view_topN()
-        notification_div.text = this_tab.notification_updater("")
+        this_tab.notification_updater("ready")
 
     # update based on selected top n
     def update_topN():
-        notification_div.text = this_tab.notification_updater \
-            ("Calculations in progress! Please wait.")
+        this_tab.notification_updater("Calculations in progress! Please wait.")
         logger.warning('topN selected value:%s',topN_select.value)
         this_tab.set_n(topN_select.value)
         this_tab.view_topN()
-        notification_div.text = this_tab.notification_updater("")
+        this_tab.notification_updater("ready")
 
 
     try:
@@ -152,7 +160,6 @@ def blockminer_tab():
         last_date = last_date_range
         first_date = datetime_to_date(last_date - timedelta(days=8))
 
-        notification_text = this_tab.notification_updater("")
 
 
         # STREAMS Setup
@@ -171,9 +178,8 @@ def blockminer_tab():
                                     max_date=last_date_range, value=last_date)
 
 
-        notification_div = Div(text=notification_text, width=500, height=50)
 
-        # ALL MINERS
+        # ALL MINERS.
         # --------------------- ALL  MINERS ----------------------------------
         hv_bar_plot = hv.DynamicMap(this_tab.load_this_data,
                                     streams=[stream_start_date,
@@ -209,8 +215,9 @@ def blockminer_tab():
         controls = WidgetBox(datepicker_start, datepicker_end,
                              download_button, topN_select)
 
+
         # create the dashboards
-        grid = gridplot([[notification_div],
+        grid = gridplot([[this_tab.notification_div],
                          [controls, topN_table],
                          [bar_plot.state]])
 
@@ -220,6 +227,6 @@ def blockminer_tab():
         return tab
 
     except Exception:
-        logger.error("Graph draw", exc_info=True)
+        logger.error("Blockminer", exc_info=True)
 
         return tab_error_flag('blockminer')

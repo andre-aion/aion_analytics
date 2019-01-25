@@ -30,6 +30,16 @@ def tier2_miner_churn_predictive_tab():
             MinerChurnedPredictiveTab2.__init__(self, tier, cols=cols)
             self.cols = cols
             self.table = 'block_tx_warehouse'
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                                                                 <h1 style="color:#fff;">
+                                                                                 {}</h1></div>""".format('Welcome')
+            self.notification_div = Div(text=txt, width=1400, height=20)
+
+        def notification_updater(self, text):
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                                                                 <h4 style="color:#fff;">
+                                                                                 {}</h4></div>""".format(text)
+            self.notification_div.text = txt
 
     def update_model():
         thistab.notification_updater('data reload,hyp testing ongoing')
@@ -37,19 +47,19 @@ def tier2_miner_churn_predictive_tab():
         thistab.load_data_flag = False
         stream_update_reference_data.event(launch=True)
         stream_select_variable.event(variable=thistab.select_variable.value)
-        thistab.notification_updater("")
+        thistab.notification_updater("ready")
 
     def update_plots(attr,old,new):
         thistab.notification_updater('updating plot(s) calculations ongoing')
         stream_select_variable.event(variable=thistab.select_variable.value)
-        thistab.notification_updater("")
+        thistab.notification_updater("ready")
 
     def update_prediction():
         thistab.notification_updater('prediction calculations ongoing')
         thistab.start_date = datepicker_start.value
         thistab.end_date = datepicker_end.value
         stream_launch_prediction.event(launch=True)
-        thistab.notification_updater("")
+        thistab.notification_updater("ready")
 
     def update_start_date(attr,old,new):
         thistab.notification_updater('updating start date')
@@ -59,14 +69,11 @@ def tier2_miner_churn_predictive_tab():
     def update_end_date(attr,old,new):
         thistab.notification_updater('updating end date')
         thistab.end_date = datepicker_end.value
-        thistab.notification_updater("")
+        thistab.notification_updater("ready")
 
     try:
         # SETUP
         thistab = Thistab(tier=2,cols=load_columns['block_tx_warehouse']['churn'])
-        thistab.notification_updater("")
-        thistab.notification_div = Div(text='Welcome, lets do some machine learning',
-                                       width=400, height=50)
         thistab.make_checkboxes()
         thistab.load_data()
 

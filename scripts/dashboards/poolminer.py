@@ -66,7 +66,16 @@ def poolminer_tab():
             self.tier1_miners_list = []
             self.key_tab = key_tab
 
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                                           <h1 style="color:#fff;">
+                                                           {}</h1></div>""".format('Welcome')
+            self.notification_div = Div(text=txt, width=1400, height=20)
 
+        def notification_updater(self, text):
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                                           <h4 style="color:#fff;">
+                                                           {}</h4></div>""".format(text)
+            self.notification_div.text = txt
 
         def get_tier1_list(self,start_date,end_date):
             try:
@@ -219,10 +228,10 @@ def poolminer_tab():
         if isinstance(select_blocks_mined.value, str):
             thistab.threshold_blocks_mined = float(select_blocks_mined.value)
 
-        notification_div.text = thistab.notification_updater \
+        thistab.notification_updater \
             ("Tier 2 calculations in progress! Please wait.")
         thistab.make_tier2_table(datepicker_start.value, datepicker_end.value)
-        notification_div.text = thistab.notification_updater("")
+        thistab.notification_updater("ready")
 
 
     def update(attr, old, new):
@@ -233,14 +242,14 @@ def poolminer_tab():
         if isinstance(select_blocks_mined.value, str):
             thistab.threshold_blocks_mined = float(select_blocks_mined.value)
 
-        notification_div.text = thistab.notification_updater \
+        thistab.notification_updater \
             ("Tiers 1 and 2 calculations in progress! Please wait.")
         thistab.tier1_miners_activated = True
         thistab.load_this_data(datepicker_start.value, datepicker_end.value)
 
         thistab.make_tier2_table(datepicker_start.value, datepicker_end.value)
         thistab.tier1_miners_activated = False
-        notification_div.text = thistab.notification_updater("")
+        thistab.notification_updater("ready")
 
     try:
         thistab = Thistab('block_tx_warehouse',
@@ -260,7 +269,6 @@ def poolminer_tab():
 
         thistab.make_tier2_table(first_date,last_date)
 
-        notification_text = thistab.notification_updater("")
 
         # MANAGE STREAM
         # date comes out stream in milliseconds
@@ -294,8 +302,6 @@ def poolminer_tab():
 
         ]
         tier2_table = DataTable(source=tier2_src, columns=columns, width=400, height=1400)
-        # Notification
-        notification_div = Div(text=notification_text, width=500, height=50)
 
         # handle callbacks
         datepicker_start.on_change('value', update)
@@ -330,9 +336,10 @@ def poolminer_tab():
 
         # create the dashboards
         spacing_div = thistab.spacing_div(width=200,height=400)
-        grid = gridplot([[controls_left,controls_right],
-                         [notification_div],
-                         [tier1_table, tier2_table]])
+        grid = gridplot([
+            [thistab.notification_div],
+            [controls_left,controls_right],
+            [tier1_table, tier2_table]])
 
         # Make a tab with the layout
         tab = Panel(child=grid, title='Poolminers')

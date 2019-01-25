@@ -69,6 +69,18 @@ def network_activity_predictive_tab():
             border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
             """
             self.header_style = """ style='color:blue;text-align:center;' """
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                                                                 <h1 style="color:#fff;">
+                                                                                 {}</h1></div>""".format('Welcome')
+            self.notification_div = Div(text=txt, width=1400, height=20)
+            self.notification_div_bottom = Div(text=txt, width=1400, height=20)
+
+        def notification_updater(self, text):
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                                                                 <h4 style="color:#fff;">
+                                                                                 {}</h4></div>""".format(text)
+            self.notification_div.text = txt
+            self.notification_div_bottom.text = txt
 
         ###################################################
         #               I/O
@@ -147,6 +159,8 @@ def network_activity_predictive_tab():
                      'Mean (abs) error': error_lst,
                      })
                 logger.warning('%s',df.head(1))
+                self.notification_updater("ready")
+
                 return df.hvplot.table(columns=['variable','Mean (abs) error'],width=250)
             except Exception:
                 logger.error("RF:", exc_info=True)
@@ -344,10 +358,10 @@ def network_activity_predictive_tab():
             return Div(text=txt,width=width,height=height)
 
     def update(attrname, old, new):
-        this_tab.notification_updater_2("Calculations underway. Please be patient")
+        this_tab.notification_updater("Calculations underway. Please be patient")
         stream_start_date.event(start_date=datepicker_start.value)
         stream_end_date.event(end_date=datepicker_end.value)
-        this_tab.notification_updater_2("")
+        this_tab.notification_updater("")
 
 
     try:

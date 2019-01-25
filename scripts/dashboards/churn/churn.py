@@ -61,6 +61,16 @@ def churn_tab():
             self.tab['reference'].end_date = ""
             self.tab['period'].start_date = ""
             self.tab['period'].end_date = ""
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                                                      <h1 style="color:#fff;">
+                                                                      {}</h1></div>""".format('Welcome')
+            self.notification_div = Div(text=txt, width=1400, height=20)
+
+        def notification_updater(self, text):
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                                                      <h4 style="color:#fff;">
+                                                                      {}</h4></div>""".format(text)
+            self.notification_div.text = txt
 
         def make_tier1_miners_list(self, when, start_date, end_date):
             try:
@@ -248,12 +258,10 @@ def churn_tab():
 
 
 
-        def notification_updater(self, text):
-            return '<h3  style="color:red">{}</h3>'.format(text)
 
 
     def update_threshold_tier_2_received(attrname, old, new):
-        notification_div.text = thistab.notification_updater \
+        thistab.notification_updater \
             ("Tier 2 calculations in progress! Please wait.")
 
         if isinstance(select_tx_received.value, str):
@@ -267,10 +275,10 @@ def churn_tab():
                                                datepicker_churn_end.value,
                                                datepicker_ref_start.value,
                                                datepicker_ref_end.value)
-        notification_div.text = thistab.notification_updater("")
+        thistab.notification_updater("ready")
 
     def update(attr, old, new):
-        notification_div.text = thistab.notification_updater \
+        thistab.notification_updater \
             ("Tiers 1 and 2 calculations in progress! Please wait.")
 
         if isinstance(select_tx_received.value, str):
@@ -293,7 +301,7 @@ def churn_tab():
                                                datepicker_ref_end.value)
         thistab.tier1_miners_activated['reference'] = False
         thistab.tier1_miners_activated['period'] = False
-        notification_div.text = thistab.notification_updater("")
+        thistab.notification_updater("ready")
 
 
     try:
@@ -318,7 +326,6 @@ def churn_tab():
         tier2_text = thistab.tier2_churn(period_first_date, period_last_date,
                                          ref_first_date, ref_last_date)
 
-        notification_text = thistab.notification_updater("")
 
 
         # MANAGE STREAM
@@ -345,8 +352,6 @@ def churn_tab():
 
         tier1_stats = Div(text=tier1_text,width=300,height=400)
         tier2_stats = Div(text=tier2_text,width=300,height=400)
-        # Notification
-        notification_div = Div(text=notification_text,width=500,height=50)
 
 
         # handle callbacks
@@ -374,9 +379,10 @@ def churn_tab():
             select_tx_received)
 
         # create the dashboards
-        grid = gridplot([[controls_left,controls_right],
-                         [notification_div],
-                [tier1_stats,tier2_stats]])
+        grid = gridplot([
+            [thistab.notification_div],
+            [controls_left,controls_right],
+            [tier1_stats,tier2_stats]])
 
         # Make a tab with the layout
         tab = Panel(child=grid, title='Churn')

@@ -42,8 +42,6 @@ class MytabNetworkActivity:
         self.ch = PythonClickhouse('aion')
         self.redis = PythonRedis()
         self.conn = self.redis.conn
-        self.notification_div = Div(text='')
-        self.notification_div_bottom = Div(text='')
         self.header_style = """ style='color:blue;text-align:center;' """
 
     # designed to work with premade warehouse table
@@ -128,9 +126,6 @@ class MytabNetworkActivity:
     # ####################################################
     #              UTILITY DIVS
 
-    def notification_updater(self, text):
-        return '<h3  style="color:red">{}</h3>'.format(text)
-
     def results_div(self, text, width=600, height=300):
         div = Div(text=text, width=width, height=height)
         return div
@@ -138,11 +133,6 @@ class MytabNetworkActivity:
     def title_div(self, text, width=700):
         text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
         return Div(text=text, width=width, height=15)
-
-    def notification_updater_2(self, text):
-        text = '<h3  style="color:red">{}</h3>'.format(text)
-        self.notification_div.text = text
-        self.notification_div_bottom = text
 
 
     # ######################################################

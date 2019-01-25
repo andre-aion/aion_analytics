@@ -46,6 +46,19 @@ class SelectionTab:
         self.div_style = """ style='width:300px; margin-left:25px;
                    border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
                    """
+        self.header_div = Div(text="""<div style="text-align:center;background:black;width:100%;">
+                    <h1 style="color:#fff;">
+                    {}</h1></div>""", width=1200, height=20)
+        txt = """<div style="text-align:center;background:black;width:100%;">
+                                    <h1 style="color:#fff;">
+                                    {}</h1></div>""".format('Welcome to Aion Data Science Portal')
+        self.notification_div = Div(text=txt, width=1200, height=20)
+
+    def notification_updater(self, text):
+        txt = """<div style="text-align:center;background:black;width:100%;">
+                                                                             <h4 style="color:#fff;">
+                                                                             {}</h4></div>""".format(text)
+        self.notification_div.text = txt
 
     def get_selections(self,checkboxes):
         self.selected_tabs= [checkboxes.labels[i] for i in checkboxes.active]
@@ -112,15 +125,15 @@ def aion_analytics(doc):
 
         @gen.coroutine
         def select_tabs():
-            notification_div.text ="""<h4 style='color:blue;'>When this messages disappears, 
-                the tab(s) are available for use</h4>"""
+            selection_tab.notification_updater("""When this messages disappears, 
+                the tab(s) are available for use""")
             yield load_callstack()
-            notification_div.text =""
+            selection_tab.notification_updater('Welcome to Aion Data Science Portal')
 
         txt = """
                 <div {}>
                     <h3 style='color:blue;text-align:center'>Info:</h3>
-                    <ul style='margin-top:-10px;'>
+                    <ul style='margin-top:-10px;height:200px'>
                     <li>
                     Select the tab(s) you want activated
                     </li>
@@ -130,7 +143,11 @@ def aion_analytics(doc):
                     </ul>
                 </div>
                 """.format(selection_tab.div_style)
+
         information_div = Div(text=txt, width=400, height=400)
+        buffer_div = Div(text='', width=300, height=20)
+        footer_div = Div(text='<hr/><div style="width:100%;height:100px;position:relative;background:black;"></div>',
+                         width=1200, height=100)
         notification_div = Div(text='',width=700,height=20)
         selection_checkboxes = CheckboxGroup(labels=labels, active=[0])
         run_button = Button(label='Launch tabs', button_type="success")
@@ -141,13 +158,14 @@ def aion_analytics(doc):
         # create the dashboards
         grid = gridplot([
             [notification_div],
-            [controls, information_div],
+            [buffer_div,controls, information_div],
+            [footer_div]
         ])
         mgmt = Panel(child=grid, title='Tab Selection')
 
-        pm = yield blockminer_tab()
+        bm = yield blockminer_tab()
         selection_tab.tablist.append(mgmt)
-        selection_tab.tablist.append(pm)
+        selection_tab.tablist.append(bm)
         selection_tab.selected_tracker.append('blockminer_tab')
         TABS.update(tabs=selection_tab.tablist)
         #tabs.on_change()
@@ -162,8 +180,8 @@ def launch_server():
     try:
         apps = {"/aion-analytics": Application(FunctionHandler(aion_analytics))}
         io_loop = IOLoop.current()
-        server = Server(apps,port=5006,allow_websocket_origin=["*:5006"],io_loop=io_loop,
-                        session_ids='external-signed', host="*")
+        server = Server(apps,port=5006,allow_websocket_origin=["*:8080","*:5006"],io_loop=io_loop,
+                        session_ids='unsigned', host="*")
         server.start()
         server.io_loop.add_callback(server.show, '/aion-analytics')
         server.io_loop.start()

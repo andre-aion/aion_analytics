@@ -42,7 +42,6 @@ class MytabBlockminer:
         self.ch = PythonClickhouse('aion')
         self.redis = PythonRedis()
         self.conn = self.redis.conn
-        self.notification_div = Div(text='')
 
     # designed to work with premade warehouse table
     def df_load(self, req_start_date, req_end_date):
@@ -126,8 +125,6 @@ class MytabBlockminer:
     # ####################################################
     #              UTILITY DIVS
 
-    def notification_updater(self, text):
-        return '<h3  style="color:red">{}</h3>'.format(text)
 
     def results_div(self, text, width=600, height=300):
         div = Div(text=text, width=width, height=height)
@@ -135,7 +132,7 @@ class MytabBlockminer:
 
     def title_div(self, text, width=700):
         text = '<h2 style="color:green;">{}</h2>'.format(text)
-        return Div(text=text, width=width, height=15)
+        return Div(text=text, width=width, height=20)
 
     def notification_updater_2(self, text):
         self.notification_div.text = '<h3  style="color:red">{}</h3>'.format(text)
