@@ -4,7 +4,7 @@ from statistics import mean
 
 import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, CustomJS, Paragraph
+from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, CustomJS, Paragraph, CheckboxGroup
 from bokeh.plotting import figure
 from scipy import stats
 from sklearn import metrics
@@ -17,6 +17,8 @@ from sklearn.pipeline import Pipeline
 
 from scripts.storage.pythonClickhouse import PythonClickhouse
 from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_network_activity import MytabNetworkActivity
+from scripts.utils.modeling.churn.miner_predictive_methods import find_in_redis
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
 from scripts.utils.modeling.churn.miner_predictive_tab import MinerChurnedPredictiveTab
@@ -52,18 +54,19 @@ hyp_variables = [
 
 @coroutine
 def network_activity_predictive_tab():
-    class Thistab(MinerChurnedPredictiveTab):
+    class Thistab(MytabNetworkActivity):
         def __init__(self,table,cols,dedup_cols):
-            MinerChurnedPredictiveTab.__init__(self, table, cols, dedup_cols)
+            MytabNetworkActivity.__init__(self, table, cols, dedup_cols)
             self.table = 'miner_activity'
             self.cols = cols[self.table]
             self.DATEFORMAT = "%Y-%m-%d"
             self.df = None
-            self.rf = {} # random forest
+            self.rf = {}  # random forest
             self.cl = PythonClickhouse('aion')
             self.feature_list = hyp_variables
-            self.targets = ['tier1_retained_diff','tier2_retained_diff',
-                           'tier1_churned_diff','tier2_churned_diff']
+            self.targets = ['tier1_retained_diff', 'tier2_retained_diff',
+                            'tier1_churned_diff', 'tier2_churned_diff']
+
             self.pl = {}
             self.div_style = """ style='width:300px; margin-left:25px;
             border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
@@ -85,13 +88,15 @@ def network_activity_predictive_tab():
             # ####################################################
             #              UTILITY DIVS
 
-            def results_div(self, text, width=600, height=300):
-                div = Div(text=text, width=width, height=height)
-                return div
+        def results_div(self, text, width=600, height=300):
+            div = Div(text=text, width=width, height=height)
+            return div
 
-            def title_div(self, text, width=700):
-                text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
-                return Div(text=text, width=width, height=15)
+        def title_div(self, text, width=700):
+            text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
+            return Div(text=text, width=width, height=15)# show checkbox list of reference periods produced by the churn tab
+
+
 
         def spacing_div(self, width=20, height=100):
             return Div(text='', width=width, height=height)

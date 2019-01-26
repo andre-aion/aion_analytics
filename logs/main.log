@@ -1,2 +1,2 @@
-2019-01-26 12:21:22,398 - [logs/main.log:17]=> logs/main.log
-2019-01-26 12:21:38,514 - [logs/main.log:80]=> selections:['blockminer_tab', 'churn_tab']
+2019-01-26 13:28:34,390 - [logs/main.log:17]=> logs/main.log
+2019-01-26 13:28:45,004 - [logs/main.log:80]=> selections:['blockminer_tab', 'tier1_miner_churn_predictive_tab', 'tier2_miner_churn_predictive_tab']

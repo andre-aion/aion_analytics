@@ -104,14 +104,6 @@ class MinerChurnedPredictiveTab:
         self.load_data_flag = True
 
 
-
-    def spacing_div(self, width=20, height=100):
-        return Div(text='', width=width, height=height)
-
-    def spacing_paragraph(self, width=20, height=100):
-        return Paragraph(text='', width=width, height=height)
-
-
     def cast_col(self,column,type):
         try:
             if type =='float':
@@ -338,8 +330,10 @@ class MinerChurnedPredictiveTab:
 
             acc_text = """
             <div{}>
-            <h4 {}>Predictive accuracy:</h4><h6 'style=color:black;'>{}</h6>""".format(self.div_acc_style, self.header_style,
-                                                      metrics.accuracy_score(y_test, y_pred))
+            <h4 {}>Predictive accuracy:</h4><strong 'style=color:black;'>{}</strong>"""\
+                .format(self.div_acc_style,
+                self.header_style,
+                metrics.accuracy_score(y_test, y_pred))
 
 
             self.make_tree(clf)
@@ -411,7 +405,7 @@ class MinerChurnedPredictiveTab:
             perc_to_churn = round(100*sum(y_pred)/len(y_pred),1)
             text = self.metrics_div.text + """
             <br/> <h3{}>Percentage likely to churn:</h3>
-            <h6 'style=color:black;'>{}%</h6></div>""".format(self.header_style,
+            <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style,
                                                                             perc_to_churn)
             self.metrics_div.text=text
             logger.warning("end of predictions")

@@ -103,57 +103,57 @@ def tier1_miner_churn_predictive_tab():
             self.notification_div.text = txt
 
 
-    def make_button(self,label):
-        try:
-            # make list of
-            button = Button(label=label, button_type="success")
-            return button
-        except Exception:
-            logger.error('make modeling button', exc_info=True)
+        def make_button(self,label):
+            try:
+                # make list of
+                button = Button(label=label, button_type="success")
+                return button
+            except Exception:
+                logger.error('make modeling button', exc_info=True)
 
-    def make_selector(self,title,initial_value):
-        try:
-            selector = Select(title=title,
-                              value=initial_value,
-                              options=self.hyp_variables)
-            logger.warning("%s SELECTOR CREATED",initial_value.upper())
+        def make_selector(self,title,initial_value):
+            try:
+                selector = Select(title=title,
+                                  value=initial_value,
+                                  options=self.hyp_variables)
+                logger.warning("%s SELECTOR CREATED",initial_value.upper())
 
-            return selector
-        except Exception:
-            logger.error('make selector', exc_info=True)
+                return selector
+            except Exception:
+                logger.error('make selector', exc_info=True)
 
 
-    def results_div(self, text, width=600, height=300):
-        div = Div(text=text, width=width, height=height)
-        return div
+        def results_div(self, text, width=600, height=300):
+            div = Div(text=text, width=width, height=height)
+            return div
 
-    def title_div(self, text, width=700):
-        text = '<h2 style="color:green;">{}</h2>'.format(text)
-        return Div(text=text, width=width, height=15)
+        def title_div(self, text, width=700):
+            text = '<h2 style="color:green;">{}</h2>'.format(text)
+            return Div(text=text, width=width, height=15)
 
-        # show checkbox list of reference periods produced by the churn tab
+            # show checkbox list of reference periods produced by the churn tab
 
-    def make_checkboxes(self):
-        try:
-            # make list of
-            active = 1
-            self.checkbox_group = CheckboxGroup(labels=[],
-                                                active=[active])
-            self.update_checkboxes()
-        except Exception:
-            logger.error('make checkboxes', exc_info=True)
+        def make_checkboxes(self):
+            try:
+                # make list of
+                active = 1
+                self.checkbox_group = CheckboxGroup(labels=[],
+                                                    active=[active])
+                self.update_checkboxes()
+            except Exception:
+                logger.error('make checkboxes', exc_info=True)
 
-    def update_checkboxes(self):
-        try:
-            if self.tier in [1, "1"]:
-                item = "tier1_churned_dict"
-            else:
-                item = "tier2_churned_dict"
-            lst = find_in_redis(item)
-            self.checkbox_group.labels = lst
-            logger.warning("CHECKBOX LIST:%s", lst)
-        except Exception:
-            logger.error('update checkboxes', exc_info=True)
+        def update_checkboxes(self):
+            try:
+                if self.tier in [1, "1"]:
+                    item = "tier1_churned_dict"
+                else:
+                    item = "tier2_churned_dict"
+                lst = find_in_redis(item)
+                self.checkbox_group.labels = lst
+                logger.warning("CHECKBOX LIST:%s", lst)
+            except Exception:
+                logger.error('update checkboxes', exc_info=True)
 
         # PLOTS
         def box_plot(self, variable='approx_value', launch=False):
@@ -188,14 +188,14 @@ def tier1_miner_churn_predictive_tab():
             except Exception:
                 logger.error("box plot:", exc_info=True)
 
-    def prediction_table(self,launch=False):
-        try:
-            logger.warning("LOAD DATA FLAG in prediction table:%s",self.load_data_flag)
-            self.make_predictions()
-            return self.predict_df.hvplot.table(columns=['address', 'likely...'],
-                                width=600,height=1200)
-        except Exception:
-            logger.error("prediction table:", exc_info=True)
+        def prediction_table(self,launch=False):
+            try:
+                logger.warning("LOAD DATA FLAG in prediction table:%s",self.load_data_flag)
+                self.make_predictions()
+                return self.predict_df.hvplot.table(columns=['address', 'likely...'],
+                                    width=600,height=1200)
+            except Exception:
+                logger.error("prediction table:", exc_info=True)
 
 
     def update_model():
