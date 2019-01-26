@@ -2,7 +2,7 @@ import inspect
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
-from scripts.utils.dashboards.mytab_blockminer import MytabBlockminer
+from scripts.utils.dashboards.mytab import Mytab
 from scripts.utils.myutils import tab_error_flag,tab_disabled_flag, datetime_to_date
 from scripts.utils.mylogger import mylogger
 from config.df_construct_config import dedup_cols
@@ -13,7 +13,7 @@ from bokeh.models import CustomJS, ColumnDataSource, Panel, Button
 
 import gc
 from bokeh.models.widgets import Div, Select, \
-    DatePicker, TableColumn, DataTable
+    DatePicker, TableColumn, DataTable, Paragraph
 from holoviews import streams
 
 from datetime import datetime, timedelta
@@ -40,9 +40,9 @@ def blockminer_tab():
                                      block_number=[]))
 
 
-    class This_tab(MytabBlockminer):
+    class This_tab(Mytab):
         def __init__(self,table,cols,dedup_cols):
-            MytabBlockminer.__init__(self, table, cols, dedup_cols)
+            Mytab.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.df2 = None
             self.key_tab = 'blockminer'
@@ -124,12 +124,31 @@ def blockminer_tab():
                 except Exception:
                     logger.error('set_n', exc_info=True)
 
+        # ####################################################
+        #              UTILITY DIVS
+
+        def results_div(self, text, width=600, height=300):
+            div = Div(text=text, width=width, height=height)
+            return div
+
+        def title_div(self, text, width=700):
+            text = '<h2 style="color:green;">{}</h2>'.format(text)
+            return Div(text=text, width=width, height=20)
+
+        def notification_updater_2(self, text):
+            self.notification_div.text = '<h3  style="color:red">{}</h3>'.format(text)
+
         def notification_updater(self, text):
             txt = """<div style="text-align:center;background:black;width:100%;">
                                                     <h4 style="color:#fff;">
                                                     {}</h4></div>""".format(text)
             self.notification_div.text = txt
 
+        def spacing_div(self, width=20, height=100):
+            return Div(text='', width=width, height=height)
+
+        def spacing_paragraph(self, width=20, height=100):
+            return Paragraph(text='', width=width, height=height)
 
     def update(attrname, old, new):
         this_tab.notification_updater("Calculations underway. Please be patient")

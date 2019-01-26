@@ -4,7 +4,7 @@ from statistics import mean
 
 import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, CustomJS
+from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, CustomJS, Paragraph
 from bokeh.plotting import figure
 from scipy import stats
 from sklearn import metrics
@@ -16,10 +16,10 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
 from scripts.storage.pythonClickhouse import PythonClickhouse
-from scripts.utils.dashboards.mytab_network_activity import MytabNetworkActivity
+from scripts.utils.dashboards.mytab import Mytab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
-from scripts.utils.modeling.churn.miner_predictive_tab1 import MinerChurnedPredictiveTab1
+from scripts.utils.modeling.churn.miner_predictive_tab import MinerChurnedPredictiveTab
 
 from tornado.gen import coroutine
 from config.df_construct_config import load_columns as columns
@@ -52,9 +52,9 @@ hyp_variables = [
 
 @coroutine
 def network_activity_predictive_tab():
-    class Thistab(MytabNetworkActivity):
+    class Thistab(MinerChurnedPredictiveTab):
         def __init__(self,table,cols,dedup_cols):
-            MytabNetworkActivity.__init__(self, table, cols, dedup_cols)
+            MinerChurnedPredictiveTab.__init__(self, table, cols, dedup_cols)
             self.table = 'miner_activity'
             self.cols = cols[self.table]
             self.DATEFORMAT = "%Y-%m-%d"
@@ -81,6 +81,34 @@ def network_activity_predictive_tab():
                                                                                  {}</h4></div>""".format(text)
             self.notification_div.text = txt
             self.notification_div_bottom.text = txt
+
+            # ####################################################
+            #              UTILITY DIVS
+
+            def results_div(self, text, width=600, height=300):
+                div = Div(text=text, width=width, height=height)
+                return div
+
+            def title_div(self, text, width=700):
+                text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
+                return Div(text=text, width=width, height=15)
+
+        def spacing_div(self, width=20, height=100):
+            return Div(text='', width=width, height=height)
+
+        def spacing_paragraph(self, width=20, height=100):
+            return Paragraph(text='', width=width, height=height)
+
+        # ####################################################
+        #              UTILITY DIVS
+
+        def results_div(self, text, width=600, height=300):
+            div = Div(text=text, width=width, height=height)
+            return div
+
+        def title_div(self, text, width=700):
+            text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
+            return Div(text=text, width=width, height=15)
 
         ###################################################
         #               I/O
@@ -450,13 +478,13 @@ def network_activity_predictive_tab():
 
         grid = gridplot([
             [this_tab.notification_div],
-            [this_tab.title_div('Churned and new miners by date')],
+            [this_tab.title_div('Churned and new aioners by date')],
             [history_curves1.state, history_curves2.state],
-            [this_tab.title_div('Rolling % daily difference for churned and new miners')],
+            [this_tab.title_div('Rolling % daily difference for churned and new aioners')],
             [history_curves1_diff.state, history_curves2_diff.state],
-            [this_tab.title_div('Distribution of churned and new miners by day of week')],
+            [this_tab.title_div('Distribution of churned and new aioners by day of week')],
             [dow1.state,dow2.state,dow3.state,dow4.state],
-            [this_tab.title_div('Prediction stats for new,churned,miners models ',600)],
+            [this_tab.title_div('Prediction stats for new,churned,aioners models ',600)],
             [accuracy_table.state,this_tab.stats_information_div(),features_table.state],
             [this_tab.title_div('Select period below to obtain predictions:', 600)],
             [date_controls, this_tab.prediction_information_div(), prediction_table.state],

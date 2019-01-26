@@ -1,4 +1,4 @@
-from scripts.utils.modeling.churn.miner_predictive_tab2 import MinerChurnedPredictiveTab2
+from scripts.utils.modeling.churn.miner_predictive_tab import MinerChurnedPredictiveTab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import tab_error_flag
 
@@ -25,9 +25,9 @@ hv.extension('bokeh', logo=False)
 
 @coroutine
 def tier2_miner_churn_predictive_tab():
-    class Thistab(MinerChurnedPredictiveTab2):
+    class Thistab(MinerChurnedPredictiveTab):
         def __init__(self,tier,cols):
-            MinerChurnedPredictiveTab2.__init__(self, tier, cols=cols)
+            MinerChurnedPredictiveTab.__init__(self, tier, cols=cols)
             self.cols = cols
             self.table = 'block_tx_warehouse'
             txt = """<div style="text-align:center;background:black;width:100%;">

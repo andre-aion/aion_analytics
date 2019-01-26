@@ -4,7 +4,7 @@ from scripts.utils.mylogger import mylogger
 from scripts.utils.dashboards.poolminer import make_tier1_list,\
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
-from scripts.utils.dashboards.mytab_poolminer import MytabPoolminer
+from scripts.utils.dashboards.mytab import Mytab
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
@@ -12,7 +12,7 @@ from bokeh.layouts import gridplot, WidgetBox
 from bokeh.models import ColumnDataSource, Panel, CustomJS
 import gc
 from bokeh.models.widgets import Div, \
-    DatePicker, TableColumn, DataTable, Button, Select
+    DatePicker, TableColumn, DataTable, Button, Select, Paragraph
 
 from datetime import datetime, timedelta
 
@@ -52,10 +52,10 @@ def poolminer_tab():
                       'from_addr', 'miner_address', 'approx_value', 'transaction_hash']
 
 
-    class Thistab(MytabPoolminer):
+    class Thistab(Mytab):
         tier1_miners_activated = False
         def __init__(self, table, key_tab='poolminer',cols=[], dedup_cols=[]):
-            MytabPoolminer.__init__(self, table, cols, dedup_cols)
+            Mytab.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.tier1_df = self.df
             self.tier2_df = self.df
@@ -218,7 +218,22 @@ def poolminer_tab():
             except Exception:
                 logger.error("make tier 2 table",exc_info=True)
 
+        # ####################################################
+        #              UTILITY DIVS
 
+        def results_div(self, text, width=600, height=300):
+            div = Div(text=text, width=width, height=height)
+            return div
+
+        def title_div(self, text, width=700):
+            text = '<h2 style="color:green;">{}</h2>'.format(text)
+            return Div(text=text, width=width, height=15)
+
+        def spacing_div(self, width=20, height=100):
+            return Div(text='', width=width, height=height)
+
+        def spacing_paragraph(self, width=20, height=100):
+            return Paragraph(text='', width=width, height=height)
 
     def update_threshold_tier_2_received(attrname, old, new):
         if isinstance(select_tx_received.value, str):

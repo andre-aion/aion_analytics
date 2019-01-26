@@ -5,9 +5,9 @@ import pydot
 from sklearn.tree import export_graphviz
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.modeling.churn.miner_predictive import find_in_redis,\
+from scripts.utils.modeling.churn.miner_predictive_methods import find_in_redis,\
     construct_from_redis, extract_data_from_dict, get_miner_list
-from scripts.utils.dashboards.mytab_miner_predictive1 import MytabMinerPredictive1
+from scripts.utils.dashboards.mytab import Mytab
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 
 import dask.dataframe as dd
@@ -18,7 +18,7 @@ from tornado.locks import Lock
 from bokeh.layouts import gridplot, WidgetBox
 from bokeh.models import ColumnDataSource, Panel
 from bokeh.models.widgets import Div, \
-    DatePicker, Select, CheckboxGroup, Button
+    DatePicker, Select, CheckboxGroup, Button, Paragraph
 
 from datetime import datetime
 import gc
@@ -53,13 +53,13 @@ hyp_variables = ['block_nrg_consumed', 'transaction_nrg_consumed', 'approx_value
                  'difficulty','nrg_limit', 'block_size', 'approx_nrg_reward'
                 ]
 
-class MinerChurnedPredictiveTab1:
+class MinerChurnedPredictiveTab:
     def __init__(self,tier=1,cols=[]):
         self.tier = tier
         self.checkbox_group = None
         self.churned_list = None
         self.retained_list = None
-        self.tab = MytabMinerPredictive1('block_tx_warehouse', cols, [])
+        self.tab = Mytab('block_tx_warehouse', cols, [])
         self.df = self.tab.df
         self.max = 10
         self.select_variable = None
@@ -70,7 +70,6 @@ class MinerChurnedPredictiveTab1:
         self.clf = None
         self.poolname_dict = self.get_poolname_dict()
         # DIV CREATION
-        self.metrics_div = Div(text='')
         self.feature_list = []
         self.info_color = 'mediumseagreen'
         self.div_style = """ style='width:300px; margin-left:25px;
@@ -80,63 +79,6 @@ class MinerChurnedPredictiveTab1:
                                  border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
                                  """
         self.header_style = """ style='color:blue;text-align:center;' """
-        #load data
-        text = """
-                <div {}>
-                <h3 {}>Checkboxlist Info:</h3>Use the checkbox 
-                list to the left to select <br/>
-                the reference period and parameters <br/>
-                for building the predictive model.<br/>
-                1) Select the desired parameter(s).<br/>
-                2) Click "update data" to update only the <br/>
-                   graphs and impact variables.<br/>
-                3) Choose the prediction date range.<br/>
-                4) Click "Make predictions"
-                </div>
-                """.format(self.div_style,self.header_style)
-        self.desc_load_data_div=Div(text=text,width=300, height=300)
-        # hypothesis
-        text = """
-        <div {}>
-        <h3 {}>Hypothesis test info:</h3>
-        <ul>
-        <li>
-        The table below shows which variables 
-        do/do not affect churn.
-        </li>
-        <li>
-        The ones that do not can be ignored.
-        </li>
-        <li> 
-        The figure (below left) shows the difference 
-        in behavior between those who left <br/>
-        vs those who remained.<br/>
-        </li>
-        <li>
-        Select the variable from the dropdown <br/>
-        list to change the graph.
-        </li></ul>
-        </div>
-        """.format(self.div_style, self.header_style)
-        self.desc_hypothesis_div=Div(text=text,width=300, height=300)
-
-        # prediction
-        text = """
-        <div {}>
-        <h3 {}>Prediction Info:</h3>
-        <ul><li>
-        The table below shows the miners <br/>
-        operating in the selected period,<br/>
-        and whether they are likely to churn.<br/>
-        <li>
-        Use the datepicker(s) to the left to select the period you wish to predict.
-        </li></ul>
-        </div> 
-        """.format(self.div_style,self.header_style)
-        self.desc_prediction_div=Div(text=text, width=350, height=100)
-
-        # spacing div
-        self.spacing_div = Div(text='', width=50, height=200)
 
 
         self.predict_df = SD('predict_table',['address','likely...'], dedup_columns=[]).get_df()
@@ -147,6 +89,8 @@ class MinerChurnedPredictiveTab1:
         self.start_date = datetime.strptime("2018-12-15 00:00:00", '%Y-%m-%d %H:%M:%S')
         self.end_date = datetime.strptime("2018-12-31 00:00:00", '%Y-%m-%d %H:%M:%S')
 
+        self.hyp_variables = hyp_variables
+
         if tier == 2:
             self.interest_var = 'to_addr'
             self.counting_var = 'from_addr'
@@ -154,52 +98,18 @@ class MinerChurnedPredictiveTab1:
             self.interest_var = 'from_addr'
             self.counting_var = 'to_addr'
 
-    # show checkbox list of reference periods produced by the churn tab
-    def make_checkboxes(self):
-        try:
-            # make list of
-            active = 1
-            self.checkbox_group = CheckboxGroup(labels=[],
-                                                active=[active])
-            self.update_checkboxes()
-        except Exception:
-            logger.error('make checkboxes',exc_info=True)
-
-    def update_checkboxes(self):
-        try:
-            if self.tier in [1,"1"]:
-                item = "tier1_churned_dict"
-            else:
-                item = "tier2_churned_dict"
-            lst = find_in_redis(item)
-            self.checkbox_group.labels = lst
-            logger.warning("CHECKBOX LIST:%s", lst)
-        except Exception:
-            logger.error('update checkboxes',exc_info=True)
-
 
     def set_load_data_flag(self, attr, old, new):
         self.load_data_flag = True
+        self.load_data_flag = True
 
-    def make_button(self,label):
-        try:
-            # make list of
-            button = Button(label=label, button_type="success")
-            return button
-        except Exception:
-            logger.error('make modeling button', exc_info=True)
 
-    def make_selector(self,title,initial_value):
-        try:
-            selector = Select(title=title,
-                              value=initial_value,
-                              options=hyp_variables)
-            logger.warning("%s SELECTOR CREATED",initial_value.upper())
 
-            return selector
-        except Exception:
-            logger.error('make selector', exc_info=True)
+    def spacing_div(self, width=20, height=100):
+        return Div(text='', width=width, height=height)
 
+    def spacing_paragraph(self, width=20, height=100):
+        return Paragraph(text='', width=width, height=height)
 
 
     def cast_col(self,column,type):
@@ -342,46 +252,6 @@ class MinerChurnedPredictiveTab1:
             return self.poolname_dict[x]
         return x
 
-
-    def results_div(self,text,width=600,height=300):
-        div = Div(text=text,width=width,height=height)
-        return div
-
-
-
-    # PLOTS
-    def box_plot(self,variable='approx_value',launch=False):
-        try:
-            #logger.warning("difficulty:%s", self.df.tail(30))
-            #get max value of variable and multiply it by 1.1
-            min,max = dd.compute(self.df_grouped[variable].min(),
-                                 self.df_grouped[variable].max())
-            return self.df_grouped.hvplot.box(variable, by='churned_verbose',
-                                              ylim=(.9*min,1.1*max))
-        except Exception:
-            logger.error("box plot:",exc_info=True)
-
-    def bar_plot(self, variable='approx_value', launch=False):
-        try:
-            # logger.warning("difficulty:%s", self.df.tail(30))
-            # get max value of variable and multiply it by 1.1
-            return self.df.hvplot.bar('miner_address', variable, rot=90,
-                                       height=400, width=300, title='block_number by miner address',
-                                       hover_cols=['percentage'])
-        except Exception:
-            logger.error("box plot:", exc_info=True)
-
-    def hist(self,variable='approx_value'):
-        try:
-            # logger.warning("difficulty:%s", self.df.tail(30))
-            # get max value of variable and multiply it by 1.1
-            #min, max = dd.compute(self.df_grouped[variable].min(),
-                                  #self.df_grouped[variable].max())
-            return self.df_grouped.hvplot.hist(
-                y=variable, bins=50, by='churned',alpha=0.3)
-        except Exception:
-            logger.error("box plot:", exc_info=True)
-
     def split_df(self,df):
         self.df1['churned'] = df[df.churned == 1]
         self.df1['retained'] = df[df.churned == 0]
@@ -512,7 +382,7 @@ class MinerChurnedPredictiveTab1:
 
             # make model
             clf = self.rf_clf()
-            to_predict_tab = MytabMinerPredictive1('block_tx_warehouse', cols=self.cols, dedup_cols=[])
+            to_predict_tab = Mytab('block_tx_warehouse', cols=self.cols, dedup_cols=[])
             to_predict_tab.df = None
             to_predict_tab.key_tab = 'churn'
             logger.warning('LOADING PREDICT WAREHOUSE %s : %s',self.start_date,self.end_date)
@@ -548,12 +418,4 @@ class MinerChurnedPredictiveTab1:
         except Exception:
             logger.error("prediction:", exc_info=True)
 
-    def prediction_table(self,launch=False):
-        try:
-            logger.warning("LOAD DATA FLAG in prediction table:%s",self.load_data_flag)
-            self.make_predictions()
-            return self.predict_df.hvplot.table(columns=['address', 'likely...'],
-                                width=600,height=1200)
-        except Exception:
-            logger.error("prediction table:", exc_info=True)
 

@@ -21,7 +21,7 @@ class DataLocation(Enum):
     IN_CONSTRUCTION = 4
 
 
-class MytabPoolminer:
+class Mytab:
     def __init__(self, table, cols, dedup_cols):
         self.table = table
         self.load_params = dict()
@@ -94,11 +94,6 @@ class MytabPoolminer:
         self.df1 = self.df
 
 
-    def spacing_div(self, width=20, height=100):
-        return Div(text='', width=width, height=height)
-
-    def spacing_paragraph(self, width=20, height=100):
-        return Paragraph(text='', width=width, height=height)
 
     def get_poolname_dict(self):
         file = join(dirname(__file__), '../../../data/poolinfo.csv')
@@ -122,16 +117,6 @@ class MytabPoolminer:
                 return x[0:10]
         return x
 
-    # ####################################################
-    #              UTILITY DIVS
-
-    def results_div(self, text, width=600, height=300):
-        div = Div(text=text, width=width, height=height)
-        return div
-
-    def title_div(self, text, width=700):
-        text = '<h2 style="color:green;">{}</h2>'.format(text)
-        return Div(text=text, width=width, height=15)
 
 
     # ######################################################

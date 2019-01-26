@@ -20,7 +20,7 @@ from scripts.dashboards.poolminer import poolminer_tab
 from scripts.dashboards.churn.churn import churn_tab
 from scripts.dashboards.churn.tier1_miner_predictive import tier1_miner_churn_predictive_tab
 from scripts.dashboards.churn.tier2_miner_predictive import tier2_miner_churn_predictive_tab
-from scripts.dashboards.churn.network_predictive import network_activity_predictive_tab
+from scripts.dashboards.churn.network_activity_predictive import network_activity_predictive_tab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import tab_error_flag
 
@@ -125,11 +125,13 @@ def aion_analytics(doc):
 
         @gen.coroutine
         def select_tabs():
-            selection_tab.notification_updater("""When this messages disappears, 
-                the tab(s) are available for use""")
+            notification_div.text = """<div style="text-align:center;background:black;width:100%;">
+                                    <h1 style="color:#fff;">
+                                    {}</h1></div>""".format('Please be patient. Tabs are loading..')
             yield load_callstack()
-            selection_tab.notification_updater('Welcome to Aion Data Science Portal')
-
+            notification_div.text = """<div style="text-align:center;background:black;width:100%;">
+                                                <h1 style="color:#fff;">
+                                                {}</h1></div>""".format('Welcome to Aion Data Science Portal')
         txt = """
                 <div {}>
                     <h3 style='color:blue;text-align:center'>Info:</h3>
@@ -148,7 +150,10 @@ def aion_analytics(doc):
         buffer_div = Div(text='', width=300, height=20)
         footer_div = Div(text='<hr/><div style="width:100%;height:100px;position:relative;background:black;"></div>',
                          width=1200, height=100)
-        notification_div = Div(text='',width=700,height=20)
+        txt = """<div style="text-align:center;background:black;width:100%;">
+                                                <h1 style="color:#fff;">
+                                                {}</h1></div>""".format('Welcome to Aion Data Science Portal')
+        notification_div = Div(text=txt,width=1200,height=20)
         selection_checkboxes = CheckboxGroup(labels=labels, active=[0])
         run_button = Button(label='Launch tabs', button_type="success")
         run_button.on_click(select_tabs)

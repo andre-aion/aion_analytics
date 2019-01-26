@@ -2,7 +2,7 @@ from scripts.utils.mylogger import mylogger
 from scripts.utils.dashboards.poolminer import make_tier1_list, \
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
-from scripts.utils.dashboards.mytab_churn import MytabChurn
+from scripts.utils.dashboards.mytab import Mytab
 from scripts.storage.pythonRedis import PythonRedis
 from config.df_construct_config import dedup_cols, load_columns as cols
 from concurrent.futures import ThreadPoolExecutor
@@ -10,8 +10,8 @@ from tornado.locks import Lock
 
 from bokeh.layouts import gridplot, WidgetBox
 from bokeh.models import Panel
-from bokeh.models.widgets import  Div, \
-    DatePicker, Select
+from bokeh.models.widgets import Div, \
+    DatePicker, Select, Paragraph
 
 from datetime import datetime, timedelta
 
@@ -39,7 +39,6 @@ list(map( os.unlink, (os.path.join('logs',f) for f in os.listdir('logs'))))
 @coroutine
 def churn_tab():
 
-
     class Thistab():
 
         def __init__(self,key_tab):
@@ -48,8 +47,8 @@ def churn_tab():
                 'period': False
             }
             self.tab = {}
-            self.tab['reference'] = MytabChurn('block_tx_warehouse', cols['block_tx_warehouse'][key_tab], dedup_cols)
-            self.tab['period'] = MytabChurn('block_tx_warehouse', cols['block_tx_warehouse'][key_tab], dedup_cols)
+            self.tab['reference'] = Mytab('block_tx_warehouse', cols['block_tx_warehouse'][key_tab], dedup_cols)
+            self.tab['period'] = Mytab('block_tx_warehouse', cols['block_tx_warehouse'][key_tab], dedup_cols)
             self.tab['period'].key_tab = key_tab
             self.tab['reference'].key_tab = key_tab
 
@@ -71,6 +70,20 @@ def churn_tab():
                                                                       <h4 style="color:#fff;">
                                                                       {}</h4></div>""".format(text)
             self.notification_div.text = txt
+
+        def results_div(self, text, width=600, height=300):
+            div = Div(text=text, width=width, height=height)
+            return div
+
+        def title_div(self, text, width=700):
+            text = '<h2 style="color:green;">{}</h2>'.format(text)
+            return Div(text=text, width=width, height=15)
+
+        def spacing_div(self, width=20, height=100):
+            return Div(text='', width=width, height=height)
+
+        def spacing_paragraph(self, width=20, height=100):
+            return Paragraph(text='', width=width, height=height)
 
         def make_tier1_miners_list(self, when, start_date, end_date):
             try:
