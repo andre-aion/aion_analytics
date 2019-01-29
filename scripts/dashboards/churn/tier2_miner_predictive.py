@@ -1,5 +1,5 @@
 from scripts.utils.modeling.churn.miner_predictive_methods import find_in_redis
-from scripts.utils.modeling.churn.miner_predictive_tab import MinerChurnedPredictiveTab
+from scripts.utils.modeling.churn.miner_churn_predictive_tab import MinerChurnPredictiveTab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import tab_error_flag
 
@@ -26,9 +26,9 @@ hv.extension('bokeh', logo=False)
 
 @coroutine
 def tier2_miner_churn_predictive_tab():
-    class Thistab(MinerChurnedPredictiveTab):
+    class Thistab(MinerChurnPredictiveTab):
         def __init__(self,tier,cols):
-            MinerChurnedPredictiveTab.__init__(self, tier, cols=cols)
+            MinerChurnPredictiveTab.__init__(self, tier, cols=cols)
             self.cols = cols
             self.table = 'block_tx_warehouse'
             txt = """<div style="text-align:center;background:black;width:100%;">
@@ -93,6 +93,11 @@ def tier2_miner_churn_predictive_tab():
 
             # spacing div
             self.spacing_div = Div(text='', width=50, height=200)
+            self.prediction_address_select = Select(
+                title='Filter by address(es)',
+                value='all',
+                options=self.address_list)
+            self.trigger = 0
 
         def notification_updater(self, text):
             txt = """<div style="text-align:center;background:black;width:100%;">
@@ -181,7 +186,7 @@ def tier2_miner_churn_predictive_tab():
             except Exception:
                 logger.error("box plot:", exc_info=True)
 
-        def prediction_table(self,launch=False):
+        def prediction_table(self,launch=-1):
             try:
                 logger.warning("LOAD DATA FLAG in prediction table:%s",self.load_data_flag)
                 self.make_predictions()
@@ -208,7 +213,9 @@ def tier2_miner_churn_predictive_tab():
         thistab.notification_updater('prediction calculations ongoing')
         thistab.start_date = datepicker_start.value
         thistab.end_date = datepicker_end.value
-        stream_launch_prediction.event(launch=True)
+        thistab.prediction_address_selected = thistab.prediction_address_select.value
+        thistab.trigger += 1
+        stream_launch_prediction.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
     def update_start_date(attr,old,new):
@@ -239,20 +246,25 @@ def tier2_miner_churn_predictive_tab():
         stream_select_variable = streams.Stream.define('Select_variable',
                                                     variable='approx_value')()
         stream_launch_prediction = streams.Stream.define('Launch_predictions',
-                                                         launch=True)()
+                                                         launch=0)()
 
         # CREATE WIDGETS
         datepicker_start = DatePicker(title="Prediction period start date", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date)
         datepicker_end = DatePicker(title="Prediction period end date", min_date=first_date_range,
-                                    max_date=last_date_range, value=last_date)
+                                    max_date=last_date_range, value=last_date_range)
 
         refresh_checkbox_button = thistab.make_button('Refresh checkboxes')
 
         thistab.select_variable = thistab.make_selector('Choose variable','approx_value')
         update_data_button = thistab.make_button('Update data')
         launch_predict_button = Button(label='Make predictions for ...',button_type="success")
-
+        reset_prediction_address_button = thistab.make_button('reset checkboxes')
+        # search by address checkboxes
+        thistab.prediction_address_select = Select(
+            title='Filter by address',
+            value='all',
+            options=thistab.address_list)
 
         # PLOTS
         hv_plot1 = hv.DynamicMap(thistab.box_plot,
@@ -277,6 +289,8 @@ def tier2_miner_churn_predictive_tab():
         thistab.checkbox_group.on_change('active',thistab.set_load_data_flag)
         datepicker_start.on_change('value', update_start_date)
         datepicker_end.on_change('value',update_end_date)
+        reset_prediction_address_button.on_click(thistab.reset_checkboxes)
+
 
         # organize layout
         model_controls = WidgetBox(thistab.checkbox_group,
@@ -287,7 +301,9 @@ def tier2_miner_churn_predictive_tab():
         predict_controls = WidgetBox(
             launch_predict_button,
             datepicker_start,
-            datepicker_end
+            datepicker_end,
+            thistab.prediction_address_select,
+            reset_prediction_address_button
             )
 
         grid = gridplot([[thistab.notification_div],
@@ -297,7 +313,7 @@ def tier2_miner_churn_predictive_tab():
                          [prediction_table.state, thistab.metrics_div]
                         ])
 
-        tab = Panel(child=grid, title='Tier '+str(2)+' churn predictions ')
+        tab = Panel(child=grid, title='Tier '+str(2)+' miner churn')
         return tab
 
 

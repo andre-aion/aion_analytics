@@ -20,7 +20,7 @@ from bokeh.models import ColumnDataSource, Panel
 from bokeh.models.widgets import Div, \
     DatePicker, Select, CheckboxGroup, Button, Paragraph
 
-from datetime import datetime
+from datetime import datetime, date, timedelta, time
 import gc
 from bokeh.models.widgets import Div, Select, \
     DatePicker, TableColumn, DataTable
@@ -53,7 +53,7 @@ hyp_variables = ['block_nrg_consumed', 'transaction_nrg_consumed', 'approx_value
                  'difficulty','nrg_limit', 'block_size', 'approx_nrg_reward'
                 ]
 
-class MinerChurnedPredictiveTab:
+class MinerChurnPredictiveTab:
     def __init__(self,tier=1,cols=[]):
         self.tier = tier
         self.checkbox_group = None
@@ -91,13 +91,22 @@ class MinerChurnedPredictiveTab:
 
         self.hyp_variables = hyp_variables
 
-        if tier == 2:
+        if tier in ["2", 2]:
             self.interest_var = 'to_addr'
             self.counting_var = 'from_addr'
         else:
             self.interest_var = 'from_addr'
             self.counting_var = 'to_addr'
+        # list of tier specific addresses for prediction
+        self.address_list = []
+        self.prediction_address_selected = ""
 
+    def reset_checkboxes(self):
+        try:
+            self.prediction_address_selected = ""
+            self.prediction_address_select.value = "all"
+        except Exception:
+            logger.error('reset checkboxes', exc_info=True)
 
     def set_load_data_flag(self, attr, old, new):
         self.load_data_flag = True
@@ -188,7 +197,8 @@ class MinerChurnedPredictiveTab:
 
                 self.df = self.df.fillna(0)
                 self.df_grouped = self.group_data(self.df)
-
+                # make list of address for prediction select
+                self.address_list = ['all']+self.df_grouped[self.interest_var].unique().tolist()
                 self.df_grouped = self.label_churned_retained(self.df_grouped)
                 self.df_grouped = self.label_churned_verbose(self.df_grouped)
                 self.split_df(self.df_grouped)
@@ -369,45 +379,71 @@ class MinerChurnedPredictiveTab:
         except Exception:
             logger.error("make tree:", exc_info=True)
 
+
     # the period for which the user wants a prediction
     def make_predictions(self):
         try:
             logger.warning("MAKE PREDICTIONS LAUNCHED")
 
-            # make model
-            clf = self.rf_clf()
+            # make
+            clf = self.clf
+            if not clf:
+                clf = self.rf_clf()
+
             to_predict_tab = Mytab('block_tx_warehouse', cols=self.cols, dedup_cols=[])
             to_predict_tab.df = None
             to_predict_tab.key_tab = 'churn'
             logger.warning('LOADING PREDICT WAREHOUSE %s : %s',self.start_date,self.end_date)
+            if isinstance(self.end_date,date):
+                mintime = time(00,00,00)
+                self.end_date = datetime.combine(self.end_date,mintime)
+            self.end_date = self.end_date + timedelta(days=1)
             to_predict_tab.df_load(self.start_date,self.end_date)
             df = self.group_data(to_predict_tab.df)
-            logger.warning('LINE 483')
-            # filter df for only tier 1/2 miners
-            tier_miner_lst = list(set(self.churned_list+self.retained_list))
-            df = df[df[self.interest_var].isin(tier_miner_lst)]
-            df[self.interest_var] = df[self.interest_var].map(self.poolname_verbose)
+            # filter if prediction for certain addresses necessary
+            address = self.prediction_address_selected
+            logger.warning('line 408 address pre filter:%s',address)
+            if address not in ['all','']:
+                df = df[df[self.interest_var] == address]
 
-            # run model
-            df = df.fillna(0)
-            X = df.drop([self.interest_var], axis=1)
-            interest_labels = df[self.interest_var].tolist()
-            logger.warning("lengths of df:%s,lst:%s",len(df),len(interest_labels))
-            #logger.warning("df before prediction:%s",X.tail(10))
+            logger.warning('line 408 predict-df post filter:%s',df.head(20))
 
-            y_pred = clf.predict(X)
-            y_pred_verbose = ['to leave' if x in ["1",1] else "to remain" for x in y_pred]
-            # make table for display
-            self.predict_df = pd.DataFrame({
-                'address': interest_labels,
-                'likely...': y_pred_verbose
-            })
-            perc_to_churn = round(100*sum(y_pred)/len(y_pred),1)
-            text = self.metrics_div.text + """
-            <br/> <h3{}>Percentage likely to churn:</h3>
-            <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style,
-                                                                            perc_to_churn)
-            self.metrics_div.text=text
+            if len(df)>0:
+                # filter df for only tier 1/2 miners
+                tier_miner_lst = list(set(self.churned_list+self.retained_list))
+                df = df[df[self.interest_var].isin(tier_miner_lst)]
+                df[self.interest_var] = df[self.interest_var].map(self.poolname_verbose)
+
+                # run model
+                df = df.fillna(0)
+                X = df.drop([self.interest_var], axis=1)
+                interest_labels = df[self.interest_var].tolist()
+                logger.warning("lengths of df:%s,lst:%s",len(df),len(interest_labels))
+                #logger.warning("df before prediction:%s",X.tail(10))
+
+                y_pred = clf.predict(X)
+                y_pred_verbose = ['to leave' if x in ["1",1] else "to remain" for x in y_pred]
+                # make table for display
+                self.predict_df = pd.DataFrame({
+                    'address': interest_labels,
+                    'likely...': y_pred_verbose
+                })
+                perc_to_churn = round(100*sum(y_pred)/len(y_pred),1)
+                text = self.metrics_div.text + """
+                <br/> <h3{}>Percentage likely to churn:</h3>
+                <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style,
+                                                                                perc_to_churn)
+                self.metrics_div.text=text
+            else:
+                # make table for display
+                self.predict_df = pd.DataFrame({
+                    'address': [],
+                    'likely...': []
+                })
+                text = self.metrics_div.text + """
+                    <br/> <h3{}>Sorry, address not found</h3>
+                    <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style)
+                self.metrics_div.text = text
             logger.warning("end of predictions")
         except Exception:
             logger.error("prediction:", exc_info=True)

@@ -21,7 +21,7 @@ from scripts.utils.dashboards.mytab_network_activity import MytabNetworkActivity
 from scripts.utils.modeling.churn.miner_predictive_methods import find_in_redis
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
-from scripts.utils.modeling.churn.miner_predictive_tab import MinerChurnedPredictiveTab
+from scripts.utils.modeling.churn.miner_churn_predictive_tab import MinerChurnPredictiveTab
 
 from tornado.gen import coroutine
 from config.df_construct_config import load_columns as columns
@@ -246,7 +246,8 @@ def network_activity_predictive_tab():
             div = Div(text=txt, width=width, height=height)
             return div
 
-        def make_prediction(self,start_date,end_date):
+        # use address to predict one addre
+        def make_prediction(self,start_date,end_date,addresses=None):
             try:
                 if not self.pl:
                     self.rf_table()
@@ -258,6 +259,8 @@ def network_activity_predictive_tab():
                     end_date = end_date.date()
 
                 df = self.cl.load_data('block_tx_warehouse',self.feature_list,start_date,end_date)
+
+
                 logger.warning('%s',df['block_time'].mean().compute())
 
                 # make summaries of the data
@@ -353,6 +356,8 @@ def network_activity_predictive_tab():
 
             except Exception:
                 logger.error("Feature importances:", exc_info=True)
+
+
 
         ####################################################
         #               GRAPHS

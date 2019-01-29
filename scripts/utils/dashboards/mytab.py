@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date, time, timedelta
 from enum import Enum
 from os.path import join, dirname
 import pandas as pd
@@ -77,6 +77,12 @@ class Mytab:
                 self.filter_df(req_start_date, req_end_date)
                 logger.warning("DF LOADED FROM MEMORY:%s", self.table)
             # no part in memory, so construct/load from clickhouse
+            mintime = time(00,00,00)
+            if isinstance(req_end_date,date):
+                req_end_date = datetime.combine(req_end_date,mintime)
+            if isinstance(req_start_date,date):
+                req_start_date = datetime.combine(req_start_date,mintime)
+            req_end_date = req_end_date+timedelta(days=1) #move end_date to midnite
             self.df = self.ch.load_data(self.table,self.cols,req_start_date, req_end_date)
             self.filter_df(req_start_date, req_end_date)
             #logger.warning("%s LOADED: %s:%s",self.table,req_start_date,req_end_date)

@@ -1,4 +1,7 @@
-2019-01-26 13:28:33,552 - [logs/tier2_miner_predictive.log:17]=> logs/tier2_miner_predictive.log
-2019-01-26 13:28:54,636 - [logs/tier2_miner_predictive.log:127]=> CHECKBOX LIST:['tier2_churned_dict:2.0:1.0:1:2019-01-09:2019-01-16', 'tier2_churned_dict:0.5:1:1:2019-01-06:2019-01-13', 'tier2_churned_dict:0.5:1.0:1:2018-12-01:2019-01-13', 'tier2_churned_dict:0.5:1.0:1:2018-10-15:2019-01-14', 'tier2_churned_dict:0.5:1:1:2019-01-10:2019-01-17', 'tier2_churned_dict:0.5:1:1:2019-01-09:2019-01-16', 'tier2_churned_dict:3.0:1.0:1:2019-01-09:2019-01-16', 'tier2_churned_dict:0.5:1.0:1:2018-12-18:2019-01-13', 'tier2_churned_dict:0.5:1:1:2019-01-07:2019-01-14']
-2019-01-26 13:28:58,312 - [logs/tier2_miner_predictive.log:145]=> APPROX_VALUE SELECTOR CREATED
-2019-01-26 13:28:58,393 - [logs/tier2_miner_predictive.log:186]=> LOAD DATA FLAG in prediction table:False
+2019-01-28 22:19:13,959 - [logs/tier2_miner_predictive.log:17]=> logs/tier2_miner_predictive.log
+2019-01-28 22:19:31,830 - [logs/tier2_miner_predictive.log:132]=> CHECKBOX LIST:['tier2_churned_dict:2.0:1.0:1:2019-01-09:2019-01-16', 'tier2_churned_dict:0.5:1:1:2019-01-10:2019-01-17', 'tier2_churned_dict:0.5:1:1:2019-01-09:2019-01-16', 'tier2_churned_dict:3.0:1.0:1:2019-01-09:2019-01-16']
+2019-01-28 22:19:34,341 - [logs/tier2_miner_predictive.log:150]=> APPROX_VALUE SELECTOR CREATED
+2019-01-28 22:19:34,397 - [logs/tier2_miner_predictive.log:191]=> LOAD DATA FLAG in prediction table:False
+2019-01-28 22:19:56,853 - [logs/tier2_miner_predictive.log:191]=> LOAD DATA FLAG in prediction table:False
+2019-01-28 22:20:33,138 - [logs/tier2_miner_predictive.log:191]=> LOAD DATA FLAG in prediction table:False
+2019-01-28 22:21:08,176 - [logs/tier2_miner_predictive.log:191]=> LOAD DATA FLAG in prediction table:False
