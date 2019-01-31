@@ -56,7 +56,6 @@ hyp_variables = ['block_nrg_consumed', 'transaction_nrg_consumed', 'approx_value
 class MinerChurnPredictiveTab:
     def __init__(self,tier=1,cols=[]):
         self.tier = tier
-        self.checkbox_group = None
         self.churned_list = None
         self.retained_list = None
         self.tab = Mytab('block_tx_warehouse', cols, [])
@@ -190,8 +189,13 @@ class MinerChurnPredictiveTab:
             if self.checkbox_group:
                 #reset dataframe to empty
                 self.df = SD('block_tx_warehouse', self.cols, dedup_columns=[]).get_df()
-                dict_lst = [self.checkbox_group.labels[i] for i in self.checkbox_group.active]
-
+                dict_lst = []
+                logger.warning("tier 2 checkbox group active:%s",self.checkbox_group.active)
+                if len(self.checkbox_group.active) > 0:
+                    if len(self.checkbox_group.labels) >  0:
+                        dict_lst = [self.checkbox_group.labels[i] for i in self.checkbox_group.active]
+                    else:
+                        self.checkbox_group.active = []
                 self.df, self.churned_list, self.retained_list = extract_data_from_dict(
                     dict_lst, self.df, tier=self.tier)
 

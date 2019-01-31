@@ -15,6 +15,7 @@ from bokeh.layouts import row, gridplot
 # GET THE DASHBOARDS
 from tornado.ioloop import IOLoop
 
+from scripts.dashboards.account_activity import account_activity_tab
 from scripts.dashboards.blockminer import blockminer_tab
 from scripts.dashboards.poolminer import poolminer_tab
 from scripts.dashboards.churn.churn import churn_tab
@@ -31,6 +32,7 @@ executor = ThreadPoolExecutor(max_workers=10)
 labels = [
     'blockminer_tab',
     'poolminer_tab',
+    #'account_activity_tab',
     'churn_tab',
     'tier1_miner_churn_predictive_tab',
     'tier2_miner_churn_predictive_tab',
@@ -118,6 +120,15 @@ def aion_analytics(doc):
                     selection_tab.selected_tracker.append('network_activity_predictive_tab')
                     if nap not in selection_tab.tablist:
                         selection_tab.tablist.append(nap)
+
+            """
+            if 'account_activity_tab' in lst:
+                if 'account_activity_tab' not in selection_tab.selected_tracker:
+                    aa = yield account_activity_tab()
+                    selection_tab.selected_tracker.append('account_activity_tab')
+                    if aa not in selection_tab.tablist:
+                        selection_tab.tablist.append(aa)
+            """
 
             #make list unique
             selection_tab.tablist = list(set(selection_tab.tablist))

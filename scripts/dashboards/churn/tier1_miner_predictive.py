@@ -144,9 +144,8 @@ def tier1_miner_churn_predictive_tab():
         def make_checkboxes(self):
             try:
                 # make list of
-                active = 1
                 self.checkbox_group = CheckboxGroup(labels=[],
-                                                    active=[active])
+                                                    active=[])
                 self.update_checkboxes()
             except Exception:
                 logger.error('make checkboxes', exc_info=True)
@@ -159,6 +158,8 @@ def tier1_miner_churn_predictive_tab():
                     item = "tier2_churned_dict"
                 lst = find_in_redis(item)
                 self.checkbox_group.labels = lst
+                if len(lst) > 0:
+                    self.checkbox_group.active = [0]
                 logger.warning("CHECKBOX LIST:%s", lst)
             except Exception:
                 logger.error('update checkboxes', exc_info=True)

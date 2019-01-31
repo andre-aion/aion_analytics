@@ -1,6 +1,6 @@
 from scripts.utils.modeling.churn.miner_predictive_methods import find_in_redis
-from scripts.utils.modeling.churn.miner_churn_predictive_tab import MinerChurnPredictiveTab
 from scripts.utils.mylogger import mylogger
+from scripts.utils.modeling.churn.miner_churn_predictive_tab import MinerChurnPredictiveTab
 from scripts.utils.myutils import tab_error_flag
 
 from concurrent.futures import ThreadPoolExecutor
@@ -9,7 +9,7 @@ from tornado.locks import Lock
 from bokeh.layouts import gridplot, WidgetBox
 from bokeh.models import Panel
 from bokeh.models.widgets import Div, \
-    DatePicker, Button, CheckboxGroup, Paragraph, Select
+    DatePicker, Button, CheckboxGroup, Select, MultiSelect
 
 from datetime import datetime
 from holoviews import streams
@@ -17,6 +17,7 @@ import holoviews as hv
 from tornado.gen import coroutine
 from config.df_construct_config import load_columns
 import dask.dataframe as dd
+
 
 lock = Lock()
 executor = ThreadPoolExecutor()
@@ -32,63 +33,67 @@ def tier2_miner_churn_predictive_tab():
             self.cols = cols
             self.table = 'block_tx_warehouse'
             txt = """<div style="text-align:center;background:black;width:100%;">
-                                                                                 <h1 style="color:#fff;">
-                                                                                 {}</h1></div>""".format('Welcome')
+                                                                             <h1 style="color:#fff;">
+                                                                             {}</h1></div>""".format('Welcome')
             self.notification_div = Div(text=txt, width=1400, height=20)
             self.metrics_div = Div(text='')
             # BOKEH MODELS
             text = """
-                                        <div {}>
-                                        <h3 {}>Checkboxlist Info:</h3>Use the checkbox 
-                                        list to the left to select <br/>
-                                        the reference period and parameters <br/>
-                                        for building the predictive model.<br/>
-                                        1) Select the desired parameter(s).<br/>
-                                        2) Click "update data" to update only the <br/>
-                                           graphs and impact variables.<br/>
-                                        3) Choose the prediction date range.<br/>
-                                        4) Click "Make predictions"
-                                        </div>
-                                        """.format(self.div_style, self.header_style)
+                            <div {}>
+                            <h3 {}>Checkboxlist Info:</h3>Use the checkbox 
+                            list to the left to select <br/>
+                            the reference period and parameters <br/>
+                            for building the predictive model.<br/>
+                            1) Select the desired parameter(s).<br/>
+                            2) Click "update data" to update only the <br/>
+                               graphs and impact variables.<br/>
+                            3) Choose the prediction date range.<br/>
+                            4) Click "Make predictions"
+                            </div>
+                            """.format(self.div_style, self.header_style)
             self.desc_load_data_div = Div(text=text, width=300, height=300)
             # hypothesis
             text = """
-                                <div {}>
-                                <h3 {}>Hypothesis test info:</h3>
-                                <ul>
-                                <li>
-                                The table below shows which variables 
-                                do/do not affect churn.
-                                </li>
-                                <li>
-                                The ones that do not can be ignored.
-                                </li>
-                                <li> 
-                                The figure (below left) shows the difference 
-                                in behavior between those who left <br/>
-                                vs those who remained.<br/>
-                                </li>
-                                <li>
-                                Select the variable from the dropdown <br/>
-                                list to change the graph.
-                                </li></ul>
-                                </div>
-                                """.format(self.div_style, self.header_style)
+                    <div {}>
+                    <h3 {}>Hypothesis test info:</h3>
+                    <ul>
+                    <li>
+                    The table below shows which variables 
+                    do/do not affect churn.
+                    </li>
+                    <li>
+                    The ones that do not can be ignored.
+                    </li>
+                    <li> 
+                    The figure (below left) shows the difference 
+                    in behavior between those who left <br/>
+                    vs those who remained.<br/>
+                    </li>
+                    <li>
+                    Select the variable from the dropdown <br/>
+                    list to change the graph.
+                    </li></ul>
+                    </div>
+                    """.format(self.div_style, self.header_style)
             self.desc_hypothesis_div = Div(text=text, width=300, height=300)
 
             # prediction
             text = """
-                                <div {}>
-                                <h3 {}>Prediction Info:</h3>
-                                <ul><li>
-                                The table below shows the miners <br/>
-                                operating in the selected period,<br/>
-                                and whether they are likely to churn.<br/>
-                                <li>
-                                Use the datepicker(s) to the left to select the period you wish to predict.
-                                </li></ul>
-                                </div> 
-                                """.format(self.div_style, self.header_style)
+                    <div {}>
+                    <h3 {}>Prediction Info:</h3>
+                    <ul><li>
+                    The table below shows the miners <br/>
+                    operating in the selected period,<br/>
+                    and whether they are likely to churn.<br/>
+                    <li>
+                    Use the datepicker(s) to the left to select the period you wish to predict.
+                    </li>
+                    <li>
+                    Select specific addresses if you wish.
+                    </li>
+                    </ul>
+                    </div> 
+                    """.format(self.div_style, self.header_style)
             self.desc_prediction_div = Div(text=text, width=350, height=100)
 
             # spacing div
@@ -101,38 +106,10 @@ def tier2_miner_churn_predictive_tab():
 
         def notification_updater(self, text):
             txt = """<div style="text-align:center;background:black;width:100%;">
-                                                                                 <h4 style="color:#fff;">
-                                                                                 {}</h4></div>""".format(text)
+                                                                             <h4 style="color:#fff;">
+                                                                             {}</h4></div>""".format(text)
             self.notification_div.text = txt
 
-        def spacing_div(self, width=20, height=100):
-            return Div(text='', width=width, height=height)
-
-        def spacing_paragraph(self, width=20, height=100):
-            return Paragraph(text='', width=width, height=height)
-
-        def make_checkboxes(self):
-            try:
-                # make list of
-                active = 1
-                self.checkbox_group = CheckboxGroup(labels=[],
-                                                    active=[active])
-                self.update_checkboxes()
-            except Exception:
-                logger.error('make checkboxes', exc_info=True)
-
-        def update_checkboxes(self):
-            try:
-                if self.tier in [1, "1"]:
-                    item = "tier1_churned_dict"
-                else:
-                    item = "tier2_churned_dict"
-                lst = find_in_redis(item)
-                self.checkbox_group.labels = lst
-                logger.warning("CHECKBOX LIST:%s", lst)
-            except Exception:
-
-                logger.error('update checkboxes', exc_info=True)
 
         def make_button(self,label):
             try:
@@ -152,6 +129,41 @@ def tier2_miner_churn_predictive_tab():
                 return selector
             except Exception:
                 logger.error('make selector', exc_info=True)
+
+
+        def results_div(self, text, width=600, height=300):
+            div = Div(text=text, width=width, height=height)
+            return div
+
+        def title_div(self, text, width=700):
+            text = '<h2 style="color:green;">{}</h2>'.format(text)
+            return Div(text=text, width=width, height=15)
+
+            # show checkbox list of reference periods produced by the churn tab
+
+        def make_checkboxes(self):
+            try:
+                # make list of
+                self.checkbox_group = CheckboxGroup(labels=[],
+                                                    active=[])
+                self.update_checkboxes()
+            except Exception:
+                logger.error('make checkboxes', exc_info=True)
+
+        def update_checkboxes(self):
+            try:
+                if self.tier in [1, "1"]:
+                    item = "tier1_churned_dict"
+                else:
+                    item = "tier2_churned_dict"
+                lst = find_in_redis(item)
+                self.checkbox_group.labels = lst
+                if len(lst) > 0:
+                    self.checkbox_group.active = [0]
+                logger.warning("CHECKBOX LIST:%s", lst)
+            except Exception:
+                logger.error('update checkboxes', exc_info=True)
+
 
         # PLOTS
         def box_plot(self, variable='approx_value', launch=False):
@@ -188,8 +200,10 @@ def tier2_miner_churn_predictive_tab():
 
         def prediction_table(self,launch=-1):
             try:
+
                 logger.warning("LOAD DATA FLAG in prediction table:%s",self.load_data_flag)
                 self.make_predictions()
+
                 return self.predict_df.hvplot.table(columns=['address', 'likely...'],
                                     width=600,height=1200)
             except Exception:
@@ -221,7 +235,7 @@ def tier2_miner_churn_predictive_tab():
     def update_start_date(attr,old,new):
         thistab.notification_updater('updating start date')
         thistab.start_date = datepicker_start.value
-        thistab.notification_updater("")
+        thistab.notification_updater("ready")
 
     def update_end_date(attr,old,new):
         thistab.notification_updater('updating end date')
@@ -304,12 +318,12 @@ def tier2_miner_churn_predictive_tab():
             datepicker_end,
             thistab.prediction_address_select,
             reset_prediction_address_button
-            )
+        )
 
         grid = gridplot([[thistab.notification_div],
                          [model_controls, thistab.spacing_div, thistab.desc_load_data_div, thistab.desc_hypothesis_div],
                          [plot.state, hypothesis_table.state],
-                         [predict_controls, thistab.desc_prediction_div],
+                         [predict_controls,thistab.desc_prediction_div],
                          [prediction_table.state, thistab.metrics_div]
                         ])
 
@@ -319,7 +333,7 @@ def tier2_miner_churn_predictive_tab():
 
     except Exception:
         logger.error('rendering err:',exc_info=True)
-        text = 'Tier '+str(2)+'miner_predictive_model'
+        text = 'Tier '+str(2)+' miner churn'
         return tab_error_flag(text)
 
 

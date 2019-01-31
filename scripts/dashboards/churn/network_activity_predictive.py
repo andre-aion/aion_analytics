@@ -24,7 +24,7 @@ from scripts.utils.myutils import datetime_to_date
 from scripts.utils.modeling.churn.miner_churn_predictive_tab import MinerChurnPredictiveTab
 
 from tornado.gen import coroutine
-from config.df_construct_config import load_columns as columns
+from config.df_construct_config import load_columns as columns, table_dict
 
 from operator import itemgetter
 import pandas as pd
@@ -57,15 +57,15 @@ def network_activity_predictive_tab():
     class Thistab(MytabNetworkActivity):
         def __init__(self,table,cols,dedup_cols):
             MytabNetworkActivity.__init__(self, table, cols, dedup_cols)
-            self.table = 'miner_activity'
-            self.cols = cols[self.table]
+            self.table = table
+            self.cols = cols
             self.DATEFORMAT = "%Y-%m-%d"
             self.df = None
             self.rf = {}  # random forest
             self.cl = PythonClickhouse('aion')
             self.feature_list = hyp_variables
-            self.targets = ['tier1_retained_diff', 'tier2_retained_diff',
-                            'tier1_churned_diff', 'tier2_churned_diff']
+            self.targets = ['from_addr_retained_diff', 'to_addr_retained_diff',
+                            'from_addr_churned_diff', 'to_addr_churned_diff']
 
             self.pl = {}
             self.div_style = """ style='width:300px; margin-left:25px;
@@ -141,8 +141,8 @@ def network_activity_predictive_tab():
             try:
                 if len(self.df) > 0:
                     df = self.df.compute()
-                    for col in ['tier1_new','tier1_churned','tier1_retained',
-                                'tier2_new', 'tier2_churned', 'tier2_retained']:
+                    for col in ['from_addr_new','from_addr_churned','from_addr_retained',
+                                'to_addr_new', 'to_addr_churned', 'to_addr_retained']:
                         col_new = col +'_diff'
                         df[col_new] = df[col].pct_change()
                         df[col_new] = df[col_new].fillna(0)
@@ -291,7 +291,7 @@ def network_activity_predictive_tab():
 
 
 
-        def make_tree(self,target='tier1_churned_diff'):
+        def make_tree(self,target='from_addr_churned_diff'):
             try:
                 if not self.pl:
                     self.rf_table()
@@ -390,7 +390,7 @@ def network_activity_predictive_tab():
         def tree_div(self, width=1000, height=600, path='/static/images/small_tree.png'):
             self.make_tree()
             txt = """
-            <h3 {}> A decision tree for tier1 churn: </h3>
+            <h3 {}> A decision tree for from_addr churn: </h3>
             <img src='../../../static/small_tree.png' />
             """.format(self.header_style)
             return Div(text=txt,width=width,height=height)
@@ -404,15 +404,17 @@ def network_activity_predictive_tab():
 
     try:
         # SETUP
-        this_tab = Thistab('miner_activity',columns,[])
+        table = 'network_activity'
+        cols = list(table_dict[table].keys())
+        this_tab = Thistab(table,cols,[])
         this_tab.load_df()
-        cols1 = ['tier1_new','tier1_churned']
-        cols2 = ['tier2_new', 'tier2_churned']
-        cols3 = ['tier1_new', 'tier1_churned','day_of_week']
-        cols4 = ['tier2_new', 'tier2_churned', 'day_of_week']
+        cols1 = ['from_addr_new','from_addr_churned']
+        cols2 = ['to_addr_new', 'to_addr_churned']
+        cols3 = ['from_addr_new', 'from_addr_churned','day_of_week']
+        cols4 = ['to_addr_new', 'to_addr_churned', 'day_of_week']
 
-        cols1_diff = ['tier1_retained_diff', 'tier1_churned_diff']
-        cols2_diff = ['tier2_retained_diff', 'tier2_churned_diff']
+        cols1_diff = ['from_addr_retained_diff', 'from_addr_churned_diff']
+        cols2_diff = ['to_addr_retained_diff', 'to_addr_churned_diff']
 
         # setup dates
         first_date_range = datetime.strptime("2018-04-23 00:00:00", "%Y-%m-%d %H:%M:%S")
@@ -466,16 +468,16 @@ def network_activity_predictive_tab():
         features_table = renderer.get_plot(hv_features_table)
 
         # split by dow
-        hv_dow1= hv.DynamicMap(this_tab.dow(cols3,'tier1_churned'))
+        hv_dow1= hv.DynamicMap(this_tab.dow(cols3,'from_addr_churned'))
         dow1 = renderer.get_plot(hv_dow1)
 
-        hv_dow2 = hv.DynamicMap(this_tab.dow(cols4,'tier2_churned'))
+        hv_dow2 = hv.DynamicMap(this_tab.dow(cols4,'to_addr_churned'))
         dow2 = renderer.get_plot(hv_dow2)
 
-        hv_dow3 = hv.DynamicMap(this_tab.dow(cols3,'tier1_new'))
+        hv_dow3 = hv.DynamicMap(this_tab.dow(cols3,'from_addr_new'))
         dow3 = renderer.get_plot(hv_dow3)
 
-        hv_dow4 = hv.DynamicMap(this_tab.dow(cols4,'tier2_new'))
+        hv_dow4 = hv.DynamicMap(this_tab.dow(cols4,'to_addr_new'))
         dow4 = renderer.get_plot(hv_dow4)
 
 
