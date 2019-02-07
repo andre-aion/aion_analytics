@@ -172,14 +172,14 @@ def account_activity_predictive_tab():
             # normalize columns by number of days under consideration
             df = self.normalize(df)
             df = df.groupby([self.interest_var]).agg({
-                'approx_value': 'mean',
+                'value': 'mean',
                 'block_nrg_consumed': 'mean',
                 'transaction_nrg_consumed': 'mean',
                 'difficulty': 'mean',
                 'nrg_limit': 'mean',
                 'block_size': 'mean',
                 'block_time': 'mean',
-                'approx_nrg_reward': 'mean'
+                'nrg_reward': 'mean'
             }).compute()
 
             df = df.reset_index()

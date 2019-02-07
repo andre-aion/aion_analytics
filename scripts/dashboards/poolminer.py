@@ -37,19 +37,19 @@ def poolminer_tab():
     # source for top N table
     tier2_src = ColumnDataSource(data= dict(
                 to_addr=[],
-                approx_value=[]))
+                value=[]))
 
     tier1_src = ColumnDataSource(data=dict(
         from_addr=[],
         block_number=[],
-        approx_value=[]))
+        value=[]))
 
     block_cols = ['transaction_hashes', 'block_timestamp', 'miner_address', 'block_number']
     transaction_cols = ['block_timestamp',
                         'transaction_hash', 'from_addr',
-                        'to_addr', 'approx_value']
+                        'to_addr', 'value']
     warehouse_cols = ['block_timestamp', 'block_number', 'to_addr',
-                      'from_addr', 'miner_address', 'approx_value', 'transaction_hash']
+                      'from_addr', 'miner_address', 'value', 'transaction_hash']
 
 
     class Thistab(Mytab):
@@ -84,7 +84,7 @@ def poolminer_tab():
                                                        self.threshold_tx_paid_out,
                                                        self.threshold_blocks_mined)
                 self.df_load(start_date, end_date)
-                values = {'approx_value': 0, 'to_addr': 'unknown',
+                values = {'value': 0, 'to_addr': 'unknown',
                           'from_addr': 'unknown', 'block_number': 0}
                 self.df1 = self.df1.fillna(values)
 
@@ -115,13 +115,13 @@ def poolminer_tab():
                 # load the dataframe
                 self.df1['from_addr'] = self.df1['from_addr'].astype(str)
                 self.tier1_df = self.df1.groupby(['from_addr'])\
-                    .agg({'approx_value':'sum',
+                    .agg({'value':'sum',
                           'block_number':'count'}).reset_index()
                 self.tier1_df = self.tier1_df[self.tier1_df.from_addr.isin(tier1_miners_list)]
 
 
                 # for csv export
-                values = {'approx_value': 0, 'from_addr': 'unknown',
+                values = {'value': 0, 'from_addr': 'unknown',
                           'block_number': 0}
 
                 self.tier1_df = self.tier1_df.fillna(values)
@@ -133,7 +133,7 @@ def poolminer_tab():
                 new_data = {}
                 tier1_df = self.tier1_df.compute()
 
-                for x in ['from_addr', 'approx_value', 'block_number']:
+                for x in ['from_addr', 'value', 'block_number']:
                     if x == 'block_timestamp':
                         tier1_df[x] = tier1_df[x].dt.strftime('%Y-%m-%d')
                     new_data[x] = tier1_df[x].tolist()
@@ -142,13 +142,13 @@ def poolminer_tab():
                 logger.warning("TIER 1 Calculations finished:%s", len(tier1_df.index))
                 columns = [
                     TableColumn(field="from_addr", title="Address"),
-                    TableColumn(field="approx_value", title="Value"),
+                    TableColumn(field="value", title="Value"),
                     TableColumn(field="block_number", title="# of blocks"),
                 ]
                 return DataTable(source=tier1_src,columns=columns,width=600,height=1400)
                 '''
                 return tier1_df.hvplot.table(columns=['miner_address', 'block_timestamp',
-                                                  'block_number', 'approx_value'], width=800)
+                                                  'block_number', 'value'], width=800)
                 '''
                 del new_data
                 del tier1_df
@@ -192,24 +192,24 @@ def poolminer_tab():
                 # load the dataframe
                 self.df1['to_addr'] = self.df1['to_addr'].astype(str)
                 self.tier2_df = self.df1.groupby(['to_addr']) \
-                    .agg({'approx_value': 'sum'}).reset_index()
+                    .agg({'value': 'sum'}).reset_index()
                 self.tier2_df = self.tier2_df[self.tier2_df.to_addr.isin(tier2_miners_list)]
 
                 # for csv export
-                values = {'approx_value': 0, 'to_addr': 'unknown',
+                values = {'value': 0, 'to_addr': 'unknown',
                           'from_addr': 'unknown'}
 
                 self.tier2_df = self.tier2_df.fillna(values)
                 tier2_df = self.tier2_df.compute()
                 new_data={}
-                for x in ['to_addr','approx_value']:
+                for x in ['to_addr','value']:
                     new_data[x] = tier2_df[x].tolist()
 
                 logger.warning("TIER 2 Calculations finished:%s", len(tier2_df.index))
                 tier2_src.stream(new_data, rollover=len(tier2_df))
                 columns = [
                     TableColumn(field="to_addr", title="Address"),
-                    TableColumn(field="approx_value", title="Value"),
+                    TableColumn(field="value", title="Value"),
                 ]
                 del new_data
                 del tier2_df
@@ -305,7 +305,7 @@ def poolminer_tab():
 
         columns = [
             TableColumn(field="from_addr", title="Address"),
-            TableColumn(field="approx_value", title="Value"),
+            TableColumn(field="value", title="Value"),
             TableColumn(field="block_number", title="# of blocks"),
 
         ]
@@ -313,7 +313,7 @@ def poolminer_tab():
 
         columns = [
             TableColumn(field="to_addr", title="Address"),
-            TableColumn(field="approx_value", title="Value"),
+            TableColumn(field="value", title="Value"),
 
         ]
         tier2_table = DataTable(source=tier2_src, columns=columns, width=400, height=1400)

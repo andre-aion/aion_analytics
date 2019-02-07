@@ -43,7 +43,6 @@ def construct_from_redis(key_lst,item_type ='list',df=None,
             end_list = []
             for key in key_lst:
                 # create df if necessary
-                #logger.warning('key for churned load:%s',key)
                 if item_type == 'list':
                     item_loaded = redis.load([], '', '', key, item_type)
                     temp_item.append(item_loaded)
@@ -52,15 +51,18 @@ def construct_from_redis(key_lst,item_type ='list',df=None,
                     #make list of start and end dates from list
 
                     # get key dates
+                    logger.warning('key for churned load:%s',key)
+
                     lst = key.split(':')
-                    req_start_date = datetime.strptime(lst[-2]+' 00:00:00', '%Y-%m-%d %H:%M:%S')
-                    req_end_date = datetime.strptime(lst[-1]+' 00:00:00', '%Y-%m-%d %H:%M:%S')
-                    #req_start_date = datetime.combine(req_start_date, datetime.min.time())
-                    #req_end_date = datetime.combine(req_end_date, datetime.min.time())
+                    if lst[-1] != '':
+                        req_start_date = datetime.strptime(lst[-2]+' 00:00:00', '%Y-%m-%d %H:%M:%S')
+                        req_end_date = datetime.strptime(lst[-1]+' 00:00:00', '%Y-%m-%d %H:%M:%S')
+                        #req_start_date = datetime.combine(req_start_date, datetime.min.time())
+                        #req_end_date = datetime.combine(req_end_date, datetime.min.time())
 
 
-                    start_list.append(req_start_date)
-                    end_list.append(req_end_date)
+                        start_list.append(req_start_date)
+                        end_list.append(req_end_date)
 
             tab = Mytab('block_tx_warehouse', cols['block_tx_warehouse']['churn'], [])
             if len(start_list) > 0:
@@ -93,17 +95,19 @@ def extract_data_from_dict(dct_lst, df,tier=1):
                 dataframe_list.append(dct['warehouse'])
                 churned_miners_list = dct['churned_lst']
                 retained_miners_list = dct['retained_lst']
-            # construct the data
-            df = construct_from_redis(dataframe_list,item_type='dataframe',
-                                      table='block_tx_warehouse',df=df)
-        if len(df) > 0:
-            # filter df by the miners
-            lst = list(set(churned_miners_list + retained_miners_list))
-            #logger.warning('miners list from churned:%s',lst)
-            if tier == 1:
-                df = df[df.from_addr.isin(lst)]
-            else:
-                df = df[df.to_addr.isin(lst)]
+            if len(dataframe_list)>0:
+                # construct the data
+                df = construct_from_redis(dataframe_list,item_type='dataframe',
+                                          table='block_tx_warehouse',df=df)
+        if df is not None:
+            if len(df) > 0:
+                # filter df by the miners
+                lst = list(set(churned_miners_list + retained_miners_list))
+                #logger.warning('miners list from churned:%s',lst)
+                if tier == 1:
+                    df = df[df.from_addr.isin(lst)]
+                else:
+                    df = df[df.to_addr.isin(lst)]
         return df, churned_miners_list, retained_miners_list
 
 

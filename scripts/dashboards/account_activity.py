@@ -31,7 +31,7 @@ hv.extension('bokeh', logo=False)
 renderer = hv.renderer('bokeh')
 
 menu_period = ['D','W','M','H']
-menu_event = ['native transfer','token transfer']
+menu_event = ['all','native transfer','token transfer']
 
 @coroutine
 def account_activity_tab():
@@ -70,29 +70,49 @@ def account_activity_tab():
             except Exception:
                 logger.warning('load df',exc_info=True)
 
-        def plot_account_balance(self,launch=-1):
+        def plot_account_activity(self,launch=-1):
             try:
-                logger.warning('before plot:%s',self.df1.tail(10))
+                if self.event == 'all':
+                    df = self.df1[self.df1['value'] >= 0]
+                else:
+                    df = self.df1[(self.df1['value'] >= 0) & (self.df1['event'] == self.event)]
+                df = df.resample(self.period).agg({'value':'sum','address':'count'})
+                df = df.reset_index()
+                df = df.compute()
+                df = df.rename(index=str,columns={'address':'period_activity'})
+
+                df['value_delta(%)'] = df['value'].pct_change(fill_method='ffill')
+                df['value_delta(%)'] = df['value_delta(%)'].multiply(100)
+
+                df['activity_delta(%)'] = df['period_activity'].pct_change(fill_method='ffill')
+                df['activity_delta(%)'] = df['activity_delta(%)'].multiply(100)
+                df = df.fillna(0)
+                df = df.rename(index=str,columns={'value':'amount'})
+                logger.warning('df in balance after resample:%s',df.tail(10))
+
                 # make block_timestamp into index
-                return self.df1.hvplot.line()
+                return df.hvplot.line(x='block_timestamp', y=['amount','period_activity'],
+                                      title='total value, # of transactions')+\
+                       df.hvplot.line(x='block_timestamp', y=['value_delta(%)','activity_delta(%)'],
+                                      title='# of transactions')
+                # make block_timestamp into index
             except Exception:
                 logger.warning('load df',exc_info=True)
 
         def plot_account_joined(self, launch=-1):
             try:
-                df = self.df1[(self.df1['activity'] == 'joined') & (self.df1['event'] == self.event)]
+                if self.event == 'all':
+                    df = self.df1[self.df1['activity'] == 'joined']
+                else:
+                    df = self.df1[(self.df1['activity'] == 'joined') & (self.df1['event'] == self.event)]
 
                 df = df.resample(self.period).agg({'activity':'count'})
-
-                logger.warning('df after resample:%s',df.tail(10))
 
                 df = df.reset_index()
                 df = df.compute()
                 df['perc_change'] = df['activity'].pct_change(fill_method='ffill')
                 df.perc_change = df.perc_change.multiply(100)
                 df = df.fillna(0)
-                #df = self.clean_data(df)
-                #df1 = self.clean_data(df1)
 
                 # make block_timestamp into index
                 return df.hvplot.line(x='block_timestamp',y=['activity'],value_label='# joined',
@@ -104,11 +124,12 @@ def account_activity_tab():
 
         def plot_account_churned(self, launch=-1):
             try:
-                df = self.df1[(self.df1['activity'] == 'churned') & (self.df1['event'] == self.event)]
+                if self.event == 'all':
+                    df = self.df1[self.df1['activity'] == 'churned']
+                else:
+                    df = self.df1[(self.df1['activity'] == 'churned') & (self.df1['event'] == self.event)]
 
                 df = df.resample(self.period).agg({'activity': 'count'})
-
-                logger.warning('df after resample:%s', df.tail(10))
 
                 df = df.reset_index()
                 df = df.compute()
@@ -116,7 +137,6 @@ def account_activity_tab():
                 df.perc_change = df.perc_change.multiply(100)
                 df = df.fillna(0)
                 # df = self.clean_data(df)
-                # df1 = self.clean_data(df1)
 
                 # make block_timestamp into index
                 return df.hvplot.line(x='block_timestamp', y=['activity'], value_label='# churned',
@@ -183,8 +203,8 @@ def account_activity_tab():
         period_select = Select(title='Select aggregation period',
                                value='day',
                                options=menu_period)
-        event_select = Select(title='Select aggregation period',
-                               value='native transfer',
+        event_select = Select(title='Select transfer type',
+                               value='all',
                                options=menu_event)
 
         # --------------------- PLOTS----------------------------------
@@ -194,9 +214,13 @@ def account_activity_tab():
         hv_account_churned = hv.DynamicMap(thistab.plot_account_churned,
                                           streams=[stream_launch],
                                           datashade=True).opts(plot=dict(width=1200, height=400))
+        hv_account_activity = hv.DynamicMap(thistab.plot_account_activity,
+                                           streams=[stream_launch],
+                                           datashade=True).opts(plot=dict(width=1200, height=400))
 
         account_joined = renderer.get_plot(hv_account_joined)
         account_churned = renderer.get_plot(hv_account_churned)
+        account_activity = renderer.get_plot(hv_account_activity)
 
 
         # handle callbacks
@@ -209,19 +233,21 @@ def account_activity_tab():
 
         # COMPOSE LAYOUT
         # put the controls in a single element
-        controls = WidgetBox(
+        controls_left = WidgetBox(
             datepicker_start,
-            datepicker_end,
-            period_select,
-            event_select)
+            period_select)
 
+        controls_right = WidgetBox(
+            datepicker_end,
+            event_select)
 
         # create the dashboards
         grid = gridplot([
             [thistab.notification_div],
-             [controls],
+            [controls_left, controls_right],
             [account_joined.state],
-            [account_churned.state]
+            [account_churned.state],
+            [account_activity.state]
             ])
 
         # Make a tab with the layout

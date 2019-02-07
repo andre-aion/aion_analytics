@@ -1,7 +1,10 @@
+from scipy import stats
+
 from scripts.utils.modeling.churn.miner_predictive_methods import find_in_redis
 from scripts.utils.mylogger import mylogger
 from scripts.utils.modeling.churn.miner_churn_predictive_tab import MinerChurnPredictiveTab
 from scripts.utils.myutils import tab_error_flag
+from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
@@ -17,6 +20,7 @@ import holoviews as hv
 from tornado.gen import coroutine
 from config.df_construct_config import load_columns
 import dask.dataframe as dd
+import pandas as pd
 
 
 lock = Lock()
@@ -166,18 +170,25 @@ def tier2_miner_churn_predictive_tab():
 
 
         # PLOTS
-        def box_plot(self, variable='approx_value', launch=False):
+        def box_plot(self, variable='value', launch=False):
             try:
                 # logger.warning("difficulty:%s", self.df.tail(30))
                 # get max value of variable and multiply it by 1.1
-                min, max = dd.compute(self.df_grouped[variable].min(),
-                                      self.df_grouped[variable].max())
+                minv = 0
+                maxv = 0
+                if self.df_grouped is not None:
+                    if len(self.df_grouped) > 0:
+                        minv, maxv = dd.compute(self.df_grouped[variable].min(),
+                                              self.df_grouped[variable].max())
+                else:
+                    self.df_grouped = SD('filler', [variable, 'churned_verbose'], []).get_df()
+
                 return self.df_grouped.hvplot.box(variable, by='churned_verbose',
-                                                  ylim=(.9 * min, 1.1 * max))
+                                                  ylim=(.9 * minv, 1.1 * maxv))
             except Exception:
                 logger.error("box plot:", exc_info=True)
 
-        def bar_plot(self, variable='approx_value', launch=False):
+        def bar_plot(self, variable='value', launch=False):
             try:
                 # logger.warning("difficulty:%s", self.df.tail(30))
                 # get max value of variable and multiply it by 1.1
@@ -187,7 +198,7 @@ def tier2_miner_churn_predictive_tab():
             except Exception:
                 logger.error("box plot:", exc_info=True)
 
-        def hist(self, variable='approx_value'):
+        def hist(self, variable='value'):
             try:
                 # logger.warning("difficulty:%s", self.df.tail(30))
                 # get max value of variable and multiply it by 1.1
@@ -208,6 +219,43 @@ def tier2_miner_churn_predictive_tab():
                                     width=600,height=1200)
             except Exception:
                 logger.error("prediction table:", exc_info=True)
+
+        def hypothesis_table(self, launch=False):
+            try:
+                p_value = []
+                impactful = []
+                hyp_variables =  []
+                if self.df1 is not None:
+                    if len(self.df1) > 0:
+                        hyp_variables = self.hyp_variables
+                        for variable in self.hyp_variables:
+                            try:
+                                self.dask_array = {
+                                    'churned': self.convert_to_array(self.df1, 'churned', variable),
+                                    'retained': self.convert_to_array(self.df1, 'retained', variable)
+                                }
+
+                                c = self.dask_array['churned']
+                                d = self.dask_array['retained']
+                                s, p = stats.kruskal(c, d)
+                                res = 'yes' if p < 0.05 else 'no'
+                                p_value.append(p)
+                                impactful.append(res)
+                                logger.warning("%s test completed", variable)
+                            except Exception:
+                                logger.error('hypothesis table', exc_info=True)
+
+                df = pd.DataFrame({
+                    'variable': hyp_variables,
+                    'p-value': p_value,
+                    'impact churn?': impactful
+                })
+                logger.warning("end of hypothesis test")
+
+                return df.hvplot.table(columns=['variable', 'p-value', 'impact churn?'],
+                                       width=450)
+            except Exception:
+                logger.error("hypothesis table:", exc_info=True)
 
 
     def update_model():
@@ -254,11 +302,10 @@ def tier2_miner_churn_predictive_tab():
         last_date_range = datetime.now().date()
         first_date = datetime.strptime("2018-12-15 00:00:00", '%Y-%m-%d %H:%M:%S')
         #last_date = datetime.now().date()
-        last_date = datetime.strptime("2018-12-30 00:00:00", '%Y-%m-%d %H:%M:%S')
 
         stream_update_reference_data = streams.Stream.define('Launch',launch=True)()
         stream_select_variable = streams.Stream.define('Select_variable',
-                                                    variable='approx_value')()
+                                                    variable='value')()
         stream_launch_prediction = streams.Stream.define('Launch_predictions',
                                                          launch=0)()
 
@@ -270,7 +317,7 @@ def tier2_miner_churn_predictive_tab():
 
         refresh_checkbox_button = thistab.make_button('Refresh checkboxes')
 
-        thistab.select_variable = thistab.make_selector('Choose variable','approx_value')
+        thistab.select_variable = thistab.make_selector('Choose variable','value')
         update_data_button = thistab.make_button('Update data')
         launch_predict_button = Button(label='Make predictions for ...',button_type="success")
         reset_prediction_address_button = thistab.make_button('reset checkboxes')

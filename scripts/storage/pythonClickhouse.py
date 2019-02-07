@@ -198,9 +198,9 @@ class PythonClickhouse:
             messages = list(zip(df['block_number'],df['block_timestamp'],df['transaction_hash'],df['miner_address'],
             df['total_difficulty'],df['difficulty'],
             df['block_nrg_consumed'],df['nrg_limit'],df['num_transactions'],
-            df['block_size'],df['block_time'],df['approx_nrg_reward'],df['block_year'],df['block_month'],
+            df['block_size'],df['block_time'],df['nrg_reward'],df['block_year'],df['block_month'],
             df['block_day'],df['from_addr'],
-            df['to_addr'],df['approx_value'],df['transaction_nrg_consumed'],df['nrg_price']))
+            df['to_addr'],df['value'],df['transaction_nrg_consumed'],df['nrg_price']))
 
             self.insert(table,cols[table],messages)
             logger.warning("AFTER SAVE PANDAS DF")

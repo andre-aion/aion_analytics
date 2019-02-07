@@ -44,8 +44,8 @@ executor = ThreadPoolExecutor()
 logger = mylogger(__file__)
 
 hv.extension('bokeh', logo=False)
-hyp_variables = ['block_nrg_consumed', 'transaction_nrg_consumed', 'approx_value',
-                 'difficulty','nrg_limit', 'block_size', 'approx_nrg_reward'
+hyp_variables = ['block_nrg_consumed', 'transaction_nrg_consumed', 'value',
+                 'difficulty','nrg_limit', 'block_size', 'nrg_reward'
                 ]
 
 class ChurnedPredictiveTab:
@@ -204,14 +204,14 @@ class ChurnedPredictiveTab:
     def group_data(self, df):
         meta = {
 
-            'approx_value': 'float',
+            'value': 'float',
             'block_nrg_consumed': 'int',
             'transaction_nrg_consumed': 'int',
             'difficulty': 'int',
             'nrg_limit': 'int',
             'block_size': 'int',
             'block_time': 'int',
-            'approx_nrg_reward': 'float',
+            'nrg_reward': 'float',
         }
 
         for key, value in meta.items():
@@ -220,14 +220,14 @@ class ChurnedPredictiveTab:
         # normalize columns by number of days under consideration
         df = self.normalize(df)
         df = df.groupby([self.interest_var]).agg({
-            'approx_value': 'mean',
+            'value': 'mean',
             'block_nrg_consumed': 'mean',
             'transaction_nrg_consumed': 'mean',
             'difficulty': 'mean',
             'nrg_limit': 'mean',
             'block_size': 'mean',
             'block_time': 'mean',
-            'approx_nrg_reward': 'mean'
+            'nrg_reward': 'mean'
         }).compute()
 
         df = df.reset_index()
@@ -340,7 +340,7 @@ class ChurnedPredictiveTab:
 
 
     # PLOTS
-    def box_plot(self,variable='approx_value',launch=False):
+    def box_plot(self,variable='value',launch=False):
         try:
             #logger.warning("difficulty:%s", self.df.tail(30))
             #get max value of variable and multiply it by 1.1
@@ -351,7 +351,7 @@ class ChurnedPredictiveTab:
         except Exception:
             logger.error("box plot:",exc_info=True)
 
-    def bar_plot(self, variable='approx_value', launch=False):
+    def bar_plot(self, variable='value', launch=False):
         try:
             # logger.warning("difficulty:%s", self.df.tail(30))
             # get max value of variable and multiply it by 1.1
@@ -361,7 +361,7 @@ class ChurnedPredictiveTab:
         except Exception:
             logger.error("box plot:", exc_info=True)
 
-    def hist(self,variable='approx_value'):
+    def hist(self,variable='value'):
         try:
             # logger.warning("difficulty:%s", self.df.tail(30))
             # get max value of variable and multiply it by 1.1

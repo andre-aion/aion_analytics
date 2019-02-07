@@ -49,8 +49,8 @@ executor = ThreadPoolExecutor()
 logger = mylogger(__file__)
 
 hv.extension('bokeh', logo=False)
-hyp_variables = ['block_nrg_consumed', 'transaction_nrg_consumed', 'approx_value',
-                 'difficulty','nrg_limit', 'block_size', 'approx_nrg_reward'
+hyp_variables = ['block_nrg_consumed', 'transaction_nrg_consumed', 'value',
+                 'difficulty','nrg_limit', 'block_size', 'nrg_reward'
                 ]
 
 class MinerChurnPredictiveTab:
@@ -126,14 +126,14 @@ class MinerChurnPredictiveTab:
     def group_data(self, df):
         meta = {
 
-            'approx_value': 'float',
+            'value': 'float',
             'block_nrg_consumed': 'int',
             'transaction_nrg_consumed': 'int',
             'difficulty': 'int',
             'nrg_limit': 'int',
             'block_size': 'int',
             'block_time': 'int',
-            'approx_nrg_reward': 'float',
+            'nrg_reward': 'float',
         }
 
         for key, value in meta.items():
@@ -142,14 +142,14 @@ class MinerChurnPredictiveTab:
         # normalize columns by number of days under consideration
         df = self.normalize(df)
         df = df.groupby([self.interest_var]).agg({
-            'approx_value': 'mean',
+            'value': 'mean',
             'block_nrg_consumed': 'mean',
             'transaction_nrg_consumed': 'mean',
             'difficulty': 'mean',
             'nrg_limit': 'mean',
             'block_size': 'mean',
             'block_time': 'mean',
-            'approx_nrg_reward': 'mean'
+            'nrg_reward': 'mean'
         }).compute()
 
         df = df.reset_index()
@@ -199,14 +199,16 @@ class MinerChurnPredictiveTab:
                 self.df, self.churned_list, self.retained_list = extract_data_from_dict(
                     dict_lst, self.df, tier=self.tier)
 
-                self.df = self.df.fillna(0)
-                self.df_grouped = self.group_data(self.df)
-                # make list of address for prediction select
-                self.address_list = ['all']+self.df_grouped[self.interest_var].unique().tolist()
-                self.df_grouped = self.label_churned_retained(self.df_grouped)
-                self.df_grouped = self.label_churned_verbose(self.df_grouped)
-                self.split_df(self.df_grouped)
-                self.load_data_flag = False
+                if self.df is not None:
+                    if len(self.df) > 0:
+                        self.df = self.df.fillna(0)
+                        self.df_grouped = self.group_data(self.df)
+                        # make list of address for prediction select
+                        self.address_list = ['all']+self.df_grouped[self.interest_var].unique().tolist()
+                        self.df_grouped = self.label_churned_retained(self.df_grouped)
+                        self.df_grouped = self.label_churned_verbose(self.df_grouped)
+                        self.split_df(self.df_grouped)
+                        self.load_data_flag = False
                 #logger.warning('end of load data:%s', self.df_grouped.tail(5))
 
         except Exception:
@@ -272,38 +274,6 @@ class MinerChurnPredictiveTab:
         except Exception:
             logger.error("convert to dask array:", exc_info=True)
 
-    def hypothesis_table(self, launch=False):
-        try:
-            p_value = []
-            impactful=[]
-            for variable in hyp_variables:
-                try:
-                    self.dask_array = {
-                        'churned': self.convert_to_array(self.df1,'churned', variable),
-                        'retained': self.convert_to_array(self.df1,'retained', variable)
-                    }
-
-                    c = self.dask_array['churned']
-                    d = self.dask_array['retained']
-                    s,p= stats.kruskal(c,d)
-                    res = 'yes' if p < 0.05 else 'no'
-                    p_value.append(p)
-                    impactful.append(res)
-                    logger.warning("%s test completed",variable)
-                except Exception:
-                    logger.error('hypothesis table', exc_info=True)
-
-            df = pd.DataFrame({
-                'variable' : hyp_variables,
-                'p-value': p_value,
-                'impact churn?': impactful
-            })
-            logger.warning("end of hypothesis test")
-
-            return df.hvplot.table(columns=['variable','p-value','impact churn?'],
-                                           width=450)
-        except Exception:
-            logger.error("hypothesis table:", exc_info=True)
 
     def svc(self,launch=False):
         try:
@@ -344,7 +314,7 @@ class MinerChurnPredictiveTab:
 
             acc_text = """
             <div{}>
-            <h4 {}>Predictive accuracy:</h4><strong 'style=color:black;'>{}</strong>"""\
+            <h4 {}>Predictive accuracy:</h4><strong 'style=color:black;padding-top:-10px;'>{}</strong>"""\
                 .format(self.div_acc_style,
                 self.header_style,
                 metrics.accuracy_score(y_test, y_pred))
@@ -363,21 +333,22 @@ class MinerChurnPredictiveTab:
 
     def make_tree(self,clf):
         try:
-            logger.warning("INSIDE TREE SAVED")
-            # Limit depth of tree to 3 levels
-            # Extract the small tree
-            tree_small = clf.estimators_[5]
-            # Save the tree as a png image
-            export_graphviz(tree_small, out_file='small_tree.dot',
-                            feature_names=self.feature_list, rounded=True,
-                            precision=1)
+            if clf is not None:
+                logger.warning("INSIDE TREE SAVED")
+                # Limit depth of tree to 3 levels
+                # Extract the small tree
+                tree_small = clf.estimators_[5]
+                # Save the tree as a png image
+                export_graphviz(tree_small, out_file='small_tree.dot',
+                                feature_names=self.feature_list, rounded=True,
+                                precision=1)
 
-            (graph,) = pydot.graph_from_dot_file('small_tree.dot')
-            # filepath = self.make_filepath('../../../static/images/small_tree.gif')
-            # .write_png(filepath)
-            filepath = make_filepath(path='/home/andre/Downloads/tier1_tree.png')
-            graph.write_png(filepath)
-            logger.warning("TREE SAVED")
+                (graph,) = pydot.graph_from_dot_file('small_tree.dot')
+                # filepath = self.make_filepath('../../../static/images/small_tree.gif')
+                # .write_png(filepath)
+                filepath = make_filepath(path='/home/andre/Downloads/tier1_tree.png')
+                graph.write_png(filepath)
+                logger.warning("TREE SAVED")
 
 
         except Exception:
@@ -394,60 +365,61 @@ class MinerChurnPredictiveTab:
             if not clf:
                 clf = self.rf_clf()
 
-            to_predict_tab = Mytab('block_tx_warehouse', cols=self.cols, dedup_cols=[])
-            to_predict_tab.df = None
-            to_predict_tab.key_tab = 'churn'
-            logger.warning('LOADING PREDICT WAREHOUSE %s : %s',self.start_date,self.end_date)
-            if isinstance(self.end_date,date):
-                mintime = time(00,00,00)
-                self.end_date = datetime.combine(self.end_date,mintime)
-            self.end_date = self.end_date + timedelta(days=1)
-            to_predict_tab.df_load(self.start_date,self.end_date)
-            df = self.group_data(to_predict_tab.df)
-            # filter if prediction for certain addresses necessary
-            address = self.prediction_address_selected
-            logger.warning('line 408 address pre filter:%s',address)
-            if address not in ['all','']:
-                df = df[df[self.interest_var] == address]
+            if clf is not None:
+                to_predict_tab = Mytab('block_tx_warehouse', cols=self.cols, dedup_cols=[])
+                to_predict_tab.df = None
+                to_predict_tab.key_tab = 'churn'
+                logger.warning('LOADING PREDICT WAREHOUSE %s : %s',self.start_date,self.end_date)
+                if isinstance(self.end_date,date):
+                    mintime = time(00,00,00)
+                    self.end_date = datetime.combine(self.end_date,mintime)
+                self.end_date = self.end_date + timedelta(days=1)
+                to_predict_tab.df_load(self.start_date,self.end_date)
+                df = self.group_data(to_predict_tab.df)
+                # filter if prediction for certain addresses necessary
+                address = self.prediction_address_selected
+                logger.warning('line 408 address pre filter:%s',address)
+                if address not in ['all','']:
+                    df = df[df[self.interest_var] == address]
 
-            logger.warning('line 408 predict-df post filter:%s',df.head(20))
+                logger.warning('line 408 predict-df post filter:%s',df.head(20))
 
-            if len(df)>0:
-                # filter df for only tier 1/2 miners
-                tier_miner_lst = list(set(self.churned_list+self.retained_list))
-                df = df[df[self.interest_var].isin(tier_miner_lst)]
-                df[self.interest_var] = df[self.interest_var].map(self.poolname_verbose)
+                if len(df)>0:
+                    # filter df for only tier 1/2 miners
+                    tier_miner_lst = list(set(self.churned_list+self.retained_list))
+                    df = df[df[self.interest_var].isin(tier_miner_lst)]
+                    df[self.interest_var] = df[self.interest_var].map(self.poolname_verbose)
 
-                # run model
-                df = df.fillna(0)
-                X = df.drop([self.interest_var], axis=1)
-                interest_labels = df[self.interest_var].tolist()
-                logger.warning("lengths of df:%s,lst:%s",len(df),len(interest_labels))
-                #logger.warning("df before prediction:%s",X.tail(10))
+                    # run model
+                    df = df.fillna(0)
+                    X = df.drop([self.interest_var], axis=1)
+                    interest_labels = df[self.interest_var].tolist()
+                    logger.warning("lengths of df:%s,lst:%s",len(df),len(interest_labels))
+                    logger.warning("df before prediction:%s",X.tail(10))
 
-                y_pred = clf.predict(X)
-                y_pred_verbose = ['to leave' if x in ["1",1] else "to remain" for x in y_pred]
-                # make table for display
-                self.predict_df = pd.DataFrame({
-                    'address': interest_labels,
-                    'likely...': y_pred_verbose
-                })
-                perc_to_churn = round(100*sum(y_pred)/len(y_pred),1)
-                text = self.metrics_div.text + """
-                <br/> <h3{}>Percentage likely to churn:</h3>
-                <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style,
-                                                                                perc_to_churn)
-                self.metrics_div.text=text
-            else:
-                # make table for display
-                self.predict_df = pd.DataFrame({
-                    'address': [],
-                    'likely...': []
-                })
-                text = self.metrics_div.text + """
-                    <br/> <h3{}>Sorry, address not found</h3>
-                    <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style)
-                self.metrics_div.text = text
+                    y_pred = clf.predict(X)
+                    y_pred_verbose = ['to leave' if x in ["1",1] else "to remain" for x in y_pred]
+                    # make table for display
+                    self.predict_df = pd.DataFrame({
+                        'address': interest_labels,
+                        'likely...': y_pred_verbose
+                    })
+                    perc_to_churn = round(100*sum(y_pred)/len(y_pred),1)
+                    text = self.metrics_div.text + """
+                    <br/> <h3{}>Percentage likely to churn:</h3>
+                    <strong 'style=color:black;padding-top:-10px;'>{}%</strong></div>""".format(self.header_style,
+                                                                                    perc_to_churn)
+                    self.metrics_div.text=text
+                else:
+                    # make table for display
+                    self.predict_df = pd.DataFrame({
+                        'address': [],
+                        'likely...': []
+                    })
+                    text = self.metrics_div.text + """
+                        <br/> <h3{}>Sorry, address not found</h3>
+                        <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style)
+                    self.metrics_div.text = text
             logger.warning("end of predictions")
         except Exception:
             logger.error("prediction:", exc_info=True)

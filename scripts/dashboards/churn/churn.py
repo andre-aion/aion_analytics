@@ -96,7 +96,7 @@ def churn_tab():
 
 
                 # generate the list if necessary
-                values = {'approx_value': 0, 'to_addr': 'unknown',
+                values = {'value': 0, 'to_addr': 'unknown',
                           'from_addr': 'unknown', 'block_number': 0}
                 self.tab[when].df_load(start_date,end_date)
                 self.tab[when].df1 = self.tab[when].df1.fillna(values)

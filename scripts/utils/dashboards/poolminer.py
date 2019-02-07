@@ -74,7 +74,7 @@ def make_warehouse(df_tx, df_block, start_date, end_date, tab='poolminer'):
     logger.warning("df_tx columns in make_poolminer_warehose:%s",df_tx.columns.tolist())
     logger.warning("df_block columns in make_poolminer_warehose:%s",df_block.columns.tolist())
 
-    #df_tx = df_tx[['block_timestamp','transaction_hash','from_addr','to_addr','approx_value']]
+    #df_tx = df_tx[['block_timestamp','transaction_hash','from_addr','to_addr','value']]
     #df_block = df_block[['miner_address','block_number','transaction_hashes']]
     df_block = df_block.drop(['block_timestamp'],axis=1)
 
@@ -93,7 +93,7 @@ def make_warehouse(df_tx, df_block, start_date, end_date, tab='poolminer'):
                                       right_on='transaction_hash')  # do the merge\
         df = df.drop(['transaction_hashes'],axis=1)
 
-        values = {'transaction_hash': 'unknown','approx_value':0,
+        values = {'transaction_hash': 'unknown','value':0,
                   'from_addr':'unknown','to_addr':'unknown','block_number':0}
         df = df.fillna(value=values)
         logger.warning(("merged columns",df.columns.tolist()))
