@@ -1,4 +1,1 @@
-2019-01-31 16:53:57,198 - [logs/tier2_miner_predictive.log:17]=> logs/tier2_miner_predictive.log
-2019-01-31 16:54:09,872 - [logs/tier2_miner_predictive.log:163]=> CHECKBOX LIST:['tier2_churned_dict:3.5:3.5:1:2019-01-15:2019-01-22', 'tier2_churned_dict:0.5:3.5:1:2019-01-15:2019-01-22', 'tier2_churned_dict:0.5:1:1:2019-01-15:2019-01-22', 'tier2_churned_dict:5.0:3.5:1:2019-01-15:2019-01-22']
-2019-01-31 16:54:14,085 - [logs/tier2_miner_predictive.log:127]=> APPROX_VALUE SELECTOR CREATED
-2019-01-31 16:54:14,197 - [logs/tier2_miner_predictive.log:204]=> LOAD DATA FLAG in prediction table:False
+2019-02-06 21:06:32,715 - [logs/tier2_miner_predictive.log:17]=> logs/tier2_miner_predictive.log

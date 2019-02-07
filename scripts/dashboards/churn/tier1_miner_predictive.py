@@ -254,7 +254,6 @@ def tier1_miner_churn_predictive_tab():
         last_date_range = datetime.now().date()
         first_date = datetime.strptime("2018-12-15 00:00:00", '%Y-%m-%d %H:%M:%S')
         #last_date = datetime.now().date()
-        last_date = datetime.strptime("2018-12-30 00:00:00", '%Y-%m-%d %H:%M:%S')
 
         stream_update_reference_data = streams.Stream.define('Launch',launch=True)()
         stream_select_variable = streams.Stream.define('Select_variable',

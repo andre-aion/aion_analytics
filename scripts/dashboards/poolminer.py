@@ -277,7 +277,7 @@ def poolminer_tab():
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = datetime.now().date()
-        first_date = datetime_to_date(last_date - timedelta(days=8))
+        first_date = datetime_to_date(last_date - timedelta(days=30))
 
 
         thistab.load_this_data(first_date,last_date)

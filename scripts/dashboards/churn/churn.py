@@ -326,7 +326,7 @@ def churn_tab():
         last_date_range = datetime.now().date()
 
         # calculate date load ranges
-        range = 8
+        range = 30
         period_last_date = datetime.now()
         period_first_date = datetime_to_date(period_last_date - timedelta(days=range))
         ref_last_date = datetime_to_date(period_last_date - timedelta(days=range+1))

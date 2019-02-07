@@ -1,1 +1,37 @@
-2019-01-31 16:53:57,193 - [logs/account_activity.log:17]=> logs/account_activity.log
+2019-02-06 21:06:32,714 - [logs/account_activity.log:17]=> logs/account_activity.log
+2019-02-06 21:06:37,864 - [logs/account_activity.log:87]=> df after resample:                 activity
+block_timestamp          
+2018-05-04             13
+2019-02-06 21:06:39,225 - [logs/account_activity.log:111]=> df after resample:                 activity
+block_timestamp          
+2018-05-04            242
+2019-02-06 21:06:44,183 - [logs/account_activity.log:87]=> df after resample:                 activity
+block_timestamp          
+2018-05-04            NaN
+2019-02-06 21:06:44,597 - [logs/account_activity.log:111]=> df after resample:                 activity
+block_timestamp          
+2018-05-04            NaN
+2019-02-06 21:06:49,064 - [logs/account_activity.log:87]=> df after resample:                 activity
+block_timestamp          
+2018-05-04             13
+2019-02-06 21:06:49,476 - [logs/account_activity.log:111]=> df after resample:                 activity
+block_timestamp          
+2018-05-04            242
+2019-02-06 21:06:55,285 - [logs/account_activity.log:87]=> df after resample:                 activity
+block_timestamp          
+2018-05-06             67
+2019-02-06 21:06:55,479 - [logs/account_activity.log:111]=> df after resample:                 activity
+block_timestamp          
+2018-05-06            672
+2019-02-06 21:06:57,633 - [logs/account_activity.log:87]=> df after resample:                 activity
+block_timestamp          
+2018-05-31             60
+2019-02-06 21:06:57,796 - [logs/account_activity.log:111]=> df after resample:                 activity
+block_timestamp          
+2018-05-31            562
+2019-02-06 21:07:00,080 - [logs/account_activity.log:87]=> df after resample:                 activity
+block_timestamp          
+2018-05-04             13
+2019-02-06 21:07:00,262 - [logs/account_activity.log:111]=> df after resample:                 activity
+block_timestamp          
+2018-05-04            242

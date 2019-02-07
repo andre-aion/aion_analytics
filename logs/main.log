@@ -1,3 +1,2 @@
-2019-01-31 16:53:58,452 - [logs/main.log:17]=> logs/main.log
-2019-01-31 16:54:09,850 - [logs/main.log:82]=> selections:['blockminer_tab', 'tier2_miner_churn_predictive_tab']
-2019-01-31 16:54:32,010 - [logs/main.log:82]=> selections:['blockminer_tab', 'tier2_miner_churn_predictive_tab', 'network_activity_predictive_tab']
+2019-02-06 21:06:34,326 - [logs/main.log:17]=> logs/main.log
+2019-02-06 21:06:37,602 - [logs/main.log:83]=> selections:['account_activity_tab']

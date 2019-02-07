@@ -21,7 +21,7 @@ from scripts.dashboards.poolminer import poolminer_tab
 from scripts.dashboards.churn.churn import churn_tab
 from scripts.dashboards.churn.tier1_miner_predictive import tier1_miner_churn_predictive_tab
 from scripts.dashboards.churn.tier2_miner_predictive import tier2_miner_churn_predictive_tab
-from scripts.dashboards.churn.network_activity_predictive import network_activity_predictive_tab
+from scripts.dashboards.churn.account_activity_predictive import account_activity_predictive_tab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import tab_error_flag
 
@@ -32,11 +32,12 @@ executor = ThreadPoolExecutor(max_workers=10)
 labels = [
     'blockminer_tab',
     'poolminer_tab',
-    #'account_activity_tab',
+    'account_activity_tab',
+    'account_activity_predictive_tab',
     'churn_tab',
     'tier1_miner_churn_predictive_tab',
     'tier2_miner_churn_predictive_tab',
-    'network_activity_predictive_tab']
+    ]
 
 
 class SelectionTab:
@@ -80,14 +81,17 @@ def aion_analytics(doc):
         def load_callstack():
             lst = selection_tab.get_selections(selection_checkboxes)
             logger.warning('selections:%s',lst)
-            '''
+
             if 'blockminer_tab' in lst:
-                bm = yield blockminer_tab()
-                tablist.append(bm)
-            '''
+                if 'blockiminer_tab' not in selection_tab.selected_tracker:
+                    bm = yield blockminer_tab()
+                    selection_tab.selected_tracker.append('blockminer_tab')
+                    if bm not in selection_tab.tablist:
+                        selection_tab.tablist.append(bm)
+
 
             if 'poolminer_tab' in lst:
-                if 'pooliminer_tab' not in selection_tab.selected_tracker:
+                if 'poolminer_tab' not in selection_tab.selected_tracker:
                     pm = yield poolminer_tab()
                     selection_tab.selected_tracker.append('poolminer_tab')
                     if pm not in selection_tab.tablist:
@@ -114,23 +118,21 @@ def aion_analytics(doc):
                     if mch_2 not in selection_tab.tablist:
                         selection_tab.tablist.append(mch_2)
 
-            if 'network_activity_predictive_tab' in lst:
-                if 'network_activity_predictive_tab' not in selection_tab.selected_tracker:
-                    nap = yield network_activity_predictive_tab()
-                    selection_tab.selected_tracker.append('network_activity_predictive_tab')
-                    if nap not in selection_tab.tablist:
-                        selection_tab.tablist.append(nap)
+            if 'account_activity_predictive_tab' in lst:
+                if 'account_activity_predictive_tab' not in selection_tab.selected_tracker:
+                    aap = yield account_activity_predictive_tab()
+                    selection_tab.selected_tracker.append('account_activity_predictive_tab')
+                    if aap not in selection_tab.tablist:
+                        selection_tab.tablist.append(aap)
 
-            """
             if 'account_activity_tab' in lst:
                 if 'account_activity_tab' not in selection_tab.selected_tracker:
                     aa = yield account_activity_tab()
                     selection_tab.selected_tracker.append('account_activity_tab')
                     if aa not in selection_tab.tablist:
                         selection_tab.tablist.append(aa)
-            """
 
-            #make list unique
+            # make list unique
             selection_tab.tablist = list(set(selection_tab.tablist))
             TABS.update(tabs=selection_tab.tablist)
 
@@ -165,7 +167,7 @@ def aion_analytics(doc):
                                                 <h1 style="color:#fff;">
                                                 {}</h1></div>""".format('Welcome to Aion Data Science Portal')
         notification_div = Div(text=txt,width=1200,height=20)
-        selection_checkboxes = CheckboxGroup(labels=labels, active=[0])
+        selection_checkboxes = CheckboxGroup(labels=labels, active=[2])
         run_button = Button(label='Launch tabs', button_type="success")
         run_button.on_click(select_tabs)
 
@@ -179,10 +181,7 @@ def aion_analytics(doc):
         ])
         mgmt = Panel(child=grid, title='Tab Selection')
 
-        bm = yield blockminer_tab()
         selection_tab.tablist.append(mgmt)
-        selection_tab.tablist.append(bm)
-        selection_tab.selected_tracker.append('blockminer_tab')
         TABS.update(tabs=selection_tab.tablist)
         #tabs.on_change()
         doc.add_root(TABS)
@@ -196,8 +195,8 @@ def launch_server():
     try:
         apps = {"/aion-analytics": Application(FunctionHandler(aion_analytics))}
         io_loop = IOLoop.current()
-        server = Server(apps,port=5006,allow_websocket_origin=["*:8080","*:5006"],io_loop=io_loop,
-                        session_ids='unsigned', host="*")
+        server = Server(apps,port=5006, allow_websocket_origin=["*"],io_loop=io_loop,
+                        session_ids='signed',relative_urls=False)
         server.start()
         server.io_loop.add_callback(server.show, '/aion-analytics')
         server.io_loop.start()

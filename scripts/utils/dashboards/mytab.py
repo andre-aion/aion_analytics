@@ -123,7 +123,11 @@ class Mytab:
                 return x[0:10]
         return x
 
-
+    def notification_updater(self, text):
+        txt = """<div style="text-align:center;background:black;width:100%;">
+                <h4 style="color:#fff;">
+                {}</h4></div>""".format(text)
+        self.notification_div.text = txt
 
     # ######################################################
 

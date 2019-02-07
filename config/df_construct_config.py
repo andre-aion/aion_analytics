@@ -111,59 +111,33 @@ columns['checkpoint'] = ['table','column','offset','timestamp']
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # WHEN JOINED, WHEN CHURNED
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-table_dict['network_activity'] = {
+table_dict['account_activity_churn'] = {
     'block_timestamp': 'Date',
-    'from_addr_new_lst': 'String',
-    'from_addr_churned_lst':'String',
-    'from_addr_retained_lst':'String',
-    'from_addr_active_lst':'String',
-    'from_addr_new': 'UInt64',
-    'from_addr_churned':'UInt64',
-    'from_addr_retained':'UInt64',
-    'from_addr_active':'UInt64',
-    'to_addr_new_lst': 'String',
-    'to_addr_churned_lst':'String',
-    'to_addr_retained_lst':'String',
-    'to_addr_active_lst':'String',
-    'to_addr_new': 'UInt64',
-    'to_addr_churned':'UInt64',
-    'to_addr_retained':'UInt64',
-    'to_addr_active':'UInt64',
+    'new_lst': 'String',
+    'churned_lst':'String',
+    'retained_lst':'String',
+    'active_lst':'String',
+    'new': 'UInt64',
+    'churned':'UInt64',
+    'retained':'UInt64',
+    'active':'UInt64',
+    'value': 'Float64',
+    'value_counts':'UInt64',
     'block_size': 'Float64',
     'block_time': 'Float64',
     'difficulty': 'Float64',
     'nrg_limit': 'Float64',
-    'approx_nrg_reward': 'Float64',
+    'nrg_reward': 'Float64',
     'num_transactions': 'Float64',
     'block_nrg_consumed': 'Float64',
     'transaction_nrg_consumed': 'Float64',
     'nrg_price': 'Float64',
-    'approx_value': 'Float64',
     'block_year': 'UInt16',
     'block_month': 'UInt16',
     'block_day':'UInt16',
-    'day_of_week':'String'
+    'day_of_week':'String',
+
 }
-
-columns['network_activity'] = [
-    'block_timestamp',
-    'from_addr_new_lst', 'from_addr_churned_lst', 'from_addr_retained_lst', 'from_addr_active_lst',
-    'from_addr_new','from_addr_churned','from_addr_retained','from_addr_active',
-    'to_addr_new_lst','to_addr_churned_lst','to_addr_retained_lst', 'to_addr_active_lst',
-    'to_addr_new', 'to_addr_churned', 'to_addr_retained', 'to_addr_active',
-    'block_size', 'block_time','difficulty', 'nrg_limit',
-    'approx_nrg_reward' , 'num_transactions','block_nrg_consumed','nrg_price',
-    'approx_value', 'transaction_nrg_consumed',
-    'block_year','block_month', 'block_day', 'day_of_week']
-
-load_columns['network_activity'] = [
-    'block_timestamp',
-    'tier1_new', 'tier1_churned', 'tier1_retained','tier1_active',
-    'tier2_new', 'tier2_churned', 'tier2_retained','tier2_active',
-    'block_size', 'block_time','difficulty', 'nrg_limit',
-    'approx_nrg_reward' , 'num_transactions','block_nrg_consumed','nrg_price',
-    'approx_value', 'transaction_nrg_consumed','day_of_week']
-
 
 table_dict['account_activity'] = {
     'activity':'String',

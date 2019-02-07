@@ -21,7 +21,7 @@ class DataLocation(Enum):
     IN_CONSTRUCTION = 4
 
 
-class MytabNetworkActivity:
+class MytabAccountActivity:
     def __init__(self, table, cols, dedup_cols):
         self.table = table
         self.load_params = dict()

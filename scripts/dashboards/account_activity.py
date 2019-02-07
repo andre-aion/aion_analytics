@@ -30,7 +30,8 @@ logger = mylogger(__file__)
 hv.extension('bokeh', logo=False)
 renderer = hv.renderer('bokeh')
 
-menu_period = ['D','W','H''M']
+menu_period = ['D','W','M','H']
+menu_event = ['native transfer','token transfer']
 
 @coroutine
 def account_activity_tab():
@@ -40,6 +41,7 @@ def account_activity_tab():
             self.table = table
             self.cols = cols
             self.period = menu_period[0]
+            self.event = menu_event[0]
             self.trigger = 0
             txt = """<div style="text-align:center;background:black;width:100%;">
                                                                <h1 style="color:#fff;">
@@ -47,7 +49,7 @@ def account_activity_tab():
             self.notification_div = Div(text=txt,width=1400,height=20)
 
         def clean_data(self, df):
-            df.fillna(0, inplace=True)
+            df = df.fillna(0)
             df[df == -inf] = 0
             df[df == inf] = 0
             return df
@@ -55,30 +57,81 @@ def account_activity_tab():
         def load_df(self,start_date, end_date):
             try:
                 # make block_timestamp into index
-                self.df_load(start_date,end_date)
-                #self.df1 = self.df1.groupby(['block_timestamp','address']).agg({'value':'sum'})
-                #self.df1 = self.df1.reset_index()
-                self.df1 = self.df1.set_index('block_timestamp',sorted=True)
-                self.df1 = self.df1.resample(self.period).sum()
-                self.df1 = self.df1.compute()
-                #self.df1 = self.df1.pct_change(fill_method='ffill')
-                self.df1 = self.clean_data(self.df1)
+                self.df_load(start_date, end_date)
+                #logger.warning('df loaded:%s',self.df.head())
+            except Exception:
+                logger.warning('load df',exc_info=True)
+
+        def prep_data(self):
+            try:
+                # make block_timestamp into index
+                self.df1 = self.df.set_index('block_timestamp',sorted=True)
 
             except Exception:
                 logger.warning('load df',exc_info=True)
 
         def plot_account_balance(self,launch=-1):
             try:
-                logger.warning('before plot:%s',self.df1.tail(60))
+                logger.warning('before plot:%s',self.df1.tail(10))
                 # make block_timestamp into index
-                return self.df1.hvplot.bar()
+                return self.df1.hvplot.line()
             except Exception:
                 logger.warning('load df',exc_info=True)
+
+        def plot_account_joined(self, launch=-1):
+            try:
+                df = self.df1[(self.df1['activity'] == 'joined') & (self.df1['event'] == self.event)]
+
+                df = df.resample(self.period).agg({'activity':'count'})
+
+                logger.warning('df after resample:%s',df.tail(10))
+
+                df = df.reset_index()
+                df = df.compute()
+                df['perc_change'] = df['activity'].pct_change(fill_method='ffill')
+                df.perc_change = df.perc_change.multiply(100)
+                df = df.fillna(0)
+                #df = self.clean_data(df)
+                #df1 = self.clean_data(df1)
+
+                # make block_timestamp into index
+                return df.hvplot.line(x='block_timestamp',y=['activity'],value_label='# joined',
+                                      title='accounts joined by period') + \
+                       df.hvplot.line(x='block_timestamp',y=['perc_change'],value_label='%',
+                                      title='percentage joined change by period')
+            except Exception:
+                logger.warning('load df',exc_info=True)
+
+        def plot_account_churned(self, launch=-1):
+            try:
+                df = self.df1[(self.df1['activity'] == 'churned') & (self.df1['event'] == self.event)]
+
+                df = df.resample(self.period).agg({'activity': 'count'})
+
+                logger.warning('df after resample:%s', df.tail(10))
+
+                df = df.reset_index()
+                df = df.compute()
+                df['perc_change'] = df['activity'].pct_change(fill_method='ffill')
+                df.perc_change = df.perc_change.multiply(100)
+                df = df.fillna(0)
+                # df = self.clean_data(df)
+                # df1 = self.clean_data(df1)
+
+                # make block_timestamp into index
+                return df.hvplot.line(x='block_timestamp', y=['activity'], value_label='# churned',
+                                      title='accounts churned by period') + \
+                       df.hvplot.line(x='block_timestamp', y=['perc_change'], value_label='%',
+                                      title='percentage churned change by period')
+            except Exception:
+                logger.warning('load df', exc_info=True)
 
 
     def update(attrname, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.load_df(datepicker_start.value,datepicker_end.value)
+        thistab.prep_data()
+        thistab.event = event_select.value
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("Ready.")
@@ -86,20 +139,24 @@ def account_activity_tab():
     def update_resample(attr,old,new):
         thistab.notification_updater("Calculations in progress! Please wait.")
         #thistab.df1 = thistab.df.set_index('block_timestamp')
-        thistab.df1 = thistab.df[['value','block_timestamp']]
+        thistab.prep_data()
         thistab.period = period_select.value
-        if period_select.value == 'month':
-            thistab.df1 = thistab.df1.groupby(thistab.df1.block_timestamp.month)
-        if period_select.value == 'day':
-            thistab.df1 = thistab.df1.groupby(thistab.df1.block_timestamp.day)
-        if period_select.value == 'week':
-            thistab.df1 = thistab.df1.groupby(thistab.df1.block_timestamp.week)
-
+        thistab.event = event_select.value
+        thistab.trigger += 1
+        stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("Ready!")
 
+    def update_event(attr, old, new):
+        thistab.notification_updater("Calculations in progress! Please wait.")
+        # thistab.df1 = thistab.df.set_index('block_timestamp')
+        thistab.prep_data()
+        thistab.event = event_select.value
+        thistab.trigger += 1
+        stream_launch.event(launch=thistab.trigger)
+        thistab.notification_updater("Ready!")
 
     try:
-        cols = ['address','block_timestamp','value']
+        cols = ['address','block_timestamp','value','activity','event']
         thistab = Thistab(table='account_activity',cols=cols)
         # STATIC DATES
         # format dates
@@ -107,14 +164,15 @@ def account_activity_tab():
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = datetime.now().date()
-        first_date = datetime_to_date(last_date - timedelta(days=60))
+        first_date = datetime_to_date(last_date - timedelta(days=360))
 
         thistab.load_df(first_date, last_date)
+        thistab.prep_data()
 
 
         # MANAGE STREAM
         # date comes out stream in milliseconds
-        stream_launch = streams.Stream.define('Launch',launch=True)()
+        stream_launch = streams.Stream.define('Launch',launch=-1)()
 
         # CREATE WIDGETS
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
@@ -125,20 +183,27 @@ def account_activity_tab():
         period_select = Select(title='Select aggregation period',
                                value='day',
                                options=menu_period)
+        event_select = Select(title='Select aggregation period',
+                               value='native transfer',
+                               options=menu_event)
 
         # --------------------- PLOTS----------------------------------
-        hv_account_balance = hv.DynamicMap(thistab.plot_account_balance,
+        hv_account_joined = hv.DynamicMap(thistab.plot_account_joined,
                                            streams=[stream_launch],
                                            datashade=True).opts(plot=dict(width=1200, height=400))
+        hv_account_churned = hv.DynamicMap(thistab.plot_account_churned,
+                                          streams=[stream_launch],
+                                          datashade=True).opts(plot=dict(width=1200, height=400))
 
-
-        account_balance = renderer.get_plot(hv_account_balance)
+        account_joined = renderer.get_plot(hv_account_joined)
+        account_churned = renderer.get_plot(hv_account_churned)
 
 
         # handle callbacks
         datepicker_start.on_change('value', update)
         datepicker_end.on_change('value', update)
         period_select.on_change('value',update_resample)
+        event_select.on_change('value',update_event)
 
 
 
@@ -147,14 +212,16 @@ def account_activity_tab():
         controls = WidgetBox(
             datepicker_start,
             datepicker_end,
-            period_select)
+            period_select,
+            event_select)
 
 
         # create the dashboards
         grid = gridplot([
             [thistab.notification_div],
              [controls],
-            [account_balance.state]
+            [account_joined.state],
+            [account_churned.state]
             ])
 
         # Make a tab with the layout
