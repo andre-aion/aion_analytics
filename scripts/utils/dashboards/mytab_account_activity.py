@@ -36,8 +36,6 @@ class MytabAccountActivity:
         self.poolname_dict = self.get_poolname_dict()
         self.key_tab = ''  # for key composition in redis
         self.construction_tables = {}
-        self.tier1_miners_list = []
-        self.tier2_miners_list = []
         self.pq = PythonParquet()
         self.ch = PythonClickhouse('aion')
         self.redis = PythonRedis()

@@ -99,7 +99,26 @@ class Mytab:
     def filter_df(self, start_date, end_date):
         self.df1 = self.df
 
+    def divide_by_day_diff(self,x):
+        y = x/self.day_diff
+        logger.warning('Normalization:before:%s,after:%s',x,y)
+        return y
 
+
+    def normalize(self, df):
+        try:
+            min_date, max_date = dd.compute(df.block_timestamp.min(),
+                                            df.block_timestamp.max())
+            day_diff = abs((max_date - min_date).days)
+            if day_diff > 0:
+                for col in df.columns:
+                    if isinstance(col, int) or isinstance(col, float):
+                        logger.warning("NORMALIZATION ONGOING FOR %s", col)
+                        df[col] = df[col].map(self.divide_by_day_diff)
+            logger.warning("NORMALIZATION ended for day-diff:%s days", day_diff)
+            return df
+        except Exception:
+            logger.error('normalize:', exc_info=True)
 
     def get_poolname_dict(self):
         file = join(dirname(__file__), '../../../data/poolinfo.csv')
@@ -123,12 +142,33 @@ class Mytab:
                 return x[0:10]
         return x
 
+
     def notification_updater(self, text):
         txt = """<div style="text-align:center;background:black;width:100%;">
                 <h4 style="color:#fff;">
                 {}</h4></div>""".format(text)
         self.notification_div.text = txt
 
+    def group_data(self, df, groupby_dict={}):
+        # normalize columns by number of days under consideration
+        df = self.normalize(df)
+        df = df.groupby([self.interest_var]).agg(groupby_dict).compute()
+
+        df = df.reset_index()
+        if 'index' in df.columns.tolist():
+            df = df.drop('index', axis=1)
+        df = df.fillna(0)
+        # logger.warning('df after groupby:%s', self.df.head(10))
+
+        return df
+
+    def divide_by_day_diff(self, x):
+        y = x / self.day_diff
+        logger.warning('Normalization:before:%s,after:%s', x, y)
+        return y
+
+    def make_filepath(self, path):
+        return join(dirname(__file__), path)
     # ######################################################
 
     def is_in_memory(self,table,req_start_date,req_end_date):
@@ -173,7 +213,7 @@ class Mytab:
             return params
         except Exception:
             logger.error("is_in_memory",exc_info=True)
+            params = dict()
+            params['in_memory'] = False
+            params['key'] = None
             return params
-
-
-

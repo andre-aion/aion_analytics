@@ -22,6 +22,8 @@ from scripts.dashboards.churn.churn import churn_tab
 from scripts.dashboards.churn.tier1_miner_predictive import tier1_miner_churn_predictive_tab
 from scripts.dashboards.churn.tier2_miner_predictive import tier2_miner_churn_predictive_tab
 from scripts.dashboards.churn.account_activity_predictive import account_activity_predictive_tab
+from scripts.dashboards.churn.account_predictive import account_predictive_tab
+
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import tab_error_flag
 
@@ -34,6 +36,7 @@ labels = [
     'poolminer_tab',
     'account_activity_tab',
     'account_activity_predictive_tab',
+    'account_predictive_tab',
     'churn_tab',
     'tier1_miner_churn_predictive_tab',
     'tier2_miner_churn_predictive_tab',
@@ -66,8 +69,6 @@ class SelectionTab:
     def get_selections(self,checkboxes):
         self.selected_tabs= [checkboxes.labels[i] for i in checkboxes.active]
         return self.selected_tabs
-
-
 
 selection_tab = SelectionTab()
 
@@ -132,6 +133,14 @@ def aion_analytics(doc):
                     if aa not in selection_tab.tablist:
                         selection_tab.tablist.append(aa)
 
+            if 'account_predictive_tab' in lst:
+                if 'account_predictive_tab' not in selection_tab.selected_tracker:
+                    ap = yield account_predictive_tab()
+                    selection_tab.selected_tracker.append('account_predictive_tab')
+                    if ap not in selection_tab.tablist:
+                        selection_tab.tablist.append(ap)
+
+
             # make list unique
             selection_tab.tablist = list(set(selection_tab.tablist))
             TABS.update(tabs=selection_tab.tablist)
@@ -167,7 +176,9 @@ def aion_analytics(doc):
                                                 <h1 style="color:#fff;">
                                                 {}</h1></div>""".format('Welcome to Aion Data Science Portal')
         notification_div = Div(text=txt,width=1200,height=20)
-        selection_checkboxes = CheckboxGroup(labels=labels, active=[2])
+
+        # choose startup tabs
+        selection_checkboxes = CheckboxGroup(labels=labels, active=[4])
         run_button = Button(label='Launch tabs', button_type="success")
         run_button.on_click(select_tabs)
 

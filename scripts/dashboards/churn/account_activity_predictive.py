@@ -17,7 +17,6 @@ from sklearn.pipeline import Pipeline
 
 from scripts.storage.pythonClickhouse import PythonClickhouse
 from scripts.utils.dashboards.mytab import Mytab
-from scripts.utils.dashboards.mytab_account_activity import MytabAccountActivity
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
 
@@ -52,9 +51,9 @@ hyp_variables = [
 
 @coroutine
 def account_activity_predictive_tab():
-    class Thistab(MytabAccountActivity):
+    class Thistab(Mytab):
         def __init__(self,table,cols,dedup_cols):
-            MytabAccountActivity.__init__(self, table, cols, dedup_cols)
+            Mytab.__init__(self, table, cols, dedup_cols)
             self.table = table
             self.cols = cols
             self.DATEFORMAT = "%Y-%m-%d"
@@ -102,22 +101,9 @@ def account_activity_predictive_tab():
             text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
             return Div(text=text, width=width, height=15)
 
-
-
-        def spacing_div(self, width=20, height=100):
-            return Div(text='', width=width, height=height)
-
-        def spacing_paragraph(self, width=20, height=100):
-            return Paragraph(text='', width=width, height=height)
-
-
         def results_div(self, text, width=600, height=300):
             div = Div(text=text, width=width, height=height)
             return div
-
-        def title_div(self, text, width=700):
-            text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
-            return Div(text=text, width=width, height=15)
 
         def reset_checkboxes(self):
             try:
@@ -145,8 +131,7 @@ def account_activity_predictive_tab():
             except Exception:
                 logger.error('load_df', exc_info=True)
 
-        def make_filepath(self, path):
-            return join(dirname(__file__), path)
+
 
         ###################################################
         #               MUNGE DATA
@@ -168,51 +153,10 @@ def account_activity_predictive_tab():
             except Exception:
                 logger.error('load_df', exc_info=True)
 
-        def group_data(self, df):
-            # normalize columns by number of days under consideration
-            df = self.normalize(df)
-            df = df.groupby([self.interest_var]).agg({
-                'value': 'mean',
-                'block_nrg_consumed': 'mean',
-                'transaction_nrg_consumed': 'mean',
-                'difficulty': 'mean',
-                'nrg_limit': 'mean',
-                'block_size': 'mean',
-                'block_time': 'mean',
-                'nrg_reward': 'mean'
-            }).compute()
-
-            df = df.reset_index()
-            if 'index' in df.columns.tolist():
-                df = df.drop('index', axis=1)
-            df = df.fillna(0)
-            # logger.warning('df after groupby:%s', self.df.head(10))
-
-            return df
-
-        def divide_by_day_diff(self, x):
-            y = x / self.day_diff
-            logger.warning('Normalization:before:%s,after:%s', x, y)
-            return y
 
         """  daily normalization by dividing each column by number of 
           days spanned by a dataframe """
 
-        def normalize(self, df):
-            try:
-                min_date, max_date = dd.compute(df.block_timestamp.min(),
-                                                df.block_timestamp.max())
-                self.day_diff = abs((max_date - min_date).days)
-                logger.error("NORMALIZATION started for day-diff:%s day(s)", self.day_diff)
-                if self.day_diff > 0:
-                    for col in df.columns:
-                        if isinstance(col, int) or isinstance(col, float):
-                            logger.warning("NORMALATION ONGOING FOR %s", col)
-                            df[col] = df[col].map(self.divide_by_day_diff)
-                logger.warning("NORMALIZATION ended for day-diff:%s days", self.day_diff)
-                return df
-            except Exception:
-                logger.error('nomalize:', exc_info=True)
 
         def label_state(self, x):
             if x in self.churned_list:
@@ -245,20 +189,6 @@ def account_activity_predictive_tab():
                         return df
             except Exception:
                 logger.error("label churned retained:", exc_info=True)
-
-        def get_poolname_dict(self):
-            file = join(dirname(__file__), '../../../data/poolinfo.csv')
-            df = pd.read_csv(file)
-            a = df['address'].tolist()
-            b = df['poolname'].tolist()
-            poolname_dict = dict(zip(a, b))
-            return poolname_dict
-
-        def poolname_verbose(self, x):
-            # add verbose poolname
-            if x in self.poolname_dict.keys():
-                return self.poolname_dict[x]
-            return x
 
         def split_df(self, df):
             self.df1['churned'] = df[df.churned == 1]
@@ -406,8 +336,17 @@ def account_activity_predictive_tab():
         def rf_clf(self):
             try:
                 logger.warning("RANDOM FOREST LAUNCHED")
-
-                self.df_grouped = self.group_data(self.df)
+                groupby_dict = {
+                    'value': 'mean',
+                    'block_nrg_consumed': 'mean',
+                    'transaction_nrg_consumed': 'mean',
+                    'difficulty': 'mean',
+                    'nrg_limit': 'mean',
+                    'block_size': 'mean',
+                    'block_time': 'mean',
+                    'nrg_reward': 'mean'
+                }
+                self.df_grouped = self.group_data(self.df,groupby_dict)
 
                 X = self.df_grouped.drop(['churned', 'churned_verbose',
                                           self.interest_var, ], axis=1)

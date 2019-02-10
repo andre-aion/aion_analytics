@@ -1,13 +1,1 @@
-2019-02-07 18:09:03,204 - [logs/tier2_miner_predictive.log:17]=> logs/tier2_miner_predictive.log
-2019-02-07 18:09:51,499 - [logs/tier2_miner_predictive.log:167]=> CHECKBOX LIST:['tier2_churned_dict:0.5:1:1:2018-12-09:2019-01-07', 'tier2_churned_dict:0.5:3.5:1::', 'tier2_churned_dict:2.5:4.0:1::', 'tier2_churned_dict:2.5:3.5:1::', 'tier2_churned_dict:0.5:1.0:1:2018-11-01:2019-01-07', 'tier2_churned_dict:0.5:1.0:1::', 'tier2_churned_dict:0.5:1:1::']
-2019-02-07 18:10:02,965 - [logs/tier2_miner_predictive.log:131]=> VALUE SELECTOR CREATED
-2019-02-07 18:10:03,059 - [logs/tier2_miner_predictive.log:244]=> block_nrg_consumed test completed
-2019-02-07 18:10:03,061 - [logs/tier2_miner_predictive.log:244]=> transaction_nrg_consumed test completed
-2019-02-07 18:10:03,063 - [logs/tier2_miner_predictive.log:244]=> value test completed
-2019-02-07 18:10:03,065 - [logs/tier2_miner_predictive.log:244]=> difficulty test completed
-2019-02-07 18:10:03,067 - [logs/tier2_miner_predictive.log:244]=> nrg_limit test completed
-2019-02-07 18:10:03,069 - [logs/tier2_miner_predictive.log:244]=> block_size test completed
-2019-02-07 18:10:03,071 - [logs/tier2_miner_predictive.log:244]=> nrg_reward test completed
-2019-02-07 18:10:03,072 - [logs/tier2_miner_predictive.log:253]=> end of hypothesis test
-2019-02-07 18:10:03,084 - [logs/tier2_miner_predictive.log:215]=> LOAD DATA FLAG in prediction table:False
-2019-02-07 18:16:30,875 - [logs/tier2_miner_predictive.log:167]=> CHECKBOX LIST:['tier2_churned_dict:0.5:1:1:2018-12-09:2019-01-07', 'tier2_churned_dict:0.5:1.0:1:2018-11-01:2019-01-07']
+2019-02-10 14:29:16,355 - [logs/tier2_miner_predictive.log:17]=> logs/tier2_miner_predictive.log
