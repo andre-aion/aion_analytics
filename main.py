@@ -59,6 +59,7 @@ class SelectionTab:
                                     <h1 style="color:#fff;">
                                     {}</h1></div>""".format('Welcome to Aion Data Science Portal')
         self.notification_div = Div(text=txt, width=1200, height=20)
+        self.selection_checkboxes = CheckboxGroup(labels=labels, active=[4])
 
     def notification_updater(self, text):
         txt = """<div style="text-align:center;background:black;width:100%;">
@@ -80,7 +81,7 @@ def aion_analytics(doc):
         TABS = Tabs(tabs=selection_tab.tablist)
         @gen.coroutine
         def load_callstack():
-            lst = selection_tab.get_selections(selection_checkboxes)
+            lst = selection_tab.get_selections(selection_tab.selection_checkboxes)
             logger.warning('selections:%s',lst)
 
             if 'blockminer_tab' in lst:
@@ -140,7 +141,6 @@ def aion_analytics(doc):
                     if ap not in selection_tab.tablist:
                         selection_tab.tablist.append(ap)
 
-
             # make list unique
             selection_tab.tablist = list(set(selection_tab.tablist))
             TABS.update(tabs=selection_tab.tablist)
@@ -153,7 +153,26 @@ def aion_analytics(doc):
             yield load_callstack()
             notification_div.text = """<div style="text-align:center;background:black;width:100%;">
                                                 <h1 style="color:#fff;">
-                                                {}</h1></div>""".format('Welcome to Aion Data Science Portal')
+                                             {}</h1></div>""".format('Welcome to Aion Data Science Portal')
+        @gen.coroutine
+        def update_selected_tabs():
+            notification_div.text = """<div style="text-align:center;background:black;width:100%;">
+                                                <h1 style="color:#fff;">
+                                                {}</h1></div>""".format('Refresh underway')
+
+            doc.clear()
+            selection_tab.tablist = []
+            selection_tab.selection_checkboxes.active=[]
+            mgmt = Panel(child=grid, title='Tab Selection')
+            selection_tab.tablist.append(mgmt)
+            TABS.update(tabs=selection_tab.tablist)
+            doc.add_root(TABS)
+            yield load_callstack()
+            notification_div.text = """<div style="text-align:center;background:black;width:100%;">
+                                                            <h1 style="color:#fff;">
+                                                            {}</h1></div>""".format(
+                'Welcome to Aion Data Science Portal')
+
         txt = """
                 <div {}>
                     <h3 style='color:blue;text-align:center'>Info:</h3>
@@ -162,7 +181,7 @@ def aion_analytics(doc):
                     Select the tab(s) you want activated
                     </li>
                     <li>
-                    The click the 'launch activity' button.
+                    Then click the 'launch activity' button.
                     </li>
                     </ul>
                 </div>
@@ -178,11 +197,14 @@ def aion_analytics(doc):
         notification_div = Div(text=txt,width=1200,height=20)
 
         # choose startup tabs
-        selection_checkboxes = CheckboxGroup(labels=labels, active=[4])
         run_button = Button(label='Launch tabs', button_type="success")
         run_button.on_click(select_tabs)
+        # refresh
+        refresh_button = Button(label='Refresh tab memory',button_type="success")
+        refresh_button.on_click(update_selected_tabs)
 
-        controls = WidgetBox(selection_checkboxes, run_button)
+        # setup layout
+        controls = WidgetBox(selection_tab.selection_checkboxes, run_button, refresh_button)
 
         # create the dashboards
         grid = gridplot([

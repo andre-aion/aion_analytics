@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from os.path import dirname, join
 from statistics import mean
 
@@ -61,6 +61,7 @@ def account_activity_predictive_tab():
             self.df1 = {} # to contain churned and retained splits
             self.day_diff = 1 # for normalizing for classification periods of different lengths
             self.df_grouped = ''
+            self.df_predict = None
 
             self.rf = {}  # random forest
             self.cl = PythonClickhouse('aion')
@@ -82,6 +83,23 @@ def account_activity_predictive_tab():
             self.address_list = []
             self.prediction_address_selected = ""
             self.load_data_flag = False
+            self.prediction_address_select = Select(
+            title='Filter by address',
+            value='all',
+            options=[])
+            self.groupby_dict = {
+                'value': 'count',
+                'block_nrg_consumed': 'mean',
+                'transaction_nrg_consumed': 'mean',
+                'difficulty': 'mean',
+                'nrg_limit': 'mean',
+                'block_size': 'mean',
+                'block_time': 'mean',
+                'nrg_reward': 'mean',
+                'num_transactions': 'mean',
+                'nrg_price': 'mean'
+            }
+            self.interest_var = 'block_timestamp'
 
         def notification_updater(self, text):
             txt = """<div style="text-align:center;background:black;width:100%;">
@@ -121,16 +139,18 @@ def account_activity_predictive_tab():
                 if isinstance(end_date, str):
                     end_date = datetime.strptime(end_date, self.DATEFORMAT).date()
                 self.df_load(start_date,end_date)
-                # make list of address for prediction select
-                self.address_list = ['all'] + self.df['address'].unique().tolist()
-                logger.warning("line 125: data loaded - %s",self.df.tail(10))
+                # make list of addresses for prediction select
                 self.make_delta()
-                self.df = self.df.set_index('block_timestamp')
                 #logger.warning("data loaded - %s",self.tab.df.tail(10))
 
             except Exception:
                 logger.error('load_df', exc_info=True)
 
+        def update_prediction_addresses_select(self):
+            self.prediction_address_select.options = ['all']
+            if len(self.df_predict) > 0:
+                lst = ['all'] + list(self.df_predict['address'].unique().compute())
+                self.prediction_address_select.options = lst
 
 
         ###################################################
@@ -322,11 +342,13 @@ def account_activity_predictive_tab():
 
                 predictions_lst = []
                 for target in self.targets:
-                    predictions_lst.append(self.pl[target].predict(X))
-                    logger.warning('MAKE PREDICTIONS COMPLETED FOR :%s', target)
+                    predictions_lst.append(self.pl[target].predict(X)[0])
+                logger.warning('MAKE PREDICTIONS before :%s',predictions_lst)
+                logger.warning('MAKE PREDICTIONS after :%s', list(predictions_lst))
+
                 df = pd.DataFrame(
                     {'Outcome': self.targets,
-                     '#': predictions_lst,
+                     '#': list(predictions_lst),
                      })
                 return df.hvplot.table(columns=['Outcome','#'],width=500,
                                        title='Predictions for accounts retained and churned')
@@ -344,13 +366,12 @@ def account_activity_predictive_tab():
                     'nrg_limit': 'mean',
                     'block_size': 'mean',
                     'block_time': 'mean',
-                    'nrg_reward': 'mean'
+                    'nrg_reward': 'mean',
+                    'nrg_price':'mean'
                 }
                 self.df_grouped = self.group_data(self.df,groupby_dict)
 
-                X = self.df_grouped.drop(['churned', 'churned_verbose',
-                                          self.interest_var, ], axis=1)
-
+                X = self.df_grouped[self.feature_list]
                 y = self.df_grouped['churned']
 
                 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
@@ -379,8 +400,19 @@ def account_activity_predictive_tab():
             except Exception:
                 logger.error("RF:", exc_info=True)
 
+        def load_prediction_df(self,start_date,end_date):
+            if isinstance(start_date, date):
+                start_date = datetime.combine(start_date, datetime.min.time())
+            if isinstance(end_date, date):
+                end_date = datetime.combine(end_date, datetime.min.time())
+            self.df_predict = self.cl.load_data(table='account_activity_warehouse', cols=self.feature_list +
+                                                                            ['address', 'block_timestamp'],
+                                                start_date=start_date, end_date=end_date)
+            logger.warning('319:in load prediction: %s',self.df_predict.head(5))
+
+
         # the period for which the user wants a prediction
-        def make_account_predictions(self,start_date, end_date,addresses):
+        def make_account_predictions(self,start_date, end_date):
             try:
                 logger.warning("MAKE PREDICTIONS LAUNCHED")
 
@@ -388,22 +420,24 @@ def account_activity_predictive_tab():
                 if not self.clf:
                     self.rf_clf()
 
-                if self.load_data_flag:
-                    df = self.cl.load_data('block_tx_warehouse', self.feature_list, start_date, end_date)
-
+                df = self.df_predict
+                # logger.warning("line 311%s",df.head(10))
+                # make list of address for prediction select
                 # filter if prediction for certain addresses
-                if addresses is not None:
-                    if addresses not in ['all', '']:
-                        df = df[df['address'] == addresses]
-
-                logger.warning('line 408 predict-df post filter:%s', df.head(20))
+                logger.warning('address selected:%s', self.prediction_address_select.value)
+                if self.prediction_address_select.value is not None:
+                    if len(self.prediction_address_select.value) > 0:
+                        if self.prediction_address_select.value not in ['all', '']:
+                            df = df[df.address == self.prediction_address_select.value]
 
                 if len(df) > 0:
+                    logger.warning("before normalize:%s",df.columns.tolist())
+                    df = self.group_data(df, self.groupby_dict)
+                    interest_labels = list(df['address'].unique())
 
                     # run model
                     df = df.fillna(0)
-                    X = df.drop([self.interest_var], axis=1)
-                    interest_labels = df[self.interest_var].tolist()
+                    X = df[self.feature_list]
                     logger.warning("lengths of df:%s,lst:%s", len(df), len(interest_labels))
                     # logger.warning("df before prediction:%s",X.tail(10))
 
@@ -488,13 +522,13 @@ def account_activity_predictive_tab():
                     count = 1
                     rank_lst = []
                     for i in importances:
-                        rank_lst.append(str(count))
+                        rank_lst.append(count)
                         count += 1
 
                     results_dct['outcome'] += target_lst
                     results_dct['feature'] += [i[0] for i in sorted_importances]
                     results_dct['importance'] += [i[1] for i in sorted_importances]
-                    results_dct['rank_within_outcome'] += rank_lst
+                    results_dct['rank_within_outcome'] += sorted(rank_lst,reverse=True)
 
                 df = pd.DataFrame.from_dict(results_dct)
                 logger.warning('MAKE FEATURE IMPORTANCES FINISHED')
@@ -547,17 +581,21 @@ def account_activity_predictive_tab():
         this_tab.notification_updater("Calculations underway. Please be patient")
         this_tab.load_data_flag = True # only load prediction period data once
         this_tab.prediction_address_selected = this_tab.prediction_address_select.value
+        this_tab.load_prediction_df(datepicker_start.value,datepicker_end.value)
         stream_start_date.event(start_date=datepicker_start.value)
         stream_end_date.event(end_date=datepicker_end.value)
+        this_tab.update_prediction_addresses_select()
         this_tab.load_data_flag = False
-        this_tab.notification_updater("")
+        this_tab.notification_updater("ready")
 
     def update_account_predictions(attrname, old, new):
         this_tab.notification_updater("Calculations underway. Please be patient")
         this_tab.prediction_address_selected = this_tab.prediction_address_select.value
+        this_tab.load_prediction_df(datepicker_start.value,datepicker_end.value)
         stream_start_date.event(start_date=datepicker_start.value)
         stream_end_date.event(end_date=datepicker_end.value)
-        this_tab.notification_updater("")
+        this_tab.update_prediction_addresses_select()
+        this_tab.notification_updater("ready")
 
 
     try:
@@ -587,19 +625,19 @@ def account_activity_predictive_tab():
                                                   start_date=first_date)()
         stream_end_date = streams.Stream.define('End_date',
                                                 end_date=last_date_range)()
-        stream_address = streams.Stream.define('Address_selected',
-                                               addresses=['all'])
 
         # setup widgets
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date_range)
+        this_tab.load_prediction_df(datepicker_start.value,datepicker_end.value)
+
         # search by address checkboxes
         this_tab.prediction_address_select = Select(
             title='Filter by address',
             value='all',
-            options=this_tab.address_list)
+            options=this_tab.update_prediction_addresses_select())
         reset_prediction_address_button = Button(label="reset address(es)",button_type="success")
 
 
@@ -623,13 +661,6 @@ def account_activity_predictive_tab():
                                                     streams=[stream_start_date,stream_end_date])
         network_prediction_table = renderer.get_plot(hv_network_prediction_table)
 
-        '''
-        hv_account_prediction_table = hv.DynamicMap(this_tab.make_account_predictions,
-                                                    streams=[stream_start_date, stream_end_date,
-                                                             stream_address])
-        account_prediction_table = renderer.get_plot(hv_account_prediction_table)
-        '''
-
 
         hv_features_table = hv.DynamicMap(this_tab.make_feature_importances)
         features_table = renderer.get_plot(hv_features_table)
@@ -648,12 +679,8 @@ def account_activity_predictive_tab():
         this_tab.prediction_address_select.on_change('value',update_account_predictions)
         reset_prediction_address_button.on_click(this_tab.reset_checkboxes)
 
-
         # put the controls in a single element
-        date_controls = WidgetBox(datepicker_start, datepicker_end,
-                                  this_tab.prediction_address_select,
-                                  reset_prediction_address_button)
-
+        date_controls = WidgetBox(datepicker_start, datepicker_end)
         grid = gridplot([
             [this_tab.notification_div],
             [this_tab.title_div('Churned and new aioners by date'),this_tab.title_div('Rolling % daily difference for '

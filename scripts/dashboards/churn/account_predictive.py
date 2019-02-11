@@ -19,6 +19,7 @@ from scripts.storage.pythonClickhouse import PythonClickhouse
 from scripts.utils.dashboards.mytab import Mytab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
+from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 
 from tornado.gen import coroutine
 from config.df_construct_config import table_dict
@@ -120,6 +121,7 @@ def account_predictive_tab():
                         """
             self.metrics_div = Div(text='',width=400,height=300)
             self.accuracy_df = None
+            self.inspected_variable = 'value'
 
         def notification_updater(self, new_text):
             txt = """<div style="text-align:center;background:black;width:100%;">
@@ -187,6 +189,28 @@ def account_predictive_tab():
             for col in cols:
                 self.df1[col] = df['activity'] == col
             logger.warning("Finished split into churned and retained dataframes")
+
+        ##################################################
+        #               EXPLICATORY GRAPHS
+        # PLOTS
+        def box_plot(self, variable):
+            try:
+                # logger.warning("difficulty:%s", self.df.tail(30))
+                # get max value of variable and multiply it by 1.1
+                minv = 0
+                maxv = 0
+                df = self.df
+                if df is not None:
+                    if len(df) > 0:
+                        minv, maxv = dd.compute(df[variable].min(),
+                                                df[variable].max())
+                else:
+                    df = SD('filter', [variable, 'activity'], []).get_df()
+
+                return df.hvplot.box(variable, by='activity',
+                                                  ylim=(.9 * minv, 1.1 * maxv))
+            except Exception:
+                logger.error("box plot:", exc_info=True)
 
         ###################################################
         #               MODELS
@@ -462,12 +486,19 @@ def account_predictive_tab():
         this_tab.update_prediction_addresses_select()
         this_tab.trigger += 1
         stream_launch.event(launch=this_tab.trigger)
+        stream_select_variable.event(variable=this_tab.inspected_variable)
         this_tab.notification_updater("ready")
 
     def update_address_predictions(attrname, old, new):
         this_tab.notification_updater("Calculations underway. Please be patient")
         this_tab.trigger += 1
         stream_launch.event(launch=this_tab.trigger)
+        this_tab.notification_updater("ready")
+
+    def update_select_variable(attrname, old, new):
+        this_tab.notification_updater("Calculations underway. Please be patient")
+        this_tab.inspected_variable = select_variable.value
+        stream_select_variable.event(variable=this_tab.inspected_variable)
         this_tab.notification_updater("ready")
 
     try:
@@ -492,12 +523,16 @@ def account_predictive_tab():
         # STREAMS Setup
         # date comes out stream in milliseconds
         stream_launch = streams.Stream.define('Launch',launch=-1)()
+        stream_select_variable = streams.Stream.define('Select_variable',
+                                                       variable='value')()
 
         # setup widgets
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
+        select_variable = Select(title='Filter by address',value=this_tab.inspected_variable,
+                                 options=this_tab.feature_list)
 
         # search by address checkboxes
         this_tab.prediction_address_select = Select(
@@ -521,11 +556,20 @@ def account_predictive_tab():
         hv_accuracy_table = hv.DynamicMap(this_tab.accuracy_table)
         accuracy_table = renderer.get_plot(hv_accuracy_table)
 
+
+        hv_variable_plot = hv.DynamicMap(this_tab.box_plot,
+                                 streams=[stream_select_variable])\
+            .opts(plot=dict(width=800, height=500))
+
+        variable_plot = renderer.get_plot(hv_variable_plot)
+
+
         # add callbacks
         datepicker_start.on_change('value', update)
         datepicker_end.on_change('value', update)
         this_tab.prediction_address_select.on_change('value', update_address_predictions)
         reset_prediction_address_button.on_click(this_tab.reset_checkboxes)
+        select_variable.on_change('value',update_select_variable)
 
 
         # put the controls in a single element
@@ -537,6 +581,8 @@ def account_predictive_tab():
             [this_tab.notification_div],
             [this_tab.title_div('Predictions for churned accounts ', 600)],
             [accuracy_table.state,this_tab.stats_information_div(), features_table.state],
+            [this_tab.title_div('Variable behaviour: ', 600)],
+            [select_variable, variable_plot.state],
             [this_tab.title_div('Select period below to obtain predictions:', 600)],
             [date_controls, account_prediction_table.state,this_tab.metrics_div],
             [this_tab.notification_div_bottom]

@@ -367,6 +367,7 @@ def tier1_miner_churn_predictive_tab():
             reset_prediction_address_button
         )
 
+
         grid = gridplot([[thistab.notification_div],
                          [model_controls, thistab.spacing_div, thistab.desc_load_data_div, thistab.desc_hypothesis_div],
                          [plot.state, hypothesis_table.state],

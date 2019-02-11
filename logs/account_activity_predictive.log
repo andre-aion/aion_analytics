@@ -1,1 +1,37 @@
-2019-02-10 14:29:17,063 - [logs/account_activity_predictive.log:17]=> logs/account_activity_predictive.log
+2019-02-11 10:16:28,133 - [logs/account_activity_predictive.log:17]=> logs/account_activity_predictive.log
+2019-02-11 10:16:32,799 - [logs/account_activity_predictive.log:168]=> diff col added : new_diff
+2019-02-11 10:16:32,800 - [logs/account_activity_predictive.log:168]=> diff col added : churned_diff
+2019-02-11 10:16:32,801 - [logs/account_activity_predictive.log:168]=> diff col added : retained_diff
+2019-02-11 10:16:32,802 - [logs/account_activity_predictive.log:168]=> diff col added : new_diff
+2019-02-11 10:16:32,803 - [logs/account_activity_predictive.log:168]=> diff col added : churned_diff
+2019-02-11 10:16:32,804 - [logs/account_activity_predictive.log:168]=> diff col added : retained_diff
+2019-02-11 10:16:32,853 - [logs/account_activity_predictive.log:411]=> 319:in load prediction: Empty DataFrame
+Columns: [block_size, block_time, difficulty, nrg_limit, nrg_reward, num_transactions, block_nrg_consumed, nrg_price, transaction_nrg_consumed, value, address, block_timestamp]
+Index: []
+2019-02-11 10:16:33,323 - [logs/account_activity_predictive.log:227]=> df before rf: ['new', 'retained', 'churned', 'day_of_week', 'block_size', 'block_timestamp', 'block_time', 'difficulty', 'nrg_limit', 'nrg_reward', 'num_transactions', 'block_nrg_consumed', 'nrg_price', 'transaction_nrg_consumed', 'churned_lst', 'retained_lst', 'value', 'new_diff', 'churned_diff', 'retained_diff']
+2019-02-11 10:16:33,339 - [logs/account_activity_predictive.log:231]=> RF working on retained
+2019-02-11 10:16:33,558 - [logs/account_activity_predictive.log:227]=> df before rf: ['new', 'retained', 'churned', 'day_of_week', 'block_size', 'block_timestamp', 'block_time', 'difficulty', 'nrg_limit', 'nrg_reward', 'num_transactions', 'block_nrg_consumed', 'nrg_price', 'transaction_nrg_consumed', 'churned_lst', 'retained_lst', 'value', 'new_diff', 'churned_diff', 'retained_diff']
+2019-02-11 10:16:33,570 - [logs/account_activity_predictive.log:231]=> RF working on new
+2019-02-11 10:16:33,810 - [logs/account_activity_predictive.log:227]=> df before rf: ['new', 'retained', 'churned', 'day_of_week', 'block_size', 'block_timestamp', 'block_time', 'difficulty', 'nrg_limit', 'nrg_reward', 'num_transactions', 'block_nrg_consumed', 'nrg_price', 'transaction_nrg_consumed', 'churned_lst', 'retained_lst', 'value', 'new_diff', 'churned_diff', 'retained_diff']
+2019-02-11 10:16:33,826 - [logs/account_activity_predictive.log:231]=> RF working on churned
+2019-02-11 10:16:34,118 - [logs/account_activity_predictive.log:257]=>    Mean (abs) error  variable
+0         24.585135  retained
+2019-02-11 10:16:35,107 - [logs/account_activity_predictive.log:328]=> 15.160019150738409
+2019-02-11 10:16:35,353 - [logs/account_activity_predictive.log:346]=> MAKE PREDICTIONS before :[494.0585996866053, 114.53671941626597, 20.084020398444544]
+2019-02-11 10:16:35,353 - [logs/account_activity_predictive.log:347]=> MAKE PREDICTIONS after :[494.0585996866053, 114.53671941626597, 20.084020398444544]
+2019-02-11 10:16:35,365 - [logs/account_activity_predictive.log:508]=> make feature importances for :retained
+2019-02-11 10:16:35,372 - [logs/account_activity_predictive.log:508]=> make feature importances for :new
+2019-02-11 10:16:35,378 - [logs/account_activity_predictive.log:508]=> make feature importances for :churned
+2019-02-11 10:16:35,386 - [logs/account_activity_predictive.log:534]=> MAKE FEATURE IMPORTANCES FINISHED
+2019-02-11 10:16:57,961 - [logs/account_activity_predictive.log:411]=> 319:in load prediction: Empty DataFrame
+Columns: [block_size, block_time, difficulty, nrg_limit, nrg_reward, num_transactions, block_nrg_consumed, nrg_price, transaction_nrg_consumed, value, address, block_timestamp]
+Index: []
+2019-02-11 10:16:59,284 - [logs/account_activity_predictive.log:328]=> 14.96670467962128
+2019-02-11 10:16:59,401 - [logs/account_activity_predictive.log:346]=> MAKE PREDICTIONS before :[566.8794802793526, 117.01783052737709, 43.28438013379391]
+2019-02-11 10:16:59,401 - [logs/account_activity_predictive.log:347]=> MAKE PREDICTIONS after :[566.8794802793526, 117.01783052737709, 43.28438013379391]
+2019-02-11 10:17:35,262 - [logs/account_activity_predictive.log:411]=> 319:in load prediction: Empty DataFrame
+Columns: [block_size, block_time, difficulty, nrg_limit, nrg_reward, num_transactions, block_nrg_consumed, nrg_price, transaction_nrg_consumed, value, address, block_timestamp]
+Index: []
+2019-02-11 10:17:38,720 - [logs/account_activity_predictive.log:328]=> 14.43246461247479
+2019-02-11 10:17:38,866 - [logs/account_activity_predictive.log:346]=> MAKE PREDICTIONS before :[571.320791083244, 1964.1654423997056, 592.6875564595535]
+2019-02-11 10:17:38,866 - [logs/account_activity_predictive.log:347]=> MAKE PREDICTIONS after :[571.320791083244, 1964.1654423997056, 592.6875564595535]

@@ -1,10 +1,10 @@
-2019-02-10 14:29:17,064 - [logs/account_predictive.log:17]=> logs/account_predictive.log
-2019-02-10 14:29:20,732 - [logs/account_predictive.log:195]=> RANDOM FOREST LAUNCHED
-2019-02-10 14:29:21,615 - [logs/account_predictive.log:211]=> churned column count after grouping:17
-2019-02-10 14:29:22,820 - [logs/account_predictive.log:236]=> accuracy_df:   Accuracy variable
-0     96.19  churned
-2019-02-10 14:29:22,996 - [logs/account_predictive.log:406]=> TREE SAVED
-2019-02-10 14:29:23,171 - [logs/account_predictive.log:319]=> 319:in load prediction:    block_size  block_time  difficulty   nrg_limit         ...          transaction_nrg_consumed     value                                            address     block_timestamp
+2019-02-11 10:16:28,134 - [logs/account_predictive.log:17]=> logs/account_predictive.log
+2019-02-11 10:28:23,294 - [logs/account_predictive.log:219]=> RANDOM FOREST LAUNCHED
+2019-02-11 10:28:24,252 - [logs/account_predictive.log:235]=> churned column count after grouping:17
+2019-02-11 10:28:25,357 - [logs/account_predictive.log:261]=> accuracy_df:   Accuracy Variable
+0     95.24  churned
+2019-02-11 10:28:25,537 - [logs/account_predictive.log:431]=> TREE SAVED
+2019-02-11 10:28:25,644 - [logs/account_predictive.log:344]=> 319:in load prediction:    block_size  block_time  difficulty   nrg_limit         ...          transaction_nrg_consumed     value                                            address     block_timestamp
 0      2112.0         6.0   8158933.0  15013741.0         ...                           21000.0  1.483009  a0a7168688acbd3cf4f44525d689f4d918743290c99f4b... 2018-05-31 19:04:27
 1      2112.0         6.0   8158933.0  15013741.0         ...                           21000.0 -1.483009  a06e78398580c0f37add71f2b8914bcef5be4938b05e02... 2018-05-31 19:04:27
 2      2282.0        13.0   8158933.0  14999107.0         ...                           21000.0  0.741505  a0f7457d262d027e026f2c1719c9c584636e9a31810195... 2018-05-31 19:04:40
@@ -12,14 +12,8 @@
 4      2282.0        13.0   8158933.0  14999107.0         ...                           21000.0 -0.741505  a0a0f44f1b7a9dbf2e7a7b3622a497302d30d9944527f1... 2018-05-31 19:04:40
 
 [5 rows x 12 columns]
-2019-02-10 14:29:23,257 - [logs/account_predictive.log:332]=> MAKE PREDICTIONS LAUNCHED
-2019-02-10 14:29:23,257 - [logs/account_predictive.log:339]=> address selected:all
-2019-02-10 14:29:23,553 - [logs/account_predictive.log:383]=> end of predictions
-2019-02-10 14:29:23,567 - [logs/account_predictive.log:422]=> make feature importances for :churned
-2019-02-10 14:29:23,576 - [logs/account_predictive.log:448]=> MAKE FEATURE IMPORTANCES FINISHED
-2019-02-10 14:29:31,050 - [logs/account_predictive.log:332]=> MAKE PREDICTIONS LAUNCHED
-2019-02-10 14:29:31,050 - [logs/account_predictive.log:339]=> address selected:a0a7168688acbd3cf4f44525d689f4d918743290c99f4b2b5c1119bfd41ac98b
-2019-02-10 14:29:31,249 - [logs/account_predictive.log:383]=> end of predictions
-2019-02-10 14:29:38,716 - [logs/account_predictive.log:332]=> MAKE PREDICTIONS LAUNCHED
-2019-02-10 14:29:38,717 - [logs/account_predictive.log:339]=> address selected:all
-2019-02-10 14:29:38,871 - [logs/account_predictive.log:383]=> end of predictions
+2019-02-11 10:28:25,721 - [logs/account_predictive.log:357]=> MAKE PREDICTIONS LAUNCHED
+2019-02-11 10:28:25,721 - [logs/account_predictive.log:364]=> address selected:all
+2019-02-11 10:28:25,954 - [logs/account_predictive.log:408]=> end of predictions
+2019-02-11 10:28:25,964 - [logs/account_predictive.log:447]=> make feature importances for :churned
+2019-02-11 10:28:25,971 - [logs/account_predictive.log:473]=> MAKE FEATURE IMPORTANCES FINISHED
