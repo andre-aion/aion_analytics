@@ -1,64 +1,22 @@
-2019-02-13 11:31:36,503 - [logs/account_activity.log:17]=> logs/account_activity.log
-2019-02-13 11:31:48,949 - [logs/account_activity.log:257]=> block_time:['difficulty', 'block_time', 'nrg_reward', 'transaction_nrg_consumed', 'num_transactions', 'transaction_value', 'block_nrg_consumed', 'block_size', 'nrg_limit', 'nrg_price']
-2019-02-13 11:31:50,455 - [logs/account_activity.log:176]=> line 173 df:     difficulty  block_time  nrg_reward  transaction_nrg_consumed  num_transactions  transaction_value  block_nrg_consumed   block_size     nrg_limit     nrg_price
-0  1.446337e+06    9.802817    0.000568                   21000.0          7.169014       6.254778e-18       150549.295775  3147.661972  1.499903e+07  1.000000e+10
-1  2.176104e+06   16.313725    0.001696                   21000.0         11.470588       1.491182e-16       240882.352941  3873.705882  1.499900e+07  1.000000e+10
-2  2.344159e+06    9.837209    0.001636                   21000.0         10.116279       9.682178e-18       212441.860465  3649.069767  1.499831e+07  1.000000e+10
-3  2.559650e+06   33.215686    0.002351                   21000.0         11.196078      -6.966105e-17       235117.647059  3831.039216  1.500560e+07  1.000000e+10
-4  2.388060e+06   11.313433    0.000567                   21000.0          9.149254      -1.657049e-18       192134.328358  3480.522388  1.499250e+07  1.000000e+10
-5  2.997417e+06   15.575342    0.001398                   21000.0          9.794521       2.281280e-17       205684.931507  3592.602740  1.499647e+07  1.000000e+10
-6  3.188153e+06   19.432624    0.001664                   21000.0          8.943262      -3.149569e-18       187808.510638  3446.546099  1.500634e+07  1.000000e+10
-7  3.190320e+06   18.090909    0.002134                   21000.0         10.163636       2.422305e-17       213436.363636  3658.781818  1.499805e+07  1.000000e+10
-8  3.441214e+06   23.054422    0.001540                   21000.0          8.156463      -7.080504e-20       171285.714286  3320.000000  1.499896e+07  1.000000e+10
-9  3.539798e+06   18.939252    0.001239                   21000.0          8.504673      -4.669162e-18       178598.130841  3378.710280  1.499676e+07  1.000000e+10
-2019-02-13 11:31:50,531 - [logs/account_activity.log:180]=> difficulty:block_time
-2019-02-13 11:31:50,533 - [logs/account_activity.log:180]=> nrg_reward:block_time
-2019-02-13 11:31:50,534 - [logs/account_activity.log:180]=> transaction_nrg_consumed:block_time
-2019-02-13 11:31:50,535 - [logs/account_activity.log:180]=> num_transactions:block_time
-2019-02-13 11:31:50,536 - [logs/account_activity.log:180]=> transaction_value:block_time
-2019-02-13 11:31:50,537 - [logs/account_activity.log:180]=> block_nrg_consumed:block_time
-2019-02-13 11:31:50,538 - [logs/account_activity.log:180]=> block_size:block_time
-2019-02-13 11:31:50,539 - [logs/account_activity.log:180]=> nrg_limit:block_time
-2019-02-13 11:31:50,541 - [logs/account_activity.log:180]=> nrg_price:block_time
-2019-02-13 11:32:39,955 - [logs/account_activity.log:257]=> block_nrg_consumed:['difficulty', 'block_time', 'nrg_reward', 'transaction_nrg_consumed', 'num_transactions', 'transaction_value', 'block_nrg_consumed', 'block_size', 'nrg_limit', 'nrg_price']
-2019-02-13 11:32:40,617 - [logs/account_activity.log:176]=> line 173 df:     difficulty  block_time  nrg_reward  transaction_nrg_consumed  num_transactions  transaction_value  block_nrg_consumed   block_size     nrg_limit     nrg_price
-0  1.446337e+06    9.802817    0.000568                   21000.0          7.169014       6.254778e-18       150549.295775  3147.661972  1.499903e+07  1.000000e+10
-1  2.176104e+06   16.313725    0.001696                   21000.0         11.470588       1.491182e-16       240882.352941  3873.705882  1.499900e+07  1.000000e+10
-2  2.344159e+06    9.837209    0.001636                   21000.0         10.116279       9.682178e-18       212441.860465  3649.069767  1.499831e+07  1.000000e+10
-3  2.559650e+06   33.215686    0.002351                   21000.0         11.196078      -6.966105e-17       235117.647059  3831.039216  1.500560e+07  1.000000e+10
-4  2.388060e+06   11.313433    0.000567                   21000.0          9.149254      -1.657049e-18       192134.328358  3480.522388  1.499250e+07  1.000000e+10
-5  2.997417e+06   15.575342    0.001398                   21000.0          9.794521       2.281280e-17       205684.931507  3592.602740  1.499647e+07  1.000000e+10
-6  3.188153e+06   19.432624    0.001664                   21000.0          8.943262      -3.149569e-18       187808.510638  3446.546099  1.500634e+07  1.000000e+10
-7  3.190320e+06   18.090909    0.002134                   21000.0         10.163636       2.422305e-17       213436.363636  3658.781818  1.499805e+07  1.000000e+10
-8  3.441214e+06   23.054422    0.001540                   21000.0          8.156463      -7.080504e-20       171285.714286  3320.000000  1.499896e+07  1.000000e+10
-9  3.539798e+06   18.939252    0.001239                   21000.0          8.504673      -4.669162e-18       178598.130841  3378.710280  1.499676e+07  1.000000e+10
-2019-02-13 11:32:40,692 - [logs/account_activity.log:180]=> difficulty:block_nrg_consumed
-2019-02-13 11:32:40,693 - [logs/account_activity.log:180]=> block_time:block_nrg_consumed
-2019-02-13 11:32:40,695 - [logs/account_activity.log:180]=> nrg_reward:block_nrg_consumed
-2019-02-13 11:32:40,697 - [logs/account_activity.log:180]=> transaction_nrg_consumed:block_nrg_consumed
-2019-02-13 11:32:40,699 - [logs/account_activity.log:180]=> num_transactions:block_nrg_consumed
-2019-02-13 11:32:40,700 - [logs/account_activity.log:180]=> transaction_value:block_nrg_consumed
-2019-02-13 11:32:40,702 - [logs/account_activity.log:180]=> block_size:block_nrg_consumed
-2019-02-13 11:32:40,704 - [logs/account_activity.log:180]=> nrg_limit:block_nrg_consumed
-2019-02-13 11:32:40,705 - [logs/account_activity.log:180]=> nrg_price:block_nrg_consumed
-2019-02-13 11:33:11,660 - [logs/account_activity.log:257]=> nrg_limit:['difficulty', 'block_time', 'nrg_reward', 'transaction_nrg_consumed', 'num_transactions', 'transaction_value', 'block_nrg_consumed', 'block_size', 'nrg_limit', 'nrg_price']
-2019-02-13 11:33:12,028 - [logs/account_activity.log:176]=> line 173 df:     difficulty  block_time  nrg_reward  transaction_nrg_consumed  num_transactions  transaction_value  block_nrg_consumed   block_size     nrg_limit     nrg_price
-0  1.446337e+06    9.802817    0.000568                   21000.0          7.169014       6.254778e-18       150549.295775  3147.661972  1.499903e+07  1.000000e+10
-1  2.176104e+06   16.313725    0.001696                   21000.0         11.470588       1.491182e-16       240882.352941  3873.705882  1.499900e+07  1.000000e+10
-2  2.344159e+06    9.837209    0.001636                   21000.0         10.116279       9.682178e-18       212441.860465  3649.069767  1.499831e+07  1.000000e+10
-3  2.559650e+06   33.215686    0.002351                   21000.0         11.196078      -6.966105e-17       235117.647059  3831.039216  1.500560e+07  1.000000e+10
-4  2.388060e+06   11.313433    0.000567                   21000.0          9.149254      -1.657049e-18       192134.328358  3480.522388  1.499250e+07  1.000000e+10
-5  2.997417e+06   15.575342    0.001398                   21000.0          9.794521       2.281280e-17       205684.931507  3592.602740  1.499647e+07  1.000000e+10
-6  3.188153e+06   19.432624    0.001664                   21000.0          8.943262      -3.149569e-18       187808.510638  3446.546099  1.500634e+07  1.000000e+10
-7  3.190320e+06   18.090909    0.002134                   21000.0         10.163636       2.422305e-17       213436.363636  3658.781818  1.499805e+07  1.000000e+10
-8  3.441214e+06   23.054422    0.001540                   21000.0          8.156463      -7.080504e-20       171285.714286  3320.000000  1.499896e+07  1.000000e+10
-9  3.539798e+06   18.939252    0.001239                   21000.0          8.504673      -4.669162e-18       178598.130841  3378.710280  1.499676e+07  1.000000e+10
-2019-02-13 11:33:12,079 - [logs/account_activity.log:180]=> difficulty:nrg_limit
-2019-02-13 11:33:12,080 - [logs/account_activity.log:180]=> block_time:nrg_limit
-2019-02-13 11:33:12,081 - [logs/account_activity.log:180]=> nrg_reward:nrg_limit
-2019-02-13 11:33:12,081 - [logs/account_activity.log:180]=> transaction_nrg_consumed:nrg_limit
-2019-02-13 11:33:12,082 - [logs/account_activity.log:180]=> num_transactions:nrg_limit
-2019-02-13 11:33:12,083 - [logs/account_activity.log:180]=> transaction_value:nrg_limit
-2019-02-13 11:33:12,084 - [logs/account_activity.log:180]=> block_nrg_consumed:nrg_limit
-2019-02-13 11:33:12,084 - [logs/account_activity.log:180]=> block_size:nrg_limit
-2019-02-13 11:33:12,085 - [logs/account_activity.log:180]=> nrg_price:nrg_limit
+2019-02-13 17:55:27,876 - [logs/account_activity.log:17]=> logs/account_activity.log
+2019-02-13 17:55:37,644 - [logs/account_activity.log:300]=> block_time:['block_nrg_consumed', 'transaction_nrg_consumed', 'difficulty', 'nrg_reward', 'block_time', 'num_transactions', 'transaction_value', 'nrg_limit', 'nrg_price', 'block_size']
+2019-02-13 17:55:38,622 - [logs/account_activity.log:219]=> line 173 df:   block_nrg_consumed  transaction_nrg_consumed    difficulty  nrg_reward  block_time  num_transactions  transaction_value     nrg_limit     nrg_price   block_size
+0       150549.295775                   21000.0  1.446337e+06    0.000568    9.802817          7.169014       6.254778e-18  1.499903e+07  1.000000e+10  3147.661972
+1       240882.352941                   21000.0  2.176104e+06    0.001696   16.313725         11.470588       1.491182e-16  1.499900e+07  1.000000e+10  3873.705882
+2       212441.860465                   21000.0  2.344159e+06    0.001636    9.837209         10.116279       9.682178e-18  1.499831e+07  1.000000e+10  3649.069767
+3       235117.647059                   21000.0  2.559650e+06    0.002351   33.215686         11.196078      -6.966105e-17  1.500560e+07  1.000000e+10  3831.039216
+4       192134.328358                   21000.0  2.388060e+06    0.000567   11.313433          9.149254      -1.657049e-18  1.499250e+07  1.000000e+10  3480.522388
+5       205684.931507                   21000.0  2.997417e+06    0.001398   15.575342          9.794521       2.281280e-17  1.499647e+07  1.000000e+10  3592.602740
+6       187808.510638                   21000.0  3.188153e+06    0.001664   19.432624          8.943262      -3.149569e-18  1.500634e+07  1.000000e+10  3446.546099
+7       213436.363636                   21000.0  3.190320e+06    0.002134   18.090909         10.163636       2.422305e-17  1.499805e+07  1.000000e+10  3658.781818
+8       171285.714286                   21000.0  3.441214e+06    0.001540   23.054422          8.156463      -7.080504e-20  1.499896e+07  1.000000e+10  3320.000000
+9       178598.130841                   21000.0  3.539798e+06    0.001239   18.939252          8.504673      -4.669162e-18  1.499676e+07  1.000000e+10  3378.710280
+2019-02-13 17:55:38,674 - [logs/account_activity.log:223]=> block_nrg_consumed:block_time
+2019-02-13 17:55:38,675 - [logs/account_activity.log:223]=> transaction_nrg_consumed:block_time
+2019-02-13 17:55:38,676 - [logs/account_activity.log:223]=> difficulty:block_time
+2019-02-13 17:55:38,677 - [logs/account_activity.log:223]=> nrg_reward:block_time
+2019-02-13 17:55:38,678 - [logs/account_activity.log:223]=> num_transactions:block_time
+2019-02-13 17:55:38,678 - [logs/account_activity.log:223]=> transaction_value:block_time
+2019-02-13 17:55:38,679 - [logs/account_activity.log:223]=> nrg_limit:block_time
+2019-02-13 17:55:38,680 - [logs/account_activity.log:223]=> nrg_price:block_time
+2019-02-13 17:55:38,681 - [logs/account_activity.log:223]=> block_size:block_time

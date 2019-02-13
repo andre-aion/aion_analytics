@@ -59,6 +59,11 @@ def account_activity_tab():
             self.mod_thresh = 0.45
             self.weak_thresh = 0.25
             self.corr_df = None
+            self.div_style = """ style='width:350px; margin-left:25px;
+                        border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+                        """
+
+            self.header_style = """ style='color:blue;text-align:center;' """
 
         def clean_data(self, df):
             df = df.fillna(0)
@@ -162,6 +167,44 @@ def account_activity_tab():
             text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
             return Div(text=text, width=width, height=15)
 
+        def corr_information_div(self, width=400, height=300):
+            txt = """
+            <div {}>
+            <h4 {}>How to interpret relationships </h4>
+            <ul style='margin-top:-10px;'>
+                <li>
+                Positive: as variable 1 increases, so does variable 2.
+                </li>
+                <li>
+                Negative: as variable 1 increases, variable 2 decreases.
+                </li>
+                <li>
+                Strength: decisions can be made on the basis of strong and moderate relationships.
+                </li>
+                <li>
+                No relationship/not significant: no statistical support for decision making.
+                </li>
+                 <li>
+               The scatter graphs (below) are useful for visual confirmation.
+                </li>
+                 <li>
+               The histogram (right) shows the distribution of the variable.
+                </li>
+            </ul>
+            </div>
+
+            """.format(self.div_style, self.header_style)
+            div = Div(text=txt, width=width, height=height)
+            return div
+
+        def hist(self,launch):
+            try:
+                return self.corr_df.hvplot.hist(
+                    y=self.variable, bins=50, alpha=0.3,width=350,xaxis=False)
+            except Exception:
+                logger.warning('histogram', exc_info=True)
+
+
         def correlation_table(self,launch):
             try:
                 corr_dict = {
@@ -214,10 +257,10 @@ def account_activity_tab():
                         'p-value':corr_dict['p-value']
 
                      })
-                return df.hvplot.table(columns=['Variable 1', 'Variable 2','Relationship','r','p-value'], width=600,
-                        title='Correlation between variables')
+                return df.hvplot.table(columns=['Variable 1', 'Variable 2','Relationship','r','p-value'],
+                                       width=550,height=400,title='Correlation between variables')
             except Exception:
-                logger.warning('load df', exc_info=True)
+                logger.warning('correlation table', exc_info=True)
 
 
         def matrix_plot(self,launch=-1):
@@ -256,12 +299,12 @@ def account_activity_tab():
                 variable_select.options = cols_temp
                 logger.warning('%s:%s',self.variable,cols_temp)
                 p = df.hvplot.scatter(x=self.variable,y=cols_temp,width=400,
-                                      subplots=True,shared_axes=False).cols(3)
+                                      subplots=True,shared_axes=False,xaxis=False).cols(3)
 
                 return p
 
             except Exception:
-                logger.warning('load df', exc_info=True)
+                logger.warning('matrix plot', exc_info=True)
 
 
     def update(attrname, old, new):
@@ -293,7 +336,6 @@ def account_activity_tab():
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
         stream_launch_matrix.event(launch=thistab.trigger)
-
         thistab.notification_updater("Ready!")
 
     def update_variable(attr, old, new):
@@ -354,12 +396,14 @@ def account_activity_tab():
                                        streams=[stream_launch_matrix])
         hv_corr_table = hv.DynamicMap(thistab.correlation_table,
                                       streams=[stream_launch_corr])
+        hv_hist_plot = hv.DynamicMap(thistab.hist,streams=[stream_launch_corr])
 
         account_joined = renderer.get_plot(hv_account_joined)
         account_churned = renderer.get_plot(hv_account_churned)
         account_activity = renderer.get_plot(hv_account_activity)
         matrix_plot = renderer.get_plot(hv_matrix_plot)
         corr_table = renderer.get_plot(hv_corr_table)
+        hist_plot = renderer.get_plot(hv_hist_plot)
 
         # handle callbacks
         datepicker_start.on_change('value', update)
@@ -387,8 +431,8 @@ def account_activity_tab():
             [account_churned.state],
             [account_activity.state],
             [thistab.title_div('Relationships between variables', 400),variable_select],
-            [matrix_plot.state],
-            [corr_table.state]
+            [corr_table.state, thistab.corr_information_div(),hist_plot.state],
+            [matrix_plot.state]
             ])
 
         # Make a tab with the layout
