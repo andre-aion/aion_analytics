@@ -43,114 +43,108 @@ labels = [
     ]
 
 
-class SelectionTab:
-    def __init__(self):
-
-        self.selected_tabs = []
-        self.tablist = []
-        self.selected_tracker = [] # used to monitor if a tab has already been launched
-        self.div_style = """ style='width:300px; margin-left:25px;
-                   border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
-                   """
-        self.header_div = Div(text="""<div style="text-align:center;background:black;width:100%;">
-                    <h1 style="color:#fff;">
-                    {}</h1></div>""", width=1200, height=20)
-        txt = """<div style="text-align:center;background:black;width:100%;">
-                                    <h1 style="color:#fff;">
-                                    {}</h1></div>""".format('Welcome to Aion Data Science Portal')
-        self.notification_div = Div(text=txt, width=1200, height=20)
-        self.selection_checkboxes = CheckboxGroup(labels=labels, active=[4])
-
-    def notification_updater(self, text):
-        txt = """<div style="text-align:center;background:black;width:100%;">
-                                                                             <h4 style="color:#fff;">
-                                                                             {}</h4></div>""".format(text)
-        self.notification_div.text = txt
-
-    def get_selections(self,checkboxes):
-        self.selected_tabs= [checkboxes.labels[i] for i in checkboxes.active]
-        return self.selected_tabs
-
-selection_tab = SelectionTab()
-
 @gen.coroutine
 def aion_analytics(doc):
+    class SelectionTab:
+        def __init__(self):
+            self.selected_tabs = []
+            self.tablist = []
+            self.selected_tracker = []  # used to monitor if a tab has already been launched
+            self.div_style = """ style='width:300px; margin-left:25px;
+                       border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+                       """
+
+            self.txt = """<div style="text-align:center;background:black;width:100%;">
+                                        <h1 style="color:#fff;">
+                                        {}</h1></div>""".format('Welcome to Aion Data Science Portal')
+
+        def notification_updater(self, text):
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                                                                 <h4 style="color:#fff;">
+                                                                                 {}</h4></div>""".format(text)
+            return txt
+
+        def get_selections(self, checkboxes):
+            self.selected_tabs = [checkboxes.labels[i] for i in checkboxes.active]
+            return self.selected_tabs
+
+    selection_tab = SelectionTab()
     # SETUP BOKEH OBJECTS
     try:
-        selection_tab.tablist = []
-        TABS = Tabs(tabs=selection_tab.tablist)
+        tablist = []
+        TABS = Tabs(tabs=tablist)
         @gen.coroutine
-        def load_callstack():
-            lst = selection_tab.get_selections(selection_tab.selection_checkboxes)
+        def load_callstack(tablist):
+            lst = selection_tab.get_selections(selection_checkboxes)
             logger.warning('selections:%s',lst)
 
             if 'blockminer_tab' in lst:
                 if 'blockiminer_tab' not in selection_tab.selected_tracker:
                     bm = yield blockminer_tab()
                     selection_tab.selected_tracker.append('blockminer_tab')
-                    if bm not in selection_tab.tablist:
-                        selection_tab.tablist.append(bm)
+                    if bm not in tablist:
+                        tablist.append(bm)
 
 
             if 'poolminer_tab' in lst:
                 if 'poolminer_tab' not in selection_tab.selected_tracker:
                     pm = yield poolminer_tab()
                     selection_tab.selected_tracker.append('poolminer_tab')
-                    if pm not in selection_tab.tablist:
-                        selection_tab.tablist.append(pm)
+                    if pm not in tablist:
+                        tablist.append(pm)
 
             if 'churn_tab' in lst:
                 if 'churn_tab' not in selection_tab.selected_tracker:
                     ch = yield churn_tab()
                     selection_tab.selected_tracker.append('churn_tab')
-                    if ch not in selection_tab.tablist:
-                        selection_tab.tablist.append(ch)
+                    if ch not in tablist:
+                        tablist.append(ch)
 
             if 'tier1_miner_churn_predictive_tab' in lst:
                 if 'tier1_miner_churn_predictive_tab' not in selection_tab.selected_tracker:
                     mch_1 = yield tier1_miner_churn_predictive_tab()
                     selection_tab.selected_tracker.append('tier1_miner_churn_predictive_tab')
-                    if mch_1 not in selection_tab.tablist:
-                        selection_tab.tablist.append(mch_1)
+                    if mch_1 not in tablist:
+                        tablist.append(mch_1)
 
             if 'tier2_miner_churn_predictive_tab' in lst:
                 if 'tier2_miner_churn_predictive_tab' not in selection_tab.selected_tracker:
                     mch_2 = yield tier2_miner_churn_predictive_tab()
                     selection_tab.selected_tracker.append('tier2_miner_churn_predictive_tab')
-                    if mch_2 not in selection_tab.tablist:
-                        selection_tab.tablist.append(mch_2)
+                    if mch_2 not in tablist:
+                        tablist.append(mch_2)
 
             if 'account_activity_predictive_tab' in lst:
                 if 'account_activity_predictive_tab' not in selection_tab.selected_tracker:
                     aap = yield account_activity_predictive_tab()
                     selection_tab.selected_tracker.append('account_activity_predictive_tab')
-                    if aap not in selection_tab.tablist:
-                        selection_tab.tablist.append(aap)
+                    if aap not in tablist:
+                        tablist.append(aap)
 
             if 'account_activity_tab' in lst:
                 if 'account_activity_tab' not in selection_tab.selected_tracker:
                     aa = yield account_activity_tab()
                     selection_tab.selected_tracker.append('account_activity_tab')
-                    if aa not in selection_tab.tablist:
-                        selection_tab.tablist.append(aa)
+                    if aa not in tablist:
+                        tablist.append(aa)
 
             if 'account_predictive_tab' in lst:
                 if 'account_predictive_tab' not in selection_tab.selected_tracker:
                     ap = yield account_predictive_tab()
                     selection_tab.selected_tracker.append('account_predictive_tab')
-                    if ap not in selection_tab.tablist:
-                        selection_tab.tablist.append(ap)
+                    if ap not in tablist:
+                        tablist.append(ap)
 
             # make list unique
-            selection_tab.tablist = list(set(selection_tab.tablist))
-            TABS.update(tabs=selection_tab.tablist)
+            tablist = list(set(tablist))
+            TABS.update(tabs=tablist)
 
         @gen.coroutine
         def select_tabs():
             notification_div.text = """<div style="text-align:center;background:black;width:100%;">
                                     <h1 style="color:#fff;">
                                     {}</h1></div>""".format('Please be patient. Tabs are loading..')
-            yield load_callstack()
+            yield load_callstack(tablist)
             notification_div.text = """<div style="text-align:center;background:black;width:100%;">
                                                 <h1 style="color:#fff;">
                                              {}</h1></div>""".format('Welcome to Aion Data Science Portal')
@@ -161,13 +155,14 @@ def aion_analytics(doc):
                                                 {}</h1></div>""".format('Refresh underway')
 
             doc.clear()
-            selection_tab.tablist = []
-            selection_tab.selection_checkboxes.active=[]
+            tablist = []
+            selection_checkboxes.active=[]
+
             mgmt = Panel(child=grid, title='Tab Selection')
-            selection_tab.tablist.append(mgmt)
-            TABS.update(tabs=selection_tab.tablist)
+            tablist.append(mgmt)
+            TABS.update(tabs=tablist)
             doc.add_root(TABS)
-            yield load_callstack()
+            yield load_callstack(tablist)
             notification_div.text = """<div style="text-align:center;background:black;width:100%;">
                                                             <h1 style="color:#fff;">
                                                             {}</h1></div>""".format(
@@ -195,16 +190,18 @@ def aion_analytics(doc):
                                                 <h1 style="color:#fff;">
                                                 {}</h1></div>""".format('Welcome to Aion Data Science Portal')
         notification_div = Div(text=txt,width=1200,height=20)
+        header_div = Div(text="""<div style="text-align:center;background:black;width:100%;">
+                           <h1 style="color:#fff;">
+                           {}</h1></div>""", width=1200, height=20)
+
 
         # choose startup tabs
+        selection_checkboxes = CheckboxGroup(labels=labels, active=[2])
         run_button = Button(label='Launch tabs', button_type="success")
         run_button.on_click(select_tabs)
-        # refresh
-        refresh_button = Button(label='Refresh tab memory',button_type="success")
-        refresh_button.on_click(update_selected_tabs)
 
         # setup layout
-        controls = WidgetBox(selection_tab.selection_checkboxes, run_button, refresh_button)
+        controls = WidgetBox(selection_checkboxes, run_button)
 
         # create the dashboards
         grid = gridplot([
@@ -212,10 +209,11 @@ def aion_analytics(doc):
             [buffer_div,controls, information_div],
             [footer_div]
         ])
-        mgmt = Panel(child=grid, title='Tab Selection')
 
-        selection_tab.tablist.append(mgmt)
-        TABS.update(tabs=selection_tab.tablist)
+        # setup launch tabs
+        mgmt = Panel(child=grid, title='Tab Selection')
+        tablist.append(mgmt)
+        TABS.update(tabs=tablist)
         #tabs.on_change()
         doc.add_root(TABS)
     except Exception:

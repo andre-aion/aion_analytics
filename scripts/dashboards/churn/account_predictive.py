@@ -212,6 +212,8 @@ def account_predictive_tab():
             except Exception:
                 logger.error("box plot:", exc_info=True)
 
+
+
         ###################################################
         #               MODELS
         def rf_clf(self):

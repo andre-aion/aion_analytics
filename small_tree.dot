@@ -1,25 +1,25 @@
 digraph Tree {
 node [shape=box, style="rounded", color="black", fontname=helvetica] ;
 edge [fontname=helvetica] ;
-0 [label="num_transactions <= 4.1\ngini = 0.5\nsamples = 150\nvalue = [122.0, 111.4]"] ;
-1 [label="value <= -0.4\ngini = 0.4\nsamples = 61\nvalue = [41.6, 111.4]"] ;
+0 [label="block_size <= 2658.2\ngini = 0.5\nsamples = 154\nvalue = [125.0, 125.0]"] ;
+1 [label="value <= -0.4\ngini = 0.4\nsamples = 70\nvalue = [53.8, 125.0]"] ;
 0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
-2 [label="block_nrg_consumed <= 52841.6\ngini = 0.1\nsamples = 14\nvalue = [5.3, 111.4]"] ;
+2 [label="block_nrg_consumed <= 63086.4\ngini = 0.1\nsamples = 17\nvalue = [6.3, 125.0]"] ;
 1 -> 2 ;
-3 [label="nrg_reward <= 0.0\ngini = 0.1\nsamples = 8\nvalue = [4.2, 50.6]"] ;
+3 [label="nrg_reward <= 0.0\ngini = 0.0\nsamples = 12\nvalue = [2.1, 105.8]"] ;
 2 -> 3 ;
-4 [label="gini = 0.0\nsamples = 4\nvalue = [1.1, 50.6]"] ;
+4 [label="gini = 0.0\nsamples = 6\nvalue = [0.0, 76.9]"] ;
 3 -> 4 ;
-5 [label="gini = -0.0\nsamples = 4\nvalue = [3.2, 0.0]"] ;
+5 [label="gini = 0.1\nsamples = 6\nvalue = [2.1, 28.8]"] ;
 3 -> 5 ;
-6 [label="value <= -136.0\ngini = 0.0\nsamples = 6\nvalue = [1.1, 60.8]"] ;
+6 [label="value <= -1.5\ngini = 0.3\nsamples = 5\nvalue = [4.2, 19.2]"] ;
 2 -> 6 ;
-7 [label="gini = 0.0\nsamples = 1\nvalue = [1.1, 0.0]"] ;
+7 [label="gini = 0.0\nsamples = 3\nvalue = [4.2, 0.0]"] ;
 6 -> 7 ;
-8 [label="gini = 0.0\nsamples = 5\nvalue = [0.0, 60.8]"] ;
+8 [label="gini = 0.0\nsamples = 2\nvalue = [0.0, 19.2]"] ;
 6 -> 8 ;
-9 [label="gini = -0.0\nsamples = 47\nvalue = [36.3, 0.0]"] ;
+9 [label="gini = 0.0\nsamples = 53\nvalue = [47.5, 0.0]"] ;
 1 -> 9 ;
-10 [label="gini = -0.0\nsamples = 89\nvalue = [80.5, 0.0]"] ;
+10 [label="gini = -0.0\nsamples = 84\nvalue = [71.2, 0.0]"] ;
 0 -> 10 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
 }
