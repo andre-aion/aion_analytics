@@ -1,11 +1,11 @@
-2019-03-22 19:07:43,030 - [logs/account_activity.log:17]=> logs/account_activity.log
-2019-03-22 19:08:01,647 - [logs/account_activity.log:137]=> df1 head:Index(['balance', 'russell_close', 'difficulty', 'sp_volume', 'update_type',
-       'value', 'address', 'block_time', 'sp_close', 'transaction_cost',
-       'account_type', 'russell_volume', 'nrg_reward', 'num_transactions',
-       'mining_reward', 'hash_power'],
+2019-03-22 19:14:26,353 - [logs/account_activity.log:17]=> logs/account_activity.log
+2019-03-22 19:14:44,916 - [logs/account_activity.log:137]=> df1 head:Index(['nrg_reward', 'mining_reward', 'block_time', 'value', 'balance',
+       'hash_power', 'sp_close', 'sp_volume', 'russell_volume', 'difficulty',
+       'num_transactions', 'russell_close', 'address', 'transaction_cost',
+       'update_type', 'account_type'],
       dtype='object')
-2019-03-22 19:08:05,598 - [logs/account_activity.log:310]=> line 308 ;block_time:['difficulty', 'nrg_reward', 'num_transactions', 'transaction_cost', 'transaction_value', 'balance', 'hash_power', 'mining_reward', 'russell_close', 'sp_close', 'russell_volume', 'sp_volume']
-2019-03-22 19:08:05,598 - [logs/account_activity.log:311]=> line 309. df:      difficulty  nrg_reward  num_transactions  block_time  transaction_cost  transaction_value       balance     hash_power  mining_reward  russell_close  sp_close  russell_volume  sp_volume
+2019-03-22 19:14:48,635 - [logs/account_activity.log:310]=> line 308 ;block_time:['difficulty', 'nrg_reward', 'num_transactions', 'transaction_cost', 'transaction_value', 'balance', 'hash_power', 'mining_reward', 'russell_close', 'sp_close', 'russell_volume', 'sp_volume']
+2019-03-22 19:14:48,636 - [logs/account_activity.log:311]=> line 309. df:      difficulty  nrg_reward  num_transactions  block_time  transaction_cost  transaction_value       balance     hash_power  mining_reward  russell_close  sp_close  russell_volume  sp_volume
 0  8.236143e+06 -637.758174          5.650538   16.320314       -361.241608           0.500832  46322.273936  788190.670789    -637.216569           0.00      0.00             0.0        0.0
 1  7.853036e+06 -663.802711          5.822051   16.376996       -335.197064           0.501087  82020.485859  764769.179091    -663.300161          -0.54      0.79       -101551.0    86567.0
 0  7.923382e+06 -651.230956          5.622908   16.293218       -347.768811           0.500719  52426.899128  767609.461501    -650.709558           1.08     -1.01        797942.0   -44405.0
@@ -16,7 +16,7 @@
 0  8.085162e+06 -697.928430          6.435163   17.021012       -301.071303           0.501080  57033.954012  791577.779489    -697.477063           0.03     -0.16        -56403.0   -82299.0
 1  8.148263e+06 -687.511715          6.269562   16.631169       -311.488053           0.500380  52850.971346  783784.342795    -687.044719          -0.38     -0.67        174937.0    54143.0
 0  7.810775e+06 -692.865685          6.744105   17.162750       -306.134081           0.501447  54314.475310  752154.338046    -692.406718           1.14      0.11       -222408.0    43450.0
-2019-03-22 19:08:06,516 - [logs/account_activity.log:219]=> line 173 df:     difficulty  nrg_reward  num_transactions  block_time  transaction_cost  transaction_value       balance     hash_power  mining_reward  russell_close  sp_close  russell_volume  sp_volume
+2019-03-22 19:14:49,521 - [logs/account_activity.log:219]=> line 173 df:     difficulty  nrg_reward  num_transactions  block_time  transaction_cost  transaction_value       balance     hash_power  mining_reward  russell_close  sp_close  russell_volume  sp_volume
 0  8.236143e+06 -637.758174          5.650538   16.320314       -361.241608           0.500832  46322.273936  788190.670789    -637.216569           0.00      0.00             0.0        0.0
 1  7.853036e+06 -663.802711          5.822051   16.376996       -335.197064           0.501087  82020.485859  764769.179091    -663.300161          -0.54      0.79       -101551.0    86567.0
 0  7.923382e+06 -651.230956          5.622908   16.293218       -347.768811           0.500719  52426.899128  767609.461501    -650.709558           1.08     -1.01        797942.0   -44405.0
@@ -27,32 +27,15 @@
 0  8.085162e+06 -697.928430          6.435163   17.021012       -301.071303           0.501080  57033.954012  791577.779489    -697.477063           0.03     -0.16        -56403.0   -82299.0
 1  8.148263e+06 -687.511715          6.269562   16.631169       -311.488053           0.500380  52850.971346  783784.342795    -687.044719          -0.38     -0.67        174937.0    54143.0
 0  7.810775e+06 -692.865685          6.744105   17.162750       -306.134081           0.501447  54314.475310  752154.338046    -692.406718           1.14      0.11       -222408.0    43450.0
-2019-03-22 19:08:06,569 - [logs/account_activity.log:223]=> difficulty:block_time
-2019-03-22 19:08:06,570 - [logs/account_activity.log:223]=> nrg_reward:block_time
-2019-03-22 19:08:06,571 - [logs/account_activity.log:223]=> num_transactions:block_time
-2019-03-22 19:08:06,571 - [logs/account_activity.log:223]=> transaction_cost:block_time
-2019-03-22 19:08:06,572 - [logs/account_activity.log:223]=> transaction_value:block_time
-2019-03-22 19:08:06,573 - [logs/account_activity.log:223]=> balance:block_time
-2019-03-22 19:08:06,573 - [logs/account_activity.log:223]=> hash_power:block_time
-2019-03-22 19:08:06,574 - [logs/account_activity.log:223]=> mining_reward:block_time
-2019-03-22 19:08:06,575 - [logs/account_activity.log:223]=> russell_close:block_time
-2019-03-22 19:08:06,576 - [logs/account_activity.log:223]=> sp_close:block_time
-2019-03-22 19:08:06,577 - [logs/account_activity.log:223]=> russell_volume:block_time
-2019-03-22 19:08:06,579 - [logs/account_activity.log:223]=> sp_volume:block_time
-2019-03-22 19:08:25,052 - [logs/account_activity.log:137]=> df1 head:Index(['balance', 'russell_close', 'difficulty', 'sp_volume', 'update_type',
-       'value', 'address', 'block_time', 'sp_close', 'transaction_cost',
-       'account_type', 'russell_volume', 'nrg_reward', 'num_transactions',
-       'mining_reward', 'hash_power'],
-      dtype='object')
-2019-03-22 19:08:28,520 - [logs/account_activity.log:310]=> line 308 ;block_time:['difficulty', 'nrg_reward', 'num_transactions', 'transaction_cost', 'transaction_value', 'balance', 'hash_power', 'mining_reward', 'russell_close', 'sp_close', 'russell_volume', 'sp_volume']
-2019-03-22 19:08:28,521 - [logs/account_activity.log:311]=> line 309. df:      difficulty  nrg_reward  num_transactions  block_time  transaction_cost  transaction_value        balance     hash_power  mining_reward  russell_close  sp_close  russell_volume  sp_volume
-0  8.236680e+06      -999.0          8.368177   19.537253          0.000212           0.500758   71981.460015  786055.949300         -999.0           0.00      0.00             0.0        0.0
-1  7.854519e+06      -999.0          8.276405   19.352514          0.000211           0.499479  123005.608377  762642.465962         -999.0          -0.54      0.79       -101551.0    86567.0
-0  7.924328e+06      -999.0          8.169164   19.376939          0.000215           0.501104   80095.255010  764217.610543         -999.0           1.08     -1.01        797942.0   -44405.0
-1  7.929598e+06      -999.0          7.944420   19.033169          0.000217           0.499238   91490.161671  764581.602841         -999.0        -165.37    -36.34      -1175381.0  -136466.0
-0  7.986102e+06      -999.0          8.082959   18.851033          0.000219           0.499980   71494.186368  780918.650880         -999.0           0.00      0.00             0.0        0.0
-0  7.997237e+06      -999.0          8.492939   19.066885          0.000216           0.498276   55615.327081  776083.103689         -999.0         165.59     35.05        219631.0   127068.0
-1  7.801245e+06      -999.0          8.233838   19.750688          0.000212           0.499589   60557.531651  747772.890157         -999.0          -0.26      0.18         38391.0     7438.0
-0  8.086345e+06      -999.0          8.786118   19.871998          0.000218           0.500677   82012.415047  789192.597836         -999.0           0.03     -0.16        -56403.0   -82299.0
-1  8.150103e+06      -999.0          8.625696   19.368063          0.000211           0.497679   76366.649954  781322.950608         -999.0          -0.38     -0.67        174937.0    54143.0
-0  7.810826e+06      -999.0          9.241203   20.053601          0.000212           0.501358   77910.392040  749283.927646         -999.0           1.14      0.11       -222408.0    43450.0
+2019-03-22 19:14:49,573 - [logs/account_activity.log:223]=> difficulty:block_time
+2019-03-22 19:14:49,574 - [logs/account_activity.log:223]=> nrg_reward:block_time
+2019-03-22 19:14:49,575 - [logs/account_activity.log:223]=> num_transactions:block_time
+2019-03-22 19:14:49,576 - [logs/account_activity.log:223]=> transaction_cost:block_time
+2019-03-22 19:14:49,577 - [logs/account_activity.log:223]=> transaction_value:block_time
+2019-03-22 19:14:49,577 - [logs/account_activity.log:223]=> balance:block_time
+2019-03-22 19:14:49,578 - [logs/account_activity.log:223]=> hash_power:block_time
+2019-03-22 19:14:49,578 - [logs/account_activity.log:223]=> mining_reward:block_time
+2019-03-22 19:14:49,579 - [logs/account_activity.log:223]=> russell_close:block_time
+2019-03-22 19:14:49,580 - [logs/account_activity.log:223]=> sp_close:block_time
+2019-03-22 19:14:49,580 - [logs/account_activity.log:223]=> russell_volume:block_time
+2019-03-22 19:14:49,581 - [logs/account_activity.log:223]=> sp_volume:block_time

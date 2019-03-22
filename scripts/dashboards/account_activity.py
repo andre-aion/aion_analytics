@@ -306,7 +306,7 @@ def account_activity_tab(DAYS_TO_LOAD=30):
                 cols_lst = df.columns.tolist()
                 cols_temp = cols_lst.copy()
                 cols_temp.remove(self.variable)
-                variable_select.options = cols_temp
+                variable_select.options = cols_lst
                 logger.warning('line 308 ;%s:%s',self.variable,cols_temp)
                 logger.warning('line 309. df: %s',df.head(10))
                 p = df.hvplot.scatter(x=self.variable,y=cols_temp,width=400,
@@ -353,8 +353,8 @@ def account_activity_tab(DAYS_TO_LOAD=30):
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.variable = new
         thistab.trigger += 1
-        stream_launch_matrix.update_type(launch=thistab.trigger)
-        stream_launch_corr.update_type(launch=thistab.trigger)
+        stream_launch_matrix.event(launch=thistab.trigger)
+        stream_launch_corr.event(launch=thistab.trigger)
 
         thistab.notification_updater("Ready!")
 
