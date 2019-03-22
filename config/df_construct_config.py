@@ -156,6 +156,27 @@ table_dict['account_activity'] = {
 
 }
 
+table_dict['account_external_warehouse'] = {
+    'block_timestamp': 'Datetime',
+    'address': 'String',
+    'timestamp_of_first_event': 'Datetime',
+    'update_type':'String',
+    'account_type': 'String',
+    'value': 'Float64',
+    'transaction_cost': 'Float64',
+    'block_time': 'Float64',
+    'balance':'Float64',
+    'difficulty': 'Float64',
+    'mining_reward': 'Float64',
+    'nrg_reward': 'Float64',
+    'num_transactions': 'Float64',
+    'hash_power': 'Float64',
+    'year':'UInt16',
+    'month':'UInt16',
+    'day':'UInt16',
+    'hour':'UInt16'
+
+}
 ################################################################
 #            MODEL FUNCTION
 #################################################################

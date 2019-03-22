@@ -16,7 +16,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
 from scripts.storage.pythonClickhouse import PythonClickhouse
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
 
@@ -695,10 +695,10 @@ def account_activity_predictive_tab():
             [this_tab.notification_div_bottom]
         ])
 
-        tab = Panel(child=grid, title='Account activity predictions')
+        tab = Panel(child=grid, title='predictions: account by activity')
         return tab
 
     except Exception:
         logger.error('rendering err:', exc_info=True)
-        text = 'network activity predictions'
+        text = 'predictions: account by activity'
         return tab_error_flag(text)

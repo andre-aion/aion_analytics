@@ -11,7 +11,7 @@ def mylogger(__file__):
     logger = logging.getLogger(logfile)
     handler = logging.FileHandler(logfile)
     handler.setLevel(logging.WARNING)
-    l_format = logging.Formatter('%(asctime)s - [%(name)s:%(lineno)d]=> %(message)s')
+    l_format = logging.Formatter('%(asctime)s - [%(name)s:%(lineno)s]=> %(message)s')
     handler.setFormatter(l_format)
     logger.addHandler(handler)
     logger.warning(logfile)

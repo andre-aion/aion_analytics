@@ -7,7 +7,7 @@ from sklearn.tree import export_graphviz
 from scripts.utils.mylogger import mylogger
 from scripts.utils.modeling.churn.miner_predictive_methods import find_in_redis,\
     construct_from_redis, extract_data_from_dict, get_miner_list
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_interface import Mytab
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 
 import dask.dataframe as dd

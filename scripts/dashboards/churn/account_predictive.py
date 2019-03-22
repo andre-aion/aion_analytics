@@ -16,7 +16,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
 from scripts.storage.pythonClickhouse import PythonClickhouse
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
@@ -47,7 +47,8 @@ renderer = hv.renderer('bokeh')
 hyp_variables = [
     'block_size', 'block_time', 'difficulty', 'nrg_limit',
     'nrg_reward', 'num_transactions', 'block_nrg_consumed', 'nrg_price',
-    'transaction_nrg_consumed', 'value']
+    'transaction_nrg_consumed', 'value','russell_close','russell_volume',
+    'sp_close','sp_volume']
 
 
 def label_state(row):
@@ -114,7 +115,11 @@ def account_predictive_tab():
                 'block_time': 'mean',
                 'nrg_reward': 'mean',
                 'num_transactions': 'mean',
-                'nrg_price':'mean'
+                'nrg_price':'mean',
+                'russell_close':'mean',
+                'russell_volume':'mean',
+                'sp_close': 'mean',
+                'sp_volume': 'mean'
             }
             self.div_style = """ style='width:300px; margin-left:25px;
                         border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
@@ -157,7 +162,11 @@ def account_predictive_tab():
                 if isinstance(end_date, str):
                     end_date = datetime.strptime(end_date, self.DATEFORMAT)
                 self.df_load(start_date, end_date)
-
+                self.df['russell_close'] = self.df['russell_close'].diff()
+                self.df['sp_close'] = self.df['sp_close'].diff()
+                self.df['sp_volume'] = self.df['sp_volume'].diff()
+                self.df['russell_volume'] = self.df['russell_volume'].diff()
+                self.df = self.df.fillna(0)
                     #self.make_delta()
                     #self.df = self.df.set_index('block_timestamp')
                 # logger.warning("data loaded - %s",self.tab.df.tail(10))
@@ -509,8 +518,9 @@ def account_predictive_tab():
         #cols = list(table_dict[table].keys())
         cols = ['address','day_of_week', 'block_size', 'block_timestamp',
                 'block_time', 'difficulty', 'nrg_limit',
-                'nrg_reward', 'num_transactions', 'block_nrg_consumed', 'nrg_price',
-                'transaction_nrg_consumed', 'value','event','activity','account_type']
+                'nrg_reward', 'num_transactions', 'nrg_price',
+                'transaction_nrg_consumed', 'value','event','account_type',
+                'russell_close','russell_volume','sp_close','sp_volume']
         this_tab = Thistab(table, cols, [])
         this_tab.load_df()
         this_tab.rf_clf()
@@ -590,10 +600,10 @@ def account_predictive_tab():
             [this_tab.notification_div_bottom]
         ])
 
-        tab = Panel(child=grid, title='Account prediction')
+        tab = Panel(child=grid, title='predictions: accounts by value')
         return tab
 
     except Exception:
         logger.error('rendering err:', exc_info=True)
-        text = 'account predictions'
+        text = 'predictions: accounts by value'
         return tab_error_flag(text)

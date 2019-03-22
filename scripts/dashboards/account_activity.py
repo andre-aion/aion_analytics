@@ -7,7 +7,7 @@ from scripts.utils.mylogger import mylogger
 from scripts.utils.dashboards.poolminer import make_tier1_list,\
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_interface import Mytab
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
@@ -32,20 +32,36 @@ logger = mylogger(__file__)
 hv.extension('bokeh', logo=False)
 renderer = hv.renderer('bokeh')
 
-menu_period = ['D','W','M','H']
-menu_event = ['all','native transfer','token transfer']
-variable_cols = ['block_nrg_consumed',
-               'block_size', 'block_time','difficulty','nrg_limit','nrg_reward',
-               'num_transactions','nrg_price','transaction_nrg_consumed']
+variable_cols = [
+    'value',
+    'transaction_cost',
+    'block_time',
+    'balance',
+    'difficulty',
+    'mining_reward',
+    'nrg_reward',
+    'num_transactions',
+    'hash_power',
+    'russell_close',
+    'russell_volume',
+    'sp_close',
+    'sp_volume'
+]
+menus = {
+    'account_type' : ['all','contract','miner','native_user','token_user'],
+    'update_type': ['all','contract_deployment','internal_transfer','mined_block','token_transfer','transaction'],
+    'period' : ['D','W','M','H']
+}
+
 @coroutine
-def account_activity_tab():
+def account_activity_tab(DAYS_TO_LOAD=30):
     class Thistab(Mytab):
         def __init__(self, table,cols=[], dedup_cols=[]):
             Mytab.__init__(self, table, cols, dedup_cols)
             self.table = table
-            self.cols = cols+variable_cols
-            self.period = menu_period[0]
-            self.event = menu_event[0]
+            self.cols = cols
+            self.period = menus['period'][0]
+            self.update_type = menus['update_type'][0]
             self.trigger = 0
             txt = """<div style="text-align:center;background:black;width:100%;">
                                                                <h1 style="color:#fff;">
@@ -89,10 +105,10 @@ def account_activity_tab():
 
         def plot_account_activity(self,launch=-1):
             try:
-                if self.event == 'all':
+                if self.update_type == 'all':
                     df = self.df1[self.df1['value'] >= 0]
                 else:
-                    df = self.df1[(self.df1['value'] >= 0) & (self.df1['event'] == self.event)]
+                    df = self.df1[(self.df1['value'] >= 0) & (self.df1['update_type'] == self.update_type)]
                 df = df.resample(self.period).agg({'value':'sum','address':'count'})
                 df = df.reset_index()
                 df = df.compute()
@@ -116,52 +132,36 @@ def account_activity_tab():
             except Exception:
                 logger.warning('load df',exc_info=True)
 
-        def plot_account_joined(self, launch=-1):
-            try:
-                if self.event == 'all':
-                    df = self.df1[self.df1['activity'] == 'joined']
-                else:
-                    df = self.df1[(self.df1['activity'] == 'joined') & (self.df1['event'] == self.event)]
-
-                df = df.resample(self.period).agg({'activity':'count'})
-
-                df = df.reset_index()
-                df = df.compute()
-                df['perc_change'] = df['activity'].pct_change(fill_method='ffill')
-                df.perc_change = df.perc_change.multiply(100)
-                df = df.fillna(0)
-
-                # make block_timestamp into index
-                return df.hvplot.line(x='block_timestamp',y=['activity'],value_label='# joined',
-                                      title='accounts joined by period') + \
-                       df.hvplot.line(x='block_timestamp',y=['perc_change'],value_label='%',
-                                      title='percentage joined change by period')
-            except Exception:
-                logger.warning('load df',exc_info=True)
-
         def plot_account_churned(self, launch=-1):
             try:
-                if self.event == 'all':
-                    df = self.df1[self.df1['activity'] == 'churned']
+                logger.warning('df1 head:%s',self.df1.columns)
+                if self.update_type == 'all':
+                    df = self.df1[self.df1['balance'] <= 0]
                 else:
-                    df = self.df1[(self.df1['activity'] == 'churned') & (self.df1['event'] == self.event)]
+                    df = self.df1[(self.df1['balance'] <= 0) & (self.df1['update_type'] == self.update_type)]
 
-                df = df.resample(self.period).agg({'activity': 'count'})
+                df = df.resample(self.period).agg({'balance': 'count'})
 
                 df = df.reset_index()
                 df = df.compute()
-                df['perc_change'] = df['activity'].pct_change(fill_method='ffill')
+                df['perc_change'] = df['balance'].pct_change(fill_method='ffill')
                 df.perc_change = df.perc_change.multiply(100)
                 df = df.fillna(0)
                 # df = self.clean_data(df)
 
                 # make block_timestamp into index
-                return df.hvplot.line(x='block_timestamp', y=['activity'], value_label='# churned',
+                return df.hvplot.line(x='block_timestamp', y=['balance'], value_label='# churned',
                                       title='accounts churned by period') + \
                        df.hvplot.line(x='block_timestamp', y=['perc_change'], value_label='%',
                                       title='percentage churned change by period')
             except Exception:
                 logger.warning('load df', exc_info=True)
+
+        def label_joined_churned(self,df):
+            try:
+                df['']
+            except Exception:
+                logger.warning('label joined churned', exc_info=True)
 
         def title_div(self, text, width=700):
             text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
@@ -265,53 +265,64 @@ def account_activity_tab():
 
         def matrix_plot(self,launch=-1):
             try:
-                if self.event != 'all':
-                    df = self.df1[self.df1['event'] == self.event]
+                if self.update_type != 'all':
+                    df = self.df1[self.df1['update_type'] == self.update_type]
                 else:
                     df = self.df1
                 groupby_dict = {
                     'difficulty':'mean',
                     'nrg_reward':'mean',
                     'num_transactions':'mean',
-                    'nrg_limit':'mean',
-                    'block_nrg_consumed':'mean',
-                    'block_size':'mean',
                     'block_time':'mean',
-                    'nrg_price':'mean',
-                    'transaction_nrg_consumed':'mean',
-                    'transaction_value':'mean'}
+                    'transaction_cost':'mean',
+                    'transaction_value':'mean',
+                    'balance':'mean',
+                    'hash_power':'mean',
+                    'mining_reward':'mean',
+                    'russell_close':'mean',
+                    'sp_close':'mean',
+                    'russell_volume':'mean',
+                    'sp_volume':'mean'}
                 df = df.rename(columns={'value':'transaction_value'}) #cannot have a column named value
-                df = df[['transaction_value',
-                        'block_nrg_consumed', 'block_size',
-                        'difficulty', 'nrg_limit', 'nrg_reward',
-                        'num_transactions', 'nrg_price',
-                        'transaction_nrg_consumed','block_time']]
+                if 'value' in variable_cols:
+                    variable_cols.remove('value')
+                    variable_cols.append('transaction_value')
+                df = df[variable_cols]
 
+                # get difference for money columns
 
                 df = df.resample(self.period).agg(groupby_dict)
                 df = df.reset_index()
                 df = df.drop('block_timestamp',axis=1)
                 df = df.fillna(0)
                 df = df.compute()
-                self.corr_df = df
+                df['russell_close'] = df['russell_close'].diff()
+                df['sp_close'] = df['sp_close'].diff()
+                df['sp_volume'] = df['sp_volume'].diff()
+                df['russell_volume'] = df['russell_volume'].diff()
+                df = df.fillna(0)
+
+                self.corr_df = df.copy()
                 cols_lst = df.columns.tolist()
                 cols_temp = cols_lst.copy()
+                cols_temp.remove(self.variable)
                 variable_select.options = cols_temp
-                logger.warning('%s:%s',self.variable,cols_temp)
+                logger.warning('line 308 ;%s:%s',self.variable,cols_temp)
+                logger.warning('line 309. df: %s',df.head(10))
                 p = df.hvplot.scatter(x=self.variable,y=cols_temp,width=400,
                                       subplots=True,shared_axes=False,xaxis=False).cols(3)
 
                 return p
 
             except Exception:
-                logger.warning('matrix plot', exc_info=True)
+                logger.error('matrix plot', exc_info=True)
 
 
     def update(attrname, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.load_df(datepicker_start.value,datepicker_end.value)
         thistab.prep_data()
-        thistab.event = event_select.value
+        thistab.update_type = event_select.value
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
         stream_launch_matrix.event(launch=thistab.trigger)
@@ -321,7 +332,7 @@ def account_activity_tab():
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.prep_data()
         thistab.period = period_select.value
-        thistab.event = event_select.value
+        thistab.update_type = event_select.value
         thistab.variable = variable_select.value
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
@@ -331,7 +342,7 @@ def account_activity_tab():
     def update_event(attr, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.prep_data()
-        thistab.event = event_select.value
+        thistab.update_type = event_select.value
         thistab.variable = variable_select.value
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
@@ -342,21 +353,21 @@ def account_activity_tab():
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.variable = new
         thistab.trigger += 1
-        stream_launch_matrix.event(launch=thistab.trigger)
-        stream_launch_corr.event(launch=thistab.trigger)
+        stream_launch_matrix.update_type(launch=thistab.trigger)
+        stream_launch_corr.update_type(launch=thistab.trigger)
 
         thistab.notification_updater("Ready!")
 
     try:
-        cols = ['address','block_timestamp','value','activity','event','account_type']
-        thistab = Thistab(table='account_activity_warehouse',cols=cols)
+        cols = list(set(variable_cols + ['address','block_timestamp','update_type','account_type']))
+        thistab = Thistab(table='account_external_warehouse',cols=cols)
         # STATIC DATES
         # format dates
-        first_date_range = "2018-04-23 00:00:00"
+        first_date_range = "2019-01-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = datetime.now().date()
-        first_date = datetime_to_date(last_date - timedelta(days=330))
+        first_date = datetime_to_date(last_date - timedelta(days=DAYS_TO_LOAD))
 
         thistab.load_df(first_date, last_date)
         thistab.prep_data()
@@ -376,18 +387,16 @@ def account_activity_tab():
 
         period_select = Select(title='Select aggregation period',
                                value='day',
-                               options=menu_period)
+                               options=menus['period'])
         event_select = Select(title='Select transfer type',
                                value='all',
-                               options=menu_event)
+                               options=menus['update_type'])
         variable_select = Select(title='Select variable',
                               value='block_time',
                               options=variable_cols)
 
         # --------------------- PLOTS----------------------------------
         width = 800
-        hv_account_joined = hv.DynamicMap(thistab.plot_account_joined,
-                                          streams=[stream_launch]).opts(plot=dict(width=width, height=400))
         hv_account_churned = hv.DynamicMap(thistab.plot_account_churned,
                                            streams=[stream_launch]).opts(plot=dict(width=width, height=400))
         hv_account_activity = hv.DynamicMap(thistab.plot_account_activity,
@@ -398,7 +407,6 @@ def account_activity_tab():
                                       streams=[stream_launch_corr])
         hv_hist_plot = hv.DynamicMap(thistab.hist,streams=[stream_launch_corr])
 
-        account_joined = renderer.get_plot(hv_account_joined)
         account_churned = renderer.get_plot(hv_account_churned)
         account_activity = renderer.get_plot(hv_account_activity)
         matrix_plot = renderer.get_plot(hv_matrix_plot)
@@ -427,7 +435,6 @@ def account_activity_tab():
         grid = gridplot([
             [thistab.notification_div],
             [controls_left, controls_right],
-            [account_joined.state],
             [account_churned.state],
             [account_activity.state],
             [thistab.title_div('Relationships between variables', 400),variable_select],

@@ -26,22 +26,21 @@ from scripts.dashboards.churn.account_predictive import account_predictive_tab
 
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import tab_error_flag
-
 logger = mylogger(__file__)
 executor = ThreadPoolExecutor(max_workers=10)
 
 
 labels = [
-    'blockminer_tab',
-    'poolminer_tab',
-    'account_activity_tab',
-    'account_activity_predictive_tab',
-    'account_predictive_tab',
-    'churn_tab',
-    'tier1_miner_churn_predictive_tab',
-    'tier2_miner_churn_predictive_tab',
+    'account activity',
+    'miners: blocks',
+    'miners: tiers 1 & 2',
+    'miners: churn stats',
+    'predictions: accounts by activity',
+    'predictions: accounts by value',
+    'predictions: tier 1 miner churn',
+    'predictions: tier 2 miner churn',
     ]
-
+DEFAULT_CHECKBOX_SELECTION = 0
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -78,60 +77,59 @@ def aion_analytics(doc):
             lst = selection_tab.get_selections(selection_checkboxes)
             logger.warning('selections:%s',lst)
 
-            if 'blockminer_tab' in lst:
-                if 'blockiminer_tab' not in selection_tab.selected_tracker:
+            if 'miners: blocks' in lst:
+                if 'miners: blocks' not in selection_tab.selected_tracker:
                     bm = yield blockminer_tab()
-                    selection_tab.selected_tracker.append('blockminer_tab')
+                    selection_tab.selected_tracker.append('miners: blocks')
                     if bm not in tablist:
                         tablist.append(bm)
 
-
-            if 'poolminer_tab' in lst:
-                if 'poolminer_tab' not in selection_tab.selected_tracker:
+            if 'miners: tiers 1 & 2' in lst:
+                if 'miners: tiers 1 & 2' not in selection_tab.selected_tracker:
                     pm = yield poolminer_tab()
-                    selection_tab.selected_tracker.append('poolminer_tab')
+                    selection_tab.selected_tracker.append('miners: tiers 1 & 2')
                     if pm not in tablist:
                         tablist.append(pm)
 
-            if 'churn_tab' in lst:
-                if 'churn_tab' not in selection_tab.selected_tracker:
+            if 'miners: churn stats' in lst:
+                if 'miners: churn stats' not in selection_tab.selected_tracker:
                     ch = yield churn_tab()
-                    selection_tab.selected_tracker.append('churn_tab')
+                    selection_tab.selected_tracker.append('miners: churn stats')
                     if ch not in tablist:
                         tablist.append(ch)
 
-            if 'tier1_miner_churn_predictive_tab' in lst:
-                if 'tier1_miner_churn_predictive_tab' not in selection_tab.selected_tracker:
+            if 'predictions: tier 1 miner churn' in lst:
+                if 'predictions: tier 1 miner churn' not in selection_tab.selected_tracker:
                     mch_1 = yield tier1_miner_churn_predictive_tab()
-                    selection_tab.selected_tracker.append('tier1_miner_churn_predictive_tab')
+                    selection_tab.selected_tracker.append('predictions: tier 1 miner churn')
                     if mch_1 not in tablist:
                         tablist.append(mch_1)
 
-            if 'tier2_miner_churn_predictive_tab' in lst:
-                if 'tier2_miner_churn_predictive_tab' not in selection_tab.selected_tracker:
+            if 'predictions: tier 2 miner churn' in lst:
+                if 'predictions: tier 2 miner churn' not in selection_tab.selected_tracker:
                     mch_2 = yield tier2_miner_churn_predictive_tab()
-                    selection_tab.selected_tracker.append('tier2_miner_churn_predictive_tab')
+                    selection_tab.selected_tracker.append('predictions: tier 2 miner churn')
                     if mch_2 not in tablist:
                         tablist.append(mch_2)
 
-            if 'account_activity_predictive_tab' in lst:
-                if 'account_activity_predictive_tab' not in selection_tab.selected_tracker:
+            if 'predictions: accounts by activity' in lst:
+                if 'predictions: accounts by activity' not in selection_tab.selected_tracker:
                     aap = yield account_activity_predictive_tab()
-                    selection_tab.selected_tracker.append('account_activity_predictive_tab')
+                    selection_tab.selected_tracker.append('predictions: accounts by activity')
                     if aap not in tablist:
                         tablist.append(aap)
 
-            if 'account_activity_tab' in lst:
-                if 'account_activity_tab' not in selection_tab.selected_tracker:
+            if 'account activity' in lst:
+                if 'account activity' not in selection_tab.selected_tracker:
                     aa = yield account_activity_tab()
-                    selection_tab.selected_tracker.append('account_activity_tab')
+                    selection_tab.selected_tracker.append('account activity')
                     if aa not in tablist:
                         tablist.append(aa)
 
-            if 'account_predictive_tab' in lst:
-                if 'account_predictive_tab' not in selection_tab.selected_tracker:
+            if 'predictions: accounts by value' in lst:
+                if 'predictions: accounts by value' not in selection_tab.selected_tracker:
                     ap = yield account_predictive_tab()
-                    selection_tab.selected_tracker.append('account_predictive_tab')
+                    selection_tab.selected_tracker.append('predictions: accounts by value')
                     if ap not in tablist:
                         tablist.append(ap)
 
@@ -182,7 +180,7 @@ def aion_analytics(doc):
                 </div>
                 """.format(selection_tab.div_style)
 
-        information_div = Div(text=txt, width=400, height=400)
+        information_div = Div(text=txt, width=400, height=250)
         buffer_div = Div(text='', width=300, height=20)
         footer_div = Div(text='<hr/><div style="width:100%;height:100px;position:relative;background:black;"></div>',
                          width=1200, height=100)
@@ -194,9 +192,9 @@ def aion_analytics(doc):
                            <h1 style="color:#fff;">
                            {}</h1></div>""", width=1200, height=20)
 
-
+        image_div = Div(text="<img src=static/images/small_tree.png'>")
         # choose startup tabs
-        selection_checkboxes = CheckboxGroup(labels=labels, active=[2])
+        selection_checkboxes = CheckboxGroup(labels=labels, active=[DEFAULT_CHECKBOX_SELECTION])
         run_button = Button(label='Launch tabs', button_type="success")
         run_button.on_click(select_tabs)
 

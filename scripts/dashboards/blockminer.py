@@ -2,7 +2,7 @@ import inspect
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
-from scripts.utils.dashboards.mytab import Mytab
+from scripts.utils.dashboards.mytab_interface import Mytab
 from scripts.utils.myutils import tab_error_flag,tab_disabled_flag, datetime_to_date
 from scripts.utils.mylogger import mylogger
 from config.df_construct_config import dedup_cols
@@ -179,8 +179,6 @@ def blockminer_tab():
         last_date = last_date_range
         first_date = datetime_to_date(last_date - timedelta(days=30))
 
-
-
         # STREAMS Setup
         # date comes out stream in milliseconds
         stream_start_date = streams.Stream.define('Start_date',
@@ -195,8 +193,6 @@ def blockminer_tab():
                                       max_date=last_date_range, value=first_date)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
-
-
 
         # ALL MINERS.
         # --------------------- ALL  MINERS ----------------------------------
@@ -241,11 +237,11 @@ def blockminer_tab():
                          [bar_plot.state]])
 
         # Make a tab with the layout
-        tab = Panel(child=grid, title='Blockminer')
+        tab = Panel(child=grid, title='miners: blocks')
 
         return tab
 
     except Exception:
         logger.error("Blockminer", exc_info=True)
 
-        return tab_error_flag('blockminer')
+        return tab_error_flag('miners: blocks')

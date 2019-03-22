@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="aion@staging" uuid="320597cf-ea23-4904-a5c7-77834a8b6f07">
+    <data-source source="LOCAL" name="aion_analytics@office" uuid="320597cf-ea23-4904-a5c7-77834a8b6f07">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://40.113.226.240:3306/aion</jdbc-url>
+      <jdbc-url>jdbc:mysql://104.200.110.155:3306/aion_analytics</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
