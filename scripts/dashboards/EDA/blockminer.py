@@ -1,9 +1,8 @@
-import inspect
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
-from scripts.utils.dashboards.mytab_interface import Mytab
-from scripts.utils.myutils import tab_error_flag,tab_disabled_flag, datetime_to_date
+from scripts.utils.dashboards.EDA.mytab_interface import Mytab
+from scripts.utils.myutils import tab_error_flag, datetime_to_date
 from scripts.utils.mylogger import mylogger
 from config.df_construct_config import dedup_cols
 

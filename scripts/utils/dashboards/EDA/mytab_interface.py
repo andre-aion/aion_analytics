@@ -6,9 +6,9 @@ import dask as dd
 
 from scripts.utils.mylogger import mylogger
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
-from scripts.storage.pythonRedis import PythonRedis
-from scripts.storage.pythonParquet import PythonParquet
-from scripts.storage.pythonClickhouse import PythonClickhouse
+from scripts.databases.pythonRedis import PythonRedis
+from scripts.databases.pythonParquet import PythonParquet
+from scripts.databases.pythonClickhouse import PythonClickhouse
 from bokeh.models.widgets import Div, Paragraph
 
 r = PythonRedis()
@@ -121,7 +121,7 @@ class Mytab:
             logger.error('normalize:', exc_info=True)
 
     def get_poolname_dict(self):
-        file = join(dirname(__file__), '../../../data/poolinfo.csv')
+        file = join(dirname(__file__), '../../../../data/poolinfo.csv')
         df = pd.read_csv(file)
         a = df['address'].tolist()
         b = df['poolname'].tolist()

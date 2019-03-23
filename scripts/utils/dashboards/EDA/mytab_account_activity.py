@@ -6,9 +6,9 @@ import dask as dd
 
 from scripts.utils.mylogger import mylogger
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
-from scripts.storage.pythonRedis import PythonRedis
-from scripts.storage.pythonParquet import PythonParquet
-from scripts.storage.pythonClickhouse import PythonClickhouse
+from scripts.databases.pythonRedis import PythonRedis
+from scripts.databases.pythonParquet import PythonParquet
+from scripts.databases.pythonClickhouse import PythonClickhouse
 from bokeh.models.widgets import Div, Paragraph
 
 r = PythonRedis()

@@ -1,2 +1,2 @@
 from scripts.utils import myutils
-from scripts.utils.dashboards import poolminer
+from scripts.utils.dashboards.EDA import poolminer

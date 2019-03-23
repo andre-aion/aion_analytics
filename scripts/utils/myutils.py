@@ -4,8 +4,8 @@ from operator import xor
 
 from scripts.utils.mylogger import mylogger
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
-from scripts.storage.pythonClickhouse import PythonClickhouse
-from scripts.storage.pythonParquet import PythonParquet
+from scripts.databases.pythonClickhouse import PythonClickhouse
+from scripts.databases.pythonParquet import PythonParquet
 
 import pandas as pd
 from os.path import join, dirname
@@ -284,9 +284,9 @@ def isKthBitSet(n, k):
 
 # append dask dataframes
 def concat_dfs(top, bottom):
-    top = top.repartition(npartitions=100)
+    top = top.repartition(npartitions=15)
     top = top.reset_index(drop=True)
-    bottom = bottom.repartition(npartitions=100)
+    bottom = bottom.repartition(npartitions=15)
     bottom = bottom.reset_index(drop=True)
     top = dd.dataframe.concat([top,bottom])
     top = top.reset_index().set_index('index')

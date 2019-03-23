@@ -1,41 +1,29 @@
 from datetime import datetime, timedelta, date
-from os.path import dirname, join
-from statistics import mean
 
 import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, CustomJS, Paragraph, CheckboxGroup, Select
-from bokeh.plotting import figure
-from scipy import stats
+from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select
 from sklearn import metrics
-from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, classification_report
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.model_selection import train_test_split
 from sklearn.tree import export_graphviz
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
-from scripts.storage.pythonClickhouse import PythonClickhouse
-from scripts.utils.dashboards.mytab_interface import Mytab
+from scripts.databases.pythonClickhouse import PythonClickhouse
+from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 
 from tornado.gen import coroutine
-from config.df_construct_config import table_dict
 
 from operator import itemgetter
 import pandas as pd
 import dask as dd
-import numpy as np
 import holoviews as hv
-import hvplot.pandas
-import hvplot.dask
-from holoviews import opts, streams
-import datashader as ds
-from holoviews.operation.datashader import datashade, shade, dynspread, rasterize
-from holoviews.operation import decimate
-from holoviews.operation.timeseries import rolling, rolling_outlier_std
+from holoviews import streams
 
 from scripts.utils.myutils import tab_error_flag
 

@@ -88,7 +88,7 @@ class PythonClickhouse:
             logger.warning('%s NOT CREATED',table.upper())
             logger.error("Create table error", exc_info=True)
 
-    def construct_read_query(self, table, cols, startdate, enddate):
+    def construct_read_query(self, table, cols, startdate, enddate,select_col='block_timestamp'):
         qry = 'SELECT '
         if len(cols) >= 1:
             for pos, col in enumerate(cols):
@@ -98,14 +98,14 @@ class PythonClickhouse:
         else:
             qry += '*'
 
-        qry += """ FROM {}.{} WHERE toDate(block_timestamp) >= toDate('{}') AND 
-               toDate(block_timestamp) <= toDate('{}') ORDER BY block_timestamp""" \
-            .format(self.db,table, startdate, enddate)
+        qry += """ FROM {}.{} WHERE toDate({}) >= toDate('{}') AND 
+               toDate({}) <= toDate('{}') ORDER BY {}""" \
+            .format(self.db,table,select_col,startdate,select_col, enddate,select_col)
 
         logger.warning('query:%s', qry)
         return qry
 
-    def load_data(self,table,cols,start_date,end_date):
+    def load_data(self,table,cols,start_date,end_date,select_col='block_timestamp'):
         start_date = self.ts_to_date(start_date)
         end_date = self.ts_to_date(end_date)
         #logger.warning('load data start_date:%s', start_date)
@@ -115,7 +115,7 @@ class PythonClickhouse:
             logger.warning("END DATE IS GREATER THAN START DATE")
             logger.warning("BOTH DATES SET TO START DATE")
             start_date = end_date
-        sql = self.construct_read_query(table, cols, start_date, end_date)
+        sql = self.construct_read_query(table, cols, start_date, end_date,select_col)
 
         try:
             query_result = self.client.execute(sql,

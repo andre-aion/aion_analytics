@@ -1,10 +1,10 @@
 from datetime import datetime
 
-from scripts.storage.pythonRedis import PythonRedis
-from scripts.utils.dashboards.mytab_interface import Mytab
+from scripts.databases.pythonRedis import PythonRedis
+from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
 from config.df_construct_config import load_columns as cols
-from scripts.utils.dashboards.poolminer import is_tier1_in_memory, \
+from scripts.utils.dashboards.EDA.poolminer import is_tier1_in_memory, \
     make_tier1_list, is_tier2_in_memory, make_tier2_list
 logger = mylogger(__file__)
 redis = PythonRedis()

@@ -1,27 +1,17 @@
-from os.path import join, dirname
-
 from holoviews import streams
 
-from config.df_construct_config import table_dict
 from scripts.utils.mylogger import mylogger
-from scripts.utils.dashboards.poolminer import make_tier1_list,\
-    make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
-from scripts.utils.dashboards.mytab_interface import Mytab
-from concurrent.futures import ThreadPoolExecutor
-from tornado.locks import Lock
+from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 
 from bokeh.layouts import gridplot, WidgetBox
-from bokeh.models import ColumnDataSource, Panel, CustomJS
-import gc
+from bokeh.models import Panel
 from bokeh.models.widgets import Div, \
-    DatePicker, TableColumn, DataTable, Button, Select, Paragraph
+    DatePicker, Select
 
 from datetime import datetime, timedelta
 
 import holoviews as hv
-import hvplot.pandas
-import hvplot.dask
 from tornado.gen import coroutine
 from numpy import inf
 import pandas as pd

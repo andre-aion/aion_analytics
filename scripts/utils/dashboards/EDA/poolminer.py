@@ -1,7 +1,7 @@
 from dask.dataframe.utils import make_meta
 
 from scripts.utils.mylogger import mylogger
-from scripts.storage.pythonRedis import PythonRedis
+from scripts.databases.pythonRedis import PythonRedis
 import gc
 import re
 from datetime import datetime

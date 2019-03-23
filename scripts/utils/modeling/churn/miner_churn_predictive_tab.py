@@ -5,9 +5,8 @@ import pydot
 from sklearn.tree import export_graphviz
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.modeling.churn.miner_predictive_methods import find_in_redis,\
-    construct_from_redis, extract_data_from_dict, get_miner_list
-from scripts.utils.dashboards.mytab_interface import Mytab
+from scripts.utils.modeling.churn.miner_predictive_methods import extract_data_from_dict
+from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 
 import dask.dataframe as dd
@@ -15,26 +14,11 @@ import dask.dataframe as dd
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 
-from bokeh.layouts import gridplot, WidgetBox
-from bokeh.models import ColumnDataSource, Panel
-from bokeh.models.widgets import Div, \
-    DatePicker, Select, CheckboxGroup, Button, Paragraph
-
 from datetime import datetime, date, timedelta, time
-import gc
-from bokeh.models.widgets import Div, Select, \
-    DatePicker, TableColumn, DataTable
-from holoviews import streams
 
-import hvplot
-import hvplot.pandas
-import hvplot.dask
 import pandas as pd
-from scipy import stats
-import numpy as np
 
 import holoviews as hv
-from tornado.gen import coroutine
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, confusion_matrix

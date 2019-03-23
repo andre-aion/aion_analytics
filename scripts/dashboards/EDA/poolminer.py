@@ -1,10 +1,10 @@
 from os.path import join, dirname
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.dashboards.poolminer import make_tier1_list,\
+from scripts.utils.dashboards.EDA.poolminer import make_tier1_list,\
     make_tier2_list, is_tier2_in_memory, is_tier1_in_memory
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
-from scripts.utils.dashboards.mytab_interface import Mytab
+from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 

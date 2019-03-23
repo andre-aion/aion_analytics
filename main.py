@@ -1,7 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor
 
 from bokeh.models import WidgetBox
-from bokeh.plotting import figure
 from tornado import gen
 from bokeh.document import without_document_lock
 
@@ -10,27 +9,30 @@ from bokeh.models.widgets import Tabs, CheckboxGroup, Button, Panel, Div
 from bokeh.server.server import Server
 from bokeh.application import Application
 from bokeh.application.handlers.function import FunctionHandler
-from bokeh.layouts import row, gridplot
+from bokeh.layouts import gridplot
 
 # GET THE DASHBOARDS
 from tornado.ioloop import IOLoop
 
-from scripts.dashboards.account_activity import account_activity_tab
-from scripts.dashboards.blockminer import blockminer_tab
-from scripts.dashboards.poolminer import poolminer_tab
+from scripts.dashboards.EDA.account_activity import account_activity_tab
+from scripts.dashboards.EDA.blockminer import blockminer_tab
+from scripts.dashboards.EDA.poolminer import poolminer_tab
 from scripts.dashboards.churn.churn import churn_tab
 from scripts.dashboards.churn.tier1_miner_predictive import tier1_miner_churn_predictive_tab
 from scripts.dashboards.churn.tier2_miner_predictive import tier2_miner_churn_predictive_tab
 from scripts.dashboards.churn.account_activity_predictive import account_activity_predictive_tab
 from scripts.dashboards.churn.account_predictive import account_predictive_tab
 
+from scripts.dashboards.KPI.accounts import KPI_accounts_tab
+
 from scripts.utils.mylogger import mylogger
-from scripts.utils.myutils import tab_error_flag
+
 logger = mylogger(__file__)
 executor = ThreadPoolExecutor(max_workers=10)
 
 
 labels = [
+    'KPI: accounts',
     'account activity',
     'miners: blocks',
     'miners: tiers 1 & 2',
@@ -76,6 +78,14 @@ def aion_analytics(doc):
         def load_callstack(tablist):
             lst = selection_tab.get_selections(selection_checkboxes)
             logger.warning('selections:%s',lst)
+            '''
+            if 'KPI: accounts' in lst:
+                if 'KPI: accounts' not in selection_tab.selected_tracker:
+                    kpi_accounts = yield KPI_accounts_tab()
+                    selection_tab.selected_tracker.append('KPI: accounts')
+                    if kpi_accounts not in tablist:
+                        tablist.append(kpi_accounts)
+            '''
 
             if 'miners: blocks' in lst:
                 if 'miners: blocks' not in selection_tab.selected_tracker:
@@ -192,7 +202,6 @@ def aion_analytics(doc):
                            <h1 style="color:#fff;">
                            {}</h1></div>""", width=1200, height=20)
 
-        image_div = Div(text="<img src=static/images/small_tree.png'>")
         # choose startup tabs
         selection_checkboxes = CheckboxGroup(labels=labels, active=[DEFAULT_CHECKBOX_SELECTION])
         run_button = Button(label='Launch tabs', button_type="success")
@@ -210,9 +219,11 @@ def aion_analytics(doc):
 
         # setup launch tabs
         mgmt = Panel(child=grid, title='Tab Selection')
+        kpi_accounts = yield KPI_accounts_tab()
+
         tablist.append(mgmt)
+        tablist.append(kpi_accounts)
         TABS.update(tabs=tablist)
-        #tabs.on_change()
         doc.add_root(TABS)
     except Exception:
         logger.error("TABS:", exc_info=True)
