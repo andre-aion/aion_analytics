@@ -93,7 +93,7 @@ def KPI_accounts_tab(DAYS_TO_LOAD=90):
             div = Div(text=txt, width=width, height=height)
             return div
 
-        def card(self,title,count,card_design='folders',width=150,height=150):
+        def card(self,title,count,card_design='folders',width=200,height=200):
             try:
                 txt = """<div {}><h3>{}</h3></br>{}</div>""".format(self.KPI_card_css[card_design], title, count)
                 div = Div(text=txt, width=width, height=height)
@@ -146,7 +146,6 @@ def KPI_accounts_tab(DAYS_TO_LOAD=90):
                 if abs(start_date - end_date).days > 90:
                     if 'quarter' in periods:
                         periods.remove('quarter')
-
 
                 for idx,period in enumerate(periods):
                     df_period = self.period_over_period(df, start_date = start_date, end_date=end_date,

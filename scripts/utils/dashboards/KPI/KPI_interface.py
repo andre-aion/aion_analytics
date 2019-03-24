@@ -11,6 +11,7 @@ from dateutil.relativedelta import relativedelta
 from scripts.databases.pythonClickhouse import PythonClickhouse
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import concat_dfs
+from static.css.KPI_interface import KPI_card_css
 
 import hvplot.pandas
 import hvplot.dask
@@ -48,28 +49,7 @@ class KPI:
                                          <h1 style="color:#fff;">
                                          {}</h1></div>""".format('Welcome')
         css_path = join(dirname(__file__),"../../../static/css/KPI_interface.css")
-        self.KPI_card_css = {
-            'circle': """style='text-align : center; padding : 1em; border : 0.5em solid black;
-                         width : 12em; height : 4em; border-radius: 100%;' """,
-            'folders': """ style = 'padding : 1em;
-                          width: 100%;
-                          height: 200px;
-                          box-sizing: border-box;
-                          background-color: #E4E4D9;
-                          background-image: linear-gradient(175deg, rgba(0,0,0,0) 95%, #8da389 95%),
-                                            linear-gradient( 85deg, rgba(0,0,0,0) 95%, #8da389 95%),
-                                            linear-gradient(175deg, rgba(0,0,0,0) 90%, #b4b07f 90%),
-                                            linear-gradient( 85deg, rgba(0,0,0,0) 92%, #b4b07f 92%),
-                                            linear-gradient(175deg, rgba(0,0,0,0) 85%, #c5a68e 85%),
-                                            linear-gradient( 85deg, rgba(0,0,0,0) 89%, #c5a68e 89%),
-                                            linear-gradient(175deg, rgba(0,0,0,0) 80%, #ba9499 80%),
-                                            linear-gradient( 85deg, rgba(0,0,0,0) 86%, #ba9499 86%),
-                                            linear-gradient(175deg, rgba(0,0,0,0) 75%, #9f8fa4 75%),
-                                            linear-gradient( 85deg, rgba(0,0,0,0) 83%, #9f8fa4 83%),
-                                            linear-gradient(175deg, rgba(0,0,0,0) 70%, #74a6ae 70%),
-                                            linear-gradient( 85deg, rgba(0,0,0,0) 80%, #74a6ae 80%);' 
-                        """
-        }
+        self.KPI_card_css = KPI_card_css
         self.DATEFORMAT = '%Y-%m-%d %H:%M:%S'
         self.initial_date = datetime.strptime("2018-04-25 00:00:00",self.DATEFORMAT)
         self.account_type = 'all'
@@ -115,7 +95,6 @@ class KPI:
             return start
         except Exception:
             logger.error('period to date', exc_info=True)
-        
 
     def period_to_date(self,df,timestamp = None,filter_col=None,cols=[],period='week'):
         try:
