@@ -2,6 +2,8 @@ from concurrent.futures import ThreadPoolExecutor
 from enum import Enum
 from operator import xor
 
+from numpy import inf
+
 from scripts.utils.mylogger import mylogger
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from scripts.databases.pythonClickhouse import PythonClickhouse
@@ -167,7 +169,11 @@ def drop_cols(df,cols_to_drop):
         df = df.drop(to_drop, axis=1)
     return df
 
-
+def clean_data(df):
+    df = df.fillna(0)
+    df[df == -inf] = 0
+    df[df == inf] = 0
+    return df
 
 #
 # check to see if the current data is within the active dataset

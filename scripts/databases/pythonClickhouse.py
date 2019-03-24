@@ -90,6 +90,7 @@ class PythonClickhouse:
 
     def construct_read_query(self, table, cols, startdate, enddate,select_col='block_timestamp'):
         qry = 'SELECT '
+
         if len(cols) >= 1:
             for pos, col in enumerate(cols):
                 if pos > 0:
@@ -102,7 +103,7 @@ class PythonClickhouse:
                toDate({}) <= toDate('{}') ORDER BY {}""" \
             .format(self.db,table,select_col,startdate,select_col, enddate,select_col)
 
-        logger.warning('query:%s', qry)
+        #logger.warning('query:%s', qry)
         return qry
 
     def load_data(self,table,cols,start_date,end_date,select_col='block_timestamp'):

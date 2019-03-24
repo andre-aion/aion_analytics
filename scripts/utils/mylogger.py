@@ -6,11 +6,11 @@ import sys
 
 def mylogger(__file__):
     # create a custom logger handler
-
+    '''
     logfile = 'logs/' + os.path.splitext(os.path.basename(__file__))[0] + '.log'
     logger = logging.getLogger(logfile)
     handler = logging.FileHandler(logfile)
-    handler.setLevel(logging.WARNING)
+    handler.setLevel(logging.INFO)
     l_format = logging.Formatter('%(asctime)s - [%(name)s:%(lineno)s]=> %(message)s')
     handler.setFormatter(l_format)
     logger.addHandler(handler)
@@ -25,6 +25,6 @@ def mylogger(__file__):
     formatter = logging.Formatter(FORMAT)
     ch.setFormatter(formatter)
     logger.addHandler(ch)
-    '''
+
 
     return logger

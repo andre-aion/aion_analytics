@@ -1,3 +1,5 @@
+import random
+
 from holoviews import streams
 
 from scripts.utils.mylogger import mylogger
@@ -16,6 +18,8 @@ from datetime import datetime, timedelta
 
 import holoviews as hv
 from tornado.gen import coroutine
+import numpy as np
+import pandas as pd
 
 lock = Lock()
 executor = ThreadPoolExecutor()
@@ -48,13 +52,20 @@ def KPI_accounts_tab(DAYS_TO_LOAD=90):
 
             }
 
+            self.section_headers = {
+                'cards' : self.section_header_div('', 1400),
+                'pop': self.section_header_div('', 1400) # period over period
+            }
+
+        # ----------------------  DIVS ----------------------------
+
         def reset_checkboxes(self, value='all',checkboxgroup=''):
             try:
                 self.checkboxgroup[checkboxgroup].value = value
             except Exception:
                 logger.error('reset checkboxes', exc_info=True)
 
-        def title_div(self, text, width=700):
+        def section_header_div(self, text, width=1400):
             text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
             return Div(text=text, width=width, height=15)
 
@@ -82,14 +93,16 @@ def KPI_accounts_tab(DAYS_TO_LOAD=90):
             div = Div(text=txt, width=width, height=height)
             return div
 
-        def card(self,title,count,width=300,height=100):
+        def card(self,title,count,card_design='folders',width=150,height=150):
             try:
-                txt = """<div {}><h3>{}</h3></br>{}</div>""".format(self.KPI_css['circle'],title,count)
+                txt = """<div {}><h3>{}</h3></br>{}</div>""".format(self.KPI_card_css[card_design], title, count)
                 div = Div(text=txt, width=width, height=height)
                 return div
 
             except Exception:
                 logger.error('card',exc_info=True)
+
+        # -------------------- GRAPHS -------------------------------------------
 
         def graph_periods_to_date(self,df1):
             try:
@@ -104,36 +117,59 @@ def KPI_accounts_tab(DAYS_TO_LOAD=90):
                     df = df.drop_duplicates(keep='first')
                     #logger.warning('post duplicates dropped:%s', df.head(10))
                     count = len(df)
-                    logger.warning('LINE 94')
                     del df
                     gc.collect()
                     title = "{} to date".format(period)
-                    p = self.card(title,count)
+
+                    p = self.card(title=title, count=count, card_design=random.choice(list(self.KPI_card_css.keys())))
                     self.period_to_date_cards[period].text = p.text
-                    logger.warning('%s to date completed',period)
+                    #logger.warning('%s to date completed',period)
 
             except Exception:
                 logger.error('graph periods to date',exc_info=True)
 
-        def graph_period_over_period(self,start_date, end_date,history_periods=1,
-                                     periods=['month','week'],
-                                     cols=['account_type','timestamp_of_first_event','year','month','day'],
-                                     timestamp_col=None):
+
+        def graph_period_over_period(self,launch=-1):
             try:
+                start_date = self.period_start_date
+                end_date = self.period_end_date
+                cols = ['account_type', 'timestamp_of_first_event', 'day']
+                timestamp_col = 'timestamp_of_first_event'
+                periods = self.periods_to_plot.copy()
                 df = self.load_df(start_date=start_date,end_date=end_date,cols=cols)
+                if abs(start_date - end_date).days > 7:
+                    if 'week' in periods:
+                        periods.remove('week')
+                if abs(start_date - end_date).days > 31:
+                    if 'month' in periods:
+                        periods.remove('month')
+                if abs(start_date - end_date).days > 90:
+                    if 'quarter' in periods:
+                        periods.remove('quarter')
+
+
                 for idx,period in enumerate(periods):
-                    df_period = self.period_over_period(df, period=period,history_periods=history_periods)
+                    df_period = self.period_over_period(df, start_date = start_date, end_date=end_date,
+                                                        period=period,history_periods=self.history_periods)
                     if self.account_type != 'all':
                         df_period = df_period[df_period.account_type == self.account_type]
-                    groupby_cols = ['year','month','day','period']
+                    groupby_cols = ['dayset','period']
                     df_period = df_period.groupby(groupby_cols).agg({'account_type':'count'})
                     df_period = df_period.reset_index()
-                    df_period = df_period.assign(date=df_period.month.map(str)+'-'+df_period.day.map(str))
+                    prestack_cols = list(df_period.columns)
+                    df_period = df_period.compute()
+                    df_period = self.split_period_into_columns(df_period,col_to_split='period',value_to_copy='account_type')
+                    poststack_cols = list(df_period.columns)
+
                     title = "{} over {}".format(period,period)
+                    plotcols =list(np.setdiff1d(poststack_cols,prestack_cols))
+                    logger.warning('line 147 cols to plot:%s',plotcols)
                     if idx == 0:
-                        p = df_period.hvplot.bar(x='date',y='account_type',rot=45,title=title)
+                        p = df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
+                                                 stacked=False)
                     else:
-                        p += df_period.hvplot.bar(x='date',y='account_type',rot=45,title=title)
+                        p += df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
+                                                  stacked=False)
                 return p
 
             except Exception:
@@ -143,97 +179,94 @@ def KPI_accounts_tab(DAYS_TO_LOAD=90):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.account_type = new
         thistab.graph_periods_to_date(thistab.df)
-        stream_start_date_period.event(datepicker_period_start.value) # trigger period over period
+        thistab.section_header_updater('cards')
+        thistab.section_header_updater('pop')
+        thistab.trigger += 1
+        stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
-    def update_period_start(attrname, old, new):
+    def update_period_over_period(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
-        stream_start_date_period.event(new)
+        thistab.history_periods = history_periods_select.value
+        thistab.period_start_date=datepicker_period_start.value  # trigger period over period
+        thistab.period_end_date=datepicker_period_end.value  # trigger period
+        thistab.trigger +=1
+        stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
-
-    def update_period_end(attrname, old, new):
-        thistab.notification_updater("Calculations underway. Please be patient")
-        stream_end_date_period.event(new)
-        thistab.notification_updater("ready")
-
 
     try:
         cols = ['address','account_type','update_type','balance','timestamp_of_first_event']
         thistab = Thistab(table='account_external_warehouse', cols=cols)
-        # STATIC DATES
+        # -------------------------------------  SETUP   ----------------------------
         # format dates
-        first_date_range = "2019-01-23 00:00:00"
+        first_date_range = "2019-04-25 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = datetime.now().date()
-        first_date = datetime_to_date(last_date - timedelta(days=DAYS_TO_LOAD))
+        first_date = datetime_to_date(datetime.strptime('2019-01-01 00:00:00', thistab.DATEFORMAT))
 
         thistab.df = thistab.load_df(first_date, last_date,cols,'timestamp_of_first_event')
-        thistab.to_date_cards = thistab.graph_periods_to_date(thistab.df)
+        thistab.graph_periods_to_date(thistab.df)
+        thistab.section_header_updater('cards')
+        thistab.section_header_updater('pop')
 
         # MANAGE STREAM
         # date comes out stream in milliseconds
-
-        #stream_launch_matrix = streams.Stream.define('Launch_matrix', launch=-1)()
-        #stream_launch_corr = streams.Stream.define('Launch_corr', launch=-1)()
-
-        # CREATE WIDGETS
+        # --------------------------------CREATE WIDGETS ---------------------------------
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
 
-        first_date = datetime_to_date(last_date - timedelta(days=7))
-        stream_start_date_period = streams.Stream.define('Start_date',
-                                                         start_date=first_date)()
-        stream_end_date_period = streams.Stream.define('End_date',
-                                                       end_date=last_date)()
+        thistab.period_end_date = datetime_to_date(last_date - timedelta(days=3))
+        thistab.period_start_date = datetime_to_date(last_date - timedelta(days=5))
+        stream_launch = streams.Stream.define('Launch',launch=-1)()
 
         datepicker_period_start = DatePicker(title="Period start", min_date=first_date_range,
-                                      max_date=last_date_range, value=first_date)
+                                             max_date=last_date_range, value=thistab.period_start_date)
         datepicker_period_end = DatePicker(title="Period end", min_date=first_date_range,
-                                    max_date=last_date_range, value=last_date)
+                                           max_date=last_date_range, value=thistab.period_end_date)
 
-        period_select = Select(title='Select aggregation period',
-                               value='day',
-                               options=thistab.menus['period'])
+        history_periods_select = Select(title='Select # of comparative periods',
+                                        value='2',
+                                        options=thistab.menus['history_periods'])
         account_type_select = Select(title='Select account type',
-                              value='all',
-                              options=thistab.menus['account_type'])
+                                     value='all',
+                                     options=thistab.menus['account_type'])
 
-        # tables
+        # ---------------------------------  GRAPHS ---------------------------
         hv_period_over_period = hv.DynamicMap(thistab.graph_period_over_period,
-                                              streams=[stream_start_date_period,
-                                                       stream_end_date_period])
+                                              streams=[stream_launch])
         period_over_period = renderer.get_plot(hv_period_over_period)
 
-        # add callbacks
+
+        # -------------------------------- CALLBACKS ------------------------
         #datepicker_start.on_change('value', update)
         #datepicker_end.on_change('value', update)
-        datepicker_start.on_change('value', update_period_start)
-        datepicker_end.on_change('value', update_period_end)
         account_type_select.on_change('value', update_account)
+        history_periods_select.on_change('value',update_period_over_period)
+        datepicker_period_start.on_change('value',update_period_over_period)
+        datepicker_period_end.on_change('value',update_period_over_period)
 
-        # COMPOSE LAYOUT
+
+        # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
         controls_left = WidgetBox(
-            datepicker_start,
-            period_select)
+            datepicker_start)
 
         controls_right = WidgetBox(
             datepicker_end,
             account_type_select)
 
         # create the dashboards
-        header_period_to_date = "KPI: New accounts to date"
         grid = gridplot([
             [thistab.notification_div],
             [controls_left, controls_right],
-            [thistab.title_div(header_period_to_date, 400)],
+            [thistab.section_headers['cards']],
             [thistab.period_to_date_cards['year'],thistab.period_to_date_cards['quarter'],
              thistab.period_to_date_cards['month'],thistab.period_to_date_cards['week']],
-            [thistab.title_div('Period over period', 400)],
-            [datepicker_period_start, datepicker_period_end],
+            [thistab.section_headers['pop']],
+            [datepicker_period_start, datepicker_period_end,history_periods_select],
             [period_over_period.state]
         ])
 
