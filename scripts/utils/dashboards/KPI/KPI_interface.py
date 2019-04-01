@@ -33,7 +33,8 @@ class KPI:
         'account_type': ['all', 'contract', 'miner', 'native_user', 'token_user'],
         'update_type': ['all', 'contract_deployment', 'internal_transfer', 'mined_block', 'token_transfer',
                         'transaction'],
-        'history_periods': ['1','2','3','4','5','6','7','8','9','10']
+        'history_periods': ['1','2','3','4','5','6','7','8','9','10'],
+        'developer_adoption_variables': ['aion_fork', 'aion_watch']
     }
     def __init__(self,table,cols):
         self.df = None
@@ -59,21 +60,37 @@ class KPI:
         self.period_start_date = None
         self.period_end_date = None
 
+        self.checkboxgroup = {}
+
         # make block timestamp the index
-    def load_df(self,start_date,end_date,cols,select_col='timestamp_of_first_event'):
+    def load_df(self,start_date,end_date,cols,timestamp_col='timestamp_of_first_event'):
         try:
 
             if isinstance(end_date,date):
                 end_date = datetime.combine(end_date,datetime.min.time())
             if isinstance(start_date,date):
                 start_date = datetime.combine(start_date,datetime.min.time())
+            end_date += timedelta(days=1)
+            temp_cols = cols.copy()
 
-            return self.ch.load_data(self.table, cols, start_date, end_date,select_col)
+            if 'amount' not in temp_cols:
+                temp_cols.append('amount')
 
-            #df[select_col] = df[select_col].map(lambda x: clean_dates_from_db(x))
+            df = self.ch.load_data(self.table, temp_cols, start_date, end_date,timestamp_col)
+            logger.warning('line 79:%s columns before value filter',df.columns)
+            # filter out the double entry
+            #df = df[df['value'] >= 0]
+            return df[cols]
+            #df[timestamp_col] = df[timestamp_col].map(lambda x: clean_dates_from_db(x))
         except Exception:
             logger.error('load df',exc_info=True)
-    
+
+    def reset_checkboxes(self, value='all', checkboxgroup=''):
+        try:
+            self.checkboxgroup[checkboxgroup].value = value
+        except Exception:
+            logger.error('reset checkboxes', exc_info=True)
+
     def first_date_in_quarter(self,timestamp):
         try:
             curr_quarter = int((timestamp.month - 1) / 3 + 1)
@@ -137,18 +154,21 @@ class KPI:
             try:
                 curr_quarter = int((y.month - 1) / 3 + 1)
                 start = datetime(y.year, 3 * curr_quarter - 2, 1)
-                return (start - y).days
+                return abs((start - y).days)
             except Exception:
                 logger.error('df label quarter', exc_info=True)
         try:
             if period == 'week':
                 df = df.assign(dayset=lambda x: x[timestamp_col].dt.dayofweek)
+                logger.warning('df after WEEK:%s',df.head(10))
+
             elif period == 'month':
-                df = df.assign(dayset=lambda x: x[timestamp_col].dt.day)
+                df = df.assign(dayset=lambda x: x[timestamp_col].dt.month)
             elif period == 'year':
                 df = df.assign(dayset=lambda x: x[timestamp_col].timetuple().tm_yday)
-            else: # period == 'quarter
+            elif period == 'quarter':
                 df['dayset'] = df[timestamp_col].map(df_label_dates_qtr_pop)
+                logger.warning('df after QUARTER:%s',df.head(10))
             return df
         except Exception:
             logger.error('label data ', exc_info=True)
@@ -158,11 +178,12 @@ class KPI:
                            history_periods=2,timestamp_col='timestamp_of_first_event'):
         try:
             # filter cols if necessary
-            string = 'current '.format(period)
+            string = 'current {}'.format(period)
             df_current = df.assign(period=string)
             # label the days being compared with the same label
             df_current = self.label_dates_pop(df_current,period,timestamp_col)
 
+            # zero out time information
             start = datetime(start_date.year,start_date.month,start_date.day,0,0,0)
             end = datetime(end_date.year,end_date.month, end_date.day,0,0,0)
 
@@ -172,10 +193,12 @@ class KPI:
                 history_periods = int(history_periods)
             while counter < history_periods and start >= self.initial_date:
                 counter += 1
-                start, end = self.shift_period_range(period,start,end)
+                if counter == 1:
+                    start, end = self.shift_period_range(period,start,end)
                 # load data
-                #logger.warning('start:end %s:%s', start, end)
-                df_temp = self.load_df(start,end,cols)
+                if period == 'month':
+                    logger.warning('start:end %s:%s', start, end)
+                df_temp = self.load_df(start,end,cols,'timestamp')
                 if df_temp is not None:
                     if len(df_temp) > 1:
                         string = '{} {}(s) prev'.format(counter, period)
@@ -186,12 +209,16 @@ class KPI:
                         #logger.warning('df temp loaded for %s previous: %s',counter,len(df_temp))
 
                         df_current = concat_dfs(df_current,df_temp)
+                        del df_temp
+                        gc.collect()
+                start,end = self.shift_period_range(period,start,end)
             return df_current
         except Exception:
             logger.error('period over period to date',exc_info=True)
 
     """
-     to enable comparision across period, dates must have label relative to period start
+     To enable comparision across period, dates must have label relative to period start.
+     Place dates in columns to be able to plot multi-line/bar graphs
      
     """
     def split_period_into_columns(self, df,col_to_split,value_to_copy):

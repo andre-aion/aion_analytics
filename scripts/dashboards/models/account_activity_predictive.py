@@ -15,6 +15,8 @@ from scripts.databases.pythonClickhouse import PythonClickhouse
 from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
+from config.dashboard import config as dashboard_config
+
 
 from tornado.gen import coroutine
 from config.df_construct_config import table_dict
@@ -27,16 +29,16 @@ import holoviews as hv
 from holoviews import streams
 
 from scripts.utils.myutils import tab_error_flag
+from config.hyp_variables import groupby_dict
+
 
 logger = mylogger(__file__)
 
 hv.extension('bokeh', logo=False)
 renderer = hv.renderer('bokeh')
 
-hyp_variables = [
-                'block_size', 'block_time','difficulty', 'nrg_limit',
-                'nrg_reward' , 'num_transactions','block_nrg_consumed','nrg_price',
-                'transaction_nrg_consumed','value']
+table = 'accounts_predictive'
+hyp_variables= list(groupby_dict[table].keys())
 
 @coroutine
 def account_activity_predictive_tab():
@@ -73,11 +75,12 @@ def account_activity_predictive_tab():
             self.prediction_address_selected = ""
             self.load_data_flag = False
             self.prediction_address_select = Select(
-            title='Filter by address',
-            value='all',
-            options=[])
+                title='Filter by address',
+                value='all',
+                options=[]
+            )
             self.groupby_dict = {
-                'value': 'count',
+                'amount': 'count',
                 'block_nrg_consumed': 'mean',
                 'transaction_nrg_consumed': 'mean',
                 'difficulty': 'mean',
@@ -348,7 +351,7 @@ def account_activity_predictive_tab():
             try:
                 logger.warning("RANDOM FOREST LAUNCHED")
                 groupby_dict = {
-                    'value': 'mean',
+                    'amount': 'mean',
                     'block_nrg_consumed': 'mean',
                     'transaction_nrg_consumed': 'mean',
                     'difficulty': 'mean',
@@ -439,7 +442,7 @@ def account_activity_predictive_tab():
                     })
                     perc_to_churn = round(100 * sum(y_pred) / len(y_pred), 1)
                     text = self.metrics_div.text + """
-                    <br/> <h3{}>Percentage likely to churn:</h3>
+                    <br/> <h3{}>Percentage likely to models:</h3>
                     <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style,
                                                                               perc_to_churn)
                     self.metrics_div.text = text
@@ -561,7 +564,7 @@ def account_activity_predictive_tab():
         def tree_div(self, width=1000, height=600, path='/static/images/small_tree.png'):
             self.make_tree()
             txt = """
-            <h3 {}> A decision tree for churn: </h3>
+            <h3 {}> A decision tree for models: </h3>
             <img src='../../../static/small_tree.png' />
             """.format(self.header_style)
             return Div(text=txt,width=width,height=height)
@@ -594,7 +597,7 @@ def account_activity_predictive_tab():
         cols = ['new','retained','churned','day_of_week','block_size', 'block_timestamp',
                 'block_time','difficulty', 'nrg_limit',
                 'nrg_reward' , 'num_transactions','block_nrg_consumed','nrg_price',
-                'transaction_nrg_consumed','churned_lst','retained_lst','value']
+                'transaction_nrg_consumed','churned_lst','retained_lst','amount']
         this_tab = Thistab(table,cols,[])
         this_tab.load_df()
         cols1 = ['retained','churned']
@@ -603,10 +606,14 @@ def account_activity_predictive_tab():
         cols1_diff = ['retained', 'churned']
 
         # setup dates
-        first_date_range = datetime.strptime("2018-04-23 00:00:00", "%Y-%m-%d %H:%M:%S")
+        first_date_range = datetime.strptime("2018-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         range = 20
-        first_date = datetime_to_date(last_date_range - timedelta(days=range))
+        #last_date = dashboard_config['dates']['last_date']
+
+        last_date = dashboard_config['dates']['last_date']
+        first_date = last_date - timedelta(days=dashboard_config['dates']['DAYS_TO_LOAD'])
+
 
         # STREAMS Setup
         # date comes out stream in milliseconds

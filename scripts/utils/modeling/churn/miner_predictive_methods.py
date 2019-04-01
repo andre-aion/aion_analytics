@@ -10,7 +10,7 @@ logger = mylogger(__file__)
 redis = PythonRedis()
 
 
-# get list keys of churn dictionaries
+# get list keys of models dictionaries
 def find_in_redis(item='tier1_churned_dict'):
     # get keys
     str_to_match = '*' + item + ':*'
@@ -64,11 +64,11 @@ def construct_from_redis(key_lst,item_type ='list',df=None,
                         start_list.append(req_start_date)
                         end_list.append(req_end_date)
 
-            tab = Mytab('block_tx_warehouse', cols['block_tx_warehouse']['churn'], [])
+            tab = Mytab('block_tx_warehouse', cols['block_tx_warehouse']['models'], [])
             if len(start_list) > 0:
                 if item_type != 'list':
                     # if warehouse get minimum start date and maximum end data, and retrive from database
-                    tab.key_tab = 'churn'
+                    tab.key_tab = 'models'
                     req_start_date = min(start_list)
                     req_end_date = max(end_list)
                     tab.df_load(req_start_date, req_end_date)

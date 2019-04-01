@@ -63,7 +63,7 @@ def tier1_miner_churn_predictive_tab():
                     <ul>
                     <li>
                     The table below shows which variables 
-                    do/do not affect churn.
+                    do/do not affect models.
                     </li>
                     <li>
                     The ones that do not can be ignored.
@@ -88,7 +88,7 @@ def tier1_miner_churn_predictive_tab():
                     <ul><li>
                     The table below shows the miners <br/>
                     operating in the selected period,<br/>
-                    and whether they are likely to churn.<br/>
+                    and whether they are likely to models.<br/>
                     <li>
                     Use the datepicker(s) to the left to select the period you wish to predict.
                     </li>
@@ -143,7 +143,7 @@ def tier1_miner_churn_predictive_tab():
             text = '<h2 style="color:green;">{}</h2>'.format(text)
             return Div(text=text, width=width, height=15)
 
-            # show checkbox list of reference periods produced by the churn tab
+            # show checkbox list of reference periods produced by the models tab
 
         def make_checkboxes(self):
             try:
@@ -248,11 +248,11 @@ def tier1_miner_churn_predictive_tab():
                 df = pd.DataFrame({
                     'variable': hyp_variables,
                     'p-value': p_value,
-                    'impact churn?': impactful
+                    'impact models?': impactful
                 })
                 logger.warning("end of hypothesis test")
 
-                return df.hvplot.table(columns=['variable', 'p-value', 'impact churn?'],
+                return df.hvplot.table(columns=['variable', 'p-value', 'impact models?'],
                                        width=450)
             except Exception:
                 logger.error("hypothesis table:", exc_info=True)
@@ -292,7 +292,7 @@ def tier1_miner_churn_predictive_tab():
 
     try:
         # SETUP
-        thistab = Thistab(tier=1,cols=load_columns['block_tx_warehouse']['churn'])
+        thistab = Thistab(tier=1,cols=load_columns['block_tx_warehouse']['models'])
         thistab.make_checkboxes()
         thistab.load_data()
 
@@ -375,13 +375,13 @@ def tier1_miner_churn_predictive_tab():
                          [prediction_table.state, thistab.metrics_div]
                         ])
 
-        tab = Panel(child=grid, title='Tier '+str(1)+' miner churn')
+        tab = Panel(child=grid, title='Tier '+str(1)+' miner models')
         return tab
 
 
     except Exception:
         logger.error('rendering err:',exc_info=True)
-        text = 'Tier '+str(1)+' miner churn'
+        text = 'Tier '+str(1)+' miner models'
         return tab_error_flag(text)
 
 

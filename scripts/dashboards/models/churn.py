@@ -156,10 +156,10 @@ def churn_tab():
             except Exception:
                 logger.error("make tier 2 miner's list",exc_info=True)
 
-        # reference refers to past, period is the time under review for churn
+        # reference refers to past, period is the time under review for models
         def tier1_churn(self, period_start_date, period_end_date,
                         ref_start_date, ref_end_date):
-            logger.warning("tier 1 churn started")
+            logger.warning("tier 1 models started")
 
             try:
                 # filter current data warehouse by the tier 1 miner list
@@ -169,16 +169,16 @@ def churn_tab():
                 tier1_period_miners_list = self.make_tier1_miners_list('period',
                                            period_start_date, period_end_date)
 
-                logger.warning("tier 1 churn completed")
+                logger.warning("tier 1 models completed")
                 return self.stats(1,tier1_ref_miners_list,tier1_period_miners_list)
             except Exception:
-                logger.error("tier 1 churn",exc_info=True)
+                logger.error("tier 1 models",exc_info=True)
 
 
         def stats(self,tier,ref_list, period_list):
             try:
                 # STATS OF INTEREST
-                # percentage churned, churn count
+                # percentage churned, models count
                 if ref_list is None:
                     ref_list = []
                 if period_list is None:
@@ -225,14 +225,14 @@ def churn_tab():
                 new_miners_count =len(new_miners)
                 if len(period_list) == 0:
                     new_miners_percentage = 0
-                    logger.warning("there are no reference churn period miners. denom = 0")
+                    logger.warning("there are no reference models period miners. denom = 0")
                 else:
                     new_miners_percentage = new_miners_count * 100 / len(period_list)
 
                 # display the data
                 text = """ <h3>{} STATS:</h3> <br /> 
                           Total miners in reference period: {} <br /> 
-                          Total miners in churn review period: {}  <br /> 
+                          Total miners in models review period: {}  <br /> 
                           Number of miners departed: {} <br /> 
                           Percentage departed: {}% <br /> 
                           New miners:{} <br /> 
@@ -253,7 +253,7 @@ def churn_tab():
 
         def tier2_churn(self, period_start_date, period_end_date,
                         ref_start_date, ref_end_date):
-            logger.warning("tier 2 churn started")
+            logger.warning("tier 2 models started")
 
             try:
                 tier2_period_miners_list = self.make_tier2_miners_list('period',period_start_date,
@@ -262,12 +262,12 @@ def churn_tab():
                 tier2_reference_miners_list = self.make_tier2_miners_list('reference', ref_start_date,
                                                                           ref_end_date)
 
-                logger.warning("tier 2 churn completed")
+                logger.warning("tier 2 models completed")
 
                 return self.stats(2,tier2_reference_miners_list,tier2_period_miners_list)
 
             except Exception:
-                logger.error("tier 2 churn", exc_info=True)
+                logger.error("tier 2 models", exc_info=True)
 
 
 
@@ -318,7 +318,7 @@ def churn_tab():
 
 
     try:
-        thistab = Thistab('churn')
+        thistab = Thistab('models')
 
         # STATIC DATES
         # format dates
@@ -398,9 +398,9 @@ def churn_tab():
             [tier1_stats,tier2_stats]])
 
         # Make a tab with the layout
-        tab = Panel(child=grid, title='miners: churn stats')
+        tab = Panel(child=grid, title='miners: models stats')
         return tab
 
     except Exception:
         logger.error('rendering err:', exc_info=True)
-        return tab_error_flag('miners: churn stats')
+        return tab_error_flag('miners: models stats')

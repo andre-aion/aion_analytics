@@ -352,7 +352,7 @@ class MinerChurnPredictiveTab:
             if clf is not None:
                 to_predict_tab = Mytab('block_tx_warehouse', cols=self.cols, dedup_cols=[])
                 to_predict_tab.df = None
-                to_predict_tab.key_tab = 'churn'
+                to_predict_tab.key_tab = 'models'
                 logger.warning('LOADING PREDICT WAREHOUSE %s : %s',self.start_date,self.end_date)
                 if isinstance(self.end_date,date):
                     mintime = time(00,00,00)
@@ -390,7 +390,7 @@ class MinerChurnPredictiveTab:
                     })
                     perc_to_churn = round(100*sum(y_pred)/len(y_pred),1)
                     text = self.metrics_div.text + """
-                    <br/> <h3{}>Percentage likely to churn:</h3>
+                    <br/> <h3{}>Percentage likely to models:</h3>
                     <strong 'style=color:black;padding-top:-10px;'>{}%</strong></div>""".format(self.header_style,
                                                                                     perc_to_churn)
                     self.metrics_div.text=text

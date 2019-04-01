@@ -16,6 +16,7 @@ from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
+from config.dashboard import config as dashboard_config
 
 from tornado.gen import coroutine
 
@@ -26,35 +27,14 @@ import holoviews as hv
 from holoviews import streams
 
 from scripts.utils.myutils import tab_error_flag
-
+from config.hyp_variables import groupby_dict
 logger = mylogger(__file__)
 
 hv.extension('bokeh', logo=False)
 renderer = hv.renderer('bokeh')
 
-hyp_variables = [
-    'block_size', 'block_time', 'difficulty', 'nrg_limit',
-    'nrg_reward', 'num_transactions', 'block_nrg_consumed', 'nrg_price',
-    'transaction_nrg_consumed', 'value','russell_close','russell_volume',
-    'sp_close','sp_volume']
-
-
-def label_state(row):
-    if "churned" == row['activity']:
-        #logger.warning('INSIDE coded match:%s', row['activity'])
-        return 1
-    return 0
-
-
-def code_variable(df):
-    try:
-        if df is not None:
-            if len(df) > 0:
-                df['churned'] = df.apply(label_state,axis=1,meta=object)
-                return df['churned']
-    except Exception:
-        logger.error("label churned retained:", exc_info=True)
-
+table = 'accounts_predictive'
+hyp_variables= list(groupby_dict[table].keys())
 
 @coroutine
 def account_predictive_tab():
@@ -73,9 +53,30 @@ def account_predictive_tab():
             self.rf = {}  # random forest
             self.cl = PythonClickhouse('aion')
             self.feature_list = hyp_variables
-            self.targets = ['churned']
+
+            self.targets = {
+                'classification':
+                {
+
+                    'churned':
+                    {
+                        'cols' : ['churned','active'],
+                        'target_col':'status'
+                    }
+                },
+                'regression':
+                {
+                    'aion_fork':
+                    {
+                        'cols' : [1,0],
+                        'target_col':'aion_fork'
+                    }
+                }
+            }
             self.interest_var = 'address'
             self.trigger = -1
+            self.status = 'all'
+
 
             self.clf = None
             self.pl = {}  # for rf pipeline
@@ -93,28 +94,16 @@ def account_predictive_tab():
             self.prediction_address_selected = ""
             self.load_data_flag = False
             self.day_diff = 1
-            self.groupby_dict = {
-                'value': 'mean',
-                'block_nrg_consumed': 'mean',
-                'transaction_nrg_consumed': 'mean',
-                'difficulty': 'mean',
-                'nrg_limit': 'mean',
-                'block_size': 'mean',
-                'block_time': 'mean',
-                'nrg_reward': 'mean',
-                'num_transactions': 'mean',
-                'nrg_price':'mean',
-                'russell_close':'mean',
-                'russell_volume':'mean',
-                'sp_close': 'mean',
-                'sp_volume': 'mean'
-            }
+            self.groupby_dict = {}
+            for col in self.feature_list:
+                self.groupby_dict[col] = 'mean'
+
             self.div_style = """ style='width:300px; margin-left:25px;
                         border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
                         """
             self.metrics_div = Div(text='',width=400,height=300)
             self.accuracy_df = None
-            self.inspected_variable = 'value'
+            self.inspected_variable = 'amount'
 
         def notification_updater(self, new_text):
             txt = """<div style="text-align:center;background:black;width:100%;">
@@ -143,21 +132,17 @@ def account_predictive_tab():
 
         ###################################################
         #               I/O
-        def load_df(self, start_date="2018-04-23 00:00:00", end_date="2018-12-10 00:00:00"):
+        def load_df(self, start_date="2018-04-25 00:00:00", end_date="2018-12-10 00:00:00"):
             try:
                 if isinstance(start_date, str):
                     start_date = datetime.strptime(start_date, self.DATEFORMAT)
                 if isinstance(end_date, str):
                     end_date = datetime.strptime(end_date, self.DATEFORMAT)
                 self.df_load(start_date, end_date)
-                self.df['russell_close'] = self.df['russell_close'].diff()
-                self.df['sp_close'] = self.df['sp_close'].diff()
-                self.df['sp_volume'] = self.df['sp_volume'].diff()
-                self.df['russell_volume'] = self.df['russell_volume'].diff()
                 self.df = self.df.fillna(0)
                     #self.make_delta()
-                    #self.df = self.df.set_index('block_timestamp')
-                # logger.warning("data loaded - %s",self.tab.df.tail(10))
+                    #self.df = self.df.set_index('timestamp')
+                #logger.warning("data loaded - %s",self.df.tail(10))
 
             except Exception:
                 logger.error('load_df', exc_info=True)
@@ -182,9 +167,11 @@ def account_predictive_tab():
                 logger.error('make delta', exc_info=True)
 
 
-        def split_df(self, df,cols=['churned','active']):
-            for col in cols:
-                self.df1[col] = df['activity'] == col
+        def split_df(self, df,target):
+            cols = self.target['classification'][target]
+            target_col = self.target['classification'][target]
+            for val in cols:
+                self.df1[val] = df[target_col] == val
             logger.warning("Finished split into churned and retained dataframes")
 
         ##################################################
@@ -202,9 +189,9 @@ def account_predictive_tab():
                         minv, maxv = dd.compute(df[variable].min(),
                                                 df[variable].max())
                 else:
-                    df = SD('filter', [variable, 'activity'], []).get_df()
+                    df = SD('filter', [variable, 'status'], []).get_df()
 
-                return df.hvplot.box(variable, by='activity',
+                return df.hvplot.box(variable, by='status',
                                                   ylim=(.9 * minv, 1.1 * maxv))
             except Exception:
                 logger.error("box plot:", exc_info=True)
@@ -218,47 +205,58 @@ def account_predictive_tab():
                 logger.warning("RANDOM FOREST LAUNCHED")
 
                 error_lst = []
-                df = self.df
-                df = self.normalize(df)
-                for target in self.targets:
-                    # if all addresses used filter for only positive transactions
-                    # else double entry will render as sums as
-                    df['churned'] = df.apply(label_state,axis=1,meta=('x','i8'))
+                df_temp = self.df
+                df_temp = self.normalize(df_temp,timestamp_col='timestamp')
+                # if all addresses used filter for only positive transactions
+
+                for target in self.targets['classification']:
+                    # filter out joined
+                    df = df_temp.copy()
+                    if target == 'churned':
+                        df = df[df['status'] != 'joined']
 
                     #logger.warning("line 205: df columns in %s:",df.columns.tolist())
-                    df = df.groupby(['address','churned']).agg(self.groupby_dict)
-                    #logger.warning("line 205: df columns in %s:",df.tail(10))
+                    df = df.groupby(['address','status']).agg(self.groupby_dict)
                     df = df.reset_index()
-
-                    df1 = df[df.churned == 1]
-                    logger.warning('churned column count after grouping:%s', len(df1))
+                    #logger.warning("line 222: df columns in %s:",df.tail(10))
 
                     df = df.compute()
+                    '''
+                    # only retain wanted values
+                    col_values = list(self.df[self.targets['classification'][target]['target_col']].unique())
+                    for val in col_values:
+                        if val in self.targets['classification'][target]['cols']:
+                            pass
+                        else:
+                            df[self.targets['classification'][target]['target_col']] = \
+                            df[df[self.targets['classification'][target]['cols']] != val]
+                    '''
                     X = df[self.feature_list]
-                    y = df[target]
+                    y = df[self.targets['classification'][target]['target_col']]
+                    #logger.warning('y=:%s',y.head(100))
 
                     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
                     self.feature_list = X_train.columns.tolist()
 
-                    self.pl['churned'] = Pipeline([
+                    self.pl[target] = Pipeline([
                         ('imp', SimpleImputer(missing_values=0,
                                               strategy='median')),
                         ('rf', RandomForestClassifier(n_estimators=100, random_state=42,
                                                       max_depth=4,
                                                       class_weight='balanced'))
                     ])
-                    self.pl['churned'].fit(X_train, y_train)
+                    self.pl[target].fit(X_train, y_train)
 
-                    y_pred = self.pl['churned'].predict(X_test)
+                    y_pred = self.pl[target].predict(X_test)
                     error_lst.append(round(100*metrics.accuracy_score(y_test, y_pred),2))
 
                 self.accuracy_df = pd.DataFrame(
                     {
-                        'Variable': self.targets,
+                        'Outcome': list(self.targets['classification'].keys()),
                         'Accuracy': error_lst,
                      })
-                logger.warning('accuracy_df:%s',self.accuracy_df.head())
-                self.make_tree(target='churned')
+                #logger.warning('accuracy_df:%s',self.accuracy_df.head())
+                #self.make_tree(target=target)
 
                 print('confusion matrix:\n')
                 print(confusion_matrix(y_test, y_pred))
@@ -272,7 +270,7 @@ def account_predictive_tab():
         def accuracy_table(self):
             try:
                 columns = self.accuracy_df.columns.tolist()
-                return self.accuracy_df.hvplot.table(columns=['Variable','Accuracy'], width=250,
+                return self.accuracy_df.hvplot.table(columns=['Outcome','Accuracy'], width=250,
                                        title='Prediction accuracy')
 
             except Exception:
@@ -337,8 +335,8 @@ def account_predictive_tab():
                 start_date = datetime.combine(start_date, datetime.min.time())
             if isinstance(end_date, date):
                 end_date = datetime.combine(end_date, datetime.min.time())
-            self.df_predict = self.cl.load_data(table='account_activity_warehouse', cols=self.feature_list +
-                                                                            ['address', 'block_timestamp'],
+            cols = self.feature_list + ['address', 'timestamp']
+            self.df_predict = self.cl.load_data(table=self.table, cols=cols,
                                                 start_date=start_date, end_date=end_date)
             logger.warning('319:in load prediction: %s',self.df_predict.head(5))
 
@@ -354,59 +352,65 @@ def account_predictive_tab():
         def make_account_predictions(self,launch=-1):
             try:
                 logger.warning("MAKE PREDICTIONS LAUNCHED")
-                target = self.targets[0]
+                target = list(self.targets['classification'].keys())[0]
                 # make
                 df = self.df_predict
-                #logger.warning("line 311%s",df.head(10))
+                #logger.warning("line 363%s",df.head(10))
                 # make list of address for prediction select
                 # filter if prediction for certain addresses
-                logger.warning('address selected:%s',self.prediction_address_select.value)
+                #logger.warning('address selected:%s',self.prediction_address_select.value)
                 if self.prediction_address_select.value is not None:
                     if len(self.prediction_address_select.value) > 0:
                         if self.prediction_address_select.value not in ['all', '']:
                             df = df[df.address == self.prediction_address_select.value]
 
                 #logger.warning('line 409 predict-df post filter:%s', df.head(20))
-                if len(df) > 0:
-                    df = self.normalize(df)
-                    df = self.group_data(df,self.groupby_dict)
-                    interest_labels = list(df['address'].unique())
+                # make table for display
+                self.predict_df = pd.DataFrame({
+                    'address': [],
+                    'likely action': []
+                })
+                for target in list(self.targets['classification'].keys()):
+                    if len(df) > 0:
 
-                    # run model
-                    df = df.fillna(0)
-                    X = df[self.feature_list]
-                    # logger.warning("df before prediction:%s",X.tail(10))
-                    y_pred = self.pl['churned'].predict(X)
-                    y_pred_verbose = ['to leave' if x in ["1", 1] else "to remain" for x in y_pred]
-                    # make table for display
-                    self.predict_df = pd.DataFrame({
-                        'address': interest_labels,
-                        'likely...': y_pred_verbose
-                    })
-                    perc_to_churn = round(100 * sum(y_pred) / len(y_pred), 1)
-                    if 'churn' in target:
-                        txt = 'churn'
+                        df = self.normalize(df,timestamp_col='timestamp')
+                        df = self.group_data(df,self.groupby_dict,timestamp_col='timestamp')
+                        interest_labels = list(df['address'].unique())
+
+                        # run model
+                        df = df.fillna(0)
+                        X = df[self.feature_list]
+                        #logger.warning("df before prediction:%s",X.tail(10))
+                        y_pred = self.pl[target].predict(X)
+                        logger.warning('y_pred:%s',y_pred)
+                        if target == 'churned':
+                            y_pred_verbose = ['remain' if x in ["active", 1] else "churn" for x in y_pred]
+
+                        # make table for display
+                        self.predict_df = pd.DataFrame({
+                            'address': interest_labels,
+                            'likely action': y_pred_verbose
+                        })
+                        #logger.warning('self.predict_df:%s',self.predict_df)
+
+                        churn_df = self.predict_df[self.predict_df['likely action']=='churn']
+                        perc_to_churn = round(100 * len(churn_df) / len(self.predict_df), 1)
+                        txt = target[:-2]
+                        text = """<div {}>
+                        <h3>Percentage likely to {}:</h3>
+                        <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style,
+                                                                                  txt,
+                                                                                  perc_to_churn)
+                        self.metrics_div.text = text
                     else:
-                        txt = 'remain'
-                    text = """<div {}>
-                    <h3>Percentage likely to {}:</h3>
-                    <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style,
-                                                                              txt,
-                                                                              perc_to_churn)
-                    self.metrics_div.text = text
-                else:
-                    # make table for display
-                    self.predict_df = pd.DataFrame({
-                        'address': [],
-                        'likely...': []
-                    })
-                    text = """<div {}>
-                        <br/> <h3>Sorry, address not found</h3>
-                        </div>""".format(self.header_style)
-                    self.metrics_div.text = text
-                logger.warning("end of predictions")
-                return self.predict_df.hvplot.table(columns=['address', 'likely...'], width=500,
-                                       title='Account Churn predictions')
+
+                        text = """<div {}>
+                            <br/> <h3>Sorry, address not found</h3>
+                            </div>""".format(self.header_style)
+                        self.metrics_div.text = text
+                    logger.warning("end of %s predictions", target)
+                return self.predict_df.hvplot.table(columns=['address', 'likely action'], width=500,
+                                       title='Account predictions')
             except Exception:
                 logger.error("prediction:", exc_info=True)
 
@@ -442,7 +446,7 @@ def account_predictive_tab():
                     'importance': [],
                     'rank_within_outcome': []
                 }
-                for target in self.targets:
+                for target in self.targets['classification'].keys():
                     logger.warning('make feature importances for :%s', target)
                     # Get numerical feature importances
                     importances = list(self.pl[target].named_steps['rf'].feature_importances_)
@@ -480,112 +484,111 @@ def account_predictive_tab():
         ####################################################
         #               GRAPHS
     def update(attrname, old, new):
-        this_tab.notification_updater("Calculations underway. Please be patient")
-        this_tab.load_prediction_df(datepicker_start.value, datepicker_end.value)
-        this_tab.update_prediction_addresses_select()
-        this_tab.trigger += 1
-        stream_launch.event(launch=this_tab.trigger)
-        stream_select_variable.event(variable=this_tab.inspected_variable)
-        this_tab.notification_updater("ready")
+        thistab.notification_updater("Calculations underway. Please be patient")
+        thistab.load_prediction_df(datepicker_start.value, datepicker_end.value)
+        thistab.update_prediction_addresses_select()
+        thistab.trigger += 1
+        stream_launch.event(launch=thistab.trigger)
+        stream_select_variable.event(variable=thistab.inspected_variable)
+        thistab.notification_updater("ready")
 
     def update_address_predictions(attrname, old, new):
-        this_tab.notification_updater("Calculations underway. Please be patient")
-        this_tab.trigger += 1
-        stream_launch.event(launch=this_tab.trigger)
-        this_tab.notification_updater("ready")
+        thistab.notification_updater("Calculations underway. Please be patient")
+        thistab.trigger += 1
+        stream_launch.event(launch=thistab.trigger)
+        thistab.notification_updater("ready")
 
     def update_select_variable(attrname, old, new):
-        this_tab.notification_updater("Calculations underway. Please be patient")
-        this_tab.inspected_variable = select_variable.value
-        stream_select_variable.event(variable=this_tab.inspected_variable)
-        this_tab.notification_updater("ready")
+        thistab.notification_updater("Calculations underway. Please be patient")
+        thistab.inspected_variable = select_variable.value
+        stream_select_variable.event(variable=thistab.inspected_variable)
+        thistab.notification_updater("ready")
 
     try:
         # SETUP
-        table = 'account_activity_warehouse'
+        table = 'account_ext_warehouse'
         #cols = list(table_dict[table].keys())
-        cols = ['address','day_of_week', 'block_size', 'block_timestamp',
-                'block_time', 'difficulty', 'nrg_limit',
-                'nrg_reward', 'num_transactions', 'nrg_price',
-                'transaction_nrg_consumed', 'value','event','account_type',
-                'russell_close','russell_volume','sp_close','sp_volume']
-        this_tab = Thistab(table, cols, [])
-        this_tab.load_df()
-        this_tab.rf_clf()
+
+        cols = hyp_variables + ['address','timestamp','account_type','status','update_type']
+        thistab = Thistab(table, cols, [])
+
 
         # setup dates
-        first_date_range = datetime.strptime("2018-04-23 00:00:00", "%Y-%m-%d %H:%M:%S")
+        first_date_range = datetime.strptime("2018-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        range = 5
-        last_date = datetime.strptime("2018-06-05 00:00:00", "%Y-%m-%d %H:%M:%S")
-        first_date = datetime_to_date(last_date - timedelta(days=range))
+        last_date = dashboard_config['dates']['last_date']
+        first_date = last_date - timedelta(days=15)
 
         # STREAMS Setup
         # date comes out stream in milliseconds
         stream_launch = streams.Stream.define('Launch',launch=-1)()
         stream_select_variable = streams.Stream.define('Select_variable',
-                                                       variable='value')()
+                                                       variable='amount')()
 
         # setup widgets
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date)
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
-        select_variable = Select(title='Filter by address',value=this_tab.inspected_variable,
-                                 options=this_tab.feature_list)
+        select_variable = Select(title='Filter by variable',value=thistab.inspected_variable,
+                                 options=thistab.feature_list)
 
         # search by address checkboxes
-        this_tab.prediction_address_select = Select(
+        thistab.prediction_address_select = Select(
             title='Filter by address',
             value='all',
             options=[])
         reset_prediction_address_button = Button(label="reset address(es)", button_type="success")
 
-        # load predict data
-        this_tab.load_prediction_df(datepicker_start.value, datepicker_end.value)
-        this_tab.update_prediction_addresses_select()
+        # ----------------------------------- LOAD DATA
+        # load model-making data
+        end = datepicker_start.value
+        start = end - timedelta(days=60)
+        thistab.load_df(start, end)
+        thistab.rf_clf()
+        # load data for period to be predicted
+        thistab.load_prediction_df(datepicker_start.value, datepicker_end.value)
+        thistab.update_prediction_addresses_select()
 
         # tables
-        hv_account_prediction_table = hv.DynamicMap(this_tab.make_account_predictions,
+        hv_account_prediction_table = hv.DynamicMap(thistab.make_account_predictions,
                                                     streams=[stream_launch])
         account_prediction_table = renderer.get_plot(hv_account_prediction_table)
 
-        hv_features_table = hv.DynamicMap(this_tab.make_feature_importances)
+        hv_features_table = hv.DynamicMap(thistab.make_feature_importances)
         features_table = renderer.get_plot(hv_features_table)
 
-        hv_accuracy_table = hv.DynamicMap(this_tab.accuracy_table)
+        hv_accuracy_table = hv.DynamicMap(thistab.accuracy_table)
         accuracy_table = renderer.get_plot(hv_accuracy_table)
 
 
-        hv_variable_plot = hv.DynamicMap(this_tab.box_plot,
+        hv_variable_plot = hv.DynamicMap(thistab.box_plot,
                                  streams=[stream_select_variable])\
             .opts(plot=dict(width=800, height=500))
 
         variable_plot = renderer.get_plot(hv_variable_plot)
 
-
         # add callbacks
         datepicker_start.on_change('value', update)
         datepicker_end.on_change('value', update)
-        this_tab.prediction_address_select.on_change('value', update_address_predictions)
-        reset_prediction_address_button.on_click(this_tab.reset_checkboxes)
+        thistab.prediction_address_select.on_change('value', update_address_predictions)
+        reset_prediction_address_button.on_click(thistab.reset_checkboxes)
         select_variable.on_change('value',update_select_variable)
-
 
         # put the controls in a single element
         date_controls = WidgetBox(datepicker_start, datepicker_end,
-                                  this_tab.prediction_address_select,
+                                  thistab.prediction_address_select,
                                   reset_prediction_address_button)
 
         grid = gridplot([
-            [this_tab.notification_div],
-            [this_tab.title_div('Predictions for churned accounts ', 600)],
-            [accuracy_table.state,this_tab.stats_information_div(), features_table.state],
-            [this_tab.title_div('Variable behaviour: ', 600)],
+            [thistab.notification_div],
+            [thistab.title_div('Churned accounts: prediction model accuracy, variable ranking ', 600)],
+            [accuracy_table.state,thistab.stats_information_div(), features_table.state],
+            [thistab.title_div('Variable behaviour: ', 600)],
             [select_variable, variable_plot.state],
-            [this_tab.title_div('Select period below to obtain predictions:', 600)],
-            [date_controls, account_prediction_table.state,this_tab.metrics_div],
-            [this_tab.notification_div_bottom]
+            [thistab.title_div('Select period below to obtain predictions:', 600)],
+            [account_prediction_table.state,thistab.metrics_div, date_controls],
+            [thistab.notification_div_bottom]
         ])
 
         tab = Panel(child=grid, title='predictions: accounts by value')

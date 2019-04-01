@@ -26,7 +26,7 @@ class StreamingDataframe:
             # convert to dask
             self.df = from_pandas(df, npartitions=self.partitions,
                                   name=table_name, sort=True)
-            logger.warning("init:%s",table_name)
+            #logger.warning("init:%s",table_name)
 
         except Exception:
             logger.error("init:%s", exc_info=True)

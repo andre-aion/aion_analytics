@@ -6,7 +6,6 @@ import sys
 
 def mylogger(__file__):
     # create a custom logger handler
-    '''
     logfile = 'logs/' + os.path.splitext(os.path.basename(__file__))[0] + '.log'
     logger = logging.getLogger(logfile)
     handler = logging.FileHandler(logfile)
@@ -15,8 +14,8 @@ def mylogger(__file__):
     handler.setFormatter(l_format)
     logger.addHandler(handler)
     logger.warning(logfile)
+
     '''
-    
     # console handler
     logger = logging.getLogger()
     ch = logging.StreamHandler(sys.stdout)
@@ -26,5 +25,5 @@ def mylogger(__file__):
     ch.setFormatter(formatter)
     logger.addHandler(ch)
 
-
+    '''
     return logger

@@ -17,13 +17,14 @@ from tornado.ioloop import IOLoop
 from scripts.dashboards.EDA.account_activity import account_activity_tab
 from scripts.dashboards.EDA.blockminer import blockminer_tab
 from scripts.dashboards.EDA.poolminer import poolminer_tab
-from scripts.dashboards.churn.churn import churn_tab
-from scripts.dashboards.churn.tier1_miner_predictive import tier1_miner_churn_predictive_tab
-from scripts.dashboards.churn.tier2_miner_predictive import tier2_miner_churn_predictive_tab
-from scripts.dashboards.churn.account_activity_predictive import account_activity_predictive_tab
-from scripts.dashboards.churn.account_predictive import account_predictive_tab
+from scripts.dashboards.models.churn import churn_tab
+from scripts.dashboards.models.tier1_miner_predictive import tier1_miner_churn_predictive_tab
+from scripts.dashboards.models.tier2_miner_predictive import tier2_miner_churn_predictive_tab
+from scripts.dashboards.models.account_activity_predictive import account_activity_predictive_tab
+from scripts.dashboards.models.account_predictive import account_predictive_tab
+from scripts.dashboards.KPI.developer_adoption import KPI_developer_adoption_tab
 
-from scripts.dashboards.KPI.accounts import KPI_accounts_tab
+from scripts.dashboards.KPI.user_adoption import KPI_user_adoption_tab
 
 from scripts.utils.mylogger import mylogger
 
@@ -32,17 +33,18 @@ executor = ThreadPoolExecutor(max_workers=10)
 
 
 labels = [
-    'KPI: accounts',
+    'KPI: user adoption',
+    'KPI: developer adoption',
     'account activity',
     'miners: blocks',
     'miners: tiers 1 & 2',
-    'miners: churn stats',
+    'miners: models stats',
     'predictions: accounts by activity',
     'predictions: accounts by value',
-    'predictions: tier 1 miner churn',
-    'predictions: tier 2 miner churn',
+    'predictions: tier 1 miner models',
+    'predictions: tier 2 miner models',
     ]
-DEFAULT_CHECKBOX_SELECTION = 0
+DEFAULT_CHECKBOX_SELECTION = 7
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -77,15 +79,21 @@ def aion_analytics(doc):
         @gen.coroutine
         def load_callstack(tablist):
             lst = selection_tab.get_selections(selection_checkboxes)
-            logger.warning('selections:%s',lst)
-            '''
-            if 'KPI: accounts' in lst:
-                if 'KPI: accounts' not in selection_tab.selected_tracker:
-                    kpi_accounts = yield KPI_accounts_tab()
-                    selection_tab.selected_tracker.append('KPI: accounts')
-                    if kpi_accounts not in tablist:
-                        tablist.append(kpi_accounts)
-            '''
+            #logger.warning('selections:%s',lst)
+
+            if 'KPI: user adoption' in lst:
+                if 'KPI: user adoption' not in selection_tab.selected_tracker:
+                    kpi_user_adoption = yield KPI_user_adoption_tab()
+                    selection_tab.selected_tracker.append('KPI: user adoption')
+                    if kpi_user_adoption not in tablist:
+                        tablist.append(kpi_user_adoption)
+
+            if 'KPI: developer adoption' in lst:
+                if 'KPI: developer adoption' not in selection_tab.selected_tracker:
+                    developer_user_adoption = yield KPI_developer_adoption_tab()
+                    selection_tab.selected_tracker.append('KPI: developer adoption')
+                    if developer_user_adoption not in tablist:
+                        tablist.append(developer_user_adoption)
 
             if 'miners: blocks' in lst:
                 if 'miners: blocks' not in selection_tab.selected_tracker:
@@ -101,24 +109,24 @@ def aion_analytics(doc):
                     if pm not in tablist:
                         tablist.append(pm)
 
-            if 'miners: churn stats' in lst:
-                if 'miners: churn stats' not in selection_tab.selected_tracker:
+            if 'miners: models stats' in lst:
+                if 'miners: models stats' not in selection_tab.selected_tracker:
                     ch = yield churn_tab()
-                    selection_tab.selected_tracker.append('miners: churn stats')
+                    selection_tab.selected_tracker.append('miners: models stats')
                     if ch not in tablist:
                         tablist.append(ch)
 
-            if 'predictions: tier 1 miner churn' in lst:
-                if 'predictions: tier 1 miner churn' not in selection_tab.selected_tracker:
+            if 'predictions: tier 1 miner models' in lst:
+                if 'predictions: tier 1 miner models' not in selection_tab.selected_tracker:
                     mch_1 = yield tier1_miner_churn_predictive_tab()
-                    selection_tab.selected_tracker.append('predictions: tier 1 miner churn')
+                    selection_tab.selected_tracker.append('predictions: tier 1 miner models')
                     if mch_1 not in tablist:
                         tablist.append(mch_1)
 
-            if 'predictions: tier 2 miner churn' in lst:
-                if 'predictions: tier 2 miner churn' not in selection_tab.selected_tracker:
+            if 'predictions: tier 2 miner models' in lst:
+                if 'predictions: tier 2 miner models' not in selection_tab.selected_tracker:
                     mch_2 = yield tier2_miner_churn_predictive_tab()
-                    selection_tab.selected_tracker.append('predictions: tier 2 miner churn')
+                    selection_tab.selected_tracker.append('predictions: tier 2 miner models')
                     if mch_2 not in tablist:
                         tablist.append(mch_2)
 
@@ -219,10 +227,8 @@ def aion_analytics(doc):
 
         # setup launch tabs
         mgmt = Panel(child=grid, title='Tab Selection')
-        kpi_accounts = yield KPI_accounts_tab()
 
         tablist.append(mgmt)
-        tablist.append(kpi_accounts)
         TABS.update(tabs=tablist)
         doc.add_root(TABS)
     except Exception:

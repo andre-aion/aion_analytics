@@ -42,9 +42,10 @@ class Mytab:
         self.ch = PythonClickhouse('aion')
         self.redis = PythonRedis()
         self.conn = self.redis.conn
+        self.DATEFORMAT = "%Y-%m-%d %H:%M:%S"
 
     # designed to work with premade warehouse table
-    def df_load(self, req_start_date, req_end_date):
+    def df_load(self, req_start_date, req_end_date,timestamp_col='block_timestamp'):
         params = {
             'start': False,
             'end': False
@@ -55,7 +56,7 @@ class Mytab:
                 if len(self.df) > 0:
                     # if in memory simply filter
                     params['min_date'], params['max_date'] = \
-                        dd.compute(self.df.block_timestamp.min(), self.df.block_timestamp.max())
+                        dd.compute(self.df[timestamp_col].min(), self.df[timestamp_col].max())
 
                     req_start_date = pd.to_datetime(req_start_date)
                     req_end_date = pd.to_datetime(req_end_date)
@@ -83,7 +84,9 @@ class Mytab:
             if isinstance(req_start_date,date):
                 req_start_date = datetime.combine(req_start_date,mintime)
             req_end_date = req_end_date+timedelta(days=1) #move end_date to midnite
-            self.df = self.ch.load_data(self.table,self.cols,req_start_date, req_end_date)
+            cols = self.cols.copy()
+
+            self.df = self.ch.load_data(self.table,cols,req_start_date, req_end_date)
             self.filter_df(req_start_date, req_end_date)
             #logger.warning("%s LOADED: %s:%s",self.table,req_start_date,req_end_date)
 
@@ -105,10 +108,11 @@ class Mytab:
         return y
 
 
-    def normalize(self, df):
+    def normalize(self, df,timestamp_col):
         try:
-            min_date, max_date = dd.compute(df.block_timestamp.min(),
-                                            df.block_timestamp.max())
+            logger.warning('timestamp col in normalize:%s',timestamp_col)
+            min_date, max_date = dd.compute(df[timestamp_col].min(),
+                                            df[timestamp_col].max())
             day_diff = abs((max_date - min_date).days)
             if day_diff > 0:
                 for col in df.columns:
@@ -149,9 +153,9 @@ class Mytab:
                 {}</h4></div>""".format(text)
         self.notification_div.text = txt
 
-    def group_data(self, df, groupby_dict={}):
+    def group_data(self, df, groupby_dict={}, timestamp_col='block_timestamp'):
         # normalize columns by number of days under consideration
-        df = self.normalize(df)
+        df = self.normalize(df,timestamp_col)
         df = df.groupby([self.interest_var]).agg(groupby_dict).compute()
 
         df = df.reset_index()

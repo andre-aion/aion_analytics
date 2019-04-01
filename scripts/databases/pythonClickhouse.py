@@ -88,7 +88,7 @@ class PythonClickhouse:
             logger.warning('%s NOT CREATED',table.upper())
             logger.error("Create table error", exc_info=True)
 
-    def construct_read_query(self, table, cols, startdate, enddate,select_col='block_timestamp'):
+    def construct_read_query(self, table, cols, startdate, enddate,timestamp_col='block_timestamp'):
         qry = 'SELECT '
 
         if len(cols) >= 1:
@@ -101,12 +101,12 @@ class PythonClickhouse:
 
         qry += """ FROM {}.{} WHERE toDate({}) >= toDate('{}') AND 
                toDate({}) <= toDate('{}') ORDER BY {}""" \
-            .format(self.db,table,select_col,startdate,select_col, enddate,select_col)
+            .format(self.db,table,timestamp_col,startdate,timestamp_col, enddate,timestamp_col)
 
-        #logger.warning('query:%s', qry)
+        logger.warning('query:%s', qry)
         return qry
 
-    def load_data(self,table,cols,start_date,end_date,select_col='block_timestamp'):
+    def load_data(self,table,cols,start_date,end_date,timestamp_col='block_timestamp'):
         start_date = self.ts_to_date(start_date)
         end_date = self.ts_to_date(end_date)
         #logger.warning('load data start_date:%s', start_date)
@@ -116,11 +116,10 @@ class PythonClickhouse:
             logger.warning("END DATE IS GREATER THAN START DATE")
             logger.warning("BOTH DATES SET TO START DATE")
             start_date = end_date
-        sql = self.construct_read_query(table, cols, start_date, end_date,select_col)
+        sql = self.construct_read_query(table, cols, start_date, end_date,timestamp_col)
 
         try:
-            query_result = self.client.execute(sql,
-                                               settings={'max_execution_time': 3600})
+            query_result = self.client.execute(sql,settings={'max_execution_time': 3600})
             df = pd.DataFrame(query_result, columns=cols)
             # if transaction table change the name of nrg_consumed
             if table in ['transaction', 'block']:

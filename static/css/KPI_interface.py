@@ -35,5 +35,14 @@ KPI_card_css = {
                         linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
                         linear-gradient(#eee .1em, transparent .1em);
                     background-size: 100% 1.2em;'
+                """,
+    'calendar': """
+        style='text-align: center;
+        border-radius: 10px;
+        height: 100px;
+        padding-top: 2em;
+        border: #ccc 2px solid;
+        background-image: linear-gradient(#ccc .7em, #eee .1em);
+        margin: 0.5em;'
     """
 }

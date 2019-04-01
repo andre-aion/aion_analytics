@@ -14,7 +14,7 @@ load_columns = {
 
 warehouse_inputs = {'block_tx_warehouse':dict()}
 
-load_columns['block']['churn'] = ['transaction_hashes', 'block_timestamp', 'miner_address',
+load_columns['block']['models'] = ['transaction_hashes', 'block_timestamp', 'miner_address',
                   'block_number','difficulty','nrg_consumed','nrg_limit',
                   'block_size','block_time','nrg_reward']
 
@@ -38,7 +38,7 @@ columns['transaction'] = ['transaction_hash','transaction_index','block_number',
                        'from_addr','to_addr','value','nrg_consumed',
                        'nrg_price','nonce','contract_addr','transaction_year',
                        'transaction_month','transaction_day']
-load_columns['transaction']['churn'] = ['block_timestamp',
+load_columns['transaction']['models'] = ['block_timestamp',
                         'transaction_hash', 'from_addr',
                         'to_addr', 'value', 'nrg_consumed']
 
@@ -46,7 +46,7 @@ load_columns['transaction']['churn'] = ['block_timestamp',
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #                             block tx warehouse poolminer
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-load_columns['block_tx_warehouse']['churn'] = ['block_timestamp', 'block_number', 'to_addr',
+load_columns['block_tx_warehouse']['models'] = ['block_timestamp', 'block_number', 'to_addr',
                       'from_addr', 'miner_address', 'value','transaction_hash',
                       'block_nrg_consumed','transaction_nrg_consumed','difficulty',
                       'nrg_limit','block_size','block_time', 'nrg_reward']
@@ -156,13 +156,14 @@ table_dict['account_activity'] = {
 
 }
 
-table_dict['account_external_warehouse'] = {
+table_dict['account_ext_warehouse'] = {
     'block_timestamp': 'Datetime',
     'address': 'String',
     'timestamp_of_first_event': 'Datetime',
     'update_type':'String',
     'account_type': 'String',
-    'value': 'Float64',
+    'status':'String',
+    'amount': 'Float64',
     'transaction_cost': 'Float64',
     'block_time': 'Float64',
     'balance':'Float64',
