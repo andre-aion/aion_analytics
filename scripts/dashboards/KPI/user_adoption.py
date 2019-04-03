@@ -158,9 +158,9 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                     if self.account_type != 'all':
                         df_period = df_period[df_period.account_type == self.account_type]
                     groupby_cols = ['dayset','period']
-                    logger.warning('line 150 df_period columns:%s',df_period.head(50))
                     df_period = df_period.groupby(groupby_cols).agg({'account_type':'count'})
                     df_period = df_period.reset_index()
+                    logger.warning('line 150 df_period columns:%s',df_period.head(50))
                     prestack_cols = list(df_period.columns)
                     df_period = df_period.compute()
                     df_period = self.split_period_into_columns(df_period,col_to_split='period',value_to_copy='account_type')
@@ -224,7 +224,7 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                                     max_date=last_date_range, value=last_date)
 
         thistab.period_end_date = last_date
-        thistab.period_start_date = thistab.period_end_date - timedelta(days=5)
+        thistab.period_start_date = thistab.first_date_in_period(thistab.period_end_date,'week')
         stream_launch = streams.Stream.define('Launch',launch=-1)()
 
         datepicker_period_start = DatePicker(title="Period start", min_date=first_date_range,
@@ -256,17 +256,16 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
-        controls_left = WidgetBox(
-            datepicker_start)
+        controls_left = WidgetBox(datepicker_start)
 
-        controls_right = WidgetBox(
-            datepicker_end,
-            account_type_select)
+        controls_centre = WidgetBox(datepicker_end)
+
+        controls_right = WidgetBox(account_type_select)
 
         # create the dashboards
         grid = gridplot([
             [thistab.notification_div],
-            [controls_left, controls_right],
+            [controls_left,controls_centre,controls_right],
             [thistab.section_headers['cards']],
             [thistab.period_to_date_cards['year'],thistab.period_to_date_cards['quarter'],
              thistab.period_to_date_cards['month'],thistab.period_to_date_cards['week']],

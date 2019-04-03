@@ -216,7 +216,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
 
         thistab.period_end_date = last_date
-        thistab.period_start_date = datetime_to_date(thistab.period_end_date - timedelta(days=3))
+        thistab.period_start_date = thistab.first_date_in_period(thistab.period_end_date,'week')
 
         stream_launch = streams.Stream.define('Launch',launch=-1)()
 
@@ -250,17 +250,16 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
-        controls_left = WidgetBox(
-            datepicker_start)
+        controls_left = WidgetBox(datepicker_start)
 
-        controls_right = WidgetBox(
-            datepicker_end,
-            variable_select)
+        controls_centre = WidgetBox(datepicker_end)
+
+        controls_right = WidgetBox(variable_select)
 
         # create the dashboards
         grid = gridplot([
             [thistab.notification_div],
-            [controls_left, controls_right],
+            [controls_left,controls_centre,controls_right],
             [thistab.section_headers['cards']],
             [thistab.period_to_date_cards['year'],thistab.period_to_date_cards['quarter'],
              thistab.period_to_date_cards['month'],thistab.period_to_date_cards['week']],

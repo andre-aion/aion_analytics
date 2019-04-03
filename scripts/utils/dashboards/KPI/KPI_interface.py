@@ -107,7 +107,7 @@ class KPI:
                 start = timestamp - timedelta(days=timestamp.day)
             elif period == 'year':
                 start = datetime(timestamp.year,1,1,0,0,0)
-            else: #period == 'quarter':
+            elif period == 'quarter':
                 start = self.first_date_in_quarter(timestamp)
             return start
         except Exception:
@@ -163,7 +163,7 @@ class KPI:
                 logger.warning('df after WEEK:%s',df.head(10))
 
             elif period == 'month':
-                df = df.assign(dayset=lambda x: x[timestamp_col].dt.month)
+                df = df.assign(dayset=lambda x: x[timestamp_col].dt.day)
             elif period == 'year':
                 df = df.assign(dayset=lambda x: x[timestamp_col].timetuple().tm_yday)
             elif period == 'quarter':
