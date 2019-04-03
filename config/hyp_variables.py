@@ -56,3 +56,10 @@ groupby_dict['accounts_predictive'] = {
             'aion_push':'mean',
             'aion_release':'mean',
 }
+
+groupby_dict['crypto_modelling'] = {
+            'russell_close':'mean',
+            'russell_volume':'mean',
+            'sp_close':'mean',
+            'sp_volume':'mean',
+}

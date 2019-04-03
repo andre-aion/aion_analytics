@@ -1,1 +1,160 @@
-2019-04-01 17:13:03,916 - [logs/user_adoption.log:16]=> logs/user_adoption.log
+2019-04-03 11:26:31,087 - [logs/user_adoption.log:16]=> logs/user_adoption.log
+2019-04-03 11:27:06,089 - [logs/user_adoption.log:161]=> line 150 df_period columns:      account_type timestamp_of_first_event  day          period  dayset
+index                                                                   
+0         contract      2019-02-15 08:01:06   15    current week       4
+0      native_user      2019-02-14 07:51:59   21    current week       3
+0      native_user      2019-02-14 13:13:37   20    current week       3
+0      native_user      2019-02-13 22:36:41   16    current week       2
+0      native_user      2019-02-06 05:41:42   21  1 week(s) prev       2
+0         contract      2019-02-05 00:03:18    5  1 week(s) prev       1
+0      native_user      2019-02-18 20:47:34   20    current week       0
+0      native_user      2019-02-07 02:10:22   13  1 week(s) prev       3
+0      native_user      2019-02-05 04:20:15    5  1 week(s) prev       1
+0         contract      2019-02-11 15:01:46   11  1 week(s) prev       0
+0      native_user      2019-02-10 13:49:41   14  1 week(s) prev       6
+0      native_user      2019-02-08 03:54:35   19  1 week(s) prev       4
+0      native_user      2019-02-05 21:52:18   10  1 week(s) prev       1
+0      native_user      2019-02-08 01:14:15    8  1 week(s) prev       4
+0      native_user      2019-02-09 17:50:27    9  1 week(s) prev       5
+1      native_user      2019-02-11 12:14:21   11  1 week(s) prev       0
+1         contract      2019-01-29 00:03:24   29  2 week(s) prev       1
+1      native_user      2019-02-06 05:41:42    1  1 week(s) prev       2
+1      native_user      2019-02-05 17:31:11    5  1 week(s) prev       1
+1      native_user      2019-02-11 18:15:20   24  1 week(s) prev       0
+1         contract      2019-02-05 20:02:24    5  1 week(s) prev       1
+1         contract      2019-02-17 14:00:35   17    current week       6
+1      native_user      2019-02-15 04:38:57   15    current week       4
+1         contract      2019-02-16 02:02:45   16    current week       5
+1      native_user      2019-02-06 20:21:46   21  1 week(s) prev       2
+1      native_user      2019-02-15 08:13:17   15    current week       4
+1      native_user      2019-02-08 01:34:46    8  1 week(s) prev       4
+1      native_user      2019-02-13 15:21:07   20    current week       2
+1         contract      2019-02-16 07:00:39   16    current week       5
+1      native_user      2019-02-16 18:21:09   16    current week       5
+1      native_user      2019-02-07 10:28:01   15  1 week(s) prev       3
+2      native_user      2019-02-06 21:21:17   29  1 week(s) prev       2
+2      native_user      2019-02-07 10:28:01    7  1 week(s) prev       3
+2      native_user      2019-02-18 09:32:57   21    current week       0
+2         contract      2019-02-09 18:01:28    9  1 week(s) prev       5
+2         contract      2019-02-08 02:01:20    8  1 week(s) prev       4
+2      native_user      2019-02-18 03:08:12   18    current week       0
+2      native_user      2019-02-13 20:42:05    5    current week       2
+2      native_user      2019-02-06 20:21:46   13  1 week(s) prev       2
+2      native_user      2019-02-11 15:29:30   11  1 week(s) prev       0
+2      native_user      2019-02-06 05:41:42    2  1 week(s) prev       2
+2         contract      2019-02-05 05:02:23    5  1 week(s) prev       1
+2      native_user      2019-02-16 18:33:21   16    current week       5
+2      native_user      2019-02-09 03:54:01    9  1 week(s) prev       5
+2      native_user      2019-02-11 03:06:56   15  1 week(s) prev       0
+2      native_user      2019-02-15 10:08:23   22    current week       4
+3      native_user      2019-02-05 20:05:17    5  1 week(s) prev       1
+3      native_user      2019-02-12 20:55:52   18    current week       1
+3      native_user      2019-02-13 13:37:39   13    current week       2
+3      native_user      2019-02-05 21:52:18    8  1 week(s) prev       1
+2019-04-03 11:27:13,398 - [logs/user_adoption.log:171]=> line 147 cols to plot:['1 week(s) prev', '2 week(s) prev', 'current week']
+2019-04-03 11:27:34,298 - [logs/user_adoption.log:161]=> line 150 df_period columns:      account_type timestamp_of_first_event  day           period  dayset
+index                                                                    
+0      native_user      2019-02-16 22:24:18   16    current month       2
+0      native_user      2019-01-13 06:16:02   17  1 month(s) prev       1
+0      native_user      2019-01-12 13:35:31   18  1 month(s) prev       1
+0      native_user      2019-02-18 00:36:09   18    current month       2
+0      native_user      2019-01-18 10:36:53   18  1 month(s) prev       1
+0      native_user      2019-02-15 05:26:23   15    current month       2
+0         contract      2019-02-17 14:00:35   17    current month       2
+0      native_user      2019-01-16 20:55:28   29  1 month(s) prev       1
+0      native_user      2019-02-16 02:10:15   16    current month       2
+0      native_user      2019-01-15 23:54:20   19  1 month(s) prev       1
+0      native_user      2019-02-13 15:54:31   31    current month       2
+0      native_user      2019-01-17 20:12:10   25  1 month(s) prev       1
+0      native_user      2019-01-16 14:35:24   26  1 month(s) prev       1
+0      native_user      2019-01-15 02:55:01   21  1 month(s) prev       1
+0      native_user      2019-01-13 16:52:33   29  1 month(s) prev       1
+1         contract      2019-01-12 00:03:18   12  1 month(s) prev       1
+1      native_user      2019-02-18 21:08:58    4    current month       2
+1      native_user      2019-01-15 02:55:01   13  1 month(s) prev       1
+1      native_user      2019-01-16 20:55:28   12  1 month(s) prev       1
+1      native_user      2019-01-16 14:35:24   28  1 month(s) prev       1
+1      native_user      2018-12-15 16:16:47   29  2 month(s) prev      12
+1      native_user      2018-12-12 00:15:27   12  2 month(s) prev      12
+1      native_user      2019-01-15 23:54:20   23  1 month(s) prev       1
+1      native_user      2019-01-13 16:52:33   26  1 month(s) prev       1
+1      native_user      2019-01-12 13:35:31    8  1 month(s) prev       1
+1      native_user      2019-02-13 13:37:39   24    current month       2
+1      native_user      2019-01-13 06:16:02   13  1 month(s) prev       1
+1         contract      2019-02-14 11:00:59   14    current month       2
+1      native_user      2019-02-17 04:54:03   17    current month       2
+1      native_user      2019-01-17 20:12:10   26  1 month(s) prev       1
+1      native_user      2019-02-18 00:44:54   18    current month       2
+1      native_user      2019-01-18 10:38:45   12  1 month(s) prev       1
+2      native_user      2019-01-16 14:35:24   11  1 month(s) prev       1
+2      native_user      2019-02-12 20:52:00   12    current month       2
+2      native_user      2019-01-16 20:55:28   23  1 month(s) prev       1
+2      native_user      2019-02-14 13:13:37    6    current month       2
+2      native_user      2019-01-17 20:12:10   22  1 month(s) prev       1
+2      native_user      2019-01-15 02:55:01    2  1 month(s) prev       1
+2      native_user      2019-02-17 15:34:07   28    current month       2
+2         contract      2019-02-16 10:01:15   16    current month       2
+2      native_user      2019-01-13 06:35:17   13  1 month(s) prev       1
+2      native_user      2019-01-12 13:35:31    9  1 month(s) prev       1
+2      native_user      2019-02-17 11:27:52   17    current month       2
+2      native_user      2019-01-15 23:54:20    7  1 month(s) prev       1
+2      native_user      2019-01-12 01:31:49   12  1 month(s) prev       1
+2      native_user      2019-01-13 16:52:33   27  1 month(s) prev       1
+2      native_user      2018-12-15 16:16:47    6  2 month(s) prev      12
+2      native_user      2019-01-18 10:38:45   18  1 month(s) prev       1
+3      native_user      2019-02-18 09:32:57   25    current month       2
+3         contract      2019-01-18 11:02:07   18  1 month(s) prev       1
+2019-04-03 11:27:42,229 - [logs/user_adoption.log:171]=> line 147 cols to plot:['1 month(s) prev', '2 month(s) prev', 'current month']
+2019-04-03 11:28:03,678 - [logs/user_adoption.log:161]=> line 150 df_period columns:      account_type timestamp_of_first_event  day             period  dayset
+index                                                                      
+0      native_user      2018-11-18 17:33:04   18  1 quarter(s) prev      49
+0      native_user      2018-11-15 14:52:43   22  1 quarter(s) prev      46
+0      native_user      2018-11-12 05:25:24   12  1 quarter(s) prev      43
+0      native_user      2019-02-15 10:08:23   22    current quarter      46
+0      native_user      2019-02-12 15:43:11   15    current quarter      43
+0      native_user      2018-11-13 11:38:57   13  1 quarter(s) prev      44
+0      native_user      2018-11-17 04:38:28    6  1 quarter(s) prev      48
+0      native_user      2018-11-12 00:01:11   12  1 quarter(s) prev      43
+0         contract      2019-02-18 11:01:02   18    current quarter      49
+0      native_user      2019-02-17 15:34:07   22    current quarter      48
+0      native_user      2018-11-15 02:47:17   15  1 quarter(s) prev      46
+0      native_user      2018-11-12 14:31:47   12  1 quarter(s) prev      43
+0      native_user      2018-11-16 19:47:27   16  1 quarter(s) prev      47
+0      native_user      2018-11-18 08:23:27   25  1 quarter(s) prev      49
+0      native_user      2018-11-13 00:16:45   13  1 quarter(s) prev      44
+1      native_user      2018-11-12 13:21:30   12  1 quarter(s) prev      43
+1      native_user      2018-11-12 05:27:18   29  1 quarter(s) prev      43
+1         contract      2019-02-16 10:01:15   16    current quarter      47
+1      native_user      2018-11-15 14:52:43   20  1 quarter(s) prev      46
+1      native_user      2018-11-15 21:34:08   15  1 quarter(s) prev      46
+1      native_user      2018-11-17 04:53:23   25  1 quarter(s) prev      48
+1      native_user      2019-02-16 07:24:21   16    current quarter      47
+1      native_user      2018-11-13 18:44:09   16  1 quarter(s) prev      44
+1      native_user      2019-02-18 07:55:47   18    current quarter      49
+1      native_user      2019-02-17 19:14:22   17    current quarter      48
+1      native_user      2018-11-16 21:12:19   15  1 quarter(s) prev      47
+1      native_user      2018-11-14 01:47:00   14  1 quarter(s) prev      45
+1      native_user      2018-11-16 13:55:23   17  1 quarter(s) prev      47
+1      native_user      2019-02-13 13:37:39   15    current quarter      44
+1      native_user      2019-02-15 10:08:23   30    current quarter      46
+2      native_user      2018-11-18 01:36:10   18  1 quarter(s) prev      49
+2      native_user      2018-11-13 19:29:07   13  1 quarter(s) prev      44
+2      native_user      2018-11-13 00:32:39   17  1 quarter(s) prev      44
+2      native_user      2018-11-18 08:23:27   18  1 quarter(s) prev      49
+2         contract      2019-02-15 23:01:40   15    current quarter      46
+2      native_user      2018-11-13 11:50:22   25  1 quarter(s) prev      44
+2         contract      2019-02-12 15:02:23   12    current quarter      43
+2         contract      2019-02-17 14:00:35   17    current quarter      48
+2      native_user      2018-11-13 18:30:21   13  1 quarter(s) prev      44
+2      native_user      2019-02-12 15:43:11   22    current quarter      43
+2      native_user      2018-11-18 17:33:04   19  1 quarter(s) prev      49
+2      native_user      2018-11-16 09:54:50   26  1 quarter(s) prev      47
+2      native_user      2018-11-18 17:21:38   18  1 quarter(s) prev      49
+2      native_user      2019-02-15 13:49:16    1    current quarter      46
+2      native_user      2018-11-18 20:03:57   18  1 quarter(s) prev      49
+3      native_user      2019-02-13 15:54:31   14    current quarter      44
+3      native_user      2018-11-15 02:54:04   15  1 quarter(s) prev      46
+3         contract      2019-02-16 22:01:20   16    current quarter      47
+3      native_user      2018-11-16 06:12:56   12  1 quarter(s) prev      47
+3      native_user      2018-08-18 02:10:05   19  2 quarter(s) prev      49
+2019-04-03 11:28:11,875 - [logs/user_adoption.log:171]=> line 147 cols to plot:['1 quarter(s) prev', '2 quarter(s) prev', 'current quarter']

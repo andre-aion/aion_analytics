@@ -4,7 +4,7 @@ from scripts.utils.dashboards.EDA.poolminer import make_tier1_list, \
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
 from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 from scripts.databases.pythonRedis import PythonRedis
-from config.df_construct_config import dedup_cols, load_columns as cols
+from config.df_construct import dedup_cols, load_columns as cols
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 

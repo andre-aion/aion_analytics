@@ -2,7 +2,7 @@ import datetime
 from time import mktime
 
 from scripts.utils.mylogger import mylogger
-from config.df_construct_config import insert_sql, create_table_sql, create_indexes
+from config.df_construct import insert_sql, create_table_sql, create_indexes
 from concurrent.futures import ThreadPoolExecutor
 
 import logging

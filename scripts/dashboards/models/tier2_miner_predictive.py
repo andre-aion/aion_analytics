@@ -18,7 +18,7 @@ from datetime import datetime
 from holoviews import streams
 import holoviews as hv
 from tornado.gen import coroutine
-from config.df_construct_config import load_columns
+from config.df_construct import load_columns
 import dask.dataframe as dd
 import pandas as pd
 

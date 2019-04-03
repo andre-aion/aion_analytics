@@ -4,7 +4,7 @@ from os.path import join, dirname
 from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
 from scripts.utils.mylogger import mylogger
-from config.df_construct_config import dedup_cols
+from config.df_construct import dedup_cols
 
 from bokeh.layouts import gridplot, WidgetBox
 from bokeh.models import CustomJS, ColumnDataSource, Panel, Button

@@ -1,15 +1,1 @@
-2019-04-01 17:13:03,875 - [logs/account_predictive.log:16]=> logs/account_predictive.log
-2019-04-01 17:14:06,298 - [logs/account_predictive.log:205]=> RANDOM FOREST LAUNCHED
-2019-04-01 17:14:21,153 - [logs/account_predictive.log:344]=> 319:in load prediction:      amount  transaction_cost  block_time  ...  aion_release                                            address  timestamp
-0  1.701804           0.00021        24.0  ...             0  a0f499fe8fc35c31b0c8a802d947744d765f7c555d01b2... 2018-10-09
-1  1.498409        -999.00000        24.0  ...             0  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2018-10-09
-2 -1.450604           0.00021        24.0  ...             0  a01779ba96290a3416563b4d32a7e012fa559a2f5b307b... 2018-10-09
-3  1.450394           0.00021        24.0  ...             0  a0c00cfc4c53bb6d49f385b91f58a23dd7b1dc024976b3... 2018-10-09
-4 -1.702014           0.00021        24.0  ...             0  a0f2daa8de60d0e911fb468492242d604e1e11ec6f142b... 2018-10-09
-
-[5 rows x 27 columns]
-2019-04-01 17:14:21,367 - [logs/account_predictive.log:357]=> MAKE PREDICTIONS LAUNCHED
-2019-04-01 17:14:22,664 - [logs/account_predictive.log:388]=> y_pred:['active' 'active' 'active' ... 'active' 'active' 'active']
-2019-04-01 17:14:22,670 - [logs/account_predictive.log:414]=> end of churned predictions
-2019-04-01 17:14:22,699 - [logs/account_predictive.log:453]=> make feature importances for :churned
-2019-04-01 17:14:22,713 - [logs/account_predictive.log:479]=> MAKE FEATURE IMPORTANCES FINISHED
+2019-04-03 11:26:31,058 - [logs/account_predictive.log:16]=> logs/account_predictive.log

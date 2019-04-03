@@ -141,7 +141,8 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                     end_date = datetime.combine(end_date,datetime.min.time())
                 cols = ['account_type', 'timestamp_of_first_event', 'day']
                 periods = self.periods_to_plot.copy()
-                df = self.load_df(start_date=start_date,end_date=end_date,cols=cols)
+                df = self.load_df(start_date=start_date,end_date=end_date,cols=cols,
+                                  timestamp_col='timestamp_of_first_event')
                 if abs(start_date - end_date).days > 7:
                     if 'week' in periods:
                         periods.remove('week')
@@ -151,13 +152,13 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                 if abs(start_date - end_date).days > 90:
                     if 'quarter' in periods:
                         periods.remove('quarter')
-
                 for idx,period in enumerate(periods):
                     df_period = self.period_over_period(df, start_date=start_date, end_date=end_date,
                                                         period=period,history_periods=self.history_periods)
                     if self.account_type != 'all':
                         df_period = df_period[df_period.account_type == self.account_type]
                     groupby_cols = ['dayset','period']
+                    logger.warning('line 150 df_period columns:%s',df_period.head(50))
                     df_period = df_period.groupby(groupby_cols).agg({'account_type':'count'})
                     df_period = df_period.reset_index()
                     prestack_cols = list(df_period.columns)
@@ -203,12 +204,12 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
         thistab = Thistab(table='account_ext_warehouse', cols=cols)
         # -------------------------------------  SETUP   ----------------------------
         # format dates
-        first_date_range = "2019-04-25 00:00:00"
-        first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
+        first_date_range = thistab.initial_date
         last_date_range = datetime.now().date()
 
-        first_date = datetime_to_date(datetime.strptime('2018-04-25 00:00:00', thistab.DATEFORMAT))
         last_date = dashboard_config['dates']['last_date']
+        first_date = datetime(last_date.year,1,1,0,0,0)
+
         thistab.df = thistab.load_df(first_date, last_date,cols,'timestamp_of_first_event')
         thistab.graph_periods_to_date(thistab.df,filter_col='timestamp_of_first_event')
         thistab.section_header_updater('cards')
@@ -222,8 +223,8 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
 
-        thistab.period_end_date = datetime_to_date(last_date - timedelta(days=3))
-        thistab.period_start_date = thistab.period_end_date - timedelta(days=4)
+        thistab.period_end_date = last_date
+        thistab.period_start_date = thistab.period_end_date - timedelta(days=5)
         stream_launch = streams.Stream.define('Launch',launch=-1)()
 
         datepicker_period_start = DatePicker(title="Period start", min_date=first_date_range,

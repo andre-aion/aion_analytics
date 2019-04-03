@@ -149,7 +149,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                                                         timestamp_col='timestamp')
 
                     groupby_cols = ['dayset','period']
-                    logger.warning('line 150 df_period colums:%s',df.columns)
+                    logger.warning('line 150 df_period columns:%s',df.columns)
                     df_period = df_period.groupby(groupby_cols).agg({self.variable:'sum'})
                     df_period = df_period.reset_index()
                     prestack_cols = list(df_period.columns)
@@ -196,11 +196,10 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         thistab = Thistab(table='account_ext_warehouse', cols=cols)
         # -------------------------------------  SETUP   ----------------------------
         # format dates
-        first_date_range = "2019-04-25 00:00:00"
-        first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
+        first_date_range = thistab.initial_date
         last_date_range = datetime.now().date()
         last_date = dashboard_config['dates']['last_date']
-        first_date = datetime_to_date(datetime.strptime('2018-04-25 00:00:00', thistab.DATEFORMAT))
+        first_date = datetime(last_date.year,1,1,0,0,0)
 
         thistab.df = thistab.load_df(first_date, last_date,cols,'timestamp')
         thistab.graph_periods_to_date(thistab.df,filter_col='timestamp',variable=thistab.variable)

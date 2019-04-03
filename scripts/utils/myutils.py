@@ -83,6 +83,16 @@ def timestamp_to_datetime(ts):
 def make_filepath(path):
     return join(dirname(__file__), path)
 
+def load_cryptos():
+    try:
+        filepath = make_filepath('../../data/cryptos.csv')
+        df = pd.read_csv(filepath)
+        cryptos = sorted(df['Name'].str.lower().tolist())
+        return cryptos
+
+    except Exception:
+        logger.error('load cryptos', exc_info=True)
+
 # when a tab does not work
 def tab_error_flag(tabname):
 

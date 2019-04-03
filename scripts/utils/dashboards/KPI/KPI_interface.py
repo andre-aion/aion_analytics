@@ -191,14 +191,14 @@ class KPI:
             counter = 0
             if isinstance(history_periods,str):
                 history_periods = int(history_periods)
+            # make dataframes for request no. of periods
+            start, end = self.shift_period_range(period, start, end)
             while counter < history_periods and start >= self.initial_date:
                 counter += 1
-                if counter == 1:
-                    start, end = self.shift_period_range(period,start,end)
                 # load data
-                if period == 'month':
+                if period == 'quarter':
                     logger.warning('start:end %s:%s', start, end)
-                df_temp = self.load_df(start,end,cols,'timestamp')
+                df_temp = self.load_df(start,end,cols,timestamp_col)
                 if df_temp is not None:
                     if len(df_temp) > 1:
                         string = '{} {}(s) prev'.format(counter, period)
@@ -214,7 +214,7 @@ class KPI:
                 start,end = self.shift_period_range(period,start,end)
             return df_current
         except Exception:
-            logger.error('period over period to date',exc_info=True)
+            logger.error('period over period',exc_info=True)
 
     """
      To enable comparision across period, dates must have label relative to period start.

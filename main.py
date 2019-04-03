@@ -23,13 +23,16 @@ from scripts.dashboards.models.tier2_miner_predictive import tier2_miner_churn_p
 from scripts.dashboards.models.account_activity_predictive import account_activity_predictive_tab
 from scripts.dashboards.models.account_predictive import account_predictive_tab
 from scripts.dashboards.KPI.developer_adoption import KPI_developer_adoption_tab
+from scripts.dashboards.models.cryptocurrency import cryptocurrency_tab
 
 from scripts.dashboards.KPI.user_adoption import KPI_user_adoption_tab
 
 from scripts.utils.mylogger import mylogger
+from scripts.utils.myutils import load_cryptos
 
 logger = mylogger(__file__)
 executor = ThreadPoolExecutor(max_workers=10)
+cryptocurrencies = load_cryptos()
 
 
 labels = [
@@ -39,12 +42,13 @@ labels = [
     'miners: blocks',
     'miners: tiers 1 & 2',
     'miners: models stats',
+    'hypothesis tests: cryptocurrency',
     'predictions: accounts by activity',
     'predictions: accounts by value',
     'predictions: tier 1 miner models',
     'predictions: tier 2 miner models',
     ]
-DEFAULT_CHECKBOX_SELECTION = 7
+DEFAULT_CHECKBOX_SELECTION = 6
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -115,6 +119,13 @@ def aion_analytics(doc):
                     selection_tab.selected_tracker.append('miners: models stats')
                     if ch not in tablist:
                         tablist.append(ch)
+            
+            if 'hypothesis tests: cryptocurrency' in lst:
+                if 'hypothesis tests: cryptocurrency' not in selection_tab.selected_tracker:
+                    cct = yield cryptocurrency_tab(cryptocurrencies)
+                    selection_tab.selected_tracker.append('hypothesis tests: cryptocurrency')
+                    if cct not in tablist:
+                        tablist.append(cct)
 
             if 'predictions: tier 1 miner models' in lst:
                 if 'predictions: tier 1 miner models' not in selection_tab.selected_tracker:

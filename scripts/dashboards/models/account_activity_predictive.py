@@ -19,7 +19,7 @@ from config.dashboard import config as dashboard_config
 
 
 from tornado.gen import coroutine
-from config.df_construct_config import table_dict
+from config.df_construct import table_dict
 
 from operator import itemgetter
 import pandas as pd

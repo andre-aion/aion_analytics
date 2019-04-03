@@ -2,7 +2,7 @@ import datetime
 
 from tornado.gen import coroutine
 
-from config.df_construct_config import columns as cols
+from config.df_construct import columns as cols
 from scripts.utils.mylogger import mylogger
 from concurrent.futures import ThreadPoolExecutor
 from clickhouse_driver import Client as Clickhouse_Client
