@@ -10,6 +10,7 @@ from scripts.databases.pythonRedis import PythonRedis
 from scripts.databases.pythonParquet import PythonParquet
 from scripts.databases.pythonClickhouse import PythonClickhouse
 from bokeh.models.widgets import Div, Paragraph
+from scipy.stats import linregress
 
 r = PythonRedis()
 logger = mylogger(__file__)
@@ -86,7 +87,7 @@ class Mytab:
             req_end_date = req_end_date+timedelta(days=1) #move end_date to midnite
             cols = self.cols.copy()
 
-            self.df = self.ch.load_data(self.table,cols,req_start_date, req_end_date)
+            self.df = self.ch.load_data(self.table,cols,req_start_date, req_end_date,timestamp_col)
             self.filter_df(req_start_date, req_end_date)
             #logger.warning("%s LOADED: %s:%s",self.table,req_start_date,req_end_date)
 
@@ -221,3 +222,29 @@ class Mytab:
             params['in_memory'] = False
             params['key'] = None
             return params
+
+    # //////////////////////////////////////////// CORRELATION ///////////////////////////
+    # perform correlation, and label according to r,pvalue
+    def corr_label(self, a, b):
+        slope, intercept, rvalue, pvalue, std_err = linregress(a, b)
+        logger.warning('slope:%s,intercept:%s,rvalue:%s,pvalue:%s,std_err:%s',
+                       slope, intercept, rvalue, pvalue, std_err)
+        if pvalue < 0.05:
+            if abs(rvalue) <= self.weak_thresh:
+                txt = 'none'
+            else:
+                strength = 'weak'
+                if rvalue > 0:
+                    direction = 'positive'
+                if rvalue < 0:
+                    direction = 'negative'
+                if abs(rvalue) > self.mod_thresh:
+                    strength = 'moderate'
+                if abs(rvalue) > self.strong_thresh:
+                    strength = 'strong'
+
+                txt = "{} {}".format(strength, direction)
+        else:
+            txt = 'Not significant'
+
+        return slope, intercept, rvalue, pvalue, txt

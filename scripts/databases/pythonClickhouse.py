@@ -103,7 +103,7 @@ class PythonClickhouse:
                toDate({}) <= toDate('{}') ORDER BY {}""" \
             .format(self.db,table,timestamp_col,startdate,timestamp_col, enddate,timestamp_col)
 
-        logger.warning('query:%s', qry)
+        #logger.warning('query:%s', qry)
         return qry
 
     def load_data(self,table,cols,start_date,end_date,timestamp_col='block_timestamp'):

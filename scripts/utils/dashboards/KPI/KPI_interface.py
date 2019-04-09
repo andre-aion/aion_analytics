@@ -179,6 +179,7 @@ class KPI:
         try:
             # filter cols if necessary
             string = 'current {}'.format(period)
+            string = '0 {}(s) prev(current)'.format(period)
             df_current = df.assign(period=string)
             # label the days being compared with the same label
             df_current = self.label_dates_pop(df_current,period,timestamp_col)

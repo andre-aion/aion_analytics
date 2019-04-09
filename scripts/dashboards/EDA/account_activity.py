@@ -261,7 +261,7 @@ def account_activity_tab(DAYS_TO_LOAD=30):
 
         def matrix_plot(self,launch=-1):
             try:
-                logger.warning('line 306 self.feature lsit:%s',self.feature_list)
+                logger.warning('line 306 self.feature list:%s',self.feature_list)
 
                 if self.update_type != 'all':
                     df = self.df1[self.df1['update_type'] == self.update_type]
@@ -474,7 +474,7 @@ def account_activity_tab(DAYS_TO_LOAD=30):
             ])
 
         # Make a tab with the layout
-        tab = Panel(child=grid, title='Account activity')
+        tab = Panel(child=grid, title='account activity')
         return tab
 
     except Exception:
