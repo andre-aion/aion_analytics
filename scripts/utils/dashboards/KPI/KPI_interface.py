@@ -9,6 +9,7 @@ from datetime import datetime,timedelta,date
 from dateutil.relativedelta import relativedelta
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
+from scripts.databases.pythonRedis import PythonRedis
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import concat_dfs
 from static.css.KPI_interface import KPI_card_css
@@ -39,6 +40,7 @@ class KPI:
     def __init__(self,table,cols):
         self.df = None
         self.ch = PythonClickhouse('aion')
+        self.redis = PythonRedis()
         self.table = table
         self.cols = cols
         self.div_style = """ style='width:350px; margin-left:25px;
@@ -61,6 +63,9 @@ class KPI:
         self.period_end_date = None
 
         self.checkboxgroup = {}
+        self.sig_effect_dict = {}
+        self.name = ''
+        self.redis_stat_sig_key = 'adoption_features:' + self.name
 
         # make block timestamp the index
     def load_df(self,start_date,end_date,cols,timestamp_col='timestamp_of_first_event'):
@@ -113,7 +118,7 @@ class KPI:
         except Exception:
             logger.error('period to date', exc_info=True)
 
-    def period_to_date(self,df,timestamp = None,filter_col=None,cols=[],period='week'):
+    def period_to_date(self, df, timestamp = None, timestamp_filter_col=None, cols=[], period='week'):
         try:
             if timestamp is None:
                 timestamp = datetime.now()
@@ -121,9 +126,9 @@ class KPI:
             
             start = self.first_date_in_period(timestamp,period)
             # filter
-            if filter_col is None:
-                filter_col = 'block_timestamp'
-            df = df[(df[filter_col] >= start) & (df[filter_col] <= timestamp)]
+            if timestamp_filter_col is None:
+                timestamp_filter_col = 'block_timestamp'
+            df = df[(df[timestamp_filter_col] >= start) & (df[timestamp_filter_col] <= timestamp)]
             if len(cols) >0:
                 df = df[cols]
             return df
@@ -254,5 +259,30 @@ class KPI:
             .format(text)
         self.section_headers[section].text = txt
 
-
-
+    # -------------------- CALCULATE KPI's DEVELOPED FROM VARIABLES WITH STATITICALLY SIGNIFICANT EFFECT
+    def calc_sig_effect_card_data(self, df, variable_of_interest):
+        try:
+            # load statistically significant variables
+            sig_variables = self.redis.simple_load(self.redis_stat_sig_key)
+            self.sig_effect_dict = {}
+            if sig_variables is not None:
+                if 'features' in sig_variables.keys():
+                    if len(sig_variables['features']) > 0:
+                        tmp_df = df[[variable_of_interest,sig_variables]]
+                        numer = tmp_df[variable_of_interest].mean()
+                        for var in sig_variables:
+                            tmp = 0
+                            if isinstance(numer,float) or isinstance(numer,int):
+                                if numer != 0:
+                                    denom = tmp_df[var].mean()
+                                    if isinstance(denom, float) or isinstance(denom,int):
+                                        tmp = round(numer/denom,3)
+                            # add metrics based on variables
+                            title = "{} per {}".format(variable_of_interest,var)
+                            self.sig_effect_dict[var] = {
+                                'title' : title,
+                                'point_estimate':tmp
+                            }
+            logger.warning('%s sig_effect_data:%s',variable_of_interest,self.sig_effect_dict)
+        except Exception:
+            logger.error('make sig effect columns', exc_info=True)

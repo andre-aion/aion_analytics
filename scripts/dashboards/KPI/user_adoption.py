@@ -35,6 +35,7 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
     class Thistab(KPI):
         def __init__(self, table, cols=[]):
             KPI.__init__(self, table, cols)
+            self.name = 'user'
             self.table = table
             self.df = None
 
@@ -94,9 +95,9 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
             div = Div(text=txt, width=width, height=height)
             return div
 
-        def card(self,title,count,card_design='folders',width=200,height=200):
+        def card(self, title, data, card_design='folders', width=200, height=200):
             try:
-                txt = """<div {}><h3>{}</h3></br>{}</div>""".format(self.KPI_card_css[card_design], title, count)
+                txt = """<div {}><h3>{}</h3></br>{}</div>""".format(self.KPI_card_css[card_design], title, data)
                 div = Div(text=txt, width=width, height=height)
                 return div
 
@@ -111,8 +112,8 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                     df1 = df1[df1.account_type == self.account_type]
 
                 for idx,period in enumerate(['week','month','quarter','year']):
-                    df = self.period_to_date(df1,timestamp=dashboard_config['dates']['last_date'],
-                                             filter_col=filter_col,period=period)
+                    df = self.period_to_date(df1, timestamp=dashboard_config['dates']['last_date'],
+                                             timestamp_filter_col=filter_col, period=period)
                     # get unique instances
                     df = df[['address']]
                     df = df.compute()
@@ -123,7 +124,7 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                     gc.collect()
                     title = "{} to date".format(period)
 
-                    p = self.card(title=title, count=count, card_design=random.choice(list(self.KPI_card_css.keys())))
+                    p = self.card(title=title, data=count, card_design=random.choice(list(self.KPI_card_css.keys())))
                     self.period_to_date_cards[period].text = p.text
                     #logger.warning('%s to date completed',period)
 

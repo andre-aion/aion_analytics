@@ -18,13 +18,13 @@ from scripts.dashboards.EDA.account_activity import account_activity_tab
 from scripts.dashboards.EDA.blockminer import blockminer_tab
 from scripts.dashboards.EDA.poolminer import poolminer_tab
 from scripts.dashboards.models.churn import churn_tab
-from scripts.dashboards.models.tier1_miner_predictive import tier1_miner_churn_predictive_tab
-from scripts.dashboards.models.tier2_miner_predictive import tier2_miner_churn_predictive_tab
-from scripts.dashboards.models.account_activity_predictive import account_activity_predictive_tab
-from scripts.dashboards.models.account_predictive import account_predictive_tab
+from scripts.dashboards.models.predictive.tier1_miner_predictive import tier1_miner_churn_predictive_tab
+from scripts.dashboards.models.predictive.tier2_miner_predictive import tier2_miner_churn_predictive_tab
+from scripts.dashboards.models.predictive.account_activity_predictive import account_activity_predictive_tab
+from scripts.dashboards.models.predictive.account_predictive import account_predictive_tab
 from scripts.dashboards.KPI.developer_adoption import KPI_developer_adoption_tab
-from scripts.dashboards.models.cryptocurrency import cryptocurrency_tab
-
+from scripts.dashboards.EDA.cryptocurrency import cryptocurrency_eda_tab
+from scripts.dashboards.models.clustering.cryptocurrency import cryptocurrency_clustering_tab
 from scripts.dashboards.KPI.user_adoption import KPI_user_adoption_tab
 
 from scripts.utils.mylogger import mylogger
@@ -42,13 +42,14 @@ labels = [
     'miners: blocks',
     'miners: tiers 1 & 2',
     'miners: models stats',
-    'hypothesis tests: cryptocurrency',
+    'EDA: cryptocurrency',
+    'clustering: cryptocurrency',
     'predictions: accounts by activity',
     'predictions: accounts by value',
     'predictions: tier 1 miner models',
     'predictions: tier 2 miner models',
     ]
-DEFAULT_CHECKBOX_SELECTION = 6
+DEFAULT_CHECKBOX_SELECTION = 7
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -120,10 +121,17 @@ def aion_analytics(doc):
                     if ch not in tablist:
                         tablist.append(ch)
             
-            if 'hypothesis tests: cryptocurrency' in lst:
-                if 'hypothesis tests: cryptocurrency' not in selection_tab.selected_tracker:
-                    cct = yield cryptocurrency_tab(cryptocurrencies)
-                    selection_tab.selected_tracker.append('hypothesis tests: cryptocurrency')
+            if 'EDA: cryptocurrency' in lst:
+                if 'EDA: cryptocurrency' not in selection_tab.selected_tracker:
+                    eda_c = yield cryptocurrency_eda_tab(cryptocurrencies)
+                    selection_tab.selected_tracker.append('EDA: cryptocurrency')
+                    if eda_c not in tablist:
+                        tablist.append(eda_c)
+
+            if 'clustering: cryptocurrency' in lst:
+                if 'clustering: cryptocurrency' not in selection_tab.selected_tracker:
+                    cct = yield cryptocurrency_clustering_tab()
+                    selection_tab.selected_tracker.append('clustering: cryptocurrency')
                     if cct not in tablist:
                         tablist.append(cct)
 

@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import export_graphviz
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
+from scipy.stats import mannwhitneyu
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
 from scripts.utils.dashboards.EDA.mytab_interface import Mytab
@@ -53,7 +54,7 @@ groupby_dict = {
 }
 
 @coroutine
-def cryptocurrency_tab(cryptos):
+def cryptocurrency_eda_tab(cryptos):
     lags_corr_src = ColumnDataSource(data=dict(
         variable_1=[],
         variable_2=[],
@@ -114,7 +115,15 @@ def cryptocurrency_tab(cryptos):
                 'distribution': self.title_div('Pre-transform distribution',400)
 
             }
+            # track variable for AI for significant effects
+            self.adoption_variables = {
+                'user':[],
+                'developer':['watch','fork']
+            }
 
+            self.significant_effect_dict = {}
+            self.reset_adoption_dict(self.variable)
+            self.relationships_to_check = ['weak','moderate','strong']
 
         # ////////////////////////// UPDATERS ///////////////////////
         def section_head_updater(self,section, txt):
@@ -129,6 +138,9 @@ def cryptocurrency_tab(cryptos):
                     {}</h4></div>""".format(text)
             for key in self.notification_div.keys():
                 self.notification_div[key].text = txt
+
+        def reset_adoption_dict(self,variable):
+            self.significant_effect_dict[variable] = []
 
 
         # //////////////  DIVS   /////////////////////////////////
@@ -241,7 +253,8 @@ def cryptocurrency_tab(cryptos):
                         corr_dict_data['r'].append(round(rvalue, 4))
                         corr_dict_data['p_value'].append(round(pvalue, 4))
 
-                lags_corr_src.stream(corr_dict_data,rollover=(len(corr_dict_data)))
+
+                lags_corr_src.stream(corr_dict_data,rollover=(len(corr_dict_data['lag'])))
                 columns = [
                     TableColumn(field="variable_1", title="variable 1"),
                     TableColumn(field="variable_2", title="variable 2"),
@@ -273,19 +286,40 @@ def cryptocurrency_tab(cryptos):
                 df = df.drop('timestamp', axis=1)
                 df = df.compute()
 
-                #logger.warning('line df:%s',df.head(10))
                 a = df[self.variable].tolist()
+
                 for col in self.feature_list:
                     logger.warning('col :%s', col)
                     if col != self.variable:
                         logger.warning('%s:%s', col, self.variable)
                         b = df[col].tolist()
                         slope, intercept, rvalue, pvalue, txt = self.corr_label(a,b)
+                        # add to dict
                         corr_dict['Variable 1'].append(self.variable)
                         corr_dict['Variable 2'].append(col)
                         corr_dict['Relationship'].append(txt)
                         corr_dict['r'].append(round(rvalue,4))
                         corr_dict['p-value'].append(round(pvalue,4))
+
+                        # update significant effect variables
+                        if self.variable in self.adoption_variables['developer']:
+                            if any(relationship in txt for relationship in self.relationships_to_check):
+                                if self.variable not in self.significant_effect_dict.keys():
+                                    self.significant_effect_dict[self.variable] = []
+                                self.significant_effect_dict[self.variable].append(col)
+
+                if self.variable in self.adoption_variables['developer']:
+                    tmp = self.significant_effect_dict[self.variable].copy()
+                    tmp = list(set(tmp))
+                    tmp_dct = {
+                        'features': tmp,
+                        'timestamp': datetime.now().strftime(self.DATEFORMAT)
+                    }
+                    # write to redis
+                    save_params = 'adoption_features:developer'
+                    self.redis.save(tmp_dct,
+                                    save_params,
+                                    "", "", type='checkpoint')
 
                 df = pd.DataFrame(
                     {
@@ -301,6 +335,52 @@ def cryptocurrency_tab(cryptos):
                                        width=550,height=400,title='Correlation between variables')
             except Exception:
                 logger.error('correlation table', exc_info=True)
+
+
+        def non_parametric_relationship_table(self,launch):
+            try:
+
+                corr_dict = {
+                    'Variable 1':[],
+                    'Variable 2':[],
+                    'Relationship':[],
+                    'stat':[],
+                    'p-value':[]
+                }
+                # prep df
+                df = self.df1
+                # get difference for money columns
+                df = df.drop('timestamp', axis=1)
+                df = df.compute()
+
+                #logger.warning('line df:%s',df.head(10))
+                a = df[self.variable].tolist()
+                for col in self.feature_list:
+                    logger.warning('col :%s', col)
+                    if col != self.variable:
+                        logger.warning('%s:%s', col, self.variable)
+                        b = df[col].tolist()
+                        stat, pvalue, txt = self.mann_whitneyu_label(a,b)
+                        corr_dict['Variable 1'].append(self.variable)
+                        corr_dict['Variable 2'].append(col)
+                        corr_dict['Relationship'].append(txt)
+                        corr_dict['stat'].append(round(stat,4))
+                        corr_dict['p-value'].append(round(pvalue,4))
+
+                df = pd.DataFrame(
+                    {
+                        'Variable 1': corr_dict['Variable 1'],
+                        'Variable 2': corr_dict['Variable 2'],
+                        'Relationship': corr_dict['Relationship'],
+                        'stat':corr_dict['stat'],
+                        'p-value':corr_dict['p-value']
+
+                     })
+                #logger.warning('df:%s',df.head(23))
+                return df.hvplot.table(columns=['Variable 1', 'Variable 2','Relationship','stat','p-value'],
+                                       width=550,height=400,title='Non parametricrelationship between variables')
+            except Exception:
+                logger.error('non parametric table', exc_info=True)
 
 
         def hist(self,launch):
@@ -355,6 +435,8 @@ def cryptocurrency_tab(cryptos):
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.prep_data(thistab.df)
         thistab.variable = new
+        if thistab.variable in thistab.adoption_variables['developer']:
+            thistab.reset_adoption_dict(thistab.variable)
         thistab.section_head_updater('lag',thistab.variable)
         thistab.trigger += 1
         stream_launch_matrix.event(launch=thistab.trigger)
@@ -371,7 +453,7 @@ def cryptocurrency_tab(cryptos):
 
     def update_crypto(attr, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
-        thistab.crypto = variable_select.value
+        thistab.crypto = crypto_select.value
         thistab.lag = int(lag_select.value)
         thistab.prep_data(thistab.df)
         thistab.trigger += 1
@@ -474,12 +556,14 @@ def cryptocurrency_tab(cryptos):
                                        streams=[stream_launch_matrix])
         hv_corr_table = hv.DynamicMap(thistab.correlation_table,
                                       streams=[stream_launch_corr])
+        hv_nonpara_table = hv.DynamicMap(thistab.non_parametric_relationship_table,
+                                     streams=[stream_launch_corr])
         #hv_hist_plot = hv.DynamicMap(thistab.hist, streams=[stream_launch_hist])
         hv_lags_plot = hv.DynamicMap(thistab.lags_plot, streams=[stream_launch_lags_var])
 
         matrix_plot = renderer.get_plot(hv_matrix_plot)
         corr_table = renderer.get_plot(hv_corr_table)
-        #hist_plot = renderer.get_plot(hv_hist_plot)
+        nonpara_table = renderer.get_plot(hv_nonpara_table)
         lags_plot = renderer.get_plot(hv_lags_plot)
 
         # setup divs
@@ -516,7 +600,7 @@ def cryptocurrency_tab(cryptos):
             [thistab.notification_div['top']],
             [controls_left, controls_right],
             [thistab.title_div('Relationships between variables', 400)],
-            [corr_table.state, thistab.corr_information_div()],
+            [corr_table.state,nonpara_table.state, thistab.corr_information_div()],
             [matrix_plot.state],
             [thistab.section_header_div['lag'], lag_variable_select,controls_lag],
             [lags_plot.state, lags_corr_table],
@@ -525,9 +609,9 @@ def cryptocurrency_tab(cryptos):
         ])
 
         # Make a tab with the layout
-        tab = Panel(child=grid, title='Crypto')
+        tab = Panel(child=grid, title='EDA: Crypto')
         return tab
 
     except Exception:
         logger.error('crypto:', exc_info=True)
-        return tab_error_flag('crypto')
+        return tab_error_flag('EDA: crypto')

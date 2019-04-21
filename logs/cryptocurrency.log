@@ -1,62 +1,157 @@
-2019-04-09 14:50:46,730 - [logs/cryptocurrency.log:16]=> logs/cryptocurrency.log
-2019-04-09 14:50:49,181 - [logs/cryptocurrency.log:185]=> line 184- prep data: df:   watch  fork  issue  release  push        close         high          low    market_cap        volume  sp_volume  sp_close  russell_volume  russell_close   timestamp        crypto
-0     13     5      0        0    17     1.010000     1.080000     0.992387  2.522225e+08  2.217510e+07    44141.0      37.9        578161.0         165.75  2018-06-08          aelf
-1      1     1      0        0    39     3.540000     3.720000     3.450000  8.257593e+08  1.588720e+07    44141.0      37.9        578161.0         165.75  2018-06-08     aeternity
-2      3     3      0        1    45     2.050000     2.100000     2.020000  3.097127e+08  2.478490e+06    44141.0      37.9        578161.0         165.75  2018-06-08          aion
-3   1164   495      0       63  7678     2.350000     2.400000     2.280000  2.427106e+08  7.055830e+05    44141.0      37.9        578161.0         165.75  2018-06-08           ark
-4    114    55      0        0   274  7624.920000  7698.190000  7558.400000  1.302562e+11  4.227580e+09    44141.0      37.9        578161.0         165.75  2018-06-08       bitcoin
-5      0     0      0        0     2  1118.190000  1149.800000  1096.910000  1.920277e+10  5.038560e+08    44141.0      37.9        578161.0         165.75  2018-06-08  bitcoin_cash
-6      6     0      0        0    67     0.205358     0.210841     0.202634  5.324331e+09  6.872860e+07    44141.0      37.9        578161.0         165.75  2018-06-08       cardano
-7    210    76      0       20  1295   310.700000   316.390000   303.590000  2.523741e+09  6.804360e+07    44141.0      37.9        578161.0         165.75  2018-06-08          dash
-8      2     1      0        2    29     0.104134     0.106118     0.101994  1.093554e+08  5.877030e+06    44141.0      37.9        578161.0         165.75  2018-06-08  decentraland
-9      6     2      0        0    13   108.760000   108.980000   102.060000  7.771853e+08  5.550290e+06    44141.0      37.9        578161.0         165.75  2018-06-08        decred
-2019-04-09 14:50:49,235 - [logs/cryptocurrency.log:317]=> line 306 self.feature list:['watch', 'fork', 'issue', 'release', 'push', 'close', 'high', 'low', 'market_cap', 'volume', 'sp_volume', 'sp_close', 'russell_volume', 'russell_close']
-2019-04-09 14:50:51,121 - [logs/cryptocurrency.log:279]=> col :watch
-2019-04-09 14:50:51,121 - [logs/cryptocurrency.log:281]=> watch:fork
-2019-04-09 14:50:51,149 - [logs/cryptocurrency.log:279]=> col :fork
-2019-04-09 14:50:51,150 - [logs/cryptocurrency.log:279]=> col :issue
-2019-04-09 14:50:51,150 - [logs/cryptocurrency.log:281]=> issue:fork
-2019-04-09 14:50:51,159 - [logs/cryptocurrency.log:279]=> col :release
-2019-04-09 14:50:51,159 - [logs/cryptocurrency.log:281]=> release:fork
-2019-04-09 14:50:51,165 - [logs/cryptocurrency.log:279]=> col :push
-2019-04-09 14:50:51,165 - [logs/cryptocurrency.log:281]=> push:fork
-2019-04-09 14:50:51,169 - [logs/cryptocurrency.log:279]=> col :close
-2019-04-09 14:50:51,169 - [logs/cryptocurrency.log:281]=> close:fork
-2019-04-09 14:50:51,173 - [logs/cryptocurrency.log:279]=> col :high
-2019-04-09 14:50:51,173 - [logs/cryptocurrency.log:281]=> high:fork
-2019-04-09 14:50:51,176 - [logs/cryptocurrency.log:279]=> col :low
-2019-04-09 14:50:51,176 - [logs/cryptocurrency.log:281]=> low:fork
-2019-04-09 14:50:51,180 - [logs/cryptocurrency.log:279]=> col :market_cap
-2019-04-09 14:50:51,180 - [logs/cryptocurrency.log:281]=> market_cap:fork
-2019-04-09 14:50:51,183 - [logs/cryptocurrency.log:279]=> col :volume
-2019-04-09 14:50:51,183 - [logs/cryptocurrency.log:281]=> volume:fork
-2019-04-09 14:50:51,186 - [logs/cryptocurrency.log:279]=> col :sp_volume
-2019-04-09 14:50:51,186 - [logs/cryptocurrency.log:281]=> sp_volume:fork
-2019-04-09 14:50:51,189 - [logs/cryptocurrency.log:279]=> col :sp_close
-2019-04-09 14:50:51,189 - [logs/cryptocurrency.log:281]=> sp_close:fork
-2019-04-09 14:50:51,193 - [logs/cryptocurrency.log:279]=> col :russell_volume
-2019-04-09 14:50:51,193 - [logs/cryptocurrency.log:281]=> russell_volume:fork
-2019-04-09 14:50:51,196 - [logs/cryptocurrency.log:279]=> col :russell_close
-2019-04-09 14:50:51,196 - [logs/cryptocurrency.log:281]=> russell_close:fork
-2019-04-09 14:50:51,274 - [logs/cryptocurrency.log:207]=> in lags plot: df:    push  fork  push_1  push_2  push_3
-3   7678   495    45.0    39.0    17.0
-4    274    55  7678.0    45.0    39.0
-5      2     0   274.0  7678.0    45.0
-6     67     0     2.0   274.0  7678.0
-7   1295    76    67.0     2.0   274.0
-8     29     1  1295.0    67.0     2.0
-9     13     2    29.0  1295.0    67.0
-10     7     2    13.0    29.0  1295.0
-11  2002    93     7.0    13.0    29.0
-12   263    76  2002.0     7.0    13.0
-2019-04-09 14:51:26,522 - [logs/cryptocurrency.log:185]=> line 184- prep data: df:   watch  fork  issue  release  push        close         high          low    market_cap        volume  sp_volume  sp_close  russell_volume  russell_close   timestamp        crypto
-0     13     5      0        0    17     1.010000     1.080000     0.992387  2.522225e+08  2.217510e+07    44141.0      37.9        578161.0         165.75  2018-06-08          aelf
-1      1     1      0        0    39     3.540000     3.720000     3.450000  8.257593e+08  1.588720e+07    44141.0      37.9        578161.0         165.75  2018-06-08     aeternity
-2      3     3      0        1    45     2.050000     2.100000     2.020000  3.097127e+08  2.478490e+06    44141.0      37.9        578161.0         165.75  2018-06-08          aion
-3   1164   495      0       63  7678     2.350000     2.400000     2.280000  2.427106e+08  7.055830e+05    44141.0      37.9        578161.0         165.75  2018-06-08           ark
-4    114    55      0        0   274  7624.920000  7698.190000  7558.400000  1.302562e+11  4.227580e+09    44141.0      37.9        578161.0         165.75  2018-06-08       bitcoin
-5      0     0      0        0     2  1118.190000  1149.800000  1096.910000  1.920277e+10  5.038560e+08    44141.0      37.9        578161.0         165.75  2018-06-08  bitcoin_cash
-6      6     0      0        0    67     0.205358     0.210841     0.202634  5.324331e+09  6.872860e+07    44141.0      37.9        578161.0         165.75  2018-06-08       cardano
-7    210    76      0       20  1295   310.700000   316.390000   303.590000  2.523741e+09  6.804360e+07    44141.0      37.9        578161.0         165.75  2018-06-08          dash
-8      2     1      0        2    29     0.104134     0.106118     0.101994  1.093554e+08  5.877030e+06    44141.0      37.9        578161.0         165.75  2018-06-08  decentraland
-9      6     2      0        0    13   108.760000   108.980000   102.060000  7.771853e+08  5.550290e+06    44141.0      37.9        578161.0         165.75  2018-06-08        decred
+2019-04-21 14:09:05,320 - [logs/cryptocurrency.log:16]=> logs/cryptocurrency.log
+2019-04-21 14:09:05,335 - [logs/cryptocurrency.log:16]=> logs/cryptocurrency.log
+2019-04-21 14:09:05,335 - [logs/cryptocurrency.log:16]=> logs/cryptocurrency.log
+2019-04-21 14:09:11,882 - [logs/cryptocurrency.log:197]=> line 184- prep data: df:   watch  fork  issue  release  push        close         high          low    market_cap        volume  sp_volume  sp_close  russell_volume  russell_close   timestamp        crypto
+0      0     0      0        0    22     0.539680     0.567727     0.510610  1.349200e+08  9.594220e+06        0.0       0.0             0.0            0.0  2018-06-23          aelf
+1      1     0      0        0     0     1.930000     2.080000     1.880000  4.507898e+08  7.124730e+06        0.0       0.0             0.0            0.0  2018-06-23     aeternity
+2      9     1      0        0    22     1.120000     1.160000     1.110000  1.868748e+08  1.253930e+06        0.0       0.0             0.0            0.0  2018-06-23          aion
+3    726   276      0       22  5154     1.410000     1.420000     1.350000  1.459124e+08  4.947030e+05        0.0       0.0             0.0            0.0  2018-06-23           ark
+4     55    25      0        1    92  6162.480000  6224.820000  6071.810000  1.054493e+11  3.431360e+09        0.0       0.0             0.0            0.0  2018-06-23       bitcoin
+5      0     0      0        0     4   762.760000   776.890000   742.330000  1.311937e+10  3.972060e+08        0.0       0.0             0.0            0.0  2018-06-23  bitcoin_cash
+6      0     1      0        0    11     0.137868     0.143279     0.134852  3.574513e+09  3.872180e+07        0.0       0.0             0.0            0.0  2018-06-23       cardano
+7    789    77      0        3   651   243.010000   248.370000   236.390000  1.980531e+09  5.523220e+07        0.0       0.0             0.0            0.0  2018-06-23          dash
+8      1     0      0        0     7     0.094353     0.096706     0.090369  9.908421e+07  6.029770e+06        0.0       0.0             0.0            0.0  2018-06-23  decentraland
+9      0     2      0        0     4    72.860000    78.990000    70.460000  5.206524e+08  8.905860e+06        0.0       0.0             0.0            0.0  2018-06-23        decred
+2019-04-21 14:09:11,882 - [logs/cryptocurrency.log:197]=> line 184- prep data: df:   watch  fork  issue  release  push        close         high          low    market_cap        volume  sp_volume  sp_close  russell_volume  russell_close   timestamp        crypto
+0      0     0      0        0    22     0.539680     0.567727     0.510610  1.349200e+08  9.594220e+06        0.0       0.0             0.0            0.0  2018-06-23          aelf
+1      1     0      0        0     0     1.930000     2.080000     1.880000  4.507898e+08  7.124730e+06        0.0       0.0             0.0            0.0  2018-06-23     aeternity
+2      9     1      0        0    22     1.120000     1.160000     1.110000  1.868748e+08  1.253930e+06        0.0       0.0             0.0            0.0  2018-06-23          aion
+3    726   276      0       22  5154     1.410000     1.420000     1.350000  1.459124e+08  4.947030e+05        0.0       0.0             0.0            0.0  2018-06-23           ark
+4     55    25      0        1    92  6162.480000  6224.820000  6071.810000  1.054493e+11  3.431360e+09        0.0       0.0             0.0            0.0  2018-06-23       bitcoin
+5      0     0      0        0     4   762.760000   776.890000   742.330000  1.311937e+10  3.972060e+08        0.0       0.0             0.0            0.0  2018-06-23  bitcoin_cash
+6      0     1      0        0    11     0.137868     0.143279     0.134852  3.574513e+09  3.872180e+07        0.0       0.0             0.0            0.0  2018-06-23       cardano
+7    789    77      0        3   651   243.010000   248.370000   236.390000  1.980531e+09  5.523220e+07        0.0       0.0             0.0            0.0  2018-06-23          dash
+8      1     0      0        0     7     0.094353     0.096706     0.090369  9.908421e+07  6.029770e+06        0.0       0.0             0.0            0.0  2018-06-23  decentraland
+9      0     2      0        0     4    72.860000    78.990000    70.460000  5.206524e+08  8.905860e+06        0.0       0.0             0.0            0.0  2018-06-23        decred
+2019-04-21 14:09:11,934 - [logs/cryptocurrency.log:397]=> line 306 self.feature list:['watch', 'fork', 'issue', 'release', 'push', 'close', 'high', 'low', 'market_cap', 'volume', 'sp_volume', 'sp_close', 'russell_volume', 'russell_close']
+2019-04-21 14:09:11,934 - [logs/cryptocurrency.log:397]=> line 306 self.feature list:['watch', 'fork', 'issue', 'release', 'push', 'close', 'high', 'low', 'market_cap', 'volume', 'sp_volume', 'sp_close', 'russell_volume', 'russell_close']
+2019-04-21 14:09:13,259 - [logs/cryptocurrency.log:292]=> col :watch
+2019-04-21 14:09:13,259 - [logs/cryptocurrency.log:292]=> col :watch
+2019-04-21 14:09:13,259 - [logs/cryptocurrency.log:294]=> watch:fork
+2019-04-21 14:09:13,259 - [logs/cryptocurrency.log:294]=> watch:fork
+2019-04-21 14:09:13,284 - [logs/cryptocurrency.log:292]=> col :fork
+2019-04-21 14:09:13,284 - [logs/cryptocurrency.log:292]=> col :fork
+2019-04-21 14:09:13,284 - [logs/cryptocurrency.log:292]=> col :issue
+2019-04-21 14:09:13,284 - [logs/cryptocurrency.log:292]=> col :issue
+2019-04-21 14:09:13,284 - [logs/cryptocurrency.log:294]=> issue:fork
+2019-04-21 14:09:13,284 - [logs/cryptocurrency.log:294]=> issue:fork
+2019-04-21 14:09:13,288 - [logs/cryptocurrency.log:292]=> col :release
+2019-04-21 14:09:13,288 - [logs/cryptocurrency.log:292]=> col :release
+2019-04-21 14:09:13,288 - [logs/cryptocurrency.log:294]=> release:fork
+2019-04-21 14:09:13,288 - [logs/cryptocurrency.log:294]=> release:fork
+2019-04-21 14:09:13,291 - [logs/cryptocurrency.log:292]=> col :push
+2019-04-21 14:09:13,291 - [logs/cryptocurrency.log:292]=> col :push
+2019-04-21 14:09:13,291 - [logs/cryptocurrency.log:294]=> push:fork
+2019-04-21 14:09:13,291 - [logs/cryptocurrency.log:294]=> push:fork
+2019-04-21 14:09:13,294 - [logs/cryptocurrency.log:292]=> col :close
+2019-04-21 14:09:13,294 - [logs/cryptocurrency.log:292]=> col :close
+2019-04-21 14:09:13,295 - [logs/cryptocurrency.log:294]=> close:fork
+2019-04-21 14:09:13,295 - [logs/cryptocurrency.log:294]=> close:fork
+2019-04-21 14:09:13,298 - [logs/cryptocurrency.log:292]=> col :high
+2019-04-21 14:09:13,298 - [logs/cryptocurrency.log:292]=> col :high
+2019-04-21 14:09:13,298 - [logs/cryptocurrency.log:294]=> high:fork
+2019-04-21 14:09:13,298 - [logs/cryptocurrency.log:294]=> high:fork
+2019-04-21 14:09:13,301 - [logs/cryptocurrency.log:292]=> col :low
+2019-04-21 14:09:13,301 - [logs/cryptocurrency.log:292]=> col :low
+2019-04-21 14:09:13,301 - [logs/cryptocurrency.log:294]=> low:fork
+2019-04-21 14:09:13,301 - [logs/cryptocurrency.log:294]=> low:fork
+2019-04-21 14:09:13,304 - [logs/cryptocurrency.log:292]=> col :market_cap
+2019-04-21 14:09:13,304 - [logs/cryptocurrency.log:292]=> col :market_cap
+2019-04-21 14:09:13,304 - [logs/cryptocurrency.log:294]=> market_cap:fork
+2019-04-21 14:09:13,304 - [logs/cryptocurrency.log:294]=> market_cap:fork
+2019-04-21 14:09:13,308 - [logs/cryptocurrency.log:292]=> col :volume
+2019-04-21 14:09:13,308 - [logs/cryptocurrency.log:292]=> col :volume
+2019-04-21 14:09:13,309 - [logs/cryptocurrency.log:294]=> volume:fork
+2019-04-21 14:09:13,309 - [logs/cryptocurrency.log:294]=> volume:fork
+2019-04-21 14:09:13,313 - [logs/cryptocurrency.log:292]=> col :sp_volume
+2019-04-21 14:09:13,313 - [logs/cryptocurrency.log:292]=> col :sp_volume
+2019-04-21 14:09:13,313 - [logs/cryptocurrency.log:294]=> sp_volume:fork
+2019-04-21 14:09:13,313 - [logs/cryptocurrency.log:294]=> sp_volume:fork
+2019-04-21 14:09:13,318 - [logs/cryptocurrency.log:292]=> col :sp_close
+2019-04-21 14:09:13,318 - [logs/cryptocurrency.log:292]=> col :sp_close
+2019-04-21 14:09:13,318 - [logs/cryptocurrency.log:294]=> sp_close:fork
+2019-04-21 14:09:13,318 - [logs/cryptocurrency.log:294]=> sp_close:fork
+2019-04-21 14:09:13,322 - [logs/cryptocurrency.log:292]=> col :russell_volume
+2019-04-21 14:09:13,322 - [logs/cryptocurrency.log:292]=> col :russell_volume
+2019-04-21 14:09:13,322 - [logs/cryptocurrency.log:294]=> russell_volume:fork
+2019-04-21 14:09:13,322 - [logs/cryptocurrency.log:294]=> russell_volume:fork
+2019-04-21 14:09:13,325 - [logs/cryptocurrency.log:292]=> col :russell_close
+2019-04-21 14:09:13,325 - [logs/cryptocurrency.log:292]=> col :russell_close
+2019-04-21 14:09:13,325 - [logs/cryptocurrency.log:294]=> russell_close:fork
+2019-04-21 14:09:13,325 - [logs/cryptocurrency.log:294]=> russell_close:fork
+2019-04-21 14:09:13,451 - [logs/cryptocurrency.log:359]=> col :watch
+2019-04-21 14:09:13,451 - [logs/cryptocurrency.log:359]=> col :watch
+2019-04-21 14:09:13,451 - [logs/cryptocurrency.log:361]=> watch:fork
+2019-04-21 14:09:13,451 - [logs/cryptocurrency.log:361]=> watch:fork
+2019-04-21 14:09:13,459 - [logs/cryptocurrency.log:359]=> col :fork
+2019-04-21 14:09:13,459 - [logs/cryptocurrency.log:359]=> col :fork
+2019-04-21 14:09:13,459 - [logs/cryptocurrency.log:359]=> col :issue
+2019-04-21 14:09:13,459 - [logs/cryptocurrency.log:359]=> col :issue
+2019-04-21 14:09:13,460 - [logs/cryptocurrency.log:361]=> issue:fork
+2019-04-21 14:09:13,460 - [logs/cryptocurrency.log:361]=> issue:fork
+2019-04-21 14:09:13,466 - [logs/cryptocurrency.log:359]=> col :release
+2019-04-21 14:09:13,466 - [logs/cryptocurrency.log:359]=> col :release
+2019-04-21 14:09:13,466 - [logs/cryptocurrency.log:361]=> release:fork
+2019-04-21 14:09:13,466 - [logs/cryptocurrency.log:361]=> release:fork
+2019-04-21 14:09:13,473 - [logs/cryptocurrency.log:359]=> col :push
+2019-04-21 14:09:13,473 - [logs/cryptocurrency.log:359]=> col :push
+2019-04-21 14:09:13,474 - [logs/cryptocurrency.log:361]=> push:fork
+2019-04-21 14:09:13,474 - [logs/cryptocurrency.log:361]=> push:fork
+2019-04-21 14:09:13,482 - [logs/cryptocurrency.log:359]=> col :close
+2019-04-21 14:09:13,482 - [logs/cryptocurrency.log:359]=> col :close
+2019-04-21 14:09:13,482 - [logs/cryptocurrency.log:361]=> close:fork
+2019-04-21 14:09:13,482 - [logs/cryptocurrency.log:361]=> close:fork
+2019-04-21 14:09:13,493 - [logs/cryptocurrency.log:359]=> col :high
+2019-04-21 14:09:13,493 - [logs/cryptocurrency.log:359]=> col :high
+2019-04-21 14:09:13,493 - [logs/cryptocurrency.log:361]=> high:fork
+2019-04-21 14:09:13,493 - [logs/cryptocurrency.log:361]=> high:fork
+2019-04-21 14:09:13,503 - [logs/cryptocurrency.log:359]=> col :low
+2019-04-21 14:09:13,503 - [logs/cryptocurrency.log:359]=> col :low
+2019-04-21 14:09:13,503 - [logs/cryptocurrency.log:361]=> low:fork
+2019-04-21 14:09:13,503 - [logs/cryptocurrency.log:361]=> low:fork
+2019-04-21 14:09:13,515 - [logs/cryptocurrency.log:359]=> col :market_cap
+2019-04-21 14:09:13,515 - [logs/cryptocurrency.log:359]=> col :market_cap
+2019-04-21 14:09:13,515 - [logs/cryptocurrency.log:361]=> market_cap:fork
+2019-04-21 14:09:13,515 - [logs/cryptocurrency.log:361]=> market_cap:fork
+2019-04-21 14:09:13,527 - [logs/cryptocurrency.log:359]=> col :volume
+2019-04-21 14:09:13,527 - [logs/cryptocurrency.log:359]=> col :volume
+2019-04-21 14:09:13,527 - [logs/cryptocurrency.log:361]=> volume:fork
+2019-04-21 14:09:13,527 - [logs/cryptocurrency.log:361]=> volume:fork
+2019-04-21 14:09:13,536 - [logs/cryptocurrency.log:359]=> col :sp_volume
+2019-04-21 14:09:13,536 - [logs/cryptocurrency.log:359]=> col :sp_volume
+2019-04-21 14:09:13,536 - [logs/cryptocurrency.log:361]=> sp_volume:fork
+2019-04-21 14:09:13,536 - [logs/cryptocurrency.log:361]=> sp_volume:fork
+2019-04-21 14:09:13,543 - [logs/cryptocurrency.log:359]=> col :sp_close
+2019-04-21 14:09:13,543 - [logs/cryptocurrency.log:359]=> col :sp_close
+2019-04-21 14:09:13,543 - [logs/cryptocurrency.log:361]=> sp_close:fork
+2019-04-21 14:09:13,543 - [logs/cryptocurrency.log:361]=> sp_close:fork
+2019-04-21 14:09:13,549 - [logs/cryptocurrency.log:359]=> col :russell_volume
+2019-04-21 14:09:13,549 - [logs/cryptocurrency.log:359]=> col :russell_volume
+2019-04-21 14:09:13,549 - [logs/cryptocurrency.log:361]=> russell_volume:fork
+2019-04-21 14:09:13,549 - [logs/cryptocurrency.log:361]=> russell_volume:fork
+2019-04-21 14:09:13,555 - [logs/cryptocurrency.log:359]=> col :russell_close
+2019-04-21 14:09:13,555 - [logs/cryptocurrency.log:359]=> col :russell_close
+2019-04-21 14:09:13,556 - [logs/cryptocurrency.log:361]=> russell_close:fork
+2019-04-21 14:09:13,556 - [logs/cryptocurrency.log:361]=> russell_close:fork
+2019-04-21 14:09:13,631 - [logs/cryptocurrency.log:219]=> in lags plot: df:    push  fork  push_1  push_2  push_3
+3   5154   276    22.0     0.0    22.0
+4     92    25  5154.0    22.0     0.0
+5      4     0    92.0  5154.0    22.0
+6     11     1     4.0    92.0  5154.0
+7    651    77    11.0     4.0    92.0
+8      7     0   651.0    11.0     4.0
+9      4     2     7.0   651.0    11.0
+10     0     0     4.0     7.0   651.0
+11  2203    30     0.0     4.0     7.0
+12    81    55  2203.0     0.0     4.0
+2019-04-21 14:09:13,631 - [logs/cryptocurrency.log:219]=> in lags plot: df:    push  fork  push_1  push_2  push_3
+3   5154   276    22.0     0.0    22.0
+4     92    25  5154.0    22.0     0.0
+5      4     0    92.0  5154.0    22.0
+6     11     1     4.0    92.0  5154.0
+7    651    77    11.0     4.0    92.0
+8      7     0   651.0    11.0     4.0
+9      4     2     7.0   651.0    11.0
+10     0     0     4.0     7.0   651.0
+11  2203    30     0.0     4.0     7.0
+12    81    55  2203.0     0.0     4.0

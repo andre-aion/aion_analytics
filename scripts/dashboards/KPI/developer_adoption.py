@@ -35,6 +35,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
     class Thistab(KPI):
         def __init__(self, table, cols=[]):
             KPI.__init__(self, table, cols)
+            self.name = 'developer'
             self.table = table
             self.df = None
 
@@ -53,15 +54,25 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
             self.section_headers = {
                 'cards' : self.section_header_div('', 1400),
+                'stat_sig':self.section_header_div('', html_header='h3',width=1000),
                 'pop': self.section_header_div('', 1400) # period over period
             }
 
             self.timestamp_col = 'timestamp'
             self.variable = self.menus['developer_adoption_variables'][0]
+            self.card_grid_row = {
+                'year': 0,
+                'quarter': 1,
+                'month': 2,
+                'week': 3
 
-# ----------------------  DIVS ----------------------------
-        def section_header_div(self, text, width=1400):
-            text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
+            }
+            self.card_lists = self.set_grid_cards()
+
+
+        # ----------------------  DIVS ----------------------------
+        def section_header_div(self, text,html_header='h2',width=1400):
+            text = '<{} style="color:#4221cc;">{}</{}>'.format(html_header,text)
             return Div(text=text, width=width, height=15)
 
         def information_div(self, width=400, height=300):
@@ -88,38 +99,69 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             div = Div(text=txt, width=width, height=height)
             return div
 
-        def card(self,title,count,card_design='folders',width=200,height=200):
+        def card(self,title,data,card_design='folders',width=200,height=200):
             try:
-                txt = """<div {}><h3>{}</h3></br>{}</div>""".format(self.KPI_card_css[card_design], title, count)
+                txt = """<div {}><h3>{}</h3></br>{}</div>""".format(self.KPI_card_css[card_design], title, data)
                 div = Div(text=txt, width=width, height=height)
                 return div
 
             except Exception:
                 logger.error('card',exc_info=True)
 
-        # -------------------- GRAPHS -------------------------------------------
-        def graph_periods_to_date(self,df1,filter_col,variable):
+
+        def set_grid_cards(self):
             try:
+                # make bunch of place holders
+                card_lists = [[],[],[],[]]
+                for key, i in self.card_grid_row.items():
+                    for j in range(0,7):
+                        card_lists[i].append(self.card('','',width=0,height=0))
+
+                return card_lists
+
+            except Exception:
+                logger.error('graph periods to date', exc_info=True)
+
+
+        # -------------------- GRAPHS -------------------------------------------
+        def graph_periods_to_date(self,df1,timestamp_filter_col,variable):
+            try:
+                self.card_lists = self.set_grid_cards()
                 for idx,period in enumerate(['week','month','quarter','year']):
-                    df = self.period_to_date(df1,timestamp=dashboard_config['dates']['last_date'],
-                                             filter_col=filter_col,period=period)
+                    df = self.period_to_date(df1, timestamp=dashboard_config['dates']['last_date'],
+                                             timestamp_filter_col=timestamp_filter_col, period=period)
                     # get unique instances
                     df = df[[variable]]
                     df = df.compute()
                     df = df.drop_duplicates(keep='first')
-                    #logger.warning('post duplicates dropped:%s', df.head(10))
+
                     count = len(df)
                     del df
                     gc.collect()
                     title = "{} to date".format(period)
 
-                    p = self.card(title=title, count=count, card_design=random.choice(list(self.KPI_card_css.keys())))
-                    self.period_to_date_cards[period].text = p.text
+                    # counting data cards
+                    p = self.card(title=title, data=count, card_design=random.choice(list(self.KPI_card_css.keys())))
+
+                    #self.period_to_date_cards[period].text = p.text
+                    card_position_counter = 0
+                    self.card_grid[period][card_position_counter].text = p.text
+                    # add the statistically significant point estimates
+                    self.calc_sig_effect_card_data(df,variable_of_interest=self.variable)
+                    if self.variable in self.sig_effect_dict.keys():
+                        card_position_counter += 1
+                        p = self.card(
+                            title=self.sig_effect_dict[self.variable]['title'],
+                            data=self.sig_effect_dict[self.variable]['point_estimate'],
+                            card_design=random.choice(list(self.KPI_card_css.keys())),
+                            width = 200, height = 200)
+                        i = self.card_grid_row[period]
+                        self.card_lists[i][card_position_counter].text = p.text
+
                     #logger.warning('%s to date completed',period)
 
             except Exception:
                 logger.error('graph periods to date',exc_info=True)
-
 
         def graph_period_over_period(self,launch=-1):
             try:
@@ -257,16 +299,30 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         controls_right = WidgetBox(variable_select)
 
         # create the dashboards
+        '''
         grid = gridplot([
             [thistab.notification_div],
             [controls_left,controls_centre,controls_right],
             [thistab.section_headers['cards']],
             [thistab.period_to_date_cards['year'],thistab.period_to_date_cards['quarter'],
              thistab.period_to_date_cards['month'],thistab.period_to_date_cards['week']],
+            [thistab.section_headers['stat_sig']],
+
             [thistab.section_headers['pop']],
             [datepicker_period_start, datepicker_period_end,history_periods_select],
             [period_over_period.state]
         ])
+        '''
+        grid_before = [ [thistab.notification_div],
+            [controls_left, controls_centre, controls_right],
+            [thistab.section_headers['cards']]]
+
+        grid_after = [[thistab.section_headers['pop']],
+            [datepicker_period_start, datepicker_period_end, history_periods_select],
+            [period_over_period.state]]
+
+        grid_data = grid_before + thistab.card_lists + grid_after
+        grid = gridplot(grid_data)
 
         # Make a tab with the layout
         tab = Panel(child=grid, title='KPI: developer adoption')

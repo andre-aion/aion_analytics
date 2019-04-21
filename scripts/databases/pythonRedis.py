@@ -1,3 +1,5 @@
+import json
+
 from scripts.utils.mylogger import mylogger
 import pickle
 import redis
@@ -85,13 +87,14 @@ class PythonRedis:
                 self.conn.setex(name=key, time=EXPIRATION_SECONDS,
                                 value=zlib.compress(pickle.dumps(item)))
             elif type == 'checkpoint':
-                self.conn.hmset(key_params,item)
-                self.conn.expire(key_params,EXPIRATION_SECONDS*50)
+                item = json.dumps(item)
+                self.conn.set(key_params, item)
+                self.conn.expire(key_params, EXPIRATION_SECONDS * 50)
+
                 logger.warning('CHECKPOINT UPDATED OR SAVED:%s', key_params)
 
         except Exception:
             logger.error('save to redis',exc_info=True)
-
 
     def load(self, key_params, start_date, end_date, key=None, item_type=''):
         try:
@@ -99,21 +102,37 @@ class PythonRedis:
                 start_date = self.datetime_or_ts_to_str(start_date)
                 end_date = self.datetime_or_ts_to_str(end_date)
 
-                key = self.compose_key(key_params,start_date,end_date)
+                key = self.compose_key(key_params, start_date, end_date)
 
-            #logger.warning('load-item key:%s', key)
+            # logger.warning('load-item key:%s', key)
             if item_type != 'checkpoint':
                 item = pickle.loads(zlib.decompress(self.conn.get(key)))
 
             elif item_type == 'checkpoint':
                 if self.conn.exists(key):
-                    item=self.conn. hgetall(key)
-                    item = item.decode('UTF-8')
-                    logger.warning("Checkpoint loaded from redis:%s",item)
+                    # item=self.conn.hgetall(key)
+                    item = self.conn.get(key)
+                    item = json.loads(item.decode('utf-8'))
+                    # logger.warning("Checkpoint loaded from redis:%s",item)
                 else:
                     item = None
 
             return item
+        except Exception:
+            logger.error('load item', exc_info=True)
+            return None
+
+    def simple_load(self,key):
+        try:
+            if self.conn.exists(key):
+                # item=self.conn.hgetall(key)
+                item = self.conn.get(key)
+                item = json.loads(item.decode('utf-8'))
+                # logger.warning("Checkpoint loaded from redis:%s",item)
+                return item
+            else:
+                return None
+
         except Exception:
             logger.error('load item', exc_info=True)
             return None

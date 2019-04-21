@@ -10,7 +10,7 @@ from scripts.databases.pythonRedis import PythonRedis
 from scripts.databases.pythonParquet import PythonParquet
 from scripts.databases.pythonClickhouse import PythonClickhouse
 from bokeh.models.widgets import Div, Paragraph
-from scipy.stats import linregress
+from scipy.stats import linregress, mannwhitneyu
 
 r = PythonRedis()
 logger = mylogger(__file__)
@@ -44,6 +44,11 @@ class Mytab:
         self.redis = PythonRedis()
         self.conn = self.redis.conn
         self.DATEFORMAT = "%Y-%m-%d %H:%M:%S"
+        self.ToA_THRESH = { # Tests of association (TOA)
+            'STRONG': .65,
+            'MODERATE': .4,
+            'WEAK': .25
+        }
 
     # designed to work with premade warehouse table
     def df_load(self, req_start_date, req_end_date,timestamp_col='block_timestamp'):
@@ -223,28 +228,63 @@ class Mytab:
             params['key'] = None
             return params
 
-    # //////////////////////////////////////////// CORRELATION ///////////////////////////
+    # ///////////////////////// TESTS OF ASSOCIATION ///////////////////////////
     # perform correlation, and label according to r,pvalue
     def corr_label(self, a, b):
-        slope, intercept, rvalue, pvalue, std_err = linregress(a, b)
-        logger.warning('slope:%s,intercept:%s,rvalue:%s,pvalue:%s,std_err:%s',
-                       slope, intercept, rvalue, pvalue, std_err)
-        if pvalue < 0.05:
-            if abs(rvalue) <= self.weak_thresh:
-                txt = 'none'
+        try:
+            slope, intercept, rvalue, pvalue, std_err = linregress(a, b)
+            logger.warning('slope:%s,intercept:%s,rvalue:%s,pvalue:%s,std_err:%s',
+                           slope, intercept, rvalue, pvalue, std_err)
+            if pvalue < 0.05:
+                if abs(rvalue) <= self.ToA_THRESH['WEAK']:
+                    txt = 'none'
+                else:
+                    strength = 'weak'
+                    if rvalue > 0:
+                        direction = 'positive'
+                    if rvalue < 0:
+                        direction = 'negative'
+                    if abs(rvalue) > self.ToA_THRESH['STRONG']:
+                        strength = 'strong'
+                    elif abs(rvalue) > self.ToA_THRESH['MODERATE']:
+                        strength = 'moderate'
+
+                    txt = "{} {}".format(strength, direction)
             else:
+                txt = 'Not significant'
+
+            return slope, intercept, rvalue, pvalue, txt
+        except Exception:
+            logger.error('corr label',exc_info=True)
+
+    def mann_whitneyu_label(self, a, b):
+        try:
+            stat, pvalue= mannwhitneyu(a, b, alternative='two-sided')
+            logger.warning('stat:%s,pvalue:%s',stat, pvalue)
+            if pvalue < 0.05:
+                txt = 'No'
+            else:
+                txt = 'Yes'
+
+            return stat, pvalue, txt
+        except Exception:
+            logger.error('non parametric label',exc_info=True)
+
+
+    def mutual_information_label(self, a, b):
+        try:
+            stat = linregress(a, b)
+            logger.warning('stat:%s',stat)
+            if abs(stat) > self.ToA_THRESH['STRONG']:
+                strength = 'strong'
+            elif abs(stat) > self.ToA_THRESH['MODERATE']:
+                strength = 'moderate'
+            elif abs(stat) > self.ToA_THRESH['WEAK']:
                 strength = 'weak'
-                if rvalue > 0:
-                    direction = 'positive'
-                if rvalue < 0:
-                    direction = 'negative'
-                if abs(rvalue) > self.mod_thresh:
-                    strength = 'moderate'
-                if abs(rvalue) > self.strong_thresh:
-                    strength = 'strong'
+            else:
+                strength = 'None'
 
-                txt = "{} {}".format(strength, direction)
-        else:
-            txt = 'Not significant'
-
-        return slope, intercept, rvalue, pvalue, txt
+            txt = strength
+            return stat, txt
+        except Exception:
+            logger.error('corr label',exc_info=True)
