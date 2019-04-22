@@ -34,12 +34,16 @@ renderer = hv.renderer('bokeh')
 def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
     class Thistab(KPI):
         def __init__(self, table, cols=[]):
-            KPI.__init__(self, table, cols)
-            self.name = 'user'
+            KPI.__init__(self, table,name='user',cols=cols)
             self.table = table
             self.df = None
-
-            self.notification_div = Div(text=self.welcome_txt,width=1400,height=20)
+            txt = """<div style="text-align:center;background:black;width:100%;">
+                                 <h1 style="color:#fff;">
+                                 {}</h1></div>""".format('Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=1400, height=20),
+                'bottom': Div(text=txt, width=1400, height=10),
+            }
 
             self.checkboxgroup = {
                 'account_type': [],
@@ -265,14 +269,15 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
 
         # create the dashboards
         grid = gridplot([
-            [thistab.notification_div],
+            [thistab.notification_div['top']],
             [controls_left,controls_centre,controls_right],
             [thistab.section_headers['cards']],
             [thistab.period_to_date_cards['year'],thistab.period_to_date_cards['quarter'],
              thistab.period_to_date_cards['month'],thistab.period_to_date_cards['week']],
             [thistab.section_headers['pop']],
             [datepicker_period_start, datepicker_period_end,history_periods_select],
-            [period_over_period.state]
+            [period_over_period.state],
+            [thistab.notification_div['bottom']]
         ])
 
         # Make a tab with the layout

@@ -131,8 +131,6 @@ class PythonClickhouse:
             df = dd.dataframe.from_pandas(df, npartitions=15)
             #logger.warning('columns loaded:%s',df.columns.tolist())
             #logger.warning("DATA LOADED:%s", df.head(10))
-
-
             return df
 
         except Exception:

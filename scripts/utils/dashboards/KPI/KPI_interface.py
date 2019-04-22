@@ -1,4 +1,5 @@
 import gc
+import random
 from math import inf
 from os.path import join, dirname
 
@@ -37,7 +38,7 @@ class KPI:
         'history_periods': ['1','2','3','4','5','6','7','8','9','10'],
         'developer_adoption_variables': ['aion_fork', 'aion_watch']
     }
-    def __init__(self,table,cols):
+    def __init__(self,table,name,cols):
         self.df = None
         self.ch = PythonClickhouse('aion')
         self.redis = PythonRedis()
@@ -57,15 +58,25 @@ class KPI:
         self.initial_date = datetime.strptime("2018-04-25 00:00:00",self.DATEFORMAT)
         self.account_type = 'all'
         self.trigger = -1
-        self.periods_to_plot = ['week', 'month','quarter']
+        self.periods_to_plot = {
+            1 : ['week', 'month'],
+            2: ['quarter']
+        }
         self.history_periods = 2 # number of periods for period over period
         self.period_start_date = None
         self.period_end_date = None
 
         self.checkboxgroup = {}
         self.sig_effect_dict = {}
-        self.name = ''
+        self.name = name
         self.redis_stat_sig_key = 'adoption_features:' + self.name
+        self.card_grid_row = {
+            'year': 0,
+            'quarter': 1,
+            'month': 2,
+            'week': 3
+
+        }
 
         # make block timestamp the index
     def load_df(self,start_date,end_date,cols,timestamp_col='timestamp_of_first_event'):
@@ -82,7 +93,7 @@ class KPI:
                 temp_cols.append('amount')
 
             df = self.ch.load_data(self.table, temp_cols, start_date, end_date,timestamp_col)
-            logger.warning('line 79:%s columns before value filter',df.columns)
+            # logger.warning('line 79:%s columns before value filter',df.columns)
             # filter out the double entry
             #df = df[df['value'] >= 0]
             return df[cols]
@@ -149,6 +160,7 @@ class KPI:
             elif period == 'quarter':
                 start = start - relativedelta(months=3)
                 end = end - relativedelta(months=3)
+            logger.warning('%s start:end=%s:%s',period,start,end)
             return start, end
         except Exception:
             logger.error('shift period range',exc_info=True)
@@ -163,9 +175,10 @@ class KPI:
             except Exception:
                 logger.error('df label quarter', exc_info=True)
         try:
+            logger.warning('period:%s', period)
+            logger.warning('df:%s',df.head(10))
             if period == 'week':
                 df = df.assign(dayset=lambda x: x[timestamp_col].dt.dayofweek)
-                logger.warning('df after WEEK:%s',df.head(10))
 
             elif period == 'month':
                 df = df.assign(dayset=lambda x: x[timestamp_col].dt.day)
@@ -173,7 +186,6 @@ class KPI:
                 df = df.assign(dayset=lambda x: x[timestamp_col].timetuple().tm_yday)
             elif period == 'quarter':
                 df['dayset'] = df[timestamp_col].map(df_label_dates_qtr_pop)
-                logger.warning('df after QUARTER:%s',df.head(10))
             return df
         except Exception:
             logger.error('label data ', exc_info=True)
@@ -239,14 +251,16 @@ class KPI:
     # -----------------------  UPDATERS  ------------------------------------------
     def notification_updater(self, text):
         txt = """<div style="text-align:center;background:black;width:100%;">
-                <h4 style="color:#fff;">
-                {}</h4></div>""".format(text)
-        self.notification_div.text = txt
+                  <h4 style="color:#fff;">
+                  {}</h4></div>""".format(text)
+        for key in self.notification_div.keys():
+            self.notification_div[key].text = txt
 
     """
         update the section labels on the page
 
     """
+
     def section_header_updater(self,section):
         label = self.account_type
         if label != 'all':
@@ -260,29 +274,65 @@ class KPI:
         self.section_headers[section].text = txt
 
     # -------------------- CALCULATE KPI's DEVELOPED FROM VARIABLES WITH STATITICALLY SIGNIFICANT EFFECT
-    def calc_sig_effect_card_data(self, df, variable_of_interest):
+    def calc_sig_effect_card_data(self, df, variable_of_interest,period):
         try:
             # load statistically significant variables
-            sig_variables = self.redis.simple_load(self.redis_stat_sig_key)
+            key = self.redis_stat_sig_key+'-'+variable_of_interest
+            # adjust the variable of interest to match the key
+            key_vec = key.split('-')
+            gen_variables = ['release','watch','push','issue','fork',
+                             'open','high','low','close','volume','market_cap']
+            for var in gen_variables:
+                if var in key_vec[-1]:
+                    key = key_vec[-2]+'-'+var
+                    break
+
+            sig_variables = self.redis.simple_load(key)
+
             self.sig_effect_dict = {}
+            significant_features = []
+            # make a list of columns with names that include the signifant feature
             if sig_variables is not None:
                 if 'features' in sig_variables.keys():
                     if len(sig_variables['features']) > 0:
-                        tmp_df = df[[variable_of_interest,sig_variables]]
-                        numer = tmp_df[variable_of_interest].mean()
-                        for var in sig_variables:
-                            tmp = 0
-                            if isinstance(numer,float) or isinstance(numer,int):
-                                if numer != 0:
-                                    denom = tmp_df[var].mean()
-                                    if isinstance(denom, float) or isinstance(denom,int):
-                                        tmp = round(numer/denom,3)
-                            # add metrics based on variables
-                            title = "{} per {}".format(variable_of_interest,var)
-                            self.sig_effect_dict[var] = {
-                                'title' : title,
-                                'point_estimate':tmp
-                            }
-            logger.warning('%s sig_effect_data:%s',variable_of_interest,self.sig_effect_dict)
+                        for col in df.columns:
+                            if any(vars in col for vars in sig_variables['features']):
+                                significant_features.append(col)
+                        significant_features = list(set(significant_features))
+
+            if len(significant_features) > 0:
+                cols = [variable_of_interest]+significant_features
+                tmp_df = df[cols]
+                numer = tmp_df[variable_of_interest].mean()
+                variable_of_interest_tmp = variable_of_interest.split('_')
+                if variable_of_interest_tmp[-1] in ['watch']:
+                    variable_of_interest_tmp[-1] += 'e'
+                i = self.card_grid_row[period]
+                tmp = 0
+                card_position_counter = 0
+                for var in significant_features:
+                    var_tmp =  var.split('_')# slice out the 'fork' from 'aion_fork'
+                    title = "{}s per {}".format(variable_of_interest_tmp[-1], var_tmp[-1])
+                    if isinstance(numer,float) or isinstance(numer,int):
+                        if numer != 0:
+                            denom = tmp_df[var].mean()
+                            if isinstance(denom, float) or isinstance(denom,int):
+                                tmp = round(numer/denom,3)
+                    # add metrics based on variables
+                    # update the divs
+                    self.sig_effect_dict[var] = {
+                        'title' : title,
+                        'point_estimate':tmp
+                    }
+                    p = self.card(
+                        title=self.sig_effect_dict[var]['title'],
+                        data=self.sig_effect_dict[var]['point_estimate'],
+                        card_design=random.choice(list(self.KPI_card_css.keys())))
+                    card_position_counter += 1
+                    self.card_lists[i][card_position_counter].text = p.text
+                    self.card_lists[i][card_position_counter].width = 200
+                    self.card_lists[i][card_position_counter].height = 200
+
+            #logger.warning('%s sig_effect_data:%s',variable_of_interest,self.sig_effect_dict)
         except Exception:
             logger.error('make sig effect columns', exc_info=True)

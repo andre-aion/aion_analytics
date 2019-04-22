@@ -49,7 +49,7 @@ labels = [
     'predictions: tier 1 miner models',
     'predictions: tier 2 miner models',
     ]
-DEFAULT_CHECKBOX_SELECTION = 7
+DEFAULT_CHECKBOX_SELECTION = 1
 
 @gen.coroutine
 def aion_analytics(doc):

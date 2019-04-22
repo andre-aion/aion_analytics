@@ -316,7 +316,7 @@ def cryptocurrency_eda_tab(cryptos):
                         'timestamp': datetime.now().strftime(self.DATEFORMAT)
                     }
                     # write to redis
-                    save_params = 'adoption_features:developer'
+                    save_params = 'adoption_features:developer'+'-'+self.variable
                     self.redis.save(tmp_dct,
                                     save_params,
                                     "", "", type='checkpoint')
