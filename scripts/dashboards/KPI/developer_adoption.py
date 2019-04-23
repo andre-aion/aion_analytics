@@ -67,9 +67,9 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
             self.card_lists = self.set_grid_cards()
 
-            self.datepicker_period_start = DatePicker(
+            self.datepicker_pop_start = DatePicker(
                 title="Period start", min_date=self.initial_date,
-                max_date=datetime.now().date(), value=datetime.now().date())
+                max_date=dashboard_config['dates']['last_date'], value=dashboard_config['dates']['last_date'])
 
 
         # ----------------------  DIVS ----------------------------
@@ -220,9 +220,9 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                   adjust start date
                 '''
                 if start_date == today:
-                    logger.warning('START DATE IS TODAY.!NO DATA DATA')
+                    logger.warning('START DATE of WEEK IS TODAY.!NO DATA DATA')
                     start_date = start_date - timedelta(days=7)
-                    self.datepicker_period_start.value = start_date
+                    self.datepicker_pop_start.value = start_date
 
                 cols = [self.variable,self.timestamp_col, 'day']
                 df = self.load_df(start_date=start_date,end_date=end_date,cols=cols,timestamp_col='timestamp')
@@ -243,9 +243,18 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                     df_period = df_period.groupby(groupby_cols).agg({self.variable:'sum'})
                     df_period = df_period.reset_index()
                     prestack_cols = list(df_period.columns)
+
                     df_period = df_period.compute()
+
                     df_period = self.split_period_into_columns(df_period,col_to_split='period',
                                                                value_to_copy=self.variable)
+
+                    # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
+                    if period == 'quarter':
+                        min_day = df_period['dayset'].min()
+                        logger.warning('LINE 252: MINIUMUM DAY:%s',min_day)
+                        df_period = df_period[df_period['dayset'] > min_day]
+
                     poststack_cols = list(df_period.columns)
 
                     title = "{} over {}".format(period,period)
@@ -280,7 +289,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('pop week', exc_info=True)
 
-    def update(attrname, old, new):
+    def update_date(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.variable = variable_select.value
         thistab.ptd_startdate = datepicker_ptd_start.value
@@ -288,17 +297,28 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         end_date = datetime(today.year,today.month,today.day,0,0,0)
         thistab.df = thistab.load_df(thistab.ptd_startdate, end_date,cols,'timestamp')
         thistab.graph_periods_to_date(thistab.df,'timestamp',thistab.variable)
-        thistab.section_header_updater('cards')
-        thistab.section_header_updater('pop')
+        thistab.section_header_updater('cards',label='')
+        thistab.section_header_updater('pop',label='')
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
+    def update_variable(attrname, old, new):
+        thistab.notification_updater("Calculations underway. Please be patient")
+        thistab.variable = variable_select.value
+        thistab.graph_periods_to_date(thistab.df,'timestamp',thistab.variable)
+        thistab.section_header_updater('cards',label='')
+        thistab.section_header_updater('pop',label='')
+        thistab.trigger += 1
+        stream_launch.event(launch=thistab.trigger)
+        thistab.notification_updater("ready")
+
+
     def update_period_over_period():
         thistab.notification_updater("Calculations underway. Please be patient")
-        thistab.history_periods = history_periods_select.value
-        thistab.period_start_date = thistab.datepicker_period_start.value  # trigger period over period
-        thistab.period_end_date = datepicker_period_end.value
+        thistab.history_periods = pop_number_select.value
+        thistab.period_start_date = thistab.datepicker_pop_start.value  # trigger period over period
+        thistab.period_end_date = datepicker_pop_end.value
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
@@ -315,8 +335,8 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
         thistab.df = thistab.load_df(first_date, last_date,cols,'timestamp')
         thistab.graph_periods_to_date(thistab.df,timestamp_filter_col='timestamp',variable=thistab.variable)
-        thistab.section_header_updater('cards')
-        thistab.section_header_updater('pop')
+        thistab.section_header_updater('cards',label='')
+        thistab.section_header_updater('pop',label='')
 
         # MANAGE STREAM
         # date comes out stream in milliseconds
@@ -331,16 +351,16 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         stream_launch = streams.Stream.define('Launch',launch=-1)()
 
 
-        datepicker_period_end = DatePicker(title="Period end", min_date=first_date_range,
+        datepicker_pop_end = DatePicker(title="Period end", min_date=first_date_range,
                                            max_date=last_date_range, value=thistab.period_end_date)
 
-        history_periods_select = Select(title='Select # of comparative periods',
-                                        value='2',
+        pop_number_select = Select(title='Select # of comparative periods',
+                                        value=str(thistab.history_periods),
                                         options=thistab.menus['history_periods'])
         variable_select = Select(title='Select variable',
                                      value=thistab.variable,
                                      options=thistab.menus['developer_adoption_variables'])
-        period_over_period_button = Button(label="Select dates/periods, then click me!",width=15,button_type="success")
+        pop_button = Button(label="Select dates/periods, then click me!",width=15,button_type="success")
 
 
         # ---------------------------------  GRAPHS ---------------------------
@@ -356,26 +376,34 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
         # -------------------------------- CALLBACKS ------------------------
 
-        variable_select.on_change('value', update)
-        period_over_period_button.on_click(update_period_over_period) # lags array
-        datepicker_ptd_start.on_change('value',update)
+        variable_select.on_change('value', update_variable)
+        pop_button.on_click(update_period_over_period) # lags array
+        datepicker_ptd_start.on_change('value',update_date)
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
         controls_left = WidgetBox(datepicker_ptd_start)
         controls_right = WidgetBox(variable_select)
 
+        controls_pop_left = WidgetBox(thistab.datepicker_pop_start)
+        controls_pop_centre = WidgetBox(datepicker_pop_end)
+        controls_pop_right = WidgetBox(pop_button)
 
-        grid_before = [ [thistab.notification_div['top']],
+        grid_before = [
+            [thistab.notification_div['top']],
             [controls_left, controls_right],
-            [thistab.section_headers['cards']]]
+            [thistab.section_headers['cards']]
+        ]
 
-        grid_after = [[thistab.section_headers['pop'],period_over_period_button],
-            [thistab.datepicker_period_start, history_periods_select],
+        grid_after = [
+            [thistab.section_headers['pop']],
+            [controls_pop_left,controls_pop_centre],
+            [controls_pop_right],
             [pop_week.state],
             [pop_month.state],
             [pop_quarter.state],
-            [thistab.notification_div['bottom']]]
+            [thistab.notification_div['bottom']]
+        ]
 
         grid_data = grid_before + thistab.card_lists + grid_after
         grid = gridplot(grid_data)

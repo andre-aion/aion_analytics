@@ -101,7 +101,6 @@ class KPI:
                 temp_cols.append('amount')
 
             df = self.ch.load_data(self.table, temp_cols, start_date, end_date,timestamp_col)
-            # logger.warning('line 79:%s columns before value filter',df.columns)
             # filter out the double entry
             #df = df[df['value'] >= 0]
             return df[cols]
@@ -168,14 +167,14 @@ class KPI:
             elif period == 'quarter':
                 start = start - relativedelta(months=3)
                 end = end - relativedelta(months=3)
-            logger.warning('%s start:end=%s:%s',period,start,end)
+            #logger.warning('%s start:end=%s:%s',period,start,end)
             return start, end
         except Exception:
             logger.error('shift period range',exc_info=True)
 
     # label dates for period over period (pop)
     def label_dates_pop(self, df, period, timestamp_col):
-        def df_label_dates_qtr_pop(y):
+        def label_qtr_pop(y):
             try:
                 curr_quarter = int((y.month - 1) / 3 + 1)
                 start = datetime(y.year, 3 * curr_quarter - 2, 1)
@@ -183,7 +182,6 @@ class KPI:
             except Exception:
                 logger.error('df label quarter', exc_info=True)
         try:
-            #logger.warning('df:%s',df.head(10))
             if period == 'week':
                 df = df.assign(dayset=lambda x: x[timestamp_col].dt.dayofweek)
             elif period == 'month':
@@ -191,7 +189,8 @@ class KPI:
             elif period == 'year':
                 df = df.assign(dayset=lambda x: x[timestamp_col].timetuple().tm_yday)
             elif period == 'quarter':
-                df['dayset'] = df[timestamp_col].map(df_label_dates_qtr_pop)
+                df['dayset'] = df[timestamp_col].map(label_qtr_pop)
+
             return df
         except Exception:
             logger.error('label data ', exc_info=True)
@@ -200,9 +199,11 @@ class KPI:
     def period_over_period(self,df,start_date, end_date, period,
                            history_periods=2,timestamp_col='timestamp_of_first_event'):
         try:
+            logger.warning('PERIOD:%s',period.upper())
             # filter cols if necessary
-            string = 'current {}'.format(period)
             string = '0 {}(s) prev(current)'.format(period)
+
+            # filter out the dates greater than today
             df_current = df.assign(period=string)
             # label the days being compared with the same label
             df_current = self.label_dates_pop(df_current,period,timestamp_col)
@@ -212,13 +213,12 @@ class KPI:
             end = datetime(end_date.year,end_date.month, end_date.day,0,0,0)
 
             cols = list(df.columns)
-            counter = 0
+            counter = 1
             if isinstance(history_periods,str):
                 history_periods = int(history_periods)
             # make dataframes for request no. of periods
             start, end = self.shift_period_range(period, start, end)
             while counter < history_periods and start >= self.initial_date:
-                counter += 1
                 # load data
                 if period == 'quarter':
                     logger.warning('start:end %s:%s', start, end)
@@ -235,6 +235,8 @@ class KPI:
                         df_current = concat_dfs(df_current,df_temp)
                         del df_temp
                         gc.collect()
+                # shift the loading window
+                counter += 1
                 start,end = self.shift_period_range(period,start,end)
             return df_current
         except Exception:
@@ -321,21 +323,17 @@ class KPI:
                 cols = [variable_of_interest]+significant_features
                 tmp_df = df[cols]
                 numer = tmp_df[variable_of_interest].sum()
-                logger.warning('period:numer=%s:%s',period,numer)
 
                 variable_of_interest_tmp = variable_of_interest.split('_')
                 if variable_of_interest_tmp[-1] in ['watch']:
                     variable_of_interest_tmp[-1] += 'e'
                 i = self.card_grid_row[period]
                 card_position_counter = 0
-                logger.warning('temp df cols:%s',list(tmp_df.columns))
-                logger.warning('significant feature:%s',significant_features)
                 for var in significant_features:
                     point_estimate = 0
                     var_tmp = var.split('_')# slice out the 'fork' from 'aion_fork'
                     if numer != 0:
                         denom = tmp_df[var].sum()
-                        logger.warning('denom:%s', denom)
                         point_estimate = round(numer/denom,3)
                     # add metrics based on variables
                     # update the divs
@@ -343,7 +341,6 @@ class KPI:
                         'title' : "{}s per {}".format(variable_of_interest_tmp[-1], var_tmp[-1]),
                         'point_estimate':point_estimate
                     }
-                    logger.warning('point estimate:%s', self.sig_effect_dict[var]['point_estimate'])
 
                     txt = self.card_text(
                         title=self.sig_effect_dict[var]['title'],
@@ -354,7 +351,6 @@ class KPI:
                     self.card_lists[i][card_position_counter].width = 200
                     self.card_lists[i][card_position_counter].height = 200
 
-            #logger.warning('%s sig_effect_data:%s',variable_of_interest,self.sig_effect_dict)
         except Exception:
             logger.error('make sig effect columns', exc_info=True)
 

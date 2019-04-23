@@ -1,52 +1,11 @@
-2019-04-23 13:44:23,600 - [logs/KPI_interface.log:16]=> logs/KPI_interface.log
-2019-04-23 13:45:15,292 - [logs/KPI_interface.log:324]=> period:numer=week:1
-2019-04-23 13:45:15,292 - [logs/KPI_interface.log:331]=> temp df cols:['aion_fork', 'aion_watch', 'aion_push', 'aion_release']
-2019-04-23 13:45:15,292 - [logs/KPI_interface.log:332]=> significant feature:['aion_watch', 'aion_push', 'aion_release']
-2019-04-23 13:45:15,293 - [logs/KPI_interface.log:338]=> denom:5
-2019-04-23 13:45:15,294 - [logs/KPI_interface.log:346]=> point estimate:0.2
-2019-04-23 13:45:15,296 - [logs/KPI_interface.log:338]=> denom:46
-2019-04-23 13:45:15,296 - [logs/KPI_interface.log:346]=> point estimate:0.022
-2019-04-23 13:45:15,297 - [logs/KPI_interface.log:338]=> denom:0
-2019-04-23 13:45:15,297 - [logs/KPI_interface.log:346]=> point estimate:inf
-2019-04-23 13:45:15,615 - [logs/KPI_interface.log:324]=> period:numer=month:51
-2019-04-23 13:45:15,615 - [logs/KPI_interface.log:331]=> temp df cols:['aion_fork', 'aion_watch', 'aion_push', 'aion_release']
-2019-04-23 13:45:15,616 - [logs/KPI_interface.log:332]=> significant feature:['aion_watch', 'aion_push', 'aion_release']
-2019-04-23 13:45:15,616 - [logs/KPI_interface.log:338]=> denom:216
-2019-04-23 13:45:15,616 - [logs/KPI_interface.log:346]=> point estimate:0.236
-2019-04-23 13:45:15,617 - [logs/KPI_interface.log:338]=> denom:2244
-2019-04-23 13:45:15,617 - [logs/KPI_interface.log:346]=> point estimate:0.023
-2019-04-23 13:45:15,617 - [logs/KPI_interface.log:338]=> denom:60
-2019-04-23 13:45:15,618 - [logs/KPI_interface.log:346]=> point estimate:0.85
-2019-04-23 13:45:15,915 - [logs/KPI_interface.log:324]=> period:numer=quarter:51
-2019-04-23 13:45:15,915 - [logs/KPI_interface.log:331]=> temp df cols:['aion_fork', 'aion_watch', 'aion_push', 'aion_release']
-2019-04-23 13:45:15,915 - [logs/KPI_interface.log:332]=> significant feature:['aion_watch', 'aion_push', 'aion_release']
-2019-04-23 13:45:15,916 - [logs/KPI_interface.log:338]=> denom:216
-2019-04-23 13:45:15,916 - [logs/KPI_interface.log:346]=> point estimate:0.236
-2019-04-23 13:45:15,916 - [logs/KPI_interface.log:338]=> denom:2244
-2019-04-23 13:45:15,917 - [logs/KPI_interface.log:346]=> point estimate:0.023
-2019-04-23 13:45:15,917 - [logs/KPI_interface.log:338]=> denom:60
-2019-04-23 13:45:15,918 - [logs/KPI_interface.log:346]=> point estimate:0.85
-2019-04-23 13:45:16,578 - [logs/KPI_interface.log:324]=> period:numer=year:156
-2019-04-23 13:45:16,579 - [logs/KPI_interface.log:331]=> temp df cols:['aion_fork', 'aion_watch', 'aion_push', 'aion_release']
-2019-04-23 13:45:16,579 - [logs/KPI_interface.log:332]=> significant feature:['aion_watch', 'aion_push', 'aion_release']
-2019-04-23 13:45:16,579 - [logs/KPI_interface.log:338]=> denom:497
-2019-04-23 13:45:16,580 - [logs/KPI_interface.log:346]=> point estimate:0.314
-2019-04-23 13:45:16,580 - [logs/KPI_interface.log:338]=> denom:6174
-2019-04-23 13:45:16,581 - [logs/KPI_interface.log:346]=> point estimate:0.025
-2019-04-23 13:45:16,581 - [logs/KPI_interface.log:338]=> denom:171
-2019-04-23 13:45:16,581 - [logs/KPI_interface.log:346]=> point estimate:0.912
-2019-04-23 13:45:16,955 - [logs/KPI_interface.log:171]=> week start:end=2019-04-15 00:00:00:2019-04-16 00:00:00
-2019-04-23 13:45:18,958 - [logs/KPI_interface.log:171]=> week start:end=2019-04-08 00:00:00:2019-04-09 00:00:00
-2019-04-23 13:45:23,829 - [logs/KPI_interface.log:171]=> week start:end=2019-04-01 00:00:00:2019-04-02 00:00:00
-2019-04-23 13:45:30,019 - [logs/KPI_interface.log:171]=> week start:end=2019-03-25 00:00:00:2019-03-26 00:00:00
-2019-04-23 13:45:39,126 - [logs/KPI_interface.log:171]=> month start:end=2019-03-22 00:00:00:2019-03-23 00:00:00
-2019-04-23 13:45:40,704 - [logs/KPI_interface.log:171]=> month start:end=2019-02-22 00:00:00:2019-02-23 00:00:00
-2019-04-23 13:45:44,861 - [logs/KPI_interface.log:171]=> month start:end=2019-01-22 00:00:00:2019-01-23 00:00:00
-2019-04-23 13:45:51,034 - [logs/KPI_interface.log:171]=> month start:end=2018-12-22 00:00:00:2018-12-23 00:00:00
-2019-04-23 13:45:59,350 - [logs/KPI_interface.log:171]=> quarter start:end=2019-01-22 00:00:00:2019-01-23 00:00:00
-2019-04-23 13:45:59,350 - [logs/KPI_interface.log:224]=> start:end 2019-01-22 00:00:00:2019-01-23 00:00:00
-2019-04-23 13:46:03,969 - [logs/KPI_interface.log:171]=> quarter start:end=2018-10-22 00:00:00:2018-10-23 00:00:00
-2019-04-23 13:46:03,970 - [logs/KPI_interface.log:224]=> start:end 2018-10-22 00:00:00:2018-10-23 00:00:00
-2019-04-23 13:46:13,362 - [logs/KPI_interface.log:171]=> quarter start:end=2018-07-22 00:00:00:2018-07-23 00:00:00
-2019-04-23 13:46:13,362 - [logs/KPI_interface.log:224]=> start:end 2018-07-22 00:00:00:2018-07-23 00:00:00
-2019-04-23 13:46:27,970 - [logs/KPI_interface.log:171]=> quarter start:end=2018-04-22 00:00:00:2018-04-23 00:00:00
+2019-04-23 15:47:54,630 - [logs/KPI_interface.log:16]=> logs/KPI_interface.log
+2019-04-23 15:48:33,432 - [logs/KPI_interface.log:202]=> PERIOD:WEEK
+2019-04-23 15:48:43,039 - [logs/KPI_interface.log:202]=> PERIOD:MONTH
+2019-04-23 15:48:52,136 - [logs/KPI_interface.log:202]=> PERIOD:QUARTER
+2019-04-23 15:48:52,141 - [logs/KPI_interface.log:224]=> start:end 2019-01-22 00:00:00:2019-01-22 00:00:00
+2019-04-23 15:48:55,147 - [logs/KPI_interface.log:224]=> start:end 2018-10-22 00:00:00:2018-10-22 00:00:00
+2019-04-23 16:03:21,944 - [logs/KPI_interface.log:202]=> PERIOD:WEEK
+2019-04-23 16:03:33,787 - [logs/KPI_interface.log:202]=> PERIOD:MONTH
+2019-04-23 16:03:51,112 - [logs/KPI_interface.log:202]=> PERIOD:QUARTER
+2019-04-23 16:03:51,117 - [logs/KPI_interface.log:224]=> start:end 2019-01-15 00:00:00:2019-01-22 00:00:00
+2019-04-23 16:04:08,891 - [logs/KPI_interface.log:224]=> start:end 2018-10-15 00:00:00:2018-10-22 00:00:00
