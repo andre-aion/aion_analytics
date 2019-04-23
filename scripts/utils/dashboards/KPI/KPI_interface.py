@@ -1,6 +1,6 @@
 import gc
 import random
-from math import inf
+from math import inf, floor
 from os.path import join, dirname
 
 import pandas as pd
@@ -62,7 +62,7 @@ class KPI:
             1 : ['week', 'month'],
             2: ['quarter']
         }
-        self.history_periods = 2 # number of periods for period over period
+        self.history_periods = 3 # number of periods for period over period
         self.period_start_date = None
         self.period_end_date = None
 
@@ -76,6 +76,14 @@ class KPI:
             'month': 2,
             'week': 3
 
+        }
+        weekly_pay = 1200
+        num_engineers = 40
+        self.payroll = {
+            'week': weekly_pay*num_engineers,
+            'month':weekly_pay*num_engineers*4,
+            'quarter':weekly_pay*num_engineers*4*3,
+            'year':weekly_pay*num_engineers*4*3*4
         }
 
         # make block timestamp the index
@@ -120,7 +128,7 @@ class KPI:
             if period == 'week':
                 start = timestamp - timedelta(days=timestamp.weekday())
             elif period == 'month':
-                start = timestamp - timedelta(days=timestamp.day)
+                start = datetime(timestamp.year,timestamp.month,1,0,0,0)
             elif period == 'year':
                 start = datetime(timestamp.year,1,1,0,0,0)
             elif period == 'quarter':
@@ -175,11 +183,9 @@ class KPI:
             except Exception:
                 logger.error('df label quarter', exc_info=True)
         try:
-            logger.warning('period:%s', period)
-            logger.warning('df:%s',df.head(10))
+            #logger.warning('df:%s',df.head(10))
             if period == 'week':
                 df = df.assign(dayset=lambda x: x[timestamp_col].dt.dayofweek)
-
             elif period == 'month':
                 df = df.assign(dayset=lambda x: x[timestamp_col].dt.day)
             elif period == 'year':
@@ -261,12 +267,11 @@ class KPI:
 
     """
 
-    def section_header_updater(self,section):
-        label = self.account_type
-        if label != 'all':
+    def section_header_updater(self,section,label='all'):
+        if label not in ['all','']:
             label = label+'s'
         if section == 'cards':
-            text = "New accounts:{}".format(label)
+            text = "Period to date:{}".format(label)
         elif section == 'pop':
             text = "Period over period:{}".format(label)
         txt = """<h2 style="color:#4221cc;">{}-----------------------------------------------------------------</h2>"""\
@@ -274,12 +279,24 @@ class KPI:
         self.section_headers[section].text = txt
 
     # -------------------- CALCULATE KPI's DEVELOPED FROM VARIABLES WITH STATITICALLY SIGNIFICANT EFFECT
+    def card_text(self, title, data, card_design='folders'):
+        try:
+            txt = """
+            <div {}>
+            <h3>{}</h3></br>{}
+            </div>
+            """.format(self.KPI_card_css[card_design], title, data)
+            return txt
+        except Exception:
+            logger.error('card text',exc_info=True)
+
+
     def calc_sig_effect_card_data(self, df, variable_of_interest,period):
         try:
             # load statistically significant variables
             key = self.redis_stat_sig_key+'-'+variable_of_interest
             # adjust the variable of interest to match the key
-            key_vec = key.split('-')
+            key_vec = key.split('-') # strip the crypto name off of he variable
             gen_variables = ['release','watch','push','issue','fork',
                              'open','high','low','close','volume','market_cap']
             for var in gen_variables:
@@ -291,48 +308,73 @@ class KPI:
 
             self.sig_effect_dict = {}
             significant_features = []
-            # make a list of columns with names that include the signifant feature
+            # make a list of columns with names that include the significant feature
             if sig_variables is not None:
                 if 'features' in sig_variables.keys():
                     if len(sig_variables['features']) > 0:
                         for col in df.columns:
-                            if any(vars in col for vars in sig_variables['features']):
+                            if any(var in col for var in sig_variables['features']):
                                 significant_features.append(col)
                         significant_features = list(set(significant_features))
 
             if len(significant_features) > 0:
                 cols = [variable_of_interest]+significant_features
                 tmp_df = df[cols]
-                numer = tmp_df[variable_of_interest].mean()
+                numer = tmp_df[variable_of_interest].sum()
+                logger.warning('period:numer=%s:%s',period,numer)
+
                 variable_of_interest_tmp = variable_of_interest.split('_')
                 if variable_of_interest_tmp[-1] in ['watch']:
                     variable_of_interest_tmp[-1] += 'e'
                 i = self.card_grid_row[period]
-                tmp = 0
                 card_position_counter = 0
+                logger.warning('temp df cols:%s',list(tmp_df.columns))
+                logger.warning('significant feature:%s',significant_features)
                 for var in significant_features:
-                    var_tmp =  var.split('_')# slice out the 'fork' from 'aion_fork'
-                    title = "{}s per {}".format(variable_of_interest_tmp[-1], var_tmp[-1])
-                    if isinstance(numer,float) or isinstance(numer,int):
-                        if numer != 0:
-                            denom = tmp_df[var].mean()
-                            if isinstance(denom, float) or isinstance(denom,int):
-                                tmp = round(numer/denom,3)
+                    point_estimate = 0
+                    var_tmp = var.split('_')# slice out the 'fork' from 'aion_fork'
+                    if numer != 0:
+                        denom = tmp_df[var].sum()
+                        logger.warning('denom:%s', denom)
+                        point_estimate = round(numer/denom,3)
                     # add metrics based on variables
                     # update the divs
                     self.sig_effect_dict[var] = {
-                        'title' : title,
-                        'point_estimate':tmp
+                        'title' : "{}s per {}".format(variable_of_interest_tmp[-1], var_tmp[-1]),
+                        'point_estimate':point_estimate
                     }
-                    p = self.card(
+                    logger.warning('point estimate:%s', self.sig_effect_dict[var]['point_estimate'])
+
+                    txt = self.card_text(
                         title=self.sig_effect_dict[var]['title'],
                         data=self.sig_effect_dict[var]['point_estimate'],
                         card_design=random.choice(list(self.KPI_card_css.keys())))
                     card_position_counter += 1
-                    self.card_lists[i][card_position_counter].text = p.text
+                    self.card_lists[i][card_position_counter].text = txt
                     self.card_lists[i][card_position_counter].width = 200
                     self.card_lists[i][card_position_counter].height = 200
 
             #logger.warning('%s sig_effect_data:%s',variable_of_interest,self.sig_effect_dict)
         except Exception:
             logger.error('make sig effect columns', exc_info=True)
+
+    def payroll_to_date(self,period):
+        try:
+            # make data cards
+            # number of weeks in period
+            if period == 'year':
+                weekcount = datetime.now().isocalendar()[1]
+                payroll_to_date = self.payroll['week'] * weekcount
+            elif period == 'week':
+                payroll_to_date = self.payroll['week'] * (datetime.today().weekday()/7)
+            elif period == 'month':
+                weekcount = floor(datetime.today().day / 7) + 1  # no zero week allowed
+                payroll_to_date = self.payroll['week'] * weekcount
+            elif period == 'quarter':
+                start = self.first_date_in_quarter(datetime.today())
+                weekcount = floor((abs(datetime.today() - start).days + 1) / 7) + 1
+                payroll_to_date = self.payroll['week'] * weekcount
+
+            return round(payroll_to_date,2)
+        except Exception:
+            logger.error('payroll to date',exc_info=True)

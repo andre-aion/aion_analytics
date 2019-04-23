@@ -45,8 +45,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                 'bottom': Div(text=txt, width=1400, height=10),
             }
 
-            self.checkboxgroup = {
-            }
+            self.checkboxgroup = {}
 
             self.period_to_date_cards = {
                 'year': self.card('',''),
@@ -55,9 +54,10 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                 'week': self.card('', '')
 
             }
+            self.ptd_startdate = datetime(datetime.today().year,1,1,0,0,0)
 
             self.section_headers = {
-                'cards' : self.section_header_div('', 1400),
+                'cards' : self.section_header_div('Period to date', 1400),
                 'stat_sig':self.section_header_div('', html_header='h3',width=1000),
                 'pop': self.section_header_div('', 1400) # period over period
             }
@@ -150,15 +150,36 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
                     count = len(df)
                     gc.collect()
-                    title = "{} to date".format(period)
 
-                    # counting data cards
-                    p = self.card(title=title, data=count, card_design=random.choice(list(self.KPI_card_css.keys())))
+                    denom = df[variable].sum()
+                    if denom != 0:
+                        payroll_to_date = self.payroll_to_date(period)
+                        cost_per_var = round(payroll_to_date/denom,2)
+                        tmp_var = self.variable.split('_')
+                        title = "{} to date".format(period)
+                        title_cost = "${} per {}".format(cost_per_var,tmp_var[-1])
+
+                        txt = """
+                        <div {}>
+                            <h3>{}</h3></br>{}
+                            <h5>{}</h5></br>
+                        </div>""".format(self.KPI_card_css[random.choice(list(self.KPI_card_css.keys()))],
+                                         title, count,title_cost)
+
+                    else:
+                        title = "{} to date".format(period)
+                        txt = """
+                        <div {}>
+                            <h3>{}</h3></br>{}
+                        </div>""".format(
+                            self.KPI_card_css[random.choice(list(self.KPI_card_css.keys()))],
+                            title, count)
+
 
                     #self.period_to_date_cards[period].text = p.text
                     card_position_counter = 0
                     i = self.card_grid_row[period]
-                    self.card_lists[i][card_position_counter].text = p.text
+                    self.card_lists[i][card_position_counter].text = txt
                     self.card_lists[i][card_position_counter].width = 200
                     self.card_lists[i][card_position_counter].height = 200
 
@@ -184,9 +205,9 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                 logger.error('graph periods to date',exc_info=True)
 
 
-        def graph_period_over_period_week_month(self,launch=-1):
+        def graph_period_over_period(self,period):
             try:
-                periods = ['week','month']
+                periods = [period]
                 start_date = self.period_start_date
                 end_date = self.period_end_date
                 if isinstance(start_date,date):
@@ -205,7 +226,6 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
                 cols = [self.variable,self.timestamp_col, 'day']
                 df = self.load_df(start_date=start_date,end_date=end_date,cols=cols,timestamp_col='timestamp')
-                logger.warning('self.variable:%s',df[self.variable].head(30))
                 if abs(start_date - end_date).days > 7:
                     if 'week' in periods:
                         periods.remove('week')
@@ -214,13 +234,12 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                         periods.remove('month')
 
                 for idx,period in enumerate(periods):
-                    logger.warning('period:%s',period)
                     df_period = self.period_over_period(df, start_date = start_date, end_date=end_date,
                                                         period=period,history_periods=self.history_periods,
                                                         timestamp_col='timestamp')
 
                     groupby_cols = ['dayset','period']
-                    logger.warning('line 150 df_period columns:%s',df.columns)
+                    #logger.warning('line 150 df_period columns:%s',df.columns)
                     df_period = df_period.groupby(groupby_cols).agg({self.variable:'sum'})
                     df_period = df_period.reset_index()
                     prestack_cols = list(df_period.columns)
@@ -231,7 +250,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
                     title = "{} over {}".format(period,period)
                     plotcols =list(np.setdiff1d(poststack_cols,prestack_cols))
-                    logger.warning('line 155 cols to plot:%s',plotcols)
+                    #logger.warning('line 155 cols to plot:%s',plotcols)
                     if idx == 0:
                         p = df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
                                                  stacked=False)
@@ -243,66 +262,31 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('period over period to date', exc_info=True)
 
-        def graph_period_over_period_qtr_year(self,launch=-1):
+        def pop_week(self,launch=-1):
             try:
-                periods = ['quarter']
-                start_date = self.period_start_date
-                end_date = self.period_end_date
-                if isinstance(start_date,date):
-                    start_date = datetime.combine(start_date,datetime.min.time())
-                if isinstance(end_date,date):
-                    end_date = datetime.combine(end_date,datetime.min.time())
-                today = datetime.combine(datetime.today().date(),datetime.min.time())
-                '''
-                - if the start day is today (there is no data for today),
-                  shift by one week back
-                '''
-                if start_date == today:
-                    logger.warning('START DATE IS TODAY.!NO DATA DATA')
-                    start_date = start_date - timedelta(days=7)
-                    self.datepicker_period_start.value = start_date
-
-
-                cols = [self.variable,self.timestamp_col, 'day']
-                df = self.load_df(start_date=start_date,end_date=end_date,cols=cols,timestamp_col='timestamp')
-                logger.warning('self.variable:%s',df[self.variable].head(30))
-                if abs(start_date - end_date).days > 90:
-                    if 'quarter' in periods:
-                        periods.remove('quarter')
-
-                for idx,period in enumerate(periods):
-                    df_period = self.period_over_period(df, start_date = start_date, end_date=end_date,
-                                                        period=period,history_periods=self.history_periods,
-                                                        timestamp_col='timestamp')
-
-                    groupby_cols = ['dayset','period']
-                    logger.warning('line 150 df_period columns:%s',df.columns)
-                    df_period = df_period.groupby(groupby_cols).agg({self.variable:'sum'})
-                    df_period = df_period.reset_index()
-                    prestack_cols = list(df_period.columns)
-                    df_period = df_period.compute()
-                    df_period = self.split_period_into_columns(df_period,col_to_split='period',
-                                                               value_to_copy=self.variable)
-                    poststack_cols = list(df_period.columns)
-
-                    title = "{} over {}".format(period,period)
-                    plotcols =list(np.setdiff1d(poststack_cols,prestack_cols))
-                    logger.warning('line 155 cols to plot:%s',plotcols)
-                    if idx == 0:
-                        p = df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
-                                                 stacked=False)
-                    else:
-                        p += df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
-                                                  stacked=False)
-                return p
-
+                return self.graph_period_over_period('week')
             except Exception:
-                logger.error('period over period to date', exc_info=True)
+                logger.error('pop week', exc_info=True)
 
+        def pop_month(self, launch=-1):
+            try:
+                return self.graph_period_over_period('month')
+            except Exception:
+                logger.error('pop week', exc_info=True)
 
-    def update_variable(attrname, old, new):
+        def pop_quarter(self, launch=-1):
+            try:
+                return self.graph_period_over_period('quarter')
+            except Exception:
+                logger.error('pop week', exc_info=True)
+
+    def update(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
-        thistab.variable = new
+        thistab.variable = variable_select.value
+        thistab.ptd_startdate = datepicker_ptd_start.value
+        today = datetime.today()
+        end_date = datetime(today.year,today.month,today.day,0,0,0)
+        thistab.df = thistab.load_df(thistab.ptd_startdate, end_date,cols,'timestamp')
         thistab.graph_periods_to_date(thistab.df,'timestamp',thistab.variable)
         thistab.section_header_updater('cards')
         thistab.section_header_updater('pop')
@@ -337,10 +321,8 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         # MANAGE STREAM
         # date comes out stream in milliseconds
         # --------------------------------CREATE WIDGETS ---------------------------------
-        datepicker_start = DatePicker(title="Start", min_date=first_date_range,
+        datepicker_ptd_start = DatePicker(title="First date", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date)
-        datepicker_end = DatePicker(title="End", min_date=first_date_range,
-                                    max_date=last_date_range, value=last_date)
 
 
         thistab.period_end_date = last_date
@@ -362,37 +344,37 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
 
         # ---------------------------------  GRAPHS ---------------------------
-        hv_period_over_period_week_month = hv.DynamicMap(thistab.graph_period_over_period_week_month,
-                                              streams=[stream_launch])
-        hv_period_over_period_qtr_year = hv.DynamicMap(thistab.graph_period_over_period_qtr_year,
-                                              streams=[stream_launch])
-        period_over_period_week_month = renderer.get_plot(hv_period_over_period_week_month)
-        period_over_period_qtr_year = renderer.get_plot(hv_period_over_period_qtr_year)
+        hv_pop_week = hv.DynamicMap(thistab.pop_week,streams=[stream_launch])
+        pop_week = renderer.get_plot(hv_pop_week)
+
+        hv_pop_month = hv.DynamicMap(thistab.pop_month,streams=[stream_launch])
+        pop_month = renderer.get_plot(hv_pop_month)
+
+        hv_pop_quarter = hv.DynamicMap(thistab.pop_quarter, streams=[stream_launch])
+        pop_quarter = renderer.get_plot(hv_pop_quarter)
 
 
         # -------------------------------- CALLBACKS ------------------------
 
-        variable_select.on_change('value', update_variable)
-        #history_periods_select.on_change('value',update_period_over_period)
+        variable_select.on_change('value', update)
         period_over_period_button.on_click(update_period_over_period) # lags array
+        datepicker_ptd_start.on_change('value',update)
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
-        controls_left = WidgetBox(datepicker_start)
-
-        controls_centre = WidgetBox(datepicker_end)
-
+        controls_left = WidgetBox(datepicker_ptd_start)
         controls_right = WidgetBox(variable_select)
 
 
         grid_before = [ [thistab.notification_div['top']],
-            [controls_left, controls_centre, controls_right],
+            [controls_left, controls_right],
             [thistab.section_headers['cards']]]
 
         grid_after = [[thistab.section_headers['pop'],period_over_period_button],
-            [thistab.datepicker_period_start, datepicker_period_end, history_periods_select],
-            [period_over_period_week_month.state],
-            [period_over_period_qtr_year.state],
+            [thistab.datepicker_period_start, history_periods_select],
+            [pop_week.state],
+            [pop_month.state],
+            [pop_quarter.state],
             [thistab.notification_div['bottom']]]
 
         grid_data = grid_before + thistab.card_lists + grid_after

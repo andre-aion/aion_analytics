@@ -1,120 +1,52 @@
-2019-04-22 16:12:40,508 - [logs/KPI_interface.log:16]=> logs/KPI_interface.log
-2019-04-22 16:13:20,322 - [logs/KPI_interface.log:178]=> period:week
-2019-04-22 16:13:20,327 - [logs/KPI_interface.log:179]=> df:   aion_fork  timestamp  day                   period
-0          1 2019-04-15   15  0 week(s) prev(current)
-1          1 2019-04-15   15  0 week(s) prev(current)
-2          1 2019-04-15   15  0 week(s) prev(current)
-3          1 2019-04-15   15  0 week(s) prev(current)
-4          1 2019-04-15   15  0 week(s) prev(current)
-5          1 2019-04-15   15  0 week(s) prev(current)
-6          1 2019-04-15   15  0 week(s) prev(current)
-7          1 2019-04-15   15  0 week(s) prev(current)
-8          1 2019-04-15   15  0 week(s) prev(current)
-9          1 2019-04-15   15  0 week(s) prev(current)
-2019-04-22 16:13:20,362 - [logs/KPI_interface.log:163]=> week start:end=2019-04-08 00:00:00:2019-04-15 00:00:00
-2019-04-22 16:13:23,035 - [logs/KPI_interface.log:178]=> period:week
-2019-04-22 16:13:23,041 - [logs/KPI_interface.log:179]=> df:   aion_fork  timestamp  day          period
-0          1 2019-04-08    8  1 week(s) prev
-1          1 2019-04-08    8  1 week(s) prev
-2          1 2019-04-08    8  1 week(s) prev
-3          1 2019-04-08    8  1 week(s) prev
-4          1 2019-04-08    8  1 week(s) prev
-5          1 2019-04-08    8  1 week(s) prev
-6          1 2019-04-08    8  1 week(s) prev
-7          1 2019-04-08    8  1 week(s) prev
-8          1 2019-04-08    8  1 week(s) prev
-9          1 2019-04-08    8  1 week(s) prev
-2019-04-22 16:13:23,665 - [logs/KPI_interface.log:163]=> week start:end=2019-04-01 00:00:00:2019-04-08 00:00:00
-2019-04-22 16:13:26,146 - [logs/KPI_interface.log:178]=> period:week
-2019-04-22 16:13:26,151 - [logs/KPI_interface.log:179]=> df:   aion_fork  timestamp  day          period
-0          0 2019-04-01    1  2 week(s) prev
-1          0 2019-04-01    1  2 week(s) prev
-2          0 2019-04-01    1  2 week(s) prev
-3          0 2019-04-01    1  2 week(s) prev
-4          0 2019-04-01    1  2 week(s) prev
-5          0 2019-04-01    1  2 week(s) prev
-6          0 2019-04-01    1  2 week(s) prev
-7          0 2019-04-01    1  2 week(s) prev
-8          0 2019-04-01    1  2 week(s) prev
-9          0 2019-04-01    1  2 week(s) prev
-2019-04-22 16:13:30,252 - [logs/KPI_interface.log:163]=> week start:end=2019-03-25 00:00:00:2019-04-01 00:00:00
-2019-04-22 16:13:36,213 - [logs/KPI_interface.log:178]=> period:month
-2019-04-22 16:13:36,217 - [logs/KPI_interface.log:179]=> df:   aion_fork  timestamp  day                    period
-0          1 2019-04-15   15  0 month(s) prev(current)
-1          1 2019-04-15   15  0 month(s) prev(current)
-2          1 2019-04-15   15  0 month(s) prev(current)
-3          1 2019-04-15   15  0 month(s) prev(current)
-4          1 2019-04-15   15  0 month(s) prev(current)
-5          1 2019-04-15   15  0 month(s) prev(current)
-6          1 2019-04-15   15  0 month(s) prev(current)
-7          1 2019-04-15   15  0 month(s) prev(current)
-8          1 2019-04-15   15  0 month(s) prev(current)
-9          1 2019-04-15   15  0 month(s) prev(current)
-2019-04-22 16:13:36,241 - [logs/KPI_interface.log:163]=> month start:end=2019-03-15 00:00:00:2019-03-22 00:00:00
-2019-04-22 16:13:38,658 - [logs/KPI_interface.log:178]=> period:month
-2019-04-22 16:13:38,664 - [logs/KPI_interface.log:179]=> df:   aion_fork  timestamp  day           period
-0          0 2019-03-15   15  1 month(s) prev
-1          0 2019-03-15   15  1 month(s) prev
-2          0 2019-03-15   15  1 month(s) prev
-3          0 2019-03-15   15  1 month(s) prev
-4          0 2019-03-15   15  1 month(s) prev
-5          0 2019-03-15   15  1 month(s) prev
-6          0 2019-03-15   15  1 month(s) prev
-7          0 2019-03-15   15  1 month(s) prev
-8          0 2019-03-15   15  1 month(s) prev
-9          0 2019-03-15   15  1 month(s) prev
-2019-04-22 16:13:39,218 - [logs/KPI_interface.log:163]=> month start:end=2019-02-15 00:00:00:2019-02-22 00:00:00
-2019-04-22 16:13:41,530 - [logs/KPI_interface.log:178]=> period:month
-2019-04-22 16:13:41,535 - [logs/KPI_interface.log:179]=> df:   aion_fork  timestamp  day           period
-0          0 2019-02-15   15  2 month(s) prev
-1          0 2019-02-15   15  2 month(s) prev
-2          0 2019-02-15   15  2 month(s) prev
-3          0 2019-02-15   15  2 month(s) prev
-4          0 2019-02-15   15  2 month(s) prev
-5          0 2019-02-15   15  2 month(s) prev
-6          0 2019-02-15   15  2 month(s) prev
-7          0 2019-02-15   15  2 month(s) prev
-8          0 2019-02-15   15  2 month(s) prev
-9          0 2019-02-15   15  2 month(s) prev
-2019-04-22 16:13:45,225 - [logs/KPI_interface.log:163]=> month start:end=2019-01-15 00:00:00:2019-01-22 00:00:00
-2019-04-22 16:13:52,990 - [logs/KPI_interface.log:178]=> period:quarter
-2019-04-22 16:13:52,996 - [logs/KPI_interface.log:179]=> df:   aion_fork  timestamp  day                      period
-0          1 2019-04-15   15  0 quarter(s) prev(current)
-1          1 2019-04-15   15  0 quarter(s) prev(current)
-2          1 2019-04-15   15  0 quarter(s) prev(current)
-3          1 2019-04-15   15  0 quarter(s) prev(current)
-4          1 2019-04-15   15  0 quarter(s) prev(current)
-5          1 2019-04-15   15  0 quarter(s) prev(current)
-6          1 2019-04-15   15  0 quarter(s) prev(current)
-7          1 2019-04-15   15  0 quarter(s) prev(current)
-8          1 2019-04-15   15  0 quarter(s) prev(current)
-9          1 2019-04-15   15  0 quarter(s) prev(current)
-2019-04-22 16:13:53,027 - [logs/KPI_interface.log:163]=> quarter start:end=2019-01-15 00:00:00:2019-01-22 00:00:00
-2019-04-22 16:13:53,027 - [logs/KPI_interface.log:218]=> start:end 2019-01-15 00:00:00:2019-01-22 00:00:00
-2019-04-22 16:13:56,906 - [logs/KPI_interface.log:178]=> period:quarter
-2019-04-22 16:13:56,912 - [logs/KPI_interface.log:179]=> df:   aion_fork  timestamp  day             period
-0          0 2019-01-15   15  1 quarter(s) prev
-1          0 2019-01-15   15  1 quarter(s) prev
-2          0 2019-01-15   15  1 quarter(s) prev
-3          0 2019-01-15   15  1 quarter(s) prev
-4          0 2019-01-15   15  1 quarter(s) prev
-5          0 2019-01-15   15  1 quarter(s) prev
-6          0 2019-01-15   15  1 quarter(s) prev
-7          0 2019-01-15   15  1 quarter(s) prev
-8          0 2019-01-15   15  1 quarter(s) prev
-9          0 2019-01-15   15  1 quarter(s) prev
-2019-04-22 16:14:08,923 - [logs/KPI_interface.log:163]=> quarter start:end=2018-10-15 00:00:00:2018-10-22 00:00:00
-2019-04-22 16:14:08,923 - [logs/KPI_interface.log:218]=> start:end 2018-10-15 00:00:00:2018-10-22 00:00:00
-2019-04-22 16:14:11,522 - [logs/KPI_interface.log:178]=> period:quarter
-2019-04-22 16:14:11,528 - [logs/KPI_interface.log:179]=> df:   aion_fork  timestamp  day             period
-0          0 2018-10-15   15  2 quarter(s) prev
-1          0 2018-10-15   15  2 quarter(s) prev
-2          0 2018-10-15   15  2 quarter(s) prev
-3          0 2018-10-15   15  2 quarter(s) prev
-4          0 2018-10-15   15  2 quarter(s) prev
-5          0 2018-10-15   15  2 quarter(s) prev
-6          0 2018-10-15   15  2 quarter(s) prev
-7          0 2018-10-15   15  2 quarter(s) prev
-8          0 2018-10-15   15  2 quarter(s) prev
-9          0 2018-10-15   15  2 quarter(s) prev
-2019-04-22 16:14:37,756 - [logs/KPI_interface.log:163]=> quarter start:end=2018-07-15 00:00:00:2018-07-22 00:00:00
+2019-04-23 13:44:23,600 - [logs/KPI_interface.log:16]=> logs/KPI_interface.log
+2019-04-23 13:45:15,292 - [logs/KPI_interface.log:324]=> period:numer=week:1
+2019-04-23 13:45:15,292 - [logs/KPI_interface.log:331]=> temp df cols:['aion_fork', 'aion_watch', 'aion_push', 'aion_release']
+2019-04-23 13:45:15,292 - [logs/KPI_interface.log:332]=> significant feature:['aion_watch', 'aion_push', 'aion_release']
+2019-04-23 13:45:15,293 - [logs/KPI_interface.log:338]=> denom:5
+2019-04-23 13:45:15,294 - [logs/KPI_interface.log:346]=> point estimate:0.2
+2019-04-23 13:45:15,296 - [logs/KPI_interface.log:338]=> denom:46
+2019-04-23 13:45:15,296 - [logs/KPI_interface.log:346]=> point estimate:0.022
+2019-04-23 13:45:15,297 - [logs/KPI_interface.log:338]=> denom:0
+2019-04-23 13:45:15,297 - [logs/KPI_interface.log:346]=> point estimate:inf
+2019-04-23 13:45:15,615 - [logs/KPI_interface.log:324]=> period:numer=month:51
+2019-04-23 13:45:15,615 - [logs/KPI_interface.log:331]=> temp df cols:['aion_fork', 'aion_watch', 'aion_push', 'aion_release']
+2019-04-23 13:45:15,616 - [logs/KPI_interface.log:332]=> significant feature:['aion_watch', 'aion_push', 'aion_release']
+2019-04-23 13:45:15,616 - [logs/KPI_interface.log:338]=> denom:216
+2019-04-23 13:45:15,616 - [logs/KPI_interface.log:346]=> point estimate:0.236
+2019-04-23 13:45:15,617 - [logs/KPI_interface.log:338]=> denom:2244
+2019-04-23 13:45:15,617 - [logs/KPI_interface.log:346]=> point estimate:0.023
+2019-04-23 13:45:15,617 - [logs/KPI_interface.log:338]=> denom:60
+2019-04-23 13:45:15,618 - [logs/KPI_interface.log:346]=> point estimate:0.85
+2019-04-23 13:45:15,915 - [logs/KPI_interface.log:324]=> period:numer=quarter:51
+2019-04-23 13:45:15,915 - [logs/KPI_interface.log:331]=> temp df cols:['aion_fork', 'aion_watch', 'aion_push', 'aion_release']
+2019-04-23 13:45:15,915 - [logs/KPI_interface.log:332]=> significant feature:['aion_watch', 'aion_push', 'aion_release']
+2019-04-23 13:45:15,916 - [logs/KPI_interface.log:338]=> denom:216
+2019-04-23 13:45:15,916 - [logs/KPI_interface.log:346]=> point estimate:0.236
+2019-04-23 13:45:15,916 - [logs/KPI_interface.log:338]=> denom:2244
+2019-04-23 13:45:15,917 - [logs/KPI_interface.log:346]=> point estimate:0.023
+2019-04-23 13:45:15,917 - [logs/KPI_interface.log:338]=> denom:60
+2019-04-23 13:45:15,918 - [logs/KPI_interface.log:346]=> point estimate:0.85
+2019-04-23 13:45:16,578 - [logs/KPI_interface.log:324]=> period:numer=year:156
+2019-04-23 13:45:16,579 - [logs/KPI_interface.log:331]=> temp df cols:['aion_fork', 'aion_watch', 'aion_push', 'aion_release']
+2019-04-23 13:45:16,579 - [logs/KPI_interface.log:332]=> significant feature:['aion_watch', 'aion_push', 'aion_release']
+2019-04-23 13:45:16,579 - [logs/KPI_interface.log:338]=> denom:497
+2019-04-23 13:45:16,580 - [logs/KPI_interface.log:346]=> point estimate:0.314
+2019-04-23 13:45:16,580 - [logs/KPI_interface.log:338]=> denom:6174
+2019-04-23 13:45:16,581 - [logs/KPI_interface.log:346]=> point estimate:0.025
+2019-04-23 13:45:16,581 - [logs/KPI_interface.log:338]=> denom:171
+2019-04-23 13:45:16,581 - [logs/KPI_interface.log:346]=> point estimate:0.912
+2019-04-23 13:45:16,955 - [logs/KPI_interface.log:171]=> week start:end=2019-04-15 00:00:00:2019-04-16 00:00:00
+2019-04-23 13:45:18,958 - [logs/KPI_interface.log:171]=> week start:end=2019-04-08 00:00:00:2019-04-09 00:00:00
+2019-04-23 13:45:23,829 - [logs/KPI_interface.log:171]=> week start:end=2019-04-01 00:00:00:2019-04-02 00:00:00
+2019-04-23 13:45:30,019 - [logs/KPI_interface.log:171]=> week start:end=2019-03-25 00:00:00:2019-03-26 00:00:00
+2019-04-23 13:45:39,126 - [logs/KPI_interface.log:171]=> month start:end=2019-03-22 00:00:00:2019-03-23 00:00:00
+2019-04-23 13:45:40,704 - [logs/KPI_interface.log:171]=> month start:end=2019-02-22 00:00:00:2019-02-23 00:00:00
+2019-04-23 13:45:44,861 - [logs/KPI_interface.log:171]=> month start:end=2019-01-22 00:00:00:2019-01-23 00:00:00
+2019-04-23 13:45:51,034 - [logs/KPI_interface.log:171]=> month start:end=2018-12-22 00:00:00:2018-12-23 00:00:00
+2019-04-23 13:45:59,350 - [logs/KPI_interface.log:171]=> quarter start:end=2019-01-22 00:00:00:2019-01-23 00:00:00
+2019-04-23 13:45:59,350 - [logs/KPI_interface.log:224]=> start:end 2019-01-22 00:00:00:2019-01-23 00:00:00
+2019-04-23 13:46:03,969 - [logs/KPI_interface.log:171]=> quarter start:end=2018-10-22 00:00:00:2018-10-23 00:00:00
+2019-04-23 13:46:03,970 - [logs/KPI_interface.log:224]=> start:end 2018-10-22 00:00:00:2018-10-23 00:00:00
+2019-04-23 13:46:13,362 - [logs/KPI_interface.log:171]=> quarter start:end=2018-07-22 00:00:00:2018-07-23 00:00:00
+2019-04-23 13:46:13,362 - [logs/KPI_interface.log:224]=> start:end 2018-07-22 00:00:00:2018-07-23 00:00:00
+2019-04-23 13:46:27,970 - [logs/KPI_interface.log:171]=> quarter start:end=2018-04-22 00:00:00:2018-04-23 00:00:00
