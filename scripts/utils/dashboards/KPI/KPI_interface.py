@@ -36,7 +36,8 @@ class KPI:
         'update_type': ['all', 'contract_deployment', 'internal_transfer', 'mined_block', 'token_transfer',
                         'transaction'],
         'history_periods': ['1','2','3','4','5','6','7','8','9','10'],
-        'developer_adoption_variables': ['aion_fork', 'aion_watch']
+        'developer_adoption_variables': ['aion_fork', 'aion_watch'],
+        'resample_period':['W','M','Q']
     }
     def __init__(self,table,name,cols):
         self.df = None
@@ -85,6 +86,7 @@ class KPI:
             'quarter':weekly_pay*num_engineers*4*3,
             'year':weekly_pay*num_engineers*4*3*4
         }
+        self.resample_period = self.menus['resample_period'][0]
 
         # make block timestamp the index
     def load_df(self,start_date,end_date,cols,timestamp_col='timestamp_of_first_event'):
@@ -199,7 +201,6 @@ class KPI:
     def period_over_period(self,df,start_date, end_date, period,
                            history_periods=2,timestamp_col='timestamp_of_first_event'):
         try:
-            logger.warning('PERIOD:%s',period.upper())
             # filter cols if necessary
             string = '0 {}(s) prev(current)'.format(period)
 
@@ -292,49 +293,55 @@ class KPI:
         except Exception:
             logger.error('card text',exc_info=True)
 
-
-    def calc_sig_effect_card_data(self, df, variable_of_interest,period):
+    def match_sigvars_to_coin_vars(self, df, interest_var):
         try:
             # load statistically significant variables
-            key = self.redis_stat_sig_key+'-'+variable_of_interest
+            key = self.redis_stat_sig_key + '-' + interest_var
             # adjust the variable of interest to match the key
-            key_vec = key.split('-') # strip the crypto name off of he variable
-            gen_variables = ['release','watch','push','issue','fork',
-                             'open','high','low','close','volume','market_cap']
+            key_vec = key.split('-')  # strip the crypto name off of he variable
+            gen_variables = ['release', 'watch', 'push', 'issue', 'fork',
+                             'open', 'high', 'low', 'close', 'volume', 'market_cap']
             for var in gen_variables:
                 if var in key_vec[-1]:
-                    key = key_vec[-2]+'-'+var
+                    key = key_vec[-2] + '-' + var
                     break
 
             sig_variables = self.redis.simple_load(key)
-
             self.sig_effect_dict = {}
-            significant_features = []
+            significant_features = {}
             # make a list of columns with names that include the significant feature
             if sig_variables is not None:
                 if 'features' in sig_variables.keys():
                     if len(sig_variables['features']) > 0:
                         for col in df.columns:
                             if any(var in col for var in sig_variables['features']):
-                                significant_features.append(col)
-                        significant_features = list(set(significant_features))
+                                significant_features[col] = 'sum'
+            return significant_features
+        except Exception:
+            logger.error('match sig vars to coin vars',exc_info=True)
 
+    def calc_sig_effect_card_data(self, df,interest_var,period):
+        try:
+
+            significant_features = self.match_sigvars_to_coin_vars(df,interest_var=interest_var)
             if len(significant_features) > 0:
-                cols = [variable_of_interest]+significant_features
+                cols = [interest_var]+list(significant_features.keys())
                 tmp_df = df[cols]
-                numer = tmp_df[variable_of_interest].sum()
+                numer = tmp_df[interest_var].sum()
 
-                variable_of_interest_tmp = variable_of_interest.split('_')
+                variable_of_interest_tmp = interest_var.split('_')
                 if variable_of_interest_tmp[-1] in ['watch']:
                     variable_of_interest_tmp[-1] += 'e'
                 i = self.card_grid_row[period]
                 card_position_counter = 0
-                for var in significant_features:
+                for var in significant_features.keys():
                     point_estimate = 0
                     var_tmp = var.split('_')# slice out the 'fork' from 'aion_fork'
                     if numer != 0:
                         denom = tmp_df[var].sum()
-                        point_estimate = round(numer/denom,3)
+                        point_estimate = '*'
+                        if denom != 0:
+                            point_estimate = round(numer/denom,3)
                     # add metrics based on variables
                     # update the divs
                     self.sig_effect_dict[var] = {
@@ -374,3 +381,44 @@ class KPI:
             return round(payroll_to_date,2)
         except Exception:
             logger.error('payroll to date',exc_info=True)
+
+
+    """
+        groupby the the data and make ratios between 
+        significant variables and interest variables
+    """
+    def make_significant_ratios_df(self,df,resample_period,interest_var,timestamp_col):
+        try:
+            def ratio(df,col_old,col_new):
+                df = df.assign(result=df[interest_var]/df[col_old])
+                df = df.rename(columns={'result':col_new})
+                #logger.warning('col-%s df:%s',col_old,df.head(5))
+
+                return df
+
+            # filter
+            sig_features_dict = self.match_sigvars_to_coin_vars(df,interest_var)
+            sig_features_dict[interest_var] = 'sum' # include interest var in aggregations
+            sig_features_list = list(sig_features_dict.keys())
+            # rename column for overwriting
+            sig_vars_relabel = []
+            for feature in sig_features_list:
+                tmp = feature.split('_')
+                sig_vars_relabel.append(tmp[-1])
+            # groupby
+            df = df.set_index(timestamp_col)
+
+            df = df.resample(resample_period).agg(sig_features_dict)
+            #logger.warning('LINE 413:%s',len(df))
+
+            # create ratios
+            for idx,col in enumerate(sig_features_list):
+                if col != interest_var: # skip variable of interest
+                    df = df.map_partitions(ratio,col,sig_vars_relabel[idx])
+
+            # drop columns
+            df = df.drop(sig_features_list, axis=1)
+            df = df.fillna(0)
+            return df
+        except Exception:
+            logger.error('significant ratios',exc_info=True)

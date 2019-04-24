@@ -58,8 +58,9 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
             self.section_headers = {
                 'cards' : self.section_header_div('Period to date', 1400),
-                'stat_sig':self.section_header_div('', html_header='h3',width=1000),
-                'pop': self.section_header_div('', 1400) # period over period
+                'stat_sig':self.section_header_div('', html_header='h3',width=800),
+                'pop': self.section_header_div('Period over period-------------------', 600), # period over period
+                'sig_ratio': self.section_header_div('Time series of ratio of DV to significant IVs---------------', width=600)
             }
 
             self.timestamp_col = 'timestamp'
@@ -184,7 +185,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                     self.card_lists[i][card_position_counter].height = 200
 
                     # add the statistically significant point estimates
-                    self.calc_sig_effect_card_data(df,variable_of_interest=self.variable, period=period)
+                    self.calc_sig_effect_card_data(df,interest_var=self.variable, period=period)
                     '''
                     logger.warning('self.sig_effect_dict:%s',self.sig_effect_dict)
                     for var in self.sig_effect_dict.keys():
@@ -289,6 +290,23 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('pop week', exc_info=True)
 
+        # --------------------------------  PLOT TRENDS FOR SIGNIFICANT RATIOS  --------------------------
+        def graph_significant_ratios_ts(self,launch=-1):
+            try:
+                df = self.make_significant_ratios_df(self.df,resample_period=self.resample_period,
+                                                     interest_var=self.variable,
+                                                     timestamp_col='timestamp')
+                # clean
+                if self.variable in df.columns:
+                    df = df.drop(self.variable,axis=1)
+
+                #df = df.compute()
+                # plot
+                return df.hvplot.line()
+
+            except Exception:
+                logger.error('graph significant ratios',exc_info=True)
+
     def update_date(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.variable = variable_select.value
@@ -301,6 +319,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         thistab.section_header_updater('pop',label='')
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
+        stream_launch_sig_ratio.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
     def update_variable(attrname, old, new):
@@ -311,8 +330,8 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         thistab.section_header_updater('pop',label='')
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
+        stream_launch_sig_ratio.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
-
 
     def update_period_over_period():
         thistab.notification_updater("Calculations underway. Please be patient")
@@ -321,6 +340,13 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         thistab.period_end_date = datepicker_pop_end.value
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
+        thistab.notification_updater("ready")
+
+    def update_resample(attrname, old, new):
+        thistab.notification_updater("Calculations underway. Please be patient")
+        thistab.resample_period = resample_select.value
+        thistab.trigger += 1
+        stream_launch_sig_ratio.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
     try:
@@ -344,12 +370,11 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         datepicker_ptd_start = DatePicker(title="First date", min_date=first_date_range,
                                       max_date=last_date_range, value=first_date)
 
-
         thistab.period_end_date = last_date
         thistab.period_start_date = thistab.first_date_in_period(thistab.period_end_date,'week')
 
         stream_launch = streams.Stream.define('Launch',launch=-1)()
-
+        stream_launch_sig_ratio = streams.Stream.define('Launch_sigratio',launch=-1)()
 
         datepicker_pop_end = DatePicker(title="Period end", min_date=first_date_range,
                                            max_date=last_date_range, value=thistab.period_end_date)
@@ -357,13 +382,20 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         pop_number_select = Select(title='Select # of comparative periods',
                                         value=str(thistab.history_periods),
                                         options=thistab.menus['history_periods'])
-        variable_select = Select(title='Select variable',
-                                     value=thistab.variable,
-                                     options=thistab.menus['developer_adoption_variables'])
         pop_button = Button(label="Select dates/periods, then click me!",width=15,button_type="success")
 
+        variable_select = Select(title='Select variable', value=thistab.variable,
+                                 options=thistab.menus['developer_adoption_variables'])
+
+        resample_select = Select(title='Select resample period',
+                                 value=thistab.resample_period,
+                                 options=thistab.menus['resample_period'])
 
         # ---------------------------------  GRAPHS ---------------------------
+        hv_sig_ratios = hv.DynamicMap(thistab.graph_significant_ratios_ts,
+                                      streams=[stream_launch_sig_ratio])
+        sig_ratios= renderer.get_plot(hv_sig_ratios)
+
         hv_pop_week = hv.DynamicMap(thistab.pop_week,streams=[stream_launch])
         pop_week = renderer.get_plot(hv_pop_week)
 
@@ -379,6 +411,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         variable_select.on_change('value', update_variable)
         pop_button.on_click(update_period_over_period) # lags array
         datepicker_ptd_start.on_change('value',update_date)
+        resample_select.on_change('value', update_resample)
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
@@ -396,12 +429,15 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         ]
 
         grid_after = [
+            [thistab.section_headers['sig_ratio'], resample_select],
+            [sig_ratios.state],
             [thistab.section_headers['pop']],
             [controls_pop_left,controls_pop_centre],
             [controls_pop_right],
             [pop_week.state],
             [pop_month.state],
             [pop_quarter.state],
+
             [thistab.notification_div['bottom']]
         ]
 
