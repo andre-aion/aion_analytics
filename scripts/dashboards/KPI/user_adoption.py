@@ -138,8 +138,8 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
 
         def graph_period_over_period(self,launch=-1):
             try:
-                start_date = self.period_start_date
-                end_date = self.period_end_date
+                start_date = self.pop_start_date
+                end_date = self.pop_end_date
                 if isinstance(start_date,date):
                     start_date = datetime.combine(start_date,datetime.min.time())
                 if isinstance(end_date,date):
@@ -198,8 +198,8 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
     def update_period_over_period(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.history_periods = history_periods_select.value
-        thistab.period_start_date=datepicker_period_start.value  # trigger period over period
-        thistab.period_end_date=datepicker_period_end.value  # trigger period
+        thistab.pop_start_date=datepicker_period_start.value  # trigger period over period
+        thistab.pop_end_date=datepicker_period_end.value  # trigger period
         thistab.trigger +=1
         stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
@@ -228,14 +228,14 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
 
-        thistab.period_end_date = last_date
-        thistab.period_start_date = thistab.first_date_in_period(thistab.period_end_date,'week')
+        thistab.pop_end_date = last_date
+        thistab.pop_start_date = thistab.first_date_in_period(thistab.pop_end_date, 'week')
         stream_launch = streams.Stream.define('Launch',launch=-1)()
 
         datepicker_period_start = DatePicker(title="Period start", min_date=first_date_range,
-                                             max_date=last_date_range, value=thistab.period_start_date)
+                                             max_date=last_date_range, value=thistab.pop_start_date)
         datepicker_period_end = DatePicker(title="Period end", min_date=first_date_range,
-                                           max_date=last_date_range, value=thistab.period_end_date)
+                                           max_date=last_date_range, value=thistab.pop_end_date)
 
         history_periods_select = Select(title='Select # of comparative periods',
                                         value='2',

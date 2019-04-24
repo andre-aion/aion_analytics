@@ -64,8 +64,8 @@ class KPI:
             2: ['quarter']
         }
         self.history_periods = 3 # number of periods for period over period
-        self.period_start_date = None
-        self.period_end_date = None
+        self.pop_start_date = None
+        self.pop_end_date = None
 
         self.checkboxgroup = {}
         self.sig_effect_dict = {}

@@ -209,8 +209,8 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         def graph_period_over_period(self,period):
             try:
                 periods = [period]
-                start_date = self.period_start_date
-                end_date = self.period_end_date
+                start_date = self.pop_start_date
+                end_date = self.pop_end_date
                 if isinstance(start_date,date):
                     start_date = datetime.combine(start_date,datetime.min.time())
                 if isinstance(end_date,date):
@@ -307,21 +307,6 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('graph significant ratios',exc_info=True)
 
-    def update_date(attrname, old, new):
-        thistab.notification_updater("Calculations underway. Please be patient")
-        thistab.variable = variable_select.value
-        thistab.ptd_startdate = datepicker_ptd_start.value
-        today = datetime.today()
-        end_date = datetime(today.year,today.month,today.day,0,0,0)
-        thistab.df = thistab.load_df(thistab.ptd_startdate, end_date,cols,'timestamp')
-        thistab.graph_periods_to_date(thistab.df,'timestamp',thistab.variable)
-        thistab.section_header_updater('cards',label='')
-        thistab.section_header_updater('pop',label='')
-        thistab.trigger += 1
-        stream_launch.event(launch=thistab.trigger)
-        stream_launch_sig_ratio.event(launch=thistab.trigger)
-        thistab.notification_updater("ready")
-
     def update_variable(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.variable = variable_select.value
@@ -336,8 +321,8 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
     def update_period_over_period():
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.history_periods = pop_number_select.value
-        thistab.period_start_date = thistab.datepicker_pop_start.value  # trigger period over period
-        thistab.period_end_date = datepicker_pop_end.value
+        thistab.pop_start_date = thistab.datepicker_pop_start.value  # trigger period over period
+        thistab.pop_end_date = datepicker_pop_end.value
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
@@ -367,17 +352,14 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         # MANAGE STREAM
         # date comes out stream in milliseconds
         # --------------------------------CREATE WIDGETS ---------------------------------
-        datepicker_ptd_start = DatePicker(title="First date", min_date=first_date_range,
-                                      max_date=last_date_range, value=first_date)
-
-        thistab.period_end_date = last_date
-        thistab.period_start_date = thistab.first_date_in_period(thistab.period_end_date,'week')
+        thistab.pop_end_date = last_date
+        thistab.pop_start_date = thistab.first_date_in_period(thistab.pop_end_date, 'week')
 
         stream_launch = streams.Stream.define('Launch',launch=-1)()
         stream_launch_sig_ratio = streams.Stream.define('Launch_sigratio',launch=-1)()
 
         datepicker_pop_end = DatePicker(title="Period end", min_date=first_date_range,
-                                           max_date=last_date_range, value=thistab.period_end_date)
+                                        max_date=last_date_range, value=thistab.pop_end_date)
 
         pop_number_select = Select(title='Select # of comparative periods',
                                         value=str(thistab.history_periods),
@@ -410,13 +392,11 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
         variable_select.on_change('value', update_variable)
         pop_button.on_click(update_period_over_period) # lags array
-        datepicker_ptd_start.on_change('value',update_date)
         resample_select.on_change('value', update_resample)
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
-        controls_left = WidgetBox(datepicker_ptd_start)
-        controls_right = WidgetBox(variable_select)
+        controls_ptd = WidgetBox(variable_select)
 
         controls_pop_left = WidgetBox(thistab.datepicker_pop_start)
         controls_pop_centre = WidgetBox(datepicker_pop_end)
@@ -424,20 +404,18 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
         grid_before = [
             [thistab.notification_div['top']],
-            [controls_left, controls_right],
+            [controls_ptd],
             [thistab.section_headers['cards']]
         ]
 
         grid_after = [
             [thistab.section_headers['sig_ratio'], resample_select],
             [sig_ratios.state],
-            [thistab.section_headers['pop']],
+            [thistab.section_headers['pop'], controls_pop_right],
             [controls_pop_left,controls_pop_centre],
-            [controls_pop_right],
             [pop_week.state],
             [pop_month.state],
             [pop_quarter.state],
-
             [thistab.notification_div['bottom']]
         ]
 

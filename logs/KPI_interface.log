@@ -1,3 +1,5 @@
-2019-04-24 12:52:43,294 - [logs/KPI_interface.log:16]=> logs/KPI_interface.log
-2019-04-24 12:54:35,269 - [logs/KPI_interface.log:225]=> start:end 2019-01-22 00:00:00:2019-01-23 00:00:00
-2019-04-24 12:54:43,300 - [logs/KPI_interface.log:225]=> start:end 2018-10-22 00:00:00:2018-10-23 00:00:00
+2019-04-24 12:58:58,164 - [logs/KPI_interface.log:16]=> logs/KPI_interface.log
+2019-04-24 13:00:44,862 - [logs/KPI_interface.log:225]=> start:end 2019-01-22 00:00:00:2019-01-23 00:00:00
+2019-04-24 13:00:49,074 - [logs/KPI_interface.log:225]=> start:end 2018-10-22 00:00:00:2018-10-23 00:00:00
+2019-04-24 13:57:08,591 - [logs/KPI_interface.log:225]=> start:end 2019-01-22 00:00:00:2019-01-23 00:00:00
+2019-04-24 13:57:12,788 - [logs/KPI_interface.log:225]=> start:end 2018-10-22 00:00:00:2018-10-23 00:00:00
