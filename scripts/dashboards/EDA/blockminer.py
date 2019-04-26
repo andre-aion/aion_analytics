@@ -35,8 +35,8 @@ def blockminer_tab():
 
     # source for top N table
     topN_src = ColumnDataSource(data=dict(percentage=[],
-                                     miner_address=[],
-                                     block_number=[]))
+                                     address=[],
+                                     block_count=[]))
 
 
     class This_tab(Mytab):
@@ -59,7 +59,11 @@ def blockminer_tab():
             logger.warning('load_data start date:%s', start_date)
             logger.warning('load_data end date:%s', end_date)
 
-            self.df_load(start_date, end_date)
+            # load only mined blocks and remove the double entry
+            supplemental_where = "AND update_type = 'mined_block' AND amount >= 0"
+
+            self.df_load(start_date, end_date,supplemental_where=supplemental_where)
+            logger.warning('adfter load:%s',self.df.head(30))
 
             return self.prep_dataset(start_date, end_date)
 
@@ -67,17 +71,21 @@ def blockminer_tab():
         def prep_dataset(self, start_date, end_date):
             try:
                 logger.warning("prep dataset start date:%s", start_date)
-                self.df1 = self.df1[['miner_address', 'block_number']]
-                self.df1['miner_address'] = self.df1['miner_address']\
+
+                self.df1 = self.df1[['address','block_time']]
+                self.df1['address'] = self.df1['address']\
                     .map(self.poolname_verbose_trun)
-                self.df1 = self.df1.groupby(['miner_address']).count()
-                self.df1['percentage'] = 100*self.df1.block_number\
-                                         /self.df1['block_number'].sum()
+                self.df1 = self.df1.groupby(['address']).agg({'block_time':'count'})
+                self.df1 = self.df1.reset_index()
+                self.df1 = self.df1.rename(columns = {'block_time':'block_count'})
+                self.df1['percentage'] = 100*len(self.df1)\
+                                         /self.df1['block_count'].sum()
+                self.df1['percentage'] = self.df1['percentage'].map(lambda x: round(x,3))
                 self.df1 = self.df1.reset_index()
                 logger.warning("topN column:%s",self.df1.columns.tolist())
                 #logger.warning('END prep dataset DF1:%s', self.df1.head())
 
-                return self.df1.hvplot.bar('miner_address', 'block_number', rot=90,
+                return self.df1.hvplot.bar('address', 'block_count', rot=90,
                                            height= 600, width=1500, title='# of blocks mined by miner address',
                                            hover_cols=['percentage'])
 
@@ -88,7 +96,7 @@ def blockminer_tab():
             logger.warning("top n called:%s",self.n)
             # change n from string to int
             try:
-                #table_n = df1.hvplot.table(columns=['miner_address','percentage'],
+                #table_n = df1.hvplot.table(columns=['address','percentage'],
                                           #title=title, width=400)
                 logger.warning('top N:%s',self.n)
                 df2 = self.df1.nlargest(self.n,'percentage')
@@ -97,14 +105,14 @@ def blockminer_tab():
 
                 new_data = dict(
                     percentage=df2.percentage.tolist(),
-                    miner_address=df2.miner_address.tolist(),
-                    block_number=df2.block_number.tolist()
+                    address=df2.address.tolist(),
+                    block_count=df2.block_count.tolist()
                 )
                 topN_src.stream(new_data, rollover=self.n)
                 columns = [
-                    TableColumn(field="miner_address", title="Address"),
+                    TableColumn(field="address", title="Address"),
                     TableColumn(field="percentage", title="percentage"),
-                    TableColumn(field="block_number", title="# of blocks")
+                    TableColumn(field="block_count", title="# of blocks")
                 ]
 
                 table_n = DataTable(source=topN_src, columns=columns, width=300, height=600)
@@ -168,15 +176,15 @@ def blockminer_tab():
 
     try:
         # create class and get date range
-        cols = ['block_number', 'miner_address','block_timestamp', 'block_time']
-        this_tab = This_tab('block',cols, dedup_cols)
+        cols = ['address','block_timestamp', 'block_time']
+        this_tab = This_tab('account_ext_warehouse',cols, [])
 
         #STATIC DATES
         first_date_range = "2018-04-23 00:00:00"
         first_date_range = datetime.strptime(first_date_range, "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = last_date_range
-        first_date = datetime_to_date(last_date - timedelta(days=30))
+        first_date = datetime_to_date(last_date - timedelta(days=60))
 
         # STREAMS Setup
         # date comes out stream in milliseconds
@@ -207,9 +215,9 @@ def blockminer_tab():
         # set up data source for the ton N miners table
         this_tab.view_topN()
         columns = [
-            TableColumn(field="miner_address", title="Address"),
+            TableColumn(field="address", title="Address"),
             TableColumn(field="percentage", title="percentage"),
-            TableColumn(field="block_number", title="# of blocks")
+            TableColumn(field="block_count", title="# of blocks")
         ]
         topN_table = DataTable(source=topN_src, columns=columns, width=400, height=600)
 
@@ -222,7 +230,7 @@ def blockminer_tab():
         download_button = Button(label='Save Table to CSV', button_type="success")
         download_button.callback = CustomJS(args=dict(source=topN_src),
             code=open(join(dirname(__file__),
-                           "../../static/js/topN_download.js")).read())
+                           "../../../static/js/topN_download.js")).read())
 
 
         # put the controls in a single element
@@ -232,7 +240,7 @@ def blockminer_tab():
 
         # create the dashboards
         grid = gridplot([[this_tab.notification_div],
-                         [controls, topN_table],
+                         [controls,topN_table],
                          [bar_plot.state]])
 
         # Make a tab with the layout

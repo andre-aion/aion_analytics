@@ -55,7 +55,8 @@ class Mytab:
         self.resample_period = self.menus['resample_periods'][0]
 
     # designed to work with premade warehouse table
-    def df_load(self, req_start_date, req_end_date,timestamp_col='block_timestamp'):
+    def df_load(self, req_start_date, req_end_date,timestamp_col='block_timestamp',
+                supplemental_where=None):
         params = {
             'start': False,
             'end': False
@@ -96,7 +97,8 @@ class Mytab:
             req_end_date = req_end_date+timedelta(days=1) #move end_date to midnite
             cols = self.cols.copy()
 
-            self.df = self.ch.load_data(self.table,cols,req_start_date, req_end_date,timestamp_col)
+            self.df = self.ch.load_data(self.table,cols,req_start_date, req_end_date,timestamp_col,
+                                        supplemental_where=supplemental_where)
             self.filter_df(req_start_date, req_end_date)
             #logger.warning("%s LOADED: %s:%s",self.table,req_start_date,req_end_date)
 

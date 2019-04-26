@@ -48,8 +48,6 @@ labels = [
     'clustering: cryptocurrency',
     'predictions: accounts by activity',
     'predictions: accounts by value',
-    'predictions: tier 1 miner models',
-    'predictions: tier 2 miner models',
     ]
 DEFAULT_CHECKBOX_SELECTION = 7
 
@@ -213,6 +211,8 @@ def aion_analytics(doc):
                                                             {}</h1></div>""".format(
                 'Welcome to Aion Data Science Portal')
 
+
+        # -----------------------
         txt = """
                 <div {}>
                     <h3 style='color:blue;text-align:center'>Info:</h3>
