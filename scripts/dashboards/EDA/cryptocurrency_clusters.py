@@ -2,7 +2,7 @@ from datetime import datetime, timedelta, date
 
 import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, Button, Select, ColumnDataSource, HoverTool
+from bokeh.models import Panel, Div, DatePicker, Button, Select, ColumnDataSource, HoverTool, WidgetBox
 from bokeh.plotting import figure, curdoc
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
@@ -24,15 +24,15 @@ renderer = hv.renderer('bokeh')
 
 
 @coroutine
-def crypto_clusters_eda_tab(cryptos):
+def crypto_clusters_eda_tab(cryptos,panel_title):
     global groupby_dict
     global features
     global cluster_dct
+    #global source
 
     redis = PythonRedis()
     cluster_dct = redis.simple_load('clusters:cryptocurrencies')
     if cluster_dct is not None:
-        p = {}
         groupby_dict = {}
         for var in cluster_dct['features']:
             groupby_dict[var] = 'sum'
@@ -50,7 +50,7 @@ def crypto_clusters_eda_tab(cryptos):
 
     class Thistab(Mytab):
         def __init__(self, table, cols,dedup_cols=[]):
-            Mytab.__init__(self, table, cols, dedup_cols)
+            Mytab.__init__(self, table, cols, dedup_cols,panel_title=panel_title)
             self.table = table
             self.cols = cols
             self.DATEFORMAT = "%Y-%m-%d %H:%M:%S"
@@ -166,6 +166,7 @@ def crypto_clusters_eda_tab(cryptos):
 
         def graph_ts(self):
             try:
+                #global source
                 if self.df1 is not None:
                     df = self.df1.copy()
                     clusters = df['cluster'].unique()
@@ -178,37 +179,12 @@ def crypto_clusters_eda_tab(cryptos):
                             # pivot into columns for cluster
                             df1 = df1.pivot(columns='cluster')
                             data = dict(
-                                xs = [df1.index.values] * len(clusters),
-                                ys = [df1[name].values for name in df1],
+                                x = [df1.index.values] * len(clusters),
+                                y = [df1[name].values for name in df1],
                                 labels=clusters,
                                 colors=self.colors
                             )
-                            source[feature].stream(data,rollover=len(data['xs']))
-                            logger.warning('source %s updated',source[feature])
-                            '''
-                            p[feature] = figure(
-                                name=feature,
-                                x_axis_type="datetime", plot_width=1000,
-                                plot_height=400,title=feature)
-
-                            p[feature].multi_line(
-                                xs='x',
-                                ys='y',
-                                legend='labels',
-                                line_color='colors',
-                                line_width=5,
-                                hover_line_color='colors',
-                                hover_line_alpha=1.0,
-                                source=source[feature],
-
-                            )
-                            p[feature].add_tools(HoverTool(show_arrow=False, line_policy='next', tooltips=[
-                                ('freq','$y'),
-                            ]))
-                            #logger.warning('line 199 df after pivot:%s',df1.head(20))
-                        return p
-                        '''
-
+                            source[feature].data = data
             except Exception:
                 logger.error('prep data', exc_info=True)
 
@@ -216,8 +192,7 @@ def crypto_clusters_eda_tab(cryptos):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.df_load(datepicker_start.value, datepicker_end.value,timestamp_col='timestamp')
         thistab.prep_data(thistab.df,'timestamp')
-        thistab.trigger += 1
-        stream_launch.event(launch=thistab.trigger)
+        thistab.graph_ts()
         thistab.notification_updater("Ready!")
 
     def update_resample(attrname, old, new):
@@ -235,13 +210,12 @@ def crypto_clusters_eda_tab(cryptos):
         first_date_range = datetime.strptime("2018-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = dashboard_config['dates']['last_date'] - timedelta(days=2)
-        first_date = last_date - timedelta(days=60)
+        first_date = dashboard_config['dates']['current_year_start']
         # initial function call
         thistab.df_load(first_date, last_date, timestamp_col='timestamp')
         thistab.prep_data(thistab.df,timestamp_col='timestamp')
 
         # MANAGE STREAMS ---------------------------------------------------------
-        stream_launch = streams.Stream.define('Launch', launch=-1)()
 
         # CREATE WIDGETS ----------------------------------------------------------------
         datepicker_start = DatePicker(title="Start", min_date=first_date_range,
@@ -250,7 +224,8 @@ def crypto_clusters_eda_tab(cryptos):
         datepicker_end = DatePicker(title="End", min_date=first_date_range,
                                     max_date=last_date_range, value=last_date)
 
-        load_dates_button = Button(label="Select dates/periods, then click me!", width=15, button_type="success")
+        load_dates_button = Button(label="Select dates/periods, then click me!",
+                                   width=20, height= 8, button_type="success")
 
         resample_select = Select(
             title='Select summary period',
@@ -262,7 +237,7 @@ def crypto_clusters_eda_tab(cryptos):
         p = {}
         for feature in features:
             p[feature] = figure(
-                x_axis_type="datetime", plot_width=1000,
+                x_axis_type="datetime", plot_width=1400,
                 plot_height=400, title=feature)
 
             p[feature].multi_line(
@@ -286,21 +261,32 @@ def crypto_clusters_eda_tab(cryptos):
         resample_select.on_change('value', update_resample)
 
         # -----------------------------------LAYOUT ----------------------------
+        # COMPOSE LAYOUT
+        # put the controls in a single element
+        controls_left = WidgetBox(
+            datepicker_start,
+            load_dates_button)
+
+        controls_right = WidgetBox(datepicker_end)
 
         grid_data = [
             [thistab.notification_div['top']],
+            [controls_left, controls_right],
             [thistab.section_headers['ts'], resample_select],
+
         ]
         for feature in features:
             grid_data.append([p[feature]])
             logger.warning('p:%s', p[feature])
 
+        grid_data.append([thistab.notification_div['bottom']])
+
         grid = gridplot(grid_data)
 
         # Make a tab with the layout
-        tab = Panel(child=grid, title='EDA: crytpo clusters')
+        tab = Panel(child=grid, title=thistab.panel_title)
         return tab
 
     except Exception:
         logger.error('rendering err:', exc_info=True)
-        return tab_error_flag('EDA: crytpo clusters')
+        return tab_error_flag(thistab.panel_title)

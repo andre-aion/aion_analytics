@@ -1,0 +1,25 @@
+2019-04-26 12:31:09,062 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 12:45:19,385 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 12:49:43,340 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 13:11:08,642 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 13:12:40,267 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 13:16:12,418 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 14:26:30,926 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 14:27:14,844 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 14:30:22,984 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 14:31:24,736 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 14:34:15,517 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 14:36:43,335 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 14:39:07,967 - [logs/mytab_interface.log:107]=> df_load:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/my-analytics-suite/aion-analytics/scripts/utils/dashboards/EDA/mytab_interface.py", line 81, in df_load
+    if req_start_date >= params['min_date']:
+  File "pandas/_libs/tslibs/timestamps.pyx", line 258, in pandas._libs.tslibs.timestamps._Timestamp.__richcmp__
+TypeError: Cannot compare type 'Timestamp' with type 'date'
+2019-04-26 14:41:59,833 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log
+2019-04-26 14:42:14,042 - [logs/mytab_interface.log:111]=> df_load:
+Traceback (most recent call last):
+  File "/home/andre/aion/data_science/my-analytics-suite/aion-analytics/scripts/utils/dashboards/EDA/mytab_interface.py", line 74, in df_load
+    if isinstance(params[idx],date):
+KeyError: 0
+2019-04-26 14:43:54,281 - [logs/mytab_interface.log:16]=> logs/mytab_interface.log

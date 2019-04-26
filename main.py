@@ -17,10 +17,6 @@ from tornado.ioloop import IOLoop
 from scripts.dashboards.EDA.account_activity import account_activity_tab
 from scripts.dashboards.EDA.blockminer import blockminer_tab
 from scripts.dashboards.EDA.cryptocurrency_clusters import crypto_clusters_eda_tab
-from scripts.dashboards.EDA.poolminer import poolminer_tab
-from scripts.dashboards.models.churn import churn_tab
-from scripts.dashboards.models.predictive.tier1_miner_predictive import tier1_miner_churn_predictive_tab
-from scripts.dashboards.models.predictive.tier2_miner_predictive import tier2_miner_churn_predictive_tab
 from scripts.dashboards.models.predictive.account_activity_predictive import account_activity_predictive_tab
 from scripts.dashboards.models.predictive.account_predictive import account_predictive_tab
 from scripts.dashboards.KPI.developer_adoption import KPI_developer_adoption_tab
@@ -39,14 +35,11 @@ cryptocurrencies = load_cryptos()
 labels = [
     'KPI: user adoption',
     'KPI: developer adoption',
-    'account activity',
     'miners: blocks',
-    'miners: tiers 1 & 2',
-    'miners: models stats',
+    'EDA: account activity',
     'EDA: cryptocurrency',
     'EDA: crypto clusters',
     'clustering: cryptocurrency',
-    'predictions: accounts by activity',
     'predictions: accounts by value',
     ]
 DEFAULT_CHECKBOX_SELECTION = 7
@@ -107,31 +100,27 @@ def aion_analytics(doc):
                     if bm not in tablist:
                         tablist.append(bm)
 
-            if 'miners: tiers 1 & 2' in lst:
-                if 'miners: tiers 1 & 2' not in selection_tab.selected_tracker:
-                    pm = yield poolminer_tab()
-                    selection_tab.selected_tracker.append('miners: tiers 1 & 2')
-                    if pm not in tablist:
-                        tablist.append(pm)
 
-            if 'miners: models stats' in lst:
-                if 'miners: models stats' not in selection_tab.selected_tracker:
-                    ch = yield churn_tab()
-                    selection_tab.selected_tracker.append('miners: models stats')
-                    if ch not in tablist:
-                        tablist.append(ch)
-            
+            panel_title = 'EDA: account activity'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    aa = yield account_activity_tab(panel_title=panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
+                    if aa not in tablist:
+                        tablist.append(aa)
+
             if 'EDA: cryptocurrency' in lst:
                 if 'EDA: cryptocurrency' not in selection_tab.selected_tracker:
                     eda_c = yield cryptocurrency_eda_tab(cryptocurrencies)
                     selection_tab.selected_tracker.append('EDA: cryptocurrency')
                     if eda_c not in tablist:
                         tablist.append(eda_c)
-            
-            if 'EDA: crypto clusters' in lst:
-                if 'EDA: crypto clusters' not in selection_tab.selected_tracker:
-                    eda_cc = yield crypto_clusters_eda_tab(cryptocurrencies)
-                    selection_tab.selected_tracker.append('EDA: crypto clusters')
+
+            panel_title = 'EDA: crypto clusters'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    eda_cc = yield crypto_clusters_eda_tab(cryptocurrencies,panel_title=panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
                     if eda_cc not in tablist:
                         tablist.append(eda_cc)
 
@@ -143,33 +132,15 @@ def aion_analytics(doc):
                     if cct not in tablist:
                         tablist.append(cct)
 
-            if 'predictions: tier 1 miner models' in lst:
-                if 'predictions: tier 1 miner models' not in selection_tab.selected_tracker:
-                    mch_1 = yield tier1_miner_churn_predictive_tab()
-                    selection_tab.selected_tracker.append('predictions: tier 1 miner models')
-                    if mch_1 not in tablist:
-                        tablist.append(mch_1)
-
-            if 'predictions: tier 2 miner models' in lst:
-                if 'predictions: tier 2 miner models' not in selection_tab.selected_tracker:
-                    mch_2 = yield tier2_miner_churn_predictive_tab()
-                    selection_tab.selected_tracker.append('predictions: tier 2 miner models')
-                    if mch_2 not in tablist:
-                        tablist.append(mch_2)
-
-            if 'predictions: accounts by activity' in lst:
-                if 'predictions: accounts by activity' not in selection_tab.selected_tracker:
-                    aap = yield account_activity_predictive_tab()
-                    selection_tab.selected_tracker.append('predictions: accounts by activity')
+            panel_title = 'EDA: account activity'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    aap = yield account_activity_predictive_tab(panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
                     if aap not in tablist:
                         tablist.append(aap)
 
-            if 'account activity' in lst:
-                if 'account activity' not in selection_tab.selected_tracker:
-                    aa = yield account_activity_tab()
-                    selection_tab.selected_tracker.append('account activity')
-                    if aa not in tablist:
-                        tablist.append(aa)
+
 
             if 'predictions: accounts by value' in lst:
                 if 'predictions: accounts by value' not in selection_tab.selected_tracker:

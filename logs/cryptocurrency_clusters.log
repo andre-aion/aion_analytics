@@ -1,1 +1,195 @@
-2019-04-26 11:20:00,198 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 11:52:37,710 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 12:31:09,276 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 12:31:20,551 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='56c19cb5-33c1-4e98-84c7-38acfee3e93e', ...) updated
+2019-04-26 12:31:20,556 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='ad4100ed-598f-4231-b581-80a5fd9c54ec', ...) updated
+2019-04-26 12:31:20,560 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='ff11f52b-05a9-4acf-9b75-830c92946bd0', ...) updated
+2019-04-26 12:31:20,564 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='9fdd7bdd-31de-4a2f-a23b-68e0a728bbe8', ...) updated
+2019-04-26 12:31:20,568 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='1f8ec02b-3ae5-45f0-8460-a718a91ddc0c', ...) updated
+2019-04-26 12:31:20,573 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='34efdd9d-ee0c-4edf-9ae0-5ef3e267d77d', ...) updated
+2019-04-26 12:31:20,577 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='74fb947d-7602-4af6-a69f-68a0e49dc544', ...) updated
+2019-04-26 12:31:20,582 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='2c9e4ac0-d561-4ffc-9972-a7125e65a9e1', ...) updated
+2019-04-26 12:31:20,586 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='c839eefb-ed61-4136-a989-7ef79f3d2f83', ...) updated
+2019-04-26 12:31:20,650 - [logs/cryptocurrency_clusters.log:297]=> p:Figure(id='e1a3de2a-5baf-4465-b42e-3964db46afc8', ...)
+2019-04-26 12:31:20,650 - [logs/cryptocurrency_clusters.log:297]=> p:Figure(id='70468717-8650-4ac6-b80e-146636f9e091', ...)
+2019-04-26 12:31:20,650 - [logs/cryptocurrency_clusters.log:297]=> p:Figure(id='43d9742a-39c7-4c3c-b6d0-27ca87fa8b50', ...)
+2019-04-26 12:31:20,650 - [logs/cryptocurrency_clusters.log:297]=> p:Figure(id='5da65429-8f94-4437-929d-ce9b15465a4f', ...)
+2019-04-26 12:31:20,650 - [logs/cryptocurrency_clusters.log:297]=> p:Figure(id='23f57c0b-9e9c-4d66-a87a-a18231eb4487', ...)
+2019-04-26 12:31:20,650 - [logs/cryptocurrency_clusters.log:297]=> p:Figure(id='0429db07-5d6b-45b6-a6cc-6a71b9a9131d', ...)
+2019-04-26 12:31:20,650 - [logs/cryptocurrency_clusters.log:297]=> p:Figure(id='73b6bf16-836a-4c40-a63f-bbaa16780181', ...)
+2019-04-26 12:31:20,651 - [logs/cryptocurrency_clusters.log:297]=> p:Figure(id='2595281e-3208-43e9-bde7-9e94ec8ed343', ...)
+2019-04-26 12:31:20,651 - [logs/cryptocurrency_clusters.log:297]=> p:Figure(id='bd1ebfc3-9ee7-4899-893b-db4965daecfe', ...)
+2019-04-26 12:45:19,705 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 12:49:43,675 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 12:49:52,802 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='3da1c341-2fdc-45c4-afd6-4ca29c40553f', ...) updated
+2019-04-26 12:49:52,807 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='0e6e1fcf-7ba5-428f-92af-8a64458a414e', ...) updated
+2019-04-26 12:49:52,813 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='3cf0487d-6b65-4783-8e32-10e2a36eb529', ...) updated
+2019-04-26 12:49:52,818 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='cdc9661c-e091-41ef-98f4-8d2663eb6b29', ...) updated
+2019-04-26 12:49:52,823 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='75d6c7d3-baf2-4a9d-a8e6-b8dd26e82bd2', ...) updated
+2019-04-26 12:49:52,829 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='21178f51-f868-40ea-aac5-c441f817a5cc', ...) updated
+2019-04-26 12:49:52,835 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='c88cd4bf-0304-4727-a263-b1e28170a7bf', ...) updated
+2019-04-26 12:49:52,840 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='3245a4c4-1135-40e3-8fc3-10eba994441c', ...) updated
+2019-04-26 12:49:52,847 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='ff1fee62-c4d7-4371-97ae-6a16bb263c3f', ...) updated
+2019-04-26 12:49:52,918 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='706aab20-0321-465f-81ed-43f3703203b7', ...)
+2019-04-26 12:49:52,919 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='2c597c9e-dd43-4427-bf47-127be867bbfb', ...)
+2019-04-26 12:49:52,919 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='3877a4c6-9e4a-450e-b025-c047da4286b6', ...)
+2019-04-26 12:49:52,919 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='456331a8-dcb3-47b3-a160-1b0f7517d26e', ...)
+2019-04-26 12:49:52,919 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='c43e070f-8cf8-4dc8-b2a1-564b7116465f', ...)
+2019-04-26 12:49:52,919 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='976d4850-81ff-495e-9451-0bcbfd8dd4b3', ...)
+2019-04-26 12:49:52,919 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='0b7460ef-5f50-4d2d-8458-b0bcf25ad31f', ...)
+2019-04-26 12:49:52,919 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='81b0343f-74f3-4e1c-839c-39e1b68730bb', ...)
+2019-04-26 12:49:52,919 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='5cc4c4eb-3d0c-4837-bd4e-8fca611a74f0', ...)
+2019-04-26 13:11:08,889 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 13:11:20,002 - [logs/cryptocurrency_clusters.log:189]=> source ColumnDataSource(id='f5287644-d913-4607-9180-aa0a9ae1f930', ...) updated
+2019-04-26 13:11:20,006 - [logs/cryptocurrency_clusters.log:189]=> source ColumnDataSource(id='ceb308ab-fcc9-4eec-9a4b-9eddae96ff85', ...) updated
+2019-04-26 13:11:20,011 - [logs/cryptocurrency_clusters.log:189]=> source ColumnDataSource(id='17b2218c-6c61-4491-bad8-9f3a6ada9a00', ...) updated
+2019-04-26 13:11:20,015 - [logs/cryptocurrency_clusters.log:189]=> source ColumnDataSource(id='f828ce26-8576-4818-980b-993b34de5776', ...) updated
+2019-04-26 13:11:20,019 - [logs/cryptocurrency_clusters.log:189]=> source ColumnDataSource(id='05f8bf5b-a149-45cf-8dda-200bfefc552f', ...) updated
+2019-04-26 13:11:20,024 - [logs/cryptocurrency_clusters.log:189]=> source ColumnDataSource(id='9870af25-42ea-4de9-a152-c41d09c1a5be', ...) updated
+2019-04-26 13:11:20,029 - [logs/cryptocurrency_clusters.log:189]=> source ColumnDataSource(id='de6c60f2-8ac3-438d-bf87-422ca05d7259', ...) updated
+2019-04-26 13:11:20,034 - [logs/cryptocurrency_clusters.log:189]=> source ColumnDataSource(id='4ce6ca48-da12-4d20-807d-bacb1b768b64', ...) updated
+2019-04-26 13:11:20,038 - [logs/cryptocurrency_clusters.log:189]=> source ColumnDataSource(id='5c3f9214-52e4-455d-ab7f-5d01d4311d9e', ...) updated
+2019-04-26 13:11:20,100 - [logs/cryptocurrency_clusters.log:300]=> p:Figure(id='2896d831-b454-464a-9734-66a105f1412a', ...)
+2019-04-26 13:11:20,101 - [logs/cryptocurrency_clusters.log:300]=> p:Figure(id='2340a418-50e0-497e-8f73-94c21878b335', ...)
+2019-04-26 13:11:20,101 - [logs/cryptocurrency_clusters.log:300]=> p:Figure(id='7b4f9c1a-0b5e-4586-9f73-138ea1a96c57', ...)
+2019-04-26 13:11:20,101 - [logs/cryptocurrency_clusters.log:300]=> p:Figure(id='85434e0d-dde2-4811-8e0d-c01303a7a3ec', ...)
+2019-04-26 13:11:20,101 - [logs/cryptocurrency_clusters.log:300]=> p:Figure(id='e46c1b87-6a79-4427-a458-5ebafdddfe93', ...)
+2019-04-26 13:11:20,101 - [logs/cryptocurrency_clusters.log:300]=> p:Figure(id='b3449720-a3f7-475d-a718-597be14fd953', ...)
+2019-04-26 13:11:20,101 - [logs/cryptocurrency_clusters.log:300]=> p:Figure(id='bd6a4896-7c3f-4781-947c-97e482a0abe4', ...)
+2019-04-26 13:11:20,101 - [logs/cryptocurrency_clusters.log:300]=> p:Figure(id='c4fba98d-3a7a-4505-86d4-1853c10a1b06', ...)
+2019-04-26 13:11:20,101 - [logs/cryptocurrency_clusters.log:300]=> p:Figure(id='5c9b2a76-fdc2-4883-b4d0-2215784b89c4', ...)
+2019-04-26 13:12:40,535 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 13:12:45,203 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='a4e9e89a-0e59-467d-87b6-8ae3781333fb', ...) updated
+2019-04-26 13:12:45,210 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='f1a09265-ccf6-4b03-9ac7-45adff258daf', ...) updated
+2019-04-26 13:12:45,216 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='c966f5c2-ebd3-443e-8630-4f4c02ba0652', ...) updated
+2019-04-26 13:12:45,222 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='8696adf8-5b71-42ca-a07a-dda6fe8e7169', ...) updated
+2019-04-26 13:12:45,228 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='5508e3e8-a1f6-4f49-8eb8-e4b4eedf458b', ...) updated
+2019-04-26 13:12:45,234 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='85404b04-1542-4df4-98ff-95bae0077c40', ...) updated
+2019-04-26 13:12:45,240 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='8993bfd4-26de-426b-beca-eadf885cc760', ...) updated
+2019-04-26 13:12:45,245 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='cac35c9d-48dc-4a95-a1fb-64990818f1dd', ...) updated
+2019-04-26 13:12:45,251 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='b33c3359-0acd-447c-afc4-62f2913f0ed0', ...) updated
+2019-04-26 13:12:45,338 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='d0fdad1a-bebb-4686-b138-02a96bf5c165', ...)
+2019-04-26 13:12:45,339 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='f8dde2e5-380c-4ae7-8cf1-a2ffc9dfea07', ...)
+2019-04-26 13:12:45,339 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='498ea579-f2d5-49eb-8edf-6e4bbda8977f', ...)
+2019-04-26 13:12:45,339 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='00d4ba5d-7743-4847-9647-de78009e6e8e', ...)
+2019-04-26 13:12:45,339 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='45100697-3b10-4903-a947-eb174679ab16', ...)
+2019-04-26 13:12:45,339 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='50643116-d85a-4141-af99-334b338b5dd8', ...)
+2019-04-26 13:12:45,339 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='6e1acacc-5393-4ad7-870e-f745e8d701f7', ...)
+2019-04-26 13:12:45,339 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='7fd702d7-367e-4444-ad49-bbafea75986d', ...)
+2019-04-26 13:12:45,339 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='09b2410f-cfc4-4648-bf6f-d81742559e75', ...)
+2019-04-26 13:16:12,566 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 13:16:20,119 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='edad1395-0252-4cb4-855e-84696e55d04b', ...) updated
+2019-04-26 13:16:20,124 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='2468fd21-6a13-42a0-a830-524dd4ff95ee', ...) updated
+2019-04-26 13:16:20,128 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='b7c55896-534b-4a15-a51e-d25484bad087', ...) updated
+2019-04-26 13:16:20,133 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='0e89e14a-1ccf-4a0c-8da2-84ab980b185e', ...) updated
+2019-04-26 13:16:20,138 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='67d46b0c-0ce0-4abf-a505-9bc502ce4d9e', ...) updated
+2019-04-26 13:16:20,143 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='8aaec0b2-62ca-4d57-983b-1ab1be52d92f', ...) updated
+2019-04-26 13:16:20,148 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='20d05a7a-7e20-441d-a60b-ae89968729bd', ...) updated
+2019-04-26 13:16:20,153 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='d8124c2d-e2cc-4b7d-a14c-e0353c24663a', ...) updated
+2019-04-26 13:16:20,161 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='e5851ad3-881d-44ae-ae5b-43ed74c90f79', ...) updated
+2019-04-26 13:16:20,225 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='15718e9f-63cc-4c7b-a79a-cceb5bc12d34', ...)
+2019-04-26 13:16:20,225 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='02138b3b-c0b8-42f7-81e1-835b41ac66da', ...)
+2019-04-26 13:16:20,225 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='21be7f7b-86b1-426f-ad3a-a2b5db1dafae', ...)
+2019-04-26 13:16:20,225 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='f1b33af4-e735-4a83-b7f0-ea57ffb5d467', ...)
+2019-04-26 13:16:20,225 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='adf95481-6f59-487a-b5cb-32883d3c4273', ...)
+2019-04-26 13:16:20,226 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='d1d3109f-7c71-4008-80fd-3ad7bc02e9ac', ...)
+2019-04-26 13:16:20,226 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='259a83c3-fc39-4338-ad1e-a491ce5e8896', ...)
+2019-04-26 13:16:20,226 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='035d37af-f0c4-409e-a837-e7161435aaf5', ...)
+2019-04-26 13:16:20,226 - [logs/cryptocurrency_clusters.log:299]=> p:Figure(id='48579225-e672-4784-8613-e5fe3eea1681', ...)
+2019-04-26 13:20:08,649 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='edad1395-0252-4cb4-855e-84696e55d04b', ...) updated
+2019-04-26 13:20:08,657 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='2468fd21-6a13-42a0-a830-524dd4ff95ee', ...) updated
+2019-04-26 13:20:08,664 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='b7c55896-534b-4a15-a51e-d25484bad087', ...) updated
+2019-04-26 13:20:08,672 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='0e89e14a-1ccf-4a0c-8da2-84ab980b185e', ...) updated
+2019-04-26 13:20:08,682 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='67d46b0c-0ce0-4abf-a505-9bc502ce4d9e', ...) updated
+2019-04-26 13:20:08,691 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='8aaec0b2-62ca-4d57-983b-1ab1be52d92f', ...) updated
+2019-04-26 13:20:08,701 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='20d05a7a-7e20-441d-a60b-ae89968729bd', ...) updated
+2019-04-26 13:20:08,713 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='d8124c2d-e2cc-4b7d-a14c-e0353c24663a', ...) updated
+2019-04-26 13:20:08,725 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='e5851ad3-881d-44ae-ae5b-43ed74c90f79', ...) updated
+2019-04-26 13:20:18,897 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='edad1395-0252-4cb4-855e-84696e55d04b', ...) updated
+2019-04-26 13:20:18,904 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='2468fd21-6a13-42a0-a830-524dd4ff95ee', ...) updated
+2019-04-26 13:20:18,911 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='b7c55896-534b-4a15-a51e-d25484bad087', ...) updated
+2019-04-26 13:20:18,920 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='0e89e14a-1ccf-4a0c-8da2-84ab980b185e', ...) updated
+2019-04-26 13:20:18,932 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='67d46b0c-0ce0-4abf-a505-9bc502ce4d9e', ...) updated
+2019-04-26 13:20:18,943 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='8aaec0b2-62ca-4d57-983b-1ab1be52d92f', ...) updated
+2019-04-26 13:20:18,953 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='20d05a7a-7e20-441d-a60b-ae89968729bd', ...) updated
+2019-04-26 13:20:18,963 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='d8124c2d-e2cc-4b7d-a14c-e0353c24663a', ...) updated
+2019-04-26 13:20:18,973 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='e5851ad3-881d-44ae-ae5b-43ed74c90f79', ...) updated
+2019-04-26 14:26:31,078 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 14:27:14,992 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 14:27:23,271 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='5bf44ed1-72d6-4b84-8791-cb2a17a8409f', ...) updated
+2019-04-26 14:27:23,276 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='8fa64825-3b07-4451-8e7e-c6d7faa061a4', ...) updated
+2019-04-26 14:27:23,280 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='515eed4a-ddd5-49d3-9b2e-0c20d7e01124', ...) updated
+2019-04-26 14:27:23,284 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='30c549c2-11c7-4d6f-8334-8a6b5f5e6c43', ...) updated
+2019-04-26 14:27:23,288 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='11288968-2185-4552-b135-29c76157021c', ...) updated
+2019-04-26 14:27:23,293 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='3aaf4a76-e901-4b34-92f4-dad03e26cecb', ...) updated
+2019-04-26 14:27:23,297 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='c4875666-434f-454f-8e66-dbf6d15c396e', ...) updated
+2019-04-26 14:27:23,302 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='fabbc2d1-93ba-4e82-a0c4-53ce1657664e', ...) updated
+2019-04-26 14:27:23,307 - [logs/cryptocurrency_clusters.log:188]=> source ColumnDataSource(id='dbe5cba3-007b-4e30-838e-73bc7d06bf38', ...) updated
+2019-04-26 14:27:23,370 - [logs/cryptocurrency_clusters.log:296]=> p:Figure(id='671fbc05-17e0-4994-bdc8-4084ed16cedb', ...)
+2019-04-26 14:27:23,371 - [logs/cryptocurrency_clusters.log:296]=> p:Figure(id='fb233be4-a609-4ffb-8880-6952c16ad7f7', ...)
+2019-04-26 14:27:23,371 - [logs/cryptocurrency_clusters.log:296]=> p:Figure(id='13946f6c-91e4-4bef-adc1-9b2ba5fb638c', ...)
+2019-04-26 14:27:23,371 - [logs/cryptocurrency_clusters.log:296]=> p:Figure(id='79cd0fa3-f29d-417b-b99d-ad95057fd296', ...)
+2019-04-26 14:27:23,371 - [logs/cryptocurrency_clusters.log:296]=> p:Figure(id='1804bdc7-a382-4893-9f62-5d7a3b7a74d7', ...)
+2019-04-26 14:27:23,371 - [logs/cryptocurrency_clusters.log:296]=> p:Figure(id='b5ad47ae-b85c-417b-ac6e-cfa9d0628704', ...)
+2019-04-26 14:27:23,371 - [logs/cryptocurrency_clusters.log:296]=> p:Figure(id='4fed44c7-51ac-4134-b7ce-3fd21809a9b6', ...)
+2019-04-26 14:27:23,371 - [logs/cryptocurrency_clusters.log:296]=> p:Figure(id='9f341453-795b-4bf4-b570-fe4ff5dfb3cb', ...)
+2019-04-26 14:27:23,371 - [logs/cryptocurrency_clusters.log:296]=> p:Figure(id='c1f02b05-f0d8-44f0-9f82-8baa4295d6a1', ...)
+2019-04-26 14:30:23,233 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 14:30:28,333 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='9c885115-32e5-442b-8532-c50cffc39527', ...)
+2019-04-26 14:30:28,334 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='6cdd76ce-8302-4157-8be3-0235754a51c3', ...)
+2019-04-26 14:30:28,334 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='07117393-890f-472c-a52f-f6dcb163146c', ...)
+2019-04-26 14:30:28,334 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='1ce8a9ea-bfd5-450b-a845-8f7ea3e57edb', ...)
+2019-04-26 14:30:28,334 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='43fe2a83-8d84-48b8-9a67-85bbc95a3e74', ...)
+2019-04-26 14:30:28,334 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='a7b739cb-a605-4f9e-b6e5-20c5b32999f5', ...)
+2019-04-26 14:30:28,334 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='7030af8f-62f3-4c5a-8b4b-b7172c5186fc', ...)
+2019-04-26 14:30:28,334 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='8fe1eb9d-9efb-42ea-ad7f-4d593dd777fc', ...)
+2019-04-26 14:30:28,334 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='33d8157e-dcb0-460e-b9ba-89f2a0a925e8', ...)
+2019-04-26 14:31:25,038 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 14:31:30,807 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='cce41f19-485a-4585-bd76-644e9229d02d', ...)
+2019-04-26 14:31:30,807 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='7faee21b-dfca-42d1-ab6a-8337fb3c1d81', ...)
+2019-04-26 14:31:30,807 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='c267e41a-2386-4916-afa5-4819bb4af854', ...)
+2019-04-26 14:31:30,807 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='9d070bc7-3eff-4434-821f-87f574ca4f35', ...)
+2019-04-26 14:31:30,807 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='06496612-d9a3-4c24-82ba-bb275cb1e0c5', ...)
+2019-04-26 14:31:30,807 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='385eee01-324a-4116-96b7-1d5c7be6feec', ...)
+2019-04-26 14:31:30,808 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='62d0bf1c-b79b-4864-880a-678ff13f46a6', ...)
+2019-04-26 14:31:30,808 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='9b64358c-b261-4ae0-a0a9-c0dff4c808ad', ...)
+2019-04-26 14:31:30,808 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='0628e8d9-8422-49ab-84b5-077d80949480', ...)
+2019-04-26 14:34:15,733 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 14:34:21,630 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='40edcebb-fb6c-4490-884e-7a78debedd8f', ...)
+2019-04-26 14:34:21,631 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='47c01192-e146-4686-9780-f1fe7a2748af', ...)
+2019-04-26 14:34:21,631 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='223099c3-be6a-4614-8387-ca9acc5bd2c1', ...)
+2019-04-26 14:34:21,631 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='e74d0ffc-56cc-4e7d-8d9a-59d09ab8cc6e', ...)
+2019-04-26 14:34:21,631 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='8aeeb242-fea4-47a7-9aa9-b6c1a3793e3a', ...)
+2019-04-26 14:34:21,631 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='5c577b68-d4aa-49ae-ba82-2a0fecd48b13', ...)
+2019-04-26 14:34:21,631 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='3844bae3-c534-43be-ba36-cf8f0e9176ec', ...)
+2019-04-26 14:34:21,631 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='0fd7fa4f-6c35-4438-9d98-63ac23bb7080', ...)
+2019-04-26 14:34:21,631 - [logs/cryptocurrency_clusters.log:281]=> p:Figure(id='f85be84d-30c8-4ebf-9960-3dce7fa8c863', ...)
+2019-04-26 14:36:43,482 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 14:37:31,716 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='4b352d90-6b43-4d41-b1d6-cc5199c11b13', ...)
+2019-04-26 14:37:31,716 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='95949f6c-f45d-414f-b829-24a85ced944d', ...)
+2019-04-26 14:37:31,717 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='3610168a-f790-4838-91e0-63ab72fa2002', ...)
+2019-04-26 14:37:31,717 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='88f39a3a-1d1c-4524-88cf-1d1a1fe96442', ...)
+2019-04-26 14:37:31,717 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='d82d89f2-0e9e-44b7-a504-c3479528c2a4', ...)
+2019-04-26 14:37:31,717 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='2a45e778-559f-4896-8cfc-b04f2b1f4fee', ...)
+2019-04-26 14:37:31,717 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='124dec8d-d7dc-4ad2-b23e-9fc0a064ea76', ...)
+2019-04-26 14:37:31,717 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='8cb001f0-034f-4027-beeb-caa7600b0b4e', ...)
+2019-04-26 14:37:31,717 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='2c2c489c-7e72-4fb8-98a0-9cc85a7727c6', ...)
+2019-04-26 14:41:59,987 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 14:42:06,502 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='1ece4a43-4d4c-44b8-9a02-bdca77ccf521', ...)
+2019-04-26 14:42:06,503 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='46c88386-16b6-41e1-aca9-fdf8a7242bf2', ...)
+2019-04-26 14:42:06,503 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='de9a6eca-9e86-4d9d-8dbf-ba08a7f2db48', ...)
+2019-04-26 14:42:06,503 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='dbac2cf2-c879-4d05-9919-07b978a11bef', ...)
+2019-04-26 14:42:06,503 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='566ed91c-3c7e-486d-89a3-8230166f2cfe', ...)
+2019-04-26 14:42:06,503 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='278b4b86-b243-44a1-9122-d76ebe98821e', ...)
+2019-04-26 14:42:06,503 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='a92fc969-e414-47a8-ba13-8903b4c5ea38', ...)
+2019-04-26 14:42:06,503 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='84505362-03de-4b3c-afb7-52f2b234db66', ...)
+2019-04-26 14:42:06,503 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='a7e63d4b-0ac8-4b6b-b0df-033224c46bcd', ...)
+2019-04-26 14:43:54,525 - [logs/cryptocurrency_clusters.log:16]=> logs/cryptocurrency_clusters.log
+2019-04-26 14:44:00,257 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='14c35658-3b4e-42e2-af4e-c0c75438fe87', ...)
+2019-04-26 14:44:00,258 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='7d55a0ea-53f8-497d-a44f-c12b11ff7fe0', ...)
+2019-04-26 14:44:00,258 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='631954fe-5b99-40bf-b38a-823a57b1a5ad', ...)
+2019-04-26 14:44:00,258 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='3a94086e-f2b6-47ee-b21a-7574089efea1', ...)
+2019-04-26 14:44:00,258 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='bff1265d-0a36-4140-bad8-8bb8337fdb94', ...)
+2019-04-26 14:44:00,258 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='2c48aafb-03cf-44b1-b341-26a5ee9d5eb1', ...)
+2019-04-26 14:44:00,258 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='85f0f168-7c7e-4b66-9a72-042f2f8a5833', ...)
+2019-04-26 14:44:00,258 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='d754bf5d-1505-4058-94d1-177641318010', ...)
+2019-04-26 14:44:00,258 - [logs/cryptocurrency_clusters.log:280]=> p:Figure(id='76a0c054-ccbb-4347-ad8f-8e168192f6d0', ...)

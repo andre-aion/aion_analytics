@@ -39,10 +39,10 @@ menus = {
 
 
 @coroutine
-def account_activity_tab(DAYS_TO_LOAD=30):
+def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
     class Thistab(Mytab):
         def __init__(self, table,cols=[], dedup_cols=[]):
-            Mytab.__init__(self, table, cols, dedup_cols)
+            Mytab.__init__(self, table, cols, dedup_cols,panel_title=panel_title)
             self.table = table
             self.cols = cols
             self.period = menus['period'][0]
@@ -132,6 +132,7 @@ def account_activity_tab(DAYS_TO_LOAD=30):
                 df = self.df1
                 if self.account_type != 'all':
                     df = self.df1[self.df1['account_type'] == self.account_type]
+
                 df = df[df['status'] == state]
                 df = df.resample(self.period).agg({'status': 'count'})
 
@@ -425,7 +426,7 @@ def account_activity_tab(DAYS_TO_LOAD=30):
 
         # --------------------- PLOTS----------------------------------
         width = 800
-        hv_account_churned = hv.DynamicMap(thistab.plot_account_status,
+        hv_account_status = hv.DynamicMap(thistab.plot_account_status,
                                            streams=[stream_launch]).opts(plot=dict(width=width, height=400))
         hv_account_activity = hv.DynamicMap(thistab.plot_account_activity,
                                             streams=[stream_launch]).opts(plot=dict(width=width, height=400))
@@ -435,7 +436,7 @@ def account_activity_tab(DAYS_TO_LOAD=30):
                                       streams=[stream_launch_corr])
         hv_hist_plot = hv.DynamicMap(thistab.hist,streams=[stream_launch_corr])
 
-        account_churned = renderer.get_plot(hv_account_churned)
+        account_status = renderer.get_plot(hv_account_status)
         account_activity = renderer.get_plot(hv_account_activity)
         matrix_plot = renderer.get_plot(hv_matrix_plot)
         corr_table = renderer.get_plot(hv_corr_table)
@@ -455,18 +456,23 @@ def account_activity_tab(DAYS_TO_LOAD=30):
         # put the controls in a single element
         controls_left = WidgetBox(
             datepicker_start,
-            period_select,status_select)
+            period_select,)
 
-        controls_right = WidgetBox(
+        controls_centre = WidgetBox(
             datepicker_end,
             update_type_select,
-            account_type_select)
+            )
+
+        controls_right = WidgetBox(
+            account_type_select,
+        )
 
         # create the dashboards
         grid = gridplot([
             [thistab.notification_div],
-            [controls_left, controls_right],
-            [account_churned.state],
+            [controls_left, controls_centre,controls_right],
+            [thistab.title_div('Account activity:---------------------------------', 400),status_select],
+            [account_status.state],
             [account_activity.state],
             [thistab.title_div('Relationships between variables', 400),variable_select],
             [corr_table.state, thistab.corr_information_div(),hist_plot.state],
@@ -474,9 +480,9 @@ def account_activity_tab(DAYS_TO_LOAD=30):
             ])
 
         # Make a tab with the layout
-        tab = Panel(child=grid, title='account activity')
+        tab = Panel(child=grid, title=thistab.panel_title)
         return tab
 
     except Exception:
         logger.error('rendering err:', exc_info=True)
-        return tab_error_flag('account activity')
+        return tab_error_flag(thistab.panel_title)

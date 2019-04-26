@@ -41,10 +41,10 @@ table = 'accounts_predictive'
 hyp_variables= list(groupby_dict[table].keys())
 
 @coroutine
-def account_activity_predictive_tab():
+def account_activity_predictive_tab(panel_title):
     class Thistab(Mytab):
         def __init__(self,table,cols,dedup_cols):
-            Mytab.__init__(self, table, cols, dedup_cols)
+            Mytab.__init__(self, table, cols, dedup_cols,panel_title=panel_title)
             self.table = table
             self.cols = cols
             self.DATEFORMAT = "%Y-%m-%d"
@@ -691,10 +691,9 @@ def account_activity_predictive_tab():
             [this_tab.notification_div_bottom]
         ])
 
-        tab = Panel(child=grid, title='predictions: account by activity')
+        tab = Panel(child=grid, title=this_tab.panel_title)
         return tab
 
     except Exception:
         logger.error('rendering err:', exc_info=True)
-        text = 'predictions: account by activity'
-        return tab_error_flag(text)
+        return tab_error_flag(this_tab.panel_title)

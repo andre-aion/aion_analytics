@@ -23,7 +23,8 @@ class DataLocation(Enum):
 
 
 class Mytab:
-    def __init__(self, table, cols, dedup_cols):
+    def __init__(self, table, cols, dedup_cols,panel_title=None):
+        self.panel_title = panel_title
         self.table = table
         self.load_params = dict()
         self.cols = cols
@@ -68,6 +69,10 @@ class Mytab:
                     # if in memory simply filter
                     params['min_date'], params['max_date'] = \
                         dd.compute(self.df[timestamp_col].min(), self.df[timestamp_col].max())
+
+                    for key in params.keys():
+                        if isinstance(params[key],date):
+                            params[key] = datetime.combine(params[key],datetime.min.time())
 
                     req_start_date = pd.to_datetime(req_start_date)
                     req_end_date = pd.to_datetime(req_end_date)

@@ -1,63 +1,15 @@
-2019-04-26 11:20:00,198 - [logs/blockminer.log:16]=> logs/blockminer.log
-2019-04-26 11:20:07,991 - [logs/blockminer.log:59]=> load_data start date:2019-02-25 00:00:00
-2019-04-26 11:20:07,992 - [logs/blockminer.log:60]=> load_data end date:2019-04-26 00:00:00
-2019-04-26 11:20:11,192 - [logs/blockminer.log:66]=> adfter load:                                              address     block_timestamp  block_time
-0   a07981da70ce919e1db5f051c3c386eb526e6ce8b9e2bf... 2019-02-25 00:00:01         3.0
-1   a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:00:31        30.0
-2   a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:00:38         7.0
-3   a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:00:41         3.0
-4   a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:00:59        18.0
-5   a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:01:20        21.0
-6   a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:01:21         1.0
-7   a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:01:33        12.0
-8   a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:01:38         5.0
-9   a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:01:41         3.0
-10  a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:01:50         9.0
-11  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:01:55         5.0
-12  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2019-02-25 00:02:06        11.0
-13  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:02:10         4.0
-14  a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:02:14         4.0
-15  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2019-02-25 00:02:21         7.0
-16  a08091ab0325e384ac45e560d2f85e4b741363aa98881d... 2019-02-25 00:02:24         3.0
-17  a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:02:30         6.0
-18  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:02:38         8.0
-19  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:02:43         5.0
-20  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:02:44         1.0
-21  a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:02:55        11.0
-22  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:03:04         9.0
-23  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:03:12         8.0
-24  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:03:20         8.0
-25  a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:03:21         1.0
-26  a0305694d2c938b4b383f06946c1bd1363df40c86f7213... 2019-02-25 00:03:28         7.0
-27  a0fde4c8c5b90d55f81970750c80ac7130c269bbbdce5b... 2019-02-25 00:03:49        21.0
-28  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:03:50         1.0
-29  a00983f07c11ee9160a64dd3ba3dc3d1f88332a2869f25... 2019-02-25 00:03:52         2.0
-2019-04-26 11:20:11,216 - [logs/blockminer.log:73]=> prep dataset start date:2019-02-25 00:00:00
-2019-04-26 11:20:14,595 - [logs/blockminer.log:84]=> topN column:['index', 'address', 'block_count', 'percentage']
-2019-04-26 11:20:19,496 - [logs/blockminer.log:95]=> top n called:20
-2019-04-26 11:20:19,496 - [logs/blockminer.log:100]=> top N:20
-2019-04-26 11:20:19,950 - [logs/blockminer.log:103]=> in view top n :    index             address  block_count  percentage
-0       0       AionPool.Tech       217471    0.004328
-1       1  BlockwareSolutions        16660    0.004328
-18     18          a0d8269e3f          859    0.004328
-17     17          a0c22fb0cc            1    0.004328
-16     16          a0be94dde5           91    0.004328
-15     15          a07778f8fe           38    0.004328
-14     14          a0765bfa13          817    0.004328
-13     13          a05347185e          199    0.004328
-12     12          a0305694d2       173677    0.004328
-11     11          a02314a41f          187    0.004328
-2019-04-26 11:20:54,051 - [logs/blockminer.log:170]=> topN selected value:30
-2019-04-26 11:20:54,052 - [logs/blockminer.log:95]=> top n called:30
-2019-04-26 11:20:54,052 - [logs/blockminer.log:100]=> top N:30
-2019-04-26 11:20:54,386 - [logs/blockminer.log:103]=> in view top n :   index             address  block_count  percentage
-0      0       AionPool.Tech       217471    0.004328
-1      1  BlockwareSolutions        16660    0.004328
-2      2             Centrys        12207    0.004328
-3      3              F2Pool        10737    0.004328
-4      4           GloryPool          338    0.004328
-5      5               Luxor        49504    0.004328
-6      6         WhibbitPool          557    0.004328
-7      7          a00d008aad          474    0.004328
-8      8          a00d7b5dcd            2    0.004328
-9      9          a00fbc6f9b           10    0.004328
+2019-04-26 11:52:37,709 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 12:31:09,271 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 12:45:19,695 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 12:49:43,671 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 13:11:08,883 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 13:12:40,529 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 13:16:12,563 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 14:26:31,074 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 14:27:14,990 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 14:30:23,227 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 14:31:25,032 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 14:34:15,728 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 14:36:43,479 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 14:41:59,985 - [logs/blockminer.log:16]=> logs/blockminer.log
+2019-04-26 14:43:54,522 - [logs/blockminer.log:16]=> logs/blockminer.log

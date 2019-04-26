@@ -110,7 +110,7 @@ class PythonClickhouse:
             qry += supplemental_where
 
         qry += """ ORDER BY {} """.format(timestamp_col)
-        logger.warning('query:%s', qry)
+        # logger.warning('query:%s', qry)
         return qry
 
     def load_data(self,table,cols,start_date,end_date,timestamp_col='block_timestamp',
