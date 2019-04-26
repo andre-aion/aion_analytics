@@ -233,6 +233,9 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                 if abs(start_date - end_date).days > 31:
                     if 'month' in periods:
                         periods.remove('month')
+                if abs(start_date - end_date).days > 90:
+                    if 'quarter' in periods:
+                        periods.remove('quarter')
 
                 for idx,period in enumerate(periods):
                     df_period = self.period_over_period(df, start_date = start_date, end_date=end_date,
@@ -272,23 +275,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('period over period to date', exc_info=True)
 
-        def pop_week(self,launch=-1):
-            try:
-                return self.graph_period_over_period('week')
-            except Exception:
-                logger.error('pop week', exc_info=True)
 
-        def pop_month(self, launch=-1):
-            try:
-                return self.graph_period_over_period('month')
-            except Exception:
-                logger.error('pop week', exc_info=True)
-
-        def pop_quarter(self, launch=-1):
-            try:
-                return self.graph_period_over_period('quarter')
-            except Exception:
-                logger.error('pop week', exc_info=True)
 
         # --------------------------------  PLOT TRENDS FOR SIGNIFICANT RATIOS  --------------------------
         def graph_significant_ratios_ts(self,launch=-1):

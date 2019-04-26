@@ -49,6 +49,10 @@ class Mytab:
             'MODERATE': .4,
             'WEAK': .25
         }
+        self.menus = {
+            'resample_periods': ['D','W', 'M', 'Q']
+        }
+        self.resample_period = self.menus['resample_periods'][0]
 
     # designed to work with premade warehouse table
     def df_load(self, req_start_date, req_end_date,timestamp_col='block_timestamp'):

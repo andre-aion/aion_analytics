@@ -38,7 +38,6 @@ table = 'crypto_modelling'
 groupby_dict = {
     'watch': 'sum',
     'fork': 'sum',
-    'issue': 'sum',
     'release': 'sum',
     'push': 'sum',
     'close': 'mean',
@@ -46,10 +45,6 @@ groupby_dict = {
     'low': 'mean',
     'market_cap': 'mean',
     'volume': 'mean',
-    'sp_volume':'mean',
-    'sp_close':'mean',
-    'russell_volume':'mean',
-    'russell_close':'mean'
 }
 
 @coroutine
@@ -185,7 +180,7 @@ def cryptocurrency_clustering_tab():
 
                     # Fit cluster to original data and create dispersion
 
-                    self.kmean_model[k] = KMeans(k, random_state=12)
+                    self.kmean_model[k] = KMeans(k, random_state=42)
                     self.kmean_model[k].fit(data)
 
                     origDisp = km.inertia_
@@ -212,6 +207,7 @@ def cryptocurrency_clustering_tab():
                 logger.warning('df after groupby:%s',df)
 
                 self.cryptos = df.index.tolist()
+                logger.warning('self.cryptos:%s',self.cryptos)
                 print(self.cryptos)
 
                 X = df[self.feature_list]
@@ -219,22 +215,34 @@ def cryptocurrency_clustering_tab():
                 X = scaler.fit_transform(X)
                 self.k, gapdf = self.optimalK(X, nrefs=3, maxClusters=len(self.max_clusters_menu))
                 logger.warning('Optimal k is:%s ', self.k)
-
                 # Labels of each point
                 labels = self.kmean_model[self.k].labels_
 
                 # Nice Pythonic way to get the indices of the points for each corresponding cluster
-                mydict = {i: np.where(labels == i)[0] for i in range(self.kmean_model[self.k].n_clusters)}
-                logger.warning('line 184: cluster labels:%s', mydict)
+                mydict = {'cluster_' + str(i): np.where(labels == i)[0].tolist() for i in range(self.kmean_model[self.k].n_clusters)}
+                mydict_verbose = mydict.copy() # make a dictionary with the clusters and name of the cryptos
 
                 # Transform this dictionary into dct with matching crypto labels
                 dct = {
                     'crypto': self.cryptos,
-                    'cluster': [0] * len(self.cryptos)
+                    'cluster': [''] * len(self.cryptos)
                 }
+                # get index aion to identify the aion cluster
+                aion_idx =  self.cryptos.index('aion')
+
                 for key, values in mydict.items():
-                    for value in values:
-                        dct['cluster'][value] = 'cluster ' + str(key)
+                    if aion_idx in values:
+                        key = 'aion_cluster'
+                    mydict_verbose[key] = []
+                    for crypto_index in values:
+                        try:
+                            dct['cluster'][int(crypto_index)] = key
+                            mydict_verbose[key].append(self.cryptos[int(crypto_index)])
+
+                        except:
+                            logger.warning('cannot change to int:%s',crypto_index)# save to redis
+                self.write_clusters(mydict_verbose)
+                logger.warning('line 229: cluster labels:%s', mydict_verbose)
 
                 df = pd.DataFrame.from_dict(dct)
                 self.launch_cluster_table = False
@@ -242,6 +250,22 @@ def cryptocurrency_clustering_tab():
                 return df.hvplot.table(columns=cols, width=500, height=1200, title='Cluster table')
             except Exception:
                 logger.error('cluster table', exc_info=True)
+
+
+        def write_clusters(self,my_dict):
+            try:
+                # write to redis
+                cluster_dct = my_dict.copy()
+                cluster_dct['timestamp'] = datetime.now().strftime(self.DATEFORMAT)
+                cluster_dct['features'] = self.feature_list
+                save_params = 'clusters:cryptocurrencies'
+                self.redis.save(cluster_dct,
+                                save_params,
+                                "", "", type='checkpoint')
+                logger.warning('%s saved to redis',save_params)
+            except:
+                logger.error('',exc_info=True)
+
 
 
     def update(attrname, old, new):

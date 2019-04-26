@@ -136,8 +136,9 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                 logger.error('graph periods to date',exc_info=True)
 
 
-        def graph_period_over_period(self,launch=-1):
+        def graph_period_over_period(self,period):
             try:
+                periods = [period]
                 start_date = self.pop_start_date
                 end_date = self.pop_end_date
                 if isinstance(start_date,date):
@@ -145,7 +146,6 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                 if isinstance(end_date,date):
                     end_date = datetime.combine(end_date,datetime.min.time())
                 cols = ['account_type', 'timestamp_of_first_event', 'day']
-                periods = self.periods_to_plot.copy()
                 df = self.load_df(start_date=start_date,end_date=end_date,cols=cols,
                                   timestamp_col='timestamp_of_first_event')
                 if abs(start_date - end_date).days > 7:
@@ -157,11 +157,15 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                 if abs(start_date - end_date).days > 90:
                     if 'quarter' in periods:
                         periods.remove('quarter')
+
+                if self.account_type != 'all':
+                    df = df[df.account_type == self.account_type]
+
                 for idx,period in enumerate(periods):
                     df_period = self.period_over_period(df, start_date=start_date, end_date=end_date,
-                                                        period=period,history_periods=self.history_periods)
-                    if self.account_type != 'all':
-                        df_period = df_period[df_period.account_type == self.account_type]
+                                                        period=period,history_periods=self.history_periods,
+                                                        timestamp_col='timestamp_of_first_event')
+
                     groupby_cols = ['dayset','period']
                     df_period = df_period.groupby(groupby_cols).agg({'account_type':'count'})
                     df_period = df_period.reset_index()
@@ -245,10 +249,14 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                                      options=thistab.menus['account_type'])
 
         # ---------------------------------  GRAPHS ---------------------------
-        hv_period_over_period = hv.DynamicMap(thistab.graph_period_over_period,
-                                              streams=[stream_launch])
-        period_over_period = renderer.get_plot(hv_period_over_period)
+        hv_pop_week = hv.DynamicMap(thistab.pop_week, streams=[stream_launch])
+        pop_week = renderer.get_plot(hv_pop_week)
 
+        hv_pop_month = hv.DynamicMap(thistab.pop_month, streams=[stream_launch])
+        pop_month = renderer.get_plot(hv_pop_month)
+
+        hv_pop_quarter = hv.DynamicMap(thistab.pop_quarter, streams=[stream_launch])
+        pop_quarter = renderer.get_plot(hv_pop_quarter)
 
         # -------------------------------- CALLBACKS ------------------------
         #datepicker_start.on_change('value', update)
@@ -276,7 +284,9 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
              thistab.period_to_date_cards['month'],thistab.period_to_date_cards['week']],
             [thistab.section_headers['pop']],
             [datepicker_period_start, datepicker_period_end,history_periods_select],
-            [period_over_period.state],
+            [pop_week.state],
+            [pop_month.state],
+            [pop_quarter.state],
             [thistab.notification_div['bottom']]
         ])
 

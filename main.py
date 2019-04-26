@@ -16,6 +16,7 @@ from tornado.ioloop import IOLoop
 
 from scripts.dashboards.EDA.account_activity import account_activity_tab
 from scripts.dashboards.EDA.blockminer import blockminer_tab
+from scripts.dashboards.EDA.cryptocurrency_clusters import crypto_clusters_eda_tab
 from scripts.dashboards.EDA.poolminer import poolminer_tab
 from scripts.dashboards.models.churn import churn_tab
 from scripts.dashboards.models.predictive.tier1_miner_predictive import tier1_miner_churn_predictive_tab
@@ -43,13 +44,14 @@ labels = [
     'miners: tiers 1 & 2',
     'miners: models stats',
     'EDA: cryptocurrency',
+    'EDA: crypto clusters',
     'clustering: cryptocurrency',
     'predictions: accounts by activity',
     'predictions: accounts by value',
     'predictions: tier 1 miner models',
     'predictions: tier 2 miner models',
     ]
-DEFAULT_CHECKBOX_SELECTION = 1
+DEFAULT_CHECKBOX_SELECTION = 7
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -127,6 +129,14 @@ def aion_analytics(doc):
                     selection_tab.selected_tracker.append('EDA: cryptocurrency')
                     if eda_c not in tablist:
                         tablist.append(eda_c)
+            
+            if 'EDA: crypto clusters' in lst:
+                if 'EDA: crypto clusters' not in selection_tab.selected_tracker:
+                    eda_cc = yield crypto_clusters_eda_tab(cryptocurrencies)
+                    selection_tab.selected_tracker.append('EDA: crypto clusters')
+                    if eda_cc not in tablist:
+                        tablist.append(eda_cc)
+
 
             if 'clustering: cryptocurrency' in lst:
                 if 'clustering: cryptocurrency' not in selection_tab.selected_tracker:

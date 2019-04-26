@@ -243,6 +243,24 @@ class KPI:
         except Exception:
             logger.error('period over period',exc_info=True)
 
+    def pop_week(self, launch=-1):
+        try:
+            return self.graph_period_over_period('week')
+        except Exception:
+            logger.error('pop week', exc_info=True)
+
+    def pop_month(self, launch=-1):
+        try:
+            return self.graph_period_over_period('month')
+        except Exception:
+            logger.error('pop week', exc_info=True)
+
+    def pop_quarter(self, launch=-1):
+        try:
+            return self.graph_period_over_period('quarter')
+        except Exception:
+            logger.error('pop week', exc_info=True)
+
     """
      To enable comparision across period, dates must have label relative to period start.
      Place dates in columns to be able to plot multi-line/bar graphs

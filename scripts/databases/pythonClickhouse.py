@@ -119,8 +119,10 @@ class PythonClickhouse:
         sql = self.construct_read_query(table, cols, start_date, end_date,timestamp_col)
 
         try:
-            query_result = self.client.execute(sql,settings={'max_execution_time': 3600})
-            df = pd.DataFrame(query_result, columns=cols)
+            query_result = self.client.execute(sql,settings={'max_execution_time': 3600},
+                                               with_column_types=True)
+            cols = [col[0] for col in query_result[1]] # get the names of the columns
+            df = pd.DataFrame(query_result[0], columns=cols)
             # if transaction table change the name of nrg_consumed
             if table in ['transaction', 'block']:
                 if 'nrg_consumed' in df.columns.tolist():
