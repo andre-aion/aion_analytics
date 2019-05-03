@@ -14,6 +14,7 @@ from scripts.databases.pythonRedis import PythonRedis
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import concat_dfs
 from static.css.KPI_interface import KPI_card_css
+from scripts.utils.myutils import load_cryptos
 
 import hvplot.pandas
 import hvplot.dask
@@ -36,8 +37,16 @@ class KPI:
         'update_type': ['all', 'contract_deployment', 'internal_transfer', 'mined_block', 'token_transfer',
                         'transaction'],
         'history_periods': ['1','2','3','4','5','6','7','8','9','10'],
-        'developer_adoption_variables': ['aion_fork', 'aion_watch'],
-        'resample_period':['W','M','Q']
+        'developer_adoption_DVs': ['aion_fork', 'aion_watch'],
+        'resample_period':['W','M','Q'],
+        'social_media':['twitter','facebook'],
+        'social_media_variables':[
+            'tw_mentions','tw_positive','tw_compound','tw_neutral',
+            'tw_negative', 'tw_emojis_positive','tw_emojis_compound',
+            'tw_emojis_negative','tw_emojis_count',
+            'tw_replies_from_followers','tw_replies_from_following',
+            'tw_reply_hashtags'],
+        'cryptos': ['all'] + load_cryptos()
     }
     def __init__(self,table,name,cols):
         self.df = None
@@ -56,6 +65,8 @@ class KPI:
         css_path = join(dirname(__file__),"../../../static/css/KPI_interface.css")
         self.KPI_card_css = KPI_card_css
         self.DATEFORMAT = '%Y-%m-%d %H:%M:%S'
+        self.DATEFORMAT_PTD = '%Y-%m-%d'
+
         self.initial_date = datetime.strptime("2018-04-25 00:00:00",self.DATEFORMAT)
         self.account_type = 'all'
         self.trigger = -1
@@ -87,9 +98,24 @@ class KPI:
             'year':weekly_pay*num_engineers*4*3*4
         }
         self.resample_period = self.menus['resample_period'][0]
+        
+        self.groupby_dict = {
+            'tw_mentions': 'sum',
+            'tw_positive': 'mean',
+            'tw_compound': 'mean',
+            'tw_neutral': 'mean',
+            'tw_negative': 'mean',
+            'tw_emojis_positive': 'mean',
+            'tw_emojis_compound': 'mean',
+            'tw_emojis_negative': 'mean',
+            'tw_emojis_count': 'sum',
+            'tw_replies_from_followers': 'sum',
+            'tw_replies_from_following': 'sum',
+            'tw_reply_hashtags': 'sum'
+        }
 
         # make block timestamp the index
-    def load_df(self,start_date,end_date,cols,timestamp_col='timestamp_of_first_event'):
+    def load_df(self,start_date,end_date,cols,timestamp_col='timestamp_of_first_event',supplemental_where=None):
         try:
 
             if isinstance(end_date,date):
@@ -99,10 +125,11 @@ class KPI:
             end_date += timedelta(days=1)
             temp_cols = cols.copy()
 
-            if 'amount' not in temp_cols:
-                temp_cols.append('amount')
+            if self.table != 'external_daily':
+                if 'amount' not in temp_cols:
+                    temp_cols.append('amount')
 
-            df = self.ch.load_data(self.table, temp_cols, start_date, end_date,timestamp_col)
+            df = self.ch.load_data(self.table, temp_cols, start_date, end_date,timestamp_col,supplemental_where)
             # filter out the double entry
             #df = df[df['value'] >= 0]
             return df[cols]
@@ -148,6 +175,9 @@ class KPI:
             # filter
             if timestamp_filter_col is None:
                 timestamp_filter_col = 'block_timestamp'
+
+            logger.warning('df:%s',df['timestamp'])
+
             df = df[(df[timestamp_filter_col] >= start) & (df[timestamp_filter_col] <= timestamp)]
             if len(cols) >0:
                 df = df[cols]
@@ -223,6 +253,7 @@ class KPI:
                 # load data
                 if period == 'quarter':
                     logger.warning('start:end %s:%s', start, end)
+
                 df_temp = self.load_df(start,end,cols,timestamp_col)
                 if df_temp is not None:
                     if len(df_temp) > 1:

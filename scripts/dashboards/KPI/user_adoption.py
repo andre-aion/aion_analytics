@@ -34,7 +34,7 @@ renderer = hv.renderer('bokeh')
 def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
     class Thistab(KPI):
         def __init__(self, table, cols=[]):
-            KPI.__init__(self, table,name='user',cols=cols)
+            KPI.__init__(self, table,name='social_media',cols=cols)
             self.table = table
             self.df = None
             txt = """<div style="text-align:center;background:black;width:100%;">

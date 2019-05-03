@@ -64,7 +64,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             }
 
             self.timestamp_col = 'timestamp'
-            self.variable = self.menus['developer_adoption_variables'][0]
+            self.variable = self.menus['developer_adoption_DVs'][0]
 
             self.card_lists = self.set_grid_cards()
 

@@ -14,6 +14,7 @@ from tornado.gen import coroutine
 
 import pandas as pd
 import holoviews as hv
+import chartify
 from holoviews import streams
 
 from scripts.utils.myutils import tab_error_flag
@@ -186,7 +187,31 @@ def crypto_clusters_eda_tab(cryptos,panel_title):
                             )
                             source[feature].data = data
             except Exception:
-                logger.error('prep data', exc_info=True)
+                logger.error('graph ts', exc_info=True)
+
+
+        def graph_chartify(self,timestamp_col):
+            try:
+                # global source
+                if self.df1 is not None:
+                    df = self.df1.copy()
+                    df = df.reset_index()
+
+                    for feature in self.features:
+                        ch = chartify.Chart(blank_labels=True, x_axis_type='datetime')
+                        ch.set_title("CHARTIFY")
+                        ch.plot.line(
+                            # Data must be sorted by x column
+                            data_frame=df.sort_values(timestamp_col),
+                            x_column=timestamp_col,
+                            y_column=feature,
+                            color_column='cluster'
+                        )
+                        return ch
+
+
+            except Exception:
+                logger.error('graph chartify', exc_info=True)
 
     def update():
         thistab.notification_updater("Calculations underway. Please be patient")
@@ -255,6 +280,7 @@ def crypto_clusters_eda_tab(cryptos,panel_title):
                 ('freq', '$y'),
             ]))
 
+        # ch = thistab.graph_chartify(timestamp_col='timestamp')
         # -------------------------------- CALLBACKS ------------------------
 
         load_dates_button.on_click(update)  # lags array
@@ -270,6 +296,7 @@ def crypto_clusters_eda_tab(cryptos,panel_title):
         controls_right = WidgetBox(datepicker_end)
 
         grid_data = [
+            #[ch.figure],
             [thistab.notification_div['top']],
             [controls_left, controls_right],
             [thistab.section_headers['ts'], resample_select],

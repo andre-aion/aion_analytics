@@ -17,6 +17,7 @@ from tornado.ioloop import IOLoop
 from scripts.dashboards.EDA.account_activity import account_activity_tab
 from scripts.dashboards.EDA.blockminer import blockminer_tab
 from scripts.dashboards.EDA.cryptocurrency_clusters import crypto_clusters_eda_tab
+from scripts.dashboards.KPI.social_media import KPI_social_media_tab
 from scripts.dashboards.models.predictive.account_activity_predictive import account_activity_predictive_tab
 from scripts.dashboards.models.predictive.account_predictive import account_predictive_tab
 from scripts.dashboards.KPI.developer_adoption import KPI_developer_adoption_tab
@@ -35,6 +36,7 @@ cryptocurrencies = load_cryptos()
 labels = [
     'KPI: user adoption',
     'KPI: developer adoption',
+    'KPI: social media',
     'miners: blocks',
     'EDA: account activity',
     'EDA: cryptocurrency',
@@ -42,7 +44,7 @@ labels = [
     'clustering: cryptocurrency',
     'predictions: accounts by value',
     ]
-DEFAULT_CHECKBOX_SELECTION = 7
+DEFAULT_CHECKBOX_SELECTION = 2
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -92,6 +94,14 @@ def aion_analytics(doc):
                     selection_tab.selected_tracker.append('KPI: developer adoption')
                     if developer_user_adoption not in tablist:
                         tablist.append(developer_user_adoption)
+
+            panel_title = 'KPI: social media'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    sm = yield KPI_social_media_tab(panel_title=panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
+                    if sm not in tablist:
+                        tablist.append(sm)
 
             if 'miners: blocks' in lst:
                 if 'miners: blocks' not in selection_tab.selected_tracker:
