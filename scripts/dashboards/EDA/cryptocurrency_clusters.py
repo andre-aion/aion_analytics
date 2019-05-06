@@ -64,7 +64,10 @@ def crypto_clusters_eda_tab(cryptos,panel_title):
             self.cl = PythonClickhouse('aion')
             self.items = cryptos
             # add all the coins to the dict
-            self.github_cols = ['watch','fork','issue','release','push']
+            self.github_cols = ['watch','fork','issue','release','push',
+                                'tw_mentions', 'tw_positive', 'tw_compound', 'tw_neutral',
+                                'tw_negative', 'tw_emojis_positive', 'tw_emojis_compound',
+                                'tw_emojis_negative', 'tw_emojis_count','tw_reply_hashtags']
             self.index_cols = ['close','high','low','market_cap','volume']
 
             self.trigger = 0
@@ -228,7 +231,7 @@ def crypto_clusters_eda_tab(cryptos,panel_title):
         thistab.notification_updater("ready")
 
     try:
-        table = 'crypto_daily'
+        table = 'external_daily'
         thistab = Thistab(table, [], [])
 
         # setup dates

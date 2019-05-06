@@ -219,7 +219,7 @@ class KPI:
             elif period == 'month':
                 df = df.assign(dayset=lambda x: x[timestamp_col].dt.day)
             elif period == 'year':
-                df = df.assign(dayset=lambda x: x[timestamp_col].timetuple().tm_yday)
+                df = df.assign(dayset=lambda x: x[timestamp_col].dt.dayofyear)
             elif period == 'quarter':
                 df['dayset'] = df[timestamp_col].map(label_qtr_pop)
 
@@ -284,13 +284,19 @@ class KPI:
         try:
             return self.graph_period_over_period('month')
         except Exception:
-            logger.error('pop week', exc_info=True)
+            logger.error('pop month', exc_info=True)
 
     def pop_quarter(self, launch=-1):
         try:
             return self.graph_period_over_period('quarter')
         except Exception:
-            logger.error('pop week', exc_info=True)
+            logger.error('pop quarter', exc_info=True)
+
+    def pop_year(self, launch=-1):
+        try:
+            return self.graph_period_over_period('year')
+        except Exception:
+            logger.error('pop year', exc_info=True)
 
     """
      To enable comparision across period, dates must have label relative to period start.
@@ -320,12 +326,25 @@ class KPI:
     """
 
     def section_header_updater(self,section,label='all'):
-        if label not in ['all','']:
+        if label not in ['all','','remuneration']:
             label = label+'s'
         if section == 'cards':
-            text = "Period to date:{}".format(label)
+            text = "Period to date:"
+            if label == 'remuneration':
+                text = text +'$ spent'
+            if label == 'project':
+                text = text + '# of projects'
+            if label == 'delay_start':
+                text = text + 'Mean delay in start projects(hours)'
+            if label == 'delay_end':
+                text = text + 'Mean project overrun(hours)'
+            if label == 'project_duration':
+                text = text + 'Mean project duration (days)'
+            if label == 'task_duration':
+                text = text + 'Total project person hours)'
         elif section == 'pop':
             text = "Period over period:{}".format(label)
+
         txt = """<h2 style="color:#4221cc;">{}-----------------------------------------------------------------</h2>"""\
             .format(text)
         self.section_headers[section].text = txt

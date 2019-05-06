@@ -50,11 +50,19 @@ groupby_dict = {
     'sp_volume':'mean',
     'sp_close':'mean',
     'russell_volume':'mean',
-    'russell_close':'mean'
+    'russell_close':'mean',
+    'tw_mentions': 'sum',
+    'tw_positive': 'mean',
+    'tw_neutral': 'mean',
+    'tw_negative': 'mean',
+    'tw_emojis_positive': 'mean',
+    'tw_emojis_negative': 'mean',
+    'tw_emojis_count': 'sum',
+    'tw_reply_hashtags': 'sum'
 }
 
 @coroutine
-def cryptocurrency_eda_tab(cryptos):
+def cryptocurrency_eda_tab(cryptos,panel_title):
     lags_corr_src = ColumnDataSource(data=dict(
         variable_1=[],
         variable_2=[],
@@ -183,10 +191,19 @@ def cryptocurrency_eda_tab(cryptos):
 
         def prep_data(self,df1):
             try:
+
+                df1['timestamp'] = df1['timestamp'].astype('M8[us]')
+                df = df1.set_index('timestamp')
+                logger.warning('LINE 195 df:%s',df.head())
                 # handle lag for all variables
-                df = df1.copy()
                 if self.crypto != 'all':
                     df = df[df.crypto == self.crypto]
+                df = df.compute()
+                logger.warning('LINE 199: length before:%s',len(df))
+                df = df.groupby('crypto').resample(self.resample_period).agg(self.groupby_dict)
+                logger.warning('LINE 201: length after:%s',len(df))
+
+                df = df.reset_index()
                 vars = self.feature_list.copy()
                 if int(self.lag) > 0:
                     for var in vars:
@@ -284,7 +301,7 @@ def cryptocurrency_eda_tab(cryptos):
                 df = self.df1
                 # get difference for money columns
                 df = df.drop('timestamp', axis=1)
-                df = df.compute()
+                #df = df.compute()
 
                 a = df[self.variable].tolist()
 
@@ -351,7 +368,7 @@ def cryptocurrency_eda_tab(cryptos):
                 df = self.df1
                 # get difference for money columns
                 df = df.drop('timestamp', axis=1)
-                df = df.compute()
+                #df = df.compute()
 
                 #logger.warning('line df:%s',df.head(10))
                 a = df[self.variable].tolist()
@@ -405,8 +422,8 @@ def cryptocurrency_eda_tab(cryptos):
                 #thistab.prep_data(thistab.df)
                 if 'timestamp' in df.columns:
                     df = df.drop('timestamp',axis=1)
-                df = df.repartition(npartitions=1)
-                df = df.compute()
+                #df = df.repartition(npartitions=1)
+                #df = df.compute()
 
                 df = df.fillna(0)
                 #logger.warning('line 302. df: %s',df.head(10))
@@ -479,6 +496,15 @@ def cryptocurrency_eda_tab(cryptos):
         stream_launch_corr.event(launch=thistab.trigger)
         thistab.notification_updater("Ready!")
 
+    def update_resample(attrname, old, new):
+        thistab.notification_updater("Calculations underway. Please be patient")
+        thistab.resample_period = new
+        thistab.prep_data(thistab.df)
+        thistab.trigger += 1
+        stream_launch_matrix.event(launch=thistab.trigger)
+        stream_launch_corr.event(launch=thistab.trigger)
+        thistab.notification_updater("Ready!")
+
     def update_lags_selected():
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.lag_days = lags_input.value
@@ -489,7 +515,7 @@ def cryptocurrency_eda_tab(cryptos):
 
     try:
     # SETUP
-        table = 'crypto_daily'
+        table = 'external_daily'
         cols = list(groupby_dict.keys()) + ['timestamp','crypto']
         thistab = Thistab(table,cols,[])
 
@@ -497,7 +523,7 @@ def cryptocurrency_eda_tab(cryptos):
         first_date_range = datetime.strptime("2018-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = dashboard_config['dates']['last_date'] - timedelta(days=2)
-        first_date = last_date - timedelta(days=300)
+        first_date = last_date - timedelta(days=100)
         # initial function call
         thistab.df_load(first_date, last_date,timestamp_col='timestamp')
         thistab.prep_data(thistab.df)
@@ -532,6 +558,9 @@ def cryptocurrency_eda_tab(cryptos):
         crypto_select = Select(title='Select cryptocurrency',
                                value='all',
                                options=['all']+thistab.items)
+
+        resample_select = Select(title='Select resample period',
+                                value='D',options=['D','W','M','Q'])
 
         lags_input = TextInput(value=thistab.lag_days, title="Enter lags (integer(s), separated by comma)",
                                height=55,width=300)
@@ -573,6 +602,7 @@ def cryptocurrency_eda_tab(cryptos):
         variable_select.on_change('value', update_variable)
         lag_variable_select.on_change('value', update_lag_plot_variable)
         lag_select.on_change('value',update_lag)   # individual lag
+        resample_select.on_change('value',update_resample)
         crypto_select.on_change('value', update_crypto)
         datepicker_start.on_change('value',update)
         datepicker_end.on_change('value',update)
@@ -587,7 +617,8 @@ def cryptocurrency_eda_tab(cryptos):
 
         controls_right = WidgetBox(
             datepicker_end,
-            crypto_select)
+            crypto_select,
+            resample_select)
 
         controls_lag = WidgetBox(
             lags_input,
@@ -609,9 +640,9 @@ def cryptocurrency_eda_tab(cryptos):
         ])
 
         # Make a tab with the layout
-        tab = Panel(child=grid, title='EDA: Crypto')
+        tab = Panel(child=grid, title=panel_title)
         return tab
 
     except Exception:
         logger.error('crypto:', exc_info=True)
-        return tab_error_flag('EDA: crypto')
+        return tab_error_flag(panel_title)

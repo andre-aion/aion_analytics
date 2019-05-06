@@ -54,6 +54,7 @@ class Mytab:
             'resample_periods': ['D','W', 'M', 'Q']
         }
         self.resample_period = self.menus['resample_periods'][0]
+        self.pvalue_thresh = 0.1
 
     # designed to work with premade warehouse table
     def df_load(self, req_start_date, req_end_date,timestamp_col='block_timestamp',
@@ -246,7 +247,7 @@ class Mytab:
             slope, intercept, rvalue, pvalue, std_err = linregress(a, b)
             logger.warning('slope:%s,intercept:%s,rvalue:%s,pvalue:%s,std_err:%s',
                            slope, intercept, rvalue, pvalue, std_err)
-            if pvalue < 0.05:
+            if pvalue < self.pvalue_thresh:
                 if abs(rvalue) <= self.ToA_THRESH['WEAK']:
                     txt = 'none'
                 else:
@@ -272,7 +273,7 @@ class Mytab:
         try:
             stat, pvalue= mannwhitneyu(a, b, alternative='two-sided')
             logger.warning('stat:%s,pvalue:%s',stat, pvalue)
-            if pvalue < 0.05:
+            if pvalue < self.pvalue_thresh:
                 txt = 'No'
             else:
                 txt = 'Yes'

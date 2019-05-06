@@ -45,10 +45,20 @@ groupby_dict = {
     'low': 'mean',
     'market_cap': 'mean',
     'volume': 'mean',
+    'tw_mentions': 'sum',
+    'tw_positive': 'mean',
+    'tw_compound': 'mean',
+    'tw_neutral': 'mean',
+    'tw_negative': 'mean',
+    'tw_emojis_positive': 'mean',
+    'tw_emojis_compound': 'mean',
+    'tw_emojis_negative': 'mean',
+    'tw_emojis_count': 'sum',
+    'tw_reply_hashtags': 'sum'
 }
 
 @coroutine
-def cryptocurrency_clustering_tab():
+def cryptocurrency_clustering_tab(panel_title):
 
     class Thistab(Mytab):
         def __init__(self, table, cols,dedup_cols=[]):
@@ -277,7 +287,7 @@ def cryptocurrency_clustering_tab():
 
     try:
         # SETUP
-        table = 'crypto_daily'
+        table = 'external_daily'
         cols = list(groupby_dict.keys()) + ['crypto']
         thistab = Thistab(table,cols,[])
 
@@ -331,9 +341,9 @@ def cryptocurrency_clustering_tab():
         ])
 
         # Make a tab with the layout
-        tab = Panel(child=grid, title='Clustering: crypto')
+        tab = Panel(child=grid, title=panel_title)
         return tab
 
     except Exception:
         logger.error('crypto:', exc_info=True)
-        return tab_error_flag('Clustering: crypto')
+        return tab_error_flag(panel_title)

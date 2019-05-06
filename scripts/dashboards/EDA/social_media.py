@@ -37,7 +37,7 @@ renderer = hv.renderer('bokeh')
 
 table = 'twitter'
 groupby_dict = {
-    'tw_mentions': 'mean',
+    'tw_mentions': 'sum',
     'tw_positive': 'mean',
     'tw_compound': 'mean',
     'tw_neutral': 'mean',

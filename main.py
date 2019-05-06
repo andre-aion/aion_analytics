@@ -17,6 +17,7 @@ from tornado.ioloop import IOLoop
 from scripts.dashboards.EDA.account_activity import account_activity_tab
 from scripts.dashboards.EDA.blockminer import blockminer_tab
 from scripts.dashboards.EDA.cryptocurrency_clusters import crypto_clusters_eda_tab
+from scripts.dashboards.KPI.projects import KPI_projects_tab
 from scripts.dashboards.KPI.social_media import KPI_social_media_tab
 from scripts.dashboards.models.predictive.account_activity_predictive import account_activity_predictive_tab
 from scripts.dashboards.models.predictive.account_predictive import account_predictive_tab
@@ -37,14 +38,15 @@ labels = [
     'KPI: user adoption',
     'KPI: developer adoption',
     'KPI: social media',
+    'KPI: projects',
     'miners: blocks',
     'EDA: account activity',
-    'EDA: cryptocurrency',
+    'EDA: cryptocurrencies',
     'EDA: crypto clusters',
-    'clustering: cryptocurrency',
+    'clustering: cryptocurrencies',
     'predictions: accounts by value',
     ]
-DEFAULT_CHECKBOX_SELECTION = 2
+DEFAULT_CHECKBOX_SELECTION = 3
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -103,6 +105,14 @@ def aion_analytics(doc):
                     if sm not in tablist:
                         tablist.append(sm)
 
+            panel_title = 'KPI: projects'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    kproj = yield KPI_projects_tab(panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
+                    if kproj not in tablist:
+                        tablist.append(kproj)
+
             if 'miners: blocks' in lst:
                 if 'miners: blocks' not in selection_tab.selected_tracker:
                     bm = yield blockminer_tab()
@@ -119,10 +129,11 @@ def aion_analytics(doc):
                     if aa not in tablist:
                         tablist.append(aa)
 
-            if 'EDA: cryptocurrency' in lst:
-                if 'EDA: cryptocurrency' not in selection_tab.selected_tracker:
-                    eda_c = yield cryptocurrency_eda_tab(cryptocurrencies)
-                    selection_tab.selected_tracker.append('EDA: cryptocurrency')
+            panel_title = 'EDA: cryptocurrencies'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    eda_c = yield cryptocurrency_eda_tab(cryptocurrencies,panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
                     if eda_c not in tablist:
                         tablist.append(eda_c)
 
@@ -134,11 +145,11 @@ def aion_analytics(doc):
                     if eda_cc not in tablist:
                         tablist.append(eda_cc)
 
-
-            if 'clustering: cryptocurrency' in lst:
-                if 'clustering: cryptocurrency' not in selection_tab.selected_tracker:
-                    cct = yield cryptocurrency_clustering_tab()
-                    selection_tab.selected_tracker.append('clustering: cryptocurrency')
+            panel_title = 'clustering: cryptocurrencies'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    cct = yield cryptocurrency_clustering_tab(panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
                     if cct not in tablist:
                         tablist.append(cct)
 
@@ -149,6 +160,7 @@ def aion_analytics(doc):
                     selection_tab.selected_tracker.append(panel_title)
                     if aap not in tablist:
                         tablist.append(aap)
+
 
 
 
