@@ -17,6 +17,7 @@ from tornado.ioloop import IOLoop
 from scripts.dashboards.EDA.account_activity import account_activity_tab
 from scripts.dashboards.EDA.blockminer import blockminer_tab
 from scripts.dashboards.EDA.cryptocurrency_clusters import crypto_clusters_eda_tab
+from scripts.dashboards.EDA.projects import eda_projects_tab
 from scripts.dashboards.KPI.projects import KPI_projects_tab
 from scripts.dashboards.KPI.social_media import KPI_social_media_tab
 from scripts.dashboards.models.predictive.account_activity_predictive import account_activity_predictive_tab
@@ -43,10 +44,11 @@ labels = [
     'EDA: account activity',
     'EDA: cryptocurrencies',
     'EDA: crypto clusters',
+    'EDA: projects',
     'clustering: cryptocurrencies',
     'predictions: accounts by value',
     ]
-DEFAULT_CHECKBOX_SELECTION = 3
+DEFAULT_CHECKBOX_SELECTION = 8
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -120,6 +122,13 @@ def aion_analytics(doc):
                     if bm not in tablist:
                         tablist.append(bm)
 
+            panel_title = 'EDA: projects'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    eproj = yield eda_projects_tab(panel_title=panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
+                    if eproj not in tablist:
+                        tablist.append(eproj)
 
             panel_title = 'EDA: account activity'
             if panel_title in lst:
@@ -160,8 +169,6 @@ def aion_analytics(doc):
                     selection_tab.selected_tracker.append(panel_title)
                     if aap not in tablist:
                         tablist.append(aap)
-
-
 
 
             if 'predictions: accounts by value' in lst:

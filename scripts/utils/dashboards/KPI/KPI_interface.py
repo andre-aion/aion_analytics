@@ -74,7 +74,7 @@ class KPI:
             1 : ['week', 'month'],
             2: ['quarter']
         }
-        self.history_periods = 3 # number of periods for period over period
+        self.pop_history_periods = 3 # number of periods for period over period
         self.pop_start_date = None
         self.pop_end_date = None
 
@@ -113,6 +113,9 @@ class KPI:
             'tw_replies_from_following': 'sum',
             'tw_reply_hashtags': 'sum'
         }
+
+        self.pop_history_periods = 3  # number of periods for period over period
+        self.variable = ''
 
         # make block timestamp the index
     def load_df(self,start_date,end_date,cols,timestamp_col='timestamp_of_first_event',supplemental_where=None):
@@ -176,7 +179,7 @@ class KPI:
             if timestamp_filter_col is None:
                 timestamp_filter_col = 'block_timestamp'
 
-            logger.warning('df:%s',df['timestamp'])
+            logger.warning('df:%s',df[timestamp_filter_col])
 
             df = df[(df[timestamp_filter_col] >= start) & (df[timestamp_filter_col] <= timestamp)]
             if len(cols) >0:
@@ -184,6 +187,14 @@ class KPI:
             return df
         except Exception:
             logger.error('period to date',exc_info=True)
+
+    def label_qtr_pop(y):
+        try:
+            curr_quarter = int((y.month - 1) / 3 + 1)
+            start = datetime(y.year, 3 * curr_quarter - 2, 1)
+            return abs((start - y).days)
+        except Exception:
+            logger.error('df label quarter', exc_info=True)
 
     def shift_period_range(self,period,start,end):
         try:
@@ -206,6 +217,7 @@ class KPI:
 
     # label dates for period over period (pop)
     def label_dates_pop(self, df, period, timestamp_col):
+        logger.warning('timestamp col:%s',df.head(10))
         def label_qtr_pop(y):
             try:
                 curr_quarter = int((y.month - 1) / 3 + 1)
@@ -214,19 +226,46 @@ class KPI:
             except Exception:
                 logger.error('df label quarter', exc_info=True)
         try:
-            if period == 'week':
-                df = df.assign(dayset=lambda x: x[timestamp_col].dt.dayofweek)
-            elif period == 'month':
-                df = df.assign(dayset=lambda x: x[timestamp_col].dt.day)
-            elif period == 'year':
-                df = df.assign(dayset=lambda x: x[timestamp_col].dt.dayofyear)
-            elif period == 'quarter':
-                df['dayset'] = df[timestamp_col].map(label_qtr_pop)
+            if len(df) > 0:
+                if period == 'week':
+                    df = df.assign(dayset=lambda x: x[timestamp_col].dt.dayofweek)
+                elif period == 'month':
+                    df = df.assign(dayset=lambda x: x[timestamp_col].dt.day)
+                elif period == 'year':
+                    df = df.assign(dayset=lambda x: x[timestamp_col].dt.dayofyear)
+                elif period == 'quarter':
+                    df['dayset'] = df[timestamp_col].map(label_qtr_pop)
+
 
             return df
         except Exception:
             logger.error('label data ', exc_info=True)
-        
+
+    def pop_include_zeros(self, df_period, plotcols, period):
+        try:
+            # check for no data on original dates
+            tmp_title = '0 {}(s) prev(current)'.format(period)
+            if tmp_title not in plotcols:
+                df_period[tmp_title] = [0] * len(df_period)
+                plotcols.append(tmp_title)
+
+                logger.warning('line 218 cols to plot:%s', plotcols)
+            # do other periods
+            tmp = plotcols[0]
+            txt = tmp[1:]
+            if isinstance(self.pop_history_periods,str):
+                self.pop_history_periods = int(self.pop_history_periods)
+            for i in range(1, self.pop_history_periods):
+                tmp_txt = str(i) + txt
+                if tmp_txt not in plotcols:
+                    df_period[tmp_txt] = [0] * len(df_period)
+                    plotcols.append(tmp_txt)
+
+            logger.warning('LINE 158 plotcols at end of pop include zeros:%s', plotcols)
+
+            return df_period,sorted(plotcols)
+        except Exception:
+            logger.error('pop include zeros', exc_info=True)
         
     def period_over_period(self,df,start_date, end_date, period,
                            history_periods=2,timestamp_col='timestamp_of_first_event'):
@@ -237,7 +276,9 @@ class KPI:
             # filter out the dates greater than today
             df_current = df.assign(period=string)
             # label the days being compared with the same label
-            df_current = self.label_dates_pop(df_current,period,timestamp_col)
+            if len(df_current) > 0:
+                df_current = self.label_dates_pop(df_current,period,timestamp_col)
+
 
             # zero out time information
             start = datetime(start_date.year,start_date.month,start_date.day,0,0,0)
@@ -270,6 +311,8 @@ class KPI:
                 # shift the loading window
                 counter += 1
                 start,end = self.shift_period_range(period,start,end)
+                if period == 'week':
+                    logger.warning('LINE 327 df_current:%s',df_current.head(10))
             return df_current
         except Exception:
             logger.error('period over period',exc_info=True)

@@ -285,7 +285,7 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
                 df = df.compute()
                 for idx, period in enumerate(periods):
                     df_period = self.period_over_period(df, start_date=start_date, end_date=end_date,
-                                                        period=period, history_periods=self.history_periods,
+                                                        period=period, history_periods=self.pop_history_periods,
                                                         timestamp_col='timestamp')
 
                     groupby_cols = ['dayset', 'period']
@@ -336,7 +336,7 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
 
     def update_period_over_period():
         thistab.notification_updater("Calculations underway. Please be patient")
-        thistab.history_periods = pop_number_select.value
+        thistab.pop_history_periods = pop_number_select.value
         thistab.pop_start_date = thistab.datepicker_pop_start.value  # trigger period over period
         thistab.pop_end_date = datepicker_pop_end.value
         thistab.trigger += 1
@@ -371,8 +371,8 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
                                         max_date=last_date_range, value=thistab.pop_end_date)
 
         pop_number_select = Select(title='Select # of comparative periods',
-                                        value=str(thistab.history_periods),
-                                        options=thistab.menus['history_periods'])
+                                   value=str(thistab.pop_history_periods),
+                                   options=thistab.menus['history_periods'])
         pop_button = Button(label="Select dates/periods, then click me!",width=15,button_type="success")
 
         variable_select = Select(title='Select variable', value=thistab.variable,

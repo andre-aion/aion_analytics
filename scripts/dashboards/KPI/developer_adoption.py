@@ -130,7 +130,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                 # make bunch of place holders
                 card_lists = [[],[],[],[]]
                 for key, i in self.card_grid_row.items():
-                    for j in range(0,7):
+                    for j in range(0,5):
                         card_lists[i].append(self.card('','',width=0,height=0))
 
                 return card_lists
@@ -239,7 +239,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
                 for idx,period in enumerate(periods):
                     df_period = self.period_over_period(df, start_date = start_date, end_date=end_date,
-                                                        period=period,history_periods=self.history_periods,
+                                                        period=period, history_periods=self.pop_history_periods,
                                                         timestamp_col='timestamp')
 
                     groupby_cols = ['dayset','period']
@@ -249,9 +249,9 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                     prestack_cols = list(df_period.columns)
 
                     df_period = df_period.compute()
-
                     df_period = self.split_period_into_columns(df_period,col_to_split='period',
                                                                value_to_copy=self.variable)
+
 
                     # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
                     if period == 'quarter':
@@ -263,13 +263,16 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
                     title = "{} over {}".format(period,period)
                     plotcols =list(np.setdiff1d(poststack_cols,prestack_cols))
+                    df_period,plotcols = self.pop_include_zeros(df_period=df_period,plotcols=plotcols,period=period)
+
+
                     #logger.warning('line 155 cols to plot:%s',plotcols)
                     if idx == 0:
                         p = df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
-                                                 stacked=False)
+                                                 stacked=False,width=1000,height=400,value_label='#')
                     else:
                         p += df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
-                                                  stacked=False)
+                                                  stacked=False,width=1000,height=400,value_label='#')
                 return p
 
             except Exception:
@@ -307,7 +310,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
     def update_period_over_period():
         thistab.notification_updater("Calculations underway. Please be patient")
-        thistab.history_periods = pop_number_select.value
+        thistab.pop_history_periods = pop_number_select.value
         thistab.pop_start_date = thistab.datepicker_pop_start.value  # trigger period over period
         thistab.pop_end_date = datepicker_pop_end.value
         thistab.trigger += 1
@@ -319,6 +322,13 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         thistab.resample_period = resample_select.value
         thistab.trigger += 1
         stream_launch_sig_ratio.event(launch=thistab.trigger)
+        thistab.notification_updater("ready")
+
+    def update_history_periods(attrname, old, new):
+        thistab.notification_updater("Calculations underway. Please be patient")
+        thistab.pop_history_periods = pop_number_select.value
+        thistab.trigger += 1
+        stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
     try:
@@ -349,16 +359,17 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                                         max_date=last_date_range, value=thistab.pop_end_date)
 
         pop_number_select = Select(title='Select # of comparative periods',
-                                        value=str(thistab.history_periods),
-                                        options=thistab.menus['history_periods'])
+                                   value=str(thistab.pop_history_periods),
+                                   options=thistab.menus['history_periods'])
         pop_button = Button(label="Select dates/periods, then click me!",width=15,button_type="success")
 
         variable_select = Select(title='Select variable', value=thistab.variable,
-                                 options=thistab.menus['developer_adoption_variables'])
+                                 options=thistab.menus['developer_adoption_DVs'])
 
         resample_select = Select(title='Select resample period',
                                  value=thistab.resample_period,
                                  options=thistab.menus['resample_period'])
+
 
         # ---------------------------------  GRAPHS ---------------------------
         hv_sig_ratios = hv.DynamicMap(thistab.graph_significant_ratios_ts,
@@ -380,6 +391,8 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         variable_select.on_change('value', update_variable)
         pop_button.on_click(update_period_over_period) # lags array
         resample_select.on_change('value', update_resample)
+        pop_number_select.on_change('value',update_history_periods)
+
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
@@ -399,7 +412,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             [thistab.section_headers['sig_ratio'], resample_select],
             [sig_ratios.state],
             [thistab.section_headers['pop'], controls_pop_right],
-            [controls_pop_left,controls_pop_centre],
+            [controls_pop_left,controls_pop_centre,pop_number_select],
             [pop_week.state],
             [pop_month.state],
             [pop_quarter.state],

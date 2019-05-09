@@ -3,7 +3,7 @@ import random
 from holoviews import streams
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.myutils import tab_error_flag, datetime_to_date
+from scripts.utils.myutils import tab_error_flag, datetime_to_date, concat_dfs
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 from scripts.utils.dashboards.KPI.KPI_interface import KPI
@@ -21,6 +21,7 @@ import holoviews as hv
 from tornado.gen import coroutine
 import numpy as np
 import pandas as pd
+import dask.dataframe as dd
 
 lock = Lock()
 executor = ThreadPoolExecutor()
@@ -62,6 +63,7 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                 'cards' : self.section_header_div('', 1400),
                 'pop': self.section_header_div('', 1400) # period over period
             }
+
 
         # ----------------------  DIVS ----------------------------
 
@@ -136,6 +138,7 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                 logger.error('graph periods to date',exc_info=True)
 
 
+
         def graph_period_over_period(self,period):
             try:
                 periods = [period]
@@ -161,23 +164,26 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                 if self.account_type != 'all':
                     df = df[df.account_type == self.account_type]
 
+                # col for when list is empty
+                self.variable = 'account_type'
+
                 for idx,period in enumerate(periods):
                     df_period = self.period_over_period(df, start_date=start_date, end_date=end_date,
-                                                        period=period,history_periods=self.history_periods,
+                                                        period=period, history_periods=self.pop_history_periods,
                                                         timestamp_col='timestamp_of_first_event')
 
                     groupby_cols = ['dayset','period']
                     df_period = df_period.groupby(groupby_cols).agg({'account_type':'count'})
                     df_period = df_period.reset_index()
-                    logger.warning('line 150 df_period columns:%s',df_period.head(50))
                     prestack_cols = list(df_period.columns)
                     df_period = df_period.compute()
                     df_period = self.split_period_into_columns(df_period,col_to_split='period',value_to_copy='account_type')
-                    poststack_cols = list(df_period.columns)
+                    logger.warning('line 180 df_period columns:%s',df_period.head(50))
 
+                    poststack_cols = list(df_period.columns)
                     title = "{} over {}".format(period,period)
-                    plotcols =list(np.setdiff1d(poststack_cols,prestack_cols))
-                    logger.warning('line 147 cols to plot:%s',plotcols)
+                    plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
+                    df_period,plotcols = self.pop_include_zeros(df_period=df_period,plotcols=plotcols,period=period)
                     if idx == 0:
                         p = df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
                                                  stacked=False)
@@ -201,10 +207,18 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
 
     def update_period_over_period(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
-        thistab.history_periods = history_periods_select.value
+        thistab.pop_history_periods = history_periods_select.value
         thistab.pop_start_date=datepicker_period_start.value  # trigger period over period
         thistab.pop_end_date=datepicker_period_end.value  # trigger period
         thistab.trigger +=1
+        stream_launch.event(launch=thistab.trigger)
+        thistab.notification_updater("ready")
+
+
+    def update_history_periods(attrname, old, new):
+        thistab.notification_updater("Calculations underway. Please be patient")
+        thistab.pop_history_periods = pop_number_select.value
+        thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
@@ -247,6 +261,9 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
         account_type_select = Select(title='Select account type',
                                      value='all',
                                      options=thistab.menus['account_type'])
+        pop_number_select = Select(title='Select # of comparative periods',
+                                   value=str(thistab.pop_history_periods),
+                                   options=thistab.menus['history_periods'])
 
         # ---------------------------------  GRAPHS ---------------------------
         hv_pop_week = hv.DynamicMap(thistab.pop_week, streams=[stream_launch])
@@ -265,7 +282,7 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
         history_periods_select.on_change('value',update_period_over_period)
         datepicker_period_start.on_change('value',update_period_over_period)
         datepicker_period_end.on_change('value',update_period_over_period)
-
+        pop_number_select.on_change('value',update_history_periods)
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element

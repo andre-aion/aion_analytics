@@ -71,7 +71,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
             self.menus = {
                 'status' : ['all','open','closed'],
-                'type':['all','research','reconciliation','audit','innovation','construction'],
+                'type':['all','research','reconciliation','audit','innovation','construction','manufacturing','conference'],
                 'gender':['all','male','female'],
                 'variables':list(self.groupby_dict.keys()),
                 'history_periods': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
@@ -344,7 +344,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                         periods.remove('quarter')
                 for idx, period in enumerate(periods):
                     df_period = self.period_over_period(df, start_date=start_date, end_date=end_date,
-                                                        period=period, history_periods=self.history_periods,
+                                                        period=period, history_periods=self.pop_history_periods,
                                                         timestamp_col=self.timestamp_col)
 
                     groupby_cols = ['dayset', 'period']
@@ -368,20 +368,20 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                     plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
                     # logger.warning('line 155 cols to plot:%s',plotcols)
                     if self.variable in ['delay_start','delay_end','task_duration']:
-                        xlabel = 'hours'
+                        ylabel = 'hours'
                     elif self.variable == 'project_duration':
-                        xlabel = 'days'
+                        ylabel = 'days'
                     elif self.variable == 'project':
-                        xlabel = '#'
+                        ylabel = '#'
                     elif self.variable == 'remuneration':
-                        xlabel = '$'
+                        ylabel = '$'
 
                     if idx == 0:
                         p = df_period.hvplot.bar('dayset', plotcols, rot=45, title=title,
-                                                 stacked=False, width=1200, height=400, value_label=xlabel)
+                                                 stacked=False, width=1200, height=400, value_label=ylabel)
                     else:
                         p += df_period.hvplot.bar('dayset', plotcols, rot=45, title=title,
-                                                  stacked=False, width=1200, height=400, value_label=xlabel)
+                                                  stacked=False, width=1200, height=400, value_label=ylabel)
                 return p
 
             except Exception:
@@ -400,7 +400,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
     def update_pop_dates():
         thistab.notification_updater("Calculations underway. Please be patient")
-        thistab.history_periods = pop_number_select.value
+        thistab.pop_history_periods = pop_number_select.value
         thistab.pop_start_date = datepicker_pop_start.value  # trigger period over period
         thistab.pop_end_date = datepicker_pop_end.value
         thistab.df_pop = thistab.pym.load_df(start_date=thistab.pop_start_date,
@@ -412,7 +412,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
     def update_history_periods(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
-        thistab.history_periods = pop_number_select.value
+        thistab.pop_history_periods = pop_number_select.value
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
@@ -451,7 +451,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                                         max_date=last_date_range, value=thistab.pop_end_date)
 
         pop_number_select = Select(title='Select # of comparative periods',
-                                   value=str(thistab.history_periods),
+                                   value=str(thistab.pop_history_periods),
                                    options=thistab.menus['history_periods'])
         pop_dates_button = Button(label="Select dates, then click me!", width=15, button_type="success")
 
