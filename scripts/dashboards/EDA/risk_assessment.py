@@ -3,7 +3,8 @@ from enum import Enum
 
 import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable
+from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable, \
+    HoverTool
 from pandas.io.json import json_normalize
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
@@ -22,7 +23,7 @@ from operator import itemgetter
 import pandas as pd
 import dask as dd
 import holoviews as hv
-from holoviews import streams
+from holoviews import streams, opts
 
 from scripts.utils.myutils import tab_error_flag
 
@@ -31,9 +32,7 @@ logger = mylogger(__file__)
 hv.extension('bokeh', logo=False)
 renderer = hv.renderer('bokeh')
 
-class RiskThreshold(Enum):
-    acceptable = 1
-    doubtful = 2
+
 
 @coroutine
 def pm_risk_assessment_tab(panel_title):
@@ -120,6 +119,10 @@ def pm_risk_assessment_tab(panel_title):
             self.matrices = []
             self.matrix = ''
             self.risk_select = Select(title='Select risk',value=self.risk,options=self.risks)
+            self.risk_threshold = {
+                'acceptable' : 8,
+                'doubtful' : 15
+            }
 
 
         def load_df(self):
@@ -184,19 +187,21 @@ def pm_risk_assessment_tab(panel_title):
         def action_table(self, launch):
             try:
                 def label_action(x):
-                    if x < RiskThreshold.acceptable:
+                    if x < self.risk_threshold['acceptable']:
                         return 'Proceed (risk is acceptable)'
-                    elif x < RiskThreshold.doubtful:
+                    elif x < self.risk_threshold['doubtful']:
                         return 'Proceed, if no other options are available'
                     else:
                         return 'Do no proceed (Risk unacceptable)'
 
                 df = self.df
                 df = df.groupby(['matrix', 'risk']).agg({'likelihood': 'mean', 'severity': 'mean'})
-
+                df = df.reset_index()
+                df['composite'] = df.likelihood * df.severity
                 df['action'] = df['composite'].map(label_action)
 
-                self.df.hvplot.table(columns=['matrix', 'risk', 'severity', 'action'])
+                return df.hvplot.table(columns=['matrix', 'risk', 'severity', 'likelihood','action'],width=1000,
+                                       )
             except Exception:
                 logger.error('action table', exc_info=True)
 
@@ -204,33 +209,88 @@ def pm_risk_assessment_tab(panel_title):
             try:
                 # filter
                 df = self.df1
-                #df = self.df.groupby(['matrix', 'risk']).agg({'likelihood': 'mean', 'severity': 'mean'})
-                logger.warning('LINE 208 df:%s',list(df.columns))
+                df = df.groupby(['matrix', 'risk']).agg({'likelihood': 'mean', 'severity': 'mean'})
+                df = df.reset_index()
                 df = df[df['risk'] == self.risk]
-                severity = int(df['severity'].mean())
-                likelihood =  int(df['likelihood'].mean())
+                severity_value = int(df['severity'].mean())
+                #severity = [key for (key, value) in self.ratings['severity'].items() if value == severity_value][0]
+                likelihood_value =  int(df['likelihood'].mean())
+                logger.warning('severity=%s,likelihood=%s',severity_value,likelihood_value)
 
                 # make the matrix
                 dct = {
                     'severity':list(self.ratings['severity'].keys()),
                 }
                 cols = list(self.ratings['likelihood'].keys())
-                for idx_r,col in enumerate(list(self.ratings['severity'].keys())):
-                    dct[col] = []
-                    for idx_c,val in enumerate(cols):
-                        if idx_r == self.ratings['severity'][severity] and \
-                                idx_c == self.ratings['likelihood'][likelihood]:
-                            dct[col].append('bingo')
+                for idx_row,val_col in enumerate(list(self.ratings['likelihood'].keys())):
+                    row = idx_row + 1
+                    dct[val_col] = []
+                    for idx_row,val_row in enumerate(dct['severity']):
+                        col = idx_row + 1
+                        val = row * col
+                        if row == severity_value and col == likelihood_value:
+                            logger.warning('CONDITIONS MET')
+                            txt = 'BINGO'
                         else:
-                            dct[col].append(str(idx_c * idx_r))
-                    logger.warning('%s - length=%s',col,len(dct[col]))
+                            txt = str(val)
+
+                        if val < self.risk_threshold['acceptable']:
+                            txt += '(acceptable)'
+                        elif val < self.risk_threshold['doubtful']:
+                            txt += '(doubtful)'
+                        else:
+                            txt += '(not acceptable)'
+                        dct[val_col].append(txt)
+
+
+                    logger.warning('%s - length=%s',val_col,len(dct[val_col]))
 
 
                 df_matrix = pd.DataFrame.from_dict(dct)
-                cols += ['severity']
+                cols = ['severity'] + cols
                 return df_matrix.hvplot.table(columns=cols,width=800)
             except Exception:
                 logger.error('risk matrix', exc_info=True)
+
+        def risk_heatmap(self,launch):
+            try:
+                def label_action(x):
+                    if x < self.risk_threshold['acceptable']:
+                        return 'Proceed (risk is acceptable)'
+                    elif x < self.risk_threshold['doubtful']:
+                        return 'Proceed, if no other options are available'
+                    else:
+                        return 'Do no proceed (Risk unacceptable)'
+                dct = {
+                    'severity': list(self.ratings['severity'].keys()),
+                    'severity_values':list(self.ratings['severity'].values()),
+                    'likelihood': list(self.ratings['likelihood'].keys()),
+                    'likelihood_values': list(self.ratings['likelihood'].values()),
+                }
+                dct = {
+                    'severity':[],
+                    'likelihood':[],
+                    'composite':[],
+                    'action':[]
+                }
+                for k,v in self.ratings['severity'].items():
+                    for u,w in self.ratings['severity'].items():
+                        dct['severity'].append(k)
+                        dct['likelihood'].append(u)
+                        dct['composite'].append(v*w)
+                        dct['action'].append(label_action(v*w))
+
+                df = pd.DataFrame.from_dict(dct)
+                #df['composite'] = df.severity_values * df.likelihood_values
+                #df = drop_cols(df,['severity_values','likelihood_values'])
+                logger.warning('LINE 265:%s',df)
+                hover = HoverTool(tooltips=[("action", "$action")])
+                heatmap = df.hvplot.heatmap(x='severity',y='likelihood',C='composite')
+                #heatmap = hv.HeatMap({'x': df.severity, 'y': df.likelihood, 'z': df.composite}, ['x', 'y'], vdims='z')
+                #heatmap.opts(size={'width':800})
+                return heatmap
+            except Exception:
+                logger.error('risk heatmap', exc_info=True)
 
     def update_matrix(attrname, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
@@ -238,14 +298,14 @@ def pm_risk_assessment_tab(panel_title):
         thistab.set_risks(thistab.df,matrix=thistab.matrix)
         thistab.trigger += 1
         stream_launch_action_table.event(launch=thistab.trigger)
-        stream_launch_matrix.event(launch=thistab.trigger)
+        stream_launch_risk_matrix.event(launch=thistab.trigger)
         thistab.notification_updater("Ready!")
 
     def update_risk(attrname, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.risk = thistab.risk_select.value
         thistab.trigger += 1
-        stream_launch_matrix.event(launch=thistab.trigger)
+        stream_launch_risk_matrix.event(launch=thistab.trigger)
         thistab.notification_updater("Ready!")
 
     try:
@@ -256,18 +316,21 @@ def pm_risk_assessment_tab(panel_title):
 
         # MANAGE STREAM
         stream_launch_action_table = streams.Stream.define('Launch', launch=-1)()
-        stream_launch_matrix = streams.Stream.define('Launch', launch=-1)()
+        stream_launch_risk_matrix = streams.Stream.define('Launch', launch=-1)()
 
 
-        hv_matrix = hv.DynamicMap(thistab.risk_matrix,
-                                       streams=[stream_launch_matrix])
-        matrix = renderer.get_plot(hv_matrix)
+        hv_risk_matrix = hv.DynamicMap(thistab.risk_matrix,
+                                       streams=[stream_launch_risk_matrix])
+        risk_matrix = renderer.get_plot(hv_risk_matrix)
 
         hv_action_table = hv.DynamicMap(thistab.action_table,
                                       streams=[stream_launch_action_table])
         action_table = renderer.get_plot(hv_action_table)
 
-
+        hv_risk_heatmap= hv.DynamicMap(thistab.risk_heatmap,
+                                       streams=[stream_launch_risk_matrix])
+        hv_risk_heatmap.opts(width=1200)
+        risk_heatmap = renderer.get_plot(hv_risk_heatmap)
 
         # CREATE WIDGETS
         matrix_select = Select(title='Select matrix', value=thistab.matrix,
@@ -283,9 +346,10 @@ def pm_risk_assessment_tab(panel_title):
             [thistab.notification_div['top']],
             [matrix_select, thistab.risk_select],
             [thistab.title_div('Determine action', 400)],
-            [action_table],
-            [thistab.title_div('Matrix', 400)],
-            [matrix],
+            [action_table.state],
+            [thistab.title_div('Risk Matrix', 400)],
+            [risk_matrix.state],
+            [risk_heatmap.state],
             [thistab.notification_div['bottom']]
 
         ])

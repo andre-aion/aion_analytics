@@ -164,12 +164,12 @@ class Mytab:
                 return x[0:10]
         return x
 
-
     def notification_updater(self, text):
         txt = """<div style="text-align:center;background:black;width:100%;">
                 <h4 style="color:#fff;">
                 {}</h4></div>""".format(text)
-        self.notification_div.text = txt
+        for key in self.notification_div.keys():
+            self.notification_div[key].text = txt
 
     def group_data(self, df, groupby_dict={}, timestamp_col='block_timestamp'):
         # normalize columns by number of days under consideration
