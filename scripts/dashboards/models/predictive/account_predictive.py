@@ -386,11 +386,14 @@ def account_predictive_tab():
                         if target == 'churned':
                             y_pred_verbose = ['remain' if x in ["active", 1] else "churn" for x in y_pred]
 
-                        # make table for display
+                        #---- make table for display
                         self.predict_df = pd.DataFrame({
                             'address': interest_labels,
                             'likely action': y_pred_verbose
                         })
+
+                        #------ label pools
+                        self.predict_df['address'] = self.predict_df['address'].map(self.poolname_verbose_trun)
                         #logger.warning('self.predict_df:%s',self.predict_df)
 
                         churn_df = self.predict_df[self.predict_df['likely action']=='churn']

@@ -3,14 +3,6 @@ from datetime import datetime, timedelta, date
 import pydot
 from bokeh.layouts import gridplot
 from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable
-from sklearn import metrics
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import confusion_matrix, classification_report
-from sklearn.model_selection import train_test_split
-from sklearn.tree import export_graphviz
-from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline
-from scipy.stats import mannwhitneyu
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
 from scripts.databases.pythonMongo import PythonMongo
@@ -513,8 +505,8 @@ def eda_projects_tab(panel_title):
 
     def update_multiline(attrname, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
-        thistab.multiline_var['x'] = multiline_x_select.value
-        thistab.multiline_var['y'] = multiline_y_select.value
+        thistab.multiline_vars['x'] = multiline_x_select.value
+        thistab.multiline_vars['y'] = multiline_y_select.value
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("Ready!")
@@ -540,7 +532,6 @@ def eda_projects_tab(panel_title):
         thistab.prep_data(thistab.df)
 
         # MANAGE STREAM
-        # date comes out stream in milliseconds
         stream_launch_hist = streams.Stream.define('Launch', launch=-1)()
         stream_launch_matrix = streams.Stream.define('Launch_matrix', launch=-1)()
         stream_launch_corr = streams.Stream.define('Launch_corr', launch=-1)()

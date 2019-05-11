@@ -18,6 +18,7 @@ from scripts.dashboards.EDA.account_activity import account_activity_tab
 from scripts.dashboards.EDA.blockminer import blockminer_tab
 from scripts.dashboards.EDA.cryptocurrency_clusters import crypto_clusters_eda_tab
 from scripts.dashboards.EDA.projects import eda_projects_tab
+from scripts.dashboards.EDA.risk_assessment import pm_risk_assessment_tab
 from scripts.dashboards.KPI.projects import KPI_projects_tab
 from scripts.dashboards.KPI.social_media import KPI_social_media_tab
 from scripts.dashboards.models.predictive.account_activity_predictive import account_activity_predictive_tab
@@ -36,6 +37,7 @@ cryptocurrencies = load_cryptos()
 
 
 labels = [
+    'PROJECT MGMT: Risk assessment',
     'KPI: user adoption',
     'KPI: developer adoption',
     'KPI: social media',
@@ -48,7 +50,7 @@ labels = [
     'clustering: cryptocurrencies',
     'predictions: accounts by value',
     ]
-DEFAULT_CHECKBOX_SELECTION = 8
+DEFAULT_CHECKBOX_SELECTION = 0
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -84,6 +86,14 @@ def aion_analytics(doc):
         def load_callstack(tablist):
             lst = selection_tab.get_selections(selection_checkboxes)
             #logger.warning('selections:%s',lst)
+
+            panel_title = 'PROJECT MGMT: Risk assessment'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    ra = yield pm_risk_assessment_tab(panel_title=panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
+                    if ra not in tablist:
+                        tablist.append(ra)
 
             if 'KPI: user adoption' in lst:
                 if 'KPI: user adoption' not in selection_tab.selected_tracker:
