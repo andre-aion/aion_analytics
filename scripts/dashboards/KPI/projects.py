@@ -58,30 +58,43 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             }
             self.ptd_startdate = datetime(datetime.today().year, 1, 1, 0, 0, 0)
 
-            self.timestamp_col = 'startdate_actual'
+            self.timestamp_col = 'project_startdate_actual'
             self.pym = PythonMongo('aion')
             self.groupby_dict = {
-                'delay_start': 'mean',
-                'delay_end': 'mean',
-                'project_duration': 'sum',
                 'project': 'sum',
-                'task_duration': 'sum',
-                'remuneration': 'sum'
-            }
+                'project_duration': 'sum',
+                'project_start_delay': 'mean',
+                'project_start_end': ' mean',
 
+                'milestone': 'sum',
+                'milestone_duration': 'sum',
+                'milestone_start_delay': 'mean',
+                'milestone_start_end': ' mean',
+
+                'task': 'sum',
+                'task_duration': 'sum',
+                'task_start_delay': 'mean',
+                'task_start_end': ' mean',
+            }
+            
             self.menus = {
                 'status' : ['all','open','closed'],
-                'type':['all','research','reconciliation','audit','innovation','construction','manufacturing','conference'],
+                'type':['all','research','reconciliation','audit','innovation',
+                        'construction','manufacturing','conference'],
                 'gender':['all','male','female'],
                 'variables':list(self.groupby_dict.keys()),
                 'history_periods': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
             }
 
             self.status = 'all'
-            self.gender = 'all'
+            self.pm_gender = 'all'
+            self.m_gender = 'all'
+            self.t_gender = 'all'
             self.type = 'all'
             self.variables = sorted(list(self.groupby_dict.keys()))
-            self.variable = 'project_duration'
+            self.variable = self.variables[0]
+            self.groupby_var = 'project'
+
 
             self.section_headers = {
                 'cards': self.section_header_div(text='',width=1000),
@@ -89,7 +102,9 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             }
 
 
-        # ------------------------UTILS ---------------------
+
+
+        # ----------------UTILS ---------------------
 
         # ----------------------  DIVS ----------------------------
         def section_header_div(self, text, html_header='h2', width=600):
@@ -158,8 +173,15 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 # label the days being compared with the same label
                 df_current = self.label_dates_pop(df_current, period, timestamp_col)
                 cols = [self.variable,'period','dayset']
-                if self.variable != 'project':
-                    df_current = df_current[[self.variable,'period','dayset','project']]
+                if 'project' in self.variable or self.variable in ['status','type']:
+                    if self.variable != 'project':
+                        df_current = df_current[[self.variable,'period','dayset','project']]
+                elif 'milestone' in self.variable:
+                    if self.variable != 'milestone':
+                        df_current = df_current[[self.variable,'period','dayset','milestone']]
+                elif 'task' in self.variable:
+                    if self.variable != 'task':
+                        df_current = df_current[[self.variable,'period','dayset','task']]
 
                 # zero out time information
                 start = datetime(start_date.year, start_date.month, start_date.day, 0, 0, 0)
@@ -226,29 +248,23 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         def get_groupby_pop_df(self,df,variable,groupby_cols):
             try:
 
-                if variable in ['project']:
+                if variable in ['project','milestone','task']:
                     df = df.groupby(groupby_cols).agg({variable:'nunique'})
                     df = df.reset_index()
-                    logger.warning('LINE 235:%s',df.head())
-                elif variable in ['project_duration']:
-                    logger.warning('LINE 246:df:%s',df.head())
-                    logger.warning('LINE 247 groupby cols:%s',groupby_cols)
-                    df = df.groupby(groupby_cols).agg({variable: 'mean'})
-                    df = df.reset_index()
-                elif variable in ['delay_start', 'delay_end']:
-                    logger.warning('LINE 250:df:%s',df.head())
-                    df = df.groupby(groupby_cols).agg({variable: 'mean'})
-                    df = df.reset_index()
-                elif variable in ['remuneration']:
+                    #logger.warning('LINE 254:%s',df.head())
+                elif variable in ['remuneration','type','status']:
                     df = df.groupby(groupby_cols).agg({variable: 'sum'})
                     df = df.reset_index()
-                elif variable in ['task_duration']:
+                else:
+                    #logger.warning('LINE 259:df:%s',df.head())
                     df = df.groupby(groupby_cols).agg({variable: 'mean'})
                     df = df.reset_index()
 
+
                 # clean up
-                if 'project' in df.columns and self.variable != 'project':
-                    df = df.drop(['project'],axis=1)
+                if self.groupby_var in df.columns and self.variable != self.groupby_var:
+                    df = df.drop([self.groupby_var],axis=1)
+
                 return df
             except Exception:
                 logger.error('get groupby card data', exc_info=True)
@@ -258,21 +274,32 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 #logger.warning('LINE 258:%s',df.head(5))
                 if variable in ['project']:
                     data = len(df[variable].unique())
-                    data = "{} projects".format(data)
-                elif variable in ['project_duration']:
-                    df = df.groupby(['project']).agg({variable: 'mean'})
+                    data = "{} {}s".format(data, variable)
+                elif variable in ['milestone']:
+                    df = df.groupby([self.groupby_var, 'project']).agg({variable:'count'})
+                    data = df[variable].sum()
+                    data = "{} {}s".format(data, variable)
+                elif variable in ['task']:
+                    df = df.groupby([self.groupby_var, 'project','milestone']).agg({variable:'count'})
+                    logger.warning('df:%s',df)
+                    data = df[variable].sum()
+                    data = "{} {}s".format(data, variable)
+                elif variable in ['project_duration'] or 'delay' in variable:
+                    df = df.groupby([self.groupby_var]).agg({variable: 'mean'})
                     df = df.reset_index()
                     data = "{} days".format(round(df[variable].sum(), 2))
-                elif variable in ['delay_start', 'delay_end']:
-                    df = df.groupby(['project']).agg({variable: 'mean'})
+                elif variable in ['milestone_duration']:
+                    df = df.groupby([self.groupby_var,'project']).agg({variable: 'mean'})
                     df = df.reset_index()
-                    data = "{} hours".format(round(df[variable].mean(), 2))
+                    data = "{} days".format(round(df[variable].sum(), 2))
+                elif variable in ['task_duration','task_start_delay', 'task_start_end']:
+                    df = df.groupby([self.groupby_var,'project','milestone']).agg({variable: 'mean'})
+                    df = df.reset_index()
+                    data = "{} hours".format(round(df[variable].sum(), 2))
                 elif variable in ['remuneration']:
                     data = df[variable].sum()
                     data = "${:,.2f}".format(data)
-                elif variable in ['task_duration']:
-                    data = df[variable].sum()
-                    data = "{} hours".format(data)
+
                 return data
             except Exception:
                 logger.error('get groupby card data', exc_info=True)
@@ -284,8 +311,13 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             try:
                 if self.status != 'all':
                     df1 = df1[df1.status == self.status]
-                if self.gender != 'all':
-                    df1 = df1[df1.manager_gender == self.gender]
+                if self.pm_gender != 'all':
+                    df1 = df1[df1.project_owner_gender == self.pm_gender]
+                if self.m_gender != 'all':
+                    df1 = df1[df1.milestone_owner_gender == self.m_gender]
+                if self.t_gender != 'all':
+                    df1 = df1[df1.task_owner_gender == self.t_gender]
+
                 if self.type != 'all':
                     df1 = df1[df1.type == self.type]
 
@@ -293,11 +325,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                     df = self.period_to_date(df1, timestamp=dashboard_config['dates']['last_date'],
                                              timestamp_filter_col=timestamp_filter_col, period=period)
 
-                    # get unique instances
-                    if variable != 'project':
-                        df = df[[variable,'project']]
-                    else:
-                        df = df[[variable]]
+
                     df = df.drop_duplicates(keep='first')
 
                     # groupby to eliminate repetition
@@ -327,7 +355,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 today = datetime.combine(datetime.today().date(), datetime.min.time())
 
                 df = self.df_pop.copy()
-                logger.warning('LINE 345 -df:%s',df.head())
+                #logger.warning('LINE 363 -df:%s',df.head())
 
                 cols = [self.variable, self.timestamp_col]
                 if self.variable != 'project':
@@ -349,7 +377,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
                     groupby_cols = ['dayset', 'period']
                     # logger.warning('line 150 df_period columns:%s',df.columns)
-                    logger.warning('LINE 358:df_period:%s',df_period.head())
+                    #logger.warning('LINE 385:df_period:%s',df_period.head())
                     df_period = self.get_groupby_pop_df(df_period,variable=self.variable,groupby_cols=groupby_cols)
 
                     prestack_cols = list(df_period.columns)
@@ -367,11 +395,14 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                     title = "{} over {}".format(period, period)
                     plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
                     # logger.warning('line 155 cols to plot:%s',plotcols)
-                    if self.variable in ['delay_start','delay_end','task_duration']:
+                    if self.variable in ['task_start_delay','task_end_delay','task_duration']:
                         ylabel = 'hours'
-                    elif self.variable == 'project_duration':
+                    elif self.variable in [
+                        'project_duration','milestone_duration',
+                        'project_start_delay','project_end_delay',
+                        'milestone_start_delay','milestone_end_delay']:
                         ylabel = 'days'
-                    elif self.variable == 'project':
+                    elif self.variable in ['project','task','milestone']:
                         ylabel = '#'
                     elif self.variable == 'remuneration':
                         ylabel = '$'
@@ -389,9 +420,19 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
     def update(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
-        thistab.gender = gender_select.value
+        thistab.pm_gender = pm_gender_select.value
+        thistab.m_gender = m_gender_select.value
+        thistab.t_gender = t_gender_select.value
+
         thistab.type = type_select.value
         thistab.variable = variable_select.value
+        if 'project' in thistab.variable:
+            thistab.groupby_var = 'project'
+        elif 'milestone' in thistab.variable:
+            thistab.groupby_var = 'milestone'
+        elif 'task' in thistab.variable:
+            thistab.groupby_var = 'task'
+
         thistab.status = status_select.value
         thistab.graph_periods_to_date(thistab.df, thistab.timestamp_col, variable=thistab.variable)
         thistab.trigger += 1
@@ -461,8 +502,14 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         status_select = Select(title='Select project status', value=thistab.status,
                                      options=thistab.menus['status'])
 
-        gender_select = Select(title="Select project manager's gender", value=thistab.gender,
-                               options=thistab.menus['gender'])
+        pm_gender_select = Select(title="Select project owner's gender", value=thistab.pm_gender,
+                                       options=thistab.menus['gender'])
+
+        m_gender_select = Select(title="Select milestone owner's gender", value=thistab.m_gender,
+                                      options=thistab.menus['gender'])
+
+        t_gender_select = Select(title="Select task owner's gender", value=thistab.t_gender,
+                                      options=thistab.menus['gender'])
 
         variable_select = Select(title='Select variable of interest', value=thistab.variable,
                                options=thistab.menus['variables'])
@@ -486,7 +533,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         type_select.on_change('value', update)
         pop_dates_button.on_click(update_pop_dates)  # lags array
         status_select.on_change('value', update)
-        gender_select.on_change('value', update)
+        pm_gender_select.on_change('value', update)
         variable_select.on_change('value', update)
         pop_number_select.on_change('value',update_history_periods)
 
@@ -500,7 +547,8 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
         grid = gridplot([
             [thistab.notification_div['top']],
-            [variable_select,type_select,status_select, gender_select],
+            [variable_select,type_select,status_select],
+            [pm_gender_select, m_gender_select, t_gender_select],
             [thistab.section_headers['cards']],
             [thistab.period_to_date_cards['year'], thistab.period_to_date_cards['quarter'],
              thistab.period_to_date_cards['month'], thistab.period_to_date_cards['week']],

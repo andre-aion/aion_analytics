@@ -116,6 +116,7 @@ class KPI:
 
         self.pop_history_periods = 3  # number of periods for period over period
         self.variable = ''
+        self.grouby_var = ''
 
         # make block timestamp the index
     def load_df(self,start_date,end_date,cols,timestamp_col='timestamp_of_first_event',supplemental_where=None):
