@@ -98,7 +98,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
             self.section_headers = {
                 'cards': self.section_header_div(text='',width=1000),
-                'pop': self.section_header_div(text='Period over period:----------------------------------', width=400)
+                'pop': self.section_header_div(text='Period over period:----------------------------------', width=600)
             }
 
 
@@ -141,6 +141,36 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('card', exc_info=True)
 
+        def load_df(self,req_startdate, req_enddate, table, cols, timestamp_col):
+            try:
+                # get min and max of loaded df
+                if self.df is not None:
+                    loaded_min = self.df[timestamp_col].min()
+                    loaded_max = self.df[timestamp_col].max()
+
+                    if loaded_min <= req_startdate and loaded_max >= req_enddate:
+                        df = self.df[(self.df[timestamp_col] >= req_startdate) &
+                                     (self.df[timestamp_col] <= req_enddate)]
+                        return df
+                return self.pym.load_df(req_startdate, req_enddate, table=table,
+                                      cols=cols, timestamp_col=timestamp_col)
+
+            except Exception:
+                logger.error('load_df', exc_info=True)
+
+        def filter_df(self, df1):
+            if self.status != 'all':
+                df1 = df1[df1.status == self.status]
+            if self.pm_gender != 'all':
+                df1 = df1[df1.project_owner_gender == self.pm_gender]
+            if self.m_gender != 'all':
+                df1 = df1[df1.milestone_owner_gender == self.m_gender]
+            if self.t_gender != 'all':
+                df1 = df1[df1.task_owner_gender == self.t_gender]
+
+            if self.type != 'all':
+                df1 = df1[df1.type == self.type]
+            return df1
 
         def period_to_date(self, df, timestamp=None, timestamp_filter_col=None, cols=[], period='week'):
             try:
@@ -169,19 +199,20 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
                 # filter out the dates greater than today
                 df_current = df.copy()
+                df_current = self.filter_df(df_current)
                 df_current['period'] = string
                 # label the days being compared with the same label
                 df_current = self.label_dates_pop(df_current, period, timestamp_col)
                 cols = [self.variable,'period','dayset']
-                if 'project' in self.variable or self.variable in ['status','type']:
+                if 'project' in self.variable:
                     if self.variable != 'project':
                         df_current = df_current[[self.variable,'period','dayset','project']]
                 elif 'milestone' in self.variable:
                     if self.variable != 'milestone':
-                        df_current = df_current[[self.variable,'period','dayset','milestone']]
+                        df_current = df_current[[self.variable,'period','dayset','milestone','project']]
                 elif 'task' in self.variable:
                     if self.variable != 'task':
-                        df_current = df_current[[self.variable,'period','dayset','task']]
+                        df_current = df_current[[self.variable,'period','dayset','task','milestone','project']]
 
                 # zero out time information
                 start = datetime(start_date.year, start_date.month, start_date.day, 0, 0, 0)
@@ -195,7 +226,8 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 start, end = self.shift_period_range(period, start, end)
                 while counter < history_periods and start >= self.initial_date:
                     # load data
-                    df_temp = self.pym.load_df(start, end, table=self.table, cols=[], timestamp_col=timestamp_col)
+                    df_temp = self.load_df(start, end, table=self.table, cols=[], timestamp_col=timestamp_col)
+                    df_temp = self.filter_df(df_temp)
                     df_temp[timestamp_col] = pd.to_datetime(df_temp[timestamp_col])
                     if df_temp is not None:
                         if len(df_temp) > 1:
@@ -247,19 +279,24 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
         def get_groupby_pop_df(self,df,variable,groupby_cols):
             try:
-
-                if variable in ['project','milestone','task']:
-                    df = df.groupby(groupby_cols).agg({variable:'nunique'})
+                if variable in ['project']:
+                    df = df.groupby(groupby_cols).agg({variable:'count'})
                     df = df.reset_index()
-                    #logger.warning('LINE 254:%s',df.head())
-                elif variable in ['remuneration','type','status']:
+                    logger.warning('LINE 286 df:%s',df)
+                elif variable in ['milestone']:
+                    df = df.groupby(groupby_cols).agg({variable: 'count'})
+                    df = df.reset_index()
+                    logger.warning('LINE 291 df:%s', df)
+                elif variable in ['task']:
+                    df = df.groupby(groupby_cols).agg({variable: 'count'})
+                    df = df.reset_index()
+                elif variable in ['remuneration']:
                     df = df.groupby(groupby_cols).agg({variable: 'sum'})
                     df = df.reset_index()
                 else:
                     #logger.warning('LINE 259:df:%s',df.head())
                     df = df.groupby(groupby_cols).agg({variable: 'mean'})
                     df = df.reset_index()
-
 
                 # clean up
                 if self.groupby_var in df.columns and self.variable != self.groupby_var:
@@ -271,17 +308,15 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
         def get_groupby_card_data(self,df,variable):
             try:
-                #logger.warning('LINE 258:%s',df.head(5))
                 if variable in ['project']:
                     data = len(df[variable].unique())
                     data = "{} {}s".format(data, variable)
                 elif variable in ['milestone']:
-                    df = df.groupby([self.groupby_var, 'project']).agg({variable:'count'})
+                    df = df.groupby(['project']).agg({variable:'nunique'})
                     data = df[variable].sum()
                     data = "{} {}s".format(data, variable)
                 elif variable in ['task']:
-                    df = df.groupby([self.groupby_var, 'project','milestone']).agg({variable:'count'})
-                    logger.warning('df:%s',df)
+                    df = df.groupby(['project','milestone']).agg({variable:'count'})
                     data = df[variable].sum()
                     data = "{} {}s".format(data, variable)
                 elif variable in ['project_duration'] or 'delay' in variable:
@@ -304,27 +339,18 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('get groupby card data', exc_info=True)
 
+
+
         # -------------------- GRAPHS -------------------------------------------
         def graph_periods_to_date(self, df2, timestamp_filter_col,variable):
             df1 = df2.copy()
             self.section_header_updater(section='cards',label=variable)
             try:
-                if self.status != 'all':
-                    df1 = df1[df1.status == self.status]
-                if self.pm_gender != 'all':
-                    df1 = df1[df1.project_owner_gender == self.pm_gender]
-                if self.m_gender != 'all':
-                    df1 = df1[df1.milestone_owner_gender == self.m_gender]
-                if self.t_gender != 'all':
-                    df1 = df1[df1.task_owner_gender == self.t_gender]
-
-                if self.type != 'all':
-                    df1 = df1[df1.type == self.type]
+                df1 = self.filter_df(df1)
 
                 for idx, period in enumerate(['week', 'month', 'quarter', 'year']):
                     df = self.period_to_date(df1, timestamp=dashboard_config['dates']['last_date'],
                                              timestamp_filter_col=timestamp_filter_col, period=period)
-
 
                     df = df.drop_duplicates(keep='first')
 
@@ -355,6 +381,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 today = datetime.combine(datetime.today().date(), datetime.min.time())
 
                 df = self.df_pop.copy()
+                df = self.filter_df(df)
                 #logger.warning('LINE 363 -df:%s',df.head())
 
                 cols = [self.variable, self.timestamp_col]
@@ -376,8 +403,6 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                                                         timestamp_col=self.timestamp_col)
 
                     groupby_cols = ['dayset', 'period']
-                    # logger.warning('line 150 df_period columns:%s',df.columns)
-                    #logger.warning('LINE 385:df_period:%s',df_period.head())
                     df_period = self.get_groupby_pop_df(df_period,variable=self.variable,groupby_cols=groupby_cols)
 
                     prestack_cols = list(df_period.columns)
@@ -387,14 +412,12 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                     # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
                     if period == 'quarter':
                         min_day = df_period['dayset'].min()
-                        logger.warning('LINE 252: MINIUMUM DAY:%s', min_day)
                         df_period = df_period[df_period['dayset'] > min_day]
 
                     poststack_cols = list(df_period.columns)
 
                     title = "{} over {}".format(period, period)
                     plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
-                    # logger.warning('line 155 cols to plot:%s',plotcols)
                     if self.variable in ['task_start_delay','task_end_delay','task_duration']:
                         ylabel = 'hours'
                     elif self.variable in [
@@ -534,6 +557,8 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         pop_dates_button.on_click(update_pop_dates)  # lags array
         status_select.on_change('value', update)
         pm_gender_select.on_change('value', update)
+        m_gender_select.on_change('value', update)
+        t_gender_select.on_change('value', update)
         variable_select.on_change('value', update)
         pop_number_select.on_change('value',update_history_periods)
 

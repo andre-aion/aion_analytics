@@ -45,7 +45,7 @@ class PythonMongo:
                         "$gte": start_date,
                         "$lte": end_date
                     }
-            },{'_id':False}).sort(timestamp_col, 1)))
+            },{'_id':False})))
             if df is not None:
                 if len(df) > 0:
                     if cols is not None:
