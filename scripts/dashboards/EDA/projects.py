@@ -64,14 +64,23 @@ def eda_projects_tab(panel_title):
                 'bottom': Div(text=txt, width=1400, height=10),
             }
             self.groupby_dict = {
-                'delay_start': 'mean',
-                'delay_end': 'mean',
                 'project_duration': 'sum',
-                'task_duration': 'sum',
-                'remuneration': 'sum',
-                'manager_age':'mean',
-                'gender_code':'mean',
+                'project_start_delay': 'mean',
+                'project_end_delay': 'mean',
+                'project_owner_age':'mean',
+                'project_owner_gender':'mean',
 
+                'milestone_duration': 'sum',
+                'milestone_start_delay': 'mean',
+                'milestone_end_delay': 'mean',
+                'milestone_owner_age': 'mean',
+                'milestone_owner_gender': 'mean',
+
+                'task_duration': 'sum',
+                'task_start_delay': 'sum',
+                'task_end_delay': 'mean',
+                'task_owner_age': 'mean',
+                'task_owner_gender': 'mean'
             }
             self.feature_list = list(self.groupby_dict.keys())
             self.lag_variable = 'task_duration'
@@ -88,7 +97,10 @@ def eda_projects_tab(panel_title):
                                     """
 
             self.header_style = """ style='color:blue;text-align:center;' """
-            self.variable = 'delay_end'
+
+            self.variables = sorted(list(self.groupby_dict.keys()))
+            self.variable = self.variables[0]
+
             lag_section_head_txt = 'Lag relationships between {} and...'.format(self.variable)
             self.section_header_div = {
                 'lag': self.title_div(lag_section_head_txt, 400),
@@ -99,9 +111,11 @@ def eda_projects_tab(panel_title):
             self.relationships_to_check = ['weak', 'moderate', 'strong']
 
             self.status = 'all'
-            self.gender = 'all'
+            self.pm_gender = 'all'
+            self.m_gender = 'all'
+            self.t_gender = 'all'
             self.type = 'all'
-            self.variables = sorted(list(self.groupby_dict.keys()))
+
             self.pym = PythonMongo('aion')
             self.menus = {
                 'status': ['all', 'open', 'closed'],
@@ -115,7 +129,7 @@ def eda_projects_tab(panel_title):
                 'x':'manager_gender',
                 'y':'remuneration'
             }
-            self.timestamp_col = 'startdate_actual'
+            self.timestamp_col = 'project_startdate_actual'
            
 
         # ////////////////////////// UPDATERS ///////////////////////
@@ -172,27 +186,42 @@ def eda_projects_tab(panel_title):
             return div
 
         # /////////////////////////////////////////////////////////////
+        def filter_df(self, df1):
+            if self.status != 'all':
+                df1 = df1[df1.status == self.status]
+            if self.pm_gender != 'all':
+                df1 = df1[df1.project_owner_gender == self.pm_gender]
+            if self.m_gender != 'all':
+                df1 = df1[df1.milestone_owner_gender == self.m_gender]
+            if self.t_gender != 'all':
+                df1 = df1[df1.task_owner_gender == self.t_gender]
+
+            if self.type != 'all':
+                df1 = df1[df1.type == self.type]
+            return df1
 
         def prep_data(self, df1):
             try:
-
-                df1['startdate_actual'] = df1['startdate_actual'].apply(lambda x: datetime(x.year,
+                '''
+                df1[self.timestamp_col] = df1[self.timestamp_col].apply(lambda x: datetime(x.year,
                                                                                    x.month,
                                                                                    x.day,
                                                                                    x.hour,0,0))
-                df1 = df1.set_index('startdate_actual')
+                '''
+                df1 = df1.set_index(self.timestamp_col)
                 logger.warning('LINE 195 df:%s', df1.head())
                 # handle lag for all variables
-                if self.status != 'all':
-                    df1 = df1[df1.status == self.status]
-                if self.gender != 'all':
-                    df1 = df1[df1.manager_gender == self.gender]
-                if self.type != 'all':
-                    df1 = df1[df1.type == self.type]
 
                 df = df1.copy()
+                df = self.filter_df(df)
+
                 logger.warning('LINE 199: length before:%s', len(df))
-                df = df.resample(self.resample_period).agg(self.groupby_dict)
+                slice = df[['project']]
+                df = df[list(self.groupby_dict.keys())]
+                logger.warning('LINE 218: columns:%s',df.head())
+                df = df.astype(float)
+                df = pd.concat([df,slice],axis=1)
+                df = df.groupby('project').resample(self.resample_period).agg(self.groupby_dict)
                 logger.warning('LINE 201: length after:%s', len(df))
 
                 df = df.reset_index()
@@ -242,7 +271,7 @@ def eda_projects_tab(panel_title):
                 }
                 a = df[self.variable].tolist()
                 for col in df.columns:
-                    if col not in ['startdate_actual', self.variable]:
+                    if col not in [self.timestamp_col, self.variable]:
                         # find lag
                         var = col.split('_')
                         try:
@@ -289,7 +318,7 @@ def eda_projects_tab(panel_title):
                 # prep df
                 df = self.df1
                 # get difference for money columns
-                df = df.drop('startdate_actual', axis=1)
+                df = df.drop(self.timestamp_col, axis=1)
                 # df = df.compute()
 
                 a = df[self.variable].tolist()
@@ -335,7 +364,7 @@ def eda_projects_tab(panel_title):
                 # prep df
                 df = self.df1
                 # get difference for money columns
-                df = df.drop('startdate_actual', axis=1)
+                df = df.drop(self.timestamp_col, axis=1)
                 # df = df.compute()
 
                 # logger.warning('line df:%s',df.head(10))
@@ -363,7 +392,7 @@ def eda_projects_tab(panel_title):
                     })
                 # logger.warning('df:%s',df.head(23))
                 return df.hvplot.table(columns=['Variable 1', 'Variable 2', 'Relationship', 'stat', 'p-value'],
-                                       width=550, height=200, title='Non parametricrelationship between variables')
+                                       width=550, height=200, title='Non parametric relationship between variables')
             except Exception:
                 logger.error('non parametric table', exc_info=True)
 
@@ -382,13 +411,10 @@ def eda_projects_tab(panel_title):
 
                 df = self.df1
 
-                # df = df[self.feature_list]
-
-                # get difference for money columns
 
                 # thistab.prep_data(thistab.df)
-                if 'startdate_actual' in df.columns:
-                    df = df.drop('startdate_actual', axis=1)
+                if self.timestamp_col in df.columns:
+                    df = df.drop(self.timestamp_col, axis=1)
 
                 df = df.fillna(0)
                 # logger.warning('line 302. df: %s',df.head(10))
@@ -421,6 +447,7 @@ def eda_projects_tab(panel_title):
                 dfs = {}
                 for idx,line in enumerate(lines):
                     dfs[line] = df[df[xvar] == line]
+                    dfs[line] = dfs[line].fillna(0)
                     logger.warning('LINE 428:%s - %s:',line,dfs[line].head())
                     if idx == 0:
                         p = dfs[line].hvplot.line(x=self.timestamp_col,y=yvar,width=1200,height=500).relabel(line)
@@ -434,7 +461,13 @@ def eda_projects_tab(panel_title):
     def update_variable(attr, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.prep_data(thistab.df)
-        thistab.variable = new
+        if 'milestone owner gender' == new:
+            thistab.variable = 'm_gender_code'
+        if 'project owner gender' == new:
+            thistab.variable = 'pm_gender_code'
+        if 'task owner gender' == new:
+            thistab.variable = 't_gender_code'
+
         if thistab.variable in thistab.adoption_variables['developer']:
             thistab.reset_adoption_dict(thistab.variable)
         thistab.section_head_updater('lag', thistab.variable)
@@ -453,7 +486,9 @@ def eda_projects_tab(panel_title):
 
     def update_IVs(attrname, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
-        thistab.gender = gender_select.value
+        thistab.pm_gender = pm_gender_select.value
+        thistab.m_gender = m_gender_select.value
+        thistab.t_gender = t_gender_select.value
         thistab.status = status_select.value
         thistab.type = type_select.value
         thistab.prep_data(thistab.df)
@@ -475,9 +510,13 @@ def eda_projects_tab(panel_title):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.df = thistab.pym.load_df(start_date=datepicker_start.value,
                                              end_date=datepicker_end.value,
-                                             cols=[], table=thistab.table, timestamp_col='startdate_actual')
-        thistab.df['gender_code'] = thistab.df['gender'].apply(lambda x: 1 if x == 'male' else 2)
-
+                                             cols=[], table=thistab.table, timestamp_col=thistab.timestamp_col)
+        thistab.df['project_owner_gender'] = thistab.df['project_owner_gender'].apply(
+            lambda x: 1 if x == 'male' else 2)
+        thistab.df['milestone_owner_gender'] = thistab.df['milestone_owner_gender'].apply(
+            lambda x: 1 if x == 'male' else 2)
+        thistab.df['task_owner_gender'] = thistab.df['task_owner_gender'].apply(
+            lambda x: 1 if x == 'male' else 2)
         thistab.prep_data(thistab.df)
         thistab.trigger += 1
         stream_launch_matrix.event(launch=thistab.trigger)
@@ -520,13 +559,18 @@ def eda_projects_tab(panel_title):
         first_date_range = datetime.strptime("2013-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = dashboard_config['dates']['last_date'] - timedelta(days=2)
-        first_date = last_date - timedelta(days=1200)
+        first_date = last_date - timedelta(days=100)
         # initial function call
         thistab.df = thistab.pym.load_df(start_date=first_date,
                                          end_date=last_date,
-                                         cols=[], table=thistab.table, timestamp_col='startdate_actual')
-        thistab.df['gender_code'] = thistab.df['gender'].apply(lambda x: 1 if x == 'male' else 2)
-
+                                         cols=[], table=thistab.table, timestamp_col=thistab.timestamp_col)
+        thistab.df['manager_gender'] = thistab.df['project_owner_gender']
+        thistab.df['project_owner_gender'] = thistab.df['project_owner_gender'].apply(
+            lambda x: 1 if x == 'male' else 2)
+        thistab.df['milestone_owner_gender'] = thistab.df['milestone_owner_gender'].apply(
+            lambda x: 1 if x == 'male' else 2)
+        thistab.df['task_owner_gender'] = thistab.df['task_owner_gender'].apply(
+            lambda x: 1 if x == 'male' else 2)
         logger.warning('LINE 527:columns %s',list(thistab.df.columns))
 
         thistab.prep_data(thistab.df)
@@ -547,7 +591,7 @@ def eda_projects_tab(panel_title):
 
         variable_select = Select(title='Select variable',
                                  value=thistab.variable,
-                                 options=thistab.feature_list)
+                                 options=thistab.variables)
 
         lag_variable_select = Select(title='Select lag variable',
                                      value=thistab.lag_variable,
@@ -563,8 +607,14 @@ def eda_projects_tab(panel_title):
         status_select = Select(title='Select project status', value=thistab.status,
                                options=thistab.menus['status'])
 
-        gender_select = Select(title="Select project manager's gender", value=thistab.gender,
-                               options=thistab.menus['gender'])
+        pm_gender_select = Select(title="Select project owner's gender", value=thistab.pm_gender,
+                                  options=thistab.menus['gender'])
+
+        m_gender_select = Select(title="Select milestone owner's gender", value=thistab.m_gender,
+                                 options=thistab.menus['gender'])
+
+        t_gender_select = Select(title="Select task owner's gender", value=thistab.t_gender,
+                                 options=thistab.menus['gender'])
 
         resample_select = Select(title='Select resample period',
                                  value='D', options=['D', 'W', 'M', 'Q'])
@@ -620,12 +670,14 @@ def eda_projects_tab(panel_title):
         lag_variable_select.on_change('value', update_lag_plot_variable)
         lag_select.on_change('value', update_lag)  # individual lag
         resample_select.on_change('value', update_resample)
+        pm_gender_select.on_change('value', update_IVs)
+        m_gender_select.on_change('value', update_IVs)
+        t_gender_select.on_change('value', update_IVs)
         datepicker_start.on_change('value', update)
         datepicker_end.on_change('value', update)
         lags_input_button.on_click(update_lags_selected)  # lags array
 
         status_select.on_change('value', update_IVs)
-        gender_select.on_change('value', update_IVs)
         type_select.on_change('value', update_IVs)
 
         multiline_x_select.on_change('value',update_multiline)
@@ -633,14 +685,6 @@ def eda_projects_tab(panel_title):
 
         # COMPOSE LAYOUT
         # put the controls in a single element
-        controls_left = WidgetBox(
-            datepicker_start,
-            variable_select,
-            lag_select)
-
-        controls_right = WidgetBox(
-            datepicker_end)
-
         controls_lag = WidgetBox(
             lags_input,
             lags_input_button
@@ -656,7 +700,8 @@ def eda_projects_tab(panel_title):
         grid = gridplot([
             [thistab.notification_div['top']],
             [datepicker_start,datepicker_end, variable_select, type_select],
-            [status_select, gender_select,resample_select],
+            [status_select, resample_select],
+            [pm_gender_select, m_gender_select, t_gender_select],
             [thistab.title_div('Compare levels in a variable', 400)],
             [multiline.state,controls_multiline],
             [thistab.title_div('Relationships between variables', 400)],

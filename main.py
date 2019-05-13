@@ -50,7 +50,7 @@ labels = [
     'clustering: cryptocurrencies',
     'predictions: accounts by value',
     ]
-DEFAULT_CHECKBOX_SELECTION = 4
+DEFAULT_CHECKBOX_SELECTION = 9
 
 @gen.coroutine
 def aion_analytics(doc):

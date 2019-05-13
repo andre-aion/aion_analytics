@@ -64,17 +64,17 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 'project': 'sum',
                 'project_duration': 'sum',
                 'project_start_delay': 'mean',
-                'project_start_end': ' mean',
+                'project_end_delay': ' mean',
 
                 'milestone': 'sum',
                 'milestone_duration': 'sum',
                 'milestone_start_delay': 'mean',
-                'milestone_start_end': ' mean',
+                'milestone_end_delay': ' mean',
 
                 'task': 'sum',
                 'task_duration': 'sum',
                 'task_start_delay': 'mean',
-                'task_start_end': ' mean',
+                'task_end_delay': ' mean',
             }
             
             self.menus = {
@@ -100,8 +100,6 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 'cards': self.section_header_div(text='',width=1000),
                 'pop': self.section_header_div(text='Period over period:----------------------------------', width=600)
             }
-
-
 
 
         # ----------------UTILS ---------------------
