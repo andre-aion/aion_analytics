@@ -4,7 +4,7 @@ from enum import Enum
 import pydot
 from bokeh.layouts import gridplot
 from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable, \
-    HoverTool
+    HoverTool, HTMLTemplateFormatter
 from pandas.io.json import json_normalize
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
@@ -32,10 +32,18 @@ logger = mylogger(__file__)
 hv.extension('bokeh', logo=False)
 renderer = hv.renderer('bokeh')
 
-
-
 @coroutine
 def pm_risk_assessment_tab(panel_title):
+    risk_matrix_src = ColumnDataSource(data=dict(
+        Severity=[],
+        Unlikely=[],
+        Seldom=[],
+        Occaisional=[],
+        Likely=[],
+        Definite=[]
+    ))
+
+
     class Thistab(Mytab):
         def __init__(self, table, cols, dedup_cols=[]):
             Mytab.__init__(self, table, cols, dedup_cols)
@@ -125,6 +133,7 @@ def pm_risk_assessment_tab(panel_title):
             }
 
 
+
         def load_df(self):
             try:
                 risk_matrix = json_normalize(list(self.pym.db['risk_matrix'].find()))
@@ -199,13 +208,13 @@ def pm_risk_assessment_tab(panel_title):
                 df = df.reset_index()
                 df['composite'] = df.likelihood * df.severity
                 df['action'] = df['composite'].map(label_action)
-
+                self.risk_matrix()
                 return df.hvplot.table(columns=['matrix', 'risk', 'severity', 'likelihood','action'],width=1000,
                                        )
             except Exception:
                 logger.error('action table', exc_info=True)
 
-        def risk_matrix(self,launch):
+        def risk_matrix(self):
             try:
                 # filter
                 df = self.df1
@@ -219,78 +228,63 @@ def pm_risk_assessment_tab(panel_title):
 
                 # make the matrix
                 dct = {
-                    'severity':list(self.ratings['severity'].keys()),
+                    'Severity':list(self.ratings['severity'].keys()),
                 }
                 cols = list(self.ratings['likelihood'].keys())
-                for idx_row,val_col in enumerate(list(self.ratings['likelihood'].keys())):
+
+                for idx_row, val_col in enumerate(list(self.ratings['likelihood'].keys())):
                     row = idx_row + 1
                     dct[val_col] = []
-                    for idx_row,val_row in enumerate(dct['severity']):
+                    for idx_row, val_row in enumerate(dct['Severity']):
                         col = idx_row + 1
                         val = row * col
                         if row == severity_value and col == likelihood_value:
                             logger.warning('CONDITIONS MET')
                             txt = 'BINGO'
                         else:
-                            txt = str(val)
+                            txt = val
 
-                        if val < self.risk_threshold['acceptable']:
-                            txt += '(acceptable)'
-                        elif val < self.risk_threshold['doubtful']:
-                            txt += '(doubtful)'
-                        else:
-                            txt += '(not acceptable)'
                         dct[val_col].append(txt)
 
+                logger.warning('LINE 288 %s - length=%s',val_col,len(dct[val_col]))
 
-                    logger.warning('%s - length=%s',val_col,len(dct[val_col]))
+                risk_matrix_src.stream(dct, rollover=(len(dct['Severity'])))
+                columns = [
+                    TableColumn(field="Severity",title='severity'),
+                    TableColumn(field="Unlikely", title='unlikely',formatter=dashboard_config['formatters']['Unlikely']),
+                    TableColumn(field="Seldom", title='seldom', formatter=dashboard_config['formatters']['Seldom']),
+                    TableColumn(field="Occaisional", title='occaisional',
+                                formatter=dashboard_config['formatters']['Occaisional']),
+                    TableColumn(field="Likely", title='likely', formatter=dashboard_config['formatters']['Likely']),
+                    TableColumn(field="Definite", title='definite',formatter=dashboard_config['formatters']['Definite']),
+                ]
+                risk_matrix_table = DataTable(source=risk_matrix_src, columns=columns,
+                                              width=800, height=500)
 
-
-                df_matrix = pd.DataFrame.from_dict(dct)
-                cols = ['severity'] + cols
-                return df_matrix.hvplot.table(columns=cols,width=800)
+                return risk_matrix_table
             except Exception:
                 logger.error('risk matrix', exc_info=True)
 
-        def risk_heatmap(self,launch):
-            try:
-                def label_action(x):
-                    if x < self.risk_threshold['acceptable']:
-                        return 'Proceed (risk is acceptable)'
-                    elif x < self.risk_threshold['doubtful']:
-                        return 'Proceed, if no other options are available'
-                    else:
-                        return 'Do no proceed (Risk unacceptable)'
-                dct = {
-                    'severity': list(self.ratings['severity'].keys()),
-                    'severity_values':list(self.ratings['severity'].values()),
-                    'likelihood': list(self.ratings['likelihood'].keys()),
-                    'likelihood_values': list(self.ratings['likelihood'].values()),
-                }
-                dct = {
-                    'severity':[],
-                    'likelihood':[],
-                    'composite':[],
-                    'action':[]
-                }
-                for k,v in self.ratings['severity'].items():
-                    for u,w in self.ratings['severity'].items():
-                        dct['severity'].append(k)
-                        dct['likelihood'].append(u)
-                        dct['composite'].append(v*w)
-                        dct['action'].append(label_action(v*w))
+    def risk_information_div(self, width=400, height=300):
+        txt = """
+               <div {}>
+               <h4 {}>How to interpret Risk assessment matrix:</h4>
+               <ul style='margin-top:-10px;'>
+                   <li>
+                   Red: Unacceptable risk. Do NOT proceed.
+                   </li>
+                   <li>
+                   Yellow: Risky. Proceed only after ensuring better options aren't reasonable available
+                   </li>
+                   <li>
+                   Green: Acceptable risk. Proceed.
+                   </li>
+               </ul>
+               </div>
 
-                df = pd.DataFrame.from_dict(dct)
-                #df['composite'] = df.severity_values * df.likelihood_values
-                #df = drop_cols(df,['severity_values','likelihood_values'])
-                logger.warning('LINE 265:%s',df)
-                hover = HoverTool(tooltips=[("action", "$action")])
-                heatmap = df.hvplot.heatmap(x='severity',y='likelihood',C='composite')
-                #heatmap = hv.HeatMap({'x': df.severity, 'y': df.likelihood, 'z': df.composite}, ['x', 'y'], vdims='z')
-                #heatmap.opts(size={'width':800})
-                return heatmap
-            except Exception:
-                logger.error('risk heatmap', exc_info=True)
+               """.format(self.div_style, self.header_style)
+        div = Div(text=txt, width=width, height=height)
+        return div
 
     def update_matrix(attrname, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
@@ -318,19 +312,21 @@ def pm_risk_assessment_tab(panel_title):
         stream_launch_action_table = streams.Stream.define('Launch', launch=-1)()
         stream_launch_risk_matrix = streams.Stream.define('Launch', launch=-1)()
 
-
-        hv_risk_matrix = hv.DynamicMap(thistab.risk_matrix,
-                                       streams=[stream_launch_risk_matrix])
-        risk_matrix = renderer.get_plot(hv_risk_matrix)
-
+        # MAKE TABLES
+        # --------------------- PLOTS----------------------------------
+        columns = [
+            TableColumn(field="Severity",title="severity"),
+            TableColumn(field="Unlikely",title='unlikely',formatter=dashboard_config['formatters']['Unlikely']),
+            TableColumn(field="Seldom",title='seldom',formatter=dashboard_config['formatters']['Seldom']),
+            TableColumn(field="Occaisional",title='occaisional',formatter=dashboard_config['formatters']['Occaisional']),
+            TableColumn(field="Likely",title='likely',formatter=dashboard_config['formatters']['Likely']),
+            TableColumn(field="Definite",title='definite',formatter=dashboard_config['formatters']['Definite']),
+        ]
+        risk_matrix = DataTable(source=risk_matrix_src, columns=columns, width=800, height=500)
         hv_action_table = hv.DynamicMap(thistab.action_table,
                                       streams=[stream_launch_action_table])
         action_table = renderer.get_plot(hv_action_table)
 
-        hv_risk_heatmap= hv.DynamicMap(thistab.risk_heatmap,
-                                       streams=[stream_launch_risk_matrix])
-        hv_risk_heatmap.opts(width=1200)
-        risk_heatmap = renderer.get_plot(hv_risk_heatmap)
 
         # CREATE WIDGETS
         matrix_select = Select(title='Select matrix', value=thistab.matrix,
@@ -344,14 +340,12 @@ def pm_risk_assessment_tab(panel_title):
 
         grid = gridplot([
             [thistab.notification_div['top']],
-            [matrix_select, thistab.risk_select],
             [thistab.title_div('Determine action', 400)],
             [action_table.state],
-            [thistab.title_div('Risk Matrix', 400)],
-            [risk_matrix.state],
-            [risk_heatmap.state],
+            [thistab.title_div('Risk Matrix-------------------------------------------', 600)],
+            [matrix_select, thistab.risk_select],
+            [risk_matrix],
             [thistab.notification_div['bottom']]
-
         ])
 
         # Make a tab with the layout
