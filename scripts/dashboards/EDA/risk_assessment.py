@@ -240,7 +240,7 @@ def pm_risk_assessment_tab(panel_title):
                         val = row * col
                         if row == severity_value and col == likelihood_value:
                             logger.warning('CONDITIONS MET')
-                            txt = 'BINGO'
+                            txt = 'BINGO '+str(val)
                         else:
                             txt = val
 
@@ -300,6 +300,7 @@ def pm_risk_assessment_tab(panel_title):
         thistab.risk = thistab.risk_select.value
         thistab.trigger += 1
         stream_launch_risk_matrix.event(launch=thistab.trigger)
+        thistab.risk_matrix()
         thistab.notification_updater("Ready!")
 
     try:

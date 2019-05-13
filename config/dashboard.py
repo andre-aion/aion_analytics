@@ -23,19 +23,28 @@ config = {
                     (function colorfromint(){
                         var thresh_1 = 8;
                         var thresh_2 = 15;
-                        if (typeof Unlikely == 'string')
-                            {return("black")}
+                        if (typeof Unlikely == 'string'){
+                            var val = Unlikely.split(' ');
+                            val = val.slice(-1)[0] 
+                            console.log(val);
+                            if(val < thresh_1 )
+                                {return("#1aff1a")}
+                            else if (val < thresh_2)
+                                {return("#CCCC00")}
+                            else
+                                {return("#ff6633")}
+                        }
                         else{
                             if(Unlikely < thresh_1 )
-                                {return("green")}
+                                {return("#1aff1a")}
                             else if (Unlikely < thresh_2)
                                 {return("#CCCC00")}
                             else if (Unlikely >= thresh_2)
-                                {return("red")}
+                                {return("#ff6633")}
                         }
 
                     }()) %>;
-                    color: white">
+                    color: #111111;font-size:2em;text-align:center">
                 <%= value %>
                 </div>
             """),
@@ -44,19 +53,28 @@ config = {
                     (function colorfromint(){
                         var thresh_1 = 8;
                         var thresh_2 = 15;
-                        if (typeof Seldom == 'string')
-                            {return("black")}
+                        if (typeof Seldom == 'string'){
+                           var val = Seldom.split(' ');
+                            val = val.slice(-1)[0] 
+                            console.log(val);
+                            if(val < thresh_1 )
+                                {return("#1aff1a")}
+                            else if (val < thresh_2)
+                                {return("#CCCC00")}
+                            else
+                                {return("#ff6633")}
+                        }
                         else{
                             if(Seldom < thresh_1 )
-                                {return("green")}
+                                {return("#1aff1a")}
                             else if (Seldom < thresh_2)
                                 {return("#CCCC00")}
                             else if (Seldom >= thresh_2)
-                                {return("red")}
+                                {return("#ff6633")}
                         }
 
                     }()) %>;
-                    color: white">
+                    color: #111111;font-size:2em;text-align:center">
                 <%= value %>
                 </div>
             """),
@@ -66,19 +84,28 @@ config = {
                     (function colorfromint(){
                         var thresh_1 = 8;
                         var thresh_2 = 15;
-                        if (typeof Occaisional == 'string')
-                            {return("black")}
+                        if (typeof Occaisional == 'string'){
+                            var val = Occaisional.split(' ');
+                            val = val.slice(-1)[0] 
+                            console.log(val);
+                            if(val < thresh_1 )
+                                {return("#1aff1a")}
+                            else if (val < thresh_2)
+                                {return("#CCCC00")}
+                            else
+                                {return("#ff6633")}
+                        }
                         else{
                             if(Occaisional < thresh_1 )
-                                {return("green")}
+                                {return("#1aff1a")}
                             else if (Occaisional < thresh_2)
                                 {return("#CCCC00")}
-                            else if (Occaisional >= thresh_2)
-                                {return("red")}
+                            else 
+                                {return("#ff6633")}
                         }
 
                     }()) %>;
-                    color: white">
+                    color:#111111;font-size:2em;text-align:center">
                 <%= value %>
                 </div>
             """),
@@ -87,19 +114,27 @@ config = {
                     (function colorfromint(){
                         var thresh_1 = 8;
                         var thresh_2 = 15;
-                        if (typeof Likely == 'string')
-                            {return("black")}
+                        if (typeof Likely == 'string'){
+                            var val = Likely.split(' ');
+                            val = val.slice(-1)[0] 
+                            if(val < thresh_1 )
+                                {return("#1aff1a")}
+                            else if (val < thresh_2)
+                                {return("#CCCC00")}
+                            else
+                                {return("#ff6633")}
+                        }
                         else{
                             if(Likely < thresh_1 )
-                                {return("green")}
+                                {return("#1aff1a")}
                             else if (Likely < thresh_2)
                                 {return("#CCCC00")}
                             else if (Likely >= thresh_2)
-                                {return("red")}
+                                {return("#ff6633")}
                         }
 
                     }()) %>;
-                    color: white">
+                    color: #111111;font-size:2em;text-align:center">
                 <%= value %>
                 </div>
             """),
@@ -108,24 +143,30 @@ config = {
                     (function colorfromint(){
                         var thresh_1 = 8;
                         var thresh_2 = 15;
-                        if (typeof Definite == 'string')
-                            {return("black")}
+                        if (typeof Definite == 'string'){
+                            var val = Definite.split(' ');
+                            val = val.slice(-1)[0] 
+                            console.log(val);
+                            if(val < thresh_1 )
+                                {return("#1aff1a")}
+                            else if (val < thresh_2)
+                                {return("#CCCC00")}
+                            else
+                                {return("#ff6633")}
+                        }
                         else{
                             if(Definite < thresh_1 )
-                                {return("green")}
+                                {return("#1aff1a")}
                             else if (Definite < thresh_2)
                                 {return("#CCCC00")}
                             else if (Definite >= thresh_2)
-                                {return("red")}
+                                {return("#ff6633")}
                         }
 
                     }()) %>;
-                    color: white">
+                    color: #111111;font-size:2em;text-align:center">
                 <%= value %>
                 </div>
             """),
-
-
-
         }
 }
