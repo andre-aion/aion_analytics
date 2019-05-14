@@ -44,5 +44,7 @@ KPI_card_css = {
         border: #ccc 2px solid;
         background-image: linear-gradient(#ccc .7em, #eee .1em);
         margin: 0.5em;
+        margin-top:-5px;
+        
     """
 }

@@ -11,7 +11,7 @@ from scripts.utils.dashboards.KPI.KPI_interface import KPI
 from config.dashboard import config as dashboard_config
 
 from bokeh.layouts import gridplot, WidgetBox
-from bokeh.models import Panel, Button
+from bokeh.models import Panel, Button, Spacer
 import gc
 from bokeh.models.widgets import Div, \
     DatePicker, Select
@@ -96,12 +96,6 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             self.variable = self.variables[0]
             self.groupby_var = 'project'
 
-            self.section_headers = {
-                'cards': self.section_header_div(text='Period to date:-----------------------------------'
-                                                 ,width=1000,html_header='h2',margin_top=50),
-                'pop': self.section_header_div(text='Period over period:----------------------------------', width=600),
-                'chord':self.section_header_div(text='Relationships:--------------------------------------', width=600)
-            }
 
             self.chord_data = {
                 'rename': {
@@ -115,16 +109,26 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             }
 
             self.percentile_threshold = 10
-            self.KPI_card_div = self.initialize_cards(self.page_width, height=500)
 
+            # ----- UPDATED DIVS START
+            self.section_header_margin_bottom = -150
+            self.section_divider = '-----------------------------------'
+            self.section_headers = {
+                'cards': self.section_header_div(text='Period to date:{}'.format(self.section_divider),
+                                                 width=1000, html_header='h2', margin_top=50,margin_bottom=5),
+                'pop': self.section_header_div(text='Period over period:{}'.format(self.section_divider),
+                                               width=600, html_header='h2', margin_top=5,margin_bottom=-155),
+                'chord': self.section_header_div(text='Relationships:{}'.format(self.section_divider),
+                                                 width=600, html_header='h2', margin_top=5,margin_bottom=-155)
+            }
+            self.KPI_card_div = self.initialize_cards(self.page_width, height=350)
 
-
-        # ----------------UTILS ---------------------
+            # ----- UPDATED DIVS END
 
         # ----------------------  DIVS ----------------------------
-        def section_header_div(self, text, html_header='h2', width=600, margin_top=150):
-            text = """<div style="margin-top:{}px"><{} style="color:#4221cc;">{}</{}></div>"""\
-                .format(margin_top,html_header, text, html_header)
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150,margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>"""\
+                .format(margin_top,margin_bottom,html_header, text, html_header)
             return Div(text=text, width=width, height=15)
 
         def information_div(self, width=400, height=300):
@@ -148,52 +152,22 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             div = Div(text=txt, width=width, height=height)
             return div
 
-        def card(self, title, data, card_design='folders', width=200, height=200):
-            try:
-                txt = """
-                <div style="flex: 1 1 0px;border: 1px solid black;{}">
-                    <h3>
-                        {}
-                    </h3>
-                    </br>
-                    {}
-                </div>""".format(
-                    self.KPI_card_css[card_design], title, data)
-                return txt
-            except Exception:
-                logger.error('card', exc_info=True)
 
-        def initialize_cards(self,width,height):
+
+        def initialize_cards(self,width,height=250):
             try:
                 txt = ''
                 for period in ['year','quarter','month','week']:
                     design = random.choice(list(KPI_card_css.keys()))
                     txt += self.card(title='',data='',card_design=design)
 
-                text = """<div style="margin-top:50px;display:flex; flex-direction:row;">
+                text = """<div style="margin-top:100px;display:flex; flex-direction:row;">
                 {}
                 </div>""".format(txt)
                 div = Div(text=text, width=width, height=height)
                 return div
             except Exception:
                 logger.error('initialize cards', exc_info=True)
-
-        def update_cards(self,dct):
-            try:
-                txt = ''
-                for period, data in dct.items():
-                    design = random.choice(list(KPI_card_css.keys()))
-                    title = period + ' to date'
-                    txt += self.card(title=title,data=data,card_design=design)
-
-                text = """<div style="margin-top:50px;display:flex; flex-direction:row;">
-                               {}
-                               </div>""".format(txt)
-
-                self.KPI_card_div.text = text
-
-            except Exception:
-                logger.error('update cards', exc_info=True)
 
 
         def load_df(self,req_startdate, req_enddate, table, cols, timestamp_col):
@@ -552,7 +526,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
                 chord_ = hv.Chord((links, nodes),['source','target'],['value'])
                 chord_.opts(opts.Chord(cmap='Category20',edge_cmap='Category20',edge_color=dim('source').str(),
-                                       labels='Type',node_color=dim('index').str()))
+                                       labels='Type',node_color=dim('index').str(),width=1000,height=1000))
 
                 return chord_
 
@@ -687,33 +661,30 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
         controls_top_left = WidgetBox(
-            type_select, status_select
-        )
-        controls_top_left_inner = WidgetBox(
-            variable_select
-        )
-        controls_top_right_inner = WidgetBox(
-            pm_gender_select, m_gender_select, t_gender_select
+            variable_select,type_select, status_select
         )
         controls_top_right = WidgetBox(
-
+            pm_gender_select, m_gender_select, t_gender_select
         )
-        controls_pop_left = WidgetBox(datepicker_pop_start,)
-        controls_pop_inner_left = WidgetBox(datepicker_pop_end)
-        controls_pop_inner_right = WidgetBox(pop_dates_button)
-        control_pop_right = WidgetBox(pop_number_select)
+
+        controls_pop_left = WidgetBox(datepicker_pop_start,datepicker_pop_end, pop_dates_button)
+        controls_pop_right = WidgetBox(pop_number_select)
 
         grid = gridplot([
             [thistab.notification_div['top']],
+            [Spacer(width=20, height=70)],
+            [controls_top_left],
             [thistab.section_headers['cards']],
             [thistab.KPI_card_div],
-            #[thistab.section_headers['pop']],
-            #[controls_pop_left, controls_pop_inner_left,controls_pop_inner_right, pop_number_select],
-            [pop_week.state],
+            [thistab.section_headers['pop']],
+            [Spacer(width=20, height=25)],
+            [controls_pop_left],
+            [pop_week.state,controls_pop_right],
             [pop_month.state],
             [pop_quarter.state],
             [pop_year.state],
-            #[thistab.section_headers['chord']],
+            [thistab.section_headers['chord']],
+            [Spacer(width=20, height=25)],
             [chord.state],
             [thistab.notification_div['bottom']]
         ])

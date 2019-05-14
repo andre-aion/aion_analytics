@@ -358,8 +358,41 @@ class KPI:
             logger.error('split period into column', exc_info=True)
 
     # -----------------------  UPDATERS  ------------------------------------------
+    def card(self, title, data, width=200, height=200, card_design='folders'):
+        try:
+            txt = """
+            <div style="flex: 1 1 0px;border: 1px solid black;{};width:{}px;
+                        height:{}px;border-right=10px;">
+                <h3>
+                    {}
+                </h3>
+                </br>
+                {}
+            </div>""".format(
+                self.KPI_card_css[card_design], width, height, title, data)
+            return txt
+        except Exception:
+            logger.error('card', exc_info=True)
+
+    def update_cards(self, dct):
+        try:
+            txt = ''
+            for period, data in dct.items():
+                design = random.choice(list(KPI_card_css.keys()))
+                title = period + ' to date'
+                txt += self.card(title=title, data=data, card_design=design)
+
+            text = """<div style="margin-top:100px;display:flex; flex-direction:row;">
+                                  {}
+                                  </div>""".format(txt)
+
+            self.KPI_card_div.text = text
+
+        except Exception:
+            logger.error('update cards', exc_info=True)
+
     def notification_updater(self, text):
-        txt = """<hr/><div style="width:{}px;height:{}px;
+        txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
                               position:relative;background:black;">
                               <h1 style="color:#fff;margin-bottom:300px">{}</h1>
                         </div>""".format(self.page_width,50,text)
