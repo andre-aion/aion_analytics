@@ -117,6 +117,7 @@ class KPI:
         self.pop_history_periods = 3  # number of periods for period over period
         self.variable = ''
         self.grouby_var = ''
+        self.page_width = 1200
 
         # make block timestamp the index
     def load_df(self,start_date,end_date,cols,timestamp_col='timestamp_of_first_event',supplemental_where=None):
@@ -358,9 +359,10 @@ class KPI:
 
     # -----------------------  UPDATERS  ------------------------------------------
     def notification_updater(self, text):
-        txt = """<div style="text-align:center;background:black;width:100%;">
-                  <h4 style="color:#fff;">
-                  {}</h4></div>""".format(text)
+        txt = """<hr/><div style="width:{}px;height:{}px;
+                              position:relative;background:black;">
+                              <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                        </div>""".format(self.page_width,50,text)
         for key in self.notification_div.keys():
             self.notification_div[key].text = txt
 

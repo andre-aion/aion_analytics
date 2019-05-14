@@ -1,6 +1,6 @@
 import random
 
-from holoviews import streams
+from holoviews import streams, dim
 
 from scripts.databases.pythonMongo import PythonMongo
 from scripts.utils.mylogger import mylogger
@@ -19,9 +19,12 @@ from bokeh.models.widgets import Div, \
 from datetime import datetime, timedelta, date
 
 import holoviews as hv
+from holoviews import opts, Dimension
 from tornado.gen import coroutine
 import numpy as np
 import pandas as pd
+
+from static.css.KPI_interface import KPI_card_css
 
 lock = Lock()
 executor = ThreadPoolExecutor()
@@ -39,21 +42,19 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             self.table = table
             self.df = None
             self.df_pop = None
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                      <h1 style="color:#fff;">
-                      {}</h1></div>""".format('Welcome')
+            self.page_width = 1200
+            txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
+                              position:relative;background:black;margin-bottom:200px">
+                              <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                        </div>""".format(self.page_width,50,'Welcome')
             self.notification_div = {
-                'top': Div(text=txt, width=1400, height=20),
-                'bottom': Div(text=txt, width=1400, height=10),
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
             }
 
             self.checkboxgroup = {}
 
             self.period_to_date_cards = {
-                'year': self.card('', ''),
-                'quarter': self.card('', ''),
-                'month': self.card('', ''),
-                'week': self.card('', '')
 
             }
             self.ptd_startdate = datetime(datetime.today().year, 1, 1, 0, 0, 0)
@@ -95,18 +96,35 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             self.variable = self.variables[0]
             self.groupby_var = 'project'
 
-
             self.section_headers = {
-                'cards': self.section_header_div(text='',width=1000),
-                'pop': self.section_header_div(text='Period over period:----------------------------------', width=600)
+                'cards': self.section_header_div(text='Period to date:-----------------------------------'
+                                                 ,width=1000,html_header='h2',margin_top=50),
+                'pop': self.section_header_div(text='Period over period:----------------------------------', width=600),
+                'chord':self.section_header_div(text='Relationships:--------------------------------------', width=600)
             }
+
+            self.chord_data = {
+                'rename': {
+
+                    'project_owner':'source',
+                    'milestone_owner':'target',
+                    'remuneration':'value'
+                },
+                'percentile_threshold':.75,
+
+            }
+
+            self.percentile_threshold = 10
+            self.KPI_card_div = self.initialize_cards(self.page_width, height=500)
+
 
 
         # ----------------UTILS ---------------------
 
         # ----------------------  DIVS ----------------------------
-        def section_header_div(self, text, html_header='h2', width=600):
-            text = '<{} style="color:#4221cc;">{}</{}>'.format(html_header, text, html_header)
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150):
+            text = """<div style="margin-top:{}px"><{} style="color:#4221cc;">{}</{}></div>"""\
+                .format(margin_top,html_header, text, html_header)
             return Div(text=text, width=width, height=15)
 
         def information_div(self, width=400, height=300):
@@ -132,12 +150,51 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
         def card(self, title, data, card_design='folders', width=200, height=200):
             try:
-                txt = """<div {}><h3>{}</h3></br>{}</div>""".format(self.KPI_card_css[card_design], title, data)
-                div = Div(text=txt, width=width, height=height)
-                return div
-
+                txt = """
+                <div style="flex: 1 1 0px;border: 1px solid black;{}">
+                    <h3>
+                        {}
+                    </h3>
+                    </br>
+                    {}
+                </div>""".format(
+                    self.KPI_card_css[card_design], title, data)
+                return txt
             except Exception:
                 logger.error('card', exc_info=True)
+
+        def initialize_cards(self,width,height):
+            try:
+                txt = ''
+                for period in ['year','quarter','month','week']:
+                    design = random.choice(list(KPI_card_css.keys()))
+                    txt += self.card(title='',data='',card_design=design)
+
+                text = """<div style="margin-top:50px;display:flex; flex-direction:row;">
+                {}
+                </div>""".format(txt)
+                div = Div(text=text, width=width, height=height)
+                return div
+            except Exception:
+                logger.error('initialize cards', exc_info=True)
+
+        def update_cards(self,dct):
+            try:
+                txt = ''
+                for period, data in dct.items():
+                    design = random.choice(list(KPI_card_css.keys()))
+                    title = period + ' to date'
+                    txt += self.card(title=title,data=data,card_design=design)
+
+                text = """<div style="margin-top:50px;display:flex; flex-direction:row;">
+                               {}
+                               </div>""".format(txt)
+
+                self.KPI_card_div.text = text
+
+            except Exception:
+                logger.error('update cards', exc_info=True)
+
 
         def load_df(self,req_startdate, req_enddate, table, cols, timestamp_col):
             try:
@@ -342,10 +399,10 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         # -------------------- GRAPHS -------------------------------------------
         def graph_periods_to_date(self, df2, timestamp_filter_col,variable):
             df1 = df2.copy()
-            self.section_header_updater(section='cards',label=variable)
+            #self.section_header_updater(section='cards',label=variable,margin_top=159,html_header='h2')
             try:
                 df1 = self.filter_df(df1)
-
+                dct = {}
                 for idx, period in enumerate(['week', 'month', 'quarter', 'year']):
                     df = self.period_to_date(df1, timestamp=dashboard_config['dates']['last_date'],
                                              timestamp_filter_col=timestamp_filter_col, period=period)
@@ -357,11 +414,12 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
                     del df
                     gc.collect()
-                    title = "{} to date".format(period)
+                    dct[period]=data
+                    #title = "{} to date".format(period)
 
-                    p = self.card(title=title, data=data, card_design=random.choice(list(self.KPI_card_css.keys())))
-                    self.period_to_date_cards[period].text = p.text
-                    logger.warning('%s to date completed', period)
+                    #p = self.card(title=title, data=data, card_design=random.choice(list(self.KPI_card_css.keys())))
+                    #self.period_to_date_cards[period].text = p.text
+                self.update_cards(dct)
 
             except Exception:
                 logger.error('graph periods to date', exc_info=True)
@@ -439,6 +497,68 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('period over period to date', exc_info=True)
 
+        def chord_diagram(self, launch):
+            try:
+                def normalize_value(x,total):
+                    x = int((x/total)*1000)
+                    if x <= 0:
+                        return 1
+                    return x
+
+
+                df = self.df.copy()
+
+                # --------------  nodes
+                data = {}
+                data['nodes'] = []
+                source_list = df['milestone_owner'].tolist()
+                names = list(set(source_list))
+
+                person_type_dict = dict(zip(df.milestone_owner,df.type))
+                type_dict = {}
+                types = list(set(df['type'].tolist()))
+                name_dict = {}
+                for idx,name in enumerate(names):
+                    name_dict[name] = idx
+
+                for idx,name in enumerate(names):
+                    type_tmp = person_type_dict[name]
+                    index = name_dict[name]
+                    data['nodes'].append({'OwnerID':index,'index':idx,'Type':type_tmp})
+
+                nodes = hv.Dataset(pd.DataFrame(data['nodes']),'index')
+
+                # --------- make the links
+
+                data['links'] = []
+
+                for idx,row in df.iterrows():
+                    src = name_dict[row['project_owner']]
+                    tgt = name_dict[row['milestone_owner']]
+                    val = row['remuneration']
+                    data['links'].append({'source':src,'target':tgt,'value':val})
+
+                links = pd.DataFrame(data['links'])
+                # get the individual links
+                links = links.groupby(['source','target'])['value'].sum()
+                links = links.reset_index()
+                total = links['value'].sum()
+                links['value'] = links['value'].apply(lambda x: normalize_value(x,total))
+
+                # filter for top percentile
+                quantile_val = links['value'].quantile(self.chord_data['percentile_threshold'])
+                links = links[links['value'] >= quantile_val]
+                logger.warning('after quantile filter:%s',len(links))
+
+                chord_ = hv.Chord((links, nodes),['source','target'],['value'])
+                chord_.opts(opts.Chord(cmap='Category20',edge_cmap='Category20',edge_color=dim('source').str(),
+                                       labels='Type',node_color=dim('index').str()))
+
+                return chord_
+
+            except Exception:
+                logger.error('chord diagram', exc_info=True)
+
     def update(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.pm_gender = pm_gender_select.value
@@ -487,7 +607,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         first_date_range = thistab.initial_date
         last_date_range = datetime.now().date()
         last_date = dashboard_config['dates']['last_date']
-        first_date = datetime(last_date.year, 1, 1, 0, 0, 0)
+        first_date = datetime(last_date.year, 4, 1, 0, 0, 0)
 
         thistab.df = thistab.pym.load_df(start_date=first_date,end_date=last_date,table=thistab.table,cols=[],
                                      timestamp_col=thistab.timestamp_col)
@@ -498,6 +618,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                                              end_date=thistab.pop_end_date,
                                              cols=[], table=thistab.table,
                                              timestamp_col=thistab.timestamp_col)
+
 
         # MANAGE STREAM
         # date comes out stream in milliseconds
@@ -536,7 +657,6 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                                options=thistab.menus['variables'])
 
         # ---------------------------------  GRAPHS ---------------------------
-
         hv_pop_week = hv.DynamicMap(thistab.pop_week, streams=[stream_launch])
         pop_week = renderer.get_plot(hv_pop_week)
 
@@ -548,6 +668,9 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
         hv_pop_year = hv.DynamicMap(thistab.pop_year, streams=[stream_launch])
         pop_year = renderer.get_plot(hv_pop_year)
+
+        hv_chord = hv.DynamicMap(thistab.chord_diagram, streams=[stream_launch])
+        chord = renderer.get_plot(hv_chord)
 
         # -------------------------------- CALLBACKS ------------------------
 
@@ -563,24 +686,35 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
+        controls_top_left = WidgetBox(
+            type_select, status_select
+        )
+        controls_top_left_inner = WidgetBox(
+            variable_select
+        )
+        controls_top_right_inner = WidgetBox(
+            pm_gender_select, m_gender_select, t_gender_select
+        )
+        controls_top_right = WidgetBox(
 
-        controls_pop_left = WidgetBox(datepicker_pop_start)
-        controls_pop_centre = WidgetBox(datepicker_pop_end)
-        controls_pop_right = WidgetBox(pop_dates_button)
+        )
+        controls_pop_left = WidgetBox(datepicker_pop_start,)
+        controls_pop_inner_left = WidgetBox(datepicker_pop_end)
+        controls_pop_inner_right = WidgetBox(pop_dates_button)
+        control_pop_right = WidgetBox(pop_number_select)
 
         grid = gridplot([
             [thistab.notification_div['top']],
-            [variable_select,type_select,status_select],
-            [pm_gender_select, m_gender_select, t_gender_select],
             [thistab.section_headers['cards']],
-            [thistab.period_to_date_cards['year'], thistab.period_to_date_cards['quarter'],
-             thistab.period_to_date_cards['month'], thistab.period_to_date_cards['week']],
-            [thistab.section_headers['pop'], controls_pop_right],
-            [controls_pop_left, controls_pop_centre, pop_number_select],
+            [thistab.KPI_card_div],
+            #[thistab.section_headers['pop']],
+            #[controls_pop_left, controls_pop_inner_left,controls_pop_inner_right, pop_number_select],
             [pop_week.state],
             [pop_month.state],
             [pop_quarter.state],
             [pop_year.state],
+            #[thistab.section_headers['chord']],
+            [chord.state],
             [thistab.notification_div['bottom']]
         ])
 

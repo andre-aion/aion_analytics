@@ -1,6 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor
 
-from bokeh.models import WidgetBox
+from bokeh.models import WidgetBox, Spacer
 from tornado import gen
 from bokeh.document import without_document_lock
 
@@ -50,7 +50,7 @@ labels = [
     'clustering: cryptocurrencies',
     'predictions: accounts by value',
     ]
-DEFAULT_CHECKBOX_SELECTION = 0
+DEFAULT_CHECKBOX_SELECTION = 4
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -59,18 +59,15 @@ def aion_analytics(doc):
             self.selected_tabs = []
             self.tablist = []
             self.selected_tracker = []  # used to monitor if a tab has already been launched
-            self.div_style = """ style='width:300px; margin-left:25px;
+            self.div_style = """ style='width:300px; margin-left:-200%;
                        border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
                        """
-
-            self.txt = """<div style="text-align:center;background:black;width:100%;">
-                                        <h1 style="color:#fff;">
-                                        {}</h1></div>""".format('Welcome to Aion Data Science Portal')
+            self.page_width = 1200
 
         def notification_updater(self, text):
             txt = """<div style="text-align:center;background:black;width:100%;">
-                                                                                 <h4 style="color:#fff;">
-                                                                                 {}</h4></div>""".format(text)
+                     <h4 style="color:#fff;">
+                     {}</h4></div>""".format(text)
             return txt
 
         def get_selections(self, checkboxes):
@@ -194,18 +191,21 @@ def aion_analytics(doc):
 
         @gen.coroutine
         def select_tabs():
-            notification_div.text = """<div style="text-align:center;background:black;width:100%;">
-                                    <h1 style="color:#fff;">
-                                    {}</h1></div>""".format('Please be patient. Tabs are loading..')
+            notification_div.text = """
+                <div style="text-align:center;background:black;width:{}px;margin-bottom:100px;">
+                        <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                </div>""".format(selection_tab.page_width,'Tabs are loading')
             yield load_callstack(tablist)
-            notification_div.text = """<div style="text-align:center;background:black;width:100%;">
-                                                <h1 style="color:#fff;">
-                                             {}</h1></div>""".format('Welcome to Aion Data Science Portal')
+            notification_div.text = """
+                <div style="text-align:center;background:black;width:{}px;margin-bottom:100px;">
+                        <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                </div>""".format(selection_tab.page_width,'Welcome to Aion Data Science Portal')
         @gen.coroutine
         def update_selected_tabs():
-            notification_div.text = """<div style="text-align:center;background:black;width:100%;">
-                                                <h1 style="color:#fff;">
-                                                {}</h1></div>""".format('Refresh underway')
+            notification_div.text = """
+                <div style="text-align:center;background:black;width:{}px;margin-bottom:100px;">
+                        <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                </div>""".format(selection_tab.page_width,'Refresh underway')
 
             doc.clear()
             tablist = []
@@ -216,38 +216,37 @@ def aion_analytics(doc):
             TABS.update(tabs=tablist)
             doc.add_root(TABS)
             yield load_callstack(tablist)
-            notification_div.text = """<div style="text-align:center;background:black;width:100%;">
-                                                            <h1 style="color:#fff;">
-                                                            {}</h1></div>""".format(
-                'Welcome to Aion Data Science Portal')
+            notification_div.text = """
+                <div style="text-align:center;background:black;width:{}px;margin-bottom:100px;">
+                        <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                </div>""".format(selection_tab.page_width,'Welcome to Aion Data Science Portal')
 
 
         # -----------------------
         txt = """
                 <div {}>
-                    <h3 style='color:blue;text-align:center'>Info:</h3>
-                    <ul style='margin-top:-10px;height:200px'>
-                    <li>
-                    Select the tab(s) you want activated
-                    </li>
-                    <li>
-                    Then click the 'launch activity' button.
-                    </li>
-                    </ul>
-                </div>
-                """.format(selection_tab.div_style)
+                <h3 style='color:blue;text-align:center'>Info:</h3>
+                <ul style='margin-top:-10px;height:200px;'>
+                <li>
+                Select the tab(s) you want activated
+                </li>
+                <li>
+                Then click the 'launch activity' button.
+                </li>
+                </ul>
+            </div>
+            """.format(selection_tab.div_style)
 
         information_div = Div(text=txt, width=400, height=250)
-        buffer_div = Div(text='', width=300, height=20)
-        footer_div = Div(text='<hr/><div style="width:100%;height:100px;position:relative;background:black;"></div>',
-                         width=1200, height=100)
-        txt = """<div style="text-align:center;background:black;width:100%;">
-                                                <h1 style="color:#fff;">
-                                                {}</h1></div>""".format('Welcome to Aion Data Science Portal')
-        notification_div = Div(text=txt,width=1200,height=20)
-        header_div = Div(text="""<div style="text-align:center;background:black;width:100%;">
-                           <h1 style="color:#fff;">
-                           {}</h1></div>""", width=1200, height=20)
+        footer_div = Div(text="""<hr/><div style="width:{}px;height:{}px;
+                              position:relative;background:black;"></div>"""
+                         .format(selection_tab.page_width,50),
+                         width=selection_tab.page_width, height=100)
+        txt = """
+            <div style="text-align:center;background:black;width:{}px;margin-bottom:100px;">
+                    <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+            </div>""".format(selection_tab.page_width,'Welcome to Aion Data Science Portal')
+        notification_div = Div(text=txt,width=selection_tab.page_width,height=40)
 
         # choose startup tabs
         selection_checkboxes = CheckboxGroup(labels=labels, active=[DEFAULT_CHECKBOX_SELECTION])
@@ -260,7 +259,8 @@ def aion_analytics(doc):
         # create the dashboards
         grid = gridplot([
             [notification_div],
-            [buffer_div,controls, information_div],
+            [Spacer(width=50, height=2, sizing_mode='scale_width')],
+            [controls,information_div],
             [footer_div]
         ])
 
