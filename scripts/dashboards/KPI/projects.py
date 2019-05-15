@@ -42,15 +42,8 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             self.table = table
             self.df = None
             self.df_pop = None
-            self.page_width = 1200
-            txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
-                              position:relative;background:black;margin-bottom:200px">
-                              <h1 style="color:#fff;margin-bottom:300px">{}</h1>
-                        </div>""".format(self.page_width,50,'Welcome')
-            self.notification_div = {
-                'top': Div(text=txt, width=self.page_width, height=20),
-                'bottom': Div(text=txt, width=self.page_width, height=10),
-            }
+
+
 
             self.checkboxgroup = {}
 
@@ -110,8 +103,17 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
             self.percentile_threshold = 10
 
-            # ----- UPDATED DIVS START
-            self.section_header_margin_bottom = -150
+            # ------- DIVS setup begin
+            self.page_width = 1200
+            txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
+                                         position:relative;background:black;margin-bottom:200px">
+                                         <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                                   </div>""".format(self.page_width, 50, 'Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
+            }
+
             self.section_divider = '-----------------------------------'
             self.section_headers = {
                 'cards': self.section_header_div(text='Period to date:{}'.format(self.section_divider),
@@ -661,25 +663,23 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
         controls_top_left = WidgetBox(
-            variable_select,type_select, status_select
+            variable_select,type_select, status_select,pm_gender_select, m_gender_select, t_gender_select,
         )
         controls_top_right = WidgetBox(
             pm_gender_select, m_gender_select, t_gender_select
         )
 
-        controls_pop_left = WidgetBox(datepicker_pop_start,datepicker_pop_end, pop_dates_button)
+        controls_pop_left = WidgetBox(datepicker_pop_start,datepicker_pop_end, pop_dates_button,pop_number_select)
         controls_pop_right = WidgetBox(pop_number_select)
 
         grid = gridplot([
             [thistab.notification_div['top']],
             [Spacer(width=20, height=70)],
-            [controls_top_left],
             [thistab.section_headers['cards']],
-            [thistab.KPI_card_div],
+            [thistab.KPI_card_div,controls_top_left],
             [thistab.section_headers['pop']],
             [Spacer(width=20, height=25)],
-            [controls_pop_left],
-            [pop_week.state,controls_pop_right],
+            [pop_week.state,controls_pop_left],
             [pop_month.state],
             [pop_quarter.state],
             [pop_year.state],

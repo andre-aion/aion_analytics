@@ -56,6 +56,8 @@ class Mytab:
         self.resample_period = self.menus['resample_periods'][0]
         self.pvalue_thresh = 0.1
 
+        self.page_width = 1200
+
     # designed to work with premade warehouse table
     def df_load(self, req_start_date, req_end_date,timestamp_col='block_timestamp',
                 supplemental_where=None):
@@ -165,9 +167,10 @@ class Mytab:
         return x
 
     def notification_updater(self, text):
-        txt = """<div style="text-align:center;background:black;width:100%;">
-                <h4 style="color:#fff;">
-                {}</h4></div>""".format(text)
+        txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
+                              position:relative;background:black;">
+                              <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                        </div>""".format(self.page_width,50,text)
         for key in self.notification_div.keys():
             self.notification_div[key].text = txt
 

@@ -2,7 +2,8 @@ from datetime import datetime, timedelta, date
 
 import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable
+from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable, \
+    Spacer
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
 from scripts.databases.pythonMongo import PythonMongo
@@ -56,13 +57,17 @@ def eda_projects_tab(panel_title):
             self.cl = PythonClickhouse('aion')
             
             self.trigger = 0
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                                                                           <h1 style="color:#fff;">
-                                                                           {}</h1></div>""".format('Welcome')
+            txt = """<hr/>
+                    <div style="text-align:center;width:{}px;height:{}px;
+                          position:relative;background:black;margin-bottom:200px">
+                          <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                    </div>""".format(self.page_width, 50, 'Welcome')
             self.notification_div = {
                 'top': Div(text=txt, width=1400, height=20),
                 'bottom': Div(text=txt, width=1400, height=10),
             }
+
+
             self.groupby_dict = {
                 'project_duration': 'sum',
                 'project_start_delay': 'mean',
@@ -92,21 +97,17 @@ def eda_projects_tab(panel_title):
             self.mod_thresh = 0.4
             self.weak_thresh = 0.25
             self.corr_df = None
-            self.div_style = """ style='width:350px; margin-left:25px;
-                                    border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
-                                    """
+            self.div_style = """ 
+                style='width:350px; margin-left:25px;
+                border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+            """
 
             self.header_style = """ style='color:blue;text-align:center;' """
 
             self.variables = sorted(list(self.groupby_dict.keys()))
             self.variable = self.variables[0]
 
-            lag_section_head_txt = 'Lag relationships between {} and...'.format(self.variable)
-            self.section_header_div = {
-                'lag': self.title_div(lag_section_head_txt, 400),
-                'distribution': self.title_div('Pre-transform distribution', 400)
 
-            }
 
             self.relationships_to_check = ['weak', 'moderate', 'strong']
 
@@ -130,14 +131,47 @@ def eda_projects_tab(panel_title):
                 'y':'remuneration'
             }
             self.timestamp_col = 'project_startdate_actual'
-           
+            # ------- DIVS setup begin
+            self.page_width = 1250
+            txt = """<hr/>
+                    <div style="text-align:center;width:{}px;height:{}px;
+                           position:relative;background:black;margin-bottom:200px">
+                           <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                    </div>""".format(self.page_width, 50, 'Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
+            }
+            lag_section_head_txt = 'Lag relationships between {} and...'.format(self.variable)
 
-        # ////////////////////////// UPDATERS ///////////////////////
-        def section_head_updater(self, section, txt):
-            try:
-                self.section_header_div[section].text = txt
-            except Exception:
-                logger.error('', exc_info=True)
+            self.section_divider = '-----------------------------------'
+            self.section_headers = {
+
+                'lag': self.section_header_div(text=lag_section_head_txt,
+                                               width=600, html_header='h2', margin_top=5,
+                                               margin_bottom=-155),
+                'distribution': self.section_header_div(text='Pre-transform distribution:',
+                                                 width=600, html_header='h2', margin_top=5,
+                                                 margin_bottom=-155),
+                'relationships': self.section_header_div(
+                    text='Relationships between variables:{}'.format(self.section_divider),
+                    width=600, html_header='h2', margin_top=5,
+                    margin_bottom=-155),
+                'correlations': self.section_header_div(
+                    text='Correlations:',
+                    width=600, html_header='h3', margin_top=5,
+                    margin_bottom=-155),
+
+            }
+
+            # ----- UPDATED DIVS END
+
+            # ----------------------  DIVS ----------------------------
+
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150, margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>""" \
+                .format(margin_top, margin_bottom, html_header, text, html_header)
+            return Div(text=text, width=width, height=15)
 
         def notification_updater(self, text):
             txt = """<div style="text-align:center;background:black;width:100%;">
@@ -156,6 +190,10 @@ def eda_projects_tab(panel_title):
             return Div(text=text, width=width, height=15)
 
         def corr_information_div(self, width=400, height=300):
+            div_style = """ 
+                style='width:350px; margin-left:-600px;
+                border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+            """
             txt = """
             <div {}>
             <h4 {}>How to interpret relationships </h4>
@@ -181,7 +219,7 @@ def eda_projects_tab(panel_title):
             </ul>
             </div>
 
-            """.format(self.div_style, self.header_style)
+            """.format(div_style, self.header_style)
             div = Div(text=txt, width=width, height=height)
             return div
 
@@ -559,7 +597,7 @@ def eda_projects_tab(panel_title):
         first_date_range = datetime.strptime("2013-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = dashboard_config['dates']['last_date'] - timedelta(days=2)
-        first_date = last_date - timedelta(days=100)
+        first_date = last_date - timedelta(days=30)
         # initial function call
         thistab.df = thistab.pym.load_df(start_date=first_date,
                                          end_date=last_date,
@@ -687,7 +725,8 @@ def eda_projects_tab(panel_title):
         # put the controls in a single element
         controls_lag = WidgetBox(
             lags_input,
-            lags_input_button
+            lags_input_button,
+            lag_variable_select
         )
 
         controls_multiline = WidgetBox(
@@ -695,22 +734,34 @@ def eda_projects_tab(panel_title):
             multiline_y_select
         )
 
+        controls_page = WidgetBox(
+            datepicker_start, datepicker_end, variable_select,
+            type_select,status_select, resample_select,
+            pm_gender_select, m_gender_select, t_gender_select
+        )
+        controls_gender =  WidgetBox(
+            pm_gender_select, m_gender_select, t_gender_select
+        )
+
         # create the dashboards
 
         grid = gridplot([
             [thistab.notification_div['top']],
-            [datepicker_start,datepicker_end, variable_select, type_select],
-            [status_select, resample_select],
-            [pm_gender_select, m_gender_select, t_gender_select],
+            [Spacer(width=20, height=70)],
+            [thistab.section_headers['relationships']],
+            [Spacer(width=20, height=70)],
+            [matrix_plot.state, controls_page],
+            [thistab.section_headers['correlations']],
+            [Spacer(width=20, height=70)],
+            [corr_table.state,thistab.corr_information_div()],
             [thistab.title_div('Compare levels in a variable', 400)],
+            [Spacer(width=20, height=70)],
             [multiline.state,controls_multiline],
-            [thistab.title_div('Relationships between variables', 400)],
-            [corr_table.state, nonpara_table.state, thistab.corr_information_div()],
-            [matrix_plot.state],
-            [thistab.section_header_div['lag'], lag_variable_select, controls_lag],
-            [lags_plot.state, lags_corr_table],
+            [thistab.section_headers['lag']],
+            [Spacer(width=20, height=70)],
+            [lags_plot.state, controls_lag],
+            [lags_corr_table],
             [thistab.notification_div['bottom']]
-
         ])
 
         # Make a tab with the layout

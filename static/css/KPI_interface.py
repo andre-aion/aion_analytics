@@ -39,7 +39,7 @@ KPI_card_css = {
     'calendar': """
         text-align: center;
         border-radius: 10px;
-        height: 100px;
+        height: 180px;
         padding-top: 2em;
         border: #ccc 2px solid;
         background-image: linear-gradient(#ccc .7em, #eee .1em);
