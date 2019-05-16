@@ -4,7 +4,7 @@ from enum import Enum
 import pydot
 from bokeh.layouts import gridplot
 from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable, \
-    HoverTool, HTMLTemplateFormatter
+    HoverTool, HTMLTemplateFormatter, Spacer
 from pandas.io.json import json_normalize
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
@@ -59,13 +59,7 @@ def pm_risk_assessment_tab(panel_title):
             self.cl = PythonClickhouse('aion')
 
             self.trigger = 0
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                                                                           <h1 style="color:#fff;">
-                                                                           {}</h1></div>""".format('Welcome')
-            self.notification_div = {
-                'top': Div(text=txt, width=1400, height=20),
-                'bottom': Div(text=txt, width=1400, height=10),
-            }
+
             self.groupby_dict = {
 
             }
@@ -76,12 +70,7 @@ def pm_risk_assessment_tab(panel_title):
 
             self.header_style = """ style='color:blue;text-align:center;' """
             self.variable = 'delay_end'
-            lag_section_head_txt = 'Lag relationships between {} and...'.format(self.variable)
-            self.section_header_div = {
-                'lag': self.title_div(lag_section_head_txt, 400),
-                'distribution': self.title_div('Pre-transform distribution', 400)
 
-            }
 
             self.relationships_to_check = ['weak', 'moderate', 'strong']
 
@@ -132,42 +121,78 @@ def pm_risk_assessment_tab(panel_title):
                 'doubtful' : 15
             }
 
+            # ------- DIVS setup begin
+            self.page_width = 1200
+            txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
+                                                position:relative;background:black;margin-bottom:200px">
+                                                <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                                          </div>""".format(self.page_width, 50, 'Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
+            }
+            lag_section_head_txt = 'Lag relationships between {} and...'.format(self.variable)
+            self.section_divider = '-----------------------------------'
+            self.section_headers = {
+                'lag': self.section_header_div(text=lag_section_head_txt,
+                                                 width=1000, html_header='h2', margin_top=50, margin_bottom=5),
+                'distribution': self.section_header_div(text='Pre-transform distribution',
+                                               width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+                'matrix':self.section_header_div(text='Risk Matrix:{}'.format(self.section_divider),
+                                               width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+            }
 
+
+            # ----- UPDATED DIVS END
+
+            # ----------------------  DIVS ----------------------------
+
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150, margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>""" \
+                .format(margin_top, margin_bottom, html_header, text, html_header)
+            return Div(text=text, width=width, height=15)
 
         def load_df(self):
             try:
-                risk_matrix = json_normalize(list(self.pym.db['risk_matrix'].find()))
-                risk_matrix = drop_cols(risk_matrix,['desc'])
-                risk = json_normalize(list(self.pym.db['risk'].find()))
-                risk = risk.rename(columns={'matrix':'matrix_id'})
-                analysis = json_normalize(list(self.pym.db['risk_analysis'].find()))
-                analysis = drop_cols(analysis,['_id'])
-                analysis = analysis.rename(columns={'risk':'risk_id'})
+                risk_matrx = json_normalize(list(self.pym.db['risk_matrix'].find()))
+                if len(risk_matrix) > 0:
+                    risk_matrx = drop_cols(risk_matrx,['desc'])
+                    logger.warning('LINE 159:RISK MATIRX:%s', risk_matrx.head())
 
-                # merges
-                risk = risk.merge(analysis,how='inner',left_on='_id',right_on='risk_id')
-                risk = drop_cols(risk,['_id','likelihood_comment','severity_comment','desc','risk_id'])
-                risk = risk_matrix.merge(risk,how='inner',left_on='_id',right_on='matrix_id')
-                df = drop_cols(risk,['_id','matrix_id','analyst'])
-                df = df.rename(columns={'name':'matrix'})
-                dfs = {}
-                for component in ['severity','likelihood']:
-                    table = 'risk_'+ component
-                    dfs[component] = json_normalize(list(self.pym.db[table].find()))
+                    risk = json_normalize(list(self.pym.db['risk'].find()))
+                    risk = risk.rename(columns={'matrix':'matrix_id'})
+                    analysis = json_normalize(list(self.pym.db['risk_analysis'].find()))
+                    analysis = drop_cols(analysis,['_id'])
+                    analysis = analysis.rename(columns={'risk':'risk_id'})
 
-                    dfs[component] = drop_cols(dfs[component],['desc','level'])
-                    df = df.merge(dfs[component],how='left',left_on=component,right_on='_id')
-                    df = drop_cols(df,['_id','project',component])
-                    df = df.rename(columns={'value':component})
-                    df[component] = df[component].fillna(0)
-                df['composite'] = df.severity * df.likelihood
+                    # merges
+                    risk = risk.merge(analysis,how='inner',left_on='_id',right_on='risk_id')
+                    risk = drop_cols(risk,['_id','likelihood_comment','severity_comment','desc','risk_id'])
+                    logger.warning('LINE 167:RISK:%s', risk.head())
+                    logger.warning('LINE 169:RISK MATIRX:%s', risk_matrx.head())
 
-                # set selection variables
-                logger.warning('LINE 154 df:%s',df)
-                self.df = df
-                self.matrices = list(df['matrix'].unique())
-                self.matrix = self.matrices[0]
-                self.set_risks(df,matrix=self.matrix)
+                    risk = risk_matrx.merge(risk,how='inner',left_on='_id',right_on='matrix_id')
+
+                    df = drop_cols(risk,['_id','matrix_id','analyst'])
+                    df = df.rename(columns={'name':'matrix'})
+                    dfs = {}
+                    for component in ['severity','likelihood']:
+                        table = 'risk_'+ component
+                        dfs[component] = json_normalize(list(self.pym.db[table].find()))
+
+                        dfs[component] = drop_cols(dfs[component],['desc','level'])
+                        df = df.merge(dfs[component],how='left',left_on=component,right_on='_id')
+                        df = drop_cols(df,['_id','project',component])
+                        df = df.rename(columns={'value':component})
+                        df[component] = df[component].fillna(0)
+                    df['composite'] = df.severity * df.likelihood
+
+                    # set selection variables
+                    logger.warning('LINE 154 df:%s',df)
+                    self.df = df
+                    self.matrices = list(df['matrix'].unique())
+                    self.matrix = self.matrices[0]
+                    self.set_risks(df,matrix=self.matrix)
 
             except Exception:
                 logger.error('load df', exc_info=True)
@@ -338,14 +363,17 @@ def pm_risk_assessment_tab(panel_title):
         thistab.risk_select.on_change('value', update_risk)
 
         # create the dashboards
+        controls = WidgetBox(matrix_select,thistab.risk_select)
 
         grid = gridplot([
             [thistab.notification_div['top']],
+            [Spacer(width=20, height=70)],
             [thistab.title_div('Determine action', 400)],
+            [Spacer(width=20, height=70)],
             [action_table.state],
-            [thistab.title_div('Risk Matrix-------------------------------------------', 600)],
-            [matrix_select, thistab.risk_select],
-            [risk_matrix],
+            [thistab.section_headers['matrix']],
+            [Spacer(width=20, height=70)],
+            [risk_matrix,controls],
             [thistab.notification_div['bottom']]
         ])
 

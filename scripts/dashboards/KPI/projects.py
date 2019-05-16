@@ -1,5 +1,6 @@
 import random
 
+from bokeh.plotting import figure
 from holoviews import streams, dim
 
 from scripts.databases.pythonMongo import PythonMongo
@@ -11,7 +12,7 @@ from scripts.utils.dashboards.KPI.KPI_interface import KPI
 from config.dashboard import config as dashboard_config
 
 from bokeh.layouts import gridplot, WidgetBox
-from bokeh.models import Panel, Button, Spacer
+from bokeh.models import Panel, Button, Spacer, HoverTool, Range1d, ColumnDataSource
 import gc
 from bokeh.models.widgets import Div, \
     DatePicker, Select
@@ -36,6 +37,12 @@ renderer = hv.renderer('bokeh')
 
 @coroutine
 def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
+    timeline_source = ColumnDataSource(data=dict(
+        Items=[],
+        Start=[],
+        End=[],
+        Colors=[])
+    )
     class Thistab(KPI):
         def __init__(self, table, cols=[]):
             KPI.__init__(self, table, name='project', cols=cols)
@@ -121,9 +128,19 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 'pop': self.section_header_div(text='Period over period:{}'.format(self.section_divider),
                                                width=600, html_header='h2', margin_top=5,margin_bottom=-155),
                 'chord': self.section_header_div(text='Relationships:{}'.format(self.section_divider),
-                                                 width=600, html_header='h2', margin_top=5,margin_bottom=-155)
+                                                 width=600, html_header='h2', margin_top=5,margin_bottom=-155),
+                'timeline' :self.section_header_div(text='Project timeline:{}'.format(self.section_divider),
+                                                 width=600, html_header='h2', margin_top=5,margin_bottom=-155),
             }
             self.KPI_card_div = self.initialize_cards(self.page_width, height=350)
+
+            self.timeline_vars = {
+                'projects' : '',
+                'project':'',
+                'DF':None
+            }
+
+
 
             # ----- UPDATED DIVS END
 
@@ -535,6 +552,59 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('chord diagram', exc_info=True)
 
+        def timeline(self,project,type='milestone'):
+            try:
+                DF = self.df.copy()
+                DF = DF[DF['project']==project]
+                # group milestone
+                rename_dct = {
+                    'milestone_startdate_proposed' : 'Start',
+                    'milestone_enddate_proposed':'End',
+                    type : 'Item'
+                }
+                DF = DF.rename(index=str, columns=rename_dct)
+                DF = DF[['Item', 'Start', 'End']]
+                DF = DF.groupby(['Item']).agg({'Start':'min','End':'max'})
+                DF = DF.reset_index()
+
+                color_list = []
+                for item in DF.Item.tolist():
+                    color_list.append(random.choice(dashboard_config['colors']))
+                DF['Colors'] =  np.array(color_list)
+                logger.warning('LINE 555 %s',DF.head())
+                self.timeline_vars['DF'] = DF
+                # update source
+                data = dict(
+                    Items = DF.Item.tolist(),
+                    Start = DF.Start.tolist(),
+                    End = DF.End.tolist(),
+                    Colors= DF.Colors.tolist()
+                )
+                timeline_source.data = data
+
+            except Exception:
+                logger.error('timeline', exc_info=True)
+
+        def timeline_plot(self,DF):
+            try:
+                G = figure(title='Project Schedule', x_axis_type='datetime', width=800, height=400,
+                           y_range=DF.Item.tolist(),
+                           x_range=Range1d(DF.Start.min(), DF.End.max()), tools='save')
+
+                hover = HoverTool(tooltips="Task: @Item<br>\
+                Start: @Start<br>\
+                End: @End")
+                G.add_tools(hover)
+
+                DF['ID'] = DF.index + 0.8
+                DF['ID1'] = DF.index + 1.2
+                CDS = ColumnDataSource(DF)
+                G.quad(left='Start', right='End', bottom='ID', top='ID1', source=CDS, color="Color")
+                return G
+            except Exception:
+                logger.error('timeline', exc_info=True)
+
+
     def update(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.pm_gender = pm_gender_select.value
@@ -575,6 +645,13 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         stream_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
+
+    def update_timeline_project(attrname, old, new):
+        thistab.notification_updater("Calculations underway. Please be patient")
+        thistab.timeline_vars['project'] = timeline_project_select.value
+        thistab.timeline(thistab.timeline_vars['project'])
+        thistab.notification_updater("ready")
+
     try:
         cols = []
         thistab = Thistab(table='project_composite', cols=cols)
@@ -595,6 +672,8 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                                              cols=[], table=thistab.table,
                                              timestamp_col=thistab.timestamp_col)
 
+        thistab.timeline_vars['projects'] = sorted(list(set(thistab.df['project'].tolist())))
+        thistab.timeline_vars['project'] = thistab.timeline_vars['projects'][0]
 
         # MANAGE STREAM
         # date comes out stream in milliseconds
@@ -632,6 +711,9 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         variable_select = Select(title='Select variable of interest', value=thistab.variable,
                                options=thistab.menus['variables'])
 
+        timeline_project_select = Select(title='Select project', value=thistab.timeline_vars['project'],
+                                 options=thistab.timeline_vars['projects'])
+
         # ---------------------------------  GRAPHS ---------------------------
         hv_pop_week = hv.DynamicMap(thistab.pop_week, streams=[stream_launch])
         pop_week = renderer.get_plot(hv_pop_week)
@@ -648,6 +730,9 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         hv_chord = hv.DynamicMap(thistab.chord_diagram, streams=[stream_launch])
         chord = renderer.get_plot(hv_chord)
 
+        thistab.timeline(thistab.timeline_vars['project'])
+        timeline = thistab.timeline_plot(thistab.timeline_vars['DF'])
+
         # -------------------------------- CALLBACKS ------------------------
 
         type_select.on_change('value', update)
@@ -658,7 +743,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         t_gender_select.on_change('value', update)
         variable_select.on_change('value', update)
         pop_number_select.on_change('value',update_history_periods)
-
+        timeline_project_select.on_change('value',update_timeline_project)
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
@@ -670,7 +755,8 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         )
 
         controls_pop_left = WidgetBox(datepicker_pop_start,datepicker_pop_end, pop_dates_button,pop_number_select)
-        controls_pop_right = WidgetBox(pop_number_select)
+        controls_timeline = WidgetBox(timeline_project_select)
+
 
         grid = gridplot([
             [thistab.notification_div['top']],
@@ -686,6 +772,9 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             [thistab.section_headers['chord']],
             [Spacer(width=20, height=25)],
             [chord.state],
+            [thistab.section_headers['timeline']],
+            [Spacer(width=20, height=25)],
+            [timeline,controls_timeline],
             [thistab.notification_div['bottom']]
         ])
 
