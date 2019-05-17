@@ -38,10 +38,10 @@ renderer = hv.renderer('bokeh')
 @coroutine
 def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
     timeline_source = ColumnDataSource(data=dict(
-        Items=[],
+        Item=[],
         Start=[],
         End=[],
-        Colors=[])
+        Color=[])
     )
     class Thistab(KPI):
         def __init__(self, table, cols=[]):
@@ -570,20 +570,22 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 color_list = []
                 for item in DF.Item.tolist():
                     color_list.append(random.choice(dashboard_config['colors']))
-                DF['Colors'] =  np.array(color_list)
-                logger.warning('LINE 555 %s',DF.head())
+                DF['Color'] =  np.array(color_list)
+                logger.warning('LINE 555 %s',DF)
                 self.timeline_vars['DF'] = DF
                 # update source
                 data = dict(
-                    Items = DF.Item.tolist(),
+                    Item = DF.Item.tolist(),
                     Start = DF.Start.tolist(),
                     End = DF.End.tolist(),
-                    Colors= DF.Colors.tolist()
+                    Color= DF.Color.tolist()
                 )
                 timeline_source.data = data
 
+
             except Exception:
                 logger.error('timeline', exc_info=True)
+
 
         def timeline_plot(self,DF):
             try:
@@ -591,14 +593,19 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                            y_range=DF.Item.tolist(),
                            x_range=Range1d(DF.Start.min(), DF.End.max()), tools='save')
 
+                DF['start'] = DF['Start'].dt.strftime('%Y-%m-%d')
+                DF['end'] = DF['End'].dt.strftime('%Y-%m-%d')
+
+
                 hover = HoverTool(tooltips="Task: @Item<br>\
-                Start: @Start<br>\
-                End: @End")
+                Start: @start<br>\
+                End: @end")
                 G.add_tools(hover)
 
                 DF['ID'] = DF.index + 0.8
                 DF['ID1'] = DF.index + 1.2
                 CDS = ColumnDataSource(DF)
+                print(CDS)
                 G.quad(left='Start', right='End', bottom='ID', top='ID1', source=CDS, color="Color")
                 return G
             except Exception:
@@ -650,6 +657,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.timeline_vars['project'] = timeline_project_select.value
         thistab.timeline(thistab.timeline_vars['project'])
+        thistab.
         thistab.notification_updater("ready")
 
     try:
@@ -731,7 +739,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         chord = renderer.get_plot(hv_chord)
 
         thistab.timeline(thistab.timeline_vars['project'])
-        timeline = thistab.timeline_plot(thistab.timeline_vars['DF'])
+        timeline = thistab.timeline_plot(DF=thistab.timeline_vars['DF'])
 
         # -------------------------------- CALLBACKS ------------------------
 
@@ -750,11 +758,8 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         controls_top_left = WidgetBox(
             variable_select,type_select, status_select,pm_gender_select, m_gender_select, t_gender_select,
         )
-        controls_top_right = WidgetBox(
-            pm_gender_select, m_gender_select, t_gender_select
-        )
 
-        controls_pop_left = WidgetBox(datepicker_pop_start,datepicker_pop_end, pop_dates_button,pop_number_select)
+        controls_pop_left = WidgetBox(datepicker_pop_start,datepicker_pop_end, pop_number_select)
         controls_timeline = WidgetBox(timeline_project_select)
 
 
