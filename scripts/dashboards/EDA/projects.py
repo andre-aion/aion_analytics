@@ -57,17 +57,6 @@ def eda_projects_tab(panel_title):
             self.cl = PythonClickhouse('aion')
             
             self.trigger = 0
-            txt = """<hr/>
-                    <div style="text-align:center;width:{}px;height:{}px;
-                          position:relative;background:black;margin-bottom:200px">
-                          <h1 style="color:#fff;margin-bottom:300px">{}</h1>
-                    </div>""".format(self.page_width, 50, 'Welcome')
-            self.notification_div = {
-                'top': Div(text=txt, width=1400, height=20),
-                'bottom': Div(text=txt, width=1400, height=10),
-            }
-
-
             self.groupby_dict = {
                 'project_duration': 'sum',
                 'project_start_delay': 'mean',

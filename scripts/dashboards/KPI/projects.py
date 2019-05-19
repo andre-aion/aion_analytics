@@ -12,7 +12,8 @@ from scripts.utils.dashboards.KPI.KPI_interface import KPI
 from config.dashboard import config as dashboard_config
 
 from bokeh.layouts import gridplot, WidgetBox
-from bokeh.models import Panel, Button, Spacer, HoverTool, Range1d, ColumnDataSource
+from bokeh.models import Panel, Button, Spacer, HoverTool, Range1d, ColumnDataSource, ResetTool, BoxZoomTool, PanTool, \
+    ToolbarBox, Toolbar, SaveTool, WheelZoomTool, LabelSet, Label
 import gc
 from bokeh.models.widgets import Div, \
     DatePicker, Select
@@ -41,8 +42,12 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         Item=[],
         Start=[],
         End=[],
-        Color=[])
-    )
+        Color=[],
+        start=[],
+        end=[],
+        ID=[],
+        ID1=[]
+    ))
     class Thistab(KPI):
         def __init__(self, table, cols=[]):
             KPI.__init__(self, table, name='project', cols=cols)
@@ -50,10 +55,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             self.df = None
             self.df_pop = None
 
-
-
             self.checkboxgroup = {}
-
             self.period_to_date_cards = {
 
             }
@@ -133,13 +135,20 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                                                  width=600, html_header='h2', margin_top=5,margin_bottom=-155),
             }
             self.KPI_card_div = self.initialize_cards(self.page_width, height=350)
-
+            start = datetime(2014,1,1,0,0,0)
+            end = datetime(2019, 5, 15, 0, 0, 0)
+            self.tools = [BoxZoomTool(),ResetTool(),PanTool(),SaveTool(),WheelZoomTool()]
             self.timeline_vars = {
                 'projects' : '',
                 'project':'',
-                'DF':None
+                'types' :['all','milestone','task','project'],
+                'type':'all',
+                'DF':None,
+                'G':figure(
+                    title=None, x_axis_type='datetime', width=1200, height=900,
+                    y_range=[], x_range=Range1d(start, end), toolbar_location=None),
+                'toolbar_box': ToolbarBox()
             }
-
 
 
             # ----- UPDATED DIVS END
@@ -330,11 +339,11 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 if variable in ['project']:
                     df = df.groupby(groupby_cols).agg({variable:'count'})
                     df = df.reset_index()
-                    logger.warning('LINE 286 df:%s',df)
+                    #logger.warning('LINE 286 df:%s',df)
                 elif variable in ['milestone']:
                     df = df.groupby(groupby_cols).agg({variable: 'count'})
                     df = df.reset_index()
-                    logger.warning('LINE 291 df:%s', df)
+                    #logger.warning('LINE 291 df:%s', df)
                 elif variable in ['task']:
                     df = df.groupby(groupby_cols).agg({variable: 'count'})
                     df = df.reset_index()
@@ -541,7 +550,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 # filter for top percentile
                 quantile_val = links['value'].quantile(self.chord_data['percentile_threshold'])
                 links = links[links['value'] >= quantile_val]
-                logger.warning('after quantile filter:%s',len(links))
+                #logger.warning('after quantile filter:%s',len(links))
 
                 chord_ = hv.Chord((links, nodes),['source','target'],['value'])
                 chord_.opts(opts.Chord(cmap='Category20',edge_cmap='Category20',edge_color=dim('source').str(),
@@ -555,31 +564,108 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         def timeline(self,project,type='milestone'):
             try:
                 DF = self.df.copy()
-                DF = DF[DF['project']==project]
-                # group milestone
-                rename_dct = {
-                    'milestone_startdate_proposed' : 'Start',
-                    'milestone_enddate_proposed':'End',
-                    type : 'Item'
-                }
-                DF = DF.rename(index=str, columns=rename_dct)
-                DF = DF[['Item', 'Start', 'End']]
-                DF = DF.groupby(['Item']).agg({'Start':'min','End':'max'})
-                DF = DF.reset_index()
+                if type != project:
+                    DF = DF[DF['project']==project]
 
-                color_list = []
-                for item in DF.Item.tolist():
-                    color_list.append(random.choice(dashboard_config['colors']))
-                DF['Color'] =  np.array(color_list)
-                logger.warning('LINE 555 %s',DF)
+                if type == 'all': 
+                    rename_dct = {
+                        'milestone_enddate_proposed':'milestone_enddate',
+                        'milestone_startdate_proposed':'milestone_startdate',
+                        'task_enddate_proposed': 'task_enddate',
+                        'task_startdate_proposed': 'task_startdate',
+                                  }
+                    DF = DF.rename(index=str, columns=rename_dct)
+
+                    DF = DF.groupby(['milestone','task']).agg({
+                        'milestone_startdate': 'min', 'milestone_enddate': 'max',
+                        'task_startdate': 'min', 'task_enddate': 'max',
+                    })
+                    DF = DF.reset_index()
+
+                    # melt to get milestone and task into one column
+                    df = pd.melt(DF,value_vars=['milestone','task'],
+                                      id_vars=['milestone_startdate','milestone_enddate',
+                                               'task_startdate','task_enddate'],
+                                      value_name='Item',var_name='type')
+
+                    df = df.groupby(['Item','type']).agg({
+                        'milestone_startdate':'min',
+                        'milestone_enddate':'max',
+                        'task_startdate': 'min',
+                        'task_enddate': 'max'
+                    }).reset_index()
+                    df = pd.melt(df, id_vars=['Item', 'type','milestone_startdate','task_startdate'],
+                                 value_vars=['milestone_enddate','task_enddate'],
+                                 value_name='End',var_name='enddate_type'
+                                 )
+                    # filter out where tasks label dates and vice versa
+                    df1 = df[(df['type'] == 'task') & (df['enddate_type'] =='task_enddate')]
+                    df = df[(df['type'] == 'milestone') & (df['enddate_type'] == 'milestone_enddate')]
+                    df = pd.concat([df1,df])
+                    df = df.drop('enddate_type',axis=1)
+
+                    # do startdate
+                    df = pd.melt(df, id_vars=['Item', 'type', 'End'],
+                                 value_vars=['milestone_startdate', 'task_startdate'],
+                                 value_name='Start', var_name='startdate_type'
+                                 )
+                    # filter out where tasks label dates and vice versa
+                    df1 = df[(df['type'] == 'task') & (df['startdate_type'] == 'task_startdate')]
+                    df = df[(df['type'] == 'milestone') & (df['startdate_type'] == 'milestone_startdate')]
+                    df = pd.concat([df1, df])
+                    df = df.drop('startdate_type', axis=1)
+                    # label colors
+                    df['Color'] = df['type'].apply(lambda x: 'black' if x == 'milestone' else 'green')
+                    # organize by milestone and tasks belonging to milestone
+                    df = df.sort_values(by=['Start']).reset_index()
+                    df = df.drop('index',axis=1)
+                    #logger.warning('LINE 605 - df:%s',df.head(50))
+                    DF = df
+                    print('##################################################################################')
+                else:
+                    start_str = type + '_startdate_proposed'
+                    end_str = type + '_enddate_proposed'
+                    # group milestone
+                    rename_dct = {
+                        start_str : 'Start',
+                        end_str:'End',
+                        type : 'Item'
+                    }
+                    DF = DF.rename(index=str, columns=rename_dct)
+                    DF = DF[['Item', 'Start', 'End']]
+                    DF = DF.groupby(['Item']).agg({'Start':'min','End':'max'})
+                    DF = DF.reset_index()
+
+                    color_list = []
+                    for item in DF.Item.tolist():
+                        color_list.append(random.choice(dashboard_config['colors']))
+                    DF['Color'] =  np.array(color_list)
+
+                DF['start'] = DF['Start'].dt.strftime('%Y-%m-%d')
+                DF['end'] = DF['End'].dt.strftime('%Y-%m-%d')
+                DF['ID'] = DF.index + 0.6
+                DF['ID1'] = DF.index + 1.4
+
+                logger.warning('LINE 648 %s',DF)
                 self.timeline_vars['DF'] = DF
                 # update source
                 data = dict(
                     Item = DF.Item.tolist(),
                     Start = DF.Start.tolist(),
                     End = DF.End.tolist(),
-                    Color= DF.Color.tolist()
+                    Color= DF.Color.tolist(),
+                    start=DF.start.tolist(),
+                    end=DF.end.tolist(),
+                    ID = DF.ID.tolist(),
+                    ID1 = DF.ID1.tolist()
                 )
+                # <-- This is the trick, make the x_rage empty first, before assigning new value
+
+                self.timeline_vars['G'].y_range.factors = []
+                self.timeline_vars['G'].y_range.factors = DF.Item.tolist()
+                #self.timeline_vars['G'].x_range.factors = []
+                #self.timeline_vars['G'].x_range.factors = sorted(DF.Start.tolist())
+
                 timeline_source.data = data
 
 
@@ -589,25 +675,23 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
         def timeline_plot(self,DF):
             try:
-                G = figure(title='Project Schedule', x_axis_type='datetime', width=800, height=400,
-                           y_range=DF.Item.tolist(),
-                           x_range=Range1d(DF.Start.min(), DF.End.max()), tools='save')
-
-                DF['start'] = DF['Start'].dt.strftime('%Y-%m-%d')
-                DF['end'] = DF['End'].dt.strftime('%Y-%m-%d')
-
-
                 hover = HoverTool(tooltips="Task: @Item<br>\
                 Start: @start<br>\
                 End: @end")
-                G.add_tools(hover)
+                self.timeline_vars['G'].quad(left='Start', right='End', bottom='ID',
+                                             top='ID1', source=timeline_source, color="Color")
 
-                DF['ID'] = DF.index + 0.8
-                DF['ID1'] = DF.index + 1.2
-                CDS = ColumnDataSource(DF)
-                print(CDS)
-                G.quad(left='Start', right='End', bottom='ID', top='ID1', source=CDS, color="Color")
-                return G
+                self.tools = [hover]+self.tools
+                self.timeline_vars['G'].tools = self.tools
+                self.timeline_vars['toolbar_box'] = ToolbarBox()
+                self.timeline_vars['toolbar_box'].toolbar = Toolbar(tools=self.tools)
+                self.timeline_vars['toolbar_box'].toolbar_location = "above"
+
+
+                self.timeline_vars['G'].x_range.start = DF.Start.min() - timedelta(days=10)
+                self.timeline_vars['G'].x_range.start = DF.End.max() + timedelta(days=10)
+
+                return self.timeline_vars['G']
             except Exception:
                 logger.error('timeline', exc_info=True)
 
@@ -653,11 +737,11 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         thistab.notification_updater("ready")
 
 
-    def update_timeline_project(attrname, old, new):
+    def update_timeline(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.timeline_vars['project'] = timeline_project_select.value
-        thistab.timeline(thistab.timeline_vars['project'])
-        thistab.
+        thistab.timeline_vars['type'] = timeline_type_select.value
+        thistab.timeline(thistab.timeline_vars['project'],thistab.timeline_vars['type'])
         thistab.notification_updater("ready")
 
     try:
@@ -722,6 +806,9 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         timeline_project_select = Select(title='Select project', value=thistab.timeline_vars['project'],
                                  options=thistab.timeline_vars['projects'])
 
+        timeline_type_select = Select(title='Select granularity', value='all',
+                                         options=thistab.timeline_vars['types'])
+
         # ---------------------------------  GRAPHS ---------------------------
         hv_pop_week = hv.DynamicMap(thistab.pop_week, streams=[stream_launch])
         pop_week = renderer.get_plot(hv_pop_week)
@@ -738,7 +825,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         hv_chord = hv.DynamicMap(thistab.chord_diagram, streams=[stream_launch])
         chord = renderer.get_plot(hv_chord)
 
-        thistab.timeline(thistab.timeline_vars['project'])
+        thistab.timeline(thistab.timeline_vars['project'],thistab.timeline_vars['type'])
         timeline = thistab.timeline_plot(DF=thistab.timeline_vars['DF'])
 
         # -------------------------------- CALLBACKS ------------------------
@@ -751,8 +838,8 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         t_gender_select.on_change('value', update)
         variable_select.on_change('value', update)
         pop_number_select.on_change('value',update_history_periods)
-        timeline_project_select.on_change('value',update_timeline_project)
-
+        timeline_project_select.on_change('value',update_timeline)
+        timeline_type_select.on_change('value', update_timeline)
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
         controls_top_left = WidgetBox(
@@ -760,7 +847,8 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         )
 
         controls_pop_left = WidgetBox(datepicker_pop_start,datepicker_pop_end, pop_number_select)
-        controls_timeline = WidgetBox(timeline_project_select)
+        controls_timeline = WidgetBox(thistab.timeline_vars['toolbar_box'],
+                                      timeline_project_select, timeline_type_select)
 
 
         grid = gridplot([

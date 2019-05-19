@@ -2,7 +2,8 @@ from datetime import datetime, timedelta, date
 
 import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable
+from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable, \
+    Spacer
 from sklearn import metrics
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, classification_report
@@ -51,14 +52,36 @@ groupby_dict = {
     'sp_close':'mean',
     'russell_volume':'mean',
     'russell_close':'mean',
-    'tw_mentions': 'sum',
-    'tw_positive': 'mean',
-    'tw_neutral': 'mean',
-    'tw_negative': 'mean',
-    'tw_emojis_positive': 'mean',
-    'tw_emojis_negative': 'mean',
-    'tw_emojis_count': 'sum',
-    'tw_reply_hashtags': 'sum'
+    'twu_tweets':'sum',
+    'twu_mentions':'sum',
+    'twu_positive': 'mean',
+    'twu_compound':'mean',
+    'twu_neutral':'mean',
+    'twu_negative':'mean',
+    'twu_emojis_positive': 'mean',
+    'twu_emojis_compound': 'mean',
+    'twu_emojis_neutral': 'mean',
+    'twu_emojis_negative': 'mean',
+    'twu_emojis':'sum',
+    'twu_favorites': 'sum',
+    'twu_retweets':'sum',
+    'twu_hashtags': 'sum',
+    'twu_replies':'sum',
+    'twr_tweets':'sum',
+    'twr_mentions':'sum',
+    'twr_positive': 'mean',
+    'twr_compound':'mean',
+    'twr_neutral':'mean',
+    'twr_negative':'mean',
+    'twr_emojis_positive': 'mean',
+    'twr_emojis_compound': 'mean',
+    'twr_emojis_neutral': 'mean',
+    'twr_emojis_negative': 'mean',
+    'twr_emojis':'sum',
+    'twr_favorites': 'sum',
+    'twr_retweets':'sum',
+    'twr_hashtags': 'sum',
+    'twr_replies':'sum',
 }
 
 @coroutine
@@ -90,13 +113,6 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
             self.index_cols = ['close','high','low','market_cap','volume']
 
             self.trigger = 0
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                                                                           <h1 style="color:#fff;">
-                                                                           {}</h1></div>""".format('Welcome')
-            self.notification_div = {
-                'top': Div(text=txt, width=1400, height=20),
-                'bottom':  Div(text=txt, width=1400, height=10),
-            }
 
             self.groupby_dict = groupby_dict
             self.feature_list = list(self.groupby_dict.keys())
@@ -112,17 +128,12 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
             self.mod_thresh = 0.4
             self.weak_thresh = 0.25
             self.corr_df = None
-            self.div_style = """ style='width:350px; margin-left:25px;
-                                    border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
-                                    """
+            self.div_style =  """ 
+                            style='width:350px; margin-left:-600px;
+                            border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+                        """
 
             self.header_style = """ style='color:blue;text-align:center;' """
-            lag_section_head_txt = 'Lag relationships between {} and...'.format(self.variable)
-            self.section_header_div = {
-                'lag' : self.title_div(lag_section_head_txt, 400),
-                'distribution': self.title_div('Pre-transform distribution',400)
-
-            }
             # track variable for AI for significant effects
             self.adoption_variables = {
                 'user':[],
@@ -132,24 +143,50 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
             self.significant_effect_dict = {}
             self.reset_adoption_dict(self.variable)
             self.relationships_to_check = ['weak','moderate','strong']
+            # ------- DIVS setup begin
+            self.page_width = 1250
+            txt = """<hr/>
+                           <div style="text-align:center;width:{}px;height:{}px;
+                                  position:relative;background:black;margin-bottom:200px">
+                                  <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                           </div>""".format(self.page_width, 50, 'Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
+            }
+            lag_section_head_txt = 'Lag relationships between {} and...'.format(self.variable)
+            self.section_divider = '-----------------------------------'
+            self.section_headers = {
 
-        # ////////////////////////// UPDATERS ///////////////////////
-        def section_head_updater(self,section, txt):
-            try:
-                self.section_header_div[section].text = txt
-            except Exception:
-                logger.error('',exc_info=True)
+                'lag': self.section_header_div(text=lag_section_head_txt,
+                                               width=600, html_header='h2', margin_top=5,
+                                               margin_bottom=-155),
+                'distribution': self.section_header_div(
+                    text='Pre transform distribution:{}'.format(self.section_divider),
+                    width=600, html_header='h2', margin_top=5,
+                    margin_bottom=-155),
+                'relationships': self.section_header_div(
+                    text='Relationships between variables:',
+                    width=600, html_header='h2', margin_top=5,
+                    margin_bottom=-155),
+            }
+
+            # ----------------------  DIVS ----------------------------
+
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150, margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>""" \
+                .format(margin_top, margin_bottom, html_header, text, html_header)
+            return Div(text=text, width=width, height=15)
 
         def notification_updater(self, text):
             txt = """<div style="text-align:center;background:black;width:100%;">
-                    <h4 style="color:#fff;">
-                    {}</h4></div>""".format(text)
+                           <h4 style="color:#fff;">
+                           {}</h4></div>""".format(text)
             for key in self.notification_div.keys():
                 self.notification_div[key].text = txt
 
-        def reset_adoption_dict(self,variable):
+        def reset_adoption_dict(self, variable):
             self.significant_effect_dict[variable] = []
-
 
         # //////////////  DIVS   /////////////////////////////////
 
@@ -188,20 +225,20 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
             return div
 
         # /////////////////////////////////////////////////////////////
-
         def prep_data(self,df1):
             try:
+                self.cols = list(df1.columns)
 
                 df1['timestamp'] = df1['timestamp'].astype('M8[us]')
                 df = df1.set_index('timestamp')
-                logger.warning('LINE 195 df:%s',df.head())
+                #logger.warning('LINE 195 df:%s',df.head())
                 # handle lag for all variables
                 if self.crypto != 'all':
                     df = df[df.crypto == self.crypto]
                 df = df.compute()
-                logger.warning('LINE 199: length before:%s',len(df))
+                #logger.warning('LINE 199: length before:%s',len(df))
                 df = df.groupby('crypto').resample(self.resample_period).agg(self.groupby_dict)
-                logger.warning('LINE 201: length after:%s',len(df))
+                #logger.warning('LINE 201: length after:%s',len(df))
 
                 df = df.reset_index()
                 vars = self.feature_list.copy()
@@ -211,10 +248,20 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
                             df[var] = df[var].shift(int(self.lag))
                 df = df.dropna()
                 self.df1 = df
-                logger.warning('line 184- prep data: df:%s',self.df.head(10))
+                #logger.warning('line 184- prep data: df:%s',self.df.head(10))
 
             except Exception:
                 logger.error('prep data', exc_info=True)
+
+
+        def set_groupby_dict(self):
+            try:
+                pass
+                
+            except Exception:
+                logger.error('set groupby dict', exc_info=True)
+
+        #   ///////////////// PLOTS /////////////////////
 
         def lags_plot(self,launch):
             try:
@@ -233,7 +280,7 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
                 df = df.dropna()
                 self.lags_corr(df)
                 # plot the comparison
-                logger.warning('in lags plot: df:%s',df.head(10))
+                #logger.warning('in lags plot: df:%s',df.head(10))
                 return df.hvplot(x=self.variable,y=cols,kind='scatter',alpha=0.4)
             except Exception:
                 logger.error('lags plot',exc_info=True)
@@ -306,9 +353,8 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
                 a = df[self.variable].tolist()
 
                 for col in self.feature_list:
-                    logger.warning('col :%s', col)
                     if col != self.variable:
-                        logger.warning('%s:%s', col, self.variable)
+                        #logger.warning('%s:%s', col, self.variable)
                         b = df[col].tolist()
                         slope, intercept, rvalue, pvalue, txt = self.corr_label(a,b)
                         # add to dict
@@ -373,9 +419,8 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
                 #logger.warning('line df:%s',df.head(10))
                 a = df[self.variable].tolist()
                 for col in self.feature_list:
-                    logger.warning('col :%s', col)
                     if col != self.variable:
-                        logger.warning('%s:%s', col, self.variable)
+                        #logger.warning('%s:%s', col, self.variable)
                         b = df[col].tolist()
                         stat, pvalue, txt = self.mann_whitneyu_label(a,b)
                         corr_dict['Variable 1'].append(self.variable)
@@ -517,7 +562,7 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
     # SETUP
         table = 'external_daily'
         cols = list(groupby_dict.keys()) + ['timestamp','crypto']
-        thistab = Thistab(table,cols,[])
+        thistab = Thistab(table,[],[])
 
         # setup dates
         first_date_range = datetime.strptime("2018-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
@@ -610,17 +655,16 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
 
         # COMPOSE LAYOUT
         # put the controls in a single element
-        controls_left = WidgetBox(
+        controls = WidgetBox(
             datepicker_start,
-            variable_select,
-            lag_select)
-
-        controls_right = WidgetBox(
             datepicker_end,
+            variable_select,
+            lag_select,
             crypto_select,
             resample_select)
 
         controls_lag = WidgetBox(
+            lag_variable_select,
             lags_input,
             lags_input_button
         )
@@ -629,12 +673,15 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
 
         grid = gridplot([
             [thistab.notification_div['top']],
-            [controls_left, controls_right],
-            [thistab.title_div('Relationships between variables', 400)],
-            [corr_table.state,nonpara_table.state, thistab.corr_information_div()],
-            [matrix_plot.state],
-            [thistab.section_header_div['lag'], lag_variable_select,controls_lag],
-            [lags_plot.state, lags_corr_table],
+            [Spacer(width=20, height=70)],
+            [matrix_plot.state,controls],
+            [thistab.section_headers['relationships']],
+            [Spacer(width=20, height=70)],
+            [corr_table.state, thistab.corr_information_div()],
+            [thistab.section_headers['lag']],
+            [Spacer(width=20, height=70)],
+            [lags_plot.state,controls_lag],
+            [lags_corr_table],
             [thistab.notification_div['bottom']]
 
         ])
