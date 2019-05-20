@@ -39,19 +39,37 @@ class PythonMongo:
             end_date = self.date_to_datetime(end_date)
 
             logger.warning('start date:enddate=%s:%s',start_date,end_date)
-            df = json_normalize(list(self.db[table].find({
-                timestamp_col:
-                    {
-                        "$gte": start_date,
-                        "$lte": end_date
-                    }
-            },{'_id':False})))
+            if len(cols) > 0:
+                cols_to_load = {}
+                cols_to_load['_id'] = 0
+                for col in cols:
+                    cols_to_load[col] = 1
+
+                df = json_normalize(list(self.db[table].find({
+                    timestamp_col:
+                        {
+                            "$gte": start_date,
+                            "$lte": end_date
+                        }
+                },cols_to_load)))
+            else:
+                df = json_normalize(list(self.db[table].find({
+                    timestamp_col:
+                        {
+                            "$gte": start_date,
+                            "$lte": end_date
+                        }
+                }, {'_id':False})))
+
+            '''
             if df is not None:
                 if len(df) > 0:
                     if cols is not None:
                         if len(cols) > 0:
                             df = df[cols]
                 #logger.warning('df after mongo load:%s',df.head(20))
+            '''
             return df
+
         except Exception:
             logger.error('load df', exc_info=True)

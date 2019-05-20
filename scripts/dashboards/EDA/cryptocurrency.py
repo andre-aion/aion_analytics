@@ -154,20 +154,29 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
                 'top': Div(text=txt, width=self.page_width, height=20),
                 'bottom': Div(text=txt, width=self.page_width, height=10),
             }
-            lag_section_head_txt = 'Lag relationships between {} and...'.format(self.variable)
+            #self.lag_section_head_txt = 'Lag relationships between {} and...'.format(self.variable)
+            self.lag_section_head_txt = 'Lag relationships:'
             self.section_divider = '-----------------------------------'
             self.section_headers = {
 
-                'lag': self.section_header_div(text=lag_section_head_txt,
-                                               width=600, html_header='h2', margin_top=5,
+                'lag': self.section_header_div(text=self.lag_section_head_txt,
+                                               width=600, html_header='h3', margin_top=5,
                                                margin_bottom=-155),
                 'distribution': self.section_header_div(
                     text='Pre transform distribution:{}'.format(self.section_divider),
                     width=600, html_header='h2', margin_top=5,
                     margin_bottom=-155),
                 'relationships': self.section_header_div(
-                    text='Relationships between variables:',
+                    text='Relationships between variables:'.format(self.section_divider),
                     width=600, html_header='h2', margin_top=5,
+                    margin_bottom=-155),
+                'correlations': self.section_header_div(
+                    text='non linear relationships between variables:',
+                    width=600, html_header='h3', margin_top=5,
+                    margin_bottom=-155),
+                'non_linear': self.section_header_div(
+                    text='non linear relationships between variables:',
+                    width=600, html_header='h3', margin_top=5,
                     margin_bottom=-155),
             }
 
@@ -179,14 +188,19 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
             return Div(text=text, width=width, height=15)
 
         def notification_updater(self, text):
-            txt = """<div style="text-align:center;background:black;width:100%;">
+            txt = """<div style="text-align:center;background:black;width:{}px;">
                            <h4 style="color:#fff;">
-                           {}</h4></div>""".format(text)
+                           {}</h4></div>""".format(self.page_width,text)
             for key in self.notification_div.keys():
                 self.notification_div[key].text = txt
 
         def reset_adoption_dict(self, variable):
             self.significant_effect_dict[variable] = []
+
+        def section_header_updater(self,text,section,html_header='h3', margin_top=150, margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>""" \
+                .format(margin_top, margin_bottom, html_header, text, html_header)
+            self.section_headers[section].text = text
 
         # //////////////  DIVS   /////////////////////////////////
 
@@ -328,7 +342,7 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
                     TableColumn(field="p_value", title="p_value"),
 
                 ]
-                data_table = DataTable(source=lags_corr_src, columns=columns, width=500, height=280)
+                data_table = DataTable(source=lags_corr_src, columns=columns, width=900, height=400)
                 return data_table
             except Exception:
                 logger.error('lags corr', exc_info=True)
@@ -499,7 +513,8 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
         thistab.variable = new
         if thistab.variable in thistab.adoption_variables['developer']:
             thistab.reset_adoption_dict(thistab.variable)
-        thistab.section_head_updater('lag',thistab.variable)
+        thistab.lag_section_head_txt = 'Lag relationships between {} and...'.format(thistab.variable)
+        #thistab.section_header_updater('lag',thistab.lag_section_head_txt)
         thistab.trigger += 1
         stream_launch_matrix.event(launch=thistab.trigger)
         stream_launch_corr.event(launch=thistab.trigger)
@@ -568,7 +583,7 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
         first_date_range = datetime.strptime("2018-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = dashboard_config['dates']['last_date'] - timedelta(days=2)
-        first_date = last_date - timedelta(days=100)
+        first_date = last_date - timedelta(days=200)
         # initial function call
         thistab.df_load(first_date, last_date,timestamp_col='timestamp')
         thistab.prep_data(thistab.df)
@@ -676,10 +691,15 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
             [Spacer(width=20, height=70)],
             [matrix_plot.state,controls],
             [thistab.section_headers['relationships']],
-            [Spacer(width=20, height=70)],
+            [Spacer(width=20, height=30)],
+            [thistab.section_headers['correlations']],
+            [Spacer(width=20, height=30)],
             [corr_table.state, thistab.corr_information_div()],
+            [thistab.section_headers['non_linear']],
+            [Spacer(width=20, height=30)],
+            [nonpara_table.state],
             [thistab.section_headers['lag']],
-            [Spacer(width=20, height=70)],
+            [Spacer(width=20, height=30)],
             [lags_plot.state,controls_lag],
             [lags_corr_table],
             [thistab.notification_div['bottom']]

@@ -7,7 +7,7 @@ from scripts.utils.myutils import tab_error_flag, datetime_to_date
 from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 
 from bokeh.layouts import gridplot, WidgetBox
-from bokeh.models import Panel
+from bokeh.models import Panel, Spacer
 from bokeh.models.widgets import Div, \
     DatePicker, Select
 
@@ -27,8 +27,7 @@ hv.extension('bokeh', logo=False)
 renderer = hv.renderer('bokeh')
 
 table = 'accounts_predictive'
-hyp_variables= list(groupby_dict[table].keys())
-groupby_dct = groupby_dict[table]
+
 
 menus = {
     'account_type' : ['all','contract','miner','native_user','token_user'],
@@ -37,6 +36,35 @@ menus = {
     'status' : ['all','active','churned','joined']
 }
 
+price_labels = ['open', 'low', 'market_cap', 'high', 'volume', 'close']
+
+twitter_cols = ['twu_tweets', 'twu_mentions', 'twu_positive', 'twu_compound', 'twu_neutral',
+                     'twu_negative', 'twu_emojis_positive', 'twu_emojis_compound', 'twu_emojis_neutral',
+                     'twu_emojis_negative', 'twu_emojis', 'twu_favorites', 'twu_retweets', 'twu_hashtags',
+                     'twu_replies',
+                     'twr_tweets', 'twr_mentions', 'twr_positive', 'twr_compound', 'twr_neutral',
+                     'twr_negative', 'twr_emojis_positive', 'twr_emojis_compound', 'twr_emojis_neutral',
+                     'twr_emojis_negative', 'twr_emojis', 'twr_favorites', 'twr_retweets', 'twr_hashtags',
+                     'twr_replies']
+
+external_hourly = ['fork', 'release', 'push', 'watch', 'issue'] + twitter_cols
+groupby_dict = {}
+for crypto in ['aion','bitcoin','ethereum']:
+    for item in price_labels + external_hourly:
+        label = crypto + '_' + item
+        if item in [
+            'twu_tweets', 'twu_mentions','twu_emojis', 'twu_favorites', 'twu_retweets', 'twu_hashtags','twu_replies',
+            'twr_tweets', 'twr_mentions','twr_emojis', 'twr_favorites', 'twr_retweets', 'twr_hashtags','twr_replies',
+            'fork', 'release', 'push', 'watch', 'issue']:
+            groupby_dict[label] = 'sum'
+        else:
+            groupby_dict[label] = 'mean'
+
+for item in ['amount','transaction_cost','block_time','balance','difficulty',
+             'mining_reward','nrg_reward','num_transactions','hash_power','russell_close']:
+    groupby_dict[item] = 'mean'
+
+hyp_variables= list(groupby_dict.keys())
 
 @coroutine
 def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
@@ -53,10 +81,7 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
 
 
             self.trigger = 0
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                                                               <h1 style="color:#fff;">
-                                                               {}</h1></div>""".format('Welcome')
-            self.notification_div = Div(text=txt,width=1400,height=20)
+
             self.df_warehouse = None
 
             # correlation
@@ -72,6 +97,32 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
 
             self.header_style = """ style='color:blue;text-align:center;' """
             self.feature_list = hyp_variables.copy()
+            self.groupby_dict = groupby_dict
+
+            # ------- DIVS setup begin
+            self.page_width = 1200
+            txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
+                                                    position:relative;background:black;margin-bottom:200px">
+                                                    <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                                              </div>""".format(self.page_width, 50, 'Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
+            }
+
+            self.section_divider = '-----------------------------------'
+            self.section_headers = {
+                'account activity': self.section_header_div(text='Account activity:{}'.format(self.section_divider),
+                                               width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+                'relationships': self.section_header_div(text='Relationships:{}'.format(self.section_divider),
+                                                 width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+            }
+
+        # ----------------------  DIVS ----------------------------
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150, margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>""" \
+                .format(margin_top, margin_bottom, html_header, text, html_header)
+            return Div(text=text, width=width, height=15)
 
         def clean_data(self, df):
             df = df.fillna(0)
@@ -274,7 +325,7 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
                 logger.warning('line 282 df; %s', list(df.columns))
 
                 df = df.resample(self.period).mean()
-                logger.warning('line 285 df; %s', groupby_dct)
+                logger.warning('line 285 df; %s', self.groupby_dct)
 
                 df = df.reset_index()
                 logger.warning('line 286 df; %s', df.head())
@@ -381,6 +432,7 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
         thistab.notification_updater("Ready!")
 
     try:
+        
         cols = list(set(hyp_variables + ['address','timestamp','update_type','account_type','status']))
         thistab = Thistab(table='account_ext_warehouse',cols=cols)
         # STATIC DATES
@@ -391,7 +443,8 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
         last_date = dashboard_config['dates']['last_date']
         first_date = datetime_to_date(last_date - timedelta(days=DAYS_TO_LOAD))
 
-        thistab.load_df(first_date, last_date)
+        thistab.pym.load_df(start_date=first_date, end_date=last_date,
+                            cols=cols,table='account_ext_warehouse',timestamp_col='timestamp')
         thistab.prep_data()
 
         # MANAGE STREAM
@@ -454,29 +507,30 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
 
         # COMPOSE LAYOUT
         # put the controls in a single element
-        controls_left = WidgetBox(
+        controls = WidgetBox(
             datepicker_start,
-            period_select,)
-
-        controls_centre = WidgetBox(
             datepicker_end,
+            period_select,
             update_type_select,
-            )
-
-        controls_right = WidgetBox(
             account_type_select,
-        )
+            status_select,
+            variable_select)
+
 
         # create the dashboards
         grid = gridplot([
-            [thistab.notification_div],
-            [controls_left, controls_centre,controls_right],
-            [thistab.title_div('Account activity:---------------------------------', 400),status_select],
+            [thistab.notification_div['top']],
+            [Spacer(width=20, height=50)],
+            [thistab.section_headers['relationships']],
+            [Spacer(width=20, height=30)],
+            [matrix_plot.state,controls],
+            [corr_table.state, thistab.corr_information_div()],
+            [hist_plot.state],
+            [thistab.section_headers['account activity']],
+            [Spacer(width=20, height=30)],
             [account_status.state],
             [account_activity.state],
-            [thistab.title_div('Relationships between variables', 400),variable_select],
-            [corr_table.state, thistab.corr_information_div(),hist_plot.state],
-            [matrix_plot.state]
+            [thistab.notification_div['bottom']]
             ])
 
         # Make a tab with the layout

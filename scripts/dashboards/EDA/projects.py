@@ -670,8 +670,6 @@ def eda_projects_tab(panel_title):
         ]
         lags_corr_table = DataTable(source=lags_corr_src, columns=columns, width=500, height=200)
 
-        width = 800
-
         hv_matrix_plot = hv.DynamicMap(thistab.matrix_plot,
                                        streams=[stream_launch_matrix])
         hv_corr_table = hv.DynamicMap(thistab.correlation_table,
