@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from scripts.databases.pythonRedis import PythonRedis
-from scripts.utils.dashboards.EDA.mytab_interface import Mytab
+from scripts.utils.interfaces.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
 from config.df_construct import load_columns as cols
 from scripts.utils.dashboards.EDA.poolminer import is_tier1_in_memory, \

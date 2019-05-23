@@ -2,7 +2,7 @@ from datetime import datetime, timedelta, date
 
 import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select
+from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, Spacer
 from sklearn import metrics
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, classification_report
@@ -12,9 +12,8 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
-from scripts.utils.dashboards.EDA.mytab_interface import Mytab
+from scripts.utils.interfaces.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
-from scripts.utils.myutils import datetime_to_date
 from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from config.dashboard import config as dashboard_config
 
@@ -84,11 +83,7 @@ def account_predictive_tab():
             border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
             """
             self.header_style = """ style='color:blue;text-align:center;' """
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                     <h1 style="color:#fff;">
-                     {}</h1></div>""".format('Welcome')
-            self.notification_div = Div(text=txt, width=1400, height=20)
-            self.notification_div_bottom = Div(text=txt, width=1400, height=20)
+
             # list of tier specific addresses for prediction
             self.address_list = []
             self.prediction_address_selected = ""
@@ -105,12 +100,37 @@ def account_predictive_tab():
             self.accuracy_df = None
             self.inspected_variable = 'amount'
 
-        def notification_updater(self, new_text):
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                     <h4 style="color:#fff;">
-                     {}</h4></div>""".format(new_text)
-            self.notification_div.text = txt
-            self.notification_div_bottom.text = txt
+            # ------- DIVS setup begin
+            self.page_width = 1200
+            txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
+                                                                       position:relative;background:black;margin-bottom:200px">
+                                                                       <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                                                                 </div>""".format(self.page_width, 50, 'Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
+            }
+
+            self.section_divider = '-----------------------------------'
+            self.section_headers = {
+                'churn': self.section_header_div(text='Churned accounts: prediction model accuracy, variable ranking:{}'
+                                                 .format('----'),
+                                                 width=600, html_header='h2', margin_top=5,
+                                                 margin_bottom=-155),
+                'variable behavior': self.section_header_div(text='Variable behavior:{}'.format(self.section_divider),
+                                               width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+                'predictions': self.section_header_div(text='Select date range to make predictions:{}'.format(self.section_divider),
+                                                             width=600, html_header='h2', margin_top=5,
+                                                             margin_bottom=-155),
+            }
+
+            # ----------------------  DIVS ----------------------------
+
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150, margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>""" \
+                .format(margin_top, margin_bottom, html_header, text, html_header)
+            return Div(text=text, width=width, height=15)
+
 
             # ####################################################
             #              UTILITY DIVS
@@ -141,7 +161,7 @@ def account_predictive_tab():
                 self.df_load(start_date, end_date)
                 self.df = self.df.fillna(0)
                     #self.make_delta()
-                    #self.df = self.df.set_index('timestamp')
+                    #self.df = self.df.set_index('block_timestamp')
                 #logger.warning("data loaded - %s",self.df.tail(10))
 
             except Exception:
@@ -206,7 +226,7 @@ def account_predictive_tab():
 
                 error_lst = []
                 df_temp = self.df
-                df_temp = self.normalize(df_temp,timestamp_col='timestamp')
+                df_temp = self.normalize(df_temp,timestamp_col='block_timestamp')
                 # if all addresses used filter for only positive transactions
 
                 for target in self.targets['classification']:
@@ -305,7 +325,26 @@ def account_predictive_tab():
             div = Div(text=txt, width=width, height=height)
             return div
 
+        def metrics_div_update(self,data):
+            div_style = """ 
+                   style='width:350px;margin-right:-600px;
+                   border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+               """
+            txt = """<div {}>
+            <h4 {}>Prediction Info </h4>
+            <ul style='margin-top:-10px;'>
+            <li>
+            {}% likely to churn
+            </li>
+            </ul>
+            </div>""".format(div_style, self.header_style,data)
+            self.metrics_div.text = txt
+
         def stats_information_div(self, width=400, height=300):
+            div_style = """ 
+                           style='width:350px;margin-left:-600px;
+                           border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+                       """
             txt = """
             <div {}>
                    <h4 {}>Metadata Info </h4>
@@ -326,7 +365,7 @@ def account_predictive_tab():
                    </br>- business advice: manipulate the top ranked variables to attain desirable outcomes
                    </li>
                    </ul>
-            </div>""".format(self.div_style, self.header_style)
+            </div>""".format(div_style, self.header_style)
             div = Div(text=txt, width=width, height=height)
             return div
 
@@ -335,7 +374,7 @@ def account_predictive_tab():
                 start_date = datetime.combine(start_date, datetime.min.time())
             if isinstance(end_date, date):
                 end_date = datetime.combine(end_date, datetime.min.time())
-            cols = self.feature_list + ['address', 'timestamp']
+            cols = self.feature_list + ['address', 'block_timestamp']
             self.df_predict = self.cl.load_data(table=self.table, cols=cols,
                                                 start_date=start_date, end_date=end_date)
             logger.warning('319:in load prediction: %s',self.df_predict.head(5))
@@ -373,8 +412,8 @@ def account_predictive_tab():
                 for target in list(self.targets['classification'].keys()):
                     if len(df) > 0:
 
-                        df = self.normalize(df,timestamp_col='timestamp')
-                        df = self.group_data(df,self.groupby_dict,timestamp_col='timestamp')
+                        df = self.normalize(df,timestamp_col='block_timestamp')
+                        df = self.group_data(df,self.groupby_dict,timestamp_col='block_timestamp')
                         interest_labels = list(df['address'].unique())
 
                         # run model
@@ -404,7 +443,7 @@ def account_predictive_tab():
                         <strong 'style=color:black;'>{}%</strong></div>""".format(self.header_style,
                                                                                   txt,
                                                                                   perc_to_churn)
-                        self.metrics_div.text = text
+                        self.metrics_div_update(data = perc_to_churn)
                     else:
 
                         text = """<div {}>
@@ -512,7 +551,7 @@ def account_predictive_tab():
         table = 'account_ext_warehouse'
         #cols = list(table_dict[table].keys())
 
-        cols = hyp_variables + ['address','timestamp','account_type','status','update_type']
+        cols = hyp_variables + ['address','block_timestamp','account_type','status','update_type']
         thistab = Thistab(table, cols, [])
 
 
@@ -520,8 +559,8 @@ def account_predictive_tab():
         first_date_range = datetime.strptime("2018-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
         last_date = dashboard_config['dates']['last_date']
-        first_date = last_date - timedelta(days=15)
-
+        last_date = last_date - timedelta(days=50)
+        first_date = last_date - timedelta(days=5)
         # STREAMS Setup
         # date comes out stream in milliseconds
         stream_launch = streams.Stream.define('Launch',launch=-1)()
@@ -579,19 +618,28 @@ def account_predictive_tab():
         select_variable.on_change('value',update_select_variable)
 
         # put the controls in a single element
-        date_controls = WidgetBox(datepicker_start, datepicker_end,
+        controls = WidgetBox(select_variable,datepicker_start, datepicker_end,
+                                  thistab.prediction_address_select,
+                                  reset_prediction_address_button)
+
+        controls_prediction = WidgetBox(datepicker_start, datepicker_end,
                                   thistab.prediction_address_select,
                                   reset_prediction_address_button)
 
         grid = gridplot([
-            [thistab.notification_div],
-            [thistab.title_div('Churned accounts: prediction model accuracy, variable ranking ', 600)],
-            [accuracy_table.state,thistab.stats_information_div(), features_table.state],
-            [thistab.title_div('Variable behaviour: ', 600)],
-            [select_variable, variable_plot.state],
-            [thistab.title_div('Select period below to obtain predictions:', 600)],
-            [account_prediction_table.state,thistab.metrics_div, date_controls],
-            [thistab.notification_div_bottom]
+            [thistab.notification_div['top']],
+            [Spacer(width=20, height=70)],
+            [thistab.section_headers['churn']],
+            [Spacer(width=20, height=70)],
+            [accuracy_table.state,thistab.stats_information_div()],
+            [features_table.state],
+            [thistab.section_headers['variable behavior']],
+            [Spacer(width=20, height=30)],
+            [variable_plot.state,controls],
+            [thistab.section_headers['predictions']],
+            [Spacer(width=20, height=30)],
+            [account_prediction_table.state,thistab.metrics_div,controls_prediction],
+            [thistab.notification_div['bottom']]
         ])
 
         tab = Panel(child=grid, title='predictions: accounts by value')

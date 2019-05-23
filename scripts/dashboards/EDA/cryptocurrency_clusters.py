@@ -1,13 +1,12 @@
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta
 
-import pydot
 from bokeh.layouts import gridplot
 from bokeh.models import Panel, Div, DatePicker, Button, Select, ColumnDataSource, HoverTool, WidgetBox
-from bokeh.plotting import figure, curdoc
+from bokeh.plotting import figure
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
 from scripts.databases.pythonRedis import PythonRedis
-from scripts.utils.dashboards.EDA.mytab_interface import Mytab
+from scripts.utils.interfaces.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
 from config.dashboard import config as dashboard_config
 from tornado.gen import coroutine
@@ -15,7 +14,6 @@ from tornado.gen import coroutine
 import pandas as pd
 import holoviews as hv
 import chartify
-from holoviews import streams
 
 from scripts.utils.myutils import tab_error_flag
 logger = mylogger(__file__)
@@ -240,7 +238,7 @@ def crypto_clusters_eda_tab(cryptos,panel_title):
         last_date = dashboard_config['dates']['last_date'] - timedelta(days=2)
         first_date = dashboard_config['dates']['current_year_start']
         # initial function call
-        thistab.df_load(first_date, last_date, timestamp_col='timestamp')
+        thistab.df_load(first_date, last_date, timestamp_col='timestamp',cols=[])
         thistab.prep_data(thistab.df,timestamp_col='timestamp')
 
         # MANAGE STREAMS ---------------------------------------------------------

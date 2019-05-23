@@ -1,31 +1,20 @@
 from datetime import datetime,timedelta
-import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable
-from bokeh.plotting import figure
-from scipy.spatial.distance import cdist
+from bokeh.models import Panel, Div, DatePicker, WidgetBox, Spacer
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
-from scripts.utils.dashboards.EDA.mytab_interface import Mytab
+from scripts.utils.interfaces.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
-from scripts.utils.myutils import datetime_to_date
+from scripts.utils.myutils import string_contains_list
 from config.dashboard import config as dashboard_config
-from bokeh.models.widgets import CheckboxGroup, TextInput
 
 from tornado.gen import coroutine
 from sklearn.preprocessing import StandardScaler  # For scaling dataset
-from sklearn.cluster import KMeans, AgglomerativeClustering, AffinityPropagation #For clustering
-from sklearn.mixture import GaussianMixture #For GMM clustering linregress
-from sklearn.pipeline import Pipeline
-from sklearn.metrics import silhouette_samples, silhouette_score
+from sklearn.cluster import KMeans  #For clustering
 
 import numpy as np
-from operator import itemgetter
 import pandas as pd
-import dask as dd
 import holoviews as hv
-import hvplot.pandas
-import hvplot.dask
 from holoviews import streams
 
 from scripts.utils.myutils import tab_error_flag
@@ -45,16 +34,7 @@ groupby_dict = {
     'low': 'mean',
     'market_cap': 'mean',
     'volume': 'mean',
-    'tw_mentions': 'sum',
-    'tw_positive': 'mean',
-    'tw_compound': 'mean',
-    'tw_neutral': 'mean',
-    'tw_negative': 'mean',
-    'tw_emojis_positive': 'mean',
-    'tw_emojis_compound': 'mean',
-    'tw_emojis_negative': 'mean',
-    'tw_emojis_count': 'sum',
-    'tw_reply_hashtags': 'sum'
+
 }
 
 @coroutine
@@ -78,46 +58,47 @@ def cryptocurrency_clustering_tab(panel_title):
             self.index_cols = ['close','high','low','market_cap','volume']
 
             self.trigger = 0
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                                                                           <h1 style="color:#fff;">
-                                                                           {}</h1></div>""".format('Welcome')
-            self.notification_div = {
-                'top': Div(text=txt, width=1400, height=20),
-                'bottom':  Div(text=txt, width=1400, height=10),
-            }
 
             self.groupby_dict = groupby_dict
             self.feature_list = list(self.groupby_dict.keys())
             self.kmean_model = {}
 
             self.div_style = """ style='width:350px; margin-left:25px;
-                                    border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
-                                    """
+                            border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+                            """
 
             self.header_style = """ style='color:blue;text-align:center;' """
-            self.section_header_div = {
 
-            }
             self.k = '1'
             self.max_clusters_menu = [str(k) for k in range(1, 12)]
 
             self.launch_cluster_table = False # launch cluster
             self.cryptos = None
+            # ------- DIVS setup begin
+            self.page_width = 1200
+            txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
+                        position:relative;background:black;margin-bottom:200px">
+                        <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                  </div>""".format(self.page_width, 50, 'Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
+            }
 
+            self.section_divider = '-----------------------------------'
+            self.section_headers = {
+                'Crypto families': self.section_header_div(
+                    text='Crypto families:{}'.format(self.section_divider),
+                    width=600, html_header='h2', margin_top=5,margin_bottom=-155),
 
-        # ////////////////////////// UPDATERS ///////////////////////
-        def section_head_updater(self,section, txt):
-            try:
-                self.section_header_div[section].text = txt
-            except Exception:
-                logger.error('',exc_info=True)
+            }
 
-        def notification_updater(self, text):
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                    <h4 style="color:#fff;">
-                    {}</h4></div>""".format(text)
-            for key in self.notification_div.keys():
-                self.notification_div[key].text = txt
+        # ----------------------  DIVS ----------------------------
+
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150, margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>""" \
+                .format(margin_top, margin_bottom, html_header, text, html_header)
+            return Div(text=text, width=width, height=15)
 
 
         # //////////////  DIVS   /////////////////////////////////
@@ -126,35 +107,42 @@ def cryptocurrency_clustering_tab(panel_title):
             text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
             return Div(text=text, width=width, height=15)
 
-        def corr_information_div(self, width=400, height=300):
+        def information_div(self, width=400, height=150):
+            div_style = """ 
+               style='width:350px;
+               border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+           """
             txt = """
             <div {}>
             <h4 {}>How to interpret relationships </h4>
             <ul style='margin-top:-10px;'>
                 <li>
-                Positive: as variable 1 increases, so does variable 2.
+                A cluster is statistical grouping of items based on a composite similarity of the variables under review. 
+                
                 </li>
                 <li>
-                Negative: as variable 1 increases, variable 2 decreases.
-                </li>
-                <li>
-                Strength: decisions can be made on the basis of strong and moderate relationships.
-                </li>
-                <li>
-                No relationship/not significant: no statistical support for decision making.
-                </li>
-                 <li>
-               The scatter graphs (below) are useful for visual confirmation.
-                </li>
-                 <li>
-               The histogram (right) shows the distribution of the variable.
+                I have highlighted the peers in our cluster (aion_cluster), and simply labeled the other clusters with numbers.
                 </li>
             </ul>
             </div>
 
-            """.format(self.div_style, self.header_style)
+            """.format(div_style, self.header_style)
             div = Div(text=txt, width=width, height=height)
             return div
+        # ////////////////// HELPER FUNCTIONS ////////////////////
+        def set_groupby_dict(self):
+            try:
+                lst = ['mention','hashtags','tweets','replies','favorites']
+                for col in self.cols:
+                    if col not in self.groupby_dict.keys():
+                        if not string_contains_list(lst,col):
+                            self.groupby_dict[col] = 'mean'
+                        else:
+                            self.groupby_dict[col] = 'sum'
+
+            except Exception:
+                logger.error('set groupby dict',exc_info=True)
+
 
         # /////////////////////////////////////////////////////////////
         def optimalK(self, data, nrefs=3, maxClusters=10):
@@ -288,8 +276,8 @@ def cryptocurrency_clustering_tab(panel_title):
     try:
         # SETUP
         table = 'external_daily'
-        cols = list(groupby_dict.keys()) + ['crypto']
-        thistab = Thistab(table,cols,[])
+        #cols = list(groupby_dict.keys()) + ['crypto']
+        thistab = Thistab(table,[],[])
 
         # setup dates
         first_date_range = datetime.strptime("2018-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
@@ -298,6 +286,7 @@ def cryptocurrency_clustering_tab(panel_title):
         first_date = last_date - timedelta(days=340)
         # initial function call
         thistab.df_load(first_date, last_date,timestamp_col='timestamp')
+        thistab.cols = sorted(list(thistab.df.columns))
 
 
         # MANAGE STREAMS
@@ -322,22 +311,21 @@ def cryptocurrency_clustering_tab(panel_title):
 
         # COMPOSE LAYOUT
         # put the controls in a single element
-        controls_left = WidgetBox(
-            datepicker_start)
-
-        controls_right = WidgetBox(
-            datepicker_end)
-
+        controls= WidgetBox(
+            datepicker_start,
+            datepicker_end
+        )
 
         # create the dashboards
 
         grid = gridplot([
             [thistab.notification_div['top']],
-            [controls_left, controls_right],
-            [thistab.title_div('Crypto families', 400)],
+            [Spacer(width=20, height=70)],
+            [thistab.information_div(),controls],
+            [thistab.section_headers['Crypto families']],
+            [Spacer(width=20, height=30)],
             [cluster_table.state],
             [thistab.notification_div['bottom']]
-
         ])
 
         # Make a tab with the layout

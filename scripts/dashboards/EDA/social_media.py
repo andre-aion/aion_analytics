@@ -1,22 +1,5 @@
-from datetime import datetime, timedelta, date
-
-import pydot
-from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable
-from sklearn import metrics
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import confusion_matrix, classification_report
-from sklearn.model_selection import train_test_split
-from sklearn.tree import export_graphviz
-from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline
-from scipy.stats import mannwhitneyu
-
-from scripts.databases.pythonClickhouse import PythonClickhouse
-from scripts.utils.dashboards.EDA.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import datetime_to_date
-from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from config.dashboard import config as dashboard_config
 from bokeh.models.widgets import CheckboxGroup, TextInput
 

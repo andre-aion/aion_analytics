@@ -137,10 +137,30 @@ class KPI:
             df = self.ch.load_data(self.table, temp_cols, start_date, end_date,timestamp_col,supplemental_where)
             # filter out the double entry
             #df = df[df['value'] >= 0]
-            return df[cols]
+            if len(cols) > 0:
+                return df[cols]
+            else:
+                return df
             #df[timestamp_col] = df[timestamp_col].map(lambda x: clean_dates_from_db(x))
         except Exception:
             logger.error('load df',exc_info=True)
+
+    def update_cards(self, dct):
+        try:
+            txt = ''
+            for period, data in dct.items():
+                design = random.choice(list(KPI_card_css.keys()))
+                title = period + ' to date'
+                txt += self.card(title=title, data=data, card_design=design)
+
+            text = """<div style="margin-top:100px;display:flex; flex-direction:row;">
+                                                {}
+                                                </div>""".format(txt)
+
+            self.KPI_card_div.text = text
+
+        except Exception:
+            logger.error('update cards', exc_info=True)
 
     def reset_checkboxes(self, value='all', checkboxgroup=''):
         try:
@@ -238,7 +258,6 @@ class KPI:
                 elif period == 'quarter':
                     df['dayset'] = df[timestamp_col].map(label_qtr_pop)
 
-
             return df
         except Exception:
             logger.error('label data ', exc_info=True)
@@ -287,6 +306,9 @@ class KPI:
             end = datetime(end_date.year,end_date.month, end_date.day,0,0,0)
 
             cols = list(df.columns)
+            logger.warning(' Line 293 %s:df %s',period, df.head(10))
+            logger.warning(' Line 293 %s:df cols %s',period, cols)
+
             counter = 1
             if isinstance(history_periods,str):
                 history_periods = int(history_periods)
@@ -310,11 +332,14 @@ class KPI:
                         df_current = concat_dfs(df_current,df_temp)
                         del df_temp
                         gc.collect()
+
                 # shift the loading window
                 counter += 1
                 start,end = self.shift_period_range(period,start,end)
                 if period == 'week':
                     logger.warning('LINE 327 df_current:%s',df_current.head(10))
+
+
             return df_current
         except Exception:
             logger.error('period over period',exc_info=True)
@@ -374,22 +399,6 @@ class KPI:
         except Exception:
             logger.error('card', exc_info=True)
 
-    def update_cards(self, dct):
-        try:
-            txt = ''
-            for period, data in dct.items():
-                design = random.choice(list(KPI_card_css.keys()))
-                title = period + ' to date'
-                txt += self.card(title=title, data=data, card_design=design)
-
-            text = """<div style="margin-top:100px;display:flex; flex-direction:row;">
-                                  {}
-                                  </div>""".format(txt)
-
-            self.KPI_card_div.text = text
-
-        except Exception:
-            logger.error('update cards', exc_info=True)
 
     def notification_updater(self, text):
         txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
@@ -479,8 +488,7 @@ class KPI:
                 variable_of_interest_tmp = interest_var.split('_')
                 if variable_of_interest_tmp[-1] in ['watch']:
                     variable_of_interest_tmp[-1] += 'e'
-                i = self.card_grid_row[period]
-                card_position_counter = 0
+                txt = ''
                 for var in significant_features.keys():
                     point_estimate = 0
                     var_tmp = var.split('_')# slice out the 'fork' from 'aion_fork'
@@ -496,17 +504,29 @@ class KPI:
                         'point_estimate':point_estimate
                     }
 
-                    txt = self.card_text(
+                    txt += self.card(
                         title=self.sig_effect_dict[var]['title'],
                         data=self.sig_effect_dict[var]['point_estimate'],
                         card_design=random.choice(list(self.KPI_card_css.keys())))
-                    card_position_counter += 1
-                    self.card_lists[i][card_position_counter].text = txt
-                    self.card_lists[i][card_position_counter].width = 200
-                    self.card_lists[i][card_position_counter].height = 200
+
+                    return txt
 
         except Exception:
             logger.error('make sig effect columns', exc_info=True)
+
+    def update_significant_DV_cards(self, dct):
+        try:
+            txt = ''
+            for idx, period in enumerate(dct.keys()):
+                txt += dct[period]
+            text = """<div style="margin-top:100px;display:flex; flex-direction:column;">
+                                            {}
+                       </div>""".format(txt)
+
+            self.KPI_card_div.text = text
+
+        except Exception:
+            logger.error('update cards', exc_info=True)
 
     def payroll_to_date(self,period):
         try:

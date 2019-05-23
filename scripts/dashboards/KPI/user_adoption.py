@@ -3,25 +3,24 @@ import random
 from holoviews import streams
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.myutils import tab_error_flag, datetime_to_date, concat_dfs
+from scripts.utils.myutils import tab_error_flag
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
-from scripts.utils.dashboards.KPI.KPI_interface import KPI
+from scripts.utils.interfaces.KPI_interface import KPI
 from config.dashboard import config as dashboard_config
+from static.css.KPI_interface import KPI_card_css
 
 from bokeh.layouts import gridplot, WidgetBox
-from bokeh.models import Panel
+from bokeh.models import Panel, Spacer
 import gc
 from bokeh.models.widgets import Div, \
     DatePicker, Select
 
-from datetime import datetime, timedelta, date
+from datetime import datetime, date
 
 import holoviews as hv
 from tornado.gen import coroutine
 import numpy as np
-import pandas as pd
-import dask.dataframe as dd
 
 lock = Lock()
 executor = ThreadPoolExecutor()
@@ -38,31 +37,40 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
             KPI.__init__(self, table,name='social_media',cols=cols)
             self.table = table
             self.df = None
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                                 <h1 style="color:#fff;">
-                                 {}</h1></div>""".format('Welcome')
-            self.notification_div = {
-                'top': Div(text=txt, width=1400, height=20),
-                'bottom': Div(text=txt, width=1400, height=10),
-            }
 
             self.checkboxgroup = {
                 'account_type': [],
                 'update_type' : []
             }
 
-            self.period_to_date_cards = {
-                'year': self.card('',''),
-                'quarter': self.card('', ''),
-                'month': self.card('', ''),
-                'week': self.card('', '')
+            self.KPI_card_div = self.initialize_cards(self.page_width, height=350)
 
+            # ------- DIVS setup begin
+            self.page_width = 1200
+            txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
+                                                                      position:relative;background:black;margin-bottom:200px">
+                                                                      <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                                                                </div>""".format(self.page_width, 50, 'Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
             }
 
+            self.section_divider = '-----------------------------------'
             self.section_headers = {
-                'cards' : self.section_header_div('', 1400),
-                'pop': self.section_header_div('', 1400) # period over period
+                'cards': self.section_header_div(text='Period to date:{}'.format(self.section_divider),
+                                                 width=600, html_header='h2', margin_top=5,
+                                                 margin_bottom=-155),
+                'pop': self.section_header_div(text='Period over period:{}'.format(self.section_divider),
+                                               width=600, html_header='h2', margin_top=5, margin_bottom=-155),
             }
+
+            # ----------------------  DIVS ----------------------------
+
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150, margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>""" \
+                .format(margin_top, margin_bottom, html_header, text, html_header)
+            return Div(text=text, width=width, height=15)
 
 
         # ----------------------  DIVS ----------------------------
@@ -73,11 +81,11 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('reset checkboxes', exc_info=True)
 
-        def section_header_div(self, text, width=1400):
-            text = '<h2 style="color:#4221cc;">{}</h2>'.format(text)
-            return Div(text=text, width=width, height=15)
-
         def information_div(self, width=400, height=300):
+            div_style = """ 
+                          style='width:350px;margin-right:-800px;
+                          border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+                      """
             txt = """
             <div {}>
             <h4 {}>How to interpret relationships </h4>
@@ -97,18 +105,25 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
             </ul>
             </div>
 
-            """.format(self.div_style, self.header_style)
+            """.format(div_style, self.header_style)
             div = Div(text=txt, width=width, height=height)
             return div
 
-        def card(self, title, data, card_design='folders', width=200, height=200):
+        # -------------------- CARDS -----------------------------------------
+        def initialize_cards(self, width, height=250):
             try:
-                txt = """<div {}><h3>{}</h3></br>{}</div>""".format(self.KPI_card_css[card_design], title, data)
-                div = Div(text=txt, width=width, height=height)
-                return div
+                txt = ''
+                for period in ['year', 'quarter', 'month', 'week']:
+                    design = random.choice(list(KPI_card_css.keys()))
+                    txt += self.card(title='', data='', card_design=design)
 
+                text = """<div style="margin-top:100px;display:flex; flex-direction:row;">
+                       {}
+                       </div>""".format(txt)
+                div = Div(text=text, width=width, height=height)
+                return div
             except Exception:
-                logger.error('card',exc_info=True)
+                logger.error('initialize cards', exc_info=True)
 
         # -------------------- GRAPHS -------------------------------------------
 
@@ -117,6 +132,7 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                 if self.account_type != 'all':
                     df1 = df1[df1.account_type == self.account_type]
 
+                dct = {}
                 for idx,period in enumerate(['week','month','quarter','year']):
                     df = self.period_to_date(df1, timestamp=dashboard_config['dates']['last_date'],
                                              timestamp_filter_col=filter_col, period=period)
@@ -125,14 +141,11 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                     df = df.compute()
                     df = df.drop_duplicates(keep='first')
                     #logger.warning('post duplicates dropped:%s', df.head(10))
-                    count = len(df)
+                    data = len(df)
                     del df
                     gc.collect()
-                    title = "{} to date".format(period)
-
-                    p = self.card(title=title, data=count, card_design=random.choice(list(self.KPI_card_css.keys())))
-                    self.period_to_date_cards[period].text = p.text
-                    #logger.warning('%s to date completed',period)
+                    dct[period] = data
+                self.update_cards(dct)
 
             except Exception:
                 logger.error('graph periods to date',exc_info=True)
@@ -173,15 +186,21 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
                                                         timestamp_col='timestamp_of_first_event')
 
                     groupby_cols = ['dayset','period']
-                    df_period = df_period.groupby(groupby_cols).agg({'account_type':'count'})
-                    df_period = df_period.reset_index()
+                    if len(df_period) > 0:
+                        df_period = df_period.groupby(groupby_cols).agg({'account_type':'count'})
+                        df_period = df_period.reset_index()
+                        df_period = df_period.compute()
+                    else:
+                        df_period = df_period.compute()
+                        df_period = df_period.rename(index=str,columns={'day':'dayset'})
                     prestack_cols = list(df_period.columns)
-                    df_period = df_period.compute()
+                    logger.warning('Line 179:%s', df_period.head(10))
                     df_period = self.split_period_into_columns(df_period,col_to_split='period',value_to_copy='account_type')
                     logger.warning('line 180 df_period columns:%s',df_period.head(50))
-
                     poststack_cols = list(df_period.columns)
                     title = "{} over {}".format(period,period)
+
+
                     plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
                     df_period,plotcols = self.pop_include_zeros(df_period=df_period,plotcols=plotcols,period=period)
                     if idx == 0:
@@ -286,22 +305,21 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
-        controls_left = WidgetBox(datepicker_start)
-
-        controls_centre = WidgetBox(datepicker_end)
-
-        controls_right = WidgetBox(account_type_select)
+        controls = WidgetBox(datepicker_start,datepicker_end, account_type_select)
+        controls_pop = WidgetBox(datepicker_period_start,
+                                 datepicker_period_end,
+                                 history_periods_select)
 
         # create the dashboards
         grid = gridplot([
             [thistab.notification_div['top']],
-            [controls_left,controls_centre,controls_right],
+            [Spacer(width=20, height=70)],
             [thistab.section_headers['cards']],
-            [thistab.period_to_date_cards['year'],thistab.period_to_date_cards['quarter'],
-             thistab.period_to_date_cards['month'],thistab.period_to_date_cards['week']],
+            [Spacer(width=20, height=2)],
+            [thistab.KPI_card_div,controls],
             [thistab.section_headers['pop']],
-            [datepicker_period_start, datepicker_period_end,history_periods_select],
-            [pop_week.state],
+            [Spacer(width=20, height=25)],
+            [pop_week.state,controls_pop],
             [pop_month.state],
             [pop_quarter.state],
             [thistab.notification_div['bottom']]

@@ -59,7 +59,7 @@ class Mytab:
         self.page_width = 1200
 
     # designed to work with premade warehouse table
-    def df_load(self, req_start_date, req_end_date,timestamp_col='block_timestamp',
+    def df_load(self, req_start_date, req_end_date,timestamp_col='block_timestamp',cols=[],
                 supplemental_where=None):
         params = {
             'start': False,
@@ -103,9 +103,8 @@ class Mytab:
             if isinstance(req_start_date,date):
                 req_start_date = datetime.combine(req_start_date,mintime)
             req_end_date = req_end_date+timedelta(days=1) #move end_date to midnite
-            cols = self.cols.copy()
 
-            self.df = self.ch.load_data(self.table,cols,req_start_date, req_end_date,timestamp_col,
+            self.df = self.ch.load_data(self.table,cols,req_start_date, req_end_date,timestamp_col=timestamp_col,
                                         supplemental_where=supplemental_where)
             self.filter_df(req_start_date, req_end_date)
             #logger.warning("%s LOADED: %s:%s",self.table,req_start_date,req_end_date)
@@ -145,7 +144,7 @@ class Mytab:
             logger.error('normalize:', exc_info=True)
 
     def get_poolname_dict(self):
-        file = join(dirname(__file__), '../../../../data/poolinfo.csv')
+        file = join(dirname(__file__), '../../../data/poolinfo.csv')
         df = pd.read_csv(file)
         a = df['address'].tolist()
         b = df['poolname'].tolist()

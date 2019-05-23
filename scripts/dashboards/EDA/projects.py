@@ -1,25 +1,19 @@
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta
 
-import pydot
 from bokeh.layouts import gridplot
 from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable, \
     Spacer
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
 from scripts.databases.pythonMongo import PythonMongo
-from scripts.utils.dashboards.EDA.mytab_interface import Mytab
+from scripts.utils.interfaces.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
-from scripts.utils.myutils import datetime_to_date
-from scripts.streaming.streamingDataframe import StreamingDataframe as SD
 from config.dashboard import config as dashboard_config
-from bokeh.models.widgets import CheckboxGroup, TextInput
+from bokeh.models.widgets import TextInput
 
 from tornado.gen import coroutine
-from scipy.stats import linregress
 
-from operator import itemgetter
 import pandas as pd
-import dask as dd
 import holoviews as hv
 from holoviews import streams
 

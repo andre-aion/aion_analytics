@@ -3,14 +3,14 @@ import random
 from holoviews import streams
 
 from scripts.utils.mylogger import mylogger
-from scripts.utils.myutils import tab_error_flag, datetime_to_date
+from scripts.utils.myutils import tab_error_flag
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
-from scripts.utils.dashboards.KPI.KPI_interface import KPI
+from scripts.utils.interfaces.KPI_interface import KPI
 from config.dashboard import config as dashboard_config
 
 from bokeh.layouts import gridplot, WidgetBox
-from bokeh.models import Panel, Button
+from bokeh.models import Panel, Button, Spacer
 import gc
 from bokeh.models.widgets import Div, \
     DatePicker, Select
@@ -20,7 +20,8 @@ from datetime import datetime, timedelta, date
 import holoviews as hv
 from tornado.gen import coroutine
 import numpy as np
-import pandas as pd
+
+from static.css.KPI_interface import KPI_card_css
 
 lock = Lock()
 executor = ThreadPoolExecutor()
@@ -37,13 +38,6 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             KPI.__init__(self, table,name='developer',cols=cols)
             self.table = table
             self.df = None
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                      <h1 style="color:#fff;">
-                      {}</h1></div>""".format('Welcome')
-            self.notification_div = {
-                'top': Div(text=txt, width=1400, height=20),
-                'bottom': Div(text=txt, width=1400, height=10),
-            }
 
             self.checkboxgroup = {}
 
@@ -56,29 +50,51 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             }
             self.ptd_startdate = datetime(datetime.today().year,1,1,0,0,0)
 
-            self.section_headers = {
-                'cards' : self.section_header_div('Period to date', 1400),
-                'stat_sig':self.section_header_div('', html_header='h3',width=800),
-                'pop': self.section_header_div('Period over period-------------------', 600), # period over period
-                'sig_ratio': self.section_header_div('Time series of ratio of DV to significant IVs---------------', width=600)
-            }
-
-            self.timestamp_col = 'timestamp'
+            self.timestamp_col = 'block_timestamp'
             self.variable = self.menus['developer_adoption_DVs'][0]
-
-            self.card_lists = self.set_grid_cards()
 
             self.datepicker_pop_start = DatePicker(
                 title="Period start", min_date=self.initial_date,
                 max_date=dashboard_config['dates']['last_date'], value=dashboard_config['dates']['last_date'])
 
 
+            # ------- DIVS setup begin
+            self.page_width = 1200
+            self.KPI_card_div = self.initialize_cards(width=self.page_width,height=1000)
+            txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
+                          position:relative;background:black;margin-bottom:200px">
+                          <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                    </div>""".format(self.page_width, 50, 'Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
+            }
+
+            self.section_divider = '-----------------------------------'
+            self.section_headers = {
+                'cards': self.section_header_div(
+                    text='Period to date:{}'.format(self.section_divider),
+                    width=600, html_header='h2', margin_top=5,margin_bottom=-155),
+                'pop': self.section_header_div(
+                    text='Period over period:{}'.format(self.section_divider),
+                    width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+                'sig_ratio': self.section_header_div(
+                    text='Time series of ratio of DV to significant IVs'.format(self.section_divider),
+                    width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+            }
+
         # ----------------------  DIVS ----------------------------
-        def section_header_div(self, text,html_header='h2',width=1400):
-            text = '<{} style="color:#4221cc;">{}</{}>'.format(html_header,text,html_header)
+
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150, margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>""" \
+                .format(margin_top, margin_bottom, html_header, text, html_header)
             return Div(text=text, width=width, height=15)
 
         def information_div(self, width=400, height=300):
+            div_style = """ 
+                style='width:350px;margin-right:-800px;
+                border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+            """
             txt = """
             <div {}>
             <h4 {}>How to interpret relationships </h4>
@@ -98,53 +114,38 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             </ul>
             </div>
 
-            """.format(self.div_style, self.header_style)
+            """.format(div_style, self.header_style)
             div = Div(text=txt, width=width, height=height)
             return div
 
-        def card(self,title,data,card_design='folders',width=200,height=200):
+        # -------------------- CARDS -----------------------------------------
+
+        def initialize_cards(self, width, height=250):
             try:
-                txt = """<div {}><h3>{}</h3></br>{}</div>""".format(self.KPI_card_css[card_design], title, data)
-                div = Div(text=txt, width=width, height=height)
+                txt = ''
+                for idx,period in enumerate(['year', 'quarter', 'month', 'week']):
+                    design = random.choice(list(KPI_card_css.keys()))
+                    txt += self.card(title='', data='', card_design=design)
+                text = """<div style="margin-top:100px;display:flex;flex-direction:column;">
+                         {}
+                         </div>""".format(txt)
+                div = Div(text=text, width=width, height=height)
                 return div
-
             except Exception:
-                logger.error('card',exc_info=True)
+                logger.error('initialize cards', exc_info=True)
 
-
-        def set_grid_cards(self):
-            try:
-                # make bunch of place holders
-                card_lists = [[],[],[],[]]
-                for key, i in self.card_grid_row.items():
-                    for j in range(0,7):
-                        card_lists[i].append(self.card('','',width=0,height=0))
-
-                return card_lists
-
-            except Exception:
-                logger.error('graph periods to date', exc_info=True)
-
-        def reset_grid_cards(self):
-            try:
-                # make bunch of place holders
-                card_lists = [[],[],[],[]]
-                for key, i in self.card_grid_row.items():
-                    for j in range(0,5):
-                        card_lists[i].append(self.card('','',width=0,height=0))
-
-                return card_lists
-
-            except Exception:
-                logger.error('graph periods to date', exc_info=True)
 
         # -------------------- GRAPHS -------------------------------------------
         def graph_periods_to_date(self,df1,timestamp_filter_col,variable):
             try:
-                self.card_lists = self.set_grid_cards()
+                dct = {}
                 for idx,period in enumerate(['week','month','quarter','year']):
-                    df = self.period_to_date(df1, timestamp=dashboard_config['dates']['last_date'],
-                                             timestamp_filter_col=timestamp_filter_col, period=period)
+                    all_txt = """<div style="width:{}px;display:flex;flex-direction:row;">"""\
+                        .format(int(self.page_width*.6))
+                    # go to next row
+                    df = self.period_to_date(df1,
+                        timestamp=dashboard_config['dates']['last_date'],
+                        timestamp_filter_col=timestamp_filter_col, period=period)
                     # get unique instances
                     df = df.compute()
                     df = df.drop_duplicates(keep='first')
@@ -158,49 +159,20 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                         cost_per_var = round(payroll_to_date/denom,2)
                         tmp_var = self.variable.split('_')
                         title = "{} to date".format(period)
-                        title_cost = "${} per {}".format(cost_per_var,tmp_var[-1])
-
-                        txt = """
-                        <div {}>
-                            <h3>{}</h3></br>{}
-                            <h5>{}</h5></br>
-                        </div>""".format(self.KPI_card_css[random.choice(list(self.KPI_card_css.keys()))],
-                                         title, count,title_cost)
-
+                        title += "</br>${} per {}".format(cost_per_var,tmp_var[-1])
                     else:
                         title = "{} to date".format(period)
-                        txt = """
-                        <div {}>
-                            <h3>{}</h3></br>{}
-                        </div>""".format(
-                            self.KPI_card_css[random.choice(list(self.KPI_card_css.keys()))],
-                            title, count)
 
-
-                    #self.period_to_date_cards[period].text = p.text
-                    card_position_counter = 0
-                    i = self.card_grid_row[period]
-                    self.card_lists[i][card_position_counter].text = txt
-                    self.card_lists[i][card_position_counter].width = 200
-                    self.card_lists[i][card_position_counter].height = 200
+                    design = random.choice(list(KPI_card_css.keys()))
+                    all_txt += self.card(title=title,data=count,card_design=design)
 
                     # add the statistically significant point estimates
-                    self.calc_sig_effect_card_data(df,interest_var=self.variable, period=period)
-                    '''
-                    logger.warning('self.sig_effect_dict:%s',self.sig_effect_dict)
-                    for var in self.sig_effect_dict.keys():
-                        card_position_counter += 1
-                        p = self.card(
-                            title=self.sig_effect_dict[var]['title'],
-                            data=self.sig_effect_dict[var]['point_estimate'],
-                            card_design=random.choice(list(self.KPI_card_css.keys())))
-                        self.card_lists[i][card_position_counter].text = p.text
-                        self.card_lists[i][card_position_counter].width = 200
-                        self.card_lists[i][card_position_counter].height = 200
-
-                    #logger.warning('%s to date completed',period)
-                    '''
+                    all_txt += self.calc_sig_effect_card_data(df,interest_var=self.variable, period=period)
+                    all_txt += """</div>"""
+                    print(all_txt)
+                    dct[period] = all_txt
                     del df
+                self.update_significant_DV_cards(dct)
 
             except Exception:
                 logger.error('graph periods to date',exc_info=True)
@@ -226,7 +198,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                     self.datepicker_pop_start.value = start_date
 
                 cols = [self.variable,self.timestamp_col, 'day']
-                df = self.load_df(start_date=start_date,end_date=end_date,cols=cols,timestamp_col='timestamp')
+                df = self.load_df(start_date=start_date,end_date=end_date,cols=cols,timestamp_col='block_timestamp')
                 if abs(start_date - end_date).days > 7:
                     if 'week' in periods:
                         periods.remove('week')
@@ -240,33 +212,34 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                 for idx,period in enumerate(periods):
                     df_period = self.period_over_period(df, start_date = start_date, end_date=end_date,
                                                         period=period, history_periods=self.pop_history_periods,
-                                                        timestamp_col='timestamp')
+                                                        timestamp_col='block_timestamp')
 
-                    groupby_cols = ['dayset','period']
-                    #logger.warning('line 150 df_period columns:%s',df.columns)
-                    df_period = df_period.groupby(groupby_cols).agg({self.variable:'sum'})
-                    df_period = df_period.reset_index()
+                    groupby_cols = ['dayset', 'period']
+                    if len(df_period) > 0:
+                        df_period = df_period.groupby(groupby_cols).agg({self.variable: 'sum'})
+                        df_period = df_period.reset_index()
+                        df_period = df_period.compute()
+                    else:
+                        df_period = df_period.compute()
+                        df_period = df_period.rename(index=str, columns={'day': 'dayset'})
                     prestack_cols = list(df_period.columns)
-
-                    df_period = df_period.compute()
-                    df_period = self.split_period_into_columns(df_period,col_to_split='period',
+                    logger.warning('Line 179:%s', df_period.head(10))
+                    df_period = self.split_period_into_columns(df_period, col_to_split='period',
                                                                value_to_copy=self.variable)
-
 
                     # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
                     if period == 'quarter':
                         min_day = df_period['dayset'].min()
-                        logger.warning('LINE 252: MINIUMUM DAY:%s',min_day)
+                        logger.warning('LINE 252: MINIUMUM DAY:%s', min_day)
                         df_period = df_period[df_period['dayset'] > min_day]
 
+                    logger.warning('line 180 df_period columns:%s', df_period.head(50))
                     poststack_cols = list(df_period.columns)
+                    title = "{} over {}".format(period, period)
 
-                    title = "{} over {}".format(period,period)
-                    plotcols =list(np.setdiff1d(poststack_cols,prestack_cols))
-                    df_period,plotcols = self.pop_include_zeros(df_period=df_period,plotcols=plotcols,period=period)
+                    plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
+                    df_period, plotcols = self.pop_include_zeros(df_period=df_period, plotcols=plotcols, period=period)
 
-
-                    #logger.warning('line 155 cols to plot:%s',plotcols)
                     if idx == 0:
                         p = df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
                                                  stacked=False,width=1000,height=400,value_label='#')
@@ -279,20 +252,19 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
                 logger.error('period over period to date', exc_info=True)
 
 
-
         # --------------------------------  PLOT TRENDS FOR SIGNIFICANT RATIOS  --------------------------
         def graph_significant_ratios_ts(self,launch=-1):
             try:
                 df = self.make_significant_ratios_df(self.df,resample_period=self.resample_period,
                                                      interest_var=self.variable,
-                                                     timestamp_col='timestamp')
+                                                     timestamp_col='block_timestamp')
                 # clean
                 if self.variable in df.columns:
                     df = df.drop(self.variable,axis=1)
 
                 #df = df.compute()
                 # plot
-                return df.hvplot.line()
+                return df.hvplot.line(width=1100,height=500)
 
             except Exception:
                 logger.error('graph significant ratios',exc_info=True)
@@ -300,7 +272,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
     def update_variable(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.variable = variable_select.value
-        thistab.graph_periods_to_date(thistab.df,'timestamp',thistab.variable)
+        thistab.graph_periods_to_date(thistab.df,'block_timestamp',thistab.variable)
         thistab.section_header_updater('cards',label='')
         thistab.section_header_updater('pop',label='')
         thistab.trigger += 1
@@ -332,7 +304,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         thistab.notification_updater("ready")
 
     try:
-        cols = ['aion_fork','aion_watch','aion_release','aion_issue','aion_push','timestamp']
+        cols = ['aion_fork','aion_watch','aion_release','aion_issue','aion_push','block_timestamp']
         thistab = Thistab(table='account_ext_warehouse', cols=cols)
         # -------------------------------------  SETUP   ----------------------------
         # format dates
@@ -341,8 +313,8 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
         last_date = dashboard_config['dates']['last_date']
         first_date = datetime(last_date.year,1,1,0,0,0)
 
-        thistab.df = thistab.load_df(first_date, last_date,cols,'timestamp')
-        thistab.graph_periods_to_date(thistab.df,timestamp_filter_col='timestamp',variable=thistab.variable)
+        thistab.df = thistab.load_df(first_date, last_date,cols,'block_timestamp')
+        thistab.graph_periods_to_date(thistab.df,timestamp_filter_col='block_timestamp',variable=thistab.variable)
         thistab.section_header_updater('cards',label='')
         thistab.section_header_updater('pop',label='')
 
@@ -396,30 +368,28 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
-        controls_ptd = WidgetBox(variable_select)
+        controls_ptd = WidgetBox(variable_select, resample_select)
 
-        controls_pop_left = WidgetBox(thistab.datepicker_pop_start)
-        controls_pop_centre = WidgetBox(datepicker_pop_end)
-        controls_pop_right = WidgetBox(pop_button)
+        controls_pop = WidgetBox(thistab.datepicker_pop_start,
+                                 datepicker_pop_end, pop_number_select,pop_button)
 
-        grid_before = [
+        grid_data = [
             [thistab.notification_div['top']],
-            [controls_ptd],
-            [thistab.section_headers['cards']]
-        ]
-
-        grid_after = [
-            [thistab.section_headers['sig_ratio'], resample_select],
-            [sig_ratios.state],
-            [thistab.section_headers['pop'], controls_pop_right],
-            [controls_pop_left,controls_pop_centre,pop_number_select],
-            [pop_week.state],
+            [Spacer(width=20, height=40)],
+            [thistab.section_headers['sig_ratio']],
+            [Spacer(width=20, height=25)],
+            [sig_ratios.state, controls_ptd],
+            [thistab.section_headers['cards']],
+            [Spacer(width=20, height=2)],
+            [thistab.KPI_card_div],
+            [thistab.section_headers['pop']],
+            [Spacer(width=20, height=25)],
+            [pop_week.state,controls_pop],
             [pop_month.state],
             [pop_quarter.state],
             [thistab.notification_div['bottom']]
         ]
 
-        grid_data = grid_before + thistab.card_lists + grid_after
         grid = gridplot(grid_data)
 
         # Make a tab with the layout

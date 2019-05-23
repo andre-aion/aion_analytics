@@ -50,6 +50,11 @@ def optimize_dataframe(df,timestamp_col='block_timestamp'):
 
     return df_read_and_optimized
 
+def string_contains_list(self,lst,string):
+    for item in lst:
+        if item in string:
+            return True
+    return False
 
 def convert_block_timestamp_from_string(df,col):
     if is_string_dtype(df[col]):

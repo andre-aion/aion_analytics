@@ -1,29 +1,19 @@
-from datetime import datetime, timedelta, date
-from enum import Enum
-
-import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, TableColumn, ColumnDataSource, DataTable, \
-    HoverTool, HTMLTemplateFormatter, Spacer
+from bokeh.models import Panel, Div, WidgetBox, Select, TableColumn, ColumnDataSource, DataTable, \
+    Spacer
 from pandas.io.json import json_normalize
 
 from scripts.databases.pythonClickhouse import PythonClickhouse
 from scripts.databases.pythonMongo import PythonMongo
-from scripts.utils.dashboards.EDA.mytab_interface import Mytab
+from scripts.utils.interfaces.mytab_interface import Mytab
 from scripts.utils.mylogger import mylogger
-from scripts.utils.myutils import datetime_to_date, drop_cols
-from scripts.streaming.streamingDataframe import StreamingDataframe as SD
+from scripts.utils.myutils import drop_cols
 from config.dashboard import config as dashboard_config
-from bokeh.models.widgets import CheckboxGroup, TextInput
 
 from tornado.gen import coroutine
-from scipy.stats import linregress
 
-from operator import itemgetter
-import pandas as pd
-import dask as dd
 import holoviews as hv
-from holoviews import streams, opts
+from holoviews import streams
 
 from scripts.utils.myutils import tab_error_flag
 
@@ -155,7 +145,8 @@ def pm_risk_assessment_tab(panel_title):
         def load_df(self):
             try:
                 risk_matrx = json_normalize(list(self.pym.db['risk_matrix'].find()))
-                if len(risk_matrix) > 0:
+                logger.warning('LINE 169:RISK MATIRX:%s', risk_matrx.head())
+                if len(risk_matrx) > 0:
                     risk_matrx = drop_cols(risk_matrx,['desc'])
                     logger.warning('LINE 159:RISK MATIRX:%s', risk_matrx.head())
 
@@ -227,7 +218,6 @@ def pm_risk_assessment_tab(panel_title):
                         return 'Proceed, if no other options are available'
                     else:
                         return 'Do no proceed (Risk unacceptable)'
-
                 df = self.df
                 df = df.groupby(['matrix', 'risk']).agg({'likelihood': 'mean', 'severity': 'mean'})
                 df = df.reset_index()

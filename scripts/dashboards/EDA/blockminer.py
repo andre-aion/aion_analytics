@@ -1,14 +1,12 @@
 from concurrent.futures import ThreadPoolExecutor
 from os.path import join, dirname
 
-from scripts.utils.dashboards.EDA.mytab_interface import Mytab
+from scripts.utils.interfaces.mytab_interface import Mytab
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
 from scripts.utils.mylogger import mylogger
-from config.df_construct import dedup_cols
 
 from bokeh.layouts import gridplot, WidgetBox
-from bokeh.models import CustomJS, ColumnDataSource, Panel, Button
-
+from bokeh.models import CustomJS, ColumnDataSource, Panel, Button, Spacer
 
 import gc
 from bokeh.models.widgets import Div, Select, \
@@ -46,10 +44,31 @@ def blockminer_tab():
             self.df2 = None
             self.key_tab = 'blockminer'
             self.n = 20
-            txt ="""<div style="text-align:center;background:black;width:100%;">
-                                                    <h1 style="color:#fff;">
-                                                    {}</h1></div>""".format('Welcome')
-            self.notification_div = Div(text=txt,width=1400,height=20)
+            # ------- DIVS setup begin
+            self.page_width = 1250
+            txt = """<hr/>
+                  <div style="text-align:center;width:{}px;height:{}px;
+                         position:relative;background:black;margin-bottom:200px">
+                         <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                  </div>""".format(self.page_width, 50, 'Welcome')
+            self.notification_div = {
+                'top': Div(text=txt, width=self.page_width, height=20),
+                'bottom': Div(text=txt, width=self.page_width, height=10),
+            }
+
+            self.section_divider = '-----------------------------------'
+            self.section_headers = {
+
+            }
+
+            # ----- UPDATED DIVS END
+
+            # ----------------------  DIVS ----------------------------
+
+        def section_header_div(self, text, html_header='h2', width=600, margin_top=150, margin_bottom=-150):
+            text = """<div style="margin-top:{}px;margin-bottom:-{}px;"><{} style="color:#4221cc;">{}</{}></div>""" \
+                .format(margin_top, margin_bottom, html_header, text, html_header)
+            return Div(text=text, width=width, height=15)
 
 
         def load_this_data(self, start_date, end_date):
@@ -62,8 +81,9 @@ def blockminer_tab():
             # load only mined blocks and remove the double entry
             supplemental_where = "AND update_type = 'mined_block' AND amount >= 0"
 
-            self.df_load(start_date, end_date,supplemental_where=supplemental_where)
-            logger.warning('adfter load:%s',self.df.head(30))
+            self.df_load(start_date, end_date,supplemental_where=supplemental_where,
+                         cols=['address','amount','block_time'])
+            logger.warning('after load:%s',self.df.head(30))
 
             return self.prep_dataset(start_date, end_date)
 
@@ -78,9 +98,9 @@ def blockminer_tab():
                 self.df1 = self.df1.groupby(['address']).agg({'block_time':'count'})
                 self.df1 = self.df1.reset_index()
                 self.df1 = self.df1.rename(columns = {'block_time':'block_count'})
-                self.df1['percentage'] = 100*len(self.df1)\
+                self.df1['percentage'] = 100*self.df1['block_count']\
                                          /self.df1['block_count'].sum()
-                self.df1['percentage'] = self.df1['percentage'].map(lambda x: round(x,3))
+                self.df1['percentage'] = self.df1['percentage'].map(lambda x: round(x,1))
                 self.df1 = self.df1.reset_index()
                 logger.warning("topN column:%s",self.df1.columns.tolist())
                 #logger.warning('END prep dataset DF1:%s', self.df1.head())
@@ -145,11 +165,6 @@ def blockminer_tab():
         def notification_updater_2(self, text):
             self.notification_div.text = '<h3  style="color:red">{}</h3>'.format(text)
 
-        def notification_updater(self, text):
-            txt = """<div style="text-align:center;background:black;width:100%;">
-                                                    <h4 style="color:#fff;">
-                                                    {}</h4></div>""".format(text)
-            self.notification_div.text = txt
 
         def spacing_div(self, width=20, height=100):
             return Div(text='', width=width, height=height)
@@ -239,8 +254,9 @@ def blockminer_tab():
 
 
         # create the dashboards
-        grid = gridplot([[this_tab.notification_div],
-                         [controls,topN_table],
+        grid = gridplot([[this_tab.notification_div['top']],
+                         [Spacer(width=20, height=70)],
+                         [topN_table,controls,],
                          [bar_plot.state]])
 
         # Make a tab with the layout

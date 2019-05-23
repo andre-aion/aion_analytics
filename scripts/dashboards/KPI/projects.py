@@ -5,15 +5,15 @@ from holoviews import streams, dim
 
 from scripts.databases.pythonMongo import PythonMongo
 from scripts.utils.mylogger import mylogger
-from scripts.utils.myutils import tab_error_flag, datetime_to_date, concat_dfs
+from scripts.utils.myutils import tab_error_flag
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
-from scripts.utils.dashboards.KPI.KPI_interface import KPI
+from scripts.utils.interfaces.KPI_interface import KPI
 from config.dashboard import config as dashboard_config
 
 from bokeh.layouts import gridplot, WidgetBox
 from bokeh.models import Panel, Button, Spacer, HoverTool, Range1d, ColumnDataSource, ResetTool, BoxZoomTool, PanTool, \
-    ToolbarBox, Toolbar, SaveTool, WheelZoomTool, LabelSet, Label
+    ToolbarBox, Toolbar, SaveTool, WheelZoomTool
 import gc
 from bokeh.models.widgets import Div, \
     DatePicker, Select
@@ -21,7 +21,7 @@ from bokeh.models.widgets import Div, \
 from datetime import datetime, timedelta, date
 
 import holoviews as hv
-from holoviews import opts, Dimension
+from holoviews import opts
 from tornado.gen import coroutine
 import numpy as np
 import pandas as pd
@@ -842,11 +842,11 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
         timeline_type_select.on_change('value', update_timeline)
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
-        controls_top_left = WidgetBox(
+        controls_top = WidgetBox(
             variable_select,type_select, status_select,pm_gender_select, m_gender_select, t_gender_select,
         )
 
-        controls_pop_left = WidgetBox(datepicker_pop_start,datepicker_pop_end, pop_number_select)
+        controls_pop = WidgetBox(datepicker_pop_start,datepicker_pop_end, pop_number_select)
         controls_timeline = WidgetBox(thistab.timeline_vars['toolbar_box'],
                                       timeline_project_select, timeline_type_select)
 
@@ -855,10 +855,10 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
             [thistab.notification_div['top']],
             [Spacer(width=20, height=70)],
             [thistab.section_headers['cards']],
-            [thistab.KPI_card_div,controls_top_left],
+            [thistab.KPI_card_div,controls_top],
             [thistab.section_headers['pop']],
             [Spacer(width=20, height=25)],
-            [pop_week.state,controls_pop_left],
+            [pop_week.state,controls_pop],
             [pop_month.state],
             [pop_quarter.state],
             [pop_year.state],

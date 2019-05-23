@@ -2,9 +2,10 @@ import gc
 
 from holoviews import streams
 
+from scripts.databases.pythonMongo import PythonMongo
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import tab_error_flag, datetime_to_date
-from scripts.utils.dashboards.EDA.mytab_interface import Mytab
+from scripts.utils.interfaces.mytab_interface import Mytab
 
 from bokeh.layouts import gridplot, WidgetBox
 from bokeh.models import Panel, Spacer
@@ -61,13 +62,13 @@ for crypto in ['aion','bitcoin','ethereum']:
             groupby_dict[label] = 'mean'
 
 for item in ['amount','transaction_cost','block_time','balance','difficulty',
-             'mining_reward','nrg_reward','num_transactions','hash_power','russell_close']:
+             'mining_reward','nrg_reward','num_transactions','hash_power']:
     groupby_dict[item] = 'mean'
 
 hyp_variables= list(groupby_dict.keys())
 
 @coroutine
-def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
+def account_activity_tab(DAYS_TO_LOAD=90,panel_title=None):
     class Thistab(Mytab):
         def __init__(self, table,cols=[], dedup_cols=[]):
             Mytab.__init__(self, table, cols, dedup_cols,panel_title=panel_title)
@@ -98,6 +99,7 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
             self.header_style = """ style='color:blue;text-align:center;' """
             self.feature_list = hyp_variables.copy()
             self.groupby_dict = groupby_dict
+            self.pym = PythonMongo('aion')
 
             # ------- DIVS setup begin
             self.page_width = 1200
@@ -130,18 +132,20 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
             df[df == inf] = 0
             return df
 
-        def load_df(self,start_date, end_date):
+        def load_df(self,start_date, end_date,cols,timestamp_col):
             try:
                 # make timestamp into index
-                self.df_load(start_date, end_date,timestamp_col='timestamp')
+                self.df_load(start_date, end_date,cols=cols,timestamp_col='block_timestamp')
                 #logger.warning('df loaded:%s',self.df.head())
             except Exception:
                 logger.warning('load df',exc_info=True)
 
         def prep_data(self):
             try:
+                #self.df = dd.dataframe.from_pandas(self.df,npartitions=10)
                 # make timestamp into index
-                self.df1 = self.df.set_index('timestamp',sorted=True)
+                logger.warning('%s',self.df['block_timestamp'].head())
+                self.df1 = self.df.set_index('block_timestamp')
             except Exception:
                 logger.warning('load df',exc_info=True)
 
@@ -165,12 +169,13 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
                 df['activity_delta(%)'] = df['period_activity'].pct_change(fill_method='ffill')
                 df['activity_delta(%)'] = df['activity_delta(%)'].multiply(100)
                 df = df.fillna(0)
+
                 logger.warning('df in balance after resample:%s',df.tail(10))
 
                 # make timestamp into index
-                return df.hvplot.line(x='timestamp', y=['period_activity'],
+                return df.hvplot.line(x='block_timestamp', y=['period_activity'],
                                       title='# of transactions')+\
-                       df.hvplot.line(x='timestamp', y=['activity_delta(%)'],
+                       df.hvplot.line(x='block_timestamp', y=['activity_delta(%)'],
                                       title='% change in # of transactions')
                 # make timestamp into index
             except Exception:
@@ -199,9 +204,9 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
                 gc.collect()
                 title1 = 'accounts {} by period'.format(state)
                 title2 = 'percentage {} change by period'.format(state)
-                return df.hvplot.line(x='timestamp', y=['status'], value_label=value_label,
+                return df.hvplot.line(x='block_timestamp', y=['status'], value_label=value_label,
                                       title=title1) + \
-                       df.hvplot.line(x='timestamp', y=['perc_change'], value_label='%',
+                       df.hvplot.line(x='block_timestamp', y=['perc_change'], value_label='%',
                                       title=title2)
             except Exception:
                 logger.error('plot account status', exc_info=True)
@@ -213,6 +218,10 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
             return Div(text=text, width=width, height=15)
 
         def corr_information_div(self, width=400, height=300):
+            div_style = """ 
+                           style='width:350px; margin-left:-500px;
+                           border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
+                       """
             txt = """
             <div {}>
             <h4 {}>How to interpret relationships </h4>
@@ -238,7 +247,7 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
             </ul>
             </div>
 
-            """.format(self.div_style, self.header_style)
+            """.format(div_style, self.header_style)
             div = Div(text=txt, width=width, height=height)
             return div
 
@@ -306,14 +315,14 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
                      })
                 logger.warning('df:%s',df.head(23))
                 return df.hvplot.table(columns=['Variable 1', 'Variable 2','Relationship','r','p-value'],
-                                       width=550,height=400,title='Correlation between variables')
+                                       width=700,height=400,title='Correlation between variables')
             except Exception:
                 logger.warning('correlation table', exc_info=True)
 
 
         def matrix_plot(self,launch=-1):
             try:
-                logger.warning('line 306 self.feature list:%s',self.feature_list)
+                #logger.warning('line 306 self.feature list:%s',self.feature_list)
 
                 if self.update_type != 'all':
                     df = self.df1[self.df1['update_type'] == self.update_type]
@@ -322,20 +331,18 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
                 #df = df[self.feature_list]
 
                 # get difference for money columns
-                logger.warning('line 282 df; %s', list(df.columns))
+                #logger.warning('line 282 df; %s', list(df.columns))
 
                 df = df.resample(self.period).mean()
-                logger.warning('line 285 df; %s', self.groupby_dct)
+                #logger.warning('line 285 df; %s', self.groupby_dict)
 
                 df = df.reset_index()
-                logger.warning('line 286 df; %s', df.head())
+                #logger.warning('line 286 df; %s', df.head())
 
-                df = df.drop('timestamp',axis=1)
+                df = df.drop('block_timestamp',axis=1)
                 df = df.fillna(0)
                 df = df.compute()
 
-                df['russell_close'] = df['russell_close']
-                df['sp_close'] = df['sp_close']
                 df['aion_close'] = df['aion_close']
                 df['aion_market_cap'] = df['aion_market_cap']
                 df['bitcoin_close'] = df['bitcoin_close']
@@ -344,7 +351,7 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
                 df['ethereum_market_cap'] = df['aion_market_cap']
 
                 df = df.fillna(0)
-                logger.warning('line 302. df: %s',df.head(10))
+                #logger.warning('line 302. df: %s',df.head(10))
 
                 self.corr_df = df.copy()
                 cols_lst = df.columns.tolist()
@@ -433,7 +440,8 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
 
     try:
         
-        cols = list(set(hyp_variables + ['address','timestamp','update_type','account_type','status']))
+        cols = list(set(hyp_variables + ['address','update_type','account_type','balance',
+                                         'status','block_timestamp','timestamp_of_first_event']))
         thistab = Thistab(table='account_ext_warehouse',cols=cols)
         # STATIC DATES
         # format dates
@@ -442,9 +450,12 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
         last_date_range = datetime.now().date()
         last_date = dashboard_config['dates']['last_date']
         first_date = datetime_to_date(last_date - timedelta(days=DAYS_TO_LOAD))
-
-        thistab.pym.load_df(start_date=first_date, end_date=last_date,
-                            cols=cols,table='account_ext_warehouse',timestamp_col='timestamp')
+        '''
+        thistab.df = thistab.pym.load_df(start_date=first_date, end_date=last_date,
+                            cols=cols,table='account_ext_warehouse',timestamp_col='block_timestamp')
+        '''
+        thistab.load_df(start_date=first_date, end_date=last_date,cols=cols,
+                                     timestamp_col='block_timestamp')
         thistab.prep_data()
 
         # MANAGE STREAM
@@ -465,8 +476,8 @@ def account_activity_tab(DAYS_TO_LOAD=30,panel_title=None):
                                options=menus['period'])
 
         variable_select = Select(title='Select variable',
-                                 value='block_time',
-                                 options=hyp_variables)
+                                 value='aion_fork',
+                                 options=sorted(hyp_variables))
         status_select = Select(title='Select account status',
                                value=thistab.status,
                                options=menus['status'])
