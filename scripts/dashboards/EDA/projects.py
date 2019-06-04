@@ -573,7 +573,7 @@ def eda_projects_tab(panel_title):
 
     try:
         # SETUP
-        table = 'project_composite'
+        table = 'project_composite1'
         thistab = Thistab(table, [], [])
 
         # setup dates

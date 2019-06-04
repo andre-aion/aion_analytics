@@ -98,6 +98,8 @@ def load_cryptos():
     except Exception:
         logger.error('load cryptos', exc_info=True)
 
+
+
 # when a tab does not work
 def tab_error_flag(tabname):
 

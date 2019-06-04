@@ -1,3 +1,5 @@
+import datetime
+
 from bokeh.layouts import gridplot
 from bokeh.models import Panel, Div, WidgetBox, Select, TableColumn, ColumnDataSource, DataTable, \
     Spacer
@@ -32,7 +34,15 @@ def pm_risk_assessment_tab(panel_title):
         Likely=[],
         Definite=[]
     ))
-
+    
+    corr_src = ColumnDataSource(data=dict(
+            variable_1= [],
+            variable_2= [],
+            relationship= [],
+            r= [],
+            p_value= []
+        )
+    )
 
     class Thistab(Mytab):
         def __init__(self, table, cols, dedup_cols=[]):
@@ -50,9 +60,7 @@ def pm_risk_assessment_tab(panel_title):
 
             self.trigger = 0
 
-            self.groupby_dict = {
-
-            }
+            self.groupby_dict = {}
 
             self.div_style = """ style='width:350px; margin-left:25px;
                                     border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
@@ -129,6 +137,8 @@ def pm_risk_assessment_tab(panel_title):
                 'distribution': self.section_header_div(text='Pre-transform distribution',
                                                width=600, html_header='h2', margin_top=5, margin_bottom=-155),
                 'matrix':self.section_header_div(text='Risk Matrix:{}'.format(self.section_divider),
+                                               width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+                'risk_solution':self.section_header_div(text='Risk Matrix vs Solution :{}'.format(self.section_divider),
                                                width=600, html_header='h2', margin_top=5, margin_bottom=-155),
             }
 
@@ -275,31 +285,102 @@ def pm_risk_assessment_tab(panel_title):
                 ]
                 risk_matrix_table = DataTable(source=risk_matrix_src, columns=columns,
                                               width=800, height=500)
-
+                self.corr(self.df)
                 return risk_matrix_table
             except Exception:
                 logger.error('risk matrix', exc_info=True)
 
-    def risk_information_div(self, width=400, height=300):
-        txt = """
-               <div {}>
-               <h4 {}>How to interpret Risk assessment matrix:</h4>
-               <ul style='margin-top:-10px;'>
-                   <li>
-                   Red: Unacceptable risk. Do NOT proceed.
-                   </li>
-                   <li>
-                   Yellow: Risky. Proceed only after ensuring better options aren't reasonable available
-                   </li>
-                   <li>
-                   Green: Acceptable risk. Proceed.
-                   </li>
-               </ul>
-               </div>
+        def correlate_solution_risk(self, launch):
+            try:
+                # load solution
+                df = json_normalize(list(self.pym.db['project_composite1'].
+                                         find({}, {'severity': 1, 'likelihood': 1, 'solution': 1,
+                                                   'project_owner_gender': 1, 'project': 1})))
+                df['solution'] = df.solution.apply(lambda x: x[0]*10 )
 
-               """.format(self.div_style, self.header_style)
-        div = Div(text=txt, width=width, height=height)
-        return div
+                df = df.groupby(['project']).agg({'severity': 'mean', 'likelihood': 'mean', 'solution': 'mean'})
+                df = df.reset_index()
+                df['composite'] = df.severity * df.likelihood
+                logger.warning('df:%s', df.head(20))
+
+                # load project
+                for idx, col in enumerate(['severity', 'likelihood', 'composite']):
+                    if idx == 0:
+                        p = df.hvplot.scatter(x='solution',y=col)
+                    else:
+                        p *= df.hvplot.scatter(x='solution',y=col)
+                return p
+                # load risk
+            except Exception:
+                logger.error('correlate solution risk', exc_info=True)
+
+        def risk_information_div(self, width=400, height=300):
+            txt = """
+                   <div {}>
+                   <h4 {}>How to interpret Risk assessment matrix:</h4>
+                   <ul style='margin-top:-10px;'>
+                       <li>
+                       Red: Unacceptable risk. Do NOT proceed.
+                       </li>
+                       <li>
+                       Yellow: Risky. Proceed only after ensuring better options aren't reasonable available
+                       </li>
+                       <li>
+                       Green: Acceptable risk. Proceed.
+                       </li>
+                   </ul>
+                   </div>
+    
+                   """.format(self.div_style, self.header_style)
+            div = Div(text=txt, width=width, height=height)
+            return div
+
+        # calculate the correlation produced by the lags vector
+        def corr(self):
+            try:
+                corr_dict_data = {
+                    'variable_1': [],
+                    'variable_2': [],
+                    'relationship': [],
+                    'r': [],
+                    'p_value': []
+                }
+                # load solution
+                df = json_normalize(list(self.pym.db['project_composite1'].
+                                         find({}, {'severity': 1, 'likelihood': 1, 'solution': 1,
+                                                   'project_owner_gender': 1, 'project': 1})))
+                df['solution'] = df.solution.apply(lambda x: x[0] * 10)
+
+                df = df.groupby(['project']).agg({'severity': 'mean', 'likelihood': 'mean', 'solution': 'mean'})
+                df = df.reset_index()
+                df['composite'] = df.severity * df.likelihood
+                logger.warning('df:%s', df.head(20))
+
+                a = df['solution'].tolist()
+                for col in ['composite','severity','likelihood']:
+                    # find lag
+                    logger.warning('column:%s',col)
+                    b = df[col].tolist()
+                    slope, intercept, rvalue, pvalue, txt = self.corr_label(a, b)
+                    corr_dict_data['variable_1'].append('solution')
+                    corr_dict_data['variable_2'].append(col)
+                    corr_dict_data['relationship'].append(txt)
+                    corr_dict_data['r'].append(round(rvalue, 3))
+                    corr_dict_data['p_value'].append(round(pvalue, 3))
+
+                corr_src.stream(corr_dict_data, rollover=3)
+                columns = [
+                    TableColumn(field="variable_1", title="variable 1"),
+                    TableColumn(field="variable_2", title="variable 2"),
+                    TableColumn(field="relationship", title="relationship"),
+                    TableColumn(field="r", title="r"),
+                    TableColumn(field="p_value", title="p_value"),
+
+                ]
+                data_table = DataTable(source=corr_src, columns=columns, width=900, height=400)
+                return data_table
+            except Exception:
+                logger.error(' corr', exc_info=True)
 
     def update_matrix(attrname, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
@@ -307,14 +388,14 @@ def pm_risk_assessment_tab(panel_title):
         thistab.set_risks(thistab.df,matrix=thistab.matrix)
         thistab.trigger += 1
         stream_launch_action_table.event(launch=thistab.trigger)
-        stream_launch_risk_matrix.event(launch=thistab.trigger)
+        stream_launch_matrix.event(launch=thistab.trigger)
         thistab.notification_updater("Ready!")
 
     def update_risk(attrname, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
         thistab.risk = thistab.risk_select.value
         thistab.trigger += 1
-        stream_launch_risk_matrix.event(launch=thistab.trigger)
+        stream_launch_matrix.event(launch=thistab.trigger)
         thistab.risk_matrix()
         thistab.notification_updater("Ready!")
 
@@ -323,10 +404,12 @@ def pm_risk_assessment_tab(panel_title):
         table = 'project_composite'
         thistab = Thistab(table, [], [])
         thistab.load_df()
+        thistab.corr()
 
         # MANAGE STREAM
         stream_launch_action_table = streams.Stream.define('Launch', launch=-1)()
-        stream_launch_risk_matrix = streams.Stream.define('Launch', launch=-1)()
+        stream_launch_matrix = streams.Stream.define('Launch', launch=-1)()
+        stream_launch_risk_solution = streams.Stream.define('Launch', launch=-1)()
 
         # MAKE TABLES
         # --------------------- PLOTS----------------------------------
@@ -338,11 +421,29 @@ def pm_risk_assessment_tab(panel_title):
             TableColumn(field="Likely",title='likely',formatter=dashboard_config['formatters']['Likely']),
             TableColumn(field="Definite",title='definite',formatter=dashboard_config['formatters']['Definite']),
         ]
+
         risk_matrix = DataTable(source=risk_matrix_src, columns=columns, width=800, height=500)
+
+        columns = [
+            TableColumn(field="variable_1", title="variable 1"),
+            TableColumn(field="variable_2", title="variable 2"),
+            TableColumn(field="relationship", title="relationship"),
+            TableColumn(field="r", title="r"),
+            TableColumn(field="p_value", title="p_value"),
+
+        ]
+        corr_table = DataTable(source=corr_src, columns=columns, width=500, height=280)
+
+        width = 800
+
+
         hv_action_table = hv.DynamicMap(thistab.action_table,
                                       streams=[stream_launch_action_table])
         action_table = renderer.get_plot(hv_action_table)
 
+        hv_risk_solution = hv.DynamicMap(thistab.correlate_solution_risk,
+                                       streams=[stream_launch_risk_solution])
+        risk_solution = renderer.get_plot(hv_risk_solution)
 
         # CREATE WIDGETS
         matrix_select = Select(title='Select matrix', value=thistab.matrix,
@@ -359,11 +460,14 @@ def pm_risk_assessment_tab(panel_title):
             [thistab.notification_div['top']],
             [Spacer(width=20, height=70)],
             [thistab.title_div('Determine action', 400)],
-            [Spacer(width=20, height=70)],
+            [Spacer(width=20, height=30)],
             [action_table.state],
             [thistab.section_headers['matrix']],
-            [Spacer(width=20, height=70)],
+            [Spacer(width=20, height=30)],
             [risk_matrix,controls],
+            [thistab.section_headers['risk_solution']],
+            [Spacer(width=20, height=30)],
+            [corr_table],
             [thistab.notification_div['bottom']]
         ])
 

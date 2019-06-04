@@ -1,13 +1,16 @@
 import random
 
 from holoviews import streams
+from pandas.io.json import json_normalize
 
+from scripts.databases.pythonMongo import PythonMongo
 from scripts.utils.mylogger import mylogger
 from scripts.utils.myutils import tab_error_flag
 from concurrent.futures import ThreadPoolExecutor
 from tornado.locks import Lock
 from scripts.utils.interfaces.KPI_interface import KPI
 from config.dashboard import config as dashboard_config
+from scripts.utils.dashboards.KPI.social_media import get_coin_name, set_vars, get_items
 
 from bokeh.layouts import gridplot, WidgetBox
 from bokeh.models import Panel, Button, Spacer
@@ -39,30 +42,18 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
             KPI.__init__(self, table,name='social_media',cols=cols)
             self.table = table
             self.df = None
+            self.pym = PythonMongo('aion')
 
             self.checkboxgroup = {}
             self.KPI_card_div = self.initialize_cards(self.page_width, height=350)
             self.ptd_startdate = datetime(datetime.today().year,1,1,0,0,0)
 
-
             self.timestamp_col = 'timestamp'
-            self.social_media = self.menus['social_media'][0]
+            self.items = None
+            self.social_media = 'twitter'
             self.crypto = 'aion'
             self.groupby_dict = {
-                'watch': 'sum',
-                'fork': 'sum',
-                'issue': 'sum',
-                'release': 'sum',
-                'push': 'sum',
-                'close': 'mean',
-                'high': 'mean',
-                'low': 'mean',
-                'market_cap': 'mean',
-                'volume': 'mean',
-                'sp_close': 'mean',
-                'sp_volume': 'mean',
-                'russell_close': 'mean',
-                'russell_volume': 'mean',
+
                 'twu_tweets': 'sum',
                 'twu_mentions': 'sum',
                 'twu_positive': 'mean',
@@ -97,6 +88,21 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
             self.variables = sorted(list(self.groupby_dict.keys()))
             self.variable = self.variables[0]
 
+            self.vars_dict = None
+            self.idvars = None
+
+            self.external_hourly_labels = ['fork', 'release', 'push', 'watch', 'issue', 'twu_tweets',
+                                           'twu_mentions', 'twu_positive', 'twu_compound', 'twu_neutral',
+                                           'twu_negative', 'twu_emojis_positive', 'twu_emojis_compound',
+                                           'twu_emojis_negative', 'twu_emojis', 'twu_retweets',
+                                           'twu_hashtags', 'twu_replies', 'twu_favorites',
+                                           'twr_tweets',
+                                           'twr_mentions', 'twr_positive', 'twr_compound', 'twr_neutral',
+                                           'twr_negative', 'twr_emojis_positive', 'twr_emojis_compound',
+                                           'twr_emojis_negative', 'twr_emojis', 'twr_retweets',
+                                           'twr_hashtags', 'twr_replies', 'twr_favorites',
+                                           ]
+
             self.datepicker_pop_start = DatePicker(
                 title="Period start", min_date=self.initial_date,
                 max_date=dashboard_config['dates']['last_date'], value=dashboard_config['dates']['last_date'])
@@ -121,7 +127,156 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
                     width=600, html_header='h2', margin_top=5, margin_bottom=-155),
             }
 
-            # ----------------------  DIVS ----------------------------
+        # ----------------------  DIVS ----------------------------
+
+        def load_df(self, start_date, end_date, cols, timestamp_col='timestamp_of_first_event',
+                    supplemental_where=None):
+            try:
+
+                if isinstance(end_date, date):
+                    end_date = datetime.combine(end_date, datetime.min.time())
+                if isinstance(start_date, date):
+                    start_date = datetime.combine(start_date, datetime.min.time())
+                end_date += timedelta(days=1)
+                temp_cols = cols.copy()
+
+                if self.table != 'external_daily':
+                    if 'amount' not in temp_cols:
+                        temp_cols.append('amount')
+
+                df = self.ch.load_data(self.table, temp_cols, start_date, end_date, timestamp_col, supplemental_where)
+                # filter out the double entry
+                # df = df[df['value'] >= 0]
+
+                if self.items is None:
+                    df_temp = df['crypto']
+                    if df_temp is not None:
+                        df_temp = df_temp.compute()
+
+                        self.items = sorted(list(set(list(df_temp))))
+                    logger.warning('LINE 148, items:%s',self.items)
+
+                if len(cols) > 0:
+                    return df[cols]
+                else:
+                    return df
+                # df[timestamp_col] = df[timestamp_col].map(lambda x: clean_dates_from_db(x))
+            except Exception:
+                logger.error('load df', exc_info=True)
+        
+
+
+        def melt_df(self, df):
+
+            try:
+                # logger.warning('%s',df.head(20))
+                temp_dct = {
+                    'timestamp': [],
+                    'crypto': [],
+                    'twu_tweets': [],
+                    'twu_mentions': [],
+                    'twu_positive': [],
+                    'twu_compound': [],
+                    'twu_neutral': [],
+                    'twu_negative': [],
+                    'twu_emojis_positive': [],
+                    'twu_emojis_compound': [],
+                    'twu_emojis_neutral': [],
+                    'twu_emojis_negative': [],
+                    'twu_emojis': [],
+                    'twu_favorites': [],
+                    'twu_retweets': [],
+                    'twu_hashtags': [],
+                    'twu_replies': [],
+                    'twr_tweets': [],
+                    'twr_mentions': [],
+                    'twr_positive': [],
+                    'twr_compound': [],
+                    'twr_neutral': [],
+                    'twr_negative': [],
+                    'twr_emojis_positive': [],
+                    'twr_emojis_compound': [],
+                    'twr_emojis_neutral': [],
+                    'twr_emojis_negative': [],
+                    'twr_emojis': [],
+                    'twr_favorites': [],
+                    'twr_retweets': [],
+                    'twr_hashtags': [],
+                    'twr_replies': [],
+
+                }
+
+                # loop through items
+                counter = 0
+                values_present = []
+                for col in df.columns:
+                    if col not in ['timestamp','month','year','day','hour']:
+                        # split
+                        item_tmp = col.split('.')
+                        #logger.warning('LINE 228:%s', col)
+
+                        key_len = len(item_tmp[0])
+                        col_label = item_tmp[-1][key_len+1:]
+                        if col_label in temp_dct.keys():
+                            # label for each coin, only run once
+                            if counter == 0:
+                                temp_dct['crypto'].append(get_coin_name(col, key_len))
+
+                            # get value from dataframe
+                            try:
+                                tmp = df[[col]]
+                                val = tmp.values[0]
+                            except:
+                                val = [0]
+                            logger.warning('LINE 228:%s', col_label)
+                            temp_dct[col_label].append(val)
+                    else:
+                        pass
+                        '''
+                        if col == 'timestamp':
+                            tmp = df[[col]]
+                            val = tmp.values[0]
+                            temp_dct['timestamp'].append(val)
+                        '''
+
+                    #values_present.appe;nd(col)
+                logger.warning('LINE 234:%s', temp_dct)
+                df = pd.DataFrame.from_dict(temp_dct)
+                logger.warning('df after melt:%s',df)
+                return df
+            except Exception:
+                logger.error('melt coins', exc_info=True)
+
+        '''
+        def load_df(self, start_date,end_date,cols, table='external_hourly',timestamp_col='timestamp'):
+            try:
+                if isinstance(end_date, date):
+                    end_date = datetime.combine(end_date, datetime.min.time())
+                if isinstance(start_date, date):
+                    start_date = datetime.combine(start_date, datetime.min.time())
+                end_date = start_date + timedelta(days=1)
+                df = self.pym.load_df(start_date, end_date,cols=cols, table=table, timestamp_col='timestamp')
+                logger.warning('df:%s',df.head())
+                self.items = get_items()
+                groupby_dict, self.vars_dict, self.idvars = set_vars(self.items)
+
+                if df is not None:
+                    if len(df) > 0:
+                        if '_id' in df.columns:
+                            df = df.drop(['_id'], axis=1)
+
+                        logger.warning('length df:%s',len(df))
+
+                        df = self.melt_df(df)
+
+                        return df
+
+                return df
+
+            except Exception:
+                logger.error('load external data', exc_info=True)
+        
+        '''
 
         def section_header_div(self, text, html_header='h2', width=600,
                                margin_top=150, margin_bottom=-150):
@@ -178,8 +333,6 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
 
 
         # ------------------------- CARDS END -----------------------------------
-
-
         def period_to_date(self, df, timestamp=None, timestamp_filter_col=None, cols=[], period='week'):
             try:
                 if timestamp is None:
@@ -210,7 +363,7 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
                 df_current['period'] = string
                 # label the days being compared with the same label
                 df_current = self.label_dates_pop(df_current, period, timestamp_col)
-                logger.warning('LINE 223:%s', df_current.head(15))
+                #logger.warning('LINE 244:%s', df_current.head(15))
                 # zero out time information
                 start = datetime(start_date.year, start_date.month, start_date.day, 0, 0, 0)
                 end = datetime(end_date.year, end_date.month, end_date.day, 0, 0, 0)
@@ -330,7 +483,6 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
                 supplemental_where = None
                 if self.crypto != 'all':
                     supplemental_where = "AND crypto = '{}'".format(self.crypto)
-
                 df = self.load_df(start_date=start_date, end_date=end_date, cols=cols,
                                   timestamp_col='timestamp',supplemental_where=supplemental_where)
 
@@ -356,19 +508,22 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
                     df_period = df_period.reset_index()
                     prestack_cols = list(df_period.columns)
 
-                    df_period = self.split_period_into_columns(df_period, col_to_split='period',
-                                                               value_to_copy=self.variable)
+                    if df_period is not None:
+                        df_period = self.split_period_into_columns(df_period, col_to_split='period',
+                                                                   value_to_copy=self.variable)
 
-                    # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
-                    if period == 'quarter':
-                        min_day = df_period['dayset'].min()
-                        logger.warning('LINE 252: MINIUMUM DAY:%s', min_day)
-                        df_period = df_period[df_period['dayset'] > min_day]
+                        # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
+                        if period == 'quarter':
+                            min_day = df_period['dayset'].min()
+                            logger.warning('LINE 252: MINIUMUM DAY:%s', min_day)
+                            df_period = df_period[df_period['dayset'] > min_day]
 
-                    poststack_cols = list(df_period.columns)
+                        poststack_cols = list(df_period.columns)
 
-                    title = "{} over {}".format(period, period)
-                    plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
+                        title = "{} over {}".format(period, period)
+                        plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
+                    else:
+                        plotcols = []
                     # include current period is not extant
                     df_period, plotcols = self.pop_include_zeros(df_period,plotcols=plotcols, period=period)
                     # logger.warning('line 155 cols to plot:%s',plotcols)
@@ -447,8 +602,8 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
         social_media_select = Select(title='Select social media',value=thistab.social_media,
                                      options=thistab.menus['social_media'])
 
-        crypto_select = Select(title='Select cryptocurrency', value=thistab.crypto,
-                               options=thistab.menus['cryptos'])
+        crypto_select = Select(title='Select item/crypto of interest', value=thistab.crypto,
+                               options=thistab.items)
 
         # ---------------------------------  GRAPHS ---------------------------
 

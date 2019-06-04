@@ -303,7 +303,7 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
                         var = col.split('_')
                         try:
                             tmp = int(var[-1])
-   
+
                             lag = tmp
                         except Exception:
                             lag = 'None'
@@ -457,9 +457,7 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
         def matrix_plot(self,launch=-1):
             try:
                 logger.warning('line 306 self.feature list:%s',self.feature_list)
-
                 df = self.df1
-
                 #df = df[self.feature_list]
 
                 # get difference for money columns

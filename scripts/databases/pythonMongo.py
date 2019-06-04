@@ -33,12 +33,14 @@ class PythonMongo:
             return datetime(timestamp.year,timestamp.month,timestamp.day,0,0,0)
         return timestamp
 
-    def load_df(self, start_date, end_date, cols=[], table='', timestamp_col='startdate_actual'):
+    def load_df(self, start_date, end_date, cols=[], table='', timestamp_col='startdate_actual',
+                supplemental_where=None):
         try:
             start_date = self.date_to_datetime(start_date)
             end_date = self.date_to_datetime(end_date)
 
             logger.warning('start date:enddate=%s:%s',start_date,end_date)
+
             if len(cols) > 0:
                 cols_to_load = {}
                 cols_to_load['_id'] = 0
