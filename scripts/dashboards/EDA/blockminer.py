@@ -29,7 +29,7 @@ for i in range(0, 400, 5):
         menu.append(str(i))
 
 @coroutine
-def blockminer_tab():
+def blockminer_tab(page_width):
 
     # source for top N table
     topN_src = ColumnDataSource(data=dict(percentage=[],
@@ -45,7 +45,7 @@ def blockminer_tab():
             self.key_tab = 'blockminer'
             self.n = 20
             # ------- DIVS setup begin
-            self.page_width = 1250
+            self.page_width = page_width
             txt = """<hr/>
                   <div style="text-align:center;width:{}px;height:{}px;
                          position:relative;background:black;margin-bottom:200px">
@@ -106,7 +106,7 @@ def blockminer_tab():
                 #logger.warning('END prep dataset DF1:%s', self.df1.head())
 
                 return self.df1.hvplot.bar('address', 'block_count', rot=90,
-                                           height= 600, width=1500, title='# of blocks mined by miner address',
+                                           height= 600, width=self.page_width, title='# of blocks mined by miner address',
                                            hover_cols=['percentage'])
 
             except Exception:

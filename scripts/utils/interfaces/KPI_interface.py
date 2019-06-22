@@ -282,6 +282,7 @@ class KPI:
                     df_period[tmp_txt] = [0] * len(df_period)
                     plotcols.append(tmp_txt)
 
+
             logger.warning('LINE 158 plotcols at end of pop include zeros:%s', plotcols)
 
             return df_period,sorted(plotcols)

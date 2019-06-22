@@ -42,8 +42,8 @@ labels = [
     'KPI: user adoption',
     'KPI: developer adoption',
     'KPI: social media',
-    'KPI: projects'
-    'miners: blocks',
+    'KPI: projects',
+    'EDA: miners',
     'EDA: account activity',
     'EDA: cryptocurrencies',
     'EDA: crypto clusters',
@@ -104,7 +104,7 @@ def aion_analytics(doc):
 
             if 'KPI: developer adoption' in lst:
                 if 'KPI: developer adoption' not in selection_tab.selected_tracker:
-                    developer_user_adoption = yield KPI_developer_adoption_tab()
+                    developer_user_adoption = yield KPI_developer_adoption_tab(page_width=selection_tab.page_width)
                     selection_tab.selected_tracker.append('KPI: developer adoption')
                     if developer_user_adoption not in tablist:
                         tablist.append(developer_user_adoption)
@@ -125,10 +125,11 @@ def aion_analytics(doc):
                     if kproj not in tablist:
                         tablist.append(kproj)
 
-            if 'miners: blocks' in lst:
-                if 'miners: blocks' not in selection_tab.selected_tracker:
-                    bm = yield blockminer_tab()
-                    selection_tab.selected_tracker.append('miners: blocks')
+            panel_title = 'EDA: miners'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    bm = yield blockminer_tab(page_width=selection_tab.page_width)
+                    selection_tab.selected_tracker.append(panel_title)
                     if bm not in tablist:
                         tablist.append(bm)
 
@@ -183,7 +184,7 @@ def aion_analytics(doc):
 
             if 'predictions: accounts by value' in lst:
                 if 'predictions: accounts by value' not in selection_tab.selected_tracker:
-                    ap = yield account_predictive_tab()
+                    ap = yield account_predictive_tab(page_width=selection_tab.page_width)
                     selection_tab.selected_tracker.append('predictions: accounts by value')
                     if ap not in tablist:
                         tablist.append(ap)

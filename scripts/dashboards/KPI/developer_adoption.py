@@ -32,7 +32,7 @@ renderer = hv.renderer('bokeh')
 
 
 @coroutine
-def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
+def KPI_developer_adoption_tab(page_width,DAYS_TO_LOAD=90):
     class Thistab(KPI):
         def __init__(self, table,cols=[]):
             KPI.__init__(self, table,name='developer',cols=cols)
@@ -59,7 +59,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
 
             # ------- DIVS setup begin
-            self.page_width = 1200
+            self.page_width = page_width
             self.KPI_card_div = self.initialize_cards(width=self.page_width,height=1000)
             txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
                           position:relative;background:black;margin-bottom:200px">
@@ -74,13 +74,13 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
             self.section_headers = {
                 'cards': self.section_header_div(
                     text='Period to date:{}'.format(self.section_divider),
-                    width=600, html_header='h2', margin_top=5,margin_bottom=-155),
+                    width=int(self.page_width*.5), html_header='h2', margin_top=5,margin_bottom=-155),
                 'pop': self.section_header_div(
                     text='Period over period:{}'.format(self.section_divider),
-                    width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+                    width=int(self.page_width*.5), html_header='h2', margin_top=5, margin_bottom=-155),
                 'sig_ratio': self.section_header_div(
                     text='Time series of ratio of DV to significant IVs'.format(self.section_divider),
-                    width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+                    width=int(self.page_width*.5), html_header='h2', margin_top=5, margin_bottom=-155),
             }
 
         # ----------------------  DIVS ----------------------------
@@ -242,10 +242,10 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
                     if idx == 0:
                         p = df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
-                                                 stacked=False,width=1000,height=400,value_label='#')
+                                                 stacked=False,width=int(self.page_width*.8),height=400,value_label='#')
                     else:
                         p += df_period.hvplot.bar('dayset',plotcols,rot=45,title=title,
-                                                  stacked=False,width=1000,height=400,value_label='#')
+                                                  stacked=False,width=int(self.page_width*.8),height=400,value_label='#')
                 return p
 
             except Exception:
@@ -264,7 +264,7 @@ def KPI_developer_adoption_tab(DAYS_TO_LOAD=90):
 
                 #df = df.compute()
                 # plot
-                return df.hvplot.line(width=1100,height=500)
+                return df.hvplot.line(width=int(self.page_width*.8),height=400)
 
             except Exception:
                 logger.error('graph significant ratios',exc_info=True)

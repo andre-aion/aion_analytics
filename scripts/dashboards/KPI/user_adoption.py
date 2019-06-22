@@ -48,9 +48,9 @@ def KPI_user_adoption_tab(DAYS_TO_LOAD=90):
             # ------- DIVS setup begin
             self.page_width = 1200
             txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
-                                                                      position:relative;background:black;margin-bottom:200px">
-                                                                      <h1 style="color:#fff;margin-bottom:300px">{}</h1>
-                                                                </div>""".format(self.page_width, 50, 'Welcome')
+                          position:relative;background:black;margin-bottom:200px">
+                          <h1 style="color:#fff;margin-bottom:300px">{}</h1>
+                    </div>""".format(self.page_width, 50, 'Welcome')
             self.notification_div = {
                 'top': Div(text=txt, width=self.page_width, height=20),
                 'bottom': Div(text=txt, width=self.page_width, height=10),

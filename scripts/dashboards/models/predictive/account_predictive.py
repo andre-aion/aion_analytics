@@ -36,7 +36,7 @@ table = 'accounts_predictive'
 hyp_variables= list(groupby_dict[table].keys())
 
 @coroutine
-def account_predictive_tab():
+def account_predictive_tab(page_width=1200):
     class Thistab(Mytab):
         def __init__(self, table, cols, dedup_cols):
             Mytab.__init__(self, table, cols, dedup_cols)
@@ -101,7 +101,7 @@ def account_predictive_tab():
             self.inspected_variable = 'amount'
 
             # ------- DIVS setup begin
-            self.page_width = 1200
+            self.page_width = page_width
             txt = """<hr/><div style="text-align:center;width:{}px;height:{}px;
                                                                        position:relative;background:black;margin-bottom:200px">
                                                                        <h1 style="color:#fff;margin-bottom:300px">{}</h1>
@@ -115,12 +115,12 @@ def account_predictive_tab():
             self.section_headers = {
                 'churn': self.section_header_div(text='Churned accounts: prediction model accuracy, variable ranking:{}'
                                                  .format('----'),
-                                                 width=600, html_header='h2', margin_top=5,
+                                                 width=int(self.page_width*.5), html_header='h2', margin_top=5,
                                                  margin_bottom=-155),
                 'variable behavior': self.section_header_div(text='Variable behavior:{}'.format(self.section_divider),
                                                width=600, html_header='h2', margin_top=5, margin_bottom=-155),
                 'predictions': self.section_header_div(text='Select date range to make predictions:{}'.format(self.section_divider),
-                                                             width=600, html_header='h2', margin_top=5,
+                                                             width=int(self.page_width*.5), html_header='h2', margin_top=5,
                                                              margin_bottom=-155),
             }
 

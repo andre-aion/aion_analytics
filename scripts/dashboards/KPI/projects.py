@@ -257,25 +257,28 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                 # filter out the dates greater than today
                 df_current = df.copy()
                 df_current = self.filter_df(df_current)
+                logger.warning('df current:%s',df_current.head(10))
                 df_current['period'] = string
+
                 # label the days being compared with the same label
-                df_current = self.label_dates_pop(df_current, period, timestamp_col)
-                cols = [self.variable,'period','dayset']
-                if 'project' in self.variable:
-                    if self.variable != 'project':
-                        df_current = df_current[[self.variable,'period','dayset','project']]
-                elif 'milestone' in self.variable:
-                    if self.variable != 'milestone':
-                        df_current = df_current[[self.variable,'period','dayset','milestone','project']]
-                elif 'task' in self.variable:
-                    if self.variable != 'task':
-                        df_current = df_current[[self.variable,'period','dayset','task','milestone','project']]
+                if len(df_current) > 0:
+                    df_current = self.label_dates_pop(df_current, period, timestamp_col)
+                    cols = [self.variable,'period','dayset']
+                    if 'project' in self.variable:
+                        if self.variable != 'project':
+                            df_current = df_current[[self.variable,'period','dayset','project']]
+                    elif 'milestone' in self.variable:
+                        if self.variable != 'milestone':
+                            df_current = df_current[[self.variable,'period','dayset','milestone','project']]
+                    elif 'task' in self.variable:
+                        if self.variable != 'task':
+                            df_current = df_current[[self.variable,'period','dayset','task','milestone','project']]
 
                 # zero out time information
                 start = datetime(start_date.year, start_date.month, start_date.day, 0, 0, 0)
                 end = datetime(end_date.year, end_date.month, end_date.day, 0, 0, 0)
 
-                #cols = list(df.columns)
+                cols = list(df.columns)
                 counter = 1
                 if isinstance(history_periods, str):
                     history_periods = int(history_periods)
@@ -285,9 +288,10 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                     # load data
                     df_temp = self.load_df(start, end, table=self.table, cols=[], timestamp_col=timestamp_col)
                     df_temp = self.filter_df(df_temp)
-                    df_temp[timestamp_col] = pd.to_datetime(df_temp[timestamp_col])
                     if df_temp is not None:
                         if len(df_temp) > 1:
+                            df_temp[timestamp_col] = pd.to_datetime(df_temp[timestamp_col])
+
                             string = '{} {}(s) prev'.format(counter, period)
                             # label period
                             df_temp = df_temp.assign(period=string)
@@ -308,6 +312,37 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
             # label dates for period over period (pop)
 
+        def pop_include_zeros(self, df_period, plotcols, period):
+            try:
+                # check for no data on original dates
+                tmp_title = '0 {}(s) prev(current)'.format(period)
+                if tmp_title not in plotcols:
+                    df_period[tmp_title] = [0] * len(df_period)
+                    plotcols.append(tmp_title)
+
+                    logger.warning('line 218 cols to plot:%s', plotcols)
+                # do other periods
+                tmp = plotcols[0]
+                txt = tmp[1:]
+                if isinstance(self.pop_history_periods, str):
+                    self.pop_history_periods = int(self.pop_history_periods)
+                for i in range(1, self.pop_history_periods):
+                    tmp_txt = str(i) + txt
+                    if tmp_txt not in plotcols:
+                        df_period[tmp_txt] = [0] * len(df_period)
+                        plotcols.append(tmp_txt)
+
+                clean_plotcols = []
+                for idx, col in enumerate(plotcols):
+                    if 'prev' in col or 'curr' in col:
+                        clean_plotcols.append(col)
+
+                logger.warning('LINE 340 plotcols at end of pop include zeros:%s', clean_plotcols)
+
+                return df_period, sorted(clean_plotcols)
+            except Exception:
+                logger.error('pop include zeros', exc_info=True)
+
         def label_dates_pop(self, df, period, timestamp_col):
             #df[timestamp_col] = pd.to_datetime(df[timestamp_col])
             def label_qtr_pop(y):
@@ -319,6 +354,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                     logger.error('df label quarter', exc_info=True)
 
             try:
+                logger.warning('df columns:%s',list(df.columns))
                 if period == 'week':
                     df['dayset'] = df[timestamp_col].dt.dayofweek
                 elif period == 'month':
@@ -336,28 +372,31 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
         def get_groupby_pop_df(self,df,variable,groupby_cols):
             try:
-                if variable in ['project']:
-                    df = df.groupby(groupby_cols).agg({variable:'count'})
-                    df = df.reset_index()
-                    #logger.warning('LINE 286 df:%s',df)
-                elif variable in ['milestone']:
-                    df = df.groupby(groupby_cols).agg({variable: 'count'})
-                    df = df.reset_index()
-                    #logger.warning('LINE 291 df:%s', df)
-                elif variable in ['task']:
-                    df = df.groupby(groupby_cols).agg({variable: 'count'})
-                    df = df.reset_index()
-                elif variable in ['remuneration']:
-                    df = df.groupby(groupby_cols).agg({variable: 'sum'})
-                    df = df.reset_index()
-                else:
-                    #logger.warning('LINE 259:df:%s',df.head())
-                    df = df.groupby(groupby_cols).agg({variable: 'mean'})
-                    df = df.reset_index()
+                if df is not None:
+                    if len(df) > 0:
+                        if 'dayset' in df.columns:
+                            if variable in ['project']:
+                                df = df.groupby(groupby_cols).agg({variable:'count'})
+                                df = df.reset_index()
+                                #logger.warning('LINE 286 df:%s',df)
+                            elif variable in ['milestone']:
+                                df = df.groupby(groupby_cols).agg({variable: 'count'})
+                                df = df.reset_index()
+                                #logger.warning('LINE 291 df:%s', df)
+                            elif variable in ['task']:
+                                df = df.groupby(groupby_cols).agg({variable: 'count'})
+                                df = df.reset_index()
+                            elif variable in ['remuneration']:
+                                df = df.groupby(groupby_cols).agg({variable: 'sum'})
+                                df = df.reset_index()
+                            else:
+                                #logger.warning('LINE 259:df:%s',df.head())
+                                df = df.groupby(groupby_cols).agg({variable: 'mean'})
+                                df = df.reset_index()
 
-                # clean up
-                if self.groupby_var in df.columns and self.variable != self.groupby_var:
-                    df = df.drop([self.groupby_var],axis=1)
+                            # clean up
+                            if self.groupby_var in df.columns and self.variable != self.groupby_var:
+                                df = df.drop([self.groupby_var],axis=1)
 
                 return df
             except Exception:
@@ -461,7 +500,18 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                                                         timestamp_col=self.timestamp_col)
 
                     groupby_cols = ['dayset', 'period']
-                    df_period = self.get_groupby_pop_df(df_period,variable=self.variable,groupby_cols=groupby_cols)
+                    if len(df_period) > 0:
+                        logger.warning('LINE 473:%s',list(df_period.columns))
+                        df_period = self.get_groupby_pop_df(df_period,variable=self.variable,groupby_cols=groupby_cols)
+                        df_period = df_period.reset_index()
+                    else:
+                        if not 'day' in df_period.columns:
+                            df_period['dayset'] = ""
+                        else:
+                            df_period = df_period.rename(index=str,columns={'day':'dayset'})
+
+                        logger.warning('LINE 478:%s',list(df_period.columns))
+
 
                     prestack_cols = list(df_period.columns)
                     df_period = self.split_period_into_columns(df_period, col_to_split='period',
@@ -469,13 +519,18 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
                     # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
                     if period == 'quarter':
-                        min_day = df_period['dayset'].min()
-                        df_period = df_period[df_period['dayset'] > min_day]
+                        if 'dayset' in df_period.columns:
+                            min_day = df_period['dayset'].min()
+                            df_period = df_period[df_period['dayset'] > min_day]
 
                     poststack_cols = list(df_period.columns)
 
                     title = "{} over {}".format(period, period)
                     plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
+
+                    # include current period if not extant
+                    df_period, plotcols = self.pop_include_zeros(df_period, plotcols=plotcols, period=period)
+
                     if self.variable in ['task_start_delay','task_end_delay','task_duration']:
                         ylabel = 'hours'
                     elif self.variable in [
@@ -487,6 +542,17 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
                         ylabel = '#'
                     elif self.variable == 'remuneration':
                         ylabel = '$'
+
+                    if 'dayset' not in df_period.columns:
+                        leng = len(df_period)
+                        if leng > 0:
+                            df_period['dayset'] = 0
+                            logger.warning('LINE 549')
+                        else:
+                            logger.warning('LINE 551')
+                            df_period['dayset'] = ''
+
+                    logger.warning('LINE 552: df columns:%s',list(df_period.columns))
 
                     if idx == 0:
                         p = df_period.hvplot.bar('dayset', plotcols, rot=45, title=title,

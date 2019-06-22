@@ -503,28 +503,29 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
 
                     logger.warning('LINE 368: dayset:%s',df_period.head(30))
                     groupby_cols = ['dayset', 'period']
-                    # logger.warning('line 150 df_period columns:%s',df.columns)
-                    df_period = df_period.groupby(groupby_cols).agg({self.variable: 'sum'})
-                    df_period = df_period.reset_index()
+                    if len(df_period) > 0 :
+                        # logger.warning('line 150 df_period columns:%s',df.columns)
+                        df_period = df_period.groupby(groupby_cols).agg({self.variable: 'sum'})
+                        df_period = df_period.reset_index()
+                    else:
+                        df_period = df_period.rename(index=str,columns={'day':'dayset'})
+
                     prestack_cols = list(df_period.columns)
 
-                    if df_period is not None:
-                        df_period = self.split_period_into_columns(df_period, col_to_split='period',
+                    df_period = self.split_period_into_columns(df_period, col_to_split='period',
                                                                    value_to_copy=self.variable)
 
-                        # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
-                        if period == 'quarter':
-                            min_day = df_period['dayset'].min()
-                            logger.warning('LINE 252: MINIUMUM DAY:%s', min_day)
-                            df_period = df_period[df_period['dayset'] > min_day]
+                    # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
+                    if period == 'quarter':
+                        min_day = df_period['dayset'].min()
+                        logger.warning('LINE 252: MINIUMUM DAY:%s', min_day)
+                        df_period = df_period[df_period['dayset'] > min_day]
 
-                        poststack_cols = list(df_period.columns)
+                    poststack_cols = list(df_period.columns)
 
-                        title = "{} over {}".format(period, period)
-                        plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
-                    else:
-                        plotcols = []
-                    # include current period is not extant
+                    title = "{} over {}".format(period, period)
+                    plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
+                    # include current period if not extant
                     df_period, plotcols = self.pop_include_zeros(df_period,plotcols=plotcols, period=period)
                     # logger.warning('line 155 cols to plot:%s',plotcols)
                     if self.groupby_dict[self.variable] == 'sum':

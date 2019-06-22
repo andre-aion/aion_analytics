@@ -285,7 +285,7 @@ def pm_risk_assessment_tab(panel_title):
                 ]
                 risk_matrix_table = DataTable(source=risk_matrix_src, columns=columns,
                                               width=800, height=500)
-                self.corr(self.df)
+                self.corr()
                 return risk_matrix_table
             except Exception:
                 logger.error('risk matrix', exc_info=True)

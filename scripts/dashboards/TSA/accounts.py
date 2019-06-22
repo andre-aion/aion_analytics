@@ -2,7 +2,7 @@ from datetime import datetime, timedelta, date
 
 import pydot
 from bokeh.layouts import gridplot
-from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, Spacer
+from bokeh.models import Panel, Div, DatePicker, WidgetBox, Button, Select, Spacer, CheckboxButtonGroup
 from sklearn import metrics
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, classification_report
@@ -83,6 +83,7 @@ def accounts_tsa_tab(panel_title):
             self.load_data_flag = False
             self.day_diff = 1
             self.groupby_dict = {}
+            self.addresses = []
 
             self.div_style = """ style='width:300px; margin-left:25px;
                         border:1px solid #ddd;border-radius:3px;background:#efefef50;' 
@@ -156,12 +157,18 @@ def accounts_tsa_tab(panel_title):
                     else:
                         self.df_load(start_date, end_date,cols=self.cols)
                         self.df = self.df.fillna(0)
+                        df = self.df[['address']]
+                        df = df.compute()
+                        self.addresses = ['all'] + list(set(list(df)))
                         #self.make_delta()
                         #self.df = self.df.set_index('block_timestamp')
                         logger.warning("data loaded - %s",self.df.tail(10))
                 else:
                     self.df_load(start_date, end_date, cols=self.cols)
                     self.df = self.df.fillna(0)
+                    df = self.df[['address']]
+                    df = df.compute()
+                    self.addresses = ['all'] + list(set(list(df)))
                     # self.make_delta()
                     # self.df = self.df.set_index('block_timestamp')
                     logger.warning("data loaded - %s", self.df.tail(10))
@@ -256,22 +263,26 @@ def accounts_tsa_tab(panel_title):
                 m = Prophet()
                 m.fit(df)
 
-                future = m.make_future_dataframe(periods=5)
+                future = m.make_future_dataframe(periods=self.forecast_days)
                 forecast = m.predict(future)
                 print(forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail())
                 print(list(forecast.columns))
                 for idx,col in enumerate(['yhat', 'yhat_lower', 'yhat_upper']):
                     if idx == 0:
-                        p = forecast.hvplot.line(x='ds',y=col,width=550,height=250).relabel(col)
+                        p = forecast.hvplot.line(x='ds',y=col,width=600,height=250,
+                                                 value_label='$',legend=False).relabel(col)
                     else:
                         p *= forecast.hvplot.scatter(x='ds'
-                                                     ,y=col,width=550,height=250).relabel(col)
+                                                     ,y=col,width=600,height=250,
+                                                     value_label='$',legend=False).relabel(col)
 
                 for idx,col in enumerate(['trend','weekly']):
                     if idx == 0:
-                        q = forecast.hvplot.line(x='ds',y=col,width=550).relabel(col)
+                        q = forecast.hvplot.line(x='ds',y=col,width=550,height=250,
+                                                 value_label='$',legend=False).relabel(col)
                     else:
-                        q *= forecast.hvplot.line(x='ds',y=col,width=550,height=250).relabel(col)
+                        q *= forecast.hvplot.line(x='ds',y=col,width=550,
+                                                  height=250,value_label='$',legend=False).relabel(col)
 
                 return p + q
             except Exception:
@@ -296,22 +307,27 @@ def accounts_tsa_tab(panel_title):
                 m = Prophet()
                 m.fit(df)
 
-                future = m.make_future_dataframe(periods=5)
+                future = m.make_future_dataframe(periods=self.forecast_days)
                 forecast = m.predict(future)
+
                 print(forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail())
                 print(list(forecast.columns))
                 for idx, col in enumerate(['yhat', 'yhat_lower', 'yhat_upper']):
                     if idx == 0:
-                        p = forecast.hvplot.line(x='ds', y=col, width=550, height=250).relabel(col)
+                        p = forecast.hvplot.line(x='ds', y=col, width=600,
+                                                 height=250,value_label='#').relabel(col)
                     else:
                         p *= forecast.hvplot.scatter(x='ds'
-                                                     , y=col, width=550, height=250).relabel(col)
+                                                     , y=col, width=600,
+                                                     height=250,value_label='#').relabel(col)
 
                 for idx, col in enumerate(['trend', 'weekly']):
                     if idx == 0:
-                        q = forecast.hvplot.line(x='ds', y=col, width=550, height=250).relabel(col)
+                        q = forecast.hvplot.line(x='ds', y=col, width=550,
+                                                 height=250,value_label='#').relabel(col)
                     else:
-                        q *= forecast.hvplot.line(x='ds', y=col, width=550, height=250).relabel(col)
+                        q *= forecast.hvplot.line(x='ds', y=col,
+                                                  width=550, height=250, value_label='#').relabel(col)
 
                 return p + q
             except Exception:
@@ -328,13 +344,11 @@ def accounts_tsa_tab(panel_title):
         thistab.address = thistab.address_select.value
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
-        stream_select_variable.event(variable=thistab.inspected_variable)
         thistab.notification_updater("ready")
 
     def update_load(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.load_df(datepicker_start.value, datepicker_end.value)
-
         thistab.notification_updater("ready")
 
     try:
@@ -375,8 +389,7 @@ def accounts_tsa_tab(panel_title):
                                     value=thistab.update_type,
                                     options=menus['update_type'])
         # search by address checkboxes
-
-        reset_prediction_address_button = Button(label="reset address(es)", button_type="success")
+        thistab.checkboxes = CheckboxButtonGroup(labels=thistab.addresses,active=[0])
 
         # ----------------------------------- LOAD DATA
         # load model-making data
@@ -394,7 +407,6 @@ def accounts_tsa_tab(panel_title):
         datepicker_start.on_change('value', update_load)
         datepicker_end.on_change('value', update_load)
         thistab.address_select.on_change('value', update)
-        reset_prediction_address_button.on_click(thistab.reset_checkboxes)
         select_forecast_days.on_change('value',update)
         update_type_select.on_change('value', update)
         account_type_select.on_change('value', update)
@@ -404,11 +416,11 @@ def accounts_tsa_tab(panel_title):
         controls = WidgetBox(
             datepicker_start, datepicker_end,
             thistab.address_select,
-            reset_prediction_address_button,
             select_forecast_days,
             update_type_select,
             account_type_select,
             status_select,
+            thistab.checkboxes
         )
 
         grid = gridplot([
