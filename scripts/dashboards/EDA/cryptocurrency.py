@@ -669,7 +669,6 @@ def cryptocurrency_eda_tab(cryptos,panel_title):
         )
 
         # create the dashboards
-
         grid = gridplot([
             [thistab.notification_div['top']],
             [Spacer(width=20, height=70)],

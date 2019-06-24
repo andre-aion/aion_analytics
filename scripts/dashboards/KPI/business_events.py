@@ -78,8 +78,10 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 'patron':'count',
                 'patron_likes':'nunique',
                 'patron_gender':'count',
+                'patron_age':'mean',
                 'patron_friend':'nunique',
                 'patron_friend_gender':'count',
+                'patron_friend_age':'mean',
                 'patron_discovery':'nunique',
 
                 'manager':'count',
@@ -106,7 +108,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 'variables': list(self.groupby_dict.keys()),
                 'history_periods': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
             }
-            
+
             #self.variables = sorted(list(self.groupby_dict.keys()))
             self.variable = 'event'
 
@@ -122,15 +124,15 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 'patron' : Select(title='Select patron', value='all', option=[]),
 
 
-           
+
                 'manager_education' : Select(title="Select manager's education", value='all',
                                            options=[]),
-                
+
                 'staff_education' : Select(title="Select staff's education", value='all',
                                                    options=[]),
-           
 
-        
+
+
 
                 'manager_gender' : Select(title="Select manager's gender", value='all',
                                          options=self.menus['gender']),
@@ -176,11 +178,11 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 'xs' : ['patron_likes','manager_education','staff_education',
                                    'manager_gender','staff_gender','patron_gender','manager_parish',
                                    'patron_parish','type'],
-                'ys': ['remuneration','attendance']
+                'ys': ['rate','attendance']
             }
             self.multiline_variable = {
                 'x':'manager_gender',
-                'y':'remuneration'
+                'y':'rate'
             }
             self.chord_data = {
                 'rename': {
@@ -192,6 +194,9 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 'percentile_threshold': .75,
 
             }
+
+            self.feature_list = self.multiline_vars['xs'] + ['rate','remuneration','start_delay','end_delay',
+                                                             'staff_age','manager_age','patron_age']
 
             self.percentile_threshold = 10
             self.tsa_variable = 'event'
@@ -225,6 +230,8 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 'multiline': self.section_header_div(text='Comparitive graphs:{}'.format(self.section_divider),
                                                width=600, html_header='h2', margin_top=5, margin_bottom=-155),
                 'patron info': self.section_header_div(text='Patron info:{}'.format(self.section_divider),
+                                                     width=600, html_header='h2', margin_top=5, margin_bottom=-155),
+                'correlations': self.section_header_div(text='Correlations:{}'.format(self.section_divider),
                                                      width=600, html_header='h2', margin_top=5, margin_bottom=-155),
             }
             self.KPI_card_div = self.initialize_cards(self.page_width, height=350)
@@ -464,10 +471,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 if isinstance(end_date, date):
                     end_date = datetime.combine(end_date, datetime.min.time())
                 today = datetime.combine(datetime.today().date(), datetime.min.time())
-                '''
-                - if the start day is today (there is no data for today),
-                  adjust start date
-                '''
+
                 if start_date == today:
                     logger.warning('START DATE of WEEK IS TODAY.!NO DATA DATA')
                     start_date = start_date - timedelta(days=7)
@@ -597,7 +601,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 for idx, row in df.iterrows():
                     src = name_dict[row[var1]]
                     tgt = name_dict[row[var2]]
-                    val = row['remuneration']
+                    val = row['rate']
                     data['links'].append({'source': src, 'target': tgt, 'value': val})
 
                 links = pd.DataFrame(data['links'])
@@ -623,11 +627,9 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
 
         def tsa_freq(self, launch):
             try:
-
-
                 logger.warning('df columns:%s', list(self.df.columns))
                 df = self.df1.set_index('timestamp')
-                if self.tsa_variable == 'remuneration':
+                if self.tsa_variable in ['remuneration','rate']:
                     df = df.resample('D').agg({self.tsa_variable: 'sum'})
                 else:
                     # calculate attendance
@@ -652,13 +654,13 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
 
                 print(forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail())
                 print(list(forecast.columns))
-                
-                if self.tsa_variable == 'remuneration':
+
+                if self.tsa_variable in ['rate','remuneration']:
                     value_label = '$'
                 else:
                     value_label = '#'
-                    
-                    
+
+
                 for idx, col in enumerate(['yhat', 'yhat_lower', 'yhat_upper']):
                     if idx == 0:
                         p = forecast.hvplot.line(x='ds', y=col, width=600,
@@ -707,6 +709,57 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('multiline plot', exc_info=True)
 
+        def correlation_table(self, launch):
+            try:
+
+                corr_dict = {
+                    'Variable 1': [],
+                    'Variable 2': [],
+                    'Relationship': [],
+                    'r': [],
+                    'p-value': []
+                }
+                # prep df
+                df = self.df1
+                df = df.drop(self.timestamp_col, axis=1)
+
+                for col in self.feature_list:
+                    logger.warning('col :%s', col)
+                    if col != self.variable:
+                        # group by variables
+                        if self.groupby_dict[self.variable] not in ['mean', 'sum']:
+                            df_tmp = df.groupby(self.variable).agg({col: self.groupby_dict[col]})
+                        else:
+                            if self.self.groupby_dict[col] not in ['mean','sum']:
+                                df_tmp = df.groupby(col).agg({col: self.groupby_dict[self.variable]})
+
+                        a = df_tmp[self.variable].tolist()
+
+                        logger.warning('%s:%s', col, self.variable)
+                        b = df_tmp[col].tolist()
+                        slope, intercept, rvalue, pvalue, txt = self.corr_label(a, b)
+                        # add to dict
+                        corr_dict['Variable 1'].append(self.variable)
+                        corr_dict['Variable 2'].append(col)
+                        corr_dict['Relationship'].append(txt)
+                        corr_dict['r'].append(round(rvalue, 4))
+                        corr_dict['p-value'].append(round(pvalue, 4))
+
+                df = pd.DataFrame(
+                    {
+                        'Variable 1': corr_dict['Variable 1'],
+                        'Variable 2': corr_dict['Variable 2'],
+                        'Relationship': corr_dict['Relationship'],
+                        'r': corr_dict['r'],
+                        'p-value': corr_dict['p-value']
+
+                    })
+                # logger.warning('df:%s',df.head(23))
+                return df.hvplot.table(columns=['Variable 1', 'Variable 2', 'Relationship', 'r', 'p-value'],
+                                       width=550, height=200, title='Correlation between variables')
+            except Exception:
+                logger.error('correlation table', exc_info=True)
+
     def update(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         for key in thistab.vars.keys():
@@ -716,6 +769,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         thistab.graph_periods_to_date(thistab.df, 'timestamp', thistab.variable)
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
+        stream_launch_corr.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
     def update_period_over_period():
@@ -732,17 +786,18 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         stream_tsa_variable_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
-    def update_tsa_variables(attrname, old, new):
+    def update_tsa_variables():
         thistab.notification_updater("Calculations underway. Please be patient")
         for key in thistab.vars.keys():
             thistab.vars[key] = thistab.selects[key]
         thistab.filter_df(thistab.df)
         thistab.tsa_variable = tsa_variable_select.value
+        thistab.forecast_days = int(select_forecast_days.value)
         thistab.trigger += 1
         stream_tsa_variable_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
-    def update_multiline_variables(attrname, old, new):
+    def update_multiline_variables():
         thistab.notification_updater("Calculations underway. Please be patient")
         for key in thistab.vars.keys():
             thistab.vars[key] = thistab.selects[key]
@@ -750,7 +805,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         thistab.multiline_variable['x'] = multiline_x_select.value
         thistab.multiline_variable['y'] = multiline_y_select.value
         thistab.trigger += 1
-        stream_tsa_variable_launch.event(launch=thistab.trigger)
+        stream_multiline_variable_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
 
 
@@ -782,26 +837,33 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         stream_launch = streams.Stream.define('Launch', launch=-1)()
         stream_tsa_variable_launch = streams.Stream.define('Launch', launch=-1)()
         stream_multiline_variable_launch = streams.Stream.define('Launch', launch=-1)()
+        stream_launch_corr = streams.Stream.define('Launch_corr', launch=-1)()
 
 
         datepicker_pop_end = DatePicker(title="Period end", min_date=first_date_range,
-                                        max_date=last_date_range, value=thistab.pop_end_date)
+                                max_date=last_date_range, value=thistab.pop_end_date)
 
         pop_number_select = Select(title='Select # of comparative periods',
-                                   value=str(5),
-                                   options=thistab.menus['history_periods'])
+                           value=str(5),
+                           options=thistab.menus['history_periods'])
         pop_button = Button(label="Select dates/periods, then click me!", width=15, button_type="success")
 
         filter_button = Button(label="Select filters, then click me!", width=15, button_type="success")
+        multiline_button = Button(label="Select multiline variables, then click me!", width=15, button_type="success")
 
         tsa_variable_select = Select(title='Select forecast variable',
-                                   value='remuneration',options=['remuneration','attendance'])
+                           value='rate',options=['rate','remuneration','attendance'])
+        tsa_button = Button(label="Select forecast variables, then click me!", width=15, button_type="success")
+        
+        select_forecast_days = Select(title='Select # of days which you want forecasted',
+                                      value=str(thistab.forecast_days),
+                                      options=['10', '20', '30', '40', '50', '60', '70', '80', '90'])
 
         multiline_y_select = Select(title='Select y variable for comparison',
-                                     value=thistab.multiline_variable['x'], options=['remuneration', 'attendance'])
+                             value=thistab.multiline_variable['y'], options=thistab.multiline_vars['ys'])
 
         multiline_x_select = Select(title='Select x variable for comparison',
-                                    value='manager gender', options=thistab.multiline_vars['xs'])
+                            value=thistab.multiline_variable['x'], options=thistab.multiline_vars['xs'])
 
         # ---------------------------------  GRAPHS ---------------------------
 
@@ -823,10 +885,77 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         hv_patron_info = hv.DynamicMap(thistab.patron_info_table, streams=[stream_launch])
         patron_info = renderer.get_plot(hv_patron_info)
 
+        hv_corr_table = hv.DynamicMap(thistab.correlation_table,streams=[stream_launch_corr])
+        corr_table = renderer.get_plot(hv_patron_info)
+
         # -------------------------------- CALLBACKS ------------------------
 
-        filter_button.on_click( update)
+        filter_button.on_click(update)
         pop_button.on_click(update_period_over_period)  # lags array
-        tsa_variable_select.on_change('value',update_tsa_variables)
+        tsa_button.on_click(update_tsa_variables)
+        multiline_button.on_click(update_multiline_variables)
 
         # controls
+        controls_multiline_ = WidgetBox(
+            multiline_x_select,
+            multiline_y_select,
+            multiline_button
+        )
+
+        controls_tsa = WidgetBox(
+            tsa_variable_select,
+            select_forecast_days,
+            tsa_button
+
+        )
+        
+        controls_pop = WidgetBox(
+            pop_button,
+        )
+        
+        controls_filters = WidgetBox(
+            thistab.selects['event'],
+            thistab.selects['company'],
+            thistab.selects['patron'],
+            thistab.selects['patron_likes'],
+            thistab.selects['manager_education'],
+            thistab.selects['staff_education'],
+            thistab.selects['manager_gender'],
+            thistab.selects['staff_gender'],
+            thistab.selects['patron_gender'],
+            thistab.selects['manager_parish'],
+            thistab.selects['staff_parish'],
+            thistab.selects['patron_parish'],
+            thistab.selects['type'],
+        )
+
+        # create the dashboards
+        grid_data = [
+            [thistab.notification_div['top']],
+            [Spacer(width=20, height=40)],
+            [thistab.section_headers['correlations']],
+            [Spacer(width=20, height=25)],
+            [corr_table.state, controls_filters],
+            [thistab.section_headers['cards']],
+            [Spacer(width=20, height=2)],
+            [thistab.KPI_card_div],
+            [thistab.section_headers['pop']],
+            [Spacer(width=20, height=25)],
+            [pop_week.state, controls_pop],
+            [pop_month.state],
+            [pop_quarter.state],
+            [thistab.section_headers['patron info']],
+            [Spacer(width=20, height=25)],
+            [patron_info.state],
+            [chord.state],
+            [thistab.section_headers['tsa']],
+            [Spacer(width=20, height=25)],
+            [tsa.state,controls_tsa],
+            [thistab.notification_div['bottom']]
+        ]
+
+
+    except Exception:
+        logger.error('rendering err:', exc_info=True)
+        return tab_error_flag(panel_title)
+
