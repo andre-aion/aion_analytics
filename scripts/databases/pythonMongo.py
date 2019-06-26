@@ -58,6 +58,7 @@ class PythonMongo:
                 },cols_to_load)))
                 logger.warning('LIne 56: %s',df.head(20))
             else:
+                logger.warning('LINE 61:table:%s',table)
                 df = json_normalize(list(self.db[table].find({
                     timestamp_col:
                         {
@@ -65,7 +66,7 @@ class PythonMongo:
                             "$lte": end_date
                         }
                 }, {'_id':False})))
-
+                #logger.warning('LINE 68:%s',df.head())
             return df
 
         except Exception:

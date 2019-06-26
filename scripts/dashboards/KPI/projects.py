@@ -294,7 +294,7 @@ def KPI_projects_tab(panel_title, DAYS_TO_LOAD=90):
 
                             string = '{} {}(s) prev'.format(counter, period)
                             # label period
-                            df_temp = df_temp.assign(period=string)
+                            df_temp['period'] = string
                             # relabel days to get matching day of week,doy, dom, for different periods
                             df_temp = self.label_dates_pop(df_temp, period, timestamp_col)
                             df_temp = df_temp[cols]

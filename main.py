@@ -19,6 +19,7 @@ from scripts.dashboards.EDA.blockminer import blockminer_tab
 from scripts.dashboards.EDA.cryptocurrency_clusters import crypto_clusters_eda_tab
 from scripts.dashboards.EDA.economic_indicators import eda_country_indexes_tab
 from scripts.dashboards.EDA.projects import eda_projects_tab
+from scripts.dashboards.KPI.business_events import EDA_business_events_tab
 from scripts.dashboards.PROJECT_MGMT.risk_assessment import pm_risk_assessment_tab
 from scripts.dashboards.KPI.projects import KPI_projects_tab
 from scripts.dashboards.KPI.social_media import KPI_social_media_tab
@@ -43,6 +44,7 @@ labels = [
     'KPI: developer adoption',
     'KPI: social media',
     'KPI: projects',
+    'EDA: business events',
     'EDA: miners',
     'EDA: account activity',
     'EDA: cryptocurrencies',
@@ -51,9 +53,9 @@ labels = [
     'EDA: country indexes',
     'clustering: cryptocurrencies',
     'predictions: accounts by value',
-    'forecasting: accounts'
+    'forecasting: accounts',
     ]
-DEFAULT_CHECKBOX_SELECTION = 12
+DEFAULT_CHECKBOX_SELECTION = 5
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -117,6 +119,7 @@ def aion_analytics(doc):
                     if sm not in tablist:
                         tablist.append(sm)
 
+
             panel_title = 'KPI: projects'
             if panel_title in lst:
                 if panel_title not in selection_tab.selected_tracker:
@@ -124,6 +127,14 @@ def aion_analytics(doc):
                     selection_tab.selected_tracker.append(panel_title)
                     if kproj not in tablist:
                         tablist.append(kproj)
+
+            panel_title = 'EDA: business events'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    eda_small = yield EDA_business_events_tab(panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
+                    if eda_small not in tablist:
+                        tablist.append(eda_small)
 
             panel_title = 'EDA: miners'
             if panel_title in lst:

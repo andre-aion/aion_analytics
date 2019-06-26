@@ -3,6 +3,7 @@ import random
 from bokeh.plotting import figure
 from fbprophet import Prophet
 from holoviews import streams, dim
+from scipy.stats import mannwhitneyu
 
 from scripts.databases.pythonMongo import PythonMongo
 from scripts.utils.mylogger import mylogger
@@ -28,6 +29,8 @@ import numpy as np
 import pandas as pd
 
 from static.css.KPI_interface import KPI_card_css
+from scipy.stats import linregress, mannwhitneyu,kruskal
+
 
 lock = Lock()
 executor = ThreadPoolExecutor()
@@ -38,7 +41,7 @@ renderer = hv.renderer('bokeh')
 
 
 @coroutine
-def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
+def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
     timeline_source = ColumnDataSource(data=dict(
         Item=[],
         Start=[],
@@ -52,7 +55,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
 
     class Thistab(KPI):
         def __init__(self, table, cols=[]):
-            KPI.__init__(self, table, name='project', cols=cols)
+            KPI.__init__(self, table, name='business', cols=cols)
             self.table = table
             self.df = None
             self.df1 = None
@@ -64,12 +67,12 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
             }
             self.ptd_startdate = datetime(datetime.today().year, 1, 1, 0, 0, 0)
 
-            self.timestamp_col = 'timestamp'
+            self.timestamp_col = 'start_actual'
             self.pym = PythonMongo('aion')
             self.groupby_dict = {
                 'event': 'count',
                 'type':'count',
-                'rate:':'sum',
+                'rate':'sum',
                 'event_duration': 'sum',
                 'start_delay': 'mean',
                 'end_delay': ' mean',
@@ -114,24 +117,22 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
 
             # #########  SETUP FILTERS #########################
             self.selects = {
-                'event': Select(title='Select event', value="all",options=[]),
+                'event': Select(title='Select event', value="all",options=['all']),
 
-                'company' : Select(title='Select company', value="all",options=[]),
+                'company' : Select(title='Select company', value="all",options=['all']),
 
                 'patron_likes' : Select(title='Select patron likes/hobbies', value='all',
                                               options=[]),
 
-                'patron' : Select(title='Select patron', value='all', option=[]),
+                'patron' : Select(title='Select patron', value='all', options=['all']),
 
 
 
                 'manager_education' : Select(title="Select manager's education", value='all',
-                                           options=[]),
+                                           options=['all']),
 
                 'staff_education' : Select(title="Select staff's education", value='all',
-                                                   options=[]),
-
-
+                                                   options=['all']),
 
 
                 'manager_gender' : Select(title="Select manager's gender", value='all',
@@ -142,13 +143,13 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                                          options=self.menus['gender']),
 
                 'manager_parish' : Select(title="Select manager's parish", value='all',
-                                         options=[]),
+                                         options=['all']),
                 'staff_parish' : Select(title="Select staff's parish", value='all',
-                                       options=[]),
+                                       options=['all']),
                 'patron_parish' : Select(title="Select patron's parish", value='all',
-                                        options=[]),
+                                        options=['all']),
                 'type': Select(title="Select event type", value='all',
-                                        options=[]),
+                                        options=['all']),
             }
 
             self.vars = {
@@ -201,7 +202,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
             self.percentile_threshold = 10
             self.tsa_variable = 'event'
             self.forecast_days = 30
-
+            self.initial_date = datetime.strptime('2015-01-01 00:00:00',self.DATEFORMAT)
             self.datepicker_pop_start = DatePicker(
                 title="Period start", min_date=self.initial_date,
                 max_date=dashboard_config['dates']['last_date'], value=dashboard_config['dates']['last_date'])
@@ -227,11 +228,11 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                                                  width=600, html_header='h3', margin_top=5, margin_bottom=-155),
                 'tsa': self.section_header_div(text='Forecasts (TSA):{}'.format(self.section_divider),
                                                     width=600, html_header='h2', margin_top=5, margin_bottom=-155),
-                'multiline': self.section_header_div(text='Comparitive graphs:{}'.format(self.section_divider),
+                'multiline': self.section_header_div(text='Comparative graphs:{}'.format(self.section_divider),
                                                width=600, html_header='h2', margin_top=5, margin_bottom=-155),
                 'patron info': self.section_header_div(text='Patron info:{}'.format(self.section_divider),
                                                      width=600, html_header='h2', margin_top=5, margin_bottom=-155),
-                'correlations': self.section_header_div(text='Correlations:{}'.format(self.section_divider),
+                'relationships': self.section_header_div(text='Relationships:{}'.format(self.section_divider),
                                                      width=600, html_header='h2', margin_top=5, margin_bottom=-155),
             }
             self.KPI_card_div = self.initialize_cards(self.page_width, height=350)
@@ -295,7 +296,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('initialize cards', exc_info=True)
 
-        def load_df(self, req_startdate, req_enddate, table, cols, timestamp_col):
+        def df_load(self, req_startdate, req_enddate, table, cols, timestamp_col):
             try:
                 # get min and max of loaded df
                 if self.df is not None:
@@ -310,15 +311,16 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                                         cols=cols, timestamp_col=timestamp_col)
 
             except Exception:
-                logger.error('load_df', exc_info=True)
+                logger.error('df_load', exc_info=True)
 
         def load_menus(self,df1):
             try:
+                logger.warning('LINE 315:column%s',list(df1.columns))
                 cols = ['event','company','patron_likes','manager_education','staff_education',
                         'manager_parish','staff_parish','patron_parish',
-                        'patron','patron_friend']
+                        'patron']
                 for col in cols:
-                    self.selects.options = ['all'] + list(df1[col].unique())
+                    self.selects[col].options = ['all'] + list(df1[col].unique())
 
             except Exception:
                 logger.error('load menus',exc_info=True)
@@ -335,7 +337,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 logger.error('period to date', exc_info=True)
 
         # ------------------------- CARDS END -----------------------------------
-        def period_to_date(self, df, timestamp=None, timestamp_filter_col=None, cols=[], period='week'):
+        def period_to_date(self, df, timestamp=None, timestamp_filter_col='start_actual', cols=[], period='week'):
             try:
                 if timestamp is None:
                     timestamp = datetime.now()
@@ -345,7 +347,6 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 # filter
 
                 df[timestamp_filter_col] = pd.to_datetime(df[timestamp_filter_col], format=self.DATEFORMAT_PTD)
-                logger.warning('df:%s', df['timestamp'])
 
                 df = df[(df[timestamp_filter_col] >= start) & (df[timestamp_filter_col] <= timestamp)]
                 if len(cols) > 0:
@@ -355,22 +356,23 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 logger.error('period to date', exc_info=True)
 
         def period_over_period(self, df, start_date, end_date, period,
-                               history_periods=2, timestamp_col='timestamp_of_first_event'):
+                               history_periods=2, timestamp_col='start_actual'):
             try:
                 # filter cols if necessary
                 string = '0 {}(s) prev(current)'.format(period)
 
                 # filter out the dates greater than today
-                df_current = df.copy()
-                df_current['period'] = string
+                df_current = df.assign(period=string)
                 # label the days being compared with the same label
-                df_current = self.label_dates_pop(df_current, period, timestamp_col)
-                # logger.warning('LINE 244:%s', df_current.head(15))
+                if len(df_current) > 0:
+                    df_current = self.label_dates_pop(df_current, period, timestamp_col)
+
                 # zero out time information
                 start = datetime(start_date.year, start_date.month, start_date.day, 0, 0, 0)
                 end = datetime(end_date.year, end_date.month, end_date.day, 0, 0, 0)
 
                 cols = list(df.columns)
+
                 counter = 1
                 if isinstance(history_periods, str):
                     history_periods = int(history_periods)
@@ -380,34 +382,35 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                     # load data
                     if period == 'quarter':
                         logger.warning('start:end %s:%s', start, end)
-                    if self.crypto != 'all':
-                        supplemental_where = "AND crypto = '{}'".format(self.crypto)
-                    df_temp = self.load_df(start, end, self.table, cols, timestamp_col)
-                    df_temp = df_temp.compute()
-                    df_temp[timestamp_col] = pd.to_datetime(df_temp[timestamp_col])
+
+                    df_temp = self.df_load(start, end,self.table,cols, timestamp_col)
                     if df_temp is not None:
                         if len(df_temp) > 1:
                             string = '{} {}(s) prev'.format(counter, period)
                             # label period
-                            df_temp = df_temp.assign(period=string)
+                            df_temp['period'] = string
                             # relabel days to get matching day of week,doy, dom, for different periods
                             df_temp = self.label_dates_pop(df_temp, period, timestamp_col)
                             # logger.warning('df temp loaded for %s previous: %s',counter,len(df_temp))
 
-                            df_current = pd.concat([df_current, df_temp])
+                            df_current = pd.concat(df_current, df_temp)
                             del df_temp
                             gc.collect()
+
                     # shift the loading window
                     counter += 1
                     start, end = self.shift_period_range(period, start, end)
+                    if period == 'week':
+                        logger.warning('LINE 327 df_current:%s', df_current.head(10))
+
                 return df_current
             except Exception:
                 logger.error('period over period', exc_info=True)
 
-            # label dates for period over period (pop)
-
         def label_dates_pop(self, df, period, timestamp_col):
-            df[timestamp_col] = pd.to_datetime(df[timestamp_col])
+            if df is not None:
+                if len(df) > 0:
+                    df[timestamp_col] = pd.to_datetime(df[timestamp_col])
 
             def label_qtr_pop(y):
                 try:
@@ -434,10 +437,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         # -------------------- GRAPHS -------------------------------------------
         def graph_periods_to_date(self, df1, timestamp_filter_col, variable):
             try:
-                if self.crypto != 'all':
-                    df1 = df1[df1.crypto == self.crypto]
-
-                df1 = df1.compute()
+                #df1 = df1.compute()
                 dct = {}
                 for idx, period in enumerate(['week', 'month', 'quarter', 'year']):
                     df = self.period_to_date(df1, timestamp=dashboard_config['dates']['last_date'],
@@ -451,6 +451,8 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                         data = int(df[variable].sum())
                     elif self.groupby_dict[variable] == 'mean':
                         data = "{}%".format(round(df[variable].mean(), 3))
+                    else:
+                        data = int(len(list(df[variable].unique())))
                     del df
                     gc.collect()
                     dct[period] = data
@@ -479,8 +481,8 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
 
                 cols = [self.variable, self.timestamp_col]
 
-                df = self.load_df(start_date=start_date, end_date=end_date, cols=cols,
-                                  timestamp_col='timestamp')
+                df = self.df_load(req_startdate=start_date, req_enddate=end_date, table=self.table, cols=cols,
+                                  timestamp_col=self.timestamp_col)
 
                 if abs(start_date - end_date).days > 7:
                     if 'week' in periods:
@@ -491,11 +493,10 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 if abs(start_date - end_date).days > 90:
                     if 'quarter' in periods:
                         periods.remove('quarter')
-                df = df.compute()
                 for idx, period in enumerate(periods):
                     df_period = self.period_over_period(df, start_date=start_date, end_date=end_date,
                                                         period=period, history_periods=self.pop_history_periods,
-                                                        timestamp_col='timestamp')
+                                                        timestamp_col='start_actual')
 
                     logger.warning('LINE 368: dayset:%s', df_period.head(30))
                     groupby_cols = ['dayset', 'period']
@@ -512,10 +513,11 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                                                                value_to_copy=self.variable)
 
                     # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
-                    if period == 'quarter':
-                        min_day = df_period['dayset'].min()
-                        logger.warning('LINE 252: MINIUMUM DAY:%s', min_day)
-                        df_period = df_period[df_period['dayset'] > min_day]
+                    if df_period is not None and len(df_period) > 0:
+                        if period == 'quarter':
+                            min_day = df_period['dayset'].min()
+                            logger.warning('LINE 252: MINIUMUM DAY:%s', min_day)
+                            df_period = df_period[df_period['dayset'] > min_day]
 
                     poststack_cols = list(df_period.columns)
 
@@ -523,11 +525,19 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                     plotcols = list(np.setdiff1d(poststack_cols, prestack_cols))
                     # include current period if not extant
                     df_period, plotcols = self.pop_include_zeros(df_period, plotcols=plotcols, period=period)
-                    # logger.warning('line 155 cols to plot:%s',plotcols)
-                    if self.groupby_dict[self.variable] == 'sum':
-                        xlabel = 'frequency'
-                    elif self.groupby_dict[self.variable] == 'mean':
+                    # logger.warning('line 155 cols to plot:%s',plotcols
+                    if self.groupby_dict[self.variable] == 'mean':
                         xlabel = '%'
+                    else:
+                        xlabel = 'frequency'
+
+                    if 'dayset' not in df_period.columns:
+                        leng = len(df_period)
+                        if leng > 0:
+                            df_period['dayset'] = 0
+                        else:
+                            df_period['dayset'] = ''
+
 
                     if idx == 0:
                         p = df_period.hvplot.bar('dayset', plotcols, rot=45, title=title,
@@ -542,8 +552,8 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
 
         def patron_info_table(self,launch):
             try:
-                tmp_df = []
-                tmp_df1 = []
+                tmp_df = None
+                tmp_df1 = None
                 if self.vars['patron'] != 'all':
                     tmp_df = self.df1['patron_friend','patron_friend_gender','patron_friend_parish']
                     tmp_df.drop_duplicates(keep='first', inplace=True)
@@ -551,8 +561,14 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                     tmp_df1 = self.df1['patron', 'patron_likes', 'patron_gender', 'patron_discovery', 'patron_parish']
                     tmp_df1.drop_duplicates(keep='first', inplace=True)
 
+                if tmp_df is None:
+                    tmp_df = pd.DataFrame()
+                if tmp_df1 is None:
+                    tmp_df1 = pd.DataFrame()
+
                 p = tmp_df.hvplot.table(width=400)
-                q =  tmp_df1.hvplot.table(width=600)
+
+                q = tmp_df1.hvplot.table(width=600)
 
                 return q + p
 
@@ -628,7 +644,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         def tsa_freq(self, launch):
             try:
                 logger.warning('df columns:%s', list(self.df.columns))
-                df = self.df1.set_index('timestamp')
+                df = self.df1.set_index(self.timestamp_col)
                 if self.tsa_variable in ['remuneration','rate']:
                     df = df.resample('D').agg({self.tsa_variable: 'sum'})
                 else:
@@ -641,7 +657,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                 df[label] = df[self.tsa_variable].diff()
                 df = df.fillna(0)
 
-                rename = {'timestamp': 'ds', self.tsa_variable: 'y'}
+                rename = {self.timestamp_col: 'ds', self.tsa_variable: 'y'}
                 df = df.rename(columns=rename)
                 logger.warning('df:%s', df.head())
                 df = df[['ds', 'y']]
@@ -709,7 +725,22 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('multiline plot', exc_info=True)
 
-        def correlation_table(self, launch):
+        def kruskal_label(self,df,var,treatment):
+            try:
+                # get unique levels
+                stat,pvalue = kruskal(*[group[var].values for name, group in df.groupby(treatment)])
+                logger.warning('stat:%s,pvalue:%s', stat, pvalue)
+                if pvalue < 0.05:
+                    txt = 'No'
+                else:
+                    txt = 'Yes'
+
+                return stat, pvalue, txt
+            except Exception:
+                logger.error('kruskal label', exc_info=True)
+
+
+        def non_para_table(self, launch):
             try:
 
                 corr_dict = {
@@ -720,30 +751,21 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
                     'p-value': []
                 }
                 # prep df
-                df = self.df1
-                df = df.drop(self.timestamp_col, axis=1)
-
-                for col in self.feature_list:
-                    logger.warning('col :%s', col)
-                    if col != self.variable:
-                        # group by variables
-                        if self.groupby_dict[self.variable] not in ['mean', 'sum']:
-                            df_tmp = df.groupby(self.variable).agg({col: self.groupby_dict[col]})
-                        else:
-                            if self.self.groupby_dict[col] not in ['mean','sum']:
-                                df_tmp = df.groupby(col).agg({col: self.groupby_dict[self.variable]})
-
-                        a = df_tmp[self.variable].tolist()
-
-                        logger.warning('%s:%s', col, self.variable)
-                        b = df_tmp[col].tolist()
-                        slope, intercept, rvalue, pvalue, txt = self.corr_label(a, b)
-                        # add to dict
-                        corr_dict['Variable 1'].append(self.variable)
-                        corr_dict['Variable 2'].append(col)
-                        corr_dict['Relationship'].append(txt)
-                        corr_dict['r'].append(round(rvalue, 4))
-                        corr_dict['p-value'].append(round(pvalue, 4))
+                df = self.df1.drop(self.timestamp_col, axis=1)
+                logger.warning('LINE 737, df columns:%s',list(df.columns))
+                for var in ['rate','remuneration']:
+                    for treatment in ['manager_gender','event']:
+                        logger.warning('col :%s', treatment)
+                        df_tmp = df[[var,treatment]]
+                        logger.warning('LINE 760: df tmp:%s',df_tmp.head())
+                        if treatment != var:
+                            stat, pvalue, txt = self.kruskal_label(df_tmp,var,treatment)
+                            # add to dict
+                            corr_dict['Variable 1'].append(var)
+                            corr_dict['Variable 2'].append(treatment)
+                            corr_dict['Relationship'].append(txt)
+                            corr_dict['r'].append(round(stat, 3))
+                            corr_dict['p-value'].append(round(pvalue, 3))
 
                 df = pd.DataFrame(
                     {
@@ -760,13 +782,13 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('correlation table', exc_info=True)
 
-    def update(attrname, old, new):
+    def update():
         thistab.notification_updater("Calculations underway. Please be patient")
         for key in thistab.vars.keys():
             thistab.vars[key] = thistab.selects[key]
         thistab.filter_df(thistab.df)
         thistab.load_menus(thistab.df)
-        thistab.graph_periods_to_date(thistab.df, 'timestamp', thistab.variable)
+        thistab.graph_periods_to_date(thistab.df, thistab.timestamp_col, thistab.variable)
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
         stream_launch_corr.event(launch=thistab.trigger)
@@ -811,7 +833,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
 
     try:
         cols = []
-        thistab = Thistab(table='external_daily', cols=cols)
+        thistab = Thistab(table='business_composite', cols=cols)
         # -------------------------------------  SETUP   ----------------------------
         # format dates
         first_date_range = thistab.initial_date
@@ -820,11 +842,11 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         first_date = datetime(last_date.year, 1, 1, 0, 0, 0)
 
         loadcols = []
-        thistab.df = thistab.load_df(first_date, last_date, loadcols, timestamp_col='timestamp')
+        thistab.df = thistab.df_load(first_date, last_date,thistab.table,loadcols, timestamp_col=thistab.timestamp_col)
         thistab.load_menus(thistab.df)
         thistab.filter_df(thistab.df)
 
-        thistab.graph_periods_to_date(thistab.df, timestamp_filter_col='timestamp', variable=thistab.variable)
+        thistab.graph_periods_to_date(thistab.df, timestamp_filter_col=thistab.timestamp_col, variable=thistab.variable)
         thistab.section_header_updater('cards', label='')
         thistab.section_header_updater('pop', label='')
 
@@ -885,8 +907,11 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         hv_patron_info = hv.DynamicMap(thistab.patron_info_table, streams=[stream_launch])
         patron_info = renderer.get_plot(hv_patron_info)
 
-        hv_corr_table = hv.DynamicMap(thistab.correlation_table,streams=[stream_launch_corr])
-        corr_table = renderer.get_plot(hv_patron_info)
+        hv_non_para_table = hv.DynamicMap(thistab.non_para_table,streams=[stream_launch_corr])
+        non_para_table = renderer.get_plot(hv_non_para_table)
+
+        hv_multiline = hv.DynamicMap(thistab.multiline, streams=[stream_launch_corr])
+        multiline = renderer.get_plot(hv_multiline)
 
         # -------------------------------- CALLBACKS ------------------------
 
@@ -896,7 +921,7 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         multiline_button.on_click(update_multiline_variables)
 
         # controls
-        controls_multiline_ = WidgetBox(
+        controls_multiline = WidgetBox(
             multiline_x_select,
             multiline_y_select,
             multiline_button
@@ -933,12 +958,9 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
         grid_data = [
             [thistab.notification_div['top']],
             [Spacer(width=20, height=40)],
-            [thistab.section_headers['correlations']],
-            [Spacer(width=20, height=25)],
-            [corr_table.state, controls_filters],
             [thistab.section_headers['cards']],
             [Spacer(width=20, height=2)],
-            [thistab.KPI_card_div],
+            [thistab.KPI_card_div,controls_filters],
             [thistab.section_headers['pop']],
             [Spacer(width=20, height=25)],
             [pop_week.state, controls_pop],
@@ -950,10 +972,24 @@ def KPI_business_tab(panel_title, DAYS_TO_LOAD=90):
             [chord.state],
             [thistab.section_headers['tsa']],
             [Spacer(width=20, height=25)],
-            [tsa.state,controls_tsa],
+            [tsa.state, controls_tsa],
+            [thistab.section_headers['relationships']],
+            [Spacer(width=20, height=25)],
+            [non_para_table.state],
+            [thistab.section_headers['multiline']],
+            [Spacer(width=20, height=25)],
+            [multiline.state, controls_multiline],
             [thistab.notification_div['bottom']]
         ]
 
+
+        grid = gridplot(grid_data)
+
+
+
+        # Make a tab with the layout
+        tab = Panel(child=grid, title=panel_title)
+        return tab
 
     except Exception:
         logger.error('rendering err:', exc_info=True)
