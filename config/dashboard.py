@@ -8,7 +8,7 @@ config = {
     'dates': {
         'DATEFORMAT': '%Y-%m-%d %H:%M:%S',
         'last_date': datetime.today() - timedelta(days=1),
-        'current_year_start':datetime(datetime.today().year,1,1,0,0,0),
+        'current_year_start':datetime(2018,1,1,0,0,0),
         'DAYS_TO_LOAD':30
     },
     'colors': ['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231',

@@ -107,7 +107,7 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                 'type': [],
                 'patron':[],
                 'manager':[],
-                'gender': ['all', 'male', 'female'],
+                'gender': ['all', 'male', 'female','other'],
                 'variables': list(self.groupby_dict.keys()),
                 'history_periods': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
             }
@@ -125,7 +125,6 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                                               options=['all']),
 
                 'patron' : Select(title='Select patron', value='all', options=['all']),
-
 
 
                 'manager_education' : Select(title="Select manager's education", value='all',
@@ -236,10 +235,10 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                                                width=600, html_header='h2', margin_top=5, margin_bottom=-155),
                 'patron info': self.section_header_div(text='Patron info:{}'.format(self.section_divider),
                                                      width=600, html_header='h2', margin_top=5, margin_bottom=-155),
-                'relationships': self.section_header_div(text='Relationships:{}'.format(self.section_divider),
+                'relationships': self.section_header_div(text='Statistically Significant Relationships:---',
                                                      width=600, html_header='h2', margin_top=5, margin_bottom=-155),
             }
-            self.KPI_card_div = self.initialize_cards(self.page_width, height=350)
+            self.KPI_card_div = self.initialize_cards(self.page_width, height=40)
             start = datetime(2014, 1, 1, 0, 0, 0)
             end = datetime(2019, 5, 15, 0, 0, 0)
             self.tools = [BoxZoomTool(), ResetTool(), PanTool(), SaveTool(), WheelZoomTool()]
@@ -316,7 +315,7 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                 else:
                     df = self.pym.load_df(req_startdate, req_enddate, table=table,
                                           cols=cols, timestamp_col=timestamp_col)
-                logger.warning('LINE 316:%s df:%s',df.head())
+                logger.warning('LINE 316: df:%s',df.head())
                 if df is not None and len(df) > 0:
                     self.filter_df(df)
 
@@ -328,10 +327,8 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
         def load_menus(self,df1):
             try:
                 logger.warning('LINE 315:column%s',list(df1.columns))
-                cols = ['event','company','patron_likes','manager_education','staff_education',
-                        'manager_parish','staff_parish','patron_parish',
-                        'patron']
-                for col in cols:
+
+                for col in self.vars.keys():
                     self.selects[col].options = ['all'] + list(df1[col].unique())
 
             except Exception:
@@ -339,12 +336,12 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
 
         def filter_df(self, df1):
             try:
-                logger.warning('LINE 337-self.df:%s', df1.head())
                 for key in self.vars.keys():
+                    logger.warning('LINE 343-self.df1-%s:%s', key,self.vars[key])
                     if self.vars[key] != 'all':
+                        logger.warning('LINE 345:key for filtering :%s',key)
                         df1 = df1[df1[key] == self.vars[key]]
-                self.df1 = df1
-                self.load_menus(self.df1)
+                return df1
                 logger.warning('LINE 342-self.df1:%s',self.df1.head())
 
             except Exception:
@@ -376,7 +373,8 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                 string = '0 {}(s) prev(current)'.format(period)
 
                 # filter out the dates greater than today
-                df_current = df.assign(period=string)
+                df_current = df
+                df_current['period'] = string
                 # label the days being compared with the same label
                 if len(df_current) > 0:
                     df_current = self.label_dates_pop(df_current, period, timestamp_col)
@@ -406,7 +404,8 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                             # relabel days to get matching day of week,doy, dom, for different periods
                             df_temp = self.label_dates_pop(df_temp, period, timestamp_col)
                             # logger.warning('df temp loaded for %s previous: %s',counter,len(df_temp))
-                            df_current = pd.concat([df_current, df_temp], axis=0)
+                            df_current = pd.concat([df_current, df_temp])
+                            df_current = df_current.reset_index()
                             del df_temp
                             gc.collect()
 
@@ -527,8 +526,8 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                                                                value_to_copy=self.variable)
 
                     # short term fix: filter out the unnecessary first day added by a corrupt quarter functionality
-                    if df_period is not None and len(df_period) > 0:
-                        if period == 'quarter':
+                    if period == 'quarter':
+                        if 'dayset' in df_period.columns:
                             min_day = df_period['dayset'].min()
                             logger.warning('LINE 252: MINIUMUM DAY:%s', min_day)
                             df_period = df_period[df_period['dayset'] > min_day]
@@ -598,7 +597,7 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                         return 1
                     return x
 
-                df = self.df.copy()
+                df = self.df1.copy()
                 # chord setup
                 var1 = 'staff'
                 var2 = 'patron'
@@ -608,9 +607,7 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                 source_list = df[var1].tolist()
                 names = list(set(source_list))
 
-
-
-                var1_dict = dict(zip(df[var2], df.type))
+                var1_dict = dict(zip(df[var2], df[var1]))
                 type_dict = {}
                 types = list(set(df['type'].tolist()))
                 name_dict = {}
@@ -655,28 +652,34 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
             except Exception:
                 logger.error('chord diagram', exc_info=True)
 
-        def tsa_freq(self, launch):
+        def forecasts(self, launch):
             try:
-                logger.warning('LINE 660: df columns:%s', list(self.df1.columns))
-                df = self.df1.set_index(self.timestamp_col)
-                logger.warning('LINE 648: df:%s', df.head())
+                logger.warning('LINE 660: self.df1 :%s', self.df1.head())
+                df = self.df.copy()
+                df = df.set_index(self.timestamp_col)
+                #logger.warning('LINE 648: df:%s', df.head())
 
+                tsa_variable = self.tsa_variable
                 if self.tsa_variable in ['remuneration','rate']:
-                    df = df.resample('D').agg({self.tsa_variable: 'sum'})
+                    df = df.resample('D').agg({tsa_variable: 'sum'})
                 else:
                     # calculate attendance
-                    df = df.resample('D').agg({self.tsa_variable: 'count'})
+                    if self.tsa_variable == 'attendance':
+                        tsa_variable = 'patrons'
+                    df = df.resample('D').agg({tsa_variable: 'count'})
 
-                logger.warning('LINE 658: df:%s', df.head())
+
                 label = 'freq_diff'
-                df[label] = df[self.tsa_variable].diff()
+                #df[label] = df[tsa_variable].diff()
                 df = df.fillna(0)
                 df = df.reset_index()
-                rename = {self.timestamp_col: 'ds', self.tsa_variable: 'y'}
+                logger.warning('LINE 672: df:%s', df.head())
+
+                rename = {self.timestamp_col: 'ds', tsa_variable: 'y'}
                 df = df.rename(columns=rename)
-                logger.warning('df:%s', df.head())
+                #logger.warning('df:%s', df.head())
                 df = df[['ds', 'y']]
-                logger.warning('df:%s', df.tail())
+                #logger.warning('df:%s', df.tail())
                 m = Prophet()
                 m.fit(df)
 
@@ -684,13 +687,12 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                 forecast = m.predict(future)
 
                 print(forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail())
-                print(list(forecast.columns))
+                print('LINE 689 forecast columns:',list(forecast.columns))
 
-                if self.tsa_variable in ['rate','remuneration']:
+                if tsa_variable in ['rate','remuneration']:
                     value_label = '$'
                 else:
                     value_label = '#'
-
 
                 for idx, col in enumerate(['yhat', 'yhat_lower', 'yhat_upper']):
                     if idx == 0:
@@ -706,7 +708,7 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                         q = forecast.hvplot.line(x='ds', y=col, width=550,
                                                  height=250, value_label=value_label).relabel(col)
                     else:
-                        if weekly in forecast.columns:
+                        if 'weekly' in forecast.columns:
                             q *= forecast.hvplot.line(x='ds', y=col,
                                                       width=550, height=250, value_label=value_label).relabel(col)
 
@@ -719,14 +721,22 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
         def kruskal_label(self,df,var,treatment):
             try:
                 # get unique levels
-                stat,pvalue = kruskal(*[group[var].values for name, group in df.groupby(treatment)])
-                logger.warning('stat:%s,pvalue:%s', stat, pvalue)
-                if pvalue < 0.05:
-                    txt = 'No'
-                else:
-                    txt = 'Yes'
 
-                return stat, pvalue, txt
+                try:
+                    stat,pvalue = kruskal(*[group[var].values for name, group in df.groupby(treatment)])
+                    logger.warning('stat:%s,pvalue:%s', stat, pvalue)
+                    if pvalue > 0.05:
+                        txt = 'No'
+                    else:
+                        txt = 'Yes'
+                    return stat, pvalue, txt
+                except Exception:
+                    stat = 'na'
+                    pvalue = 'na'
+                    txt = 'na'
+                    logger.warning('Line 737: not enough groups')
+
+                    return stat, pvalue, txt
             except Exception:
                 logger.error('kruskal label', exc_info=True)
 
@@ -738,32 +748,36 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                     'Variable 1': [],
                     'Variable 2': [],
                     'Relationship': [],
-                    'r': [],
+                    'stat': [],
                     'p-value': []
                 }
                 # prep df
-                logger.warning('LINE 734: self.df1:%s',self.df1.head())
-                df = self.df1.drop(self.timestamp_col, axis=1)
-                logger.warning('LINE 737, df columns:%s',list(df.columns))
+                df = self.df1.copy()
+                df = df.drop(self.timestamp_col, axis=1)
+                logger.warning('LINE 758; df:%s',list(df.columns))
                 for var in ['rate','remuneration','patron']:
-                    for treatment in ['event','manager_gender','manager_education','manager_parish',
-                                      'staff_gender', 'staff_education', 'staff_parish',
-                                      'patron_gender', 'patron_likes', 'patron_parish'
-                                      ]:
+                    for treatment in self.vars.keys():
                         logger.warning('col :%s', treatment)
                         df_tmp = df[[var,treatment]]
-                        if var == 'patron':
-                            df = df.groupby([treatment]).agg({'patron':'nunique'})
-                            df = df.reset_index()
-                        logger.warning('LINE 760: df tmp:%s',df_tmp.head())
+
                         if treatment != var:
+                            if var == 'patron':
+                                df_tmp = df_tmp.groupby([treatment]).agg({'patron': 'nunique'})
+                                df_tmp = df_tmp.reset_index()
+
                             stat, pvalue, txt = self.kruskal_label(df_tmp,var,treatment)
                             # add to dict
                             corr_dict['Variable 1'].append(var)
                             corr_dict['Variable 2'].append(treatment)
                             corr_dict['Relationship'].append(txt)
-                            corr_dict['r'].append(round(stat, 3))
-                            corr_dict['p-value'].append(round(pvalue, 3))
+                            if isinstance(pvalue, float):
+                                corr_dict['stat'].append(round(stat, 3))
+                            else:
+                                corr_dict['stat'].append(stat)
+                            if isinstance(pvalue,float):
+                                corr_dict['p-value'].append(round(pvalue, 3))
+                            else:
+                                corr_dict['p-value'].append(pvalue)
                             logger.warning('LINE 756:%s-%s completed',var,treatment)
 
                 df = pd.DataFrame(
@@ -771,13 +785,13 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                         'Variable 1': corr_dict['Variable 1'],
                         'Variable 2': corr_dict['Variable 2'],
                         'Relationship': corr_dict['Relationship'],
-                        'r': corr_dict['r'],
+                        'stat': corr_dict['stat'],
                         'p-value': corr_dict['p-value']
 
                     })
                 # logger.warning('df:%s',df.head(23))
-                return df.hvplot.table(columns=['Variable 1', 'Variable 2', 'Relationship', 'r', 'p-value'],
-                                       width=550, height=600, title='Correlation between variables')
+                return df.hvplot.table(columns=['Variable 1', 'Variable 2', 'Relationship', 'stat', 'p-value'],
+                                       width=550, height=600, title='Effect of variable levels on outcomes')
             except Exception:
                 logger.error('correlation table', exc_info=True)
 
@@ -788,15 +802,26 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
                     yvar = 'patron'
 
                 xvar = self.multiline_variable['x']
-                df = self.df[[xvar, yvar, self.timestamp_col]]
+
+                df = self.df1.copy()
+                for key in thistab.vars.keys():
+                    if thistab.vars[key] != 'all':
+                        if key != xvar:
+                            df = df[df[key] == self.vars[key]]
+
+                df = df[[xvar, yvar, self.timestamp_col]]
                 df = df.set_index(self.timestamp_col)
                 if yvar == 'patron':
                     df = df.groupby(xvar).resample(self.resample_period['multiline']).agg({yvar: 'nunique'})
+                    df = df.reset_index()
+                    logger.warning('LINE 817: df:%s', df.head())
+
                 else:
                     df = df.groupby(xvar).resample(self.resample_period['multiline']).agg({yvar: 'sum'})
+                    df = df.reset_index()
+                    logger.warning('LINE 820: df:%s',df.head())
 
-                #df = df.reset_index()
-                df = df[[yvar]]
+
                 lines = df[xvar].unique()
                 # split data frames
                 dfs = {}
@@ -815,6 +840,7 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
     def update():
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.filter_df(thistab.df)
+        thistab.load_menus(thistab.df1)
         thistab.graph_periods_to_date(thistab.df, thistab.timestamp_col, thistab.variable)
         thistab.trigger += 1
         stream_launch.event(launch=thistab.trigger)
@@ -836,7 +862,7 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
         thistab.multiline_variable['y'] = multiline_y_select.value
         thistab.notification_updater("ready")
 
-    def update_tsa_variables():
+    def update_forecasts():
         thistab.notification_updater("Calculations underway. Please be patient")
         for key in thistab.vars.keys():
             thistab.vars[key] = thistab.selects[key]
@@ -849,12 +875,11 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
 
     def update_multiline_variables():
         thistab.notification_updater("Calculations underway. Please be patient")
-        for key in thistab.vars.keys():
-            thistab.vars[key] = thistab.selects[key]
-        thistab.filter_df(thistab.df)
+
         thistab.resample_period['multiline'] = select_resample_period['multiline'].value
         thistab.multiline_variable['x'] = multiline_x_select.value
         thistab.multiline_variable['y'] = multiline_y_select.value
+
         thistab.trigger += 1
         stream_multiline_variable_launch.event(launch=thistab.trigger)
         thistab.notification_updater("ready")
@@ -872,6 +897,8 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
 
         loadcols = []
         thistab.df = thistab.df_load(first_date, last_date,thistab.table,loadcols, timestamp_col=thistab.timestamp_col)
+        thistab.df1 = thistab.filter_df(thistab.df)
+        thistab.load_menus(thistab.df)
 
         thistab.graph_periods_to_date(thistab.df, timestamp_filter_col=thistab.timestamp_col, variable=thistab.variable)
         thistab.section_header_updater('cards', label='')
@@ -930,7 +957,7 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
         hv_pop_quarter = hv.DynamicMap(thistab.pop_quarter, streams=[stream_launch])
         pop_quarter = renderer.get_plot(hv_pop_quarter)
 
-        hv_tsa = hv.DynamicMap(thistab.tsa_freq, streams=[stream_tsa_variable_launch])
+        hv_tsa = hv.DynamicMap(thistab.forecasts, streams=[stream_tsa_variable_launch])
         tsa = renderer.get_plot(hv_tsa)
 
         hv_chord = hv.DynamicMap(thistab.chord_diagram, streams=[stream_launch])
@@ -949,7 +976,7 @@ def EDA_business_events_tab(panel_title, DAYS_TO_LOAD=90):
 
         filter_button.on_click(update)
         pop_button.on_click(update_period_over_period)  # lags array
-        tsa_button.on_click(update_tsa_variables)
+        tsa_button.on_click(update_forecasts)
         multiline_button.on_click(update_multiline_variables)
 
         # controls

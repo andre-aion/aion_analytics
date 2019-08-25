@@ -14,6 +14,7 @@ from bokeh.layouts import gridplot
 # GET THE DASHBOARDS
 from tornado.ioloop import IOLoop
 
+from scripts.dashboards.EDA.BCC.rentals import eda_bcc_rentals_tab
 from scripts.dashboards.EDA.account_activity import account_activity_tab
 from scripts.dashboards.EDA.blockminer import blockminer_tab
 from scripts.dashboards.EDA.cryptocurrency_clusters import crypto_clusters_eda_tab
@@ -37,12 +38,12 @@ logger = mylogger(__file__)
 executor = ThreadPoolExecutor(max_workers=10)
 cryptocurrencies = load_cryptos()
 
-
+'''
 labels = [
     'PROJECT MGMT: Risk assessment',
     'KPI: user adoption',
     'KPI: developer adoption',
-    'KPI: social media',
+    #'KPI: social media',
     'KPI: projects',
     'EDA: business events',
     'EDA: miners',
@@ -50,12 +51,18 @@ labels = [
     'EDA: cryptocurrencies',
     'EDA: crypto clusters',
     'EDA: projects',
-    'EDA: country indexes',
+    #'EDA: country indexes',
     'clustering: cryptocurrencies',
     'predictions: accounts by value',
     'forecasting: accounts',
+    'EDA: Bar',
+
     ]
-DEFAULT_CHECKBOX_SELECTION = 5
+'''
+labels = [
+    'EDA: Rentals'
+]
+DEFAULT_CHECKBOX_SELECTION = 0
 
 @gen.coroutine
 def aion_analytics(doc):
@@ -207,6 +214,14 @@ def aion_analytics(doc):
                     selection_tab.selected_tracker.append(panel_title)
                     if tsa not in tablist:
                         tablist.append(tsa)
+
+            panel_title = 'EDA: Rentals'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    rentals = yield eda_bcc_rentals_tab(panel_title=panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
+                    if rentals not in tablist:
+                        tablist.append(rentals)
 
             # make list unique
             tablist = list(set(tablist))

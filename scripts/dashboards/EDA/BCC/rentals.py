@@ -26,7 +26,7 @@ renderer = hv.renderer('bokeh')
 
 
 @coroutine
-def eda_projects_tab(panel_title):
+def eda_bcc_rentals_tab(panel_title):
     lags_corr_src = ColumnDataSource(data=dict(
         variable_1=[],
         variable_2=[],
@@ -49,29 +49,26 @@ def eda_projects_tab(panel_title):
             self.df_grouped = ''
 
             self.cl = PythonClickhouse('aion')
-            
+
             self.trigger = 0
             self.groupby_dict = {
-                'project_duration': 'sum',
-                'project_start_delay': 'mean',
-                'project_end_delay': 'mean',
-                'project_owner_age':'mean',
-                'project_owner_gender':'mean',
+                'drink_type': 'count',
+                'tab_status': 'count',
+                'tab':'mean',
+                'category': 'count',
+                'item': 'count',
+                'area' : 'count',
+                'amount':'mean',
+                'payment':'sum',
+                'visit_duration': 'sum',
+                'age': 'mean',
+                'gender': 'count',
+                'status':'count',
 
-                'milestone_duration': 'sum',
-                'milestone_start_delay': 'mean',
-                'milestone_end_delay': 'mean',
-                'milestone_owner_age': 'mean',
-                'milestone_owner_gender': 'mean',
-
-                'task_duration': 'sum',
-                'task_start_delay': 'sum',
-                'task_end_delay': 'mean',
-                'task_owner_age': 'mean',
-                'task_owner_gender': 'mean'
             }
+
             self.feature_list = list(self.groupby_dict.keys())
-            self.lag_variable = 'task_duration'
+            self.lag_variable = 'visit_duration'
             self.lag_days = "1,2,3"
             self.lag = 0
             self.lag_menu = [str(x) for x in range(0, 100)]
@@ -88,32 +85,54 @@ def eda_projects_tab(panel_title):
             self.header_style = """ style='color:blue;text-align:center;' """
 
             self.variables = sorted(list(self.groupby_dict.keys()))
-            self.variable = self.variables[0]
-
-
+            self.variable = 'visit_tab'
 
             self.relationships_to_check = ['weak', 'moderate', 'strong']
 
-            self.status = 'all'
-            self.pm_gender = 'all'
-            self.m_gender = 'all'
-            self.t_gender = 'all'
-            self.type = 'all'
 
             self.pym = PythonMongo('aion')
             self.menus = {
-                'status': ['all', 'open', 'closed'],
-                'type': ['all', 'research', 'reconciliation', 'audit', 'innovation', 'construction', 'manufacturing',
-                         'conference'],
+                'tab_status': ['all', 'open', 'closed'],
+                'item':['all'],
+                'drink_type': ['all'],
+                'category':['all'],
+                'status':['all','guest','member'],
                 'gender': ['all', 'male', 'female'],
                 'variables': list(self.groupby_dict.keys()),
                 'history_periods': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+                'area':['all','bar','rentals']
             }
+            self.select = {}
+            self.select['area'] = Select(title='Select BCC area', value='all',
+                                        options=self.menus['area'])
+
+            self.select['item'] = Select(title='Select item', value='all',
+                                        options=self.menus['item'])
+
+            self.select['tab_status'] = Select(title='Select tab status', value='all',
+                                            options=self.menus['tab_status'])
+
+            self.select['status'] = Select(title='Select visitor status', value='all',
+                                            options=self.menus['status'])
+
+            self.select['gender'] = Select(title="Select visitor gender", value='all',
+                                            options=self.menus['gender'])
+
+            self.select['category'] = Select(title="Select category", value='all',
+                                            options=self.menus['category'])
+
+            self.select['drink_type'] = Select(title="Select drink type", value='all',
+                                            options=self.menus['drink_type'])
+
+            self.select_values = {}
+            for item in self.select.keys():
+                self.select_values[item] = 'all'
+
             self.multiline_vars = {
-                'x':'manager_gender',
-                'y':'remuneration'
+                'x': 'gender',
+                'y': 'tab'
             }
-            self.timestamp_col = 'project_startdate_actual'
+            self.timestamp_col = 'visit_start'
             # ------- DIVS setup begin
             self.page_width = 1250
             txt = """<hr/>
@@ -134,8 +153,8 @@ def eda_projects_tab(panel_title):
                                                width=600, html_header='h2', margin_top=5,
                                                margin_bottom=-155),
                 'distribution': self.section_header_div(text='Pre-transform distribution:',
-                                                 width=600, html_header='h2', margin_top=5,
-                                                 margin_bottom=-155),
+                                                        width=600, html_header='h2', margin_top=5,
+                                                        margin_bottom=-155),
                 'relationships': self.section_header_div(
                     text='Relationships between variables:{}'.format(self.section_divider),
                     width=600, html_header='h2', margin_top=5,
@@ -207,56 +226,50 @@ def eda_projects_tab(panel_title):
             return div
 
         # /////////////////////////////////////////////////////////////
-        def filter_df(self, df1):
-            if self.status != 'all':
-                df1 = df1[df1.status == self.status]
-            if self.pm_gender != 'all':
-                df1 = df1[df1.project_owner_gender == self.pm_gender]
-            if self.m_gender != 'all':
-                df1 = df1[df1.milestone_owner_gender == self.m_gender]
-            if self.t_gender != 'all':
-                df1 = df1[df1.task_owner_gender == self.t_gender]
 
-            if self.type != 'all':
-                df1 = df1[df1.type == self.type]
-            return df1
-
-        def prep_data(self, df1):
+        def load_df(self,req_startdate, req_enddate, table, cols, timestamp_col):
             try:
-                '''
-                df1[self.timestamp_col] = df1[self.timestamp_col].apply(lambda x: datetime(x.year,
-                                                                                   x.month,
-                                                                                   x.day,
-                                                                                   x.hour,0,0))
-                '''
-                df1 = df1.set_index(self.timestamp_col)
-                logger.warning('LINE 195 df:%s', df1.head())
-                # handle lag for all variables
+                # get min and max of loaded df
+                if self.df is not None:
+                    loaded_min = self.df[timestamp_col].min()
+                    loaded_max = self.df[timestamp_col].max()
 
-                df = df1.copy()
+                    if loaded_min <= req_startdate and loaded_max >= req_enddate:
+                        df = self.df[(self.df[timestamp_col] >= req_startdate) &
+                                     (self.df[timestamp_col] <= req_enddate)]
+                        return df
+                return self.pym.load_df(req_startdate, req_enddate, table=table,
+                                      cols=cols, timestamp_col=timestamp_col)
+
+            except Exception:
+                logger.error('load_df', exc_info=True)
+
+        def filter_df(self, df1):
+            try:
+                for key,value in self.groupby_dict.items():
+                    if value == 'count':
+                        if self.select_values[key] != 'all':
+                            df1 = df1[df1[key] == self.select_values[key]]
+                return df1
+
+            except Exception:
+                logger.error('filter', exc_info=True)
+
+        def prep_data(self, df):
+            try:
                 df = self.filter_df(df)
+                df['visit_duration'] = df['visit_end'] - df['visit_start']
+                df = df.fillna(0)
+                df = df.set_index(self.timestamp_col)
+                logger.warning('LINE 262 df:%s',df.head(10))
+                # groupby and resample
+                df = df.groupby(self.variable).resample(self.resample_period).agg(self.groupby_dict)
 
-                logger.warning('LINE 199: length before:%s', len(df))
-                slice = df[['project']]
-                df = df[list(self.groupby_dict.keys())]
-                logger.warning('LINE 218: columns:%s',df.head())
-                df = df.astype(float)
-                df = pd.concat([df,slice],axis=1)
-                df = df.groupby('project').resample(self.resample_period).agg(self.groupby_dict)
-                logger.warning('LINE 201: length after:%s', len(df))
-
-                df = df.reset_index()
-                vars = self.feature_list.copy()
-                if int(self.lag) > 0:
-                    for var in vars:
-                        if self.variable != var:
-                            df[var] = df[var].shift(int(self.lag))
-                df = df.dropna()
-                self.df1 = df
-                logger.warning('line 184- prep data: df:%s', self.df.head(10))
+                self.df1 = df.reset_index()
 
             except Exception:
                 logger.error('prep data', exc_info=True)
+
 
         def lags_plot(self, launch):
             try:
@@ -448,51 +461,40 @@ def eda_projects_tab(panel_title):
                     p = df.hvplot.scatter(x=self.variable, y=cols_temp, width=330,
                                           subplots=True, shared_axes=False, xaxis=False).cols(4)
                 else:
-                    p = df.hvplot.scatter(x=[0,0,0], y=[0,0,0], width=330)
+                    p = df.hvplot.scatter(x=[0, 0, 0], y=[0, 0, 0], width=330)
 
                 return p
 
             except Exception:
                 logger.error('matrix plot', exc_info=True)
 
-
-        def multiline(self,launch=1):
+        def multiline(self, launch=1):
             try:
                 yvar = self.multiline_vars['y']
                 xvar = self.multiline_vars['x']
                 df = self.df.copy()
-                df = df[[xvar,yvar,self.timestamp_col]]
+                df = df[[xvar, yvar, self.timestamp_col]]
                 df = df.set_index(self.timestamp_col)
-                df = df.groupby(xvar).resample(self.resample_period).agg({yvar:'mean'})
+                df = df.groupby(xvar).resample(self.resample_period).agg({yvar: 'mean'})
                 df = df.reset_index()
                 lines = df[xvar].unique()
                 # split data frames
                 dfs = {}
-                for idx,line in enumerate(lines):
+                for idx, line in enumerate(lines):
                     dfs[line] = df[df[xvar] == line]
                     dfs[line] = dfs[line].fillna(0)
-                    logger.warning('LINE 428:%s - %s:',line,dfs[line].head())
+                    logger.warning('LINE 428:%s - %s:', line, dfs[line].head())
                     if idx == 0:
-                        p = dfs[line].hvplot.line(x=self.timestamp_col,y=yvar,width=1200,height=500).relabel(line)
+                        p = dfs[line].hvplot.line(x=self.timestamp_col, y=yvar, width=1200, height=500).relabel(line)
                     else:
-                        p *= dfs[line].hvplot.line(x=self.timestamp_col,y=yvar,width=2,height=500).relabel(line)
+                        p *= dfs[line].hvplot.line(x=self.timestamp_col, y=yvar, width=2, height=500).relabel(line)
                 return p
             except Exception:
                 logger.error('multiline plot', exc_info=True)
 
-
     def update_variable(attr, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
-        thistab.prep_data(thistab.df)
-        if 'milestone owner gender' == new:
-            thistab.variable = 'm_gender_code'
-        if 'project owner gender' == new:
-            thistab.variable = 'pm_gender_code'
-        if 'task owner gender' == new:
-            thistab.variable = 't_gender_code'
-
-        if thistab.variable in thistab.adoption_variables['developer']:
-            thistab.reset_adoption_dict(thistab.variable)
+        thistab.variable = new
         thistab.section_head_updater('lag', thistab.variable)
         thistab.trigger += 1
         stream_launch_matrix.event(launch=thistab.trigger)
@@ -509,11 +511,8 @@ def eda_projects_tab(panel_title):
 
     def update_IVs(attrname, old, new):
         thistab.notification_updater("Calculations in progress! Please wait.")
-        thistab.pm_gender = pm_gender_select.value
-        thistab.m_gender = m_gender_select.value
-        thistab.t_gender = t_gender_select.value
-        thistab.status = status_select.value
-        thistab.type = type_select.value
+        for item in thistab.select_values.keys():
+            thistab.select_values[item] = thistab.select[item].value
         thistab.prep_data(thistab.df)
         thistab.trigger += 1
         stream_launch_matrix.event(launch=thistab.trigger)
@@ -532,15 +531,12 @@ def eda_projects_tab(panel_title):
     def update(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.df = thistab.pym.load_df(start_date=datepicker_start.value,
-                                             end_date=datepicker_end.value,
-                                             cols=[], table=thistab.table, timestamp_col=thistab.timestamp_col)
-        thistab.df['project_owner_gender'] = thistab.df['project_owner_gender'].apply(
+                                         end_date=datepicker_end.value,
+                                         cols=[], table=thistab.table, timestamp_col=thistab.timestamp_col)
+
+        thistab.df['gender_code'] = thistab.df['gender'].apply(
             lambda x: 1 if x == 'male' else 2)
-        thistab.df['milestone_owner_gender'] = thistab.df['milestone_owner_gender'].apply(
-            lambda x: 1 if x == 'male' else 2)
-        thistab.df['task_owner_gender'] = thistab.df['task_owner_gender'].apply(
-            lambda x: 1 if x == 'male' else 2)
-        thistab.prep_data(thistab.df)
+        thistab.df1 = thistab.prep_data(thistab.df)
         thistab.trigger += 1
         stream_launch_matrix.event(launch=thistab.trigger)
         stream_launch_corr.event(launch=thistab.trigger)
@@ -549,7 +545,7 @@ def eda_projects_tab(panel_title):
     def update_resample(attrname, old, new):
         thistab.notification_updater("Calculations underway. Please be patient")
         thistab.resample_period = new
-        thistab.prep_data(thistab.df)
+        thistab.df1 = thistab.prep_data(thistab.df)
         thistab.trigger += 1
         stream_launch_matrix.event(launch=thistab.trigger)
         stream_launch_corr.event(launch=thistab.trigger)
@@ -575,29 +571,20 @@ def eda_projects_tab(panel_title):
 
     try:
         # SETUP
-        table = 'project_composite1'
+        table = 'bcc_composite'
         thistab = Thistab(table, [], [])
 
         # setup dates
         first_date_range = datetime.strptime("2013-04-25 00:00:00", "%Y-%m-%d %H:%M:%S")
         last_date_range = datetime.now().date()
-        last_date = dashboard_config['dates']['last_date'] - timedelta(days=2)
-        first_date = last_date - timedelta(days=30)
+        last_date = dashboard_config['dates']['last_date'] - timedelta(days=1)
+        first_date = last_date - timedelta(days=2000)
         # initial function call
         thistab.df = thistab.pym.load_df(start_date=first_date,
                                          end_date=last_date,
                                          cols=[], table=thistab.table, timestamp_col=thistab.timestamp_col)
-        if len(thistab.df) > 0:
-            thistab.df['manager_gender'] = thistab.df['project_owner_gender']
-            thistab.df['project_owner_gender'] = thistab.df['project_owner_gender'].apply(
-                lambda x: 1 if x == 'male' else 2)
-            thistab.df['milestone_owner_gender'] = thistab.df['milestone_owner_gender'].apply(
-                lambda x: 1 if x == 'male' else 2)
-            thistab.df['task_owner_gender'] = thistab.df['task_owner_gender'].apply(
-                lambda x: 1 if x == 'male' else 2)
-            logger.warning('LINE 527:columns %s',list(thistab.df.columns))
 
-            thistab.prep_data(thistab.df)
+        thistab.prep_data(thistab.df)
 
         # MANAGE STREAM
         stream_launch_hist = streams.Stream.define('Launch', launch=-1)()
@@ -625,31 +612,18 @@ def eda_projects_tab(panel_title):
                             value=str(thistab.lag),
                             options=thistab.lag_menu)
 
-        type_select = Select(title='Select project type', value=thistab.type,
-                             options=thistab.menus['type'])
 
-        status_select = Select(title='Select project status', value=thistab.status,
-                               options=thistab.menus['status'])
-
-        pm_gender_select = Select(title="Select project owner's gender", value=thistab.pm_gender,
-                                  options=thistab.menus['gender'])
-
-        m_gender_select = Select(title="Select milestone owner's gender", value=thistab.m_gender,
-                                 options=thistab.menus['gender'])
-
-        t_gender_select = Select(title="Select task owner's gender", value=thistab.t_gender,
-                                 options=thistab.menus['gender'])
 
         resample_select = Select(title='Select resample period',
                                  value='D', options=['D', 'W', 'M', 'Q'])
 
         multiline_y_select = Select(title='Select comparative DV(y)',
                                     value=thistab.multiline_vars['y'],
-                                    options=['remuneration','delay_start','delay_end','project_duration'])
+                                    options=['price','amount', 'visit_duration'])
 
         multiline_x_select = Select(title='Select comparative IV(x)',
                                     value=thistab.multiline_vars['x'],
-                                    options=['manager_gender', 'type','status'])
+                                    options=['drink_type', 'category', 'tab_status','status','item'])
 
         lags_input = TextInput(value=thistab.lag_days, title="Enter lags (integer(s), separated by comma)",
                                height=55, width=300)
@@ -675,9 +649,7 @@ def eda_projects_tab(panel_title):
                                          streams=[stream_launch_corr])
         # hv_hist_plot = hv.DynamicMap(thistab.hist, streams=[stream_launch_hist])
         hv_lags_plot = hv.DynamicMap(thistab.lags_plot, streams=[stream_launch_lags_var])
-        hv_multiline = hv.DynamicMap(thistab.multiline,streams=[stream_launch])
-        
-        
+        hv_multiline = hv.DynamicMap(thistab.multiline, streams=[stream_launch])
 
         matrix_plot = renderer.get_plot(hv_matrix_plot)
         corr_table = renderer.get_plot(hv_corr_table)
@@ -692,18 +664,21 @@ def eda_projects_tab(panel_title):
         lag_variable_select.on_change('value', update_lag_plot_variable)
         lag_select.on_change('value', update_lag)  # individual lag
         resample_select.on_change('value', update_resample)
-        pm_gender_select.on_change('value', update_IVs)
-        m_gender_select.on_change('value', update_IVs)
-        t_gender_select.on_change('value', update_IVs)
+        thistab.select['area'].on_change('value', update_IVs)
+        thistab.select['gender'].on_change('value', update_IVs)
+        thistab.select['item'].on_change('value', update_IVs)
+        thistab.select['category'].on_change('value', update_IVs)
+        thistab.select['status'].on_change('value', update_IVs)
+        thistab.select['tab_status'].on_change('value', update_IVs)
+        thistab.select['drink_type'].on_change('value', update_IVs)
         datepicker_start.on_change('value', update)
         datepicker_end.on_change('value', update)
         lags_input_button.on_click(update_lags_selected)  # lags array
 
-        status_select.on_change('value', update_IVs)
-        type_select.on_change('value', update_IVs)
 
-        multiline_x_select.on_change('value',update_multiline)
-        multiline_y_select.on_change('value',update_multiline)
+
+        multiline_x_select.on_change('value', update_multiline)
+        multiline_y_select.on_change('value', update_multiline)
 
         # COMPOSE LAYOUT
         # put the controls in a single element
@@ -720,11 +695,9 @@ def eda_projects_tab(panel_title):
 
         controls_page = WidgetBox(
             datepicker_start, datepicker_end, variable_select,
-            type_select,status_select, resample_select,
-            pm_gender_select, m_gender_select, t_gender_select
-        )
-        controls_gender =  WidgetBox(
-            pm_gender_select, m_gender_select, t_gender_select
+            thistab.select['tab_status'], thistab.select['status'], resample_select,
+            thistab.select['gender'], thistab.select['drink_type'],thistab.select['category'],
+            thistab.select['area']
         )
 
         # create the dashboards
@@ -737,10 +710,10 @@ def eda_projects_tab(panel_title):
             [matrix_plot.state, controls_page],
             [thistab.section_headers['correlations']],
             [Spacer(width=20, height=30)],
-            [corr_table.state,thistab.corr_information_div()],
+            [corr_table.state, thistab.corr_information_div()],
             [thistab.title_div('Compare levels in a variable', 400)],
             [Spacer(width=20, height=30)],
-            [multiline.state,controls_multiline],
+            [multiline.state, controls_multiline],
             [thistab.section_headers['lag']],
             [Spacer(width=20, height=30)],
             [lags_plot.state, controls_lag],
