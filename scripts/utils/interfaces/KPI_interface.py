@@ -46,7 +46,10 @@ class KPI:
             'tw_emojis_negative','tw_emojis_count',
             'tw_replies_from_followers','tw_replies_from_following',
             'tw_reply_hashtags'],
-        'cryptos': ['all'] + load_cryptos()
+        'cryptos': ['all'] + load_cryptos(),
+        'bcc':{
+            'rental':['area','category','item','status','gender']
+        }
     }
     def __init__(self,table,name,cols):
         self.df = None
@@ -77,7 +80,7 @@ class KPI:
         self.pop_history_periods = 3 # number of periods for period over period
         self.pop_start_date = None
         self.pop_end_date = None
-
+        self.timestamp_col = ''
         self.checkboxgroup = {}
         self.sig_effect_dict = {}
         self.name = name
@@ -115,7 +118,7 @@ class KPI:
         }
 
         self.pop_history_periods = 3  # number of periods for period over period
-        self.variable = ''
+        self.variable = 'item'
         self.grouby_var = ''
         self.page_width = 1200
 
@@ -144,6 +147,23 @@ class KPI:
             #df[timestamp_col] = df[timestamp_col].map(lambda x: clean_dates_from_db(x))
         except Exception:
             logger.error('load df',exc_info=True)
+
+    def load_df_pym(self, req_startdate, req_enddate, table, cols, timestamp_col):
+        try:
+            # get min and max of loaded df
+            if self.df is not None:
+                loaded_min = self.df[timestamp_col].min()
+                loaded_max = self.df[timestamp_col].max()
+
+                if loaded_min <= req_startdate and loaded_max >= req_enddate:
+                    df = self.df[(self.df[timestamp_col] >= req_startdate) &
+                                 (self.df[timestamp_col] <= req_enddate)]
+                    return df
+            return self.pym.load_df(req_startdate, req_enddate, table=table,
+                                    cols=cols, timestamp_col=timestamp_col)
+
+        except Exception:
+            logger.error('load_df', exc_info=True)
 
     def update_cards(self, dct):
         try:
@@ -199,9 +219,9 @@ class KPI:
             start = self.first_date_in_period(timestamp,period)
             # filter
             if timestamp_filter_col is None:
-                timestamp_filter_col = 'block_timestamp'
+                timestamp_filter_col = self.timestamp_col
 
-            logger.warning('df:%s',df[timestamp_filter_col])
+            #logger.warning('df:%s',df[timestamp_filter_col])
 
             df = df[(df[timestamp_filter_col] >= start) & (df[timestamp_filter_col] <= timestamp)]
             if len(cols) >0:
@@ -319,8 +339,10 @@ class KPI:
                 # load data
                 if period == 'quarter':
                     logger.warning('start:end %s:%s', start, end)
-
-                df_temp = self.load_df(start,end,cols,timestamp_col)
+                if 'bcc' in self.table:
+                    df_temp = self.load_df_pym(start,end,cols,timestamp_col)
+                else:
+                    df_temp = self.load_df(start,end,cols,timestamp_col)
                 if df_temp is not None:
                     if len(df_temp) > 1:
                         string = '{} {}(s) prev'.format(counter, period)

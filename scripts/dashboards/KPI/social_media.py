@@ -629,7 +629,8 @@ def KPI_social_media_tab(panel_title,DAYS_TO_LOAD=90):
         # -----------------------------------LAYOUT ----------------------------
         # put the controls in a single element
 
-        controls_pop = WidgetBox(thistab.datepicker_pop_start,datepicker_pop_end,pop_number_select,pop_button)
+        controls_pop = WidgetBox(thistab.datepicker_pop_start,
+                                 datepicker_pop_end,pop_number_select,pop_button)
         controls_top = WidgetBox(social_media_select,crypto_select,variable_select)
 
         grid = gridplot([

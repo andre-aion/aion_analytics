@@ -14,16 +14,18 @@ from bokeh.layouts import gridplot
 # GET THE DASHBOARDS
 from tornado.ioloop import IOLoop
 
-from scripts.dashboards.EDA.BCC.rentals import eda_bcc_rentals_tab
+from scripts.dashboards.EDA.BCC.rentals import eda_bcc_rentals_visitor_tab
 from scripts.dashboards.EDA.account_activity import account_activity_tab
 from scripts.dashboards.EDA.blockminer import blockminer_tab
 from scripts.dashboards.EDA.cryptocurrency_clusters import crypto_clusters_eda_tab
 from scripts.dashboards.EDA.economic_indicators import eda_country_indexes_tab
 from scripts.dashboards.EDA.projects import eda_projects_tab
+from scripts.dashboards.KPI.BCC.rentals import kpi_bcc_rentals_visitor_tab
 from scripts.dashboards.KPI.business_events import EDA_business_events_tab
 from scripts.dashboards.PROJECT_MGMT.risk_assessment import pm_risk_assessment_tab
 from scripts.dashboards.KPI.projects import KPI_projects_tab
 from scripts.dashboards.KPI.social_media import KPI_social_media_tab
+from scripts.dashboards.TSA.BCC.rentals import forecasting_bcc_rentals_visitor_tab
 from scripts.dashboards.TSA.accounts import accounts_tsa_tab
 from scripts.dashboards.models.predictive.account_predictive import account_predictive_tab
 from scripts.dashboards.KPI.developer_adoption import KPI_developer_adoption_tab
@@ -60,7 +62,9 @@ labels = [
     ]
 '''
 labels = [
-    'EDA: Rentals'
+    'KPI: Rentals',
+    'EDA: Rentals',
+    'Predictive: Rentals',
 ]
 DEFAULT_CHECKBOX_SELECTION = 0
 
@@ -96,93 +100,6 @@ def aion_analytics(doc):
             lst = selection_tab.get_selections(selection_checkboxes)
             #logger.warning('selections:%s',lst)
 
-            panel_title = 'PROJECT MGMT: Risk assessment'
-            if panel_title in lst:
-                if panel_title not in selection_tab.selected_tracker:
-                    ra = yield pm_risk_assessment_tab(panel_title=panel_title)
-                    selection_tab.selected_tracker.append(panel_title)
-                    if ra not in tablist:
-                        tablist.append(ra)
-
-            if 'KPI: user adoption' in lst:
-                if 'KPI: user adoption' not in selection_tab.selected_tracker:
-                    kpi_user_adoption = yield KPI_user_adoption_tab()
-                    selection_tab.selected_tracker.append('KPI: user adoption')
-                    if kpi_user_adoption not in tablist:
-                        tablist.append(kpi_user_adoption)
-
-            if 'KPI: developer adoption' in lst:
-                if 'KPI: developer adoption' not in selection_tab.selected_tracker:
-                    developer_user_adoption = yield KPI_developer_adoption_tab(page_width=selection_tab.page_width)
-                    selection_tab.selected_tracker.append('KPI: developer adoption')
-                    if developer_user_adoption not in tablist:
-                        tablist.append(developer_user_adoption)
-
-            panel_title = 'KPI: social media'
-            if panel_title in lst:
-                if panel_title not in selection_tab.selected_tracker:
-                    sm = yield KPI_social_media_tab(panel_title=panel_title)
-                    selection_tab.selected_tracker.append(panel_title)
-                    if sm not in tablist:
-                        tablist.append(sm)
-
-
-            panel_title = 'KPI: projects'
-            if panel_title in lst:
-                if panel_title not in selection_tab.selected_tracker:
-                    kproj = yield KPI_projects_tab(panel_title)
-                    selection_tab.selected_tracker.append(panel_title)
-                    if kproj not in tablist:
-                        tablist.append(kproj)
-
-            panel_title = 'EDA: business events'
-            if panel_title in lst:
-                if panel_title not in selection_tab.selected_tracker:
-                    eda_small = yield EDA_business_events_tab(panel_title)
-                    selection_tab.selected_tracker.append(panel_title)
-                    if eda_small not in tablist:
-                        tablist.append(eda_small)
-
-            panel_title = 'EDA: miners'
-            if panel_title in lst:
-                if panel_title not in selection_tab.selected_tracker:
-                    bm = yield blockminer_tab(page_width=selection_tab.page_width)
-                    selection_tab.selected_tracker.append(panel_title)
-                    if bm not in tablist:
-                        tablist.append(bm)
-
-            panel_title = 'EDA: projects'
-            if panel_title in lst:
-                if panel_title not in selection_tab.selected_tracker:
-                    eproj = yield eda_projects_tab(panel_title=panel_title)
-                    selection_tab.selected_tracker.append(panel_title)
-                    if eproj not in tablist:
-                        tablist.append(eproj)
-
-            panel_title = 'EDA: account activity'
-            if panel_title in lst:
-                if panel_title not in selection_tab.selected_tracker:
-                    aa = yield account_activity_tab(panel_title=panel_title)
-                    selection_tab.selected_tracker.append(panel_title)
-                    if aa not in tablist:
-                        tablist.append(aa)
-
-            panel_title = 'EDA: cryptocurrencies'
-            if panel_title in lst:
-                if panel_title not in selection_tab.selected_tracker:
-                    eda_c = yield cryptocurrency_eda_tab(cryptocurrencies,panel_title)
-                    selection_tab.selected_tracker.append(panel_title)
-                    if eda_c not in tablist:
-                        tablist.append(eda_c)
-
-            panel_title = 'EDA: country indexes'
-            if panel_title in lst:
-                if panel_title not in selection_tab.selected_tracker:
-                    eda_ci = yield eda_country_indexes_tab(panel_title)
-                    selection_tab.selected_tracker.append(panel_title)
-                    if eda_ci not in tablist:
-                        tablist.append(eda_ci)
-
             panel_title = 'EDA: crypto clusters'
             if panel_title in lst:
                 if panel_title not in selection_tab.selected_tracker:
@@ -207,18 +124,26 @@ def aion_analytics(doc):
                     if ap not in tablist:
                         tablist.append(ap)
 
-            panel_title = 'forecasting: accounts'
+            panel_title = 'Forecasting: Rentals'
             if panel_title in lst:
                 if panel_title not in selection_tab.selected_tracker:
-                    tsa = yield accounts_tsa_tab(panel_title)
-                    selection_tab.selected_tracker.append(panel_title)
+                    tsa = yield forecasting_bcc_rentals_visitor_tab(panel_title)
+                    selection_tab.selected_tracker.append(panel_title=panel_title)
                     if tsa not in tablist:
                         tablist.append(tsa)
+
+            panel_title = 'KPI: Rentals'
+            if panel_title in lst:
+                if panel_title not in selection_tab.selected_tracker:
+                    rentals = yield kpi_bcc_rentals_visitor_tab(panel_title=panel_title)
+                    selection_tab.selected_tracker.append(panel_title)
+                    if rentals not in tablist:
+                        tablist.append(rentals)
 
             panel_title = 'EDA: Rentals'
             if panel_title in lst:
                 if panel_title not in selection_tab.selected_tracker:
-                    rentals = yield eda_bcc_rentals_tab(panel_title=panel_title)
+                    rentals = yield eda_bcc_rentals_visitor_tab(panel_title=panel_title)
                     selection_tab.selected_tracker.append(panel_title)
                     if rentals not in tablist:
                         tablist.append(rentals)
@@ -237,7 +162,7 @@ def aion_analytics(doc):
             notification_div.text = """
                 <div style="text-align:center;background:black;width:{}px;margin-bottom:100px;">
                         <h1 style="color:#fff;margin-bottom:300px">{}</h1>
-                </div>""".format(selection_tab.page_width,'Welcome to Aion Data Science Portal')
+                </div>""".format(selection_tab.page_width,'Welcome to BCC Data Science Portal')
         @gen.coroutine
         def update_selected_tabs():
             notification_div.text = """
@@ -316,12 +241,12 @@ def aion_analytics(doc):
 @without_document_lock
 def launch_server():
     try:
-        apps = {"/aion-analytics": Application(FunctionHandler(aion_analytics))}
+        apps = {"/analytics": Application(FunctionHandler(aion_analytics))}
         io_loop = IOLoop.current()
         server = Server(apps,port=5006, allow_websocket_origin=["*"],io_loop=io_loop,
                         session_ids='signed',relative_urls=False)
         server.start()
-        server.io_loop.add_callback(server.show, '/aion-analytics')
+        server.io_loop.add_callback(server.show, '/analytics')
         server.io_loop.start()
     except Exception:
         logger.error("WEBSERVER LAUNCH:", exc_info=True)
